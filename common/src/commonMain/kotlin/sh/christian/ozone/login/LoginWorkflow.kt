@@ -6,7 +6,9 @@ import sh.christian.ozone.login.LoginOutput.CanceledLogin
 import sh.christian.ozone.login.LoginState.ShowingLogin
 import sh.christian.ozone.ui.workflow.ViewRendering
 
-class LoginWorkflow : StatefulWorkflow<Unit, LoginState, LoginOutput, ViewRendering>() {
+class LoginWorkflow(
+  private val loginRepository: LoginRepository,
+) : StatefulWorkflow<Unit, LoginState, LoginOutput, ViewRendering>() {
   override fun initialState(
     props: Unit,
     snapshot: Snapshot?,
@@ -19,6 +21,10 @@ class LoginWorkflow : StatefulWorkflow<Unit, LoginState, LoginOutput, ViewRender
   ): ViewRendering = when (renderState) {
     ShowingLogin -> {
       LoginScreen(
+        server = loginRepository.server,
+        onChangeServer = context.eventHandler { server ->
+          loginRepository.server = server
+        },
         onCancel = context.eventHandler {
           setOutput(CanceledLogin)
         },

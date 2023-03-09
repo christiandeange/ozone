@@ -2,6 +2,7 @@ import org.jetbrains.compose.ExperimentalComposeLibrary
 
 plugins {
   kotlin("multiplatform")
+  kotlin("plugin.serialization")
   id("org.jetbrains.compose")
   id("com.android.library")
 }
