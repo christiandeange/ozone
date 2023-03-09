@@ -22,6 +22,7 @@ android {
     versionCode = 100
     versionName = version.toString()
   }
+
   compileOptions {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11

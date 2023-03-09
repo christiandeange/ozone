@@ -21,8 +21,6 @@ kotlin {
         @OptIn(ExperimentalComposeLibrary::class)
         api(compose.material3)
 
-        api("org.jetbrains.compose.material:material-icons-extended:1.3.0")
-
         api("com.squareup.workflow1:workflow-core:1.10.0-beta01")
         api("com.squareup.workflow1:workflow-runtime:1.10.0-beta01")
       }
