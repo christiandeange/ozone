@@ -20,32 +20,11 @@ kotlin {
         api(compose.foundation)
         @OptIn(ExperimentalComposeLibrary::class)
         api(compose.material3)
-      }
-    }
-    val commonTest by getting {
-      dependencies {
-        implementation(kotlin("test"))
-      }
-    }
-    val androidMain by getting {
-      dependencies {
-        api("androidx.appcompat:appcompat:1.6.1")
-        api("androidx.core:core-ktx:1.9.0")
-      }
-    }
-    val androidUnitTest by getting {
-      dependencies {
-        implementation("junit:junit:4.13.2")
-      }
-    }
-    val desktopMain by getting {
-      dependencies {
-        api(compose.preview)
-      }
-    }
-    val desktopTest by getting {
-      dependencies {
-        implementation(kotlin("test"))
+
+        api("org.jetbrains.compose.material:material-icons-extended:1.3.0")
+
+        api("com.squareup.workflow1:workflow-core:1.10.0-beta01")
+        api("com.squareup.workflow1:workflow-runtime:1.10.0-beta01")
       }
     }
   }

@@ -1,24 +1,30 @@
 package sh.christian.ozone
 
-import androidx.compose.material3.Text
-import androidx.compose.material3.Button
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import sh.christian.ozone.app.AppWorkflow
 import sh.christian.ozone.ui.AppTheme
+import sh.christian.ozone.ui.workflow.WorkflowRendering
 
 @Composable
-fun App() {
-  var text by remember { mutableStateOf("Hello, World!") }
-  val platformName = getPlatformName()
-
+fun App(
+  workflow: AppWorkflow,
+  onExit: () -> Unit,
+) {
   AppTheme {
-    Button(onClick = {
-      text = "Hello, ${platformName}"
-    }) {
-      Text(text)
+    WorkflowRendering(
+      workflow = workflow,
+      props = Unit,
+      onOutput = { onExit() },
+    ) { screen ->
+      Surface(Modifier.fillMaxSize()) {
+        Box {
+          screen.Content()
+        }
+      }
     }
   }
 }

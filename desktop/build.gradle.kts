@@ -18,7 +18,6 @@ kotlin {
         implementation(compose.desktop.currentOs)
       }
     }
-    val jvmTest by getting
   }
 }
 

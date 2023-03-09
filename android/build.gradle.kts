@@ -7,6 +7,8 @@ plugins {
 dependencies {
   implementation(project(":common"))
   implementation("androidx.activity:activity-compose:1.6.1")
+  implementation("androidx.appcompat:appcompat:1.6.1")
+  implementation("androidx.core:core-ktx:1.9.0")
 }
 
 android {
