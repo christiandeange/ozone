@@ -1,3 +1,5 @@
+import org.jetbrains.compose.ExperimentalComposeLibrary
+
 plugins {
   kotlin("multiplatform")
   id("org.jetbrains.compose")
@@ -16,7 +18,8 @@ kotlin {
       dependencies {
         api(compose.runtime)
         api(compose.foundation)
-        api(compose.material)
+        @OptIn(ExperimentalComposeLibrary::class)
+        api(compose.material3)
       }
     }
     val commonTest by getting {

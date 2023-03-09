@@ -1,4 +1,4 @@
-package sh.christian.ozone.common
+package sh.christian.ozone
 
 actual fun getPlatformName(): String {
   return "Desktop"

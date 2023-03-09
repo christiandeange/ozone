@@ -1,3 +1,3 @@
-package sh.christian.ozone.common
+package sh.christian.ozone
 
 expect fun getPlatformName(): String
