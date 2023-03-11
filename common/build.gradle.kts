@@ -22,6 +22,7 @@ kotlin {
         api("com.squareup.workflow1:workflow-core:1.10.0-beta01")
         api("com.squareup.workflow1:workflow-runtime:1.10.0-beta01")
 
+        api(project(":api"))
         api(project(":store"))
       }
     }

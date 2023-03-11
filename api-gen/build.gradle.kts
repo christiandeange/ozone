@@ -1,0 +1,29 @@
+plugins {
+  kotlin("jvm")
+  id("com.google.devtools.ksp") version "1.8.10-1.0.9"
+  `kotlin-dsl`
+}
+
+dependencies {
+  api(kotlin("gradle-plugin"))
+  api("com.squareup:kotlinpoet:1.12.0")
+  api("com.squareup.moshi:moshi:1.14.0")
+  api("com.squareup.moshi:moshi-adapters:1.14.0")
+
+  ksp("com.squareup.moshi:moshi-kotlin-codegen:1.14.0")
+}
+
+kotlin {
+  jvmToolchain {
+    languageVersion.set(JavaLanguageVersion.of("11"))
+  }
+}
+
+gradlePlugin {
+  plugins {
+    create("api-gen") {
+      id = "sh.christian.ozone.api-gen"
+      implementationClass = "sh.christian.ozone.api.gradle.LexiconGeneratorPlugin"
+    }
+  }
+}
