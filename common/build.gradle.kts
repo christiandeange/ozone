@@ -9,11 +9,7 @@ plugins {
 
 kotlin {
   android()
-  jvm("desktop") {
-    compilations.all {
-      kotlinOptions.jvmTarget = "11"
-    }
-  }
+  jvm("desktop")
 
   sourceSets {
     val commonMain by getting {
