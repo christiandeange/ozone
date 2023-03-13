@@ -36,6 +36,7 @@ kotlin {
         api("io.ktor:ktor-client-logging:2.2.3")
         api("io.ktor:ktor-serialization-kotlinx-json:2.2.3")
 
+        implementation(kotlin("reflect"))
       }
     }
   }

@@ -34,6 +34,7 @@ abstract class LexiconGeneratorTask : DefaultTask() {
       println("  - ${it.absolutePath}")
       processFile(
         lexiconClassCreator = lexiconClassCreator,
+        fileName = it.name,
         json = it.readText(),
       )
     }
@@ -41,9 +42,14 @@ abstract class LexiconGeneratorTask : DefaultTask() {
 
   private fun processFile(
     lexiconClassCreator: LexiconClassCreator,
+    fileName: String,
     json: String,
   ) {
-    val lexiconDocument = loadDocument(json)
-    lexiconClassCreator.createClassForLexicon(lexiconDocument)
+    try {
+      val lexiconDocument = loadDocument(json)
+      lexiconClassCreator.createClassForLexicon(lexiconDocument)
+    } catch (e: Exception) {
+      throw IllegalArgumentException("Failed to process $fileName", e)
+    }
   }
 }

@@ -186,8 +186,7 @@ private class OneOrMoreAdapter<T : Any>(
       BEGIN_OBJECT,
       STRING,
       NUMBER,
-      BOOLEAN,
-      -> {
+      BOOLEAN -> {
         OneOrMore.One(moshi.adapter<T>(wrappedType).fromJson(reader)!!)
       }
 
@@ -196,8 +195,7 @@ private class OneOrMoreAdapter<T : Any>(
       END_ARRAY,
       END_OBJECT,
       END_DOCUMENT,
-      null
-      -> reader.fail()
+      null -> reader.fail()
     }
   }
 }
