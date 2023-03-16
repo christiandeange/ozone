@@ -8,8 +8,8 @@ import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.PathSensitive
 import org.gradle.api.tasks.PathSensitivity.RELATIVE
 import org.gradle.api.tasks.TaskAction
-import sh.christian.ozone.api.generator.LexiconClassCreator
-import sh.christian.ozone.api.lexicon.loadDocument
+import sh.christian.ozone.api.generator.LexiconClassFileCreator
+import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 
 //@CacheableTask
 abstract class LexiconGeneratorTask : DefaultTask() {
@@ -26,30 +26,22 @@ abstract class LexiconGeneratorTask : DefaultTask() {
     outputDir.deleteRecursively()
     outputDir.mkdirs()
 
-    val lexiconClassCreator = LexiconClassCreator(outputDir)
-    lexiconClassCreator.createCommonClasses()
+    val processingEnvironment = LexiconProcessingEnvironment(
+      allLexiconSchemaJsons = schemasClasspath.map { it.readText() },
+      outputDirectory = outputDir,
+    )
 
-    println("Input schema files:")
-    schemasClasspath.forEach {
-      println("  - ${it.absolutePath}")
-      processFile(
-        lexiconClassCreator = lexiconClassCreator,
-        fileName = it.name,
-        json = it.readText(),
-      )
-    }
-  }
+    val lexiconClassFileCreator = LexiconClassFileCreator(environment = processingEnvironment)
+    lexiconClassFileCreator.createCommonClasses()
 
-  private fun processFile(
-    lexiconClassCreator: LexiconClassCreator,
-    fileName: String,
-    json: String,
-  ) {
-    try {
-      val lexiconDocument = loadDocument(json)
-      lexiconClassCreator.createClassForLexicon(lexiconDocument)
-    } catch (e: Exception) {
-      throw IllegalArgumentException("Failed to process $fileName", e)
+    processingEnvironment.forEach { schemaId ->
+      try {
+        println("Processing schema $schemaId...")
+        val lexiconDocument = processingEnvironment.loadDocument(schemaId)
+        lexiconClassFileCreator.createClassForLexicon(lexiconDocument)
+      } catch (e: Exception) {
+        throw IllegalArgumentException("Failed to process $schemaId", e)
+      }
     }
   }
 }

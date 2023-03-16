@@ -1,102 +1,154 @@
 package sh.christian.ozone.api.generator.builder
 
 import com.squareup.kotlinpoet.AnnotationSpec
+import com.squareup.kotlinpoet.BYTE_ARRAY
+import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.LIST
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
+import com.squareup.kotlinpoet.TypeAliasSpec
 import com.squareup.kotlinpoet.TypeSpec
+import org.gradle.configurationcache.extensions.capitalized
 import sh.christian.ozone.api.generator.ENCODING
-import sh.christian.ozone.api.generator.SERIALIZABLE
+import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
-import sh.christian.ozone.api.lexicon.LexiconAudio
-import sh.christian.ozone.api.lexicon.LexiconBlob
-import sh.christian.ozone.api.lexicon.LexiconImage
 import sh.christian.ozone.api.lexicon.LexiconObject
 import sh.christian.ozone.api.lexicon.LexiconObjectProperty
-import sh.christian.ozone.api.lexicon.LexiconRecord
-import sh.christian.ozone.api.lexicon.LexiconToken
+import sh.christian.ozone.api.lexicon.LexiconSingleReference
+import sh.christian.ozone.api.lexicon.LexiconUnionReference
 import sh.christian.ozone.api.lexicon.LexiconUserType
-import sh.christian.ozone.api.lexicon.LexiconVideo
 import sh.christian.ozone.api.lexicon.LexiconXrpcBody
 import sh.christian.ozone.api.lexicon.LexiconXrpcProcedure
 import sh.christian.ozone.api.lexicon.LexiconXrpcQuery
+import sh.christian.ozone.api.lexicon.LexiconXrpcSchemaDefinition
 
-class XrpcBodyGenerator : TypesGenerator {
+class XrpcBodyGenerator(
+  private val environment: LexiconProcessingEnvironment,
+) : TypesGenerator {
+
   override fun generateTypes(
-    params: BuilderParams,
-    userType: LexiconUserType
-  ): List<TypeSpec> = when (userType) {
-    is LexiconXrpcProcedure -> {
-      buildList {
+    context: GeneratorContext,
+    userType: LexiconUserType,
+  ) {
+    when (userType) {
+      is LexiconXrpcProcedure -> {
         userType.input?.let {
-          add(createBodyType("${params.classPrefix}Request", it))
+          createBodyType(context, "${context.classPrefix}Request", it)
         }
         userType.output?.let {
-          add(createBodyType("${params.classPrefix}Response", it))
+          createBodyType(context, "${context.classPrefix}Response", it)
         }
       }
-    }
-    is LexiconXrpcQuery -> {
-      buildList {
+      is LexiconXrpcQuery -> {
         userType.output?.let {
-          add(createBodyType("${params.classPrefix}Response", it))
+          createBodyType(context, "${context.classPrefix}Response", it)
         }
       }
+      else -> {
+        println("Skipping: $userType")
+      }
     }
-
-    is LexiconAudio,
-    is LexiconBlob,
-    is LexiconImage,
-    is LexiconObject,
-    is LexiconRecord,
-    is LexiconToken,
-    is LexiconVideo -> emptyList()
   }
 
   private fun createBodyType(
+    context: GeneratorContext,
     className: String,
     body: LexiconXrpcBody,
-  ): TypeSpec {
-    val encodings: List<String> = body.encoding.values()
+  ) {
+    when (body.schema) {
+      null -> Unit
+      is LexiconXrpcSchemaDefinition.Object -> {
+        context.addType(
+          createType(context, className, body.schema.value)
+            .forRequestOrResponse(body.encoding)
+        )
+      }
+      is LexiconXrpcSchemaDefinition.Reference -> {
+        val typeAliasType = when (body.schema.reference) {
+          is LexiconSingleReference -> body.schema.reference.typeName(environment, context.document)
+          is LexiconUnionReference -> ClassName(context.authority, className.capitalized())
+        }
+        context.addTypeAlias(TypeAliasSpec.builder(className, typeAliasType).build())
+      }
+    }
+  }
 
-    val properties: List<SimpleProperty> = body.schema.properties.map { (name, prop) ->
-      val isNullable = name !in body.schema.required
+  private fun createType(
+    context: GeneratorContext,
+    className: String,
+    body: LexiconObject,
+  ): TypeSpec {
+    val properties: List<SimpleProperty> = body.properties.map { (name, prop) ->
+      val isNullable = name in body.nullable
 
       when (prop) {
         is LexiconObjectProperty.Array -> {
-          when (val items = prop.array.items) {
-            is LexiconArrayItem.Primitive -> {
-              val propertyType = items.primitive.type.toTypeName(nullable = false)
-              SimpleProperty(name, LIST.parameterizedBy(propertyType).copy(isNullable))
+          SimpleProperty(
+            name = name,
+            type = when (prop.array.items) {
+              is LexiconArrayItem.Primitive -> {
+                prop.array.items.primitive.toTypeName(nullable = isNullable)
+              }
+              is LexiconArrayItem.Blob -> BYTE_ARRAY
+              is LexiconArrayItem.Reference -> {
+                when (prop.array.items.reference) {
+                  is LexiconSingleReference -> {
+                    prop.array.items.reference.typeName(environment, context.document)
+                  }
+                  is LexiconUnionReference -> {
+                    ClassName(
+                      context.authority,
+                      className + name.removeSuffix("s").capitalized(),
+                    )
+                  }
+                }
+              }
             }
-
-            is LexiconArrayItem.Reference -> TODO()
-            is LexiconArrayItem.ReferenceList -> TODO()
-          }
+              .let { type -> LIST.parameterizedBy(type) }
+              .copy(nullable = isNullable),
+          )
         }
-
         is LexiconObjectProperty.Primitive -> {
-          SimpleProperty(name, prop.primitive.type.toTypeName(isNullable))
+          SimpleProperty(
+            name = name,
+            type = prop.primitive.toTypeName(nullable = isNullable),
+          )
         }
-
-        is LexiconObjectProperty.Reference -> TODO()
-        is LexiconObjectProperty.ReferenceList -> TODO()
+        is LexiconObjectProperty.Blob ->
+          SimpleProperty(
+            name = name,
+            type = BYTE_ARRAY.copy(nullable = isNullable),
+          )
+        is LexiconObjectProperty.Reference -> {
+          SimpleProperty(
+            name = name,
+            type = when (prop.reference) {
+              is LexiconSingleReference -> {
+                prop.reference.typeName(environment, context.document)
+              }
+              is LexiconUnionReference -> {
+                ClassName(context.authority, className + name.capitalized())
+              }
+            }.copy(nullable = isNullable),
+          )
+        }
       }
     }
 
     return createDataClass(
       className = className,
       properties = properties,
-      additionalConfiguration = {
-        addAnnotation(SERIALIZABLE)
-        addAnnotation(
-          AnnotationSpec.builder(ENCODING)
-            .addMember(encodings.joinToString(", ") { "%S" }, *encodings.toTypedArray())
-            .build()
-        )
-
-        // Allows for custom static extension methods on the generated type.
-        addType(TypeSpec.companionObjectBuilder().build())
-      },
     )
+  }
+
+  private fun TypeSpec.forRequestOrResponse(encoding: String): TypeSpec {
+    return toBuilder()
+      .addAnnotation(
+        AnnotationSpec.builder(ENCODING)
+          .addMember("%S", encoding)
+          .build()
+      )
+      // Allows for custom static extension methods on the generated type.
+      .addType(TypeSpec.companionObjectBuilder().build())
+      .build()
   }
 }

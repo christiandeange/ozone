@@ -2,53 +2,59 @@ package sh.christian.ozone.api.generator.builder
 
 import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.FunSpec
+import com.squareup.kotlinpoet.LIST
 import com.squareup.kotlinpoet.MAP
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.STRING
 import com.squareup.kotlinpoet.TypeSpec
 import com.squareup.kotlinpoet.withIndent
-import sh.christian.ozone.api.lexicon.LexiconAudio
-import sh.christian.ozone.api.lexicon.LexiconBlob
-import sh.christian.ozone.api.lexicon.LexiconImage
-import sh.christian.ozone.api.lexicon.LexiconObject
-import sh.christian.ozone.api.lexicon.LexiconPrimitive
-import sh.christian.ozone.api.lexicon.LexiconRecord
-import sh.christian.ozone.api.lexicon.LexiconToken
+import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.lexicon.LexiconUserType
-import sh.christian.ozone.api.lexicon.LexiconVideo
+import sh.christian.ozone.api.lexicon.LexiconXrpcParameter
+import sh.christian.ozone.api.lexicon.LexiconXrpcParameters
 import sh.christian.ozone.api.lexicon.LexiconXrpcProcedure
 import sh.christian.ozone.api.lexicon.LexiconXrpcQuery
 
-class XrpcQueryParamsGenerator : TypesGenerator {
+class XrpcQueryParamsGenerator(
+  private val environment: LexiconProcessingEnvironment,
+) : TypesGenerator {
   override fun generateTypes(
-    params: BuilderParams,
+    context: GeneratorContext,
     userType: LexiconUserType,
-  ): List<TypeSpec> = when (userType) {
-    is LexiconXrpcProcedure -> createQueryParamsType(params, userType.parameters)
-    is LexiconXrpcQuery -> createQueryParamsType(params, userType.parameters)
-
-    is LexiconAudio,
-    is LexiconBlob,
-    is LexiconImage,
-    is LexiconObject,
-    is LexiconRecord,
-    is LexiconToken,
-    is LexiconVideo -> emptyList()
+  ) {
+    when (userType) {
+      is LexiconXrpcProcedure -> createQueryParamsType(context, userType.parameters)
+      is LexiconXrpcQuery -> createQueryParamsType(context, userType.parameters)
+      else -> Unit
+    }
   }
 
   private fun createQueryParamsType(
-    params: BuilderParams,
-    queryParams: Map<String, LexiconPrimitive>,
-  ): List<TypeSpec> {
-    if (queryParams.isEmpty()) return emptyList()
+    context: GeneratorContext,
+    queryParams: LexiconXrpcParameters?,
+  ) {
+    if (queryParams == null || queryParams.properties.isEmpty()) return
 
-    val properties: List<SimpleProperty> = queryParams.map { (name, prop) ->
-      SimpleProperty(name, prop.type.toTypeName(nullable = false))
+    val properties: List<SimpleProperty> = queryParams.properties.map { (name, prop) ->
+      when (prop) {
+        is LexiconXrpcParameter.Primitive -> {
+          SimpleProperty(
+            name = name,
+            type = prop.primitive.toTypeName(nullable = false),
+          )
+        }
+        is LexiconXrpcParameter.PrimitiveArray -> {
+          SimpleProperty(
+            name = name,
+            type = LIST.parameterizedBy(prop.array.items.toTypeName(nullable = false)),
+          )
+        }
+      }
     }
 
-    return listOf(
+    context.addType(
       createDataClass(
-        className = "${params.classPrefix}QueryParams",
+        className = "${context.classPrefix}QueryParams",
         properties = properties,
         additionalConfiguration = {
           addFunction(toMap(properties))

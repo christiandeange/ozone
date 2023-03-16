@@ -1,86 +1,167 @@
 package sh.christian.ozone.api.lexicon
 
 import com.squareup.moshi.JsonClass
-import sh.christian.ozone.api.lexicon.LexiconPrimitive.Type.BOOLEAN
-import sh.christian.ozone.api.lexicon.LexiconPrimitive.Type.INTEGER
-import sh.christian.ozone.api.lexicon.LexiconPrimitive.Type.NUMBER
-import sh.christian.ozone.api.lexicon.LexiconPrimitive.Type.STRING
-import sh.christian.ozone.api.lexicon.LexiconUserType.Type.AUDIO
-import sh.christian.ozone.api.lexicon.LexiconUserType.Type.BLOB
-import sh.christian.ozone.api.lexicon.LexiconUserType.Type.IMAGE
-import sh.christian.ozone.api.lexicon.LexiconUserType.Type.OBJECT
-import sh.christian.ozone.api.lexicon.LexiconUserType.Type.PROCEDURE
-import sh.christian.ozone.api.lexicon.LexiconUserType.Type.QUERY
-import sh.christian.ozone.api.lexicon.LexiconUserType.Type.RECORD
-import sh.christian.ozone.api.lexicon.LexiconUserType.Type.TOKEN
-import sh.christian.ozone.api.lexicon.LexiconUserType.Type.VIDEO
 
-typealias LexiconReference = String
+// region Primitives
 
 @JsonClass(generateAdapter = true)
-data class LexiconDocument(
-  val lexicon: Int,
-  val id: String,
-  val revision: Long?,
+data class LexiconBoolean(
   val description: String?,
-  val defs: Map<String, LexiconDocumentElement> = emptyMap(),
-) {
-  init {
-    require(lexicon == 1) { "Unexpected lexicon version: $lexicon" }
-  }
+  val default: Boolean?,
+  val const: Boolean?,
+) : LexiconPrimitive
+
+@JsonClass(generateAdapter = true)
+data class LexiconNumber(
+  val description: String?,
+  val default: Double?,
+  val minimum: Double?,
+  val maximum: Double?,
+  val enum: List<Double> = emptyList(),
+  val const: Double?,
+) : LexiconPrimitive
+
+@JsonClass(generateAdapter = true)
+data class LexiconInteger(
+  val description: String?,
+  val default: Int?,
+  val minimum: Int?,
+  val maximum: Int?,
+  val enum: List<Int> = emptyList(),
+  val const: Int?,
+) : LexiconPrimitive
+
+@JsonClass(generateAdapter = true)
+data class LexiconString(
+  val description: String?,
+  val default: String?,
+  val minLength: Long?,
+  val maxLength: Long?,
+  val enum: List<String> = emptyList(),
+  val const: String?,
+  val knownValues: List<String> = emptyList(),
+) : LexiconPrimitive
+
+@JsonClass(generateAdapter = true)
+data class LexiconDatetime(
+  val description: String?,
+) : LexiconPrimitive
+
+@JsonClass(generateAdapter = true)
+data class LexiconUnknown(
+  val description: String?,
+) : LexiconPrimitive
+
+sealed interface LexiconPrimitive : LexiconUserType
+
+// endregion
+
+// region References
+
+@JsonClass(generateAdapter = true)
+data class LexiconSingleReference(
+  val description: String?,
+  val ref: String,
+) : LexiconReference
+
+@JsonClass(generateAdapter = true)
+data class LexiconUnionReference(
+  val description: String?,
+  val refs: List<String>,
+  val closed: Boolean?,
+) : LexiconReference {
+  val references: List<LexiconSingleReference>
+    get() = refs.map { LexiconSingleReference(description = null, ref = it) }
 }
 
-sealed interface LexiconDocumentElement {
-  data class UserType(
-    val userType: LexiconUserType,
-  ) : LexiconDocumentElement
+sealed interface LexiconReference
 
-  data class Array(
-    val array: LexiconArray,
-  ) : LexiconDocumentElement
+// endregion
 
+// region Blobs
+
+@JsonClass(generateAdapter = true)
+data class LexiconBlobObject(
+  val description: String?,
+  val accept: List<String> = emptyList(),
+  val maxSize: Double?,
+) : LexiconBlob
+
+@JsonClass(generateAdapter = true)
+data class LexiconImage(
+  val description: String?,
+  val accept: List<String> = emptyList(),
+  val maxSize: Double?,
+  val maxWidth: Long?,
+  val maxHeight: Long?,
+) : LexiconBlob
+
+@JsonClass(generateAdapter = true)
+data class LexiconVideo(
+  val description: String?,
+  val accept: List<String> = emptyList(),
+  val maxSize: Double?,
+  val maxWidth: Long?,
+  val maxHeight: Long?,
+  val maxLength: Long?,
+) : LexiconBlob
+
+@JsonClass(generateAdapter = true)
+data class LexiconAudio(
+  val description: String?,
+  val accept: List<String> = emptyList(),
+  val maxSize: Double?,
+  val maxLength: Long?,
+) : LexiconBlob
+
+sealed interface LexiconBlob : LexiconUserType
+
+// endregion
+
+// region Complex
+
+@JsonClass(generateAdapter = true)
+data class LexiconArray(
+  val description: String?,
+  val items: LexiconArrayItem,
+  val minLength: Long?,
+  val maxLength: Long?,
+) : LexiconUserType
+
+sealed interface LexiconArrayItem {
   data class Primitive(
     val primitive: LexiconPrimitive,
-  ) : LexiconDocumentElement
+  ) : LexiconArrayItem
 
-  data class ReferenceList(
-    val references: List<LexiconReference> = emptyList(),
-  ) : LexiconDocumentElement
+  data class Blob(
+    val blob: LexiconBlob,
+  ) : LexiconArrayItem
+
+  data class Reference(
+    val reference: LexiconReference,
+  ) : LexiconArrayItem
 }
 
-sealed interface LexiconUserType : LexiconDocumentElement {
-  val type: Type
-  val description: String?
-
-  enum class Type {
-    QUERY,
-    PROCEDURE,
-    RECORD,
-    TOKEN,
-    OBJECT,
-    BLOB,
-    IMAGE,
-    VIDEO,
-    AUDIO,
-    UNKNOWN,
-  }
-}
+@JsonClass(generateAdapter = true)
+data class LexiconPrimitiveArray(
+  val description: String?,
+  val items: LexiconPrimitive,
+  val minLength: Long?,
+  val maxLength: Long?,
+)
 
 @JsonClass(generateAdapter = true)
 data class LexiconToken(
-  override val description: String?,
-) : LexiconUserType {
-  override val type get() = TOKEN
-}
+  val description: String?,
+) : LexiconUserType
 
 @JsonClass(generateAdapter = true)
 data class LexiconObject(
+  val description: String?,
   val required: List<String> = emptyList(),
+  val nullable: List<String> = emptyList(),
   val properties: Map<String, LexiconObjectProperty> = emptyMap(),
-  override val description: String?,
-) : LexiconUserType {
-  override val type get() = OBJECT
-}
+) : LexiconUserType
 
 sealed interface LexiconObjectProperty {
   data class Reference(
@@ -91,51 +172,59 @@ sealed interface LexiconObjectProperty {
     val array: LexiconArray,
   ) : LexiconObjectProperty
 
+  data class Blob(
+    val blob: LexiconBlob,
+  ) : LexiconObjectProperty
+
   data class Primitive(
     val primitive: LexiconPrimitive,
   ) : LexiconObjectProperty
-
-  data class ReferenceList(
-    val references: List<LexiconReference> = emptyList(),
-  ) : LexiconObjectProperty
 }
 
-@JsonClass(generateAdapter = true)
-data class LexiconRecord(
-  val key: String?,
-  val record: LexiconObject,
-  override val description: String?,
-) : LexiconUserType {
-  override val type get() = RECORD
-}
+// endregion
+
+// region XRPC
 
 @JsonClass(generateAdapter = true)
-data class LexiconXrpcQuery(
-  val parameters: Map<String, LexiconPrimitive> = emptyMap(),
-  val output: LexiconXrpcBody?,
-  val errors: List<LexiconXrpcError> = emptyList(),
-  override val description: String?,
-) : LexiconUserType {
-  override val type get() = QUERY
-}
+data class LexiconXrpcParameters(
+  val description: String?,
+  val required: List<String> = emptyList(),
+  val properties: Map<String, LexiconXrpcParameter> = emptyMap(),
+)
 
-@JsonClass(generateAdapter = true)
-data class LexiconXrpcProcedure(
-  val parameters: Map<String, LexiconPrimitive> = emptyMap(),
-  val input: LexiconXrpcBody?,
-  val output: LexiconXrpcBody?,
-  val errors: List<LexiconXrpcError> = emptyList(),
-  override val description: String?,
-) : LexiconUserType {
-  override val type get() = PROCEDURE
+sealed interface LexiconXrpcParameter {
+  data class Primitive(
+    val primitive: LexiconPrimitive,
+  ) : LexiconXrpcParameter
+
+  data class PrimitiveArray(
+    val array: LexiconPrimitiveArray,
+  ) : LexiconXrpcParameter
 }
 
 @JsonClass(generateAdapter = true)
 data class LexiconXrpcBody(
   val description: String?,
-  val encoding: OneOrMore<String>,
-  val schema: LexiconObject,
+  val encoding: String,
+  val schema: LexiconXrpcSchemaDefinition?,
 )
+
+@JsonClass(generateAdapter = true)
+data class LexiconXrpcSubscriptionMessage(
+  val description: String?,
+  val schema: LexiconXrpcSchemaDefinition?,
+  val codes: Map<String, Long>? = emptyMap(),
+)
+
+sealed interface LexiconXrpcSchemaDefinition {
+  data class Reference(
+    val reference: LexiconReference,
+  ) : LexiconXrpcSchemaDefinition
+
+  data class Object(
+    val value: LexiconObject,
+  ) : LexiconXrpcSchemaDefinition
+}
 
 @JsonClass(generateAdapter = true)
 data class LexiconXrpcError(
@@ -144,125 +233,85 @@ data class LexiconXrpcError(
 )
 
 @JsonClass(generateAdapter = true)
-data class LexiconBlob(
-  val accept: List<String> = emptyList(),
-  val maxSize: Long?,
-  override val description: String?,
-) : LexiconUserType {
-  override val type get() = BLOB
-}
-
-@JsonClass(generateAdapter = true)
-data class LexiconImage(
-  val accept: List<String> = emptyList(),
-  val maxSize: Long?,
-  val maxWidth: Long?,
-  val maxHeight: Long?,
-  override val description: String?,
-) : LexiconUserType {
-  override val type get() = IMAGE
-}
-
-@JsonClass(generateAdapter = true)
-data class LexiconVideo(
-  val accept: List<String> = emptyList(),
-  val maxSize: Long?,
-  val maxWidth: Long?,
-  val maxHeight: Long?,
-  val maxLength: Long?,
-  override val description: String?,
-) : LexiconUserType {
-  override val type get() = VIDEO
-}
-
-@JsonClass(generateAdapter = true)
-data class LexiconAudio(
-  val accept: List<String> = emptyList(),
-  val maxSize: Long?,
-  val maxLength: Long?,
-  override val description: String?,
-) : LexiconUserType {
-  override val type get() = AUDIO
-}
-
-@JsonClass(generateAdapter = true)
-data class LexiconArray(
-  val type: String,
+data class LexiconXrpcQuery(
   val description: String?,
-  val items: LexiconArrayItem,
-  val minLength: Long?,
-  val maxLength: Long?,
-)
+  val parameters: LexiconXrpcParameters?,
+  val output: LexiconXrpcBody?,
+  val errors: List<LexiconXrpcError> = emptyList(),
+) : LexiconUserType
 
-sealed interface LexiconArrayItem {
-  data class Reference(
-    val reference: LexiconReference,
-  ) : LexiconArrayItem
+@JsonClass(generateAdapter = true)
+data class LexiconXrpcProcedure(
+  val description: String?,
+  val parameters: LexiconXrpcParameters?,
+  val input: LexiconXrpcBody?,
+  val output: LexiconXrpcBody?,
+  val errors: List<LexiconXrpcError> = emptyList(),
+) : LexiconUserType
 
-  data class Primitive(
-    val primitive: LexiconPrimitive,
-  ) : LexiconArrayItem
+@JsonClass(generateAdapter = true)
+data class LexiconXrpcSubscription(
+  val description: String?,
+  val parameters: LexiconXrpcParameters?,
+  val message: LexiconXrpcSubscriptionMessage?,
+  val infos: List<LexiconXrpcError> = emptyList(),
+  val errors: List<LexiconXrpcError> = emptyList(),
+) : LexiconUserType
 
-  data class ReferenceList(
-    val references: List<LexiconReference> = emptyList(),
-  ) : LexiconArrayItem
-}
+@JsonClass(generateAdapter = true)
+data class LexiconRecord(
+  val description: String?,
+  val key: String?,
+  val record: LexiconObject,
+) : LexiconUserType
 
-sealed interface LexiconPrimitive {
-  val type: Type
-  val description: String?
+// endregion
 
-  enum class Type {
-    BOOLEAN,
-    NUMBER,
-    INTEGER,
-    STRING,
-    ;
+// region Core
+
+sealed interface LexiconUserType
+
+@JsonClass(generateAdapter = true)
+data class LexiconDocument(
+  val lexicon: Int,
+  val id: String,
+  val revision: Double?,
+  val description: String?,
+  val defs: Map<String, LexiconUserType> = emptyMap(),
+) {
+  init {
+    require(lexicon == 1) { "Unexpected lexicon version: $lexicon" }
+
+    // TODO: Parse `id` against NSID grammar https://atproto.com/specs/nsid
+
+    defs.forEach { (key, value) ->
+      when (value) {
+        is LexiconRecord,
+        is LexiconXrpcProcedure,
+        is LexiconXrpcQuery,
+        is LexiconXrpcSubscription -> {
+          require(key == "main") {
+            "Records, procedures, queries, and subscriptions must be the main definition."
+          }
+        }
+        else -> Unit
+      }
+    }
   }
 }
 
 @JsonClass(generateAdapter = true)
-data class LexiconBoolean(
-  val default: Boolean?,
-  val const: Boolean?,
-  override val description: String?,
-) : LexiconPrimitive {
-  override val type get() = BOOLEAN
+data class LexiconDocumentMetadata(
+  val lexicon: Int,
+  val id: String,
+  val revision: Double?,
+  val description: String?,
+) {
+  init {
+    require(lexicon == 1) { "Unexpected lexicon version: $lexicon" }
+
+    // TODO: Parse `id` against NSID grammar https://atproto.com/specs/nsid
+  }
 }
 
-@JsonClass(generateAdapter = true)
-data class LexiconNumber(
-  val default: Long?,
-  val minimum: Long?,
-  val maximum: Long?,
-  val enum: List<Long> = emptyList(),
-  val const: Long?,
-  override val description: String?,
-) : LexiconPrimitive {
-  override val type get() = NUMBER
-}
-
-@JsonClass(generateAdapter = true)
-data class LexiconInteger(
-  val default: Int?,
-  val minimum: Int?,
-  val maximum: Int?,
-  val enum: List<Int> = emptyList(),
-  val const: Int?,
-  override val description: String?,
-) : LexiconPrimitive {
-  override val type get() = INTEGER
-}
-
-@JsonClass(generateAdapter = true)
-data class LexiconString(
-  val default: String?,
-  val minLength: Long?,
-  val maxLength: Long?,
-  val enum: List<String> = emptyList(),
-  val const: String?,
-  val knownValues: List<String> = emptyList(),
-  override val description: String?,
-) : LexiconPrimitive {
-  override val type get() = STRING
-}
+// endregion

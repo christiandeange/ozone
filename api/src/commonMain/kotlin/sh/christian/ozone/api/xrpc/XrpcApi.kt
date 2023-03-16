@@ -16,6 +16,7 @@ import io.ktor.client.request.setBody
 import io.ktor.client.statement.HttpResponse
 import io.ktor.http.Url
 import io.ktor.serialization.kotlinx.json.json
+import kotlinx.serialization.json.Json
 import sh.christian.ozone.api.AtpApi
 import sh.christian.ozone.api.Encoding
 import sh.christian.ozone.api.response.AtpErrorDescription
@@ -26,7 +27,11 @@ class XrpcApi(host: String) : AtpApi {
   private val hostUrl = Url(host)
   private val client = HttpClient(CIO) {
     install(ContentNegotiation) {
-      json()
+      json(
+        json = Json {
+          classDiscriminator = "${'$'}type"
+        }
+      )
     }
 
     install(Logging) {

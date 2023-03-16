@@ -43,5 +43,5 @@ kotlin {
 }
 
 dependencies {
-  lexicons(fileTree("lexicons") { include("*.json") })
+  lexicons(fileTree("lexicons") { include("**/*.json") })
 }
