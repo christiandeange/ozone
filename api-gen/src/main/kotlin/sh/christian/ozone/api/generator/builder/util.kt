@@ -1,5 +1,6 @@
 package sh.christian.ozone.api.generator.builder
 
+import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.BOOLEAN
 import com.squareup.kotlinpoet.BYTE_ARRAY
 import com.squareup.kotlinpoet.ClassName
@@ -19,6 +20,7 @@ import sh.christian.ozone.api.generator.JSON_ELEMENT
 import sh.christian.ozone.api.generator.JVM_INLINE
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.SERIALIZABLE
+import sh.christian.ozone.api.generator.SERIAL_NAME
 import sh.christian.ozone.api.lexicon.LexiconArray
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
 import sh.christian.ozone.api.lexicon.LexiconBlob
@@ -108,7 +110,16 @@ fun createEnumClass(
   return TypeSpec.enumBuilder(className)
     .apply {
       values.forEach { value ->
-        addEnumConstant(value)
+        addEnumConstant(
+          name = value.toEnumCase(),
+          typeSpec = TypeSpec.anonymousClassBuilder()
+            .addAnnotation(
+              AnnotationSpec.builder(SERIAL_NAME)
+                .addMember("%S", value)
+                .build()
+            )
+            .build(),
+        )
       }
     }
     .apply(additionalConfiguration)
@@ -220,4 +231,14 @@ fun typeName(
 
 fun LexiconString.isEnum(): Boolean {
   return knownValues.isNotEmpty() && knownValues.all { '#' in it }
+}
+
+private val CAMEL_CASE_REGEX = "(?<=[a-zA-Z])[A-Z]".toRegex()
+
+private fun String.toSnakeCase(): String {
+  return CAMEL_CASE_REGEX.replace(this) { "_${it.value}" }.lowercase()
+}
+
+private fun String.toEnumCase(): String {
+  return CAMEL_CASE_REGEX.replace(this) { "_${it.value}" }.uppercase()
 }
