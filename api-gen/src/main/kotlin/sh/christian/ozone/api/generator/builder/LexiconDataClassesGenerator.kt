@@ -267,16 +267,25 @@ class LexiconDataClassesGenerator(
     val sealedInterface = TypeSpec.interfaceBuilder(name)
       .addModifiers(KModifier.SEALED)
       .addAnnotation(SERIALIZABLE)
-      .build()
 
-    context.addType(sealedInterface)
+    val (commonPrefix, commonSuffix) = unionReference.references
+      .map { it.ref.parseLexiconRef(context.document) }
+      .map { (lexiconId, objectRef) -> "$lexiconId#$objectRef" }
+      .let { references ->
+        references.commonPrefix() to references.commonSuffix()
+      }
 
-    unionReference.references.forEachIndexed { i, reference ->
+    unionReference.references.forEach { reference ->
       val typeName = reference.typeName(environment, context.document)
+      val uniqueName = reference.ref
+        .removePrefix(commonPrefix)
+        .removeSuffix(commonSuffix)
+        .replace(Regex("#[a-z]")) { it.value[1].uppercase() }
+        .capitalized()
 
-      context.addType(
+      sealedInterface.addType(
         createValueClass(
-          className = ClassName(context.authority, name.simpleName + (i + 1)),
+          className = ClassName(context.authority, uniqueName),
           innerType = typeName,
           additionalConfiguration = {
             addSuperinterface(name)
@@ -292,6 +301,36 @@ class LexiconDataClassesGenerator(
       )
     }
 
+    context.addType(sealedInterface.build())
+
     return name
+  }
+}
+
+private fun List<String>.commonPrefix(): String = when (size) {
+  0 -> ""
+  1 -> first()
+  else -> {
+    val sample = first()
+    sample.forEachIndexed { i, c ->
+      if (any { it.count() <= i || it[i] != c }) {
+        return sample.substring(0, i)
+      }
+    }
+    sample
+  }
+}
+
+private fun List<String>.commonSuffix(): String = when (size) {
+  0 -> ""
+  1 -> first()
+  else -> {
+    val sample = first().reversed()
+    sample.forEachIndexed { i, c ->
+      if (any { it.count() <= i || it[i] != c }) {
+        return sample.substring(0, i).reversed()
+      }
+    }
+    first()
   }
 }
