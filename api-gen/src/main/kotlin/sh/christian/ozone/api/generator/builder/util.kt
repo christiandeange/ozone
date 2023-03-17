@@ -8,7 +8,6 @@ import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.LIST
 import com.squareup.kotlinpoet.LONG
-import com.squareup.kotlinpoet.MAP
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.PropertySpec
@@ -16,6 +15,7 @@ import com.squareup.kotlinpoet.STRING
 import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
 import org.gradle.configurationcache.extensions.capitalized
+import sh.christian.ozone.api.generator.JSON_ELEMENT
 import sh.christian.ozone.api.generator.JVM_INLINE
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.SERIALIZABLE
@@ -53,7 +53,8 @@ fun createDataClass(
         .addParameters(
           properties.map { property ->
             ParameterSpec
-              .builder(property.name, property.type)
+              .builder(property.name, property.type.copy(nullable = property.nullable))
+              .apply { if (property.nullable) defaultValue("null") }
               .build()
           }
         )
@@ -62,7 +63,7 @@ fun createDataClass(
     .addProperties(
       properties.map { property ->
         PropertySpec
-          .builder(property.name, property.type)
+          .builder(property.name, property.type.copy(nullable = property.nullable))
           .initializer(property.name)
           .build()
       }
@@ -114,14 +115,14 @@ fun createEnumClass(
     .build()
 }
 
-fun LexiconPrimitive.toTypeName(nullable: Boolean) = when (this) {
+fun LexiconPrimitive.toTypeName() = when (this) {
   is LexiconBoolean -> BOOLEAN
   is LexiconDatetime -> STRING
   is LexiconInteger -> LONG
   is LexiconNumber -> DOUBLE
   is LexiconString -> STRING
-  is LexiconUnknown -> MAP.parameterizedBy(STRING, STRING)
-}.copy(nullable = nullable)
+  is LexiconUnknown -> JSON_ELEMENT
+}
 
 fun LexiconSingleReference.typeName(
   environment: LexiconProcessingEnvironment,
@@ -192,7 +193,7 @@ fun typeName(
     ClassName(packageName, className)
   }
   is LexiconPrimitive -> {
-    userType.toTypeName(nullable = false)
+    userType.toTypeName()
   }
   is LexiconRecord -> {
     typeName(environment, source, userType.key, userType.record)

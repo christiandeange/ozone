@@ -11,6 +11,7 @@ import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
 import org.gradle.configurationcache.extensions.capitalized
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
+import sh.christian.ozone.api.generator.SERIALIZABLE
 import sh.christian.ozone.api.generator.SERIAL_NAME
 import sh.christian.ozone.api.lexicon.LexiconArray
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
@@ -81,6 +82,8 @@ class LexiconDataClassesGenerator(
     obj: LexiconObject,
   ) {
     val properties = obj.properties.map { (propertyName, property) ->
+      val nullable = propertyName !in obj.required
+
       val propertyType: TypeName = when (property) {
         is LexiconObjectProperty.Array -> {
           when (val itemType = property.array.items) {
@@ -93,17 +96,15 @@ class LexiconDataClassesGenerator(
             )
             is LexiconArrayItem.Reference -> {
               when (itemType.reference) {
-                is LexiconSingleReference -> itemType.reference.typeName(
-                  environment, context.document
-                )
+                is LexiconSingleReference -> {
+                  itemType.reference.typeName(environment, context.document)
+                }
                 is LexiconUnionReference -> {
-                  val sealedType: TypeName =
-                    generateTypes(context, propertyName.removeSuffix("s"), itemType.reference)
-                  LIST.parameterizedBy(sealedType)
+                  generateTypes(context, propertyName.removeSuffix("s"), itemType.reference)
                 }
               }
             }
-          }
+          }.let { LIST.parameterizedBy(it) }
         }
         is LexiconObjectProperty.Blob -> typeName(environment, context.document, "", property.blob)
         is LexiconObjectProperty.Primitive -> typeName(
@@ -120,7 +121,7 @@ class LexiconDataClassesGenerator(
         }
       }
 
-      SimpleProperty(propertyName, propertyType)
+      SimpleProperty(propertyName, propertyType, nullable)
     }
 
     context.addType(
@@ -265,6 +266,7 @@ class LexiconDataClassesGenerator(
 
     val sealedInterface = TypeSpec.interfaceBuilder(name)
       .addModifiers(KModifier.SEALED)
+      .addAnnotation(SERIALIZABLE)
       .build()
 
     context.addType(sealedInterface)

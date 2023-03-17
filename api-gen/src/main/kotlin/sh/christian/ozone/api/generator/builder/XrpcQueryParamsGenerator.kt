@@ -1,5 +1,6 @@
 package sh.christian.ozone.api.generator.builder
 
+import com.squareup.kotlinpoet.ANY
 import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.LIST
@@ -36,17 +37,21 @@ class XrpcQueryParamsGenerator(
     if (queryParams == null || queryParams.properties.isEmpty()) return
 
     val properties: List<SimpleProperty> = queryParams.properties.map { (name, prop) ->
+      val nullable = name !in queryParams.required
+
       when (prop) {
         is LexiconXrpcParameter.Primitive -> {
           SimpleProperty(
             name = name,
-            type = prop.primitive.toTypeName(nullable = false),
+            type = prop.primitive.toTypeName(),
+            nullable = nullable,
           )
         }
         is LexiconXrpcParameter.PrimitiveArray -> {
           SimpleProperty(
             name = name,
-            type = LIST.parameterizedBy(prop.array.items.toTypeName(nullable = false)),
+            type = LIST.parameterizedBy(prop.array.items.toTypeName()),
+            nullable = nullable,
           )
         }
       }
@@ -67,7 +72,7 @@ class XrpcQueryParamsGenerator(
   }
 
   private fun toMap(properties: List<SimpleProperty>): FunSpec {
-    val stringStringMap = MAP.parameterizedBy(STRING, STRING)
+    val stringStringMap = MAP.parameterizedBy(STRING, ANY.copy(nullable = true))
 
     return FunSpec.builder("toMap")
       .returns(stringStringMap)
@@ -76,13 +81,7 @@ class XrpcQueryParamsGenerator(
           .add("return mapOf(\n")
           .withIndent {
             properties.forEach { property ->
-              val maybeToString = if (property.type == STRING) {
-                ""
-              } else {
-                ".toString()"
-              }
-
-              add("\"%L\" to %L%L,\n", property.name, property.name, maybeToString)
+              add("%S to %L,\n", property.name, property.name)
             }
           }
           .add(")")

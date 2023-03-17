@@ -65,7 +65,9 @@ class XrpcBodyGenerator(
       is LexiconXrpcSchemaDefinition.Reference -> {
         val typeAliasType = when (body.schema.reference) {
           is LexiconSingleReference -> body.schema.reference.typeName(environment, context.document)
-          is LexiconUnionReference -> ClassName(context.authority, className.capitalized() + "Union")
+          is LexiconUnionReference -> ClassName(
+            context.authority, className.capitalized() + "Union"
+          )
         }
         context.addTypeAlias(TypeAliasSpec.builder(className, typeAliasType).build())
       }
@@ -78,15 +80,16 @@ class XrpcBodyGenerator(
     body: LexiconObject,
   ): TypeSpec {
     val properties: List<SimpleProperty> = body.properties.map { (name, prop) ->
-      val isNullable = name in body.nullable
+      val nullable = name !in body.required
 
       when (prop) {
         is LexiconObjectProperty.Array -> {
           SimpleProperty(
             name = name,
+            nullable = nullable,
             type = when (prop.array.items) {
               is LexiconArrayItem.Primitive -> {
-                prop.array.items.primitive.toTypeName(nullable = isNullable)
+                prop.array.items.primitive.toTypeName()
               }
               is LexiconArrayItem.Blob -> BYTE_ARRAY
               is LexiconArrayItem.Reference -> {
@@ -102,25 +105,26 @@ class XrpcBodyGenerator(
                   }
                 }
               }
-            }
-              .let { type -> LIST.parameterizedBy(type) }
-              .copy(nullable = isNullable),
+            }.let { type -> LIST.parameterizedBy(type) },
           )
         }
         is LexiconObjectProperty.Primitive -> {
           SimpleProperty(
             name = name,
-            type = prop.primitive.toTypeName(nullable = isNullable),
+            type = prop.primitive.toTypeName(),
+            nullable = nullable,
           )
         }
         is LexiconObjectProperty.Blob ->
           SimpleProperty(
             name = name,
-            type = BYTE_ARRAY.copy(nullable = isNullable),
+            type = BYTE_ARRAY,
+            nullable = nullable,
           )
         is LexiconObjectProperty.Reference -> {
           SimpleProperty(
             name = name,
+            nullable = nullable,
             type = when (prop.reference) {
               is LexiconSingleReference -> {
                 prop.reference.typeName(environment, context.document)
@@ -128,7 +132,7 @@ class XrpcBodyGenerator(
               is LexiconUnionReference -> {
                 ClassName(context.authority, className + name.capitalized() + "Union")
               }
-            }.copy(nullable = isNullable),
+            },
           )
         }
       }
