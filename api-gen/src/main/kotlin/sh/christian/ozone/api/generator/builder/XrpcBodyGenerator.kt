@@ -65,7 +65,7 @@ class XrpcBodyGenerator(
       is LexiconXrpcSchemaDefinition.Reference -> {
         val typeAliasType = when (body.schema.reference) {
           is LexiconSingleReference -> body.schema.reference.typeName(environment, context.document)
-          is LexiconUnionReference -> ClassName(context.authority, className.capitalized())
+          is LexiconUnionReference -> ClassName(context.authority, className.capitalized() + "Union")
         }
         context.addTypeAlias(TypeAliasSpec.builder(className, typeAliasType).build())
       }
@@ -97,7 +97,7 @@ class XrpcBodyGenerator(
                   is LexiconUnionReference -> {
                     ClassName(
                       context.authority,
-                      className + name.removeSuffix("s").capitalized(),
+                      className + name.removeSuffix("s").capitalized() + "Union",
                     )
                   }
                 }
@@ -126,7 +126,7 @@ class XrpcBodyGenerator(
                 prop.reference.typeName(environment, context.document)
               }
               is LexiconUnionReference -> {
-                ClassName(context.authority, className + name.capitalized())
+                ClassName(context.authority, className + name.capitalized() + "Union")
               }
             }.copy(nullable = isNullable),
           )

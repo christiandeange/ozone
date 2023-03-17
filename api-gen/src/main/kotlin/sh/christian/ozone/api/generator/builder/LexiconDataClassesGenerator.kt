@@ -93,7 +93,9 @@ class LexiconDataClassesGenerator(
             )
             is LexiconArrayItem.Reference -> {
               when (itemType.reference) {
-                is LexiconSingleReference -> itemType.reference.typeName(environment, context.document)
+                is LexiconSingleReference -> itemType.reference.typeName(
+                  environment, context.document
+                )
                 is LexiconUnionReference -> {
                   val sealedType: TypeName =
                     generateTypes(context, propertyName.removeSuffix("s"), itemType.reference)
@@ -158,12 +160,13 @@ class LexiconDataClassesGenerator(
     context: GeneratorContext,
     token: LexiconToken,
   ) {
-    val className = ClassName(
-      context.authority,
-      context.classPrefix + "Enum",
-    )
+    val className = ClassName(context.authority, context.classPrefix + "Enum")
 
-    context.addEnum(className, context.definitionName)
+    val enumName =
+      context.definitionName.takeIf { it.isNotBlank() }
+        ?: context.procedureName
+
+    context.addEnum(className, enumName)
   }
 
   private fun generateTypes(
@@ -253,10 +256,13 @@ class LexiconDataClassesGenerator(
     className: String,
     unionReference: LexiconUnionReference,
   ): TypeName {
-    val name = ClassName(
-      context.authority,
-      context.classPrefix + context.definitionName.capitalized() + className.capitalized(),
-    )
+    val classSimpleName = context.classPrefix +
+        context.definitionName.capitalized() +
+        className.capitalized() +
+        "Union"
+
+    val name = ClassName(context.authority, classSimpleName)
+
     val sealedInterface = TypeSpec.interfaceBuilder(name)
       .addModifiers(KModifier.SEALED)
       .build()
