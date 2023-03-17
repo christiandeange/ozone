@@ -10,6 +10,7 @@ import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.LIST
 import com.squareup.kotlinpoet.LONG
 import com.squareup.kotlinpoet.ParameterSpec
+import com.squareup.kotlinpoet.ParameterizedTypeName
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.PropertySpec
 import com.squareup.kotlinpoet.STRING
@@ -55,8 +56,13 @@ fun createDataClass(
         .addParameters(
           properties.map { property ->
             ParameterSpec
-              .builder(property.name, property.type.copy(nullable = property.nullable))
-              .apply { if (property.nullable) defaultValue("null") }
+              .builder(
+                property.name,
+                property.type.copy(
+                  nullable = property.nullable && property.type !is ParameterizedTypeName
+                )
+              )
+              .apply { if (property.nullable) defaultValue(property.defaultValue()) }
               .build()
           }
         )
@@ -65,7 +71,12 @@ fun createDataClass(
     .addProperties(
       properties.map { property ->
         PropertySpec
-          .builder(property.name, property.type.copy(nullable = property.nullable))
+          .builder(
+            property.name,
+            property.type.copy(
+              nullable = property.nullable && property.type !is ParameterizedTypeName
+            )
+          )
           .initializer(property.name)
           .build()
       }
