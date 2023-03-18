@@ -1,5 +1,7 @@
 package sh.christian.ozone.api.xrpc
 
+import app.bsky.actor.GetProfileQueryParams
+import app.bsky.actor.GetProfileResponse
 import app.bsky.feed.GetTimelineQueryParams
 import app.bsky.feed.GetTimelineResponse
 import com.atproto.session.CreateRequest
@@ -70,6 +72,12 @@ class XrpcApi(
     params: GetTimelineQueryParams,
   ): AtpResponse<GetTimelineResponse> {
     return client.query("/xrpc/app.bsky.feed.getTimeline", params.toMap()).toAtpResponse()
+  }
+
+  override suspend fun getProfile(
+    params: GetProfileQueryParams,
+  ): AtpResponse<GetProfileResponse> {
+    return client.query("/xrpc/app.bsky.actor.getProfile", params.toMap()).toAtpResponse()
   }
 
   private suspend inline fun HttpClient.query(

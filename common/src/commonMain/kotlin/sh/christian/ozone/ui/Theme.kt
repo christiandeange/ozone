@@ -2,8 +2,8 @@ package sh.christian.ozone.ui
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
 
@@ -84,6 +84,11 @@ fun AppTheme(
   }
 
   MaterialTheme(
+    typography = MaterialTheme.typography.copy(
+      bodySmall = MaterialTheme.typography.bodySmall.copy(
+        color = colors.outline,
+      ),
+    ),
     colorScheme = colors,
     content = content
   )

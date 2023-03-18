@@ -13,6 +13,11 @@ sealed interface AtpResponse<T> {
     val headers: Map<String, String>,
   ) : AtpResponse<T>
 
+  fun maybeResponse(): T? = when (this) {
+    is Success -> response
+    is Failure -> response
+  }
+
   fun requireResponse(): T = when (this) {
     is Success -> response
     is Failure -> requireNotNull(response) {

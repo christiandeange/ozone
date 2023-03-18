@@ -19,6 +19,11 @@ kotlin {
         api("com.squareup.workflow1:workflow-core:1.10.0-beta01")
         api("com.squareup.workflow1:workflow-runtime:1.10.0-beta01")
 
+        // Uncomment to fetch all icons.
+        // implementation("androidx.compose.material:material-icons-extended:1.3.1")
+        implementation("com.alialbaali.kamel:kamel-image:0.4.1")
+        implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+
         api(project(":api"))
         api(project(":store"))
       }
@@ -31,7 +36,7 @@ android {
   namespace = "sh.christian.ozone.common"
 
   defaultConfig {
-    minSdk = 24
+    minSdk = 26
   }
 
   compileOptions {

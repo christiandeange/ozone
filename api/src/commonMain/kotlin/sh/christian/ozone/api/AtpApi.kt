@@ -1,5 +1,7 @@
 package sh.christian.ozone.api
 
+import app.bsky.actor.GetProfileQueryParams
+import app.bsky.actor.GetProfileResponse
 import app.bsky.feed.GetTimelineQueryParams
 import app.bsky.feed.GetTimelineResponse
 import com.atproto.session.CreateRequest
@@ -14,4 +16,8 @@ interface AtpApi {
   suspend fun getTimeline(
     params: GetTimelineQueryParams,
   ): AtpResponse<GetTimelineResponse>
+
+  suspend fun getProfile(
+    params: GetProfileQueryParams,
+  ): AtpResponse<GetProfileResponse>
 }

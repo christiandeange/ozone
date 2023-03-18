@@ -18,7 +18,7 @@ android {
 
   defaultConfig {
     applicationId = "sh.christian.ozone"
-    minSdk = 24
+    minSdk = 26
     targetSdk = 33
     versionCode = 100
     versionName = version.toString()

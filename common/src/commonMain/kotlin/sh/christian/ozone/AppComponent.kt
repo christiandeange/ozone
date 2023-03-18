@@ -1,5 +1,6 @@
 package sh.christian.ozone
 
+import kotlinx.datetime.Clock
 import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.api.ServerRepository
 import sh.christian.ozone.app.AppWorkflow
@@ -25,6 +26,10 @@ class AppComponent(
     ApiProvider(serverRepository, loginRepository)
   }
 
+  private val clock: Clock by lazy {
+    Clock.System
+  }
+
   private val errorWorkflow: ErrorWorkflow by lazy {
     ErrorWorkflow()
   }
@@ -40,6 +45,7 @@ class AppComponent(
 
   private val loggedInWorkflow: LoggedInWorkflow by lazy {
     LoggedInWorkflow(
+      clock = clock,
       apiProvider = apiProvider,
       errorWorkflow = errorWorkflow,
     )
