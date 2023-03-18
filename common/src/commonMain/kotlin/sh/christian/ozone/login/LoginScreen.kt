@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
@@ -30,14 +31,21 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation.Companion.None
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import sh.christian.ozone.login.Server.BlueskySocial
-import sh.christian.ozone.login.Server.CustomServer
+import sh.christian.ozone.login.auth.Credentials
+import sh.christian.ozone.login.auth.Server
+import sh.christian.ozone.login.auth.Server.BlueskySocial
+import sh.christian.ozone.login.auth.Server.CustomServer
 import sh.christian.ozone.ui.compose.Overlay
 import sh.christian.ozone.ui.icons.AlternateEmail
+import sh.christian.ozone.ui.icons.Visibility
+import sh.christian.ozone.ui.icons.VisibilityOff
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 
@@ -80,12 +88,15 @@ class LoginScreen(
             contentDescription = "Username",
           )
         },
+        singleLine = true,
+        keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
         placeholder = { Text("Username or email address") },
         shape = MaterialTheme.shapes.large,
       )
 
       Spacer(Modifier.height(8.dp))
 
+      var showPassword by remember { mutableStateOf(false) }
       OutlinedTextField(
         modifier = Modifier.fillMaxWidth(),
         value = password,
@@ -96,10 +107,29 @@ class LoginScreen(
             contentDescription = "Password",
           )
         },
+        trailingIcon = {
+          IconButton(onClick = { showPassword = !showPassword }) {
+            Icon(
+              painter = rememberVectorPainter(
+                if (showPassword) Icons.Default.Visibility else Icons.Default.VisibilityOff,
+              ),
+              contentDescription = "Toggle Password Visibility",
+            )
+          }
+        },
+        singleLine = true,
         placeholder = { Text("Password") },
         shape = MaterialTheme.shapes.large,
-        visualTransformation = PasswordVisualTransformation(),
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+        visualTransformation = if (showPassword) None else PasswordVisualTransformation(),
+        keyboardOptions = KeyboardOptions(
+          keyboardType = if (showPassword) KeyboardType.Text else KeyboardType.Password,
+          imeAction = ImeAction.Send,
+        ),
+        keyboardActions = KeyboardActions {
+          if (username.isNotEmpty() && password.isNotEmpty()) {
+            onLogin(Credentials(username, password))
+          }
+        },
       )
 
       Spacer(Modifier.height(8.dp))
@@ -119,7 +149,7 @@ class LoginScreen(
           modifier = Modifier.padding(start = 8.dp),
           text = when (server) {
             is BlueskySocial -> "Bluesky Social"
-            is CustomServer -> server.hostName
+            is CustomServer -> server.host
           },
           style = MaterialTheme.typography.bodySmall,
         )
@@ -169,7 +199,7 @@ class LoginScreen(
         mutableStateOf(
           when (server) {
             is BlueskySocial -> ""
-            is CustomServer -> server.hostName
+            is CustomServer -> server.host
           }
         )
       }

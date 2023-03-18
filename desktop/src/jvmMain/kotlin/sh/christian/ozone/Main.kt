@@ -1,6 +1,8 @@
 package sh.christian.ozone
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection.Companion.Next
@@ -15,20 +17,13 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
-import sh.christian.ozone.app.AppWorkflow
-import sh.christian.ozone.login.LoginRepository
-import sh.christian.ozone.login.LoginWorkflow
 import sh.christian.ozone.store.storage
 
 
 fun main() {
   val storage = storage()
   val appPlacement = DesktopAppPlacement(storage)
-  val workflow = AppWorkflow(
-    loginWorkflow = LoginWorkflow(
-      loginRepository = LoginRepository(storage),
-    )
-  )
+  val component = AppComponent(storage)
 
   application {
     val windowState = rememberWindowState(
@@ -38,6 +33,15 @@ fun main() {
 
     appPlacement.size = windowState.size
     appPlacement.position = windowState.position
+
+    val coroutineScope = rememberCoroutineScope()
+    LaunchedEffect(Unit) {
+      component.supervisors.forEach {
+        with(it) {
+          coroutineScope.onStart()
+        }
+      }
+    }
 
     Window(
       title = "Ozone",
@@ -56,7 +60,7 @@ fun main() {
           }
         }
       ) {
-        App(workflow, onExit = { exitApplication() })
+        App(component.appWorkflow, onExit = { exitApplication() })
       }
     }
   }

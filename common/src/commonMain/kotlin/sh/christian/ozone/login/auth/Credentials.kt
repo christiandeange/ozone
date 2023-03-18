@@ -1,4 +1,4 @@
-package sh.christian.ozone.login
+package sh.christian.ozone.login.auth
 
 data class Credentials(
   val username: String,

@@ -37,6 +37,8 @@ kotlin {
         api("io.ktor:ktor-serialization-kotlinx-json:2.2.3")
 
         implementation(kotlin("reflect"))
+
+        runtimeOnly("org.slf4j:slf4j-simple:2.0.6")
       }
     }
   }

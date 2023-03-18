@@ -10,6 +10,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -39,7 +40,7 @@ fun Overlay(
       exit = fadeOut(),
     ) {
       Surface(
-        color = Color.Black.copy(alpha = 0.38f),
+        color = MaterialTheme.colorScheme.inverseSurface.copy(alpha = 0.38f),
         content = {},
       )
     }

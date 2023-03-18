@@ -1,5 +1,7 @@
 package sh.christian.ozone.api.xrpc
 
+import app.bsky.feed.GetTimelineQueryParams
+import app.bsky.feed.GetTimelineResponse
 import com.atproto.session.CreateRequest
 import com.atproto.session.CreateResponse
 import io.ktor.client.HttpClient
@@ -11,6 +13,9 @@ import io.ktor.client.plugins.logging.DEFAULT
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
+import io.ktor.client.request.bearerAuth
+import io.ktor.client.request.get
+import io.ktor.client.request.parameter
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.client.statement.HttpResponse
@@ -23,8 +28,11 @@ import sh.christian.ozone.api.response.AtpErrorDescription
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.api.response.StatusCode
 
-class XrpcApi(host: String) : AtpApi {
-  private val hostUrl = Url(host)
+class XrpcApi(
+  var host: String,
+  var authorizationToken: String?,
+) : AtpApi {
+
   private val client = HttpClient(CIO) {
     install(ContentNegotiation) {
       json(
@@ -36,31 +44,41 @@ class XrpcApi(host: String) : AtpApi {
 
     install(Logging) {
       logger = Logger.DEFAULT
-      level = LogLevel.BODY
+      level = LogLevel.INFO
     }
 
     expectSuccess = false
 
     defaultRequest {
+      val hostUrl = Url(this@XrpcApi.host)
       url.protocol = hostUrl.protocol
       url.host = hostUrl.host
       url.port = hostUrl.port
 
       headers["Content-Type"] = "application/json"
-      authenticationData?.let { auth ->
-        headers["Authorization"] = auth
-      }
+      authorizationToken?.let { token -> bearerAuth(token) }
     }
   }
 
-  private var authenticationData: String? = null
-
-  override fun setAuthentication(authenticationData: String?) {
-    this.authenticationData = authenticationData
+  override suspend fun createSession(
+    request: CreateRequest,
+  ): AtpResponse<CreateResponse> {
+    return client.procedure("/xrpc/com.atproto.session.create", request).toAtpResponse()
   }
 
-  override suspend fun createSession(request: CreateRequest): AtpResponse<CreateResponse> {
-    return client.procedure("/xrpc/com.atproto.session.create", request).toAtpResponse()
+  override suspend fun getTimeline(
+    params: GetTimelineQueryParams,
+  ): AtpResponse<GetTimelineResponse> {
+    return client.query("/xrpc/app.bsky.feed.getTimeline", params.toMap()).toAtpResponse()
+  }
+
+  private suspend inline fun HttpClient.query(
+    path: String,
+    queryParams: Map<String, Any?>,
+  ): HttpResponse {
+    return get(path) {
+      queryParams.forEach(::parameter)
+    }
   }
 
   private suspend inline fun <reified T : Any> HttpClient.procedure(
