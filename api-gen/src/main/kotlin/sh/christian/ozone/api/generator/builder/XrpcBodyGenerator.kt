@@ -1,7 +1,6 @@
 package sh.christian.ozone.api.generator.builder
 
 import com.squareup.kotlinpoet.AnnotationSpec
-import com.squareup.kotlinpoet.BYTE_ARRAY
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.LIST
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
@@ -9,6 +8,7 @@ import com.squareup.kotlinpoet.TypeAliasSpec
 import com.squareup.kotlinpoet.TypeSpec
 import org.gradle.configurationcache.extensions.capitalized
 import sh.christian.ozone.api.generator.ENCODING
+import sh.christian.ozone.api.generator.JSON_ELEMENT
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
 import sh.christian.ozone.api.lexicon.LexiconObject
@@ -91,7 +91,7 @@ class XrpcBodyGenerator(
               is LexiconArrayItem.Primitive -> {
                 prop.array.items.primitive.toTypeName()
               }
-              is LexiconArrayItem.Blob -> BYTE_ARRAY
+              is LexiconArrayItem.Blob -> JSON_ELEMENT
               is LexiconArrayItem.Reference -> {
                 when (prop.array.items.reference) {
                   is LexiconSingleReference -> {
@@ -118,7 +118,7 @@ class XrpcBodyGenerator(
         is LexiconObjectProperty.Blob ->
           SimpleProperty(
             name = name,
-            type = BYTE_ARRAY,
+            type = JSON_ELEMENT,
             nullable = nullable,
           )
         is LexiconObjectProperty.Reference -> {

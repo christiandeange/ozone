@@ -2,7 +2,6 @@ package sh.christian.ozone.api.generator.builder
 
 import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.BOOLEAN
-import com.squareup.kotlinpoet.BYTE_ARRAY
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.DOUBLE
 import com.squareup.kotlinpoet.FunSpec
@@ -207,7 +206,7 @@ fun typeName(
     }.let { LIST.parameterizedBy(it) }
   }
   is LexiconBlob -> {
-    BYTE_ARRAY
+    JSON_ELEMENT
   }
   is LexiconObject -> {
     val packageName = source.id.substringBeforeLast(".")
