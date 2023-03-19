@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.plugin.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.plugin.sources.android.findAndroidSourceSet
+
 plugins {
   kotlin("multiplatform")
   kotlin("plugin.serialization")
@@ -26,6 +29,15 @@ kotlin {
 
         api(project(":api"))
         api(project(":store"))
+      }
+    }
+    val androidMain by getting {
+      @OptIn(ExperimentalKotlinGradlePluginApi::class)
+      findAndroidSourceSet(this)!!.assets.srcDir("fonts")
+    }
+    val desktopMain by getting {
+      sourceSets {
+        resources.srcDir("fonts")
       }
     }
   }

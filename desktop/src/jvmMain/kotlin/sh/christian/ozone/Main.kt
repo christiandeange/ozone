@@ -18,6 +18,7 @@ import androidx.compose.ui.window.rememberWindowState
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import sh.christian.ozone.store.storage
+import sh.christian.ozone.ui.compose.initTypography
 
 
 fun main() = runBlocking {
@@ -29,6 +30,11 @@ fun main() = runBlocking {
     with(it) {
       launch { onStart() }
     }
+  }
+
+  runBlocking {
+    // Ensure that this is set up before we actually use it in the theme.
+    initTypography()
   }
 
   application {

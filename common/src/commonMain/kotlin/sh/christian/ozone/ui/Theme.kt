@@ -5,6 +5,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import sh.christian.ozone.ui.compose.appFont
 
 
 private val LightColors = lightColorScheme(
@@ -83,9 +84,11 @@ fun AppTheme(
     DarkColors
   }
 
+  val typography = AppTypography(appFont)
+
   MaterialTheme(
-    typography = MaterialTheme.typography.copy(
-      bodySmall = MaterialTheme.typography.bodySmall.copy(
+    typography = typography.copy(
+      bodySmall = typography.bodySmall.copy(
         color = colors.outline,
       ),
     ),
