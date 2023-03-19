@@ -180,25 +180,28 @@ fun String.parseLexiconRef(source: LexiconDocument): Pair<String, String> {
 
 fun typeName(
   environment: LexiconProcessingEnvironment,
-  source: LexiconDocument,
+  context: GeneratorContext,
   propertyName: String?,
   userType: LexiconUserType,
 ): TypeName = when (userType) {
   is LexiconArray -> {
     when (userType.items) {
-      is LexiconArrayItem.Blob -> typeName(environment, source, propertyName, userType.items.blob)
+      is LexiconArrayItem.Blob -> typeName(environment, context, propertyName, userType.items.blob)
       is LexiconArrayItem.Primitive -> typeName(
         environment,
-        source,
+        context,
         propertyName,
         userType.items.primitive
       )
       is LexiconArrayItem.Reference -> when (userType.items.reference) {
-        is LexiconSingleReference -> userType.items.reference.typeName(environment, source)
+        is LexiconSingleReference -> {
+          userType.items.reference.typeName(environment, context.document)
+        }
         is LexiconUnionReference -> {
+          val sourceId = context.document.id
           ClassName(
-            source.id.substringBeforeLast("."),
-            source.id.substringAfterLast(".").capitalized() +
+            sourceId.substringBeforeLast("."),
+            sourceId.substringAfterLast(".").capitalized() +
                 propertyName!!.removeSuffix("s").capitalized(),
           )
         }
@@ -209,32 +212,36 @@ fun typeName(
     JSON_ELEMENT
   }
   is LexiconObject -> {
-    val packageName = source.id.substringBeforeLast(".")
-    val className = source.id.substringAfterLast(".").capitalized() + propertyName!!.capitalized()
+    val sourceId = context.document.id
+    val packageName = sourceId.substringBeforeLast(".")
+    val className = sourceId.substringAfterLast(".").capitalized() + propertyName!!.capitalized()
     ClassName(packageName, className)
   }
   is LexiconPrimitive -> {
     userType.toTypeName()
   }
   is LexiconRecord -> {
-    typeName(environment, source, userType.key, userType.record)
+    typeName(environment, context, userType.key, userType.record)
   }
   is LexiconToken -> {
     STRING
   }
   is LexiconXrpcProcedure -> {
-    val packageName = source.id.substringBeforeLast(".")
-    val className = source.id.substringAfterLast(".").capitalized() + propertyName!!.capitalized()
+    val sourceId = context.document.id
+    val packageName = sourceId.substringBeforeLast(".")
+    val className = sourceId.substringAfterLast(".").capitalized() + propertyName!!.capitalized()
     ClassName(packageName, className)
   }
   is LexiconXrpcQuery -> {
-    val packageName = source.id.substringBeforeLast(".")
-    val className = source.id.substringAfterLast(".").capitalized() + propertyName!!.capitalized()
+    val sourceId = context.document.id
+    val packageName = sourceId.substringBeforeLast(".")
+    val className = sourceId.substringAfterLast(".").capitalized() + propertyName!!.capitalized()
     ClassName(packageName, className)
   }
   is LexiconXrpcSubscription -> {
-    val packageName = source.id.substringBeforeLast(".")
-    val className = source.id.substringAfterLast(".").capitalized() + propertyName!!.capitalized()
+    val sourceId = context.document.id
+    val packageName = sourceId.substringBeforeLast(".")
+    val className = sourceId.substringAfterLast(".").capitalized() + propertyName!!.capitalized()
     ClassName(packageName, className)
   }
 }

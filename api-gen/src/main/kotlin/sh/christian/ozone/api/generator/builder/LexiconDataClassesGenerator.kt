@@ -87,10 +87,10 @@ class LexiconDataClassesGenerator(
       val propertyType: TypeName = when (property) {
         is LexiconObjectProperty.Array -> {
           when (val itemType = property.array.items) {
-            is LexiconArrayItem.Blob -> typeName(environment, context.document, "", itemType.blob)
+            is LexiconArrayItem.Blob -> typeName(environment, context, "", itemType.blob)
             is LexiconArrayItem.Primitive -> typeName(
               environment,
-              context.document,
+              context,
               "",
               itemType.primitive
             )
@@ -106,10 +106,10 @@ class LexiconDataClassesGenerator(
             }
           }.let { LIST.parameterizedBy(it) }
         }
-        is LexiconObjectProperty.Blob -> typeName(environment, context.document, "", property.blob)
+        is LexiconObjectProperty.Blob -> typeName(environment, context, "", property.blob)
         is LexiconObjectProperty.Primitive -> typeName(
           environment,
-          context.document,
+          context,
           "",
           property.primitive
         )
