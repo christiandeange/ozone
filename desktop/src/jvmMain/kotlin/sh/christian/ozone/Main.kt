@@ -1,8 +1,6 @@
 package sh.christian.ozone
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection.Companion.Next
@@ -17,13 +15,21 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import sh.christian.ozone.store.storage
 
 
-fun main() {
+fun main() = runBlocking {
   val storage = storage()
   val appPlacement = DesktopAppPlacement(storage)
   val component = AppComponent(storage)
+
+  component.supervisors.forEach {
+    with(it) {
+      launch { onStart() }
+    }
+  }
 
   application {
     val windowState = rememberWindowState(
@@ -33,15 +39,6 @@ fun main() {
 
     appPlacement.size = windowState.size
     appPlacement.position = windowState.position
-
-    val coroutineScope = rememberCoroutineScope()
-    LaunchedEffect(Unit) {
-      component.supervisors.forEach {
-        with(it) {
-          coroutineScope.onStart()
-        }
-      }
-    }
 
     Window(
       title = "Ozone",

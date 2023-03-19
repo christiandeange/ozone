@@ -5,6 +5,7 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import dev.marcellogalhardo.retained.activity.retain
+import kotlinx.coroutines.launch
 import sh.christian.ozone.store.storage
 
 class MainActivity : AppCompatActivity() {
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     appComponent.supervisors.forEach { supervisor ->
       with(supervisor) {
-        lifecycleScope.onStart()
+        lifecycleScope.launch { onStart() }
       }
     }
 
