@@ -6,6 +6,7 @@ import app.bsky.feed.GetTimelineQueryParams
 import app.bsky.feed.GetTimelineResponse
 import com.atproto.session.CreateRequest
 import com.atproto.session.CreateResponse
+import com.atproto.session.RefreshResponse
 import sh.christian.ozone.api.response.AtpResponse
 
 interface AtpApi {

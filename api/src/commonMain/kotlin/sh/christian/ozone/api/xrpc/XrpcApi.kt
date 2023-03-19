@@ -15,7 +15,6 @@ import io.ktor.client.plugins.logging.DEFAULT
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
-import io.ktor.client.request.bearerAuth
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import io.ktor.client.request.post
@@ -23,6 +22,8 @@ import io.ktor.client.request.setBody
 import io.ktor.client.statement.HttpResponse
 import io.ktor.http.Url
 import io.ktor.serialization.kotlinx.json.json
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.serialization.json.Json
 import sh.christian.ozone.api.AtpApi
 import sh.christian.ozone.api.Encoding
@@ -31,34 +32,33 @@ import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.api.response.StatusCode
 
 class XrpcApi(
-  var host: String,
-  var authorizationToken: String?,
+  private val host: StateFlow<String>,
+  private val tokens: MutableStateFlow<Tokens?>,
 ) : AtpApi {
+  private val json = Json {
+    ignoreUnknownKeys = true
+    classDiscriminator = "${'$'}type"
+  }
 
   private val client = HttpClient(CIO) {
-    install(ContentNegotiation) {
-      json(
-        json = Json {
-          classDiscriminator = "${'$'}type"
-        }
-      )
-    }
-
     install(Logging) {
       logger = Logger.DEFAULT
       level = LogLevel.INFO
     }
 
+    install(ContentNegotiation) {
+      json(json)
+    }
+
+    XrpcAuth(json, tokens)
+
     expectSuccess = false
 
     defaultRequest {
-      val hostUrl = Url(this@XrpcApi.host)
+      val hostUrl = Url(this@XrpcApi.host.value)
       url.protocol = hostUrl.protocol
       url.host = hostUrl.host
       url.port = hostUrl.port
-
-      headers["Content-Type"] = "application/json"
-      authorizationToken?.let { token -> bearerAuth(token) }
     }
   }
 
@@ -102,32 +102,32 @@ class XrpcApi(
       setBody(body)
     }
   }
+}
 
-  private suspend inline fun <reified T : Any> HttpResponse.toAtpResponse(): AtpResponse<T> {
-    val headers = headers.entries().associateByTo(mutableMapOf(), { it.key }, { it.value.last() })
+suspend inline fun <reified T : Any> HttpResponse.toAtpResponse(): AtpResponse<T> {
+  val headers = headers.entries().associateByTo(mutableMapOf(), { it.key }, { it.value.last() })
 
-    return when (val code = StatusCode.fromCode(status.value)) {
-      is StatusCode.Okay -> {
-        AtpResponse.Success(
-          headers = headers,
-          response = body(),
-        )
+  return when (val code = StatusCode.fromCode(status.value)) {
+    is StatusCode.Okay -> {
+      AtpResponse.Success(
+        headers = headers,
+        response = body(),
+      )
+    }
+    is StatusCode.Failure -> {
+      val maybeBody = runCatching<T> { body() }.getOrNull()
+      val maybeError = if (maybeBody == null) {
+        runCatching<AtpErrorDescription> { body() }.getOrNull()
+      } else {
+        null
       }
-      is StatusCode.Failure -> {
-        val maybeBody = runCatching<T> { body() }.getOrNull()
-        val maybeError = if (maybeBody == null) {
-          runCatching<AtpErrorDescription> { body() }.getOrNull()
-        } else {
-          null
-        }
 
-        return AtpResponse.Failure(
-          headers = headers,
-          statusCode = code,
-          response = maybeBody,
-          error = maybeError,
-        )
-      }
+      return AtpResponse.Failure(
+        headers = headers,
+        statusCode = code,
+        response = maybeBody,
+        error = maybeError,
+      )
     }
   }
 }
