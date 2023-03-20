@@ -25,16 +25,14 @@ import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.error.toErrorProps
 import sh.christian.ozone.home.TimelineScreen
-import sh.christian.ozone.ui.compose.Dismissable
-import sh.christian.ozone.ui.compose.OverlayScreen
-import sh.christian.ozone.ui.workflow.ViewRendering
-import sh.christian.ozone.ui.workflow.plus
+import sh.christian.ozone.ui.workflow.Dismissable
+import sh.christian.ozone.ui.compose.TextOverlayScreen
 
 class LoggedInWorkflow(
   private val clock: Clock,
   private val apiProvider: ApiProvider,
   private val errorWorkflow: ErrorWorkflow,
-) : StatefulWorkflow<LoggedInProps, LoggedInState, LoggedInOutput, ViewRendering>() {
+) : StatefulWorkflow<LoggedInProps, LoggedInState, LoggedInOutput, AppScreen>() {
 
   override fun initialState(
     props: LoggedInProps,
@@ -45,7 +43,7 @@ class LoggedInWorkflow(
     renderProps: LoggedInProps,
     renderState: LoggedInState,
     context: RenderContext
-  ): ViewRendering = when (renderState) {
+  ): AppScreen = when (renderState) {
     is FetchingTimeline -> {
       context.runningWorker(loadTimeline(renderProps.authInfo.handle)) { result ->
         action {
@@ -73,34 +71,39 @@ class LoggedInWorkflow(
           }
         }
       }
-
-      context.timelineScreen(renderState.profile, renderState.timeline) + OverlayScreen(
-        text = "Loading timeline for ${renderProps.authInfo.handle}...",
-        onDismiss = Dismissable.Ignore,
+      AppScreen(
+        main = context.timelineScreen(renderState.profile, renderState.timeline),
+        overlay = TextOverlayScreen(
+          onDismiss = Dismissable.Ignore,
+          text = "Loading timeline for ${renderProps.authInfo.handle}...",
+        )
       )
     }
-    is ShowingTimeline -> context.timelineScreen(renderState.profile, renderState.timeline)
+    is ShowingTimeline -> {
+      AppScreen(context.timelineScreen(renderState.profile, renderState.timeline))
+    }
     is ShowingError -> {
-      context.timelineScreen(renderState.profile, renderState.timeline) + context.renderChild(
-        errorWorkflow, renderState.errorProps
-      ) { output ->
-        action {
-          val oldProfile = state.profile
-          val oldTimeline = state.timeline
-          when (output) {
-            ErrorOutput.Dismiss -> {
-              if (oldTimeline == null && oldProfile == null) {
-                setOutput(SignOut)
-              } else if (oldTimeline == null || oldProfile == null) {
-                state = FetchingTimeline(oldProfile, oldTimeline)
-              } else {
-                state = ShowingTimeline(oldProfile, oldTimeline)
+      AppScreen(
+        main = context.timelineScreen(renderState.profile, renderState.timeline),
+        overlay = context.renderChild(errorWorkflow, renderState.errorProps) { output ->
+          action {
+            val oldProfile = state.profile
+            val oldTimeline = state.timeline
+            when (output) {
+              ErrorOutput.Dismiss -> {
+                if (oldTimeline == null && oldProfile == null) {
+                  setOutput(SignOut)
+                } else if (oldTimeline == null || oldProfile == null) {
+                  state = FetchingTimeline(oldProfile, oldTimeline)
+                } else {
+                  state = ShowingTimeline(oldProfile, oldTimeline)
+                }
               }
+              ErrorOutput.Retry -> state = FetchingTimeline(oldProfile, oldTimeline)
             }
-            ErrorOutput.Retry -> state = FetchingTimeline(oldProfile, oldTimeline)
           }
         }
-      }
+      )
     }
   }
 

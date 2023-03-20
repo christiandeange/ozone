@@ -1,13 +1,14 @@
 package sh.christian.ozone.error
 
 import com.squareup.workflow1.StatelessWorkflow
+import sh.christian.ozone.ui.workflow.OverlayRendering
 import sh.christian.ozone.ui.workflow.ViewRendering
 
-class ErrorWorkflow : StatelessWorkflow<ErrorProps, ErrorOutput, ViewRendering>() {
+class ErrorWorkflow : StatelessWorkflow<ErrorProps, ErrorOutput, OverlayRendering>() {
   override fun render(
     renderProps: ErrorProps,
     context: RenderContext
-  ): ViewRendering {
+  ): OverlayRendering {
     return ErrorScreen(
       title = renderProps.title,
       description = renderProps.description,

@@ -10,13 +10,12 @@ import sh.christian.ozone.login.LoginOutput.CanceledLogin
 import sh.christian.ozone.login.LoginOutput.LoggedIn
 import sh.christian.ozone.login.LoginRepository
 import sh.christian.ozone.login.LoginWorkflow
-import sh.christian.ozone.ui.workflow.ViewRendering
 
 class AppWorkflow(
   private val loginRepository: LoginRepository,
   private val loginWorkflow: LoginWorkflow,
   private val loggedInWorkflow: LoggedInWorkflow,
-) : StatefulWorkflow<Unit, AppState, Unit, ViewRendering>() {
+) : StatefulWorkflow<Unit, AppState, Unit, AppScreen>() {
   override fun initialState(
     props: Unit,
     snapshot: Snapshot?,
@@ -33,7 +32,7 @@ class AppWorkflow(
     renderProps: Unit,
     renderState: AppState,
     context: RenderContext,
-  ): ViewRendering = when (renderState) {
+  ): AppScreen = when (renderState) {
     is ShowingLogin -> {
       context.renderChild(loginWorkflow) { output ->
         action {

@@ -10,6 +10,7 @@ import com.squareup.workflow1.runningWorker
 import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.api.ServerRepository
 import sh.christian.ozone.api.response.AtpResponse
+import sh.christian.ozone.app.AppScreen
 import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorProps.CustomError
 import sh.christian.ozone.error.ErrorWorkflow
@@ -21,17 +22,15 @@ import sh.christian.ozone.login.LoginState.ShowingLogin
 import sh.christian.ozone.login.LoginState.SigningIn
 import sh.christian.ozone.login.auth.AuthInfo
 import sh.christian.ozone.login.auth.Credentials
-import sh.christian.ozone.ui.compose.Dismissable.DismissHandler
-import sh.christian.ozone.ui.compose.OverlayScreen
-import sh.christian.ozone.ui.workflow.ViewRendering
-import sh.christian.ozone.ui.workflow.plus
+import sh.christian.ozone.ui.compose.TextOverlayScreen
+import sh.christian.ozone.ui.workflow.Dismissable.DismissHandler
 
 class LoginWorkflow(
   private val loginRepository: LoginRepository,
   private val serverRepository: ServerRepository,
   private val apiRepository: ApiProvider,
   private val errorWorkflow: ErrorWorkflow,
-) : StatefulWorkflow<Unit, LoginState, LoginOutput, ViewRendering>() {
+) : StatefulWorkflow<Unit, LoginState, LoginOutput, AppScreen>() {
   override fun initialState(
     props: Unit,
     snapshot: Snapshot?,
@@ -41,9 +40,9 @@ class LoginWorkflow(
     renderProps: Unit,
     renderState: LoginState,
     context: RenderContext,
-  ): ViewRendering = when (renderState) {
+  ): AppScreen = when (renderState) {
     is ShowingLogin -> {
-      context.loginScreen()
+      AppScreen(context.loginScreen())
     }
     is SigningIn -> {
       context.runningWorker(signIn(renderState.credentials)) { result ->
@@ -69,22 +68,28 @@ class LoginWorkflow(
         }
       }
 
-      context.loginScreen() + OverlayScreen(
-        text = "Signing in as ${renderState.credentials.username}...",
-        onDismiss = DismissHandler(context.eventHandler {
-          state = ShowingLogin
-        }),
+      AppScreen(
+        main = context.loginScreen(),
+        overlay = TextOverlayScreen(
+          onDismiss = DismissHandler(context.eventHandler {
+            state = ShowingLogin
+          }),
+          text = "Signing in as ${renderState.credentials.username}...",
+        )
       )
     }
     is ShowingError -> {
-      context.loginScreen() + context.renderChild(errorWorkflow, renderState.errorProps) { output ->
-        action {
-          state = when (output) {
-            ErrorOutput.Dismiss -> ShowingLogin
-            ErrorOutput.Retry -> SigningIn(renderState.credentials)
+      AppScreen(
+        main = context.loginScreen(),
+        overlay = context.renderChild(errorWorkflow, renderState.errorProps) { output ->
+          action {
+            state = when (output) {
+              ErrorOutput.Dismiss -> ShowingLogin
+              ErrorOutput.Retry -> SigningIn(renderState.credentials)
+            }
           }
         }
-      }
+      )
     }
   }
 
