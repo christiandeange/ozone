@@ -1,13 +1,12 @@
 package sh.christian.ozone.login
 
 import com.atproto.session.CreateRequest
-import com.atproto.session.CreateResponse
 import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
-import com.squareup.workflow1.Worker
 import com.squareup.workflow1.action
 import com.squareup.workflow1.runningWorker
 import sh.christian.ozone.api.ApiProvider
+import sh.christian.ozone.api.NetworkWorker
 import sh.christian.ozone.api.ServerRepository
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.app.AppScreen
@@ -26,7 +25,6 @@ import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable.DismissHandler
 
 class LoginWorkflow(
-  private val loginRepository: LoginRepository,
   private val serverRepository: ServerRepository,
   private val apiRepository: ApiProvider,
   private val errorWorkflow: ErrorWorkflow,
@@ -55,7 +53,6 @@ class LoginWorkflow(
                 handle = result.response.handle,
                 did = result.response.did,
               )
-              loginRepository.auth = authInfo
               setOutput(LoggedIn(authInfo))
             }
             is AtpResponse.Failure -> {
@@ -110,7 +107,7 @@ class LoginWorkflow(
     )
   }
 
-  private fun signIn(credentials: Credentials): Worker<AtpResponse<CreateResponse>> = Worker.from {
+  private fun signIn(credentials: Credentials) = NetworkWorker {
     apiRepository.api.createSession(CreateRequest(credentials.username, credentials.password))
   }
 }

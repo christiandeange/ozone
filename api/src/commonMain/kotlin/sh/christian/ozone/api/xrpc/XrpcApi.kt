@@ -9,6 +9,7 @@ import com.atproto.session.CreateResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.engine.cio.CIO
+import io.ktor.client.plugins.DefaultRequest
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.plugins.logging.DEFAULT
@@ -35,7 +36,7 @@ class XrpcApi(
   private val host: StateFlow<String>,
   private val tokens: MutableStateFlow<Tokens?>,
 ) : AtpApi {
-  private val json = Json {
+  private val jsonEnvironment = Json {
     ignoreUnknownKeys = true
     classDiscriminator = "${'$'}type"
   }
@@ -43,23 +44,26 @@ class XrpcApi(
   private val client = HttpClient(CIO) {
     install(Logging) {
       logger = Logger.DEFAULT
-      level = LogLevel.INFO
+      level = LogLevel.HEADERS
     }
 
     install(ContentNegotiation) {
-      json(json)
+      json(jsonEnvironment)
     }
 
-    XrpcAuth(json, tokens)
+    install(XrpcAuthPlugin) {
+      json = jsonEnvironment
+      authTokens = tokens
+    }
 
-    expectSuccess = false
-
-    defaultRequest {
+    install(DefaultRequest) {
       val hostUrl = Url(this@XrpcApi.host.value)
       url.protocol = hostUrl.protocol
       url.host = hostUrl.host
       url.port = hostUrl.port
     }
+
+    expectSuccess = false
   }
 
   override suspend fun createSession(

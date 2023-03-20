@@ -29,7 +29,6 @@ kotlin {
         api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
         api("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
 
-        api("io.ktor:ktor-client-auth:2.2.3")
         api("io.ktor:ktor-client-content-negotiation:2.2.3")
         api("io.ktor:ktor-client-core:2.2.3")
         api("io.ktor:ktor-client-cio:2.2.3")

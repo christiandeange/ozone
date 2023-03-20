@@ -4,6 +4,8 @@ import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.action
 import com.squareup.workflow1.renderChild
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 import sh.christian.ozone.app.AppState.ShowingLoggedIn
 import sh.christian.ozone.app.AppState.ShowingLogin
 import sh.christian.ozone.login.LoginOutput.CanceledLogin
@@ -20,7 +22,7 @@ class AppWorkflow(
     props: Unit,
     snapshot: Snapshot?,
   ): AppState {
-    val authInfo = loginRepository.auth
+    val authInfo = runBlocking { loginRepository.auth().first() }
     return if (authInfo == null) {
       ShowingLogin
     } else {
@@ -38,6 +40,7 @@ class AppWorkflow(
         action {
           when (output) {
             is LoggedIn -> {
+              loginRepository.auth = output.authInfo
               state = ShowingLoggedIn(LoggedInProps(output.authInfo))
             }
 
@@ -52,6 +55,7 @@ class AppWorkflow(
           when (output) {
             LoggedInOutput.CloseApp -> setOutput(Unit)
             LoggedInOutput.SignOut -> {
+              loginRepository.auth = null
               state = ShowingLogin
             }
           }
