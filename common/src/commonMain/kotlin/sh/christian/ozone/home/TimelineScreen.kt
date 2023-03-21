@@ -31,6 +31,7 @@ import kotlinx.coroutines.launch
 import kotlinx.datetime.Instant
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.OpenImageAction
+import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 
@@ -47,7 +48,9 @@ class TimelineScreen(
   val coroutineScope = rememberCoroutineScope()
 
   Scaffold(
-    modifier = Modifier.fillMaxSize(),
+    modifier = Modifier
+      .fillMaxSize()
+      .onBackPressed(onExit),
     topBar = {
       CenterAlignedTopAppBar(
         navigationIcon = {

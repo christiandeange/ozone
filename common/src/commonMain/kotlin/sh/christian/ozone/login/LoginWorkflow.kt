@@ -98,7 +98,7 @@ class LoginWorkflow(
       onChangeServer = eventHandler { server ->
         serverRepository.server = server
       },
-      onCancel = eventHandler {
+      onExit = eventHandler {
         setOutput(CanceledLogin)
       },
       onLogin = eventHandler { credentials ->

@@ -47,6 +47,7 @@ import sh.christian.ozone.login.auth.Server
 import sh.christian.ozone.login.auth.Server.BlueskySocial
 import sh.christian.ozone.login.auth.Server.CustomServer
 import sh.christian.ozone.ui.compose.Overlay
+import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.icons.AlternateEmail
 import sh.christian.ozone.ui.icons.Visibility
 import sh.christian.ozone.ui.icons.VisibilityOff
@@ -57,12 +58,15 @@ import sh.christian.ozone.ui.workflow.screen
 class LoginScreen(
   private val server: Server,
   private val onChangeServer: (Server) -> Unit,
-  private val onCancel: () -> Unit,
+  private val onExit: () -> Unit,
   private val onLogin: (Credentials) -> Unit,
 ) : ViewRendering by screen({
-  var expandBottomSheet = remember { MutableTransitionState(false) }
+  val expandBottomSheet = remember { MutableTransitionState(false) }
 
-  Column(Modifier.fillMaxSize()) {
+  Column(Modifier
+    .fillMaxSize()
+    .onBackPressed(onExit),
+  ) {
     var username: String by remember { mutableStateOf("") }
     var password: String by remember { mutableStateOf("") }
 

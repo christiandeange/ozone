@@ -34,6 +34,10 @@ kotlin {
     val androidMain by getting {
       @OptIn(ExperimentalKotlinGradlePluginApi::class)
       findAndroidSourceSet(this)!!.assets.srcDir("fonts")
+
+      dependencies {
+        implementation("androidx.activity:activity-compose:1.6.1")
+      }
     }
     val desktopMain by getting {
       sourceSets {

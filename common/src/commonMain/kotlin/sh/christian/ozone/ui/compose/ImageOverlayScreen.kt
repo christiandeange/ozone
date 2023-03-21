@@ -43,7 +43,8 @@ class ImageOverlayScreen(
   private val action: OpenImageAction,
 ) : OverlayRendering by overlay(onDismiss, { onRequestDismiss ->
   Surface(
-    modifier = Modifier.fillMaxSize(),
+    modifier = Modifier
+      .fillMaxSize(),
     color = Color.Black.copy(alpha = 0.9f),
   ) {
     Box {
@@ -57,6 +58,7 @@ class ImageOverlayScreen(
 
       KamelImage(
         modifier = Modifier
+          .onBackPressed { onRequestDismiss() }
           .align(Alignment.Center)
           .onSizeChanged { size = it }
           .pointerInput(Unit) {
