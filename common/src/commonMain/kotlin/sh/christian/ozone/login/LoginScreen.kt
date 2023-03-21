@@ -34,7 +34,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.autofill.AutofillType
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -47,6 +49,7 @@ import sh.christian.ozone.login.auth.Server
 import sh.christian.ozone.login.auth.Server.BlueskySocial
 import sh.christian.ozone.login.auth.Server.CustomServer
 import sh.christian.ozone.ui.compose.Overlay
+import sh.christian.ozone.ui.compose.autofill
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.icons.AlternateEmail
 import sh.christian.ozone.ui.icons.Visibility
@@ -54,7 +57,7 @@ import sh.christian.ozone.ui.icons.VisibilityOff
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
 class LoginScreen(
   private val server: Server,
   private val onChangeServer: (Server) -> Unit,
@@ -63,9 +66,10 @@ class LoginScreen(
 ) : ViewRendering by screen({
   val expandBottomSheet = remember { MutableTransitionState(false) }
 
-  Column(Modifier
-    .fillMaxSize()
-    .onBackPressed(onExit),
+  Column(
+    Modifier
+      .fillMaxSize()
+      .onBackPressed(onExit),
   ) {
     var username: String by remember { mutableStateOf("") }
     var password: String by remember { mutableStateOf("") }
@@ -87,7 +91,12 @@ class LoginScreen(
       horizontalAlignment = Alignment.CenterHorizontally,
     ) {
       OutlinedTextField(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+          .fillMaxWidth()
+          .autofill(
+            autofillTypes = listOf(AutofillType.Username),
+            onFill = { username = it },
+          ),
         value = username,
         onValueChange = { username = it },
         leadingIcon = {
@@ -106,7 +115,12 @@ class LoginScreen(
 
       var showPassword by remember { mutableStateOf(false) }
       OutlinedTextField(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+          .fillMaxWidth()
+          .autofill(
+            autofillTypes = listOf(AutofillType.Password),
+            onFill = { username = it },
+          ),
         value = password,
         onValueChange = { password = it },
         leadingIcon = {
