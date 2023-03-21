@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.produceState
 import com.squareup.workflow1.RenderingAndSnapshot
+import com.squareup.workflow1.SimpleLoggingWorkflowInterceptor
 import com.squareup.workflow1.Workflow
 import com.squareup.workflow1.renderWorkflowIn
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -38,6 +39,7 @@ fun <PropsT, OutputT, RenderingT : Any> WorkflowRendering(
       workflow = workflow,
       scope = this,
       initialSnapshot = null,
+      interceptors = listOf(SimpleLoggingWorkflowInterceptor()),
       props = props,
       onOutput = onOutput,
     )
