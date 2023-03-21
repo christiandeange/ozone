@@ -1,5 +1,10 @@
 package sh.christian.ozone.login
 
+import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -22,11 +27,11 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -55,7 +60,7 @@ class LoginScreen(
   private val onCancel: () -> Unit,
   private val onLogin: (Credentials) -> Unit,
 ) : ViewRendering by screen({
-  var expandBottomSheet by rememberSaveable { mutableStateOf(false) }
+  var expandBottomSheet = remember { MutableTransitionState(false) }
 
   Column(Modifier.fillMaxSize()) {
     var username: String by remember { mutableStateOf("") }
@@ -136,7 +141,7 @@ class LoginScreen(
       FilledTonalButton(
         modifier = Modifier.align(Alignment.End),
         contentPadding = PaddingValues(16.dp, 8.dp),
-        onClick = { expandBottomSheet = true },
+        onClick = { expandBottomSheet.targetState = true },
       ) {
         Icon(
           modifier = Modifier.size(18.dp),
@@ -172,57 +177,61 @@ class LoginScreen(
 
   Overlay(
     modifier = Modifier.fillMaxSize(),
-    visible = expandBottomSheet,
-    onDismiss = { expandBottomSheet = false },
+    visibleState = expandBottomSheet,
+    enter = fadeIn() + slideInVertically(initialOffsetY = { it }),
+    exit = fadeOut() + slideOutVertically(targetOffsetY = { it }),
+    onClickOutside = { expandBottomSheet.targetState = false },
   ) {
-    Column(
-      modifier = Modifier
-        .padding(32.dp)
-        .fillMaxWidth(),
-      verticalArrangement = spacedBy(8.dp),
-    ) {
-      Button(
+    Surface(shadowElevation = 16.dp) {
+      Column(
         modifier = Modifier
-          .fillMaxWidth()
-          .height(56.dp),
-        onClick = {
-          onChangeServer(BlueskySocial)
-          expandBottomSheet = false
-        },
-        shape = MaterialTheme.shapes.large,
+          .padding(32.dp)
+          .fillMaxWidth(),
+        verticalArrangement = spacedBy(8.dp),
       ) {
-        Text("Bluesky Social")
-      }
+        Button(
+          modifier = Modifier
+            .fillMaxWidth()
+            .height(56.dp),
+          onClick = {
+            onChangeServer(BlueskySocial)
+            expandBottomSheet.targetState = false
+          },
+          shape = MaterialTheme.shapes.large,
+        ) {
+          Text("Bluesky Social")
+        }
 
-      var customServer by remember {
-        mutableStateOf(
-          when (server) {
-            is BlueskySocial -> ""
-            is CustomServer -> server.host
-          }
+        var customServer by remember {
+          mutableStateOf(
+            when (server) {
+              is BlueskySocial -> ""
+              is CustomServer -> server.host
+            }
+          )
+        }
+        OutlinedTextField(
+          modifier = Modifier.fillMaxWidth(),
+          value = customServer,
+          onValueChange = { customServer = it },
+          placeholder = { Text("Custom Server") },
+          trailingIcon = {
+            IconButton(
+              enabled = customServer.isNotBlank(),
+              onClick = {
+                onChangeServer(CustomServer(customServer))
+                expandBottomSheet.targetState = false
+              },
+            ) {
+              Icon(
+                painter = rememberVectorPainter(Icons.Default.CheckCircle),
+                contentDescription = "Save Custom Server",
+              )
+            }
+          },
+          shape = MaterialTheme.shapes.large,
         )
       }
-      OutlinedTextField(
-        modifier = Modifier.fillMaxWidth(),
-        value = customServer,
-        onValueChange = { customServer = it },
-        placeholder = { Text("Custom Server") },
-        trailingIcon = {
-          IconButton(
-            enabled = customServer.isNotBlank(),
-            onClick = {
-              onChangeServer(CustomServer(customServer))
-              expandBottomSheet = false
-            },
-          ) {
-            Icon(
-              painter = rememberVectorPainter(Icons.Default.CheckCircle),
-              contentDescription = "Save Custom Server",
-            )
-          }
-        },
-        shape = MaterialTheme.shapes.large,
-      )
     }
   }
 })

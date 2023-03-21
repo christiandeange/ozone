@@ -1,10 +1,11 @@
 package sh.christian.ozone.ui.compose
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.core.MutableTransitionState
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
@@ -16,13 +17,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 
 @Composable
 fun Overlay(
-  visible: Boolean,
-  onDismiss: () -> Unit,
+  visibleState: MutableTransitionState<Boolean>,
+  enter: EnterTransition,
+  exit: ExitTransition,
+  onClickOutside: () -> Unit,
   modifier: Modifier = Modifier,
   content: @Composable () -> Unit = {},
 ) {
@@ -33,9 +34,9 @@ fun Overlay(
         .clickable(
           interactionSource = remember { MutableInteractionSource() },
           indication = null,
-          onClick = onDismiss,
+          onClick = onClickOutside,
         ),
-      visible = visible,
+      visibleState = visibleState,
       enter = fadeIn(),
       exit = fadeOut(),
     ) {
@@ -54,13 +55,11 @@ fun Overlay(
           indication = null,
           onClick = {},
         ),
-      visible = visible,
-      enter = fadeIn() + slideInVertically(initialOffsetY = { it }),
-      exit = fadeOut() + slideOutVertically(targetOffsetY = { it }),
+      visibleState = visibleState,
+      enter = enter,
+      exit = exit,
     ) {
-      Surface(shadowElevation = 16.dp) {
-        content()
-      }
+      content()
     }
   }
 }

@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import io.kamel.core.Resource
 import io.kamel.image.KamelImage
 import io.kamel.image.lazyPainterResource
 
@@ -21,30 +22,36 @@ fun PostImage(
   fallbackColor: Color = Color.Transparent,
 ) {
   if (imageUrl != null) {
+    val resource = lazyPainterResource(imageUrl)
+    val clickable = if (resource is Resource.Success) {
+      Modifier.clickable { onClick() }
+    } else {
+      Modifier
+    }
+
     KamelImage(
       modifier = modifier
         .clip(MaterialTheme.shapes.large)
-        .clickable { onClick() },
-      resource = lazyPainterResource(imageUrl),
+        .then(clickable),
+      resource = resource,
       contentDescription = contentDescription,
-      onLoading = { EmptyAvatar(fallbackColor) },
-      onFailure = { EmptyAvatar(fallbackColor) },
-      contentScale = ContentScale.FillWidth,
+      onLoading = { EmptyPostImage(fallbackColor) },
+      onFailure = { EmptyPostImage(fallbackColor) },
+      contentScale = ContentScale.Crop,
     )
   } else {
-    EmptyAvatar(fallbackColor, modifier, onClick)
+    EmptyPostImage(fallbackColor, modifier)
   }
 }
 
 @Composable
-private fun EmptyAvatar(
+private fun EmptyPostImage(
   fallbackColor: Color,
   modifier: Modifier = Modifier,
-  onClick: () -> Unit = {},
 ) {
   Box(
     modifier = modifier
-      .clickable { onClick() }
+      .clickable { }
       .clip(MaterialTheme.shapes.large)
       .background(fallbackColor)
   )

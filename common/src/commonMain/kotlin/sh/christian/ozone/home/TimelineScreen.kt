@@ -30,6 +30,7 @@ import app.bsky.feed.FeedViewPost
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Instant
 import sh.christian.ozone.ui.compose.AvatarImage
+import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 
@@ -40,6 +41,7 @@ class TimelineScreen(
   private val timeline: List<FeedViewPost>,
   private val onSignOut: () -> Unit,
   private val onExit: () -> Unit,
+  private val onOpenImage: (OpenImageAction) -> Unit,
 ) : ViewRendering by screen({
   val feedState = rememberLazyListState()
   val coroutineScope = rememberCoroutineScope()
@@ -97,7 +99,7 @@ class TimelineScreen(
         state = feedState,
       ) {
         items(items = timeline, key = { it.post.cid }) { post ->
-          TimelinePost(now, post.post, post.reply)
+          TimelinePost(now, post.post, post.reply, onOpenImage)
         }
       }
     }

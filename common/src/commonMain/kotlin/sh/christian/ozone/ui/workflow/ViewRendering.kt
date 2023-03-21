@@ -12,22 +12,3 @@ fun screen(content: @Composable () -> Unit): ViewRendering = object : ViewRender
   @Composable
   override fun Content() = content()
 }
-
-fun overlay(
-  onDismiss: Dismissable,
-  content: @Composable () -> Unit,
-): OverlayRendering = object : OverlayRendering {
-  override val onDismiss: Dismissable = onDismiss
-
-  @Composable
-  override fun Content() = content()
-}
-
-operator fun ViewRendering.plus(
-  other: ViewRendering,
-): ViewRendering = screen {
-  Box {
-    Content()
-    other.Content()
-  }
-}

@@ -19,14 +19,17 @@ import sh.christian.ozone.app.LoggedInOutput.CloseApp
 import sh.christian.ozone.app.LoggedInOutput.SignOut
 import sh.christian.ozone.app.LoggedInState.FetchingTimeline
 import sh.christian.ozone.app.LoggedInState.ShowingError
+import sh.christian.ozone.app.LoggedInState.ShowingFullSizeImage
 import sh.christian.ozone.app.LoggedInState.ShowingTimeline
 import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.error.toErrorProps
 import sh.christian.ozone.home.TimelineScreen
-import sh.christian.ozone.ui.workflow.Dismissable
+import sh.christian.ozone.ui.compose.ImageOverlayScreen
 import sh.christian.ozone.ui.compose.TextOverlayScreen
+import sh.christian.ozone.ui.workflow.Dismissable
+import sh.christian.ozone.ui.workflow.Dismissable.DismissHandler
 
 class LoggedInWorkflow(
   private val clock: Clock,
@@ -82,6 +85,17 @@ class LoggedInWorkflow(
     is ShowingTimeline -> {
       AppScreen(context.timelineScreen(renderState.profile, renderState.timeline))
     }
+    is ShowingFullSizeImage -> {
+      AppScreen(
+        context.timelineScreen(renderState.profile, renderState.timeline),
+        ImageOverlayScreen(
+          onDismiss = DismissHandler(
+            context.eventHandler { state = renderState.previousState }
+          ),
+          action = renderState.openImageAction,
+        )
+      )
+    }
     is ShowingError -> {
       AppScreen(
         main = context.timelineScreen(renderState.profile, renderState.timeline),
@@ -117,6 +131,9 @@ class LoggedInWorkflow(
       now = clock.now(),
       profile = profile,
       timeline = timelineResponse?.feed.orEmpty(),
+      onOpenImage = eventHandler { action ->
+        state = ShowingFullSizeImage(state, action)
+      },
       onSignOut = eventHandler {
         setOutput(SignOut)
       },

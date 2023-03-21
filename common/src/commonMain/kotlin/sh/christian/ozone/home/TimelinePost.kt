@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -20,24 +21,33 @@ import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import app.bsky.actor.RefWithInfo
 import app.bsky.feed.FeedViewPostReplyRef
 import app.bsky.feed.Post
 import app.bsky.feed.PostView
 import app.bsky.feed.PostViewEmbedUnion.ImagesPresented
+import io.kamel.image.lazyPainterResource
 import kotlinx.datetime.Instant
 import sh.christian.ozone.ui.compose.AvatarImage
+import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.compose.PostImage
 import sh.christian.ozone.ui.icons.ChatBubbleOutline
 import sh.christian.ozone.ui.icons.Repeat
@@ -51,6 +61,7 @@ fun TimelinePost(
   now: Instant,
   postView: PostView,
   replyRef: FeedViewPostReplyRef?,
+  onOpenImage: (OpenImageAction) -> Unit,
 ) {
   Row(
     modifier = Modifier.padding(16.dp),
@@ -76,7 +87,7 @@ fun TimelinePost(
             verticalArrangement = spacedBy(4.dp),
           ) {
             PostText(post)
-            PostImages(postView)
+            PostImages(postView, onOpenImage)
           }
           PostActions(postView)
         }
@@ -191,15 +202,32 @@ private fun PostText(post: Post) {
 }
 
 @Composable
-private fun PostImages(postView: PostView) {
+private fun PostImages(
+  postView: PostView,
+  onOpenImage: (OpenImageAction) -> Unit,
+) {
   (postView.embed as? ImagesPresented)?.value?.images?.takeIf { it.isNotEmpty() }?.let { images ->
     Row(horizontalArrangement = spacedBy(8.dp)) {
       images.forEach { image ->
+        var size by remember(image) { mutableStateOf(IntSize.Zero) }
+        var position by remember(image) { mutableStateOf(Offset.Zero) }
+
+        // Load the full-size image into the cache.
+        lazyPainterResource(image.fullsize)
+
         PostImage(
-          modifier = Modifier.weight(1f),
+          modifier = Modifier
+            .weight(1f)
+            .aspectRatio(1f)
+            .onGloballyPositioned { coordinates ->
+              size = coordinates.size
+              position = coordinates.positionInRoot()
+            },
           imageUrl = image.thumb,
           contentDescription = image.alt,
-          onClick = {},
+          onClick = {
+            onOpenImage(OpenImageAction(image.fullsize, image.alt))
+          },
           fallbackColor = Color.Gray,
         )
       }
