@@ -1,6 +1,5 @@
 package sh.christian.ozone.ui.workflow
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 
 interface ViewRendering {
