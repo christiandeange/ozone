@@ -57,7 +57,7 @@ class LoginWorkflow(
             }
             is AtpResponse.Failure -> {
               val errorProps = result.toErrorProps(true)
-                ?: CustomError("Oops.", "Something bad happened", false)
+                ?: CustomError("Oops.", "Something bad happened.", false)
 
               state = ShowingError(errorProps, renderState.credentials)
             }

@@ -4,6 +4,8 @@ import app.bsky.actor.GetProfileQueryParams
 import app.bsky.actor.GetProfileResponse
 import app.bsky.feed.GetTimelineQueryParams
 import app.bsky.feed.GetTimelineResponse
+import com.atproto.repo.CreateRecordRequest
+import com.atproto.repo.CreateRecordResponse
 import com.atproto.session.CreateRequest
 import com.atproto.session.CreateResponse
 import io.ktor.client.HttpClient
@@ -11,7 +13,6 @@ import io.ktor.client.call.body
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.DefaultRequest
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.plugins.logging.DEFAULT
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
@@ -82,6 +83,12 @@ class XrpcApi(
     params: GetProfileQueryParams,
   ): AtpResponse<GetProfileResponse> {
     return client.query("/xrpc/app.bsky.actor.getProfile", params.toMap()).toAtpResponse()
+  }
+
+  override suspend fun createRecord(
+    request: CreateRecordRequest,
+  ): AtpResponse<CreateRecordResponse> {
+    return client.procedure("/xrpc/com.atproto.repo.createRecord", request).toAtpResponse()
   }
 
   private suspend inline fun HttpClient.query(

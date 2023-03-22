@@ -2,6 +2,7 @@ package sh.christian.ozone.app
 
 import app.bsky.actor.ProfileView
 import app.bsky.feed.GetTimelineResponse
+import sh.christian.ozone.compose.ComposePostProps
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.ui.compose.OpenImageAction
 
@@ -23,6 +24,13 @@ sealed interface LoggedInState {
     val previousState: LoggedInState,
     val openImageAction: OpenImageAction,
   ) : LoggedInState by previousState
+
+  data class ComposingPost(
+    override val timeline: GetTimelineResponse,
+    val composePostProps: ComposePostProps,
+  ) : LoggedInState {
+    override val profile: ProfileView get() = composePostProps.profile
+  }
 
   data class ShowingError(
     override val profile: ProfileView?,

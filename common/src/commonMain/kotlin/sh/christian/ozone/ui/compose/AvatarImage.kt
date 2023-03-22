@@ -17,14 +17,20 @@ fun AvatarImage(
   modifier: Modifier = Modifier,
   avatarUrl: String?,
   contentDescription: String?,
-  onClick: () -> Unit,
+  onClick: (() -> Unit)? = null,
   fallbackColor: Color = Color.Transparent,
 ) {
+  val clickableModifier = if (onClick != null) {
+    Modifier.clickable { onClick() }
+  } else {
+    Modifier
+  }
+
   if (avatarUrl != null) {
     KamelImage(
       modifier = modifier
         .clip(CircleShape)
-        .clickable { onClick() },
+        .then(clickableModifier),
       resource = lazyPainterResource(avatarUrl),
       contentDescription = contentDescription,
       onLoading = { EmptyAvatar(fallbackColor) },
@@ -32,7 +38,10 @@ fun AvatarImage(
       contentScale = ContentScale.Crop,
     )
   } else {
-    EmptyAvatar(fallbackColor, modifier, onClick)
+    EmptyAvatar(
+      modifier = modifier.then(clickableModifier),
+      fallbackColor = fallbackColor,
+    )
   }
 }
 
@@ -40,11 +49,9 @@ fun AvatarImage(
 private fun EmptyAvatar(
   fallbackColor: Color,
   modifier: Modifier = Modifier,
-  onClick: () -> Unit = {},
 ) {
   Box(
     modifier = modifier
-      .clickable { onClick() }
       .clip(CircleShape)
       .background(fallbackColor)
   )

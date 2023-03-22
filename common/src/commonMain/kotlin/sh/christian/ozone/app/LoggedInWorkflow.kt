@@ -17,10 +17,14 @@ import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.app.LoggedInOutput.CloseApp
 import sh.christian.ozone.app.LoggedInOutput.SignOut
+import sh.christian.ozone.app.LoggedInState.ComposingPost
 import sh.christian.ozone.app.LoggedInState.FetchingTimeline
 import sh.christian.ozone.app.LoggedInState.ShowingError
 import sh.christian.ozone.app.LoggedInState.ShowingFullSizeImage
 import sh.christian.ozone.app.LoggedInState.ShowingTimeline
+import sh.christian.ozone.compose.ComposePostOutput
+import sh.christian.ozone.compose.ComposePostProps
+import sh.christian.ozone.compose.ComposePostWorkflow
 import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
@@ -34,6 +38,7 @@ import sh.christian.ozone.ui.workflow.Dismissable.DismissHandler
 class LoggedInWorkflow(
   private val clock: Clock,
   private val apiProvider: ApiProvider,
+  private val composePostWorkflow: ComposePostWorkflow,
   private val errorWorkflow: ErrorWorkflow,
 ) : StatefulWorkflow<LoggedInProps, LoggedInState, LoggedInOutput, AppScreen>() {
 
@@ -68,7 +73,7 @@ class LoggedInWorkflow(
           } else {
             val errorProps = (result.profile as AtpResponse.Failure).toErrorProps(true)
               ?: (result.timeline as AtpResponse.Failure).toErrorProps(true)
-              ?: ErrorProps.CustomError("Oops.", "Something bad happened", true)
+              ?: ErrorProps.CustomError("Oops.", "Something bad happened.", true)
 
             ShowingError(null, null, errorProps)
           }
@@ -95,6 +100,28 @@ class LoggedInWorkflow(
           action = renderState.openImageAction,
         )
       )
+    }
+    is ComposingPost -> {
+      AppScreen(
+        context.renderChild(composePostWorkflow, renderState.composePostProps) { output ->
+          action {
+            val profile: ProfileView? = state.profile
+            val timeline: GetTimelineResponse? = state.timeline
+
+            state = when (output) {
+              is ComposePostOutput.CreatedPost -> {
+                FetchingTimeline(profile, timeline)
+              }
+              is ComposePostOutput.CanceledPost -> {
+                if (profile == null || timeline == null) {
+                  FetchingTimeline(profile, timeline)
+                } else {
+                  ShowingTimeline(profile, timeline)
+                }
+              }
+            }
+          }
+        })
     }
     is ShowingError -> {
       AppScreen(
@@ -131,6 +158,10 @@ class LoggedInWorkflow(
       now = clock.now(),
       profile = profile,
       timeline = timelineResponse?.feed.orEmpty(),
+      showComposePostButton = profile != null && timelineResponse != null,
+      onComposePost = eventHandler {
+        state = ComposingPost(timelineResponse!!, ComposePostProps(profile!!))
+      },
       onOpenImage = eventHandler { action ->
         state = ShowingFullSizeImage(state, action)
       },

@@ -13,6 +13,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FabPosition
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -32,6 +34,7 @@ import kotlinx.datetime.Instant
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.compose.onBackPressed
+import sh.christian.ozone.ui.icons.ChatBubbleOutline
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 
@@ -40,9 +43,11 @@ class TimelineScreen(
   private val now: Instant,
   private val profile: ProfileView?,
   private val timeline: List<FeedViewPost>,
+  private val showComposePostButton: Boolean,
+  private val onComposePost: () -> Unit,
+  private val onOpenImage: (OpenImageAction) -> Unit,
   private val onSignOut: () -> Unit,
   private val onExit: () -> Unit,
-  private val onOpenImage: (OpenImageAction) -> Unit,
 ) : ViewRendering by screen({
   val feedState = rememberLazyListState()
   val coroutineScope = rememberCoroutineScope()
@@ -95,6 +100,17 @@ class TimelineScreen(
         }
       )
     },
+    floatingActionButton = {
+      if (showComposePostButton) {
+        FloatingActionButton(onClick = onComposePost) {
+          Icon(
+            painter = rememberVectorPainter(Icons.Default.ChatBubbleOutline),
+            contentDescription = "Compose",
+          )
+        }
+      }
+    },
+    floatingActionButtonPosition = FabPosition.End,
   ) { contentPadding ->
     Box(modifier = Modifier.padding(contentPadding).fillMaxSize()) {
       LazyColumn(

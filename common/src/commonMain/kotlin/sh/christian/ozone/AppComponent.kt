@@ -6,6 +6,7 @@ import sh.christian.ozone.api.ServerRepository
 import sh.christian.ozone.app.AppWorkflow
 import sh.christian.ozone.app.LoggedInWorkflow
 import sh.christian.ozone.app.Supervisor
+import sh.christian.ozone.compose.ComposePostWorkflow
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.login.LoginRepository
 import sh.christian.ozone.login.LoginWorkflow
@@ -42,10 +43,19 @@ class AppComponent(
     )
   }
 
+  private val composePostWorkflow: ComposePostWorkflow by lazy {
+    ComposePostWorkflow(
+      clock = clock,
+      apiProvider = apiProvider,
+      errorWorkflow = errorWorkflow,
+    )
+  }
+
   private val loggedInWorkflow: LoggedInWorkflow by lazy {
     LoggedInWorkflow(
       clock = clock,
       apiProvider = apiProvider,
+      composePostWorkflow = composePostWorkflow,
       errorWorkflow = errorWorkflow,
     )
   }
