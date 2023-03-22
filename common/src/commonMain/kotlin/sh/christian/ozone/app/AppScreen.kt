@@ -42,9 +42,11 @@ class AppScreen(
     })
   }
 
-  LaunchedEffect(overlay, visibleState) {
+  LaunchedEffect(overlay) {
     visibleState.targetState = overlay != null
+  }
 
+  LaunchedEffect(visibleState.currentState) {
     if (!visibleState.targetState && !visibleState.currentState && overlay != null) {
       when (val onDismiss = overlay.onDismiss) {
         is DismissHandler -> onDismiss.handler()
