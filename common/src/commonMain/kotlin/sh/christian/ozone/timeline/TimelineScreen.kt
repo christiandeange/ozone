@@ -1,4 +1,4 @@
-package sh.christian.ozone.home
+package sh.christian.ozone.timeline
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource

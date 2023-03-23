@@ -4,10 +4,10 @@ import kotlinx.datetime.Clock
 import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.api.ServerRepository
 import sh.christian.ozone.app.AppWorkflow
-import sh.christian.ozone.app.LoggedInWorkflow
 import sh.christian.ozone.app.Supervisor
 import sh.christian.ozone.compose.ComposePostWorkflow
 import sh.christian.ozone.error.ErrorWorkflow
+import sh.christian.ozone.timeline.TimelineWorkflow
 import sh.christian.ozone.login.LoginRepository
 import sh.christian.ozone.login.LoginWorkflow
 import sh.christian.ozone.store.PersistentStorage
@@ -51,8 +51,8 @@ class AppComponent(
     )
   }
 
-  private val loggedInWorkflow: LoggedInWorkflow by lazy {
-    LoggedInWorkflow(
+  private val timelineWorkflow: TimelineWorkflow by lazy {
+    TimelineWorkflow(
       clock = clock,
       apiProvider = apiProvider,
       composePostWorkflow = composePostWorkflow,
@@ -64,7 +64,7 @@ class AppComponent(
     AppWorkflow(
       loginRepository = loginRepository,
       loginWorkflow = loginWorkflow,
-      loggedInWorkflow = loggedInWorkflow,
+      timelineWorkflow = timelineWorkflow,
     )
   }
 

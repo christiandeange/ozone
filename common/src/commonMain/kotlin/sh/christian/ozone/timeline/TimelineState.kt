@@ -1,4 +1,4 @@
-package sh.christian.ozone.app
+package sh.christian.ozone.timeline
 
 import app.bsky.actor.ProfileView
 import app.bsky.feed.GetTimelineResponse
@@ -6,29 +6,29 @@ import sh.christian.ozone.compose.ComposePostProps
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.ui.compose.OpenImageAction
 
-sealed interface LoggedInState {
+sealed interface TimelineState {
   val profile: ProfileView?
   val timeline: GetTimelineResponse?
 
   data class FetchingTimeline(
     override val profile: ProfileView?,
     override val timeline: GetTimelineResponse?,
-  ) : LoggedInState
+  ) : TimelineState
 
   data class ShowingTimeline(
     override val profile: ProfileView,
     override val timeline: GetTimelineResponse,
-  ) : LoggedInState
+  ) : TimelineState
 
   data class ShowingFullSizeImage(
-    val previousState: LoggedInState,
+    val previousState: TimelineState,
     val openImageAction: OpenImageAction,
-  ) : LoggedInState by previousState
+  ) : TimelineState by previousState
 
   data class ComposingPost(
     override val timeline: GetTimelineResponse,
     val composePostProps: ComposePostProps,
-  ) : LoggedInState {
+  ) : TimelineState {
     override val profile: ProfileView get() = composePostProps.profile
   }
 
@@ -36,5 +36,5 @@ sealed interface LoggedInState {
     override val profile: ProfileView?,
     override val timeline: GetTimelineResponse?,
     val errorProps: ErrorProps,
-  ) : LoggedInState
+  ) : TimelineState
 }

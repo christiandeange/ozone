@@ -1,4 +1,4 @@
-package sh.christian.ozone.app
+package sh.christian.ozone.timeline
 
 import app.bsky.actor.GetProfileQueryParams
 import app.bsky.actor.GetProfileResponse
@@ -15,13 +15,7 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.datetime.Clock
 import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.api.response.AtpResponse
-import sh.christian.ozone.app.LoggedInOutput.CloseApp
-import sh.christian.ozone.app.LoggedInOutput.SignOut
-import sh.christian.ozone.app.LoggedInState.ComposingPost
-import sh.christian.ozone.app.LoggedInState.FetchingTimeline
-import sh.christian.ozone.app.LoggedInState.ShowingError
-import sh.christian.ozone.app.LoggedInState.ShowingFullSizeImage
-import sh.christian.ozone.app.LoggedInState.ShowingTimeline
+import sh.christian.ozone.app.AppScreen
 import sh.christian.ozone.compose.ComposePostOutput
 import sh.christian.ozone.compose.ComposePostProps
 import sh.christian.ozone.compose.ComposePostWorkflow
@@ -29,27 +23,33 @@ import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.error.toErrorProps
-import sh.christian.ozone.home.TimelineScreen
+import sh.christian.ozone.timeline.TimelineOutput.CloseApp
+import sh.christian.ozone.timeline.TimelineOutput.SignOut
+import sh.christian.ozone.timeline.TimelineState.ComposingPost
+import sh.christian.ozone.timeline.TimelineState.FetchingTimeline
+import sh.christian.ozone.timeline.TimelineState.ShowingError
+import sh.christian.ozone.timeline.TimelineState.ShowingFullSizeImage
+import sh.christian.ozone.timeline.TimelineState.ShowingTimeline
 import sh.christian.ozone.ui.compose.ImageOverlayScreen
 import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.Dismissable.DismissHandler
 
-class LoggedInWorkflow(
+class TimelineWorkflow(
   private val clock: Clock,
   private val apiProvider: ApiProvider,
   private val composePostWorkflow: ComposePostWorkflow,
   private val errorWorkflow: ErrorWorkflow,
-) : StatefulWorkflow<LoggedInProps, LoggedInState, LoggedInOutput, AppScreen>() {
+) : StatefulWorkflow<TimelineProps, TimelineState, TimelineOutput, AppScreen>() {
 
   override fun initialState(
-    props: LoggedInProps,
+    props: TimelineProps,
     snapshot: Snapshot?,
-  ): LoggedInState = FetchingTimeline(profile = null, timeline = null)
+  ): TimelineState = FetchingTimeline(profile = null, timeline = null)
 
   override fun render(
-    renderProps: LoggedInProps,
-    renderState: LoggedInState,
+    renderProps: TimelineProps,
+    renderState: TimelineState,
     context: RenderContext
   ): AppScreen = when (renderState) {
     is FetchingTimeline -> {
@@ -148,7 +148,7 @@ class LoggedInWorkflow(
     }
   }
 
-  override fun snapshotState(state: LoggedInState): Snapshot? = null
+  override fun snapshotState(state: TimelineState): Snapshot? = null
 
   private fun RenderContext.timelineScreen(
     profile: ProfileView?,
