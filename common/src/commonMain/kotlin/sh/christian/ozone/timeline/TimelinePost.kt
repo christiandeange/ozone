@@ -12,11 +12,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -33,6 +35,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
@@ -53,6 +56,7 @@ import sh.christian.ozone.ui.icons.ChatBubbleOutline
 import sh.christian.ozone.ui.icons.Repeat
 import sh.christian.ozone.ui.icons.Reply
 import sh.christian.ozone.util.deserialize
+import sh.christian.ozone.util.isUrl
 import sh.christian.ozone.util.recordType
 import kotlin.time.Duration
 
@@ -185,19 +189,48 @@ private fun PostReplyLine(replyRef: FeedViewPostReplyRef?) {
 @Composable
 private fun PostText(post: Post) {
   if (post.text.isNotBlank()) {
-    val postText = buildAnnotatedString {
-      append(post.text)
+    val postText = remember(post.text) {
+      buildAnnotatedString {
+        append(post.text)
 
-      post.entities.forEach { entity ->
-        addStyle(
-          style = SpanStyle(color = Color(0xFF3B62FF)),
-          start = entity.index.start.toInt(),
-          end = entity.index.end.toInt(),
-        )
+        post.entities.forEach { entity ->
+          addStyle(
+            style = SpanStyle(color = Color(0xFF3B62FF)),
+            start = entity.index.start.toInt(),
+            end = entity.index.end.toInt(),
+          )
+
+          addStringAnnotation(
+            tag = "clickable",
+            annotation = entity.value,
+            start = entity.index.start.toInt(),
+            end = entity.index.end.toInt(),
+          )
+        }
       }
     }
 
-    Text(text = postText)
+    val uriHandler = LocalUriHandler.current
+    ClickableText(
+      text = postText,
+      style = LocalTextStyle.current.copy(color = LocalContentColor.current),
+      onClick = { index ->
+        postText.getStringAnnotations("clickable", index, index)
+          .firstOrNull()
+          ?.item
+          ?.let { target ->
+            if (target.startsWith("did:")) {
+              println("Clicked on user $target")
+            } else if (target.isUrl()) {
+              uriHandler.openUri(target)
+            } else if (target.startsWith("#")) {
+              println("Clicked on hashtag $target")
+            } else {
+              println("Clicked on unknown target: $target")
+            }
+          }
+      },
+    )
   }
 }
 
