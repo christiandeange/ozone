@@ -7,10 +7,11 @@ import sh.christian.ozone.app.AppWorkflow
 import sh.christian.ozone.app.Supervisor
 import sh.christian.ozone.compose.ComposePostWorkflow
 import sh.christian.ozone.error.ErrorWorkflow
-import sh.christian.ozone.timeline.TimelineWorkflow
 import sh.christian.ozone.login.LoginRepository
 import sh.christian.ozone.login.LoginWorkflow
 import sh.christian.ozone.store.PersistentStorage
+import sh.christian.ozone.timeline.ProfileRepository
+import sh.christian.ozone.timeline.TimelineWorkflow
 
 class AppComponent(
   private val storage: PersistentStorage,
@@ -29,6 +30,12 @@ class AppComponent(
 
   private val clock: Clock by lazy {
     Clock.System
+  }
+
+  private val profileRepository: ProfileRepository by lazy {
+    ProfileRepository(
+      apiProvider = apiProvider,
+    )
   }
 
   private val errorWorkflow: ErrorWorkflow by lazy {
@@ -55,6 +62,7 @@ class AppComponent(
     TimelineWorkflow(
       clock = clock,
       apiProvider = apiProvider,
+      profileRepository = profileRepository,
       composePostWorkflow = composePostWorkflow,
       errorWorkflow = errorWorkflow,
     )
@@ -71,6 +79,7 @@ class AppComponent(
   val supervisors: List<Supervisor> by lazy {
     listOf(
       apiProvider,
+      profileRepository,
     )
   }
 }

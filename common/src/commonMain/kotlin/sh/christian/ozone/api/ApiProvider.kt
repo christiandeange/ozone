@@ -3,11 +3,13 @@ package sh.christian.ozone.api
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.yield
 import sh.christian.ozone.api.xrpc.Tokens
 import sh.christian.ozone.api.xrpc.XrpcApi
 import sh.christian.ozone.app.Supervisor
@@ -20,9 +22,10 @@ class ApiProvider(
 ) : Supervisor {
 
   private val host = MutableStateFlow(apiRepository.server.host)
-  private val auth = MutableStateFlow(loginRepository.auth?.toTokens())
+  private val auth = MutableStateFlow(loginRepository.auth)
+  private val tokens = MutableStateFlow(loginRepository.auth?.toTokens())
 
-  private val _api: XrpcApi = XrpcApi(host, auth)
+  private val _api: XrpcApi = XrpcApi(host, tokens)
   val api: AtpApi get() = _api
 
   override suspend fun CoroutineScope.onStart() {
@@ -34,13 +37,17 @@ class ApiProvider(
       }
 
       launch(Dispatchers.IO) {
-        loginRepository.auth().map { it?.toTokens() }
+        loginRepository.auth()
           .distinctUntilChanged()
-          .collect(auth)
+          .collect {
+            tokens.value = it?.toTokens()
+            yield()
+            auth.value = it
+          }
       }
 
       launch(Dispatchers.IO) {
-        auth.collect { tokens ->
+        tokens.collect { tokens ->
           if (tokens != null) {
             loginRepository.auth = loginRepository.auth().first()!!.withTokens(tokens)
           } else {
@@ -50,6 +57,8 @@ class ApiProvider(
       }
     }
   }
+
+  fun auth(): Flow<AuthInfo?> = auth
 
   private fun AuthInfo.toTokens() = Tokens(accessJwt, refreshJwt)
 

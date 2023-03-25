@@ -1,7 +1,5 @@
 package sh.christian.ozone.timeline
 
-import app.bsky.actor.GetProfileQueryParams
-import app.bsky.actor.GetProfileResponse
 import app.bsky.actor.ProfileView
 import app.bsky.feed.GetTimelineQueryParams
 import app.bsky.feed.GetTimelineResponse
@@ -12,6 +10,7 @@ import com.squareup.workflow1.action
 import com.squareup.workflow1.runningWorker
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.flow.first
 import kotlinx.datetime.Clock
 import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.api.response.AtpResponse
@@ -38,6 +37,7 @@ import sh.christian.ozone.ui.workflow.Dismissable.DismissHandler
 class TimelineWorkflow(
   private val clock: Clock,
   private val apiProvider: ApiProvider,
+  private val profileRepository: ProfileRepository,
   private val composePostWorkflow: ComposePostWorkflow,
   private val errorWorkflow: ErrorWorkflow,
 ) : StatefulWorkflow<TimelineProps, TimelineState, TimelineOutput, AppScreen>() {
@@ -53,9 +53,9 @@ class TimelineWorkflow(
     context: RenderContext
   ): AppScreen = when (renderState) {
     is FetchingTimeline -> {
-      context.runningWorker(loadTimeline(renderProps.authInfo.handle)) { result ->
+      context.runningWorker(loadTimeline()) { result ->
         action {
-          val profile = result.profile.maybeResponse()
+          val profile = result.profile
           val timeline = result.timeline.maybeResponse()
 
           state = if (profile != null && timeline != null) {
@@ -66,14 +66,11 @@ class TimelineWorkflow(
 
             ShowingError(profile, null, errorProps)
           } else if (timeline != null) {
-            val errorProps = (result.profile as AtpResponse.Failure).toErrorProps(true)
-              ?: ErrorProps.CustomError("Oops.", "Could not load profile.", true)
+            val errorProps = ErrorProps.CustomError("Oops.", "Could not load profile.", true)
 
             ShowingError(null, timeline, errorProps)
           } else {
-            val errorProps = (result.profile as AtpResponse.Failure).toErrorProps(true)
-              ?: (result.timeline as AtpResponse.Failure).toErrorProps(true)
-              ?: ErrorProps.CustomError("Oops.", "Something bad happened.", true)
+            val errorProps = ErrorProps.CustomError("Oops.", "Something bad happened.", true)
 
             ShowingError(null, null, errorProps)
           }
@@ -174,10 +171,10 @@ class TimelineWorkflow(
     )
   }
 
-  private fun loadTimeline(handle: String): Worker<HomePayload> {
+  private fun loadTimeline(): Worker<HomePayload> {
     return Worker.from {
       coroutineScope {
-        val profile = async { apiProvider.api.getProfile(GetProfileQueryParams(handle)) }
+        val profile = async { profileRepository.profile().first() }
         val timeline = async { apiProvider.api.getTimeline(GetTimelineQueryParams(limit = 100)) }
 
         HomePayload(profile.await(), timeline.await())
@@ -186,7 +183,7 @@ class TimelineWorkflow(
   }
 
   private data class HomePayload(
-    val profile: AtpResponse<GetProfileResponse>,
+    val profile: ProfileView?,
     val timeline: AtpResponse<GetTimelineResponse>,
   )
 }
