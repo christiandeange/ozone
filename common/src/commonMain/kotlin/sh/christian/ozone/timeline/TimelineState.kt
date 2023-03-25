@@ -16,7 +16,7 @@ sealed interface TimelineState {
   ) : TimelineState
 
   data class ShowingTimeline(
-    override val profile: ProfileView,
+    override val profile: ProfileView?,
     override val timeline: GetTimelineResponse,
   ) : TimelineState
 
@@ -27,9 +27,9 @@ sealed interface TimelineState {
 
   data class ComposingPost(
     override val timeline: GetTimelineResponse,
-    val composePostProps: ComposePostProps,
+    val props: ComposePostProps,
   ) : TimelineState {
-    override val profile: ProfileView get() = composePostProps.profile
+    override val profile: ProfileView get() = props.profile
   }
 
   data class ShowingError(

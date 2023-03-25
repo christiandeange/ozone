@@ -32,6 +32,7 @@ import app.bsky.feed.FeedViewPost
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Instant
 import sh.christian.ozone.ui.compose.AvatarImage
+import sh.christian.ozone.ui.compose.InfiniteListHandler
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.icons.ChatBubbleOutline
@@ -44,6 +45,7 @@ class TimelineScreen(
   private val profile: ProfileView?,
   private val timeline: List<FeedViewPost>,
   private val showComposePostButton: Boolean,
+  private val onLoadMore: () -> Unit,
   private val onComposePost: () -> Unit,
   private val onOpenImage: (OpenImageAction) -> Unit,
   private val onSignOut: () -> Unit,
@@ -112,6 +114,8 @@ class TimelineScreen(
     },
     floatingActionButtonPosition = FabPosition.End,
   ) { contentPadding ->
+    InfiniteListHandler(feedState, buffer = 10, onLoadMore = onLoadMore)
+
     Box(modifier = Modifier.padding(contentPadding).fillMaxSize()) {
       LazyColumn(
         modifier = Modifier.fillMaxSize(),

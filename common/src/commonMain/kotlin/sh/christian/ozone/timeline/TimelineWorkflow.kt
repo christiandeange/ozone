@@ -7,10 +7,8 @@ import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.Worker
 import com.squareup.workflow1.action
+import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
-import kotlinx.coroutines.async
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.flow.first
 import kotlinx.datetime.Clock
 import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.api.response.AtpResponse
@@ -21,7 +19,6 @@ import sh.christian.ozone.compose.ComposePostWorkflow
 import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
-import sh.christian.ozone.error.toErrorProps
 import sh.christian.ozone.timeline.TimelineOutput.CloseApp
 import sh.christian.ozone.timeline.TimelineOutput.SignOut
 import sh.christian.ozone.timeline.TimelineState.ComposingPost
@@ -51,97 +48,111 @@ class TimelineWorkflow(
     renderProps: TimelineProps,
     renderState: TimelineState,
     context: RenderContext
-  ): AppScreen = when (renderState) {
-    is FetchingTimeline -> {
-      context.runningWorker(loadTimeline()) { result ->
-        action {
-          val profile = result.profile
-          val timeline = result.timeline.maybeResponse()
-
-          state = if (profile != null && timeline != null) {
-            ShowingTimeline(profile, timeline)
-          } else if (profile != null) {
-            val errorProps = (result.timeline as AtpResponse.Failure).toErrorProps(true)
-              ?: ErrorProps.CustomError("Oops.", "Could not load timeline.", true)
-
-            ShowingError(profile, null, errorProps)
-          } else if (timeline != null) {
-            val errorProps = ErrorProps.CustomError("Oops.", "Could not load profile.", true)
-
-            ShowingError(null, timeline, errorProps)
-          } else {
-            val errorProps = ErrorProps.CustomError("Oops.", "Something bad happened.", true)
-
-            ShowingError(null, null, errorProps)
-          }
-        }
+  ): AppScreen {
+    context.runningWorker(profileRepository.profile().asWorker()) { newProfile ->
+      action {
+        state = state.withProfile(newProfile)
       }
-      AppScreen(
-        main = context.timelineScreen(renderState.profile, renderState.timeline),
-        overlay = TextOverlayScreen(
-          onDismiss = Dismissable.Ignore,
-          text = "Loading timeline for ${renderProps.authInfo.handle}...",
-        )
-      )
     }
-    is ShowingTimeline -> {
-      AppScreen(context.timelineScreen(renderState.profile, renderState.timeline))
-    }
-    is ShowingFullSizeImage -> {
-      AppScreen(
-        context.timelineScreen(renderState.profile, renderState.timeline),
-        ImageOverlayScreen(
-          onDismiss = DismissHandler(
-            context.eventHandler { state = renderState.previousState }
-          ),
-          action = renderState.openImageAction,
-        )
-      )
-    }
-    is ComposingPost -> {
-      AppScreen(
-        context.renderChild(composePostWorkflow, renderState.composePostProps) { output ->
-          action {
-            val profile: ProfileView? = state.profile
-            val timeline: GetTimelineResponse? = state.timeline
 
-            state = when (output) {
-              is ComposePostOutput.CreatedPost -> {
-                FetchingTimeline(profile, timeline)
-              }
-              is ComposePostOutput.CanceledPost -> {
-                if (profile == null || timeline == null) {
-                  FetchingTimeline(profile, timeline)
-                } else {
-                  ShowingTimeline(profile, timeline)
-                }
-              }
-            }
-          }
-        })
-    }
-    is ShowingError -> {
-      AppScreen(
-        main = context.timelineScreen(renderState.profile, renderState.timeline),
-        overlay = context.renderChild(errorWorkflow, renderState.errorProps) { output ->
+    return when (renderState) {
+      is FetchingTimeline -> {
+        context.runningWorker(loadTimeline(cursor = renderState.timeline?.cursor)) { result ->
           action {
-            val oldProfile = state.profile
-            val oldTimeline = state.timeline
-            when (output) {
-              ErrorOutput.Dismiss -> {
-                if (oldTimeline == null && oldProfile == null) {
-                  setOutput(SignOut)
-                } else if (oldTimeline == null || oldProfile == null) {
-                  state = FetchingTimeline(oldProfile, oldTimeline)
-                } else {
-                  state = ShowingTimeline(oldProfile, oldTimeline)
-                }
-              }
-              ErrorOutput.Retry -> state = FetchingTimeline(oldProfile, oldTimeline)
+            val existingTimeline = state.timeline
+            val loadedTimeline = result.maybeResponse()
+
+            val mergedTimeline = if (existingTimeline != null && loadedTimeline != null) {
+              GetTimelineResponse(
+                cursor = loadedTimeline.cursor,
+                feed = existingTimeline.feed + loadedTimeline.feed,
+              )
+            } else {
+              existingTimeline ?: loadedTimeline
+            }
+
+            state = if (mergedTimeline != null) {
+              ShowingTimeline(state.profile, mergedTimeline)
+            } else {
+              val errorProps = ErrorProps.CustomError("Oops.", "Could not load profile.", true)
+              ShowingError(state.profile, null, errorProps)
             }
           }
         }
-      )
+
+        val overlay = if (renderState.timeline == null) {
+          TextOverlayScreen(
+            onDismiss = Dismissable.Ignore,
+            text = "Loading timeline for ${renderProps.authInfo.handle}...",
+          )
+        } else {
+          null
+        }
+
+        AppScreen(
+          main = context.timelineScreen(renderState.profile, renderState.timeline),
+          overlay = overlay,
+        )
+      }
+      is ShowingTimeline -> {
+        AppScreen(context.timelineScreen(renderState.profile, renderState.timeline))
+      }
+      is ShowingFullSizeImage -> {
+        AppScreen(
+          context.timelineScreen(renderState.profile, renderState.timeline),
+          ImageOverlayScreen(
+            onDismiss = DismissHandler(
+              context.eventHandler { state = renderState.previousState }
+            ),
+            action = renderState.openImageAction,
+          )
+        )
+      }
+      is ComposingPost -> {
+        AppScreen(
+          context.renderChild(composePostWorkflow, renderState.props) { output ->
+            action {
+              val profile: ProfileView? = state.profile
+              val timeline: GetTimelineResponse? = state.timeline
+
+              state = when (output) {
+                is ComposePostOutput.CreatedPost -> {
+                  FetchingTimeline(profile, timeline)
+                }
+                is ComposePostOutput.CanceledPost -> {
+                  if (profile == null || timeline == null) {
+                    FetchingTimeline(profile, timeline)
+                  } else {
+                    ShowingTimeline(profile, timeline)
+                  }
+                }
+              }
+            }
+          })
+      }
+      is ShowingError -> {
+        AppScreen(
+          main = context.timelineScreen(renderState.profile, renderState.timeline),
+          overlay = context.renderChild(errorWorkflow, renderState.errorProps) { output ->
+            action {
+              val oldProfile = state.profile
+              val oldTimeline = state.timeline
+              when (output) {
+                ErrorOutput.Dismiss -> {
+                  if (oldTimeline == null && oldProfile == null) {
+                    setOutput(SignOut)
+                  } else if (oldTimeline == null || oldProfile == null) {
+                    state = FetchingTimeline(oldProfile, oldTimeline)
+                  } else {
+                    state = ShowingTimeline(oldProfile, oldTimeline)
+                  }
+                }
+                ErrorOutput.Retry -> state = FetchingTimeline(oldProfile, oldTimeline)
+              }
+            }
+          }
+        )
+      }
     }
   }
 
@@ -156,6 +167,9 @@ class TimelineWorkflow(
       profile = profile,
       timeline = timelineResponse?.feed.orEmpty(),
       showComposePostButton = profile != null && timelineResponse != null,
+      onLoadMore = eventHandler {
+        state = FetchingTimeline(state.profile, state.timeline)
+      },
       onComposePost = eventHandler {
         state = ComposingPost(timelineResponse!!, ComposePostProps(profile!!))
       },
@@ -171,19 +185,22 @@ class TimelineWorkflow(
     )
   }
 
-  private fun loadTimeline(): Worker<HomePayload> {
+  private fun loadTimeline(cursor: String?): Worker<AtpResponse<GetTimelineResponse>> {
     return Worker.from {
-      coroutineScope {
-        val profile = async { profileRepository.profile().first() }
-        val timeline = async { apiProvider.api.getTimeline(GetTimelineQueryParams(limit = 100)) }
-
-        HomePayload(profile.await(), timeline.await())
-      }
+      apiProvider.api.getTimeline(
+        GetTimelineQueryParams(
+          limit = 100,
+          before = cursor,
+        )
+      )
     }
   }
 
-  private data class HomePayload(
-    val profile: ProfileView?,
-    val timeline: AtpResponse<GetTimelineResponse>,
-  )
+  private fun TimelineState.withProfile(profile: ProfileView?): TimelineState = when (this) {
+    is ComposingPost -> profile?.let { copy(props = props.copy(profile = it)) } ?: this
+    is FetchingTimeline -> copy(profile = profile)
+    is ShowingError -> copy(profile = profile)
+    is ShowingFullSizeImage -> copy(previousState = previousState.withProfile(profile))
+    is ShowingTimeline -> copy(profile = profile)
+  }
 }
