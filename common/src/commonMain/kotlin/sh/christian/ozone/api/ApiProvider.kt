@@ -7,9 +7,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import sh.christian.ozone.api.xrpc.Tokens
 import sh.christian.ozone.api.xrpc.XrpcApi
 import sh.christian.ozone.app.Supervisor
@@ -21,15 +19,20 @@ class ApiProvider(
   private val loginRepository: LoginRepository,
 ) : Supervisor {
 
-  private lateinit var _api: XrpcApi
-  val api: AtpApi get() = runBlocking(Dispatchers.IO) { _api }
+  private val host = MutableStateFlow(apiRepository.server.host)
+  private val auth = MutableStateFlow(loginRepository.auth?.toTokens())
+
+  private val _api: XrpcApi = XrpcApi(host, auth)
+  val api: AtpApi get() = _api
 
   override suspend fun CoroutineScope.onStart() {
-    val host = apiRepository.server().map { it.host }.stateIn(this)
-    val auth = MutableStateFlow(loginRepository.auth().first()?.toTokens())
-    _api = XrpcApi(host, auth)
-
     coroutineScope {
+      launch(Dispatchers.IO) {
+        apiRepository.server().map { it.host }
+          .distinctUntilChanged()
+          .collect(host)
+      }
+
       launch(Dispatchers.IO) {
         loginRepository.auth().map { it?.toTokens() }
           .distinctUntilChanged()
