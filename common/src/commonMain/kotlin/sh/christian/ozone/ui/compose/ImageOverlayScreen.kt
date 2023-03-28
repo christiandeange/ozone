@@ -7,13 +7,9 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
@@ -29,7 +25,6 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.IntSize
-import androidx.compose.ui.unit.dp
 import io.kamel.image.KamelImage
 import io.kamel.image.lazyPainterResource
 import sh.christian.ozone.ui.workflow.Dismissable
@@ -77,21 +72,14 @@ class ImageOverlayScreen(
         contentScale = ContentScale.Fit,
       )
 
-      Surface(
-        modifier = Modifier
-          .align(Alignment.TopStart)
-          .padding(8.dp)
-          .size(32.dp),
-        shape = CircleShape,
-        color = Color.Black.copy(alpha = 0.5f),
+      OverImageIconButton(
+        modifier = Modifier.align(Alignment.TopStart),
+        onClick = onRequestDismiss,
       ) {
-        IconButton(onClick = onRequestDismiss) {
-          Icon(
-            painter = rememberVectorPainter(Icons.Default.Close),
-            contentDescription = "Close",
-            tint = Color.White,
-          )
-        }
+        Icon(
+          painter = rememberVectorPainter(Icons.Default.Close),
+          contentDescription = "Close",
+        )
       }
     }
   }

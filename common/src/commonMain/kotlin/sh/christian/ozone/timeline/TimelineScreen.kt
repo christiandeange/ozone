@@ -47,6 +47,7 @@ class TimelineScreen(
   private val showComposePostButton: Boolean,
   private val onLoadMore: () -> Unit,
   private val onComposePost: () -> Unit,
+  private val onOpenHandle: (String) -> Unit,
   private val onOpenImage: (OpenImageAction) -> Unit,
   private val onSignOut: () -> Unit,
   private val onExit: () -> Unit,
@@ -65,7 +66,7 @@ class TimelineScreen(
             AvatarImage(
               modifier = Modifier.size(32.dp),
               avatarUrl = profile?.avatar,
-              onClick = { },
+              onClick = { profile?.handle?.let { onOpenHandle(it) } },
               contentDescription = profile?.displayName ?: profile?.handle,
               fallbackColor = Color.Black,
             )
@@ -122,7 +123,13 @@ class TimelineScreen(
         state = feedState,
       ) {
         items(items = timeline, key = { it.post.cid }) { post ->
-          TimelinePost(now, post.post, post.reply, onOpenImage)
+          TimelinePost(
+            now = now,
+            postView = post.post,
+            replyRef = post.reply,
+            onOpenHandle = onOpenHandle,
+            onOpenImage = onOpenImage,
+          )
         }
       }
     }

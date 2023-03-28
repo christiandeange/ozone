@@ -9,6 +9,7 @@ import sh.christian.ozone.compose.ComposePostWorkflow
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.login.LoginRepository
 import sh.christian.ozone.login.LoginWorkflow
+import sh.christian.ozone.profile.ProfileWorkflow
 import sh.christian.ozone.store.PersistentStorage
 import sh.christian.ozone.timeline.ProfileRepository
 import sh.christian.ozone.timeline.TimelineWorkflow
@@ -64,6 +65,14 @@ class AppComponent(
       apiProvider = apiProvider,
       profileRepository = profileRepository,
       composePostWorkflow = composePostWorkflow,
+      profileWorkflow = profileWorkflow,
+      errorWorkflow = errorWorkflow,
+    )
+  }
+
+  private val profileWorkflow: ProfileWorkflow by lazy {
+    ProfileWorkflow(
+      apiProvider = apiProvider,
       errorWorkflow = errorWorkflow,
     )
   }

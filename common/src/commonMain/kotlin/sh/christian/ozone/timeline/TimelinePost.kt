@@ -65,6 +65,7 @@ fun TimelinePost(
   now: Instant,
   postView: PostView,
   replyRef: FeedViewPostReplyRef?,
+  onOpenHandle: (String) -> Unit,
   onOpenImage: (OpenImageAction) -> Unit,
 ) {
   Row(
@@ -75,7 +76,7 @@ fun TimelinePost(
     AvatarImage(
       modifier = Modifier.size(48.dp),
       avatarUrl = author.avatar,
-      onClick = { },
+      onClick = { onOpenHandle(author.handle) },
       contentDescription = author.displayName ?: author.handle,
       fallbackColor = Color.Black,
     )
@@ -90,7 +91,7 @@ fun TimelinePost(
             modifier = Modifier.padding(vertical = 4.dp),
             verticalArrangement = spacedBy(4.dp),
           ) {
-            PostText(post)
+            PostText(post, onOpenHandle)
             PostImages(postView, onOpenImage)
           }
           PostActions(postView)
@@ -187,7 +188,10 @@ private fun PostReplyLine(replyRef: FeedViewPostReplyRef?) {
 }
 
 @Composable
-private fun PostText(post: Post) {
+private fun PostText(
+  post: Post,
+  onOpenHandle: (String) -> Unit,
+) {
   if (post.text.isNotBlank()) {
     val postText = remember(post.text) {
       buildAnnotatedString {
