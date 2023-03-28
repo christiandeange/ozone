@@ -39,8 +39,9 @@ fun AvatarImage(
     )
   } else {
     EmptyAvatar(
-      modifier = modifier.then(clickableModifier),
+      modifier = modifier,
       fallbackColor = fallbackColor,
+      onClick = onClick,
     )
   }
 }
@@ -49,10 +50,17 @@ fun AvatarImage(
 private fun EmptyAvatar(
   fallbackColor: Color,
   modifier: Modifier = Modifier,
+  onClick: (() -> Unit)? = null,
 ) {
+  val clickableModifier = if (onClick != null) {
+    Modifier.clickable { onClick() }
+  } else {
+    Modifier
+  }
   Box(
     modifier = modifier
       .clip(CircleShape)
       .background(fallbackColor)
+      .then(clickableModifier)
   )
 }

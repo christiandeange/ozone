@@ -38,6 +38,7 @@ import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
+import sh.christian.ozone.util.color
 
 @OptIn(ExperimentalMaterial3Api::class)
 class ComposePostScreen(
@@ -88,6 +89,7 @@ class ComposePostScreen(
         modifier = Modifier.size(48.dp),
         avatarUrl = profile.avatar,
         contentDescription = profile.displayName ?: profile.handle,
+        fallbackColor = profile.handle.color(),
       )
 
       val textFieldFocusRequester = remember { FocusRequester() }

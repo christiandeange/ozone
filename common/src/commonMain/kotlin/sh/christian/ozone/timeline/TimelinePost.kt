@@ -55,6 +55,7 @@ import sh.christian.ozone.ui.compose.PostImage
 import sh.christian.ozone.ui.icons.ChatBubbleOutline
 import sh.christian.ozone.ui.icons.Repeat
 import sh.christian.ozone.ui.icons.Reply
+import sh.christian.ozone.util.color
 import sh.christian.ozone.util.deserialize
 import sh.christian.ozone.util.isUrl
 import sh.christian.ozone.util.recordType
@@ -78,7 +79,7 @@ fun TimelinePost(
       avatarUrl = author.avatar,
       onClick = { onOpenHandle(author.handle) },
       contentDescription = author.displayName ?: author.handle,
-      fallbackColor = Color.Black,
+      fallbackColor = author.handle.color(),
     )
 
     Column(Modifier.weight(1f)) {

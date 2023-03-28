@@ -52,6 +52,7 @@ import sh.christian.ozone.ui.compose.foreground
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
+import sh.christian.ozone.util.color
 import kotlin.math.max
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -114,6 +115,7 @@ class ProfileScreen(
               },
             avatarUrl = profileView.avatar,
             contentDescription = profileView.displayName ?: profileView.handle,
+            fallbackColor = profileView.handle.color(),
             onClick = {},
           )
 

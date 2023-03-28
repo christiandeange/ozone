@@ -38,6 +38,7 @@ import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.icons.ChatBubbleOutline
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
+import sh.christian.ozone.util.color
 
 @OptIn(ExperimentalMaterial3Api::class)
 class TimelineScreen(
@@ -68,7 +69,7 @@ class TimelineScreen(
               avatarUrl = profile?.avatar,
               onClick = { profile?.handle?.let { onOpenHandle(it) } },
               contentDescription = profile?.displayName ?: profile?.handle,
-              fallbackColor = Color.Black,
+              fallbackColor = profile?.handle?.color() ?: Color.Black,
             )
           }
         },
