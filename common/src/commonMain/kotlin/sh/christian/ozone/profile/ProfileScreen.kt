@@ -117,6 +117,7 @@ class ProfileScreen(
             contentDescription = null,
           )
 
+          val avatarUrl = profileView.avatar
           AvatarImage(
             modifier = Modifier
               .padding(start = 12.dp, end = 16.dp)
@@ -126,10 +127,12 @@ class ProfileScreen(
                 alpha = max(1f - transitionPercentage * 2, 0f)
                 translationY = 40 * density - firstItemTranslationY
               },
-            avatarUrl = profileView.avatar,
+            avatarUrl = avatarUrl,
             contentDescription = profileView.displayName ?: profileView.handle,
             fallbackColor = profileView.handle.color(),
-            onClick = {},
+            onClick = {
+              onOpenImage(OpenImageAction(avatarUrl!!, profileView.handle))
+            }.takeIf { avatarUrl != null },
           )
 
           OverImageIconButton(onClick = onExit) {
