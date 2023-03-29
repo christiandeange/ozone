@@ -2,6 +2,8 @@ package sh.christian.ozone.api
 
 import app.bsky.actor.GetProfileQueryParams
 import app.bsky.actor.GetProfileResponse
+import app.bsky.feed.GetAuthorFeedQueryParams
+import app.bsky.feed.GetAuthorFeedResponse
 import app.bsky.feed.GetTimelineQueryParams
 import app.bsky.feed.GetTimelineResponse
 import com.atproto.repo.CreateRecordRequest
@@ -26,4 +28,8 @@ interface AtpApi {
   suspend fun createRecord(
     request: CreateRecordRequest,
   ): AtpResponse<CreateRecordResponse>
+
+  suspend fun getAuthorFeed(
+    params: GetAuthorFeedQueryParams,
+  ): AtpResponse<GetAuthorFeedResponse>
 }

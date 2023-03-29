@@ -45,8 +45,13 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.unit.dp
 import app.bsky.actor.ProfileView
+import app.bsky.feed.FeedViewPost
+import kotlinx.datetime.Instant
+import sh.christian.ozone.timeline.TimelinePost
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.BannerImage
+import sh.christian.ozone.ui.compose.InfiniteListHandler
+import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.compose.OverImageIconButton
 import sh.christian.ozone.ui.compose.foreground
 import sh.christian.ozone.ui.compose.onBackPressed
@@ -57,8 +62,13 @@ import kotlin.math.max
 
 @OptIn(ExperimentalFoundationApi::class)
 class ProfileScreen(
+  private val now: Instant,
   private val profileView: ProfileView,
+  private val feed: List<FeedViewPost>,
   private val isSelf: Boolean,
+  private val onLoadMore: () -> Unit,
+  private val onOpenHandle: (String) -> Unit,
+  private val onOpenImage: (OpenImageAction) -> Unit,
   private val onExit: () -> Unit,
 ) : ViewRendering by screen({
   val density = LocalDensity.current.density
@@ -88,6 +98,8 @@ class ProfileScreen(
   }
 
   Surface(modifier = Modifier.fillMaxSize().onBackPressed(onExit)) {
+    InfiniteListHandler(state, buffer = 10, onLoadMore = onLoadMore)
+
     LazyColumn(state = state) {
       stickyHeader(contentType = "banner") {
         Box(
@@ -141,7 +153,7 @@ class ProfileScreen(
               textTint = MaterialTheme.colorScheme.onSurface,
               icon = rememberVectorPainter(Icons.Default.Edit),
               text = "Edit Profile",
-              onClick = { },
+              onClick = { /* TODO */ },
             )
           } else if (isFollowing) {
             FollowButton(
@@ -215,8 +227,14 @@ class ProfileScreen(
         }
       }
 
-      items((1..50).toList()) { item ->
-        Text(modifier = Modifier.padding(16.dp), text = "Item $item")
+      items(items = feed, key = { it.post.cid }) { post ->
+        TimelinePost(
+          now = now,
+          postView = post.post,
+          replyRef = post.reply,
+          onOpenHandle = onOpenHandle,
+          onOpenImage = onOpenImage,
+        )
       }
     }
   }
@@ -266,9 +284,9 @@ private fun ProfileStats(
     verticalAlignment = Alignment.CenterVertically,
     horizontalArrangement = spacedBy(8.dp),
   ) {
-    ProfileStat(followers, "followers", {})
-    ProfileStat(following, "following", {})
-    ProfileStat(posts, "posts", {})
+    ProfileStat(followers, "followers", { /* TODO */ })
+    ProfileStat(following, "following", { /* TODO */ })
+    ProfileStat(posts, "posts", { /* TODO */ })
   }
 }
 

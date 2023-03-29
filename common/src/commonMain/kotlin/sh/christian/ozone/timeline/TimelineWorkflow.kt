@@ -11,6 +11,7 @@ import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
 import kotlinx.datetime.Clock
 import sh.christian.ozone.api.ApiProvider
+import sh.christian.ozone.api.NetworkWorker
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.app.AppScreen
 import sh.christian.ozone.compose.ComposePostOutput
@@ -209,7 +210,7 @@ class TimelineWorkflow(
   }
 
   private fun loadTimeline(cursor: String?): Worker<AtpResponse<GetTimelineResponse>> {
-    return Worker.from {
+    return NetworkWorker {
       apiProvider.api.getTimeline(
         GetTimelineQueryParams(
           limit = 100,

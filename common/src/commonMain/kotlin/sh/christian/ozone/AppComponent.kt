@@ -72,6 +72,7 @@ class AppComponent(
 
   private val profileWorkflow: ProfileWorkflow by lazy {
     ProfileWorkflow(
+      clock = clock,
       apiProvider = apiProvider,
       errorWorkflow = errorWorkflow,
     )
