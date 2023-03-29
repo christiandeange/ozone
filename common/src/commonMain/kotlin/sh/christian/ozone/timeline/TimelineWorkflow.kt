@@ -36,11 +36,12 @@ import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.Dismissable.DismissHandler
 import sh.christian.ozone.ui.workflow.plus
+import sh.christian.ozone.user.MyProfileRepository
 
 class TimelineWorkflow(
   private val clock: Clock,
   private val apiProvider: ApiProvider,
-  private val profileRepository: ProfileRepository,
+  private val myProfileRepository: MyProfileRepository,
   private val composePostWorkflow: ComposePostWorkflow,
   private val profileWorkflow: ProfileWorkflow,
   private val errorWorkflow: ErrorWorkflow,
@@ -56,7 +57,7 @@ class TimelineWorkflow(
     renderState: TimelineState,
     context: RenderContext
   ): AppScreen {
-    context.runningWorker(profileRepository.profile().asWorker()) { newProfile ->
+    context.runningWorker(myProfileRepository.me().asWorker()) { newProfile ->
       action {
         state = state.withProfile(newProfile)
       }

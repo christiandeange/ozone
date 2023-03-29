@@ -9,6 +9,7 @@ import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.Worker
 import com.squareup.workflow1.action
+import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
 import kotlinx.datetime.Clock
 import sh.christian.ozone.api.ApiProvider
@@ -26,6 +27,7 @@ import sh.christian.ozone.ui.compose.ImageOverlayScreen
 import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.EmptyScreen
+import sh.christian.ozone.user.UserDatabase
 import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.util.RemoteData
 import sh.christian.ozone.util.RemoteData.Failed
@@ -35,6 +37,7 @@ import sh.christian.ozone.util.RemoteData.Success
 class ProfileWorkflow(
   private val clock: Clock,
   private val apiProvider: ApiProvider,
+  private val userDatabase: UserDatabase,
   private val errorWorkflow: ErrorWorkflow,
 ) : StatefulWorkflow<ProfileProps, ProfileState, Unit, AppScreen>() {
   override fun initialState(
@@ -50,6 +53,12 @@ class ProfileWorkflow(
     renderState: ProfileState,
     context: RenderContext,
   ): AppScreen {
+    context.runningWorker(userDatabase.profile(renderProps.user).asWorker()) { result ->
+      action {
+        state = determineState(Success(result), state.feed)
+      }
+    }
+
     if (renderState.feed is Fetching) {
       val worker = loadPosts(renderProps.user, renderState.feed.getOrNull()?.cursor)
       context.runningWorker(worker) { result ->
@@ -71,18 +80,6 @@ class ProfileWorkflow(
           }
 
           state = determineState(state.profile, combinedFeed)
-        }
-      }
-    }
-    if (renderState.profile is Fetching) {
-      val worker = loadProfile(renderProps.user)
-      context.runningWorker(worker) { result ->
-        action {
-          val profileResult = RemoteData.fromAtpResponseOrError(result, state.profile) {
-            ErrorProps.CustomError("Oops.", "Could not load profile for @${props.user}.", true)
-          }
-
-          state = determineState(profileResult, state.feed)
         }
       }
     }

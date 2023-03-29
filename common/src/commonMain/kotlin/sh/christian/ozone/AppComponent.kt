@@ -11,8 +11,9 @@ import sh.christian.ozone.login.LoginRepository
 import sh.christian.ozone.login.LoginWorkflow
 import sh.christian.ozone.profile.ProfileWorkflow
 import sh.christian.ozone.store.PersistentStorage
-import sh.christian.ozone.timeline.ProfileRepository
+import sh.christian.ozone.user.MyProfileRepository
 import sh.christian.ozone.timeline.TimelineWorkflow
+import sh.christian.ozone.user.UserDatabase
 
 class AppComponent(
   private val storage: PersistentStorage,
@@ -33,9 +34,18 @@ class AppComponent(
     Clock.System
   }
 
-  private val profileRepository: ProfileRepository by lazy {
-    ProfileRepository(
+  private val userDatabase: UserDatabase by lazy {
+    UserDatabase(
+      clock = clock,
+      storage = storage,
       apiProvider = apiProvider,
+    )
+  }
+
+  private val myProfileRepository: MyProfileRepository by lazy {
+    MyProfileRepository(
+      apiProvider = apiProvider,
+      userDatabase = userDatabase,
     )
   }
 
@@ -63,7 +73,7 @@ class AppComponent(
     TimelineWorkflow(
       clock = clock,
       apiProvider = apiProvider,
-      profileRepository = profileRepository,
+      myProfileRepository = myProfileRepository,
       composePostWorkflow = composePostWorkflow,
       profileWorkflow = profileWorkflow,
       errorWorkflow = errorWorkflow,
@@ -74,6 +84,7 @@ class AppComponent(
     ProfileWorkflow(
       clock = clock,
       apiProvider = apiProvider,
+      userDatabase = userDatabase,
       errorWorkflow = errorWorkflow,
     )
   }
@@ -89,7 +100,7 @@ class AppComponent(
   val supervisors: List<Supervisor> by lazy {
     listOf(
       apiProvider,
-      profileRepository,
+      myProfileRepository,
     )
   }
 }
