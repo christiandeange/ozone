@@ -23,13 +23,14 @@ import sh.christian.ozone.profile.ProfileState.ShowingError
 import sh.christian.ozone.profile.ProfileState.ShowingFullSizeImage
 import sh.christian.ozone.profile.ProfileState.ShowingProfile
 import sh.christian.ozone.ui.compose.ImageOverlayScreen
-import sh.christian.ozone.util.RemoteData.Failed
-import sh.christian.ozone.util.RemoteData.Fetching
-import sh.christian.ozone.util.RemoteData.Success
 import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.EmptyScreen
+import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.util.RemoteData
+import sh.christian.ozone.util.RemoteData.Failed
+import sh.christian.ozone.util.RemoteData.Fetching
+import sh.christian.ozone.util.RemoteData.Success
 
 class ProfileWorkflow(
   private val clock: Clock,
@@ -50,11 +51,11 @@ class ProfileWorkflow(
     context: RenderContext,
   ): AppScreen {
     if (renderState.feed is Fetching) {
-      val worker = loadPosts(renderProps.handle, renderState.feed.getOrNull()?.cursor)
+      val worker = loadPosts(renderProps.user, renderState.feed.getOrNull()?.cursor)
       context.runningWorker(worker) { result ->
         action {
           val feedResult = RemoteData.fromAtpResponseOrError(result, state.feed) {
-            ErrorProps.CustomError("Oops.", "Could not load feed for @${props.handle}.", true)
+            ErrorProps.CustomError("Oops.", "Could not load feed for @${props.user}.", true)
           }
           val combinedFeed = if (feedResult is Success) {
             val oldFeed = state.feed.getOrNull()?.feed.orEmpty()
@@ -74,11 +75,11 @@ class ProfileWorkflow(
       }
     }
     if (renderState.profile is Fetching) {
-      val worker = loadProfile(renderProps.handle)
+      val worker = loadProfile(renderProps.user)
       context.runningWorker(worker) { result ->
         action {
           val profileResult = RemoteData.fromAtpResponseOrError(result, state.profile) {
-            ErrorProps.CustomError("Oops.", "Could not load profile for @${props.handle}.", true)
+            ErrorProps.CustomError("Oops.", "Could not load profile for @${props.user}.", true)
           }
 
           state = determineState(profileResult, state.feed)
@@ -97,7 +98,7 @@ class ProfileWorkflow(
             EmptyScreen,
             TextOverlayScreen(
               onDismiss = Dismissable.Ignore,
-              text = "Loading @${renderProps.handle}...",
+              text = "Loading @${renderProps.user}...",
             ),
           )
         }
@@ -186,7 +187,7 @@ class ProfileWorkflow(
           feed = Fetching(state.feed.getOrNull()),
         )
       },
-      onOpenHandle = eventHandler { handle ->
+      onOpenUser = eventHandler { user ->
         // TODO
       },
       onOpenImage = eventHandler { action ->
@@ -213,17 +214,25 @@ class ProfileWorkflow(
     }
   }
 
-  private fun loadProfile(handle: String): Worker<AtpResponse<ProfileView>> = NetworkWorker {
-    apiProvider.api.getProfile(GetProfileQueryParams(handle))
+  private fun loadProfile(user: UserReference): Worker<AtpResponse<ProfileView>> = NetworkWorker {
+    val identifier = when (user) {
+      is UserReference.Did -> user.did
+      is UserReference.Handle -> user.handle
+    }
+    apiProvider.api.getProfile(GetProfileQueryParams(identifier))
   }
 
   private fun loadPosts(
-    handle: String,
+    user: UserReference,
     cursor: String?,
   ): Worker<AtpResponse<GetAuthorFeedResponse>> = NetworkWorker {
+    val identifier = when (user) {
+      is UserReference.Did -> user.did
+      is UserReference.Handle -> user.handle
+    }
     apiProvider.api.getAuthorFeed(
       GetAuthorFeedQueryParams(
-        author = handle,
+        author = identifier,
         limit = 100,
         before = cursor,
       )

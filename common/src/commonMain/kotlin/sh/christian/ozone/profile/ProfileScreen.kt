@@ -57,6 +57,7 @@ import sh.christian.ozone.ui.compose.foreground
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
+import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.util.color
 import kotlin.math.max
 
@@ -67,7 +68,7 @@ class ProfileScreen(
   private val feed: List<FeedViewPost>,
   private val isSelf: Boolean,
   private val onLoadMore: () -> Unit,
-  private val onOpenHandle: (String) -> Unit,
+  private val onOpenUser: (UserReference) -> Unit,
   private val onOpenImage: (OpenImageAction) -> Unit,
   private val onExit: () -> Unit,
 ) : ViewRendering by screen({
@@ -232,7 +233,7 @@ class ProfileScreen(
           now = now,
           postView = post.post,
           replyRef = post.reply,
-          onOpenHandle = onOpenHandle,
+          onOpenUser = onOpenUser,
           onOpenImage = onOpenImage,
         )
       }

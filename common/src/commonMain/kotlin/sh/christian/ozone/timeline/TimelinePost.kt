@@ -49,6 +49,9 @@ import app.bsky.feed.PostView
 import app.bsky.feed.PostViewEmbedUnion.ImagesPresented
 import io.kamel.image.lazyPainterResource
 import kotlinx.datetime.Instant
+import sh.christian.ozone.user.UserReference
+import sh.christian.ozone.user.UserReference.Did
+import sh.christian.ozone.user.UserReference.Handle
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.compose.PostImage
@@ -66,7 +69,7 @@ fun TimelinePost(
   now: Instant,
   postView: PostView,
   replyRef: FeedViewPostReplyRef?,
-  onOpenHandle: (String) -> Unit,
+  onOpenUser: (UserReference) -> Unit,
   onOpenImage: (OpenImageAction) -> Unit,
 ) {
   Row(
@@ -77,7 +80,7 @@ fun TimelinePost(
     AvatarImage(
       modifier = Modifier.size(48.dp),
       avatarUrl = author.avatar,
-      onClick = { onOpenHandle(author.handle) },
+      onClick = { onOpenUser(Handle(author.handle)) },
       contentDescription = author.displayName ?: author.handle,
       fallbackColor = author.handle.color(),
     )
@@ -92,7 +95,7 @@ fun TimelinePost(
             modifier = Modifier.padding(vertical = 4.dp),
             verticalArrangement = spacedBy(4.dp),
           ) {
-            PostText(post, onOpenHandle)
+            PostText(post, onOpenUser)
             PostImages(postView, onOpenImage)
           }
           PostActions(postView)
@@ -191,7 +194,7 @@ private fun PostReplyLine(replyRef: FeedViewPostReplyRef?) {
 @Composable
 private fun PostText(
   post: Post,
-  onOpenHandle: (String) -> Unit,
+  onOpenUser: (UserReference) -> Unit,
 ) {
   if (post.text.isNotBlank()) {
     val postText = remember(post.text) {
@@ -225,7 +228,7 @@ private fun PostText(
           ?.item
           ?.let { target ->
             if (target.startsWith("did:")) {
-              println("Clicked on user $target")
+              onOpenUser(Did(target))
             } else if (target.isUrl()) {
               uriHandler.openUri(target)
             } else if (target.startsWith("#")) {

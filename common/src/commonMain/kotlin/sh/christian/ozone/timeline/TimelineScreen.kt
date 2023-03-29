@@ -31,6 +31,8 @@ import app.bsky.actor.ProfileView
 import app.bsky.feed.FeedViewPost
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Instant
+import sh.christian.ozone.user.UserReference
+import sh.christian.ozone.user.UserReference.Handle
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.InfiniteListHandler
 import sh.christian.ozone.ui.compose.OpenImageAction
@@ -48,7 +50,7 @@ class TimelineScreen(
   private val showComposePostButton: Boolean,
   private val onLoadMore: () -> Unit,
   private val onComposePost: () -> Unit,
-  private val onOpenHandle: (String) -> Unit,
+  private val onOpenUser: (UserReference) -> Unit,
   private val onOpenImage: (OpenImageAction) -> Unit,
   private val onSignOut: () -> Unit,
   private val onExit: () -> Unit,
@@ -67,7 +69,7 @@ class TimelineScreen(
             AvatarImage(
               modifier = Modifier.size(32.dp),
               avatarUrl = profile?.avatar,
-              onClick = { profile?.handle?.let { onOpenHandle(it) } },
+              onClick = { profile?.handle?.let { onOpenUser(Handle(it)) } },
               contentDescription = profile?.displayName ?: profile?.handle,
               fallbackColor = profile?.handle?.color() ?: Color.Black,
             )
@@ -128,7 +130,7 @@ class TimelineScreen(
             now = now,
             postView = post.post,
             replyRef = post.reply,
-            onOpenHandle = onOpenHandle,
+            onOpenUser = onOpenUser,
             onOpenImage = onOpenImage,
           )
         }

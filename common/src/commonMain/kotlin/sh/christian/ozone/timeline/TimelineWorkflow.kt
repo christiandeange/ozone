@@ -22,6 +22,7 @@ import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.profile.ProfileProps
 import sh.christian.ozone.profile.ProfileWorkflow
+import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.timeline.TimelineOutput.CloseApp
 import sh.christian.ozone.timeline.TimelineOutput.SignOut
 import sh.christian.ozone.timeline.TimelineState.ComposingPost
@@ -189,12 +190,15 @@ class TimelineWorkflow(
       onComposePost = eventHandler {
         state = ComposingPost(timelineResponse!!, ComposePostProps(profile!!))
       },
-      onOpenHandle = eventHandler { handle ->
-        val maybeProfile = profile?.takeIf { it.handle == handle }
+      onOpenUser = eventHandler { user ->
+        val isMe = when (user) {
+          is UserReference.Did -> user.did == state.profile?.did
+          is UserReference.Handle -> user.handle == state.profile?.handle
+        }
         state = ShowingProfile(
           state.profile,
           state.timeline!!,
-          ProfileProps(handle, handle == state.profile?.handle, maybeProfile)
+          ProfileProps(user, isMe, profile?.takeIf { isMe })
         )
       },
       onOpenImage = eventHandler { action ->
