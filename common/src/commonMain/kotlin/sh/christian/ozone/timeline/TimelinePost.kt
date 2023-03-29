@@ -90,7 +90,7 @@ fun TimelinePost(
         "app.bsky.feed.post" -> {
           val post = Post.serializer().deserialize(postView.record)
           PostHeadline(now, post, author)
-          PostReplyLine(replyRef)
+          PostReplyLine(replyRef, onOpenUser)
           Column(
             modifier = Modifier.padding(vertical = 4.dp),
             verticalArrangement = spacedBy(4.dp),
@@ -169,9 +169,13 @@ private fun PostHeadline(
 }
 
 @Composable
-private fun PostReplyLine(replyRef: FeedViewPostReplyRef?) {
+private fun PostReplyLine(
+  replyRef: FeedViewPostReplyRef?,
+  onOpenUser: (UserReference) -> Unit,
+) {
   replyRef?.parent?.author?.let { original ->
     Row(
+      modifier = Modifier.clickable { onOpenUser(Handle(original.handle)) },
       verticalAlignment = Alignment.CenterVertically,
       horizontalArrangement = spacedBy(4.dp),
     ) {
