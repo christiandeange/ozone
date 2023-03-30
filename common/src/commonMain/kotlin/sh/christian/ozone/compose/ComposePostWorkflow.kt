@@ -1,6 +1,5 @@
 package sh.christian.ozone.compose
 
-import app.bsky.actor.ProfileView
 import app.bsky.feed.Post
 import com.atproto.repo.CreateRecordRequest
 import com.squareup.workflow1.Snapshot
@@ -21,6 +20,7 @@ import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorProps.CustomError
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.error.toErrorProps
+import sh.christian.ozone.model.Profile
 import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.util.serialize
@@ -85,7 +85,7 @@ class ComposePostWorkflow(
 
   override fun snapshotState(state: ComposePostState): Snapshot? = null
 
-  private fun RenderContext.composePostScreen(profile: ProfileView): ComposePostScreen {
+  private fun RenderContext.composePostScreen(profile: Profile): ComposePostScreen {
     return ComposePostScreen(
       profile = profile,
       onExit = eventHandler {

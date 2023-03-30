@@ -1,8 +1,6 @@
 package sh.christian.ozone.timeline
 
-import app.bsky.actor.ProfileView
 import app.bsky.feed.GetTimelineQueryParams
-import app.bsky.feed.GetTimelineResponse
 import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.Worker
@@ -20,6 +18,8 @@ import sh.christian.ozone.compose.ComposePostWorkflow
 import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
+import sh.christian.ozone.model.Profile
+import sh.christian.ozone.model.Timeline
 import sh.christian.ozone.profile.ProfileProps
 import sh.christian.ozone.profile.ProfileWorkflow
 import sh.christian.ozone.timeline.TimelineOutput.CloseApp
@@ -62,9 +62,10 @@ class TimelineWorkflow(
     renderState: TimelineState,
     context: RenderContext
   ): AppScreen {
-    context.runningWorker(myProfileRepository.me().asWorker()) { newProfile ->
+    val myProfileWorker = myProfileRepository.me().asWorker()
+    context.runningWorker(myProfileWorker) { profile ->
       action {
-        state = state.withProfile(newProfile)
+        state = state.withProfile(profile)
       }
     }
 
@@ -76,12 +77,12 @@ class TimelineWorkflow(
             ErrorProps.CustomError("Oops.", "Could not load timeline", true)
           }
           val combinedTimeline = if (feedResult is RemoteData.Success) {
-            val oldFeed = state.timeline.getOrNull()?.feed.orEmpty()
-            val newFeed = feedResult.getOrNull()?.feed.orEmpty()
+            val oldPosts = state.timeline.getOrNull()?.posts.orEmpty()
+            val newPosts = feedResult.getOrNull()?.posts.orEmpty()
             RemoteData.Success(
-              GetTimelineResponse(
+              Timeline(
                 cursor = feedResult.value.cursor,
-                feed = oldFeed + newFeed,
+                posts = oldPosts + newPosts,
               )
             )
           } else {
@@ -201,8 +202,8 @@ class TimelineWorkflow(
   override fun snapshotState(state: TimelineState): Snapshot? = null
 
   private fun determineState(
-    profile: RemoteData<ProfileView>,
-    timeline: RemoteData<GetTimelineResponse>,
+    profile: RemoteData<Profile>,
+    timeline: RemoteData<Timeline>,
   ): TimelineState {
     return if (profile is RemoteData.Success && timeline is RemoteData.Success) {
       ShowingTimeline(profile, timeline)
@@ -216,16 +217,19 @@ class TimelineWorkflow(
   }
 
   private fun RenderContext.timelineScreen(
-    profile: ProfileView?,
-    timelineResponse: GetTimelineResponse?,
+    profile: Profile?,
+    timelineResponse: Timeline?,
   ): TimelineScreen {
     return TimelineScreen(
       now = clock.now(),
       profile = profile,
-      timeline = timelineResponse?.feed.orEmpty(),
+      timeline = timelineResponse?.posts.orEmpty(),
       showComposePostButton = profile != null && timelineResponse != null,
       onLoadMore = eventHandler {
-        state = FetchingTimeline(state.profile, state.timeline)
+        state = FetchingTimeline(
+          profile = state.profile,
+          timeline = RemoteData.Fetching(state.timeline.getOrNull()),
+        )
       },
       onComposePost = eventHandler {
         state = ComposingPost(state, ComposePostProps(profile!!))
@@ -253,18 +257,18 @@ class TimelineWorkflow(
     )
   }
 
-  private fun loadTimeline(cursor: String?): Worker<AtpResponse<GetTimelineResponse>> {
+  private fun loadTimeline(cursor: String?): Worker<AtpResponse<Timeline>> {
     return NetworkWorker {
       apiProvider.api.getTimeline(
         GetTimelineQueryParams(
           limit = 100,
           before = cursor,
         )
-      )
+      ).map { Timeline.from(it.feed, it.cursor) }
     }
   }
 
-  private fun TimelineState.withProfile(profileResult: ProfileView?): TimelineState {
+  private fun TimelineState.withProfile(profileResult: Profile?): TimelineState {
     val profile = if (profileResult == null) {
       RemoteData.Failed(ErrorProps.CustomError("Oops.", "Could not load your profile.", true))
     } else {
@@ -288,7 +292,7 @@ class TimelineWorkflow(
         copy(previousState = previousState.withProfile(profileResult) as ShowingTimeline)
       }
       is ShowingTimeline -> {
-        copy(profile = profile as RemoteData.Success<ProfileView>)
+        copy(profile = profile as RemoteData.Success<Profile>)
       }
       is ShowingProfile -> {
         copy(profile = profile)

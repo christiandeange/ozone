@@ -1,25 +1,25 @@
 package sh.christian.ozone.profile
 
-import app.bsky.actor.ProfileView
-import app.bsky.feed.GetAuthorFeedResponse
 import sh.christian.ozone.error.ErrorProps
+import sh.christian.ozone.model.Profile
+import sh.christian.ozone.model.Timeline
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.util.RemoteData
 import sh.christian.ozone.util.RemoteData.Failed
 import sh.christian.ozone.util.RemoteData.Success
 
 sealed interface ProfileState {
-  val profile: RemoteData<ProfileView>
-  val feed: RemoteData<GetAuthorFeedResponse>
+  val profile: RemoteData<Profile>
+  val feed: RemoteData<Timeline>
 
   data class FetchingProfile(
-    override val profile: RemoteData<ProfileView>,
-    override val feed: RemoteData<GetAuthorFeedResponse>,
+    override val profile: RemoteData<Profile>,
+    override val feed: RemoteData<Timeline>,
   ) : ProfileState
 
   data class ShowingProfile(
-    override val profile: Success<ProfileView>,
-    override val feed: Success<GetAuthorFeedResponse>,
+    override val profile: Success<Profile>,
+    override val feed: Success<Timeline>,
   ) : ProfileState
 
   data class ShowingFullSizeImage(
@@ -28,8 +28,8 @@ sealed interface ProfileState {
   ) : ProfileState by previousState
 
   data class ShowingError(
-    override val profile: RemoteData<ProfileView>,
-    override val feed: RemoteData<GetAuthorFeedResponse>,
+    override val profile: RemoteData<Profile>,
+    override val feed: RemoteData<Timeline>,
   ) : ProfileState {
     val error: ErrorProps
       get() = (profile as? Failed)?.error

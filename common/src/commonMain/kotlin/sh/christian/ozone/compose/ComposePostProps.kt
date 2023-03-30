@@ -1,7 +1,7 @@
 package sh.christian.ozone.compose
 
-import app.bsky.actor.ProfileView
+import sh.christian.ozone.model.Profile
 
 data class ComposePostProps(
-  val profile: ProfileView,
+  val profile: Profile,
 )

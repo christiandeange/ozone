@@ -1,10 +1,7 @@
 package sh.christian.ozone.profile
 
 import app.bsky.actor.GetProfileQueryParams
-import app.bsky.actor.ProfileView
-import app.bsky.feed.FeedViewPost
 import app.bsky.feed.GetAuthorFeedQueryParams
-import app.bsky.feed.GetAuthorFeedResponse
 import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.Worker
@@ -19,6 +16,10 @@ import sh.christian.ozone.app.AppScreen
 import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
+import sh.christian.ozone.model.Profile
+import sh.christian.ozone.model.Timeline
+import sh.christian.ozone.model.TimelinePost
+import sh.christian.ozone.model.toProfile
 import sh.christian.ozone.profile.ProfileState.FetchingProfile
 import sh.christian.ozone.profile.ProfileState.ShowingError
 import sh.christian.ozone.profile.ProfileState.ShowingFullSizeImage
@@ -53,7 +54,8 @@ class ProfileWorkflow(
     renderState: ProfileState,
     context: RenderContext,
   ): AppScreen {
-    context.runningWorker(userDatabase.profile(renderProps.user).asWorker()) { result ->
+    val profileWorker = userDatabase.profile(renderProps.user).asWorker()
+    context.runningWorker(profileWorker) { result ->
       action {
         state = determineState(Success(result), state.feed)
       }
@@ -67,12 +69,12 @@ class ProfileWorkflow(
             ErrorProps.CustomError("Oops.", "Could not load feed for @${props.user}.", true)
           }
           val combinedFeed = if (feedResult is Success) {
-            val oldFeed = state.feed.getOrNull()?.feed.orEmpty()
-            val newFeed = feedResult.getOrNull()?.feed.orEmpty()
+            val oldPosts = state.feed.getOrNull()?.posts.orEmpty()
+            val newPosts = feedResult.getOrNull()?.posts.orEmpty()
             Success(
-              GetAuthorFeedResponse(
+              Timeline(
                 cursor = feedResult.value.cursor,
-                feed = oldFeed + newFeed,
+                posts = oldPosts + newPosts,
               )
             )
           } else {
@@ -89,7 +91,7 @@ class ProfileWorkflow(
         val profileView = renderState.profile.getOrNull()
         val feed = renderState.feed.getOrNull()
         if (profileView != null) {
-          AppScreen(context.profileScreen(renderProps, profileView, feed?.feed.orEmpty()))
+          AppScreen(context.profileScreen(renderProps, profileView, feed?.posts.orEmpty()))
         } else {
           AppScreen(
             EmptyScreen,
@@ -104,8 +106,8 @@ class ProfileWorkflow(
         AppScreen(
           context.profileScreen(
             props = renderProps,
-            profileView = renderState.profile.value,
-            feed = renderState.feed.value.feed,
+            profile = renderState.profile.value,
+            feed = renderState.feed.value.posts,
           )
         )
       }
@@ -113,8 +115,8 @@ class ProfileWorkflow(
         AppScreen(
           context.profileScreen(
             props = renderProps,
-            profileView = renderState.previousState.profile.value,
-            feed = renderState.previousState.feed.value.feed,
+            profile = renderState.previousState.profile.value,
+            feed = renderState.previousState.feed.value.posts,
           ),
           ImageOverlayScreen(
             onDismiss = Dismissable.DismissHandler(
@@ -129,8 +131,8 @@ class ProfileWorkflow(
           ?.let {
             context.profileScreen(
               props = renderProps,
-              profileView = it,
-              feed = renderState.feed.getOrNull()?.feed.orEmpty(),
+              profile = it,
+              feed = renderState.feed.getOrNull()?.posts.orEmpty(),
             )
           }
           ?: EmptyScreen
@@ -170,12 +172,12 @@ class ProfileWorkflow(
 
   private fun RenderContext.profileScreen(
     props: ProfileProps,
-    profileView: ProfileView,
-    feed: List<FeedViewPost>,
+    profile: Profile,
+    feed: List<TimelinePost>,
   ): ProfileScreen {
     return ProfileScreen(
       now = clock.now(),
-      profileView = profileView,
+      profile = profile,
       feed = feed,
       isSelf = props.isSelf,
       onLoadMore = eventHandler {
@@ -197,8 +199,8 @@ class ProfileWorkflow(
   }
 
   private fun determineState(
-    profile: RemoteData<ProfileView>,
-    feed: RemoteData<GetAuthorFeedResponse>,
+    profile: RemoteData<Profile>,
+    feed: RemoteData<Timeline>,
   ): ProfileState {
     return if (profile is Success && feed is Success) {
       ShowingProfile(profile, feed)
@@ -211,18 +213,18 @@ class ProfileWorkflow(
     }
   }
 
-  private fun loadProfile(user: UserReference): Worker<AtpResponse<ProfileView>> = NetworkWorker {
+  private fun loadProfile(user: UserReference): Worker<AtpResponse<Profile>> = NetworkWorker {
     val identifier = when (user) {
       is UserReference.Did -> user.did
       is UserReference.Handle -> user.handle
     }
-    apiProvider.api.getProfile(GetProfileQueryParams(identifier))
+    apiProvider.api.getProfile(GetProfileQueryParams(identifier)).map { it.toProfile() }
   }
 
   private fun loadPosts(
     user: UserReference,
     cursor: String?,
-  ): Worker<AtpResponse<GetAuthorFeedResponse>> = NetworkWorker {
+  ): Worker<AtpResponse<Timeline>> = NetworkWorker {
     val identifier = when (user) {
       is UserReference.Did -> user.did
       is UserReference.Handle -> user.handle
@@ -233,6 +235,6 @@ class ProfileWorkflow(
         limit = 100,
         before = cursor,
       )
-    )
+    ).map { Timeline.from(it.feed, it.cursor) }
   }
 }

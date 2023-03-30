@@ -33,7 +33,7 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
-import app.bsky.actor.ProfileView
+import sh.christian.ozone.model.Profile
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.workflow.ViewRendering
@@ -42,7 +42,7 @@ import sh.christian.ozone.util.color
 
 @OptIn(ExperimentalMaterial3Api::class)
 class ComposePostScreen(
-  private val profile: ProfileView,
+  private val profile: Profile,
   private val onExit: () -> Unit,
   private val onPost: (PostPayload) -> Unit,
 ) : ViewRendering by screen({

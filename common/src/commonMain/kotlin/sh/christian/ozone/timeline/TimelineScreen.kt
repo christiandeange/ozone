@@ -27,12 +27,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.unit.dp
-import app.bsky.actor.ProfileView
-import app.bsky.feed.FeedViewPost
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Instant
-import sh.christian.ozone.user.UserReference
-import sh.christian.ozone.user.UserReference.Handle
+import sh.christian.ozone.model.Profile
+import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.InfiniteListHandler
 import sh.christian.ozone.ui.compose.OpenImageAction
@@ -40,13 +38,15 @@ import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.icons.ChatBubbleOutline
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
+import sh.christian.ozone.user.UserReference
+import sh.christian.ozone.user.UserReference.Handle
 import sh.christian.ozone.util.color
 
 @OptIn(ExperimentalMaterial3Api::class)
 class TimelineScreen(
   private val now: Instant,
-  private val profile: ProfileView?,
-  private val timeline: List<FeedViewPost>,
+  private val profile: Profile?,
+  private val timeline: List<TimelinePost>,
   private val showComposePostButton: Boolean,
   private val onLoadMore: () -> Unit,
   private val onComposePost: () -> Unit,
@@ -126,10 +126,9 @@ class TimelineScreen(
         state = feedState,
       ) {
         items(items = timeline) { post ->
-          TimelinePost(
+          TimelinePostItem(
             now = now,
-            postView = post.post,
-            replyRef = post.reply,
+            post = post,
             onOpenUser = onOpenUser,
             onOpenImage = onOpenImage,
           )

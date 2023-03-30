@@ -42,33 +42,29 @@ import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
-import app.bsky.actor.RefWithInfo
-import app.bsky.feed.FeedViewPostReplyRef
-import app.bsky.feed.Post
-import app.bsky.feed.PostView
-import app.bsky.feed.PostViewEmbedUnion.ImagesPresented
 import io.kamel.image.lazyPainterResource
 import kotlinx.datetime.Instant
-import sh.christian.ozone.user.UserReference
-import sh.christian.ozone.user.UserReference.Did
-import sh.christian.ozone.user.UserReference.Handle
+import sh.christian.ozone.model.Author
+import sh.christian.ozone.model.TimelinePost
+import sh.christian.ozone.model.TimelinePostFeature.ImagesFeature
+import sh.christian.ozone.model.TimelinePostReply
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.compose.PostImage
 import sh.christian.ozone.ui.icons.ChatBubbleOutline
 import sh.christian.ozone.ui.icons.Repeat
 import sh.christian.ozone.ui.icons.Reply
+import sh.christian.ozone.user.UserReference
+import sh.christian.ozone.user.UserReference.Did
+import sh.christian.ozone.user.UserReference.Handle
 import sh.christian.ozone.util.color
-import sh.christian.ozone.util.deserialize
 import sh.christian.ozone.util.isUrl
-import sh.christian.ozone.util.recordType
 import kotlin.time.Duration
 
 @Composable
-fun TimelinePost(
+fun TimelinePostItem(
   now: Instant,
-  postView: PostView,
-  replyRef: FeedViewPostReplyRef?,
+  post: TimelinePost,
   onOpenUser: (UserReference) -> Unit,
   onOpenImage: (OpenImageAction) -> Unit,
 ) {
@@ -76,7 +72,7 @@ fun TimelinePost(
     modifier = Modifier.padding(16.dp),
     horizontalArrangement = spacedBy(16.dp),
   ) {
-    val author: RefWithInfo = postView.author
+    val author: Author = post.author
     AvatarImage(
       modifier = Modifier.size(48.dp),
       avatarUrl = author.avatar,
@@ -86,27 +82,16 @@ fun TimelinePost(
     )
 
     Column(Modifier.weight(1f)) {
-      when (postView.record.recordType) {
-        "app.bsky.feed.post" -> {
-          val post = Post.serializer().deserialize(postView.record)
-          PostHeadline(now, post, author)
-          PostReplyLine(replyRef, onOpenUser)
-          Column(
-            modifier = Modifier.padding(vertical = 4.dp),
-            verticalArrangement = spacedBy(4.dp),
-          ) {
-            PostText(post, onOpenUser)
-            PostImages(postView, onOpenImage)
-          }
-          PostActions(postView)
-        }
-        else -> {
-          Text(
-            modifier = Modifier.padding(32.dp),
-            text = "Unknown record type: ${postView.record.recordType}",
-          )
-        }
+      PostHeadline(now, post.createdAt, author)
+      PostReplyLine(post.reply, onOpenUser)
+      Column(
+        modifier = Modifier.padding(vertical = 4.dp),
+        verticalArrangement = spacedBy(4.dp),
+      ) {
+        PostText(post, onOpenUser)
+        PostImages(post.feature as? ImagesFeature, onOpenImage)
       }
+      PostActions(post)
     }
   }
 }
@@ -114,8 +99,8 @@ fun TimelinePost(
 @Composable
 private fun PostHeadline(
   now: Instant,
-  post: Post,
-  author: RefWithInfo,
+  createdAt: Instant,
+  author: Author,
 ) {
   Row(
     horizontalArrangement = spacedBy(4.dp),
@@ -147,9 +132,7 @@ private fun PostHeadline(
       )
     }
 
-    val postTime = Instant.parse(post.createdAt)
-    val timeDelta: Duration = now - postTime
-
+    val timeDelta: Duration = now - createdAt
     Text(
       modifier = Modifier.alignByBaseline(),
       text = timeDelta.toComponents { days, hours, minutes, seconds, _ ->
@@ -170,10 +153,10 @@ private fun PostHeadline(
 
 @Composable
 private fun PostReplyLine(
-  replyRef: FeedViewPostReplyRef?,
+  reply: TimelinePostReply?,
   onOpenUser: (UserReference) -> Unit,
 ) {
-  replyRef?.parent?.author?.let { original ->
+  reply?.parent?.author?.let { original ->
     Row(
       modifier = Modifier.clickable { onOpenUser(Handle(original.handle)) },
       verticalAlignment = Alignment.CenterVertically,
@@ -197,7 +180,7 @@ private fun PostReplyLine(
 
 @Composable
 private fun PostText(
-  post: Post,
+  post: TimelinePost,
   onOpenUser: (UserReference) -> Unit,
 ) {
   if (post.text.isNotBlank()) {
@@ -205,18 +188,18 @@ private fun PostText(
       buildAnnotatedString {
         append(post.text)
 
-        post.entities.forEach { entity ->
+        post.textLinks.forEach { link ->
           addStyle(
             style = SpanStyle(color = Color(0xFF3B62FF)),
-            start = entity.index.start.toInt(),
-            end = entity.index.end.toInt(),
+            start = link.start,
+            end = link.end,
           )
 
           addStringAnnotation(
             tag = "clickable",
-            annotation = entity.value,
-            start = entity.index.start.toInt(),
-            end = entity.index.end.toInt(),
+            annotation = link.value,
+            start = link.start,
+            end = link.end,
           )
         }
       }
@@ -248,10 +231,10 @@ private fun PostText(
 
 @Composable
 private fun PostImages(
-  postView: PostView,
+  feature: ImagesFeature?,
   onOpenImage: (OpenImageAction) -> Unit,
 ) {
-  (postView.embed as? ImagesPresented)?.value?.images?.takeIf { it.isNotEmpty() }?.let { images ->
+  feature?.images?.takeIf { it.isNotEmpty() }?.let { images ->
     Row(horizontalArrangement = spacedBy(8.dp)) {
       images.forEach { image ->
         var size by remember(image) { mutableStateOf(IntSize.Zero) }
@@ -281,7 +264,7 @@ private fun PostImages(
 }
 
 @Composable
-private fun PostActions(postView: PostView) {
+private fun PostActions(post: TimelinePost) {
   Row(
     modifier = Modifier.fillMaxWidth(),
     verticalAlignment = Alignment.CenterVertically,
@@ -290,27 +273,27 @@ private fun PostActions(postView: PostView) {
     PostAction(
       icon = Icons.Default.ChatBubbleOutline,
       contentDescription = "Reply",
-      text = postView.replyCount.toString(),
+      text = post.replyCount.toString(),
     )
     PostAction(
       icon = Icons.Default.Repeat,
       contentDescription = "Repost",
-      text = postView.repostCount.toString(),
-      tint = if (postView.viewer.repost != null) {
+      text = post.repostCount.toString(),
+      tint = if (post.reposted) {
         Color.Green
       } else {
         MaterialTheme.colorScheme.outline
       },
     )
     PostAction(
-      icon = if (postView.viewer.upvote != null) {
+      icon = if (post.upvoted) {
         Icons.Default.Favorite
       } else {
         Icons.Default.FavoriteBorder
       },
       contentDescription = "Like",
-      text = (postView.upvoteCount - postView.downvoteCount).toString(),
-      tint = if (postView.viewer.upvote != null) {
+      text = (post.upvoteCount - post.downvoteCount).toString(),
+      tint = if (post.upvoted) {
         Color.Red
       } else {
         MaterialTheme.colorScheme.outline

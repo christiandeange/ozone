@@ -44,10 +44,10 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.unit.dp
-import app.bsky.actor.ProfileView
-import app.bsky.feed.FeedViewPost
 import kotlinx.datetime.Instant
-import sh.christian.ozone.timeline.TimelinePost
+import sh.christian.ozone.model.Profile
+import sh.christian.ozone.model.TimelinePost
+import sh.christian.ozone.timeline.TimelinePostItem
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.BannerImage
 import sh.christian.ozone.ui.compose.InfiniteListHandler
@@ -64,8 +64,8 @@ import kotlin.math.max
 @OptIn(ExperimentalFoundationApi::class)
 class ProfileScreen(
   private val now: Instant,
-  private val profileView: ProfileView,
-  private val feed: List<FeedViewPost>,
+  private val profile: Profile,
+  private val feed: List<TimelinePost>,
   private val isSelf: Boolean,
   private val onLoadMore: () -> Unit,
   private val onOpenUser: (UserReference) -> Unit,
@@ -113,11 +113,11 @@ class ProfileScreen(
               .blur((transitionPercentage * 4).dp)
               .graphicsLayer { translationY = -firstItemTranslationY }
               .foreground(firstItemOverlayColor),
-            imageUrl = profileView.banner,
+            imageUrl = profile.banner,
             contentDescription = null,
           )
 
-          val avatarUrl = profileView.avatar
+          val avatarUrl = profile.avatar
           AvatarImage(
             modifier = Modifier
               .padding(start = 12.dp, end = 16.dp)
@@ -128,10 +128,10 @@ class ProfileScreen(
                 translationY = 40 * density - firstItemTranslationY
               },
             avatarUrl = avatarUrl,
-            contentDescription = profileView.displayName ?: profileView.handle,
-            fallbackColor = profileView.handle.color(),
+            contentDescription = profile.displayName ?: profile.handle,
+            fallbackColor = profile.handle.color(),
             onClick = {
-              onOpenImage(OpenImageAction(avatarUrl!!, profileView.handle))
+              onOpenImage(OpenImageAction(avatarUrl!!, profile.handle))
             }.takeIf { avatarUrl != null },
           )
 
@@ -146,7 +146,7 @@ class ProfileScreen(
 
       item(contentType = "profile_header") {
         Box {
-          var isFollowing by remember { mutableStateOf(profileView.viewer?.following != null) }
+          var isFollowing by remember { mutableStateOf(profile.followingMe) }
 
           if (isSelf) {
             FollowButton(
@@ -190,12 +190,12 @@ class ProfileScreen(
           ) {
             Text(
               modifier = Modifier.padding(top = 8.dp),
-              text = profileView.displayName.orEmpty(),
+              text = profile.displayName.orEmpty(),
               style = MaterialTheme.typography.displaySmall,
             )
 
             Row(horizontalArrangement = spacedBy(8.dp)) {
-              if (profileView.viewer?.followedBy != null) {
+              if (profile.followingMe) {
                 Text(
                   modifier = Modifier
                     .alignByBaseline()
@@ -210,18 +210,18 @@ class ProfileScreen(
 
               Text(
                 modifier = Modifier.alignByBaseline(),
-                text = "@${profileView.handle}",
+                text = "@${profile.handle}",
                 style = LocalTextStyle.current.copy(color = MaterialTheme.colorScheme.outline),
               )
             }
 
             ProfileStats(
-              followers = profileView.followersCount,
-              following = profileView.followsCount,
-              posts = profileView.postsCount,
+              followers = profile.followersCount,
+              following = profile.followsCount,
+              posts = profile.postsCount,
             )
 
-            profileView.description.takeIf { !it.isNullOrBlank() }?.let { description ->
+            profile.description.takeIf { !it.isNullOrBlank() }?.let { description ->
               Text(
                 modifier = Modifier.fillMaxWidth(),
                 text = description,
@@ -232,10 +232,9 @@ class ProfileScreen(
       }
 
       items(items = feed) { post ->
-        TimelinePost(
+        TimelinePostItem(
           now = now,
-          postView = post.post,
-          replyRef = post.reply,
+          post = post,
           onOpenUser = onOpenUser,
           onOpenImage = onOpenImage,
         )
