@@ -125,7 +125,7 @@ class TimelineScreen(
         modifier = Modifier.fillMaxSize(),
         state = feedState,
       ) {
-        items(items = timeline, key = { it.post.cid }) { post ->
+        items(items = timeline) { post ->
           TimelinePost(
             now = now,
             postView = post.post,

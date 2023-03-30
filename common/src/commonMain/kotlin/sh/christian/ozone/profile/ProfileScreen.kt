@@ -231,7 +231,7 @@ class ProfileScreen(
         }
       }
 
-      items(items = feed, key = { it.post.cid }) { post ->
+      items(items = feed) { post ->
         TimelinePost(
           now = now,
           postView = post.post,
