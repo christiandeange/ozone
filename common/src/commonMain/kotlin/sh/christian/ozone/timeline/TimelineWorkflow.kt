@@ -22,7 +22,6 @@ import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.profile.ProfileProps
 import sh.christian.ozone.profile.ProfileWorkflow
-import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.timeline.TimelineOutput.CloseApp
 import sh.christian.ozone.timeline.TimelineOutput.SignOut
 import sh.christian.ozone.timeline.TimelineState.ComposingPost
@@ -35,8 +34,11 @@ import sh.christian.ozone.ui.compose.ImageOverlayScreen
 import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.Dismissable.DismissHandler
+import sh.christian.ozone.ui.workflow.EmptyScreen
 import sh.christian.ozone.ui.workflow.plus
 import sh.christian.ozone.user.MyProfileRepository
+import sh.christian.ozone.user.UserReference
+import sh.christian.ozone.util.RemoteData
 
 class TimelineWorkflow(
   private val clock: Clock,
@@ -50,7 +52,10 @@ class TimelineWorkflow(
   override fun initialState(
     props: TimelineProps,
     snapshot: Snapshot?,
-  ): TimelineState = FetchingTimeline(profile = null, timeline = null)
+  ): TimelineState = FetchingTimeline(
+    profile = RemoteData.Fetching(),
+    timeline = RemoteData.Fetching(),
+  )
 
   override fun render(
     renderProps: TimelineProps,
@@ -63,32 +68,37 @@ class TimelineWorkflow(
       }
     }
 
+    if (renderState.timeline is RemoteData.Fetching) {
+      val cursor = (renderState.timeline as? RemoteData.Fetching)?.previous?.cursor
+      context.runningWorker(loadTimeline(cursor = cursor)) { result ->
+        action {
+          val feedResult = RemoteData.fromAtpResponseOrError(result, state.timeline) {
+            ErrorProps.CustomError("Oops.", "Could not load timeline", true)
+          }
+          val combinedTimeline = if (feedResult is RemoteData.Success) {
+            val oldFeed = state.timeline.getOrNull()?.feed.orEmpty()
+            val newFeed = feedResult.getOrNull()?.feed.orEmpty()
+            RemoteData.Success(
+              GetTimelineResponse(
+                cursor = feedResult.value.cursor,
+                feed = oldFeed + newFeed,
+              )
+            )
+          } else {
+            feedResult
+          }
+
+          state = determineState(state.profile, combinedTimeline)
+        }
+      }
+    }
+
     return when (renderState) {
       is FetchingTimeline -> {
-        context.runningWorker(loadTimeline(cursor = renderState.timeline?.cursor)) { result ->
-          action {
-            val existingTimeline = state.timeline
-            val loadedTimeline = result.maybeResponse()
+        val profileView = renderState.profile.getOrNull()
+        val timeline = renderState.timeline.getOrNull()
 
-            val mergedTimeline = if (existingTimeline != null && loadedTimeline != null) {
-              GetTimelineResponse(
-                cursor = loadedTimeline.cursor,
-                feed = existingTimeline.feed + loadedTimeline.feed,
-              )
-            } else {
-              existingTimeline ?: loadedTimeline
-            }
-
-            state = if (mergedTimeline != null) {
-              ShowingTimeline(state.profile, mergedTimeline)
-            } else {
-              val errorProps = ErrorProps.CustomError("Oops.", "Could not load profile.", true)
-              ShowingError(state.profile, null, errorProps)
-            }
-          }
-        }
-
-        val overlay = if (renderState.timeline == null) {
+        val overlay = if (timeline == null) {
           TextOverlayScreen(
             onDismiss = Dismissable.Ignore,
             text = "Loading timeline for ${renderProps.authInfo.handle}...",
@@ -98,16 +108,19 @@ class TimelineWorkflow(
         }
 
         AppScreen(
-          main = context.timelineScreen(renderState.profile, renderState.timeline),
+          main = context.timelineScreen(profileView, timeline),
           overlay = overlay,
         )
       }
       is ShowingTimeline -> {
-        AppScreen(context.timelineScreen(renderState.profile, renderState.timeline))
+        AppScreen(context.timelineScreen(renderState.profile.value, renderState.timeline.value))
       }
       is ShowingFullSizeImage -> {
         AppScreen(
-          context.timelineScreen(renderState.profile, renderState.timeline),
+          context.timelineScreen(
+            profile = renderState.previousState.profile.value,
+            timelineResponse = renderState.previousState.timeline.value,
+          ),
           ImageOverlayScreen(
             onDismiss = DismissHandler(
               context.eventHandler { state = renderState.previousState }
@@ -118,10 +131,13 @@ class TimelineWorkflow(
       }
       is ShowingProfile -> {
         AppScreen(
-          context.timelineScreen(renderState.profile, renderState.timeline) +
+          context.timelineScreen(renderState.profile.getOrNull(), renderState.timeline.value) +
               context.renderChild(profileWorkflow, renderState.props) {
                 action {
-                  state = ShowingTimeline(state.profile, renderState.timeline)
+                  state = ShowingTimeline(
+                    profile = RemoteData.Success(state.profile.getOrNull()!!),
+                    timeline = renderState.timeline,
+                  )
                 }
               }
         )
@@ -130,42 +146,50 @@ class TimelineWorkflow(
         AppScreen(
           context.renderChild(composePostWorkflow, renderState.props) { output ->
             action {
-              val profile: ProfileView? = state.profile
-              val timeline: GetTimelineResponse? = state.timeline
-
               state = when (output) {
                 is ComposePostOutput.CreatedPost -> {
-                  FetchingTimeline(profile, timeline)
+                  FetchingTimeline(state.profile, state.timeline)
                 }
                 is ComposePostOutput.CanceledPost -> {
-                  if (profile == null || timeline == null) {
-                    FetchingTimeline(profile, timeline)
-                  } else {
-                    ShowingTimeline(profile, timeline)
-                  }
+                  renderState.previousState
                 }
               }
             }
           })
       }
       is ShowingError -> {
+        val mainScreen = renderState.profile.getOrNull()
+          ?.let {
+            context.timelineScreen(
+              profile = it,
+              timelineResponse = renderState.timeline.getOrNull(),
+            )
+          }
+          ?: EmptyScreen
+
         AppScreen(
-          main = context.timelineScreen(renderState.profile, renderState.timeline),
-          overlay = context.renderChild(errorWorkflow, renderState.errorProps) { output ->
+          main = mainScreen,
+          overlay = context.renderChild(errorWorkflow, renderState.error) { output ->
             action {
-              val oldProfile = state.profile
-              val oldTimeline = state.timeline
+              val currentProfile = state.profile
+              val currentTimeline = state.timeline
               when (output) {
                 ErrorOutput.Dismiss -> {
-                  if (oldTimeline == null && oldProfile == null) {
-                    setOutput(SignOut)
-                  } else if (oldTimeline == null || oldProfile == null) {
-                    state = FetchingTimeline(oldProfile, oldTimeline)
-                  } else {
-                    state = ShowingTimeline(oldProfile, oldTimeline)
-                  }
+                  setOutput(SignOut)
                 }
-                ErrorOutput.Retry -> state = FetchingTimeline(oldProfile, oldTimeline)
+                ErrorOutput.Retry -> {
+                  val newProfile = when (currentProfile) {
+                    is RemoteData.Fetching -> currentProfile
+                    is RemoteData.Success -> currentProfile
+                    is RemoteData.Failed -> RemoteData.Fetching(currentProfile.previous)
+                  }
+                  val newFeed = when (currentTimeline) {
+                    is RemoteData.Fetching -> currentTimeline
+                    is RemoteData.Success -> currentTimeline
+                    is RemoteData.Failed -> RemoteData.Fetching(currentTimeline.previous)
+                  }
+                  state = FetchingTimeline(newProfile, newFeed)
+                }
               }
             }
           }
@@ -175,6 +199,21 @@ class TimelineWorkflow(
   }
 
   override fun snapshotState(state: TimelineState): Snapshot? = null
+
+  private fun determineState(
+    profile: RemoteData<ProfileView>,
+    timeline: RemoteData<GetTimelineResponse>,
+  ): TimelineState {
+    return if (profile is RemoteData.Success && timeline is RemoteData.Success) {
+      ShowingTimeline(profile, timeline)
+    } else if (profile is RemoteData.Fetching || timeline is RemoteData.Fetching) {
+      FetchingTimeline(profile, timeline)
+    } else if (profile is RemoteData.Failed || timeline is RemoteData.Failed) {
+      ShowingError(profile, timeline)
+    } else {
+      error("Unknown state to transition to with profile=$profile, timeline=$timeline")
+    }
+  }
 
   private fun RenderContext.timelineScreen(
     profile: ProfileView?,
@@ -189,21 +228,21 @@ class TimelineWorkflow(
         state = FetchingTimeline(state.profile, state.timeline)
       },
       onComposePost = eventHandler {
-        state = ComposingPost(timelineResponse!!, ComposePostProps(profile!!))
+        state = ComposingPost(state, ComposePostProps(profile!!))
       },
       onOpenUser = eventHandler { user ->
         val isMe = when (user) {
-          is UserReference.Did -> user.did == state.profile?.did
-          is UserReference.Handle -> user.handle == state.profile?.handle
+          is UserReference.Did -> user.did == state.profile.getOrNull()?.did
+          is UserReference.Handle -> user.handle == state.profile.getOrNull()?.handle
         }
         state = ShowingProfile(
-          state.profile,
-          state.timeline!!,
-          ProfileProps(user, isMe, profile?.takeIf { isMe })
+          profile = state.profile,
+          timeline = RemoteData.Success(state.timeline.getOrNull()!!),
+          props = ProfileProps(user, isMe, profile?.takeIf { isMe }),
         )
       },
       onOpenImage = eventHandler { action ->
-        state = ShowingFullSizeImage(state, action)
+        state = ShowingFullSizeImage(state as ShowingTimeline, action)
       },
       onSignOut = eventHandler {
         setOutput(SignOut)
@@ -225,12 +264,35 @@ class TimelineWorkflow(
     }
   }
 
-  private fun TimelineState.withProfile(profile: ProfileView?): TimelineState = when (this) {
-    is ComposingPost -> profile?.let { copy(props = props.copy(profile = it)) } ?: this
-    is FetchingTimeline -> copy(profile = profile)
-    is ShowingError -> copy(profile = profile)
-    is ShowingFullSizeImage -> copy(previousState = previousState.withProfile(profile))
-    is ShowingTimeline -> copy(profile = profile)
-    is ShowingProfile -> copy(profile = profile)
+  private fun TimelineState.withProfile(profileResult: ProfileView?): TimelineState {
+    val profile = if (profileResult == null) {
+      RemoteData.Failed(ErrorProps.CustomError("Oops.", "Could not load your profile.", true))
+    } else {
+      RemoteData.Success(profileResult)
+    }
+
+    return when (this) {
+      is ComposingPost -> {
+        copy(
+          previousState = previousState.withProfile(profileResult) as ShowingTimeline,
+          props = profileResult?.let { props.copy(profile = it) } ?: props,
+        )
+      }
+      is FetchingTimeline -> {
+        copy(profile = profile)
+      }
+      is ShowingError -> {
+        copy(profile = profile)
+      }
+      is ShowingFullSizeImage -> {
+        copy(previousState = previousState.withProfile(profileResult) as ShowingTimeline)
+      }
+      is ShowingTimeline -> {
+        copy(profile = profile as RemoteData.Success<ProfileView>)
+      }
+      is ShowingProfile -> {
+        copy(profile = profile)
+      }
+    }
   }
 }
