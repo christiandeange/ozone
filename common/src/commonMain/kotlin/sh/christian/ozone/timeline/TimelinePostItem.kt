@@ -36,6 +36,7 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
@@ -47,6 +48,7 @@ import kotlinx.datetime.Instant
 import sh.christian.ozone.model.Author
 import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.model.TimelinePostFeature.ImagesFeature
+import sh.christian.ozone.model.TimelinePostLink
 import sh.christian.ozone.model.TimelinePostReply
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.OpenImageAction
@@ -184,26 +186,7 @@ private fun PostText(
   onOpenUser: (UserReference) -> Unit,
 ) {
   if (post.text.isNotBlank()) {
-    val postText = remember(post.text) {
-      buildAnnotatedString {
-        append(post.text)
-
-        post.textLinks.forEach { link ->
-          addStyle(
-            style = SpanStyle(color = Color(0xFF3B62FF)),
-            start = link.start,
-            end = link.end,
-          )
-
-          addStringAnnotation(
-            tag = "clickable",
-            annotation = link.value,
-            start = link.start,
-            end = link.end,
-          )
-        }
-      }
-    }
+    val postText = formatTextPost(post.text, post.textLinks)
 
     val uriHandler = LocalUriHandler.current
     ClickableText(
@@ -334,6 +317,33 @@ private fun PostAction(
         maxLines = 1,
         style = MaterialTheme.typography.bodySmall.copy(color = tint),
       )
+    }
+  }
+}
+
+@Composable
+fun formatTextPost(
+  text: String,
+  textLinks: List<TimelinePostLink>,
+): AnnotatedString {
+  return remember(text, textLinks) {
+    buildAnnotatedString {
+      append(text)
+
+      textLinks.forEach { link ->
+        addStyle(
+          style = SpanStyle(color = Color(0xFF3B62FF)),
+          start = link.start,
+          end = link.end,
+        )
+
+        addStringAnnotation(
+          tag = "clickable",
+          annotation = link.value,
+          start = link.start,
+          end = link.end,
+        )
+      }
     }
   }
 }
