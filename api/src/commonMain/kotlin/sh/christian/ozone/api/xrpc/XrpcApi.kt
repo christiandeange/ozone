@@ -8,8 +8,8 @@ import app.bsky.feed.GetTimelineQueryParams
 import app.bsky.feed.GetTimelineResponse
 import com.atproto.repo.CreateRecordRequest
 import com.atproto.repo.CreateRecordResponse
-import com.atproto.session.CreateRequest
-import com.atproto.session.CreateResponse
+import com.atproto.server.CreateSessionRequest
+import com.atproto.server.CreateSessionResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.DefaultRequest
@@ -61,9 +61,9 @@ class XrpcApi(
   }
 
   override suspend fun createSession(
-    request: CreateRequest,
-  ): AtpResponse<CreateResponse> {
-    return client.procedure("/xrpc/com.atproto.session.create", request).toAtpResponse()
+    request: CreateSessionRequest,
+  ): AtpResponse<CreateSessionResponse> {
+    return client.procedure("/xrpc/com.atproto.server.createSession", request).toAtpResponse()
   }
 
   override suspend fun getTimeline(

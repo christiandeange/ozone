@@ -1,5 +1,6 @@
 package sh.christian.ozone.api.lexicon
 
+import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 // region Primitives
@@ -12,7 +13,7 @@ data class LexiconBoolean(
 ) : LexiconPrimitive
 
 @JsonClass(generateAdapter = true)
-data class LexiconNumber(
+data class LexiconFloat(
   val description: String?,
   val default: Double?,
   val minimum: Double?,
@@ -31,20 +32,29 @@ data class LexiconInteger(
   val const: Int?,
 ) : LexiconPrimitive
 
+enum class LexiconStringFormat {
+  @Json(name = "datetime") DATETIME,
+  @Json(name = "uri") URI,
+  @Json(name = "at-uri") AT_URI,
+  @Json(name = "did") DID,
+  @Json(name = "handle") HANDLE,
+  @Json(name = "at-identifier") AT_IDENTIFIER,
+  @Json(name = "nsid") NSID,
+  @Json(name = "cid") CID,
+}
+
 @JsonClass(generateAdapter = true)
 data class LexiconString(
+  val format: LexiconStringFormat?,
   val description: String?,
   val default: String?,
   val minLength: Long?,
   val maxLength: Long?,
+  val minGraphemes: Long?,
+  val maxGraphemes: Long?,
   val enum: List<String> = emptyList(),
   val const: String?,
   val knownValues: List<String> = emptyList(),
-) : LexiconPrimitive
-
-@JsonClass(generateAdapter = true)
-data class LexiconDatetime(
-  val description: String?,
 ) : LexiconPrimitive
 
 @JsonClass(generateAdapter = true)
@@ -53,6 +63,24 @@ data class LexiconUnknown(
 ) : LexiconPrimitive
 
 sealed interface LexiconPrimitive : LexiconUserType
+
+// endregion
+
+// region InterPlanetary Linked Data (IPLD)
+
+@JsonClass(generateAdapter = true)
+data class LexiconBytes(
+  val description: String?,
+  val maxLength: Double?,
+  val minLength: Double?,
+) : LexiconIpldType
+
+@JsonClass(generateAdapter = true)
+data class LexiconCidLink(
+  val description: String?,
+) : LexiconIpldType
+
+sealed interface LexiconIpldType : LexiconUserType
 
 // endregion
 
@@ -81,40 +109,11 @@ sealed interface LexiconReference
 // region Blobs
 
 @JsonClass(generateAdapter = true)
-data class LexiconBlobObject(
+data class LexiconBlob(
   val description: String?,
   val accept: List<String> = emptyList(),
   val maxSize: Double?,
-) : LexiconBlob
-
-@JsonClass(generateAdapter = true)
-data class LexiconImage(
-  val description: String?,
-  val accept: List<String> = emptyList(),
-  val maxSize: Double?,
-  val maxWidth: Long?,
-  val maxHeight: Long?,
-) : LexiconBlob
-
-@JsonClass(generateAdapter = true)
-data class LexiconVideo(
-  val description: String?,
-  val accept: List<String> = emptyList(),
-  val maxSize: Double?,
-  val maxWidth: Long?,
-  val maxHeight: Long?,
-  val maxLength: Long?,
-) : LexiconBlob
-
-@JsonClass(generateAdapter = true)
-data class LexiconAudio(
-  val description: String?,
-  val accept: List<String> = emptyList(),
-  val maxSize: Double?,
-  val maxLength: Long?,
-) : LexiconBlob
-
-sealed interface LexiconBlob : LexiconUserType
+) : LexiconUserType
 
 // endregion
 
@@ -131,6 +130,10 @@ data class LexiconArray(
 sealed interface LexiconArrayItem {
   data class Primitive(
     val primitive: LexiconPrimitive,
+  ) : LexiconArrayItem
+
+  data class IpldType(
+    val ipld: LexiconIpldType,
   ) : LexiconArrayItem
 
   data class Blob(
@@ -166,6 +169,10 @@ data class LexiconObject(
 sealed interface LexiconObjectProperty {
   data class Reference(
     val reference: LexiconReference,
+  ) : LexiconObjectProperty
+
+  data class IpldType(
+    val ipld: LexiconIpldType,
   ) : LexiconObjectProperty
 
   data class Array(

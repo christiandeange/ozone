@@ -18,7 +18,7 @@ import sh.christian.ozone.compose.ComposePostWorkflow
 import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
-import sh.christian.ozone.model.Profile
+import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.Timeline
 import sh.christian.ozone.profile.ProfileProps
 import sh.christian.ozone.profile.ProfileWorkflow
@@ -202,7 +202,7 @@ class TimelineWorkflow(
   override fun snapshotState(state: TimelineState): Snapshot? = null
 
   private fun determineState(
-    profile: RemoteData<Profile>,
+    profile: RemoteData<FullProfile>,
     timeline: RemoteData<Timeline>,
   ): TimelineState {
     return if (profile is RemoteData.Success && timeline is RemoteData.Success) {
@@ -217,7 +217,7 @@ class TimelineWorkflow(
   }
 
   private fun RenderContext.timelineScreen(
-    profile: Profile?,
+    profile: FullProfile?,
     timelineResponse: Timeline?,
   ): TimelineScreen {
     return TimelineScreen(
@@ -262,13 +262,13 @@ class TimelineWorkflow(
       apiProvider.api.getTimeline(
         GetTimelineQueryParams(
           limit = 100,
-          before = cursor,
+          cursor = cursor,
         )
       ).map { Timeline.from(it.feed, it.cursor) }
     }
   }
 
-  private fun TimelineState.withProfile(profileResult: Profile?): TimelineState {
+  private fun TimelineState.withProfile(profileResult: FullProfile?): TimelineState {
     val profile = if (profileResult == null) {
       RemoteData.Failed(ErrorProps.CustomError("Oops.", "Could not load your profile.", true))
     } else {
@@ -292,7 +292,7 @@ class TimelineWorkflow(
         copy(previousState = previousState.withProfile(profileResult) as ShowingTimeline)
       }
       is ShowingTimeline -> {
-        copy(profile = profile as RemoteData.Success<Profile>)
+        copy(profile = profile as RemoteData.Success<FullProfile>)
       }
       is ShowingProfile -> {
         copy(profile = profile)

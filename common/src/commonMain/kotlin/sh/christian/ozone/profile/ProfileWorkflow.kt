@@ -1,6 +1,5 @@
 package sh.christian.ozone.profile
 
-import app.bsky.actor.GetProfileQueryParams
 import app.bsky.feed.GetAuthorFeedQueryParams
 import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
@@ -16,10 +15,9 @@ import sh.christian.ozone.app.AppScreen
 import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
-import sh.christian.ozone.model.Profile
+import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.Timeline
 import sh.christian.ozone.model.TimelinePost
-import sh.christian.ozone.model.toProfile
 import sh.christian.ozone.profile.ProfileState.FetchingProfile
 import sh.christian.ozone.profile.ProfileState.ShowingError
 import sh.christian.ozone.profile.ProfileState.ShowingFullSizeImage
@@ -172,7 +170,7 @@ class ProfileWorkflow(
 
   private fun RenderContext.profileScreen(
     props: ProfileProps,
-    profile: Profile,
+    profile: FullProfile,
     feed: List<TimelinePost>,
   ): ProfileScreen {
     return ProfileScreen(
@@ -199,7 +197,7 @@ class ProfileWorkflow(
   }
 
   private fun determineState(
-    profile: RemoteData<Profile>,
+    profile: RemoteData<FullProfile>,
     feed: RemoteData<Timeline>,
   ): ProfileState {
     return if (profile is Success && feed is Success) {
@@ -213,14 +211,6 @@ class ProfileWorkflow(
     }
   }
 
-  private fun loadProfile(user: UserReference): Worker<AtpResponse<Profile>> = NetworkWorker {
-    val identifier = when (user) {
-      is UserReference.Did -> user.did
-      is UserReference.Handle -> user.handle
-    }
-    apiProvider.api.getProfile(GetProfileQueryParams(identifier)).map { it.toProfile() }
-  }
-
   private fun loadPosts(
     user: UserReference,
     cursor: String?,
@@ -231,9 +221,9 @@ class ProfileWorkflow(
     }
     apiProvider.api.getAuthorFeed(
       GetAuthorFeedQueryParams(
-        author = identifier,
+        actor = identifier,
         limit = 100,
-        before = cursor,
+        cursor = cursor,
       )
     ).map { Timeline.from(it.feed, it.cursor) }
   }

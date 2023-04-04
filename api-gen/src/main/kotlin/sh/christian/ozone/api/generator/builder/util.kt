@@ -2,6 +2,7 @@ package sh.christian.ozone.api.generator.builder
 
 import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.BOOLEAN
+import com.squareup.kotlinpoet.BYTE_ARRAY
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.DOUBLE
 import com.squareup.kotlinpoet.FunSpec
@@ -25,10 +26,12 @@ import sh.christian.ozone.api.lexicon.LexiconArray
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
 import sh.christian.ozone.api.lexicon.LexiconBlob
 import sh.christian.ozone.api.lexicon.LexiconBoolean
-import sh.christian.ozone.api.lexicon.LexiconDatetime
+import sh.christian.ozone.api.lexicon.LexiconBytes
+import sh.christian.ozone.api.lexicon.LexiconCidLink
 import sh.christian.ozone.api.lexicon.LexiconDocument
+import sh.christian.ozone.api.lexicon.LexiconFloat
 import sh.christian.ozone.api.lexicon.LexiconInteger
-import sh.christian.ozone.api.lexicon.LexiconNumber
+import sh.christian.ozone.api.lexicon.LexiconIpldType
 import sh.christian.ozone.api.lexicon.LexiconObject
 import sh.christian.ozone.api.lexicon.LexiconPrimitive
 import sh.christian.ozone.api.lexicon.LexiconRecord
@@ -138,9 +141,8 @@ fun createEnumClass(
 
 fun LexiconPrimitive.toTypeName() = when (this) {
   is LexiconBoolean -> BOOLEAN
-  is LexiconDatetime -> STRING
   is LexiconInteger -> LONG
-  is LexiconNumber -> DOUBLE
+  is LexiconFloat -> DOUBLE
   is LexiconString -> STRING
   is LexiconUnknown -> JSON_ELEMENT
 }
@@ -187,11 +189,17 @@ fun typeName(
   is LexiconArray -> {
     when (userType.items) {
       is LexiconArrayItem.Blob -> typeName(environment, context, propertyName, userType.items.blob)
+      is LexiconArrayItem.IpldType -> typeName(
+        environment,
+        context,
+        propertyName,
+        userType.items.ipld,
+      )
       is LexiconArrayItem.Primitive -> typeName(
         environment,
         context,
         propertyName,
-        userType.items.primitive
+        userType.items.primitive,
       )
       is LexiconArrayItem.Reference -> when (userType.items.reference) {
         is LexiconSingleReference -> {
@@ -210,6 +218,12 @@ fun typeName(
   }
   is LexiconBlob -> {
     JSON_ELEMENT
+  }
+  is LexiconIpldType -> {
+    when (userType) {
+      is LexiconBytes -> BYTE_ARRAY
+      is LexiconCidLink -> STRING
+    }
   }
   is LexiconObject -> {
     val sourceId = context.document.id

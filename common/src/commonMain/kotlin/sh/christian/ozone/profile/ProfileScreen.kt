@@ -45,7 +45,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.unit.dp
 import kotlinx.datetime.Instant
-import sh.christian.ozone.model.Profile
+import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.timeline.TimelinePostItem
 import sh.christian.ozone.ui.compose.AvatarImage
@@ -64,7 +64,7 @@ import kotlin.math.max
 @OptIn(ExperimentalFoundationApi::class)
 class ProfileScreen(
   private val now: Instant,
-  private val profile: Profile,
+  private val profile: FullProfile,
   private val feed: List<TimelinePost>,
   private val isSelf: Boolean,
   private val onLoadMore: () -> Unit,

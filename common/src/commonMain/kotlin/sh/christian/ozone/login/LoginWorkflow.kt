@@ -1,6 +1,6 @@
 package sh.christian.ozone.login
 
-import com.atproto.session.CreateRequest
+import com.atproto.server.CreateSessionRequest
 import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.action
@@ -108,6 +108,8 @@ class LoginWorkflow(
   }
 
   private fun signIn(credentials: Credentials) = NetworkWorker {
-    apiRepository.api.createSession(CreateRequest(credentials.username, credentials.password))
+    apiRepository.api.createSession(
+      CreateSessionRequest(credentials.username, credentials.password)
+    )
   }
 }

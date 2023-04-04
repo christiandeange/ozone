@@ -1,6 +1,6 @@
 package sh.christian.ozone.model
 
-import app.bsky.feed.FeedViewPost
+import app.bsky.feed.DefsFeedViewPost
 
 data class Timeline(
   val posts: List<TimelinePost>,
@@ -8,7 +8,7 @@ data class Timeline(
 ) {
   companion object {
     fun from(
-      posts: List<FeedViewPost>,
+      posts: List<DefsFeedViewPost>,
       cursor: String?,
     ): Timeline {
       return Timeline(

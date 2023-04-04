@@ -1,46 +1,44 @@
 package sh.christian.ozone.model
 
-import app.bsky.feed.FeedViewPost
+import app.bsky.feed.DefsFeedViewPost
+import app.bsky.feed.DefsPostView
 import app.bsky.feed.Post
-import app.bsky.feed.PostView
 import kotlinx.datetime.Instant
 import sh.christian.ozone.util.deserialize
 
 data class TimelinePost(
   val uri: String,
   val cid: String,
-  val author: Author,
+  val author: Profile,
   val text: String,
   val textLinks: List<TimelinePostLink>,
   val createdAt: Instant,
   val feature: TimelinePostFeature?,
   val replyCount: Long,
   val repostCount: Long,
-  val upvoteCount: Long,
-  val downvoteCount: Long,
+  val likeCount: Long,
   val indexedAt: Instant,
   val reposted: Boolean,
-  val upvoted: Boolean,
-  val downvoted: Boolean,
+  val liked: Boolean,
   val reply: TimelinePostReply?,
   val reason: TimelinePostReason?,
 )
 
-fun FeedViewPost.toPost(): TimelinePost {
+fun DefsFeedViewPost.toPost(): TimelinePost {
   return post.toPost(
     reply = reply?.toReply(),
     reason = reason?.toReason(),
   )
 }
 
-fun PostView.toPost(): TimelinePost {
+fun DefsPostView.toPost(): TimelinePost {
   return toPost(
     reply = null,
     reason = null
   )
 }
 
-fun PostView.toPost(
+fun DefsPostView.toPost(
   reply: TimelinePostReply?,
   reason: TimelinePostReason?,
 ): TimelinePost {
@@ -50,19 +48,17 @@ fun PostView.toPost(
   return TimelinePost(
     uri = uri,
     cid = cid,
-    author = author.toAuthor(),
+    author = author.toProfile(),
     text = postRecord.text,
     textLinks = postRecord.entities.map { it.toLink() },
     createdAt = Instant.parse(postRecord.createdAt),
     feature = embed?.toFeature(),
-    replyCount = replyCount,
-    repostCount = repostCount,
-    upvoteCount = upvoteCount,
-    downvoteCount = downvoteCount,
+    replyCount = replyCount ?: 0,
+    repostCount = repostCount ?: 0,
+    likeCount = likeCount ?: 0,
     indexedAt = Instant.parse(indexedAt),
-    reposted = viewer.repost != null,
-    upvoted = viewer.upvote != null,
-    downvoted = viewer.downvote != null,
+    reposted = viewer?.repost != null,
+    liked = viewer?.like != null,
     reply = reply,
     reason = reason,
   )

@@ -8,14 +8,14 @@ import app.bsky.feed.GetTimelineQueryParams
 import app.bsky.feed.GetTimelineResponse
 import com.atproto.repo.CreateRecordRequest
 import com.atproto.repo.CreateRecordResponse
-import com.atproto.session.CreateRequest
-import com.atproto.session.CreateResponse
+import com.atproto.server.CreateSessionRequest
+import com.atproto.server.CreateSessionResponse
 import sh.christian.ozone.api.response.AtpResponse
 
 interface AtpApi {
   suspend fun createSession(
-    request: CreateRequest,
-  ): AtpResponse<CreateResponse>
+    request: CreateSessionRequest,
+  ): AtpResponse<CreateSessionResponse>
 
   suspend fun getTimeline(
     params: GetTimelineQueryParams,

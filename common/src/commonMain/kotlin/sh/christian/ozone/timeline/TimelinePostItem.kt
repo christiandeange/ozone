@@ -45,7 +45,7 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import io.kamel.image.lazyPainterResource
 import kotlinx.datetime.Instant
-import sh.christian.ozone.model.Author
+import sh.christian.ozone.model.Profile
 import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.model.TimelinePostFeature.ImagesFeature
 import sh.christian.ozone.model.TimelinePostLink
@@ -74,7 +74,7 @@ fun TimelinePostItem(
     modifier = Modifier.padding(16.dp),
     horizontalArrangement = spacedBy(16.dp),
   ) {
-    val author: Author = post.author
+    val author: Profile = post.author
     AvatarImage(
       modifier = Modifier.size(48.dp),
       avatarUrl = author.avatar,
@@ -102,7 +102,7 @@ fun TimelinePostItem(
 private fun PostHeadline(
   now: Instant,
   createdAt: Instant,
-  author: Author,
+  author: Profile,
 ) {
   Row(
     horizontalArrangement = spacedBy(4.dp),
@@ -269,14 +269,14 @@ private fun PostActions(post: TimelinePost) {
       },
     )
     PostAction(
-      icon = if (post.upvoted) {
+      icon = if (post.liked) {
         Icons.Default.Favorite
       } else {
         Icons.Default.FavoriteBorder
       },
       contentDescription = "Like",
-      text = (post.upvoteCount - post.downvoteCount).toString(),
-      tint = if (post.upvoted) {
+      text = post.likeCount.toString(),
+      tint = if (post.liked) {
         Color.Red
       } else {
         MaterialTheme.colorScheme.outline

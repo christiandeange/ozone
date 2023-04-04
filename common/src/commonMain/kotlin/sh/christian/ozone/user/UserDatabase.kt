@@ -10,7 +10,7 @@ import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
 import sh.christian.ozone.api.ApiProvider
-import sh.christian.ozone.model.Profile
+import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.toProfile
 import sh.christian.ozone.store.PersistentStorage
 import sh.christian.ozone.store.preference
@@ -21,7 +21,7 @@ class UserDatabase(
   private val storage: PersistentStorage,
   private val apiProvider: ApiProvider,
 ) {
-  fun profile(userReference: UserReference): Flow<Profile> = flow {
+  fun profile(userReference: UserReference): Flow<FullProfile> = flow {
     val preference = storage.preference<CacheObject?>(userReference.toString(), null)
 
     val cached = preference.get()
@@ -51,6 +51,6 @@ class UserDatabase(
   @Serializable
   private data class CacheObject(
     val instant: Instant,
-    val profile: Profile,
+    val profile: FullProfile,
   )
 }

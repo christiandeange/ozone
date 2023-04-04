@@ -1,9 +1,11 @@
 package sh.christian.ozone.api.generator.builder
 
 import com.squareup.kotlinpoet.AnnotationSpec
+import com.squareup.kotlinpoet.BYTE_ARRAY
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.LIST
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
+import com.squareup.kotlinpoet.STRING
 import com.squareup.kotlinpoet.TypeAliasSpec
 import com.squareup.kotlinpoet.TypeSpec
 import org.gradle.configurationcache.extensions.capitalized
@@ -11,6 +13,8 @@ import sh.christian.ozone.api.generator.ENCODING
 import sh.christian.ozone.api.generator.JSON_ELEMENT
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
+import sh.christian.ozone.api.lexicon.LexiconBytes
+import sh.christian.ozone.api.lexicon.LexiconCidLink
 import sh.christian.ozone.api.lexicon.LexiconObject
 import sh.christian.ozone.api.lexicon.LexiconObjectProperty
 import sh.christian.ozone.api.lexicon.LexiconSingleReference
@@ -92,6 +96,12 @@ class XrpcBodyGenerator(
                 prop.array.items.primitive.toTypeName()
               }
               is LexiconArrayItem.Blob -> JSON_ELEMENT
+              is LexiconArrayItem.IpldType -> {
+                when (prop.array.items.ipld) {
+                  is LexiconBytes -> BYTE_ARRAY
+                  is LexiconCidLink -> STRING
+                }
+              }
               is LexiconArrayItem.Reference -> {
                 when (prop.array.items.reference) {
                   is LexiconSingleReference -> {
@@ -120,6 +130,15 @@ class XrpcBodyGenerator(
             name = name,
             type = JSON_ELEMENT,
             nullable = nullable,
+          )
+        is LexiconObjectProperty.IpldType ->
+          SimpleProperty(
+            name = name,
+            nullable = nullable,
+            type = when (prop.ipld) {
+              is LexiconBytes -> BYTE_ARRAY
+              is LexiconCidLink -> STRING
+            },
           )
         is LexiconObjectProperty.Reference -> {
           SimpleProperty(

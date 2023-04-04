@@ -99,7 +99,7 @@ class ComposePostWorkflow(
 
   private fun post(post: PostPayload) = NetworkWorker {
     val request = CreateRecordRequest(
-      did = post.authorDid,
+      repo = post.authorDid,
       collection = "app.bsky.feed.post",
       record = Post.serializer().serialize(
         Post(

@@ -22,9 +22,9 @@ fun parseDocumentMetadata(json: String): LexiconDocumentMetadata {
 
 private val moshi: Moshi = Moshi.Builder()
   .add(LexiconCodegenAdapterFactory())
+  .add(EnumJsonAdapterFactory())
   .addAdapter(LexiconPrimitiveAdapter())
   .addAdapter(LexiconReferenceAdapter())
-  .addAdapter(LexiconBlobAdapter())
   .addAdapter(LexiconArrayItemAdapter())
   .addAdapter(LexiconXrpcParameterAdapter())
   .addAdapter(LexiconObjectPropertyAdapter())
@@ -39,17 +39,15 @@ private class LexiconCodegenAdapterFactory : JsonAdapter.Factory {
     moshi: Moshi,
   ): JsonAdapter<*>? = when (type) {
     LexiconBoolean::class -> LexiconBooleanJsonAdapter(moshi)
-    LexiconNumber::class -> LexiconNumberJsonAdapter(moshi)
+    LexiconFloat::class -> LexiconFloatJsonAdapter(moshi)
     LexiconInteger::class -> LexiconIntegerJsonAdapter(moshi)
     LexiconString::class -> LexiconStringJsonAdapter(moshi)
-    LexiconDatetime::class -> LexiconDatetimeJsonAdapter(moshi)
     LexiconUnknown::class -> LexiconUnknownJsonAdapter(moshi)
     LexiconSingleReference::class -> LexiconSingleReferenceJsonAdapter(moshi)
     LexiconUnionReference::class -> LexiconUnionReferenceJsonAdapter(moshi)
-    LexiconBlobObject::class -> LexiconBlobObjectJsonAdapter(moshi)
-    LexiconImage::class -> LexiconImageJsonAdapter(moshi)
-    LexiconVideo::class -> LexiconVideoJsonAdapter(moshi)
-    LexiconAudio::class -> LexiconAudioJsonAdapter(moshi)
+    LexiconBytes::class ->LexiconBytesJsonAdapter(moshi)
+    LexiconCidLink::class -> LexiconCidLinkJsonAdapter(moshi)
+    LexiconBlob::class -> LexiconBlobJsonAdapter(moshi)
     LexiconArray::class -> LexiconArrayJsonAdapter(moshi)
     LexiconPrimitiveArray::class -> LexiconPrimitiveArrayJsonAdapter(moshi)
     LexiconToken::class -> LexiconTokenJsonAdapter(moshi)
@@ -91,16 +89,10 @@ private class LexiconReferenceAdapter : Deserializer<LexiconReference>() {
   }
 }
 
-private class LexiconBlobAdapter : Deserializer<LexiconBlob>() {
-  override fun fromJson(reader: JsonReader): LexiconBlob {
-    return reader.maybeReadLexiconBlob()
-      ?: reader.failUnknownType()
-  }
-}
-
 private class LexiconArrayItemAdapter : Deserializer<LexiconArrayItem>() {
   override fun fromJson(reader: JsonReader): LexiconArrayItem {
     return reader.maybeReadLexiconPrimitive()?.let(LexiconArrayItem::Primitive)
+      ?: reader.maybeReadLexiconIpldType()?.let(LexiconArrayItem::IpldType)
       ?: reader.maybeReadLexiconBlob()?.let(LexiconArrayItem::Blob)
       ?: reader.maybeReadLexiconReference()?.let(LexiconArrayItem::Reference)
       ?: reader.failUnknownType()
@@ -120,6 +112,7 @@ private class LexiconObjectPropertyAdapter : Deserializer<LexiconObjectProperty>
     return reader.maybeReadLexiconReference()?.let(LexiconObjectProperty::Reference)
       ?: reader.maybeReadLexiconArray()?.let(LexiconObjectProperty::Array)
       ?: reader.maybeReadLexiconBlob()?.let(LexiconObjectProperty::Blob)
+      ?: reader.maybeReadLexiconIpldType()?.let(LexiconObjectProperty::IpldType)
       ?: reader.maybeReadLexiconPrimitive()?.let(LexiconObjectProperty::Primitive)
       ?: reader.failUnknownType()
   }
@@ -146,11 +139,15 @@ private class LexiconUserTypeAdapter : Deserializer<LexiconUserType>() {
 
 private fun JsonReader.maybeReadLexiconPrimitive() = maybeReadType(
   "boolean" to LexiconBoolean::class,
-  "number" to LexiconNumber::class,
+  "float" to LexiconFloat::class,
   "integer" to LexiconInteger::class,
   "string" to LexiconString::class,
-  "datetime" to LexiconDatetime::class,
   "unknown" to LexiconUnknown::class,
+)
+
+private fun JsonReader.maybeReadLexiconIpldType() = maybeReadType(
+  "bytes" to LexiconBytes::class,
+  "cid-link" to LexiconCidLink::class,
 )
 
 private fun JsonReader.maybeReadLexiconReference() = maybeReadType(
@@ -159,10 +156,7 @@ private fun JsonReader.maybeReadLexiconReference() = maybeReadType(
 )
 
 private fun JsonReader.maybeReadLexiconBlob() = maybeReadType(
-  "blob" to LexiconBlobObject::class,
-  "image" to LexiconImage::class,
-  "video" to LexiconVideo::class,
-  "audio" to LexiconAudio::class,
+  "blob" to LexiconBlob::class,
 )
 
 private fun JsonReader.maybeReadLexiconArray() = maybeReadType(
@@ -180,6 +174,7 @@ private fun JsonReader.maybeReadLexiconObject() = maybeReadType(
 private fun JsonReader.maybeReadLexiconUserType() =
   maybeReadLexiconBlob()
     ?: maybeReadLexiconPrimitive()
+    ?: maybeReadLexiconIpldType()
     ?: maybeReadLexiconArray()
     ?: maybeReadLexiconObject()
     ?: maybeReadType(

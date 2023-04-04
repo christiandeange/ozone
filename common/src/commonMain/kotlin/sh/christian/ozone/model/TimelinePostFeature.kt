@@ -1,33 +1,42 @@
 package sh.christian.ozone.model
 
-import app.bsky.embed.RecordPresentedRecordUnion.PresentedNotFound
-import app.bsky.embed.RecordPresentedRecordUnion.PresentedRecord
+import app.bsky.embed.ExternalView
+import app.bsky.embed.ImagesView
+import app.bsky.embed.RecordViewRecordUnion
+import app.bsky.embed.RecordWithMediaViewMediaUnion
+import app.bsky.feed.DefsPostViewEmbedUnion
 import app.bsky.feed.Post
-import app.bsky.feed.PostViewEmbedUnion
-import app.bsky.feed.PostViewEmbedUnion.ImagesPresented
 import sh.christian.ozone.model.EmbedPost.InvisibleEmbedPost
 import sh.christian.ozone.model.EmbedPost.VisibleEmbedPost
 import sh.christian.ozone.model.TimelinePostFeature.ExternalFeature
 import sh.christian.ozone.model.TimelinePostFeature.ImagesFeature
+import sh.christian.ozone.model.TimelinePostFeature.MediaPostFeature
 import sh.christian.ozone.model.TimelinePostFeature.PostFeature
 import sh.christian.ozone.util.deserialize
 
 sealed interface TimelinePostFeature {
   data class ImagesFeature(
     val images: List<EmbedImage>,
-  ) : TimelinePostFeature
+  ) : TimelinePostFeature, TimelinePostMedia
 
   data class ExternalFeature(
     val uri: String,
     val title: String,
     val description: String,
     val thumb: String?,
-  ) : TimelinePostFeature
+  ) : TimelinePostFeature, TimelinePostMedia
 
   data class PostFeature(
     val post: EmbedPost,
   ) : TimelinePostFeature
+
+  data class MediaPostFeature(
+    val post: EmbedPost,
+    val media: TimelinePostMedia,
+  ) : TimelinePostFeature
 }
+
+sealed interface TimelinePostMedia
 
 data class EmbedImage(
   val thumb: String,
@@ -39,7 +48,7 @@ sealed interface EmbedPost {
   data class VisibleEmbedPost(
     val uri: String,
     val cid: String,
-    val author: Author,
+    val author: Profile,
     val litePost: LitePost,
   ) : EmbedPost
 
@@ -48,47 +57,68 @@ sealed interface EmbedPost {
   ) : EmbedPost
 }
 
-fun PostViewEmbedUnion.toFeature(): TimelinePostFeature {
+fun DefsPostViewEmbedUnion.toFeature(): TimelinePostFeature {
   return when (this) {
-    is ImagesPresented -> {
-      ImagesFeature(
-        images = value.images.map {
-          EmbedImage(
-            thumb = it.thumb,
-            fullsize = it.fullsize,
-            alt = it.alt,
-          )
-        }
-      )
+    is DefsPostViewEmbedUnion.ImagesView -> {
+      value.toImagesFeature()
     }
-    is PostViewEmbedUnion.ExternalPresented -> {
-      ExternalFeature(
-        uri = value.external.uri,
-        title = value.external.title,
-        description = value.external.description,
-        thumb = value.external.thumb,
-      )
+    is DefsPostViewEmbedUnion.ExternalView -> {
+      value.toExternalFeature()
     }
-    is PostViewEmbedUnion.RecordPresented -> {
+    is DefsPostViewEmbedUnion.RecordView -> {
       PostFeature(
-        post = when (val record = value.record) {
-          is PresentedNotFound -> {
-            InvisibleEmbedPost(
-              uri = record.value.uri,
-            )
-          }
-          is PresentedRecord -> {
-            // TODO verify via recordType before blindly deserialized.
-            val litePost = Post.serializer().deserialize(record.value.record).toLitePost()
-
-            VisibleEmbedPost(
-              uri = record.value.uri,
-              cid = record.value.cid,
-              author = record.value.author.toAuthor(),
-              litePost = litePost,
-            )
-          }
+        post = value.record.toEmbedPost(),
+      )
+    }
+    is DefsPostViewEmbedUnion.RecordWithMediaView -> {
+      MediaPostFeature(
+        post = value.record.record.toEmbedPost(),
+        media = when (val media = value.media) {
+          is RecordWithMediaViewMediaUnion.ExternalView -> media.value.toExternalFeature()
+          is RecordWithMediaViewMediaUnion.ImagesView -> media.value.toImagesFeature()
         },
+      )
+    }
+  }
+}
+
+private fun ImagesView.toImagesFeature(): ImagesFeature {
+  return ImagesFeature(
+    images = images.map {
+      EmbedImage(
+        thumb = it.thumb,
+        fullsize = it.fullsize,
+        alt = it.alt,
+      )
+    }
+  )
+}
+
+private fun ExternalView.toExternalFeature(): ExternalFeature {
+  return ExternalFeature(
+    uri = external.uri,
+    title = external.title,
+    description = external.description,
+    thumb = external.thumb,
+  )
+}
+
+private fun RecordViewRecordUnion.toEmbedPost(): EmbedPost {
+  return when (this) {
+    is RecordViewRecordUnion.ViewNotFound -> {
+      InvisibleEmbedPost(
+        uri = value.uri,
+      )
+    }
+    is RecordViewRecordUnion.ViewRecord -> {
+      // TODO verify via recordType before blindly deserialized.
+      val litePost = Post.serializer().deserialize(value.value).toLitePost()
+
+      VisibleEmbedPost(
+        uri = value.uri,
+        cid = value.cid,
+        author = value.author.toProfile(),
+        litePost = litePost,
       )
     }
   }

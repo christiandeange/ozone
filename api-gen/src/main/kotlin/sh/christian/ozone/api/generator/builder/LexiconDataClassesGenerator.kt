@@ -17,9 +17,9 @@ import sh.christian.ozone.api.lexicon.LexiconArray
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
 import sh.christian.ozone.api.lexicon.LexiconBlob
 import sh.christian.ozone.api.lexicon.LexiconBoolean
-import sh.christian.ozone.api.lexicon.LexiconDatetime
+import sh.christian.ozone.api.lexicon.LexiconFloat
 import sh.christian.ozone.api.lexicon.LexiconInteger
-import sh.christian.ozone.api.lexicon.LexiconNumber
+import sh.christian.ozone.api.lexicon.LexiconIpldType
 import sh.christian.ozone.api.lexicon.LexiconObject
 import sh.christian.ozone.api.lexicon.LexiconObjectProperty
 import sh.christian.ozone.api.lexicon.LexiconPrimitive
@@ -45,6 +45,7 @@ class LexiconDataClassesGenerator(
   ) = when (userType) {
     is LexiconArray -> generateTypes(context, userType)
     is LexiconBlob -> generateTypes(context, userType)
+    is LexiconIpldType -> generateTypes(context, userType)
     is LexiconObject -> generateTypes(context, userType)
     is LexiconPrimitive -> generateTypes(context, userType)
     is LexiconRecord -> generateTypes(context, userType)
@@ -60,6 +61,7 @@ class LexiconDataClassesGenerator(
   ) {
     when (array.items) {
       is LexiconArrayItem.Blob -> Unit
+      is LexiconArrayItem.IpldType -> Unit
       is LexiconArrayItem.Primitive -> Unit
       is LexiconArrayItem.Reference -> {
         when (array.items.reference) {
@@ -79,6 +81,13 @@ class LexiconDataClassesGenerator(
 
   private fun generateTypes(
     context: GeneratorContext,
+    ipldType: LexiconIpldType,
+  ) {
+    return
+  }
+
+  private fun generateTypes(
+    context: GeneratorContext,
     obj: LexiconObject,
   ) {
     val properties = obj.properties.map { (propertyName, property) ->
@@ -88,6 +97,12 @@ class LexiconDataClassesGenerator(
         is LexiconObjectProperty.Array -> {
           when (val itemType = property.array.items) {
             is LexiconArrayItem.Blob -> typeName(environment, context, "", itemType.blob)
+            is LexiconArrayItem.IpldType -> typeName(
+              environment,
+              context,
+              "",
+              itemType.ipld
+            )
             is LexiconArrayItem.Primitive -> typeName(
               environment,
               context,
@@ -107,6 +122,7 @@ class LexiconDataClassesGenerator(
           }.let { LIST.parameterizedBy(it) }
         }
         is LexiconObjectProperty.Blob -> typeName(environment, context, "", property.blob)
+        is LexiconObjectProperty.IpldType -> typeName(environment, context, "", property.ipld)
         is LexiconObjectProperty.Primitive -> typeName(
           environment,
           context,
@@ -138,9 +154,8 @@ class LexiconDataClassesGenerator(
   ) {
     when (primitive) {
       is LexiconBoolean -> Unit
-      is LexiconDatetime -> Unit
       is LexiconInteger -> Unit
-      is LexiconNumber -> Unit
+      is LexiconFloat -> Unit
       is LexiconString -> {
         if (primitive.knownValues.isNotEmpty()) {
           context.addTypeAlias(TypeAliasSpec.builder(context.classPrefix, STRING).build())
@@ -205,6 +220,7 @@ class LexiconDataClassesGenerator(
             is LexiconObjectProperty.Array -> {
               when (property.array.items) {
                 is LexiconArrayItem.Blob -> Unit
+                is LexiconArrayItem.IpldType -> Unit
                 is LexiconArrayItem.Primitive -> {
                   generateTypes(context, property.array.items.primitive)
                 }
@@ -223,6 +239,7 @@ class LexiconDataClassesGenerator(
               }
             }
             is LexiconObjectProperty.Blob -> Unit
+            is LexiconObjectProperty.IpldType -> Unit
             is LexiconObjectProperty.Primitive -> {
               generateTypes(context, property.primitive)
             }
@@ -268,19 +285,19 @@ class LexiconDataClassesGenerator(
       .addModifiers(KModifier.SEALED)
       .addAnnotation(SERIALIZABLE)
 
-    val (commonPrefix, commonSuffix) = unionReference.references
+    val canonicalReferences = unionReference.references
       .map { it.ref.parseLexiconRef(context.document) }
       .map { (lexiconId, objectRef) -> "$lexiconId#$objectRef" }
-      .let { references ->
-        references.commonPrefix() to references.commonSuffix()
-      }
+
+    val (commonPrefix, commonSuffix) =
+      canonicalReferences.commonPrefix() to canonicalReferences.commonSuffix()
 
     unionReference.references.forEach { reference ->
       val typeName = reference.typeName(environment, context.document)
       val uniqueName = reference.ref
         .removePrefix(commonPrefix)
         .removeSuffix(commonSuffix)
-        .replace(Regex("#[a-z]")) { it.value[1].uppercase() }
+        .replace(Regex("[.#][a-z]")) { it.value[1].uppercase() }
         .capitalized()
 
       sealedInterface.addType(
