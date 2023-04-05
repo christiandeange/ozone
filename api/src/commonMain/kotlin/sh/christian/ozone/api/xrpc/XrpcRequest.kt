@@ -14,7 +14,7 @@ import sh.christian.ozone.api.response.StatusCode
 
 internal suspend inline fun HttpClient.query(
   path: String,
-  queryParams: Map<String, Any?>,
+  queryParams: Map<String, Any?> = emptyMap(),
 ): HttpResponse {
   return get(path) {
     queryParams.forEach(::parameter)

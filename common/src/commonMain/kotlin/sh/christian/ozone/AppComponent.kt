@@ -56,7 +56,7 @@ class AppComponent(
   private val loginWorkflow: LoginWorkflow by lazy {
     LoginWorkflow(
       serverRepository = serverRepository,
-      apiRepository = apiProvider,
+      apiProvider = apiProvider,
       errorWorkflow = errorWorkflow,
     )
   }

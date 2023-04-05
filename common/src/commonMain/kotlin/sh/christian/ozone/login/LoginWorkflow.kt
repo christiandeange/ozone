@@ -1,5 +1,6 @@
 package sh.christian.ozone.login
 
+import com.atproto.server.CreateAccountRequest
 import com.atproto.server.CreateSessionRequest
 import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
@@ -26,13 +27,13 @@ import sh.christian.ozone.ui.workflow.Dismissable.DismissHandler
 
 class LoginWorkflow(
   private val serverRepository: ServerRepository,
-  private val apiRepository: ApiProvider,
+  private val apiProvider: ApiProvider,
   private val errorWorkflow: ErrorWorkflow,
 ) : StatefulWorkflow<Unit, LoginState, LoginOutput, AppScreen>() {
   override fun initialState(
     props: Unit,
     snapshot: Snapshot?,
-  ): LoginState = ShowingLogin
+  ): LoginState = ShowingLogin(mode = LoginScreenMode.SIGN_IN)
 
   override fun render(
     renderProps: Unit,
@@ -40,36 +41,30 @@ class LoginWorkflow(
     context: RenderContext,
   ): AppScreen = when (renderState) {
     is ShowingLogin -> {
-      AppScreen(context.loginScreen())
+      AppScreen(context.loginScreen(renderState.mode))
     }
     is SigningIn -> {
-      context.runningWorker(signIn(renderState.credentials)) { result ->
+      context.runningWorker(signIn(renderState.mode, renderState.credentials)) { result ->
         action {
           when (result) {
             is AtpResponse.Success -> {
-              val authInfo = AuthInfo(
-                accessJwt = result.response.accessJwt,
-                refreshJwt = result.response.refreshJwt,
-                handle = result.response.handle,
-                did = result.response.did,
-              )
-              setOutput(LoggedIn(authInfo))
+              setOutput(LoggedIn(result.response))
             }
             is AtpResponse.Failure -> {
               val errorProps = result.toErrorProps(true)
                 ?: CustomError("Oops.", "Something bad happened.", false)
 
-              state = ShowingError(errorProps, renderState.credentials)
+              state = ShowingError(state.mode, errorProps, renderState.credentials)
             }
           }
         }
       }
 
       AppScreen(
-        main = context.loginScreen(),
+        main = context.loginScreen(renderState.mode),
         overlay = TextOverlayScreen(
           onDismiss = DismissHandler(context.eventHandler {
-            state = ShowingLogin
+            state = ShowingLogin(mode = state.mode)
           }),
           text = "Signing in as ${renderState.credentials.username}...",
         )
@@ -77,12 +72,12 @@ class LoginWorkflow(
     }
     is ShowingError -> {
       AppScreen(
-        main = context.loginScreen(),
+        main = context.loginScreen(renderState.mode),
         overlay = context.renderChild(errorWorkflow, renderState.errorProps) { output ->
           action {
             state = when (output) {
-              ErrorOutput.Dismiss -> ShowingLogin
-              ErrorOutput.Retry -> SigningIn(renderState.credentials)
+              ErrorOutput.Dismiss -> ShowingLogin(mode = state.mode)
+              ErrorOutput.Retry -> SigningIn(state.mode, renderState.credentials)
             }
           }
         }
@@ -92,8 +87,17 @@ class LoginWorkflow(
 
   override fun snapshotState(state: LoginState): Snapshot? = null
 
-  private fun RenderContext.loginScreen(): LoginScreen {
+  private fun RenderContext.loginScreen(mode: LoginScreenMode): LoginScreen {
     return LoginScreen(
+      api = apiProvider.api,
+      mode = mode,
+      onChangeMode = eventHandler { newMode ->
+        state = when (val currentState = state) {
+          is ShowingError -> currentState.copy(mode = newMode)
+          is ShowingLogin -> currentState.copy(mode = newMode)
+          is SigningIn -> currentState.copy(mode = newMode)
+        }
+      },
       server = serverRepository.server,
       onChangeServer = eventHandler { server ->
         serverRepository.server = server
@@ -102,14 +106,44 @@ class LoginWorkflow(
         setOutput(CanceledLogin)
       },
       onLogin = eventHandler { credentials ->
-        state = SigningIn(credentials)
+        state = SigningIn(state.mode, credentials)
       },
     )
   }
 
-  private fun signIn(credentials: Credentials) = NetworkWorker {
-    apiRepository.api.createSession(
-      CreateSessionRequest(credentials.username, credentials.password)
-    )
+  private fun signIn(
+    mode: LoginScreenMode,
+    credentials: Credentials,
+  ): NetworkWorker<AuthInfo> = NetworkWorker {
+    when (mode) {
+      LoginScreenMode.SIGN_UP -> {
+        val request = CreateAccountRequest(
+          email = credentials.email!!,
+          handle = credentials.username,
+          inviteCode = credentials.inviteCode,
+          password = credentials.password,
+          recoveryKey = null,
+        )
+        apiProvider.api.createAccount(request).map { response ->
+          AuthInfo(
+            accessJwt = response.accessJwt,
+            refreshJwt = response.refreshJwt,
+            handle = response.handle,
+            did = response.did,
+          )
+        }
+      }
+      LoginScreenMode.SIGN_IN -> {
+        val request = CreateSessionRequest(credentials.username, credentials.password)
+        apiProvider.api.createSession(request).map { response ->
+          AuthInfo(
+            accessJwt = response.accessJwt,
+            refreshJwt = response.refreshJwt,
+            handle = response.handle,
+            did = response.did,
+          )
+        }
+      }
+    }
   }
 }

@@ -8,8 +8,11 @@ import app.bsky.feed.GetTimelineQueryParams
 import app.bsky.feed.GetTimelineResponse
 import com.atproto.repo.CreateRecordRequest
 import com.atproto.repo.CreateRecordResponse
+import com.atproto.server.CreateAccountRequest
+import com.atproto.server.CreateAccountResponse
 import com.atproto.server.CreateSessionRequest
 import com.atproto.server.CreateSessionResponse
+import com.atproto.server.DescribeServerResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.DefaultRequest
@@ -66,6 +69,12 @@ class XrpcApi(
     return client.procedure("/xrpc/com.atproto.server.createSession", request).toAtpResponse()
   }
 
+  override suspend fun createAccount(
+    request: CreateAccountRequest,
+  ): AtpResponse<CreateAccountResponse> {
+    return client.procedure("/xrpc/com.atproto.server.createAccount", request).toAtpResponse()
+  }
+
   override suspend fun getTimeline(
     params: GetTimelineQueryParams,
   ): AtpResponse<GetTimelineResponse> {
@@ -88,5 +97,9 @@ class XrpcApi(
     params: GetAuthorFeedQueryParams,
   ): AtpResponse<GetAuthorFeedResponse> {
     return client.query("/xrpc/app.bsky.feed.getAuthorFeed", params.toMap()).toAtpResponse()
+  }
+
+  override suspend fun describeServer(): AtpResponse<DescribeServerResponse> {
+    return client.query("/xrpc/com.atproto.server.describeServer").toAtpResponse()
   }
 }

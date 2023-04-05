@@ -8,14 +8,21 @@ import app.bsky.feed.GetTimelineQueryParams
 import app.bsky.feed.GetTimelineResponse
 import com.atproto.repo.CreateRecordRequest
 import com.atproto.repo.CreateRecordResponse
+import com.atproto.server.CreateAccountRequest
+import com.atproto.server.CreateAccountResponse
 import com.atproto.server.CreateSessionRequest
 import com.atproto.server.CreateSessionResponse
+import com.atproto.server.DescribeServerResponse
 import sh.christian.ozone.api.response.AtpResponse
 
 interface AtpApi {
   suspend fun createSession(
     request: CreateSessionRequest,
   ): AtpResponse<CreateSessionResponse>
+
+  suspend fun createAccount(
+    request: CreateAccountRequest,
+  ): AtpResponse<CreateAccountResponse>
 
   suspend fun getTimeline(
     params: GetTimelineQueryParams,
@@ -32,4 +39,6 @@ interface AtpApi {
   suspend fun getAuthorFeed(
     params: GetAuthorFeedQueryParams,
   ): AtpResponse<GetAuthorFeedResponse>
+
+  suspend fun describeServer(): AtpResponse<DescribeServerResponse>
 }
