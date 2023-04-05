@@ -8,6 +8,7 @@ import dev.marcellogalhardo.retained.activity.retain
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import sh.christian.ozone.store.storage
+import sh.christian.ozone.ui.AppTheme
 import sh.christian.ozone.ui.compose.fontsAssetManager
 import sh.christian.ozone.ui.compose.initTypography
 
@@ -32,7 +33,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     setContent {
-      App(workflow, onExit = { onBackPressedDispatcher.onBackPressed() })
+      AppTheme {
+        StatusBarTheme()
+        App(workflow, onExit = { onBackPressedDispatcher.onBackPressed() })
+      }
     }
   }
 }

@@ -5,6 +5,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.compositionLocalOf
 import sh.christian.ozone.ui.compose.appFont
 
 
@@ -86,13 +88,22 @@ fun AppTheme(
 
   val typography = AppTypography(appFont)
 
-  MaterialTheme(
-    typography = typography.copy(
-      bodySmall = typography.bodySmall.copy(
-        color = colors.outline,
+  CompositionLocalProvider(LocalColorTheme provides ColorTheme(useDarkTheme)) {
+    MaterialTheme(
+      typography = typography.copy(
+        bodySmall = typography.bodySmall.copy(
+          color = colors.outline,
+        ),
       ),
-    ),
-    colorScheme = colors,
-    content = content
-  )
+      colorScheme = colors,
+      content = content
+    )
+  }
 }
+
+class ColorTheme(private val isDarkTheme: Boolean) {
+  fun isLight(): Boolean = !isDarkTheme
+  fun isDark(): Boolean = isDarkTheme
+}
+
+val LocalColorTheme = compositionLocalOf { ColorTheme(isDarkTheme = false) }

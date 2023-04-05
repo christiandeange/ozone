@@ -5,7 +5,12 @@ package sh.christian.ozone.login
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.AnimationConstants.DefaultDurationMillis
+import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -13,6 +18,7 @@ import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.slideOutVertically
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -31,15 +37,16 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LargeTopAppBar
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.MediumTopAppBar
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
@@ -52,6 +59,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.autofill.AutofillType
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.LinearGradientShader
+import androidx.compose.ui.graphics.Shader
+import androidx.compose.ui.graphics.ShaderBrush
+import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalDensity
@@ -69,6 +84,7 @@ import sh.christian.ozone.login.auth.Server
 import sh.christian.ozone.login.auth.Server.BlueskySocial
 import sh.christian.ozone.login.auth.Server.CustomServer
 import sh.christian.ozone.login.auth.ServerInfo
+import sh.christian.ozone.ui.LocalColorTheme
 import sh.christian.ozone.ui.compose.Overlay
 import sh.christian.ozone.ui.compose.autofill
 import sh.christian.ozone.ui.compose.onBackPressed
@@ -78,6 +94,7 @@ import sh.christian.ozone.ui.icons.Visibility
 import sh.christian.ozone.ui.icons.VisibilityOff
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
+import kotlin.time.Duration.Companion.seconds
 
 class LoginScreen(
   private val api: AtpApi,
@@ -93,7 +110,8 @@ class LoginScreen(
   Column(
     Modifier
       .fillMaxSize()
-      .onBackPressed(onExit),
+      .onBackPressed(onExit)
+      .background(rememberBackgroundBrush())
   ) {
     val emailField = remember(mode) { mutableStateOf("") }
     val usernameField = remember(mode) { mutableStateOf("") }
@@ -109,7 +127,7 @@ class LoginScreen(
       Credentials(email, username, password, inviteCode)
     }
 
-    MediumTopAppBar(
+    LargeTopAppBar(
       title = {
         Text("Welcome to Ozone.")
       },
@@ -129,7 +147,11 @@ class LoginScreen(
             }
           )
         }
-      }
+      },
+      colors = TopAppBarDefaults.mediumTopAppBarColors(
+        containerColor = Color.Transparent,
+        scrolledContainerColor = Color.Transparent,
+      ),
     )
 
     Spacer(Modifier.weight(1f))
@@ -246,6 +268,51 @@ class LoginScreen(
     onChangeServer = onChangeServer,
   )
 })
+
+@Composable
+private fun rememberBackgroundBrush(): Brush {
+  val sizePx = with(LocalDensity.current) { 64.dp.toPx() }
+  val infiniteTransition = rememberInfiniteTransition()
+  val offset by infiniteTransition.animateFloat(
+    initialValue = -sizePx,
+    targetValue = sizePx,
+    animationSpec = infiniteRepeatable(
+      tween(
+        durationMillis = 5.seconds.inWholeMilliseconds.toInt(),
+        easing = FastOutSlowInEasing,
+      ),
+      RepeatMode.Reverse
+    )
+  )
+
+  val isDark = LocalColorTheme.current.isDark()
+  val colors = remember(isDark) {
+    if (isDark) {
+      listOf(
+        Color(0xFF2A5298),
+        Color(0xFF1E3C72),
+      )
+    } else {
+      listOf(
+        Color(0xEBEBFF),
+        Color(0xFF6BB3F0),
+      )
+    }
+  }
+
+  return remember(offset) {
+    object : ShaderBrush() {
+      override fun createShader(size: Size): Shader {
+        return LinearGradientShader(
+          from = Offset(offset, offset),
+          to = Offset(size.width, size.height),
+          colors = colors,
+          tileMode = TileMode.Clamp,
+        )
+      }
+    }
+  }
+}
 
 @Composable
 private fun InviteCodeField(
@@ -371,7 +438,7 @@ private fun ServerSelector(
   server: Server,
   onClick: () -> Unit,
 ) {
-  FilledTonalButton(
+  Button(
     modifier = modifier,
     contentPadding = PaddingValues(16.dp, 8.dp),
     onClick = onClick,
@@ -388,7 +455,9 @@ private fun ServerSelector(
         is BlueskySocial -> "Bluesky Social"
         is CustomServer -> server.host
       },
-      style = MaterialTheme.typography.bodySmall,
+      style = MaterialTheme.typography.bodySmall.copy(
+        color = LocalContentColor.current,
+      ),
     )
   }
 }
