@@ -8,13 +8,13 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import sh.christian.ozone.app.AppState.ShowingLoggedIn
 import sh.christian.ozone.app.AppState.ShowingLogin
-import sh.christian.ozone.timeline.TimelineOutput
-import sh.christian.ozone.timeline.TimelineProps
-import sh.christian.ozone.timeline.TimelineWorkflow
 import sh.christian.ozone.login.LoginOutput.CanceledLogin
 import sh.christian.ozone.login.LoginOutput.LoggedIn
 import sh.christian.ozone.login.LoginRepository
 import sh.christian.ozone.login.LoginWorkflow
+import sh.christian.ozone.timeline.TimelineOutput
+import sh.christian.ozone.timeline.TimelineProps
+import sh.christian.ozone.timeline.TimelineWorkflow
 
 class AppWorkflow(
   private val loginRepository: LoginRepository,

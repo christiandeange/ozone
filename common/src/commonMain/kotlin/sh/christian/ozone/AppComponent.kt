@@ -11,8 +11,8 @@ import sh.christian.ozone.login.LoginRepository
 import sh.christian.ozone.login.LoginWorkflow
 import sh.christian.ozone.profile.ProfileWorkflow
 import sh.christian.ozone.store.PersistentStorage
-import sh.christian.ozone.user.MyProfileRepository
 import sh.christian.ozone.timeline.TimelineWorkflow
+import sh.christian.ozone.user.MyProfileRepository
 import sh.christian.ozone.user.UserDatabase
 
 class AppComponent(
