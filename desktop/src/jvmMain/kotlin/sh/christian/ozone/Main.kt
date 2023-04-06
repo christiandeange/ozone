@@ -1,7 +1,6 @@
 package sh.christian.ozone
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection.Companion.Next
 import androidx.compose.ui.focus.FocusDirection.Companion.Previous
@@ -60,7 +59,6 @@ fun main() = runBlocking {
       val focusManager = LocalFocusManager.current
       Box(
         Modifier.onPreviewKeyEvent {
-          @OptIn(ExperimentalComposeUiApi::class)
           if (it.key == Key.Tab && it.type == KeyDown) {
             focusManager.moveFocus(if (it.isShiftPressed) Previous else Next)
             true

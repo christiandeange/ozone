@@ -13,6 +13,13 @@ kotlin {
   jvm("desktop")
 
   sourceSets {
+    all {
+      languageSettings.apply {
+        optIn("androidx.compose.material3.ExperimentalMaterial3Api")
+        optIn("androidx.compose.ui.ExperimentalComposeUiApi")
+      }
+    }
+
     val commonMain by getting {
       dependencies {
         api(compose.runtime)

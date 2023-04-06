@@ -12,6 +12,12 @@ kotlin {
     }
   }
   sourceSets {
+    all {
+      languageSettings.apply {
+        optIn("androidx.compose.ui.ExperimentalComposeUiApi")
+      }
+    }
+
     val jvmMain by getting {
       dependencies {
         implementation(project(":common"))

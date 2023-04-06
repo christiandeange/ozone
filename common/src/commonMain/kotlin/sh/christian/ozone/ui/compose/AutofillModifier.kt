@@ -1,6 +1,5 @@
 package sh.christian.ozone.ui.compose
 
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.autofill.AutofillNode
 import androidx.compose.ui.autofill.AutofillType
@@ -11,8 +10,6 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalAutofill
 import androidx.compose.ui.platform.LocalAutofillTree
 
-
-@OptIn(ExperimentalComposeUiApi::class)
 fun Modifier.autofill(
   autofillTypes: List<AutofillType>,
   onFill: (String) -> Unit,

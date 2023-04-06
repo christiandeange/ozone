@@ -13,7 +13,6 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material3.CenterAlignedTopAppBar
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FabPosition
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -45,7 +44,6 @@ import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.user.UserReference.Handle
 import sh.christian.ozone.util.color
 
-@OptIn(ExperimentalMaterial3Api::class)
 class TimelineScreen(
   private val now: Instant,
   private val profile: Profile?,
@@ -61,8 +59,7 @@ class TimelineScreen(
   val feedState = rememberLazyListState()
   val coroutineScope = rememberCoroutineScope()
 
-  Surface(
-    modifier = Modifier.onBackPressed(onExit)) {
+  Surface(modifier = Modifier.onBackPressed(onExit)) {
     Scaffold(
       modifier = Modifier.padding(rememberSystemInsets()),
       topBar = {
