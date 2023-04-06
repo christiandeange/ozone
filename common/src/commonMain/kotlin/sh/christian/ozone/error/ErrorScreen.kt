@@ -39,7 +39,10 @@ class ErrorScreen(
           Text(text = description)
         }
 
-        Row(horizontalArrangement = spacedBy(8.dp)) {
+        Row(
+          modifier = Modifier.padding(32.dp),
+          horizontalArrangement = spacedBy(8.dp),
+        ) {
           if (retryable) {
             Button(onRetry) {
               Text("Retry")
