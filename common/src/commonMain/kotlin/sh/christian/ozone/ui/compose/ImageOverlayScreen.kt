@@ -4,9 +4,11 @@ import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Icon
@@ -25,6 +27,7 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.unit.dp
 import io.kamel.image.KamelImage
 import io.kamel.image.lazyPainterResource
 import sh.christian.ozone.ui.workflow.Dismissable
@@ -37,8 +40,9 @@ class ImageOverlayScreen(
 ) : OverlayRendering by overlay(onDismiss, { onRequestDismiss ->
   Surface(
     modifier = Modifier
-      .fillMaxSize(),
-    color = Color.Black.copy(alpha = 0.9f),
+      .fillMaxSize()
+      .onBackPressed { onRequestDismiss() },
+    color = Color.Black.copy(alpha = 0.8f),
   ) {
     Box {
       var scale by remember { mutableStateOf(1f) }
@@ -51,7 +55,6 @@ class ImageOverlayScreen(
 
       KamelImage(
         modifier = Modifier
-          .onBackPressed { onRequestDismiss() }
           .align(Alignment.Center)
           .onSizeChanged { size = it }
           .pointerInput(Unit) {
@@ -71,7 +74,9 @@ class ImageOverlayScreen(
         contentDescription = action.alt,
         contentScale = ContentScale.Fit,
       )
+    }
 
+    SystemInsets {
       OverImageIconButton(
         modifier = Modifier.align(Alignment.TopStart),
         onClick = onRequestDismiss,

@@ -43,6 +43,10 @@ kotlin {
       sourceSets {
         resources.srcDir("fonts")
       }
+
+      dependencies {
+        implementation("org.apache.commons:commons-lang3:3.12.0")
+      }
     }
   }
 }
@@ -52,7 +56,7 @@ android {
   namespace = "sh.christian.ozone.common"
 
   defaultConfig {
-    minSdk = 26
+    minSdk = 30
   }
 
   compileOptions {

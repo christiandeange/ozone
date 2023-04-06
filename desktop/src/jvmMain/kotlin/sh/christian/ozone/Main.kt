@@ -48,10 +48,15 @@ fun main() = runBlocking {
     appPlacement.position = windowState.position
 
     Window(
-      title = "Ozone",
+      title = "",
       state = windowState,
       onCloseRequest = ::exitApplication,
     ) {
+      window.rootPane.apply {
+        putClientProperty("apple.awt.fullWindowContent", true)
+        putClientProperty("apple.awt.transparentTitleBar", true)
+      }
+
       val focusManager = LocalFocusManager.current
       Box(
         Modifier.onPreviewKeyEvent {

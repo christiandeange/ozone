@@ -53,8 +53,10 @@ import sh.christian.ozone.ui.compose.BannerImage
 import sh.christian.ozone.ui.compose.InfiniteListHandler
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.compose.OverImageIconButton
+import sh.christian.ozone.ui.compose.SystemInsets
 import sh.christian.ozone.ui.compose.foreground
 import sh.christian.ozone.ui.compose.onBackPressed
+import sh.christian.ozone.ui.compose.rememberSystemInsets
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 import sh.christian.ozone.user.UserReference
@@ -87,9 +89,10 @@ class ProfileScreen(
   }
 
   var headerHeight by remember { mutableStateOf(0) }
+  val insets = rememberSystemInsets()
   val firstItemTranslationY by remember {
     derivedStateOf {
-      transitionPercentage * (headerHeight - 48 * density)
+      transitionPercentage * (headerHeight - (insets.calculateTopPadding().value + 48f) * density)
     }
   }
   val firstItemOverlayColor by remember {
@@ -135,11 +138,13 @@ class ProfileScreen(
             }.takeIf { avatarUrl != null },
           )
 
-          OverImageIconButton(onClick = onExit) {
-            Icon(
-              painter = rememberVectorPainter(Icons.Default.ArrowBack),
-              contentDescription = "Back",
-            )
+          SystemInsets {
+            OverImageIconButton(onClick = onExit) {
+              Icon(
+                painter = rememberVectorPainter(Icons.Default.ArrowBack),
+                contentDescription = "Back",
+              )
+            }
           }
         }
       }

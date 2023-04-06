@@ -6,6 +6,7 @@ import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.core.MutableTransitionState
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
@@ -40,10 +41,7 @@ fun Overlay(
       enter = fadeIn(),
       exit = fadeOut(),
     ) {
-      Surface(
-        color = MaterialTheme.colorScheme.inverseSurface.copy(alpha = 0.38f),
-        content = {},
-      )
+      Box(Modifier.background(MaterialTheme.colorScheme.inverseSurface.copy(alpha = 0.38f)))
     }
 
     AnimatedVisibility(

@@ -41,7 +41,7 @@ class ComposePostWorkflow(
     context: RenderContext
   ): AppScreen = when (renderState) {
     is ComposingPost -> {
-      AppScreen(context.composePostScreen(renderProps.profile))
+      AppScreen(main = context.composePostScreen(renderProps.profile))
     }
     is CreatingPost -> {
       context.runningWorker(post(renderState.postPayload)) { result ->

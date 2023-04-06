@@ -10,6 +10,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import sh.christian.ozone.ui.compose.SystemInsets
 import sh.christian.ozone.ui.workflow.Dismissable.DismissHandler
 import sh.christian.ozone.ui.workflow.OverlayRendering
 import sh.christian.ozone.ui.workflow.overlay
@@ -21,33 +22,35 @@ class ErrorScreen(
   onDismiss: () -> Unit,
   private val onRetry: () -> Unit,
 ) : OverlayRendering by overlay(DismissHandler(onDismiss), { onRequestDismiss ->
-  Surface(shadowElevation = 16.dp) {
-    Column(
-      modifier = Modifier.padding(32.dp),
-      verticalArrangement = spacedBy(8.dp),
-    ) {
-      if (title != null) {
-        Text(
-          text = title,
-          style = MaterialTheme.typography.headlineMedium,
-        )
-      }
-      if (description != null) {
-        Text(
-          text = description,
-        )
-      }
-      Row(horizontalArrangement = spacedBy(8.dp)) {
-        if (retryable) {
-          Button(onRetry) {
-            Text("Retry")
-          }
-          Button(onRequestDismiss) {
-            Text("Dismiss")
-          }
-        } else {
-          Button(onRequestDismiss) {
-            Text("OK")
+  SystemInsets {
+    Surface(shadowElevation = 16.dp) {
+      Column(
+        modifier = Modifier.padding(32.dp),
+        verticalArrangement = spacedBy(8.dp),
+      ) {
+        if (title != null) {
+          Text(
+            text = title,
+            style = MaterialTheme.typography.headlineMedium,
+          )
+        }
+
+        if (description != null) {
+          Text(text = description)
+        }
+
+        Row(horizontalArrangement = spacedBy(8.dp)) {
+          if (retryable) {
+            Button(onRetry) {
+              Text("Retry")
+            }
+            Button(onRequestDismiss) {
+              Text("Dismiss")
+            }
+          } else {
+            Button(onRequestDismiss) {
+              Text("OK")
+            }
           }
         }
       }

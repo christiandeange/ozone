@@ -18,10 +18,8 @@ fun App(
     props = Unit,
     onOutput = { onExit() },
   ) { screen ->
-    Surface(Modifier.fillMaxSize()) {
-      Box {
-        screen.Content()
-      }
+    Box(Modifier.fillMaxSize()) {
+      screen.Content()
     }
   }
 }

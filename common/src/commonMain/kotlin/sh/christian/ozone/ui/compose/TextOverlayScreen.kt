@@ -15,13 +15,15 @@ class TextOverlayScreen(
   onDismiss: Dismissable,
   private val text: String,
 ) : OverlayRendering by overlay(onDismiss, { _ ->
-  Surface(shadowElevation = 16.dp) {
-    Column(
-      modifier = Modifier
-        .padding(32.dp)
-        .fillMaxWidth(),
-    ) {
-      Text(text)
+  SystemInsets {
+    Surface(shadowElevation = 16.dp) {
+      Column(
+        modifier = Modifier
+          .padding(32.dp)
+          .fillMaxWidth(),
+      ) {
+        Text(text)
+      }
     }
   }
 })

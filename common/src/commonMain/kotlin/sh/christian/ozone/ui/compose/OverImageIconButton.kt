@@ -20,7 +20,7 @@ fun OverImageIconButton(
 ) {
   Surface(
     modifier = modifier
-      .padding(8.dp)
+      .padding(horizontal = 16.dp, vertical = 8.dp)
       .size(32.dp),
     shape = CircleShape,
     color = Color.Black.copy(alpha = 0.5f),

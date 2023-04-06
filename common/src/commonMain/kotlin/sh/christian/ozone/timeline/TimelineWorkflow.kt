@@ -114,15 +114,15 @@ class TimelineWorkflow(
         )
       }
       is ShowingTimeline -> {
-        AppScreen(context.timelineScreen(renderState.profile.value, renderState.timeline.value))
+        AppScreen(main = context.timelineScreen(renderState.profile.value, renderState.timeline.value))
       }
       is ShowingFullSizeImage -> {
         AppScreen(
-          context.timelineScreen(
+          main = context.timelineScreen(
             profile = renderState.previousState.profile.value,
             timelineResponse = renderState.previousState.timeline.value,
           ),
-          ImageOverlayScreen(
+          overlay = ImageOverlayScreen(
             onDismiss = DismissHandler(
               context.eventHandler { state = renderState.previousState }
             ),
@@ -131,8 +131,11 @@ class TimelineWorkflow(
         )
       }
       is ShowingProfile -> {
+        val profile = renderState.profile.getOrNull()
+        val timelineResponse = renderState.timeline.value
+
         AppScreen(
-          context.timelineScreen(renderState.profile.getOrNull(), renderState.timeline.value) +
+          main = context.timelineScreen(profile, timelineResponse) +
               context.renderChild(profileWorkflow, renderState.props) {
                 action {
                   state = ShowingTimeline(
@@ -145,7 +148,7 @@ class TimelineWorkflow(
       }
       is ComposingPost -> {
         AppScreen(
-          context.renderChild(composePostWorkflow, renderState.props) { output ->
+          main = context.renderChild(composePostWorkflow, renderState.props) { output ->
             action {
               state = when (output) {
                 is ComposePostOutput.CreatedPost -> {
@@ -156,7 +159,8 @@ class TimelineWorkflow(
                 }
               }
             }
-          })
+          }
+        )
       }
       is ShowingError -> {
         val mainScreen = renderState.profile.getOrNull()

@@ -89,11 +89,11 @@ class ProfileWorkflow(
         val profileView = renderState.profile.getOrNull()
         val feed = renderState.feed.getOrNull()
         if (profileView != null) {
-          AppScreen(context.profileScreen(renderProps, profileView, feed?.posts.orEmpty()))
+          AppScreen(main = context.profileScreen(renderProps, profileView, feed?.posts.orEmpty()))
         } else {
           AppScreen(
-            EmptyScreen,
-            TextOverlayScreen(
+            main = EmptyScreen,
+            overlay = TextOverlayScreen(
               onDismiss = Dismissable.Ignore,
               text = "Loading @${renderProps.user}...",
             ),
@@ -102,7 +102,7 @@ class ProfileWorkflow(
       }
       is ShowingProfile -> {
         AppScreen(
-          context.profileScreen(
+          main = context.profileScreen(
             props = renderProps,
             profile = renderState.profile.value,
             feed = renderState.feed.value.posts,
@@ -111,12 +111,12 @@ class ProfileWorkflow(
       }
       is ShowingFullSizeImage -> {
         AppScreen(
-          context.profileScreen(
+          main = context.profileScreen(
             props = renderProps,
             profile = renderState.previousState.profile.value,
             feed = renderState.previousState.feed.value.posts,
           ),
-          ImageOverlayScreen(
+          overlay = ImageOverlayScreen(
             onDismiss = Dismissable.DismissHandler(
               context.eventHandler { state = renderState.previousState }
             ),
@@ -136,8 +136,8 @@ class ProfileWorkflow(
           ?: EmptyScreen
 
         AppScreen(
-          mainScreen,
-          context.renderChild(errorWorkflow, renderState.error) { output ->
+          main = mainScreen,
+          overlay = context.renderChild(errorWorkflow, renderState.error) { output ->
             action {
               val currentProfile = state.profile
               val currentFeed = state.feed

@@ -41,7 +41,7 @@ class LoginWorkflow(
     context: RenderContext,
   ): AppScreen = when (renderState) {
     is ShowingLogin -> {
-      AppScreen(context.loginScreen(renderState.mode))
+      AppScreen(main = context.loginScreen(renderState.mode))
     }
     is SigningIn -> {
       context.runningWorker(signIn(renderState.mode, renderState.credentials)) { result ->

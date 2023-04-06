@@ -14,21 +14,22 @@ import sh.christian.ozone.ui.workflow.OverlayRendering
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 
-class AppScreen(
-  val main: ViewRendering,
-  val overlay: OverlayRendering? = null,
+data class AppScreen(
+  private val main: ViewRendering,
+  private val overlay: OverlayRendering? = null,
 ) : ViewRendering by screen({
   main.Content()
-  val visibleState = remember { MutableTransitionState(false) }
+
+  val overlayVisibility = remember { MutableTransitionState(false) }
 
   Overlay(
     modifier = Modifier.fillMaxSize(),
-    visibleState = visibleState,
+    visibleState = overlayVisibility,
     enter = overlay?.enter ?: EnterTransition.None,
     exit = overlay?.exit ?: ExitTransition.None,
     onClickOutside = {
       when (overlay?.onDismiss) {
-        is DismissHandler -> visibleState.targetState = false
+        is DismissHandler -> overlayVisibility.targetState = false
         is Ignore -> Unit
         null -> Unit
       }
@@ -36,18 +37,18 @@ class AppScreen(
   ) {
     overlay?.Content(onRequestDismiss = {
       when (overlay.onDismiss) {
-        is DismissHandler -> visibleState.targetState = false
+        is DismissHandler -> overlayVisibility.targetState = false
         is Ignore -> Unit
       }
     })
   }
 
   LaunchedEffect(overlay) {
-    visibleState.targetState = overlay != null
+    overlayVisibility.targetState = overlay != null
   }
 
-  LaunchedEffect(visibleState.currentState) {
-    if (!visibleState.targetState && !visibleState.currentState && overlay != null) {
+  LaunchedEffect(overlayVisibility.currentState) {
+    if (!overlayVisibility.targetState && !overlayVisibility.currentState && overlay != null) {
       when (val onDismiss = overlay.onDismiss) {
         is DismissHandler -> onDismiss.handler()
         is Ignore -> Unit

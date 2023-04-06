@@ -1,8 +1,10 @@
 package sh.christian.ozone
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
 import androidx.lifecycle.lifecycleScope
 import dev.marcellogalhardo.retained.activity.retain
 import kotlinx.coroutines.launch
@@ -19,6 +21,9 @@ class MainActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+
+    window?.statusBarColor = Color.TRANSPARENT
+    WindowCompat.setDecorFitsSystemWindows(window, false)
 
     appComponent.supervisors.forEach { supervisor ->
       with(supervisor) {

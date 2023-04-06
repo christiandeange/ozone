@@ -5,12 +5,7 @@ package sh.christian.ozone.login
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.AnimationConstants.DefaultDurationMillis
-import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.MutableTransitionState
-import androidx.compose.animation.core.RepeatMode
-import androidx.compose.animation.core.animateFloat
-import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -23,6 +18,7 @@ import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -59,14 +55,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.autofill.AutofillType
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.LinearGradientShader
-import androidx.compose.ui.graphics.Shader
-import androidx.compose.ui.graphics.ShaderBrush
-import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalDensity
@@ -84,17 +73,17 @@ import sh.christian.ozone.login.auth.Server
 import sh.christian.ozone.login.auth.Server.BlueskySocial
 import sh.christian.ozone.login.auth.Server.CustomServer
 import sh.christian.ozone.login.auth.ServerInfo
-import sh.christian.ozone.ui.LocalColorTheme
 import sh.christian.ozone.ui.compose.Overlay
+import sh.christian.ozone.ui.compose.SystemInsets
 import sh.christian.ozone.ui.compose.autofill
 import sh.christian.ozone.ui.compose.onBackPressed
+import sh.christian.ozone.ui.compose.rememberSystemInsets
 import sh.christian.ozone.ui.icons.AlternateEmail
 import sh.christian.ozone.ui.icons.LocalActivity
 import sh.christian.ozone.ui.icons.Visibility
 import sh.christian.ozone.ui.icons.VisibilityOff
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
-import kotlin.time.Duration.Companion.seconds
 
 class LoginScreen(
   private val api: AtpApi,
@@ -110,8 +99,9 @@ class LoginScreen(
   Column(
     Modifier
       .fillMaxSize()
+      .background(rememberLoginGradientBrush())
+      .padding(rememberSystemInsets())
       .onBackPressed(onExit)
-      .background(rememberBackgroundBrush())
   ) {
     val emailField = remember(mode) { mutableStateOf("") }
     val usernameField = remember(mode) { mutableStateOf("") }
@@ -152,6 +142,7 @@ class LoginScreen(
         containerColor = Color.Transparent,
         scrolledContainerColor = Color.Transparent,
       ),
+      windowInsets = WindowInsets(0.dp),
     )
 
     Spacer(Modifier.weight(1f))
@@ -268,51 +259,6 @@ class LoginScreen(
     onChangeServer = onChangeServer,
   )
 })
-
-@Composable
-private fun rememberBackgroundBrush(): Brush {
-  val sizePx = with(LocalDensity.current) { 64.dp.toPx() }
-  val infiniteTransition = rememberInfiniteTransition()
-  val offset by infiniteTransition.animateFloat(
-    initialValue = -sizePx,
-    targetValue = sizePx,
-    animationSpec = infiniteRepeatable(
-      tween(
-        durationMillis = 5.seconds.inWholeMilliseconds.toInt(),
-        easing = FastOutSlowInEasing,
-      ),
-      RepeatMode.Reverse
-    )
-  )
-
-  val isDark = LocalColorTheme.current.isDark()
-  val colors = remember(isDark) {
-    if (isDark) {
-      listOf(
-        Color(0xFF2A5298),
-        Color(0xFF1E3C72),
-      )
-    } else {
-      listOf(
-        Color(0xEBEBFF),
-        Color(0xFF6BB3F0),
-      )
-    }
-  }
-
-  return remember(offset) {
-    object : ShaderBrush() {
-      override fun createShader(size: Size): Shader {
-        return LinearGradientShader(
-          from = Offset(offset, offset),
-          to = Offset(size.width, size.height),
-          colors = colors,
-          tileMode = TileMode.Clamp,
-        )
-      }
-    }
-  }
-}
 
 @Composable
 private fun InviteCodeField(
@@ -476,55 +422,57 @@ private fun ServerSelectorOverlay(
     exit = fadeOut() + slideOutVertically(targetOffsetY = { it }),
     onClickOutside = { visibility.targetState = false },
   ) {
-    Surface(shadowElevation = 16.dp) {
-      Column(
-        modifier = Modifier
-          .padding(32.dp)
-          .fillMaxWidth(),
-        verticalArrangement = spacedBy(8.dp),
-      ) {
-        Button(
+    SystemInsets {
+      Surface(shadowElevation = 16.dp) {
+        Column(
           modifier = Modifier
-            .fillMaxWidth()
-            .height(56.dp),
-          onClick = {
-            onChangeServer(BlueskySocial)
-            visibility.targetState = false
-          },
-          shape = MaterialTheme.shapes.large,
+            .padding(32.dp)
+            .fillMaxWidth(),
+          verticalArrangement = spacedBy(8.dp),
         ) {
-          Text("Bluesky Social")
-        }
+          Button(
+            modifier = Modifier
+              .fillMaxWidth()
+              .height(56.dp),
+            onClick = {
+              onChangeServer(BlueskySocial)
+              visibility.targetState = false
+            },
+            shape = MaterialTheme.shapes.large,
+          ) {
+            Text("Bluesky Social")
+          }
 
-        var customServer by remember {
-          mutableStateOf(
-            when (server) {
-              is BlueskySocial -> ""
-              is CustomServer -> server.host
-            }
+          var customServer by remember {
+            mutableStateOf(
+              when (server) {
+                is BlueskySocial -> ""
+                is CustomServer -> server.host
+              }
+            )
+          }
+          OutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = customServer,
+            onValueChange = { customServer = it },
+            placeholder = { Text("Custom Server") },
+            trailingIcon = {
+              IconButton(
+                enabled = customServer.isNotBlank(),
+                onClick = {
+                  onChangeServer(CustomServer(customServer))
+                  visibility.targetState = false
+                },
+              ) {
+                Icon(
+                  painter = rememberVectorPainter(Icons.Default.CheckCircle),
+                  contentDescription = "Save Custom Server",
+                )
+              }
+            },
+            shape = MaterialTheme.shapes.large,
           )
         }
-        OutlinedTextField(
-          modifier = Modifier.fillMaxWidth(),
-          value = customServer,
-          onValueChange = { customServer = it },
-          placeholder = { Text("Custom Server") },
-          trailingIcon = {
-            IconButton(
-              enabled = customServer.isNotBlank(),
-              onClick = {
-                onChangeServer(CustomServer(customServer))
-                visibility.targetState = false
-              },
-            ) {
-              Icon(
-                painter = rememberVectorPainter(Icons.Default.CheckCircle),
-                contentDescription = "Save Custom Server",
-              )
-            }
-          },
-          shape = MaterialTheme.shapes.large,
-        )
       }
     }
   }

@@ -2,6 +2,7 @@ package sh.christian.ozone.compose
 
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -36,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.onBackPressed
+import sh.christian.ozone.ui.compose.rememberSystemInsets
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 import sh.christian.ozone.util.color
@@ -57,9 +59,11 @@ class ComposePostScreen(
   Scaffold(
     modifier = Modifier
       .fillMaxSize()
+      .padding(rememberSystemInsets())
       .onBackPressed(onExit),
     topBar = {
       TopAppBar(
+        windowInsets = WindowInsets(0.dp),
         navigationIcon = {
           IconButton(onClick = onExit) {
             Icon(
