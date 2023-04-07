@@ -15,8 +15,8 @@ import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 
 data class AppScreen(
-  private val main: ViewRendering,
-  private val overlay: OverlayRendering? = null,
+  val main: ViewRendering,
+  val overlay: OverlayRendering? = null,
 ) : ViewRendering by screen({
   main.Content()
 

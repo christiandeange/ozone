@@ -4,32 +4,33 @@ import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.Timeline
 import sh.christian.ozone.ui.compose.OpenImageAction
+import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.util.RemoteData
 import sh.christian.ozone.util.RemoteData.Failed
-import sh.christian.ozone.util.RemoteData.Success
 
 sealed interface ProfileState {
+  val user: UserReference
   val profile: RemoteData<FullProfile>
   val feed: RemoteData<Timeline>
-
-  data class FetchingProfile(
-    override val profile: RemoteData<FullProfile>,
-    override val feed: RemoteData<Timeline>,
-  ) : ProfileState
+  val previousState: ShowingProfile?
 
   data class ShowingProfile(
-    override val profile: Success<FullProfile>,
-    override val feed: Success<Timeline>,
+    override val user: UserReference,
+    override val profile: RemoteData<FullProfile>,
+    override val feed: RemoteData<Timeline>,
+    override val previousState: ShowingProfile?,
   ) : ProfileState
 
   data class ShowingFullSizeImage(
-    val previousState: ShowingProfile,
+    override val previousState: ShowingProfile,
     val openImageAction: OpenImageAction,
   ) : ProfileState by previousState
 
   data class ShowingError(
+    override val user: UserReference,
     override val profile: RemoteData<FullProfile>,
     override val feed: RemoteData<Timeline>,
+    override val previousState: ShowingProfile?,
   ) : ProfileState {
     val error: ErrorProps
       get() = (profile as? Failed)?.error

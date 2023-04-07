@@ -4,6 +4,7 @@ import app.bsky.feed.GetAuthorFeedQueryParams
 import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.Worker
+import com.squareup.workflow1.WorkflowAction
 import com.squareup.workflow1.action
 import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
@@ -18,12 +19,12 @@ import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.Timeline
 import sh.christian.ozone.model.TimelinePost
-import sh.christian.ozone.profile.ProfileState.FetchingProfile
 import sh.christian.ozone.profile.ProfileState.ShowingError
 import sh.christian.ozone.profile.ProfileState.ShowingFullSizeImage
 import sh.christian.ozone.profile.ProfileState.ShowingProfile
 import sh.christian.ozone.ui.compose.ImageOverlayScreen
 import sh.christian.ozone.ui.compose.TextOverlayScreen
+import sh.christian.ozone.ui.workflow.CompositeViewRendering
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.EmptyScreen
 import sh.christian.ozone.user.UserDatabase
@@ -42,9 +43,11 @@ class ProfileWorkflow(
   override fun initialState(
     props: ProfileProps,
     snapshot: Snapshot?,
-  ): ProfileState = FetchingProfile(
+  ): ProfileState = ShowingProfile(
+    user = props.user,
     profile = Fetching(props.preloadedProfile),
     feed = Fetching(),
+    previousState = null,
   )
 
   override fun render(
@@ -52,16 +55,16 @@ class ProfileWorkflow(
     renderState: ProfileState,
     context: RenderContext,
   ): AppScreen {
-    val profileWorker = userDatabase.profile(renderProps.user).asWorker()
-    context.runningWorker(profileWorker) { result ->
+    val profileWorker = userDatabase.profile(renderState.user).asWorker()
+    context.runningWorker(profileWorker, renderState.user.toString()) { result ->
       action {
         state = determineState(Success(result), state.feed)
       }
     }
 
     if (renderState.feed is Fetching) {
-      val worker = loadPosts(renderProps.user, renderState.feed.getOrNull()?.cursor)
-      context.runningWorker(worker) { result ->
+      val worker = loadPosts(renderState.user, renderState.feed.getOrNull()?.cursor)
+      context.runningWorker(worker, renderState.user.toString()) { result ->
         action {
           val feedResult = RemoteData.fromAtpResponseOrError(result, state.feed) {
             ErrorProps.CustomError("Oops.", "Could not load feed for @${props.user}.", true)
@@ -85,36 +88,45 @@ class ProfileWorkflow(
     }
 
     return when (renderState) {
-      is FetchingProfile -> {
+      is ShowingProfile -> {
         val profileView = renderState.profile.getOrNull()
         val feed = renderState.feed.getOrNull()
+
+        val previousScreen = renderState.previousState?.let { previousState ->
+          context.renderChild(
+            this,
+            ProfileProps(
+              previousState.user,
+              renderProps.self,
+              null,
+            ),
+            "child-${previousState.user}"
+          ) {
+            action {
+              state = previousState
+            }
+          }
+        }
+
         if (profileView != null) {
-          AppScreen(main = context.profileScreen(renderProps, profileView, feed?.posts.orEmpty()))
+          val mainScreen = context.profileScreen(renderProps, profileView, feed?.posts.orEmpty())
+          AppScreen(main = CompositeViewRendering(listOfNotNull(previousScreen?.main, mainScreen)))
         } else {
           AppScreen(
-            main = EmptyScreen,
+            main = previousScreen ?: EmptyScreen,
             overlay = TextOverlayScreen(
               onDismiss = Dismissable.Ignore,
-              text = "Loading @${renderProps.user}...",
+              text = "Loading ${renderState.user}...",
             ),
           )
         }
-      }
-      is ShowingProfile -> {
-        AppScreen(
-          main = context.profileScreen(
-            props = renderProps,
-            profile = renderState.profile.value,
-            feed = renderState.feed.value.posts,
-          )
-        )
       }
       is ShowingFullSizeImage -> {
         AppScreen(
           main = context.profileScreen(
             props = renderProps,
-            profile = renderState.previousState.profile.value,
-            feed = renderState.previousState.feed.value.posts,
+            profile = renderState.previousState.profile.getOrNull()!!,
+            feed = renderState.previousState.feed.getOrNull()?.posts.orEmpty(),
           ),
           overlay = ImageOverlayScreen(
             onDismiss = Dismissable.DismissHandler(
@@ -156,7 +168,7 @@ class ProfileWorkflow(
                     is Success -> currentFeed
                     is Failed -> Fetching(currentFeed.previous)
                   }
-                  state = FetchingProfile(newProfile, newFeed)
+                  state = ShowingProfile(state.user, newProfile, newFeed, state.previousState)
                 }
               }
             }
@@ -177,37 +189,44 @@ class ProfileWorkflow(
       now = clock.now(),
       profile = profile,
       feed = feed,
-      isSelf = props.isSelf,
+      isSelf = props.self?.did == profile.did,
       onLoadMore = eventHandler {
-        state = FetchingProfile(
+        state = ShowingProfile(
+          user = state.user,
           profile = state.profile,
           feed = Fetching(state.feed.getOrNull()),
+          previousState = state.previousState,
         )
       },
       onOpenUser = eventHandler { user ->
-        // TODO
+        if (user != state.user) {
+          state = ShowingProfile(
+            user = user,
+            profile = Fetching(),
+            feed = Fetching(),
+            previousState = state as ShowingProfile
+          )
+        }
       },
       onOpenImage = eventHandler { action ->
         state = ShowingFullSizeImage(state as ShowingProfile, action)
       },
       onExit = eventHandler {
-        setOutput(Unit)
+        state.previousState
+          ?.let { state = it }
+          ?: setOutput(Unit)
       },
     )
   }
 
-  private fun determineState(
+  private fun WorkflowAction<ProfileProps, ProfileState, Unit>.Updater.determineState(
     profile: RemoteData<FullProfile>,
     feed: RemoteData<Timeline>,
   ): ProfileState {
-    return if (profile is Success && feed is Success) {
-      ShowingProfile(profile, feed)
-    } else if (profile is Fetching || feed is Fetching) {
-      FetchingProfile(profile, feed)
-    } else if (profile is Failed || feed is Failed) {
-      ShowingError(profile, feed)
+    return if (profile !is Failed && feed !is Failed) {
+      ShowingProfile(state.user, profile, feed, state.previousState)
     } else {
-      error("Unknown state to transition to with profile=$profile, feed=$feed")
+      ShowingError(state.user, profile, feed, state.previousState)
     }
   }
 

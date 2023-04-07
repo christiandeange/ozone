@@ -246,7 +246,7 @@ class TimelineWorkflow(
         state = ShowingProfile(
           profile = state.profile,
           timeline = RemoteData.Success(state.timeline.getOrNull()!!),
-          props = ProfileProps(user, isMe, profile?.takeIf { isMe }),
+          props = ProfileProps(user, state.profile.getOrNull(), profile?.takeIf { isMe }),
         )
       },
       onOpenImage = eventHandler { action ->
