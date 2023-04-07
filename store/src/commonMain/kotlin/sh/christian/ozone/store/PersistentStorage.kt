@@ -1,42 +1,39 @@
 package sh.christian.ozone.store
 
-import kotlinx.coroutines.flow.Flow
-import kotlinx.serialization.ExperimentalSerializationApi
-import kotlinx.serialization.SerialFormat
-import kotlinx.serialization.cbor.Cbor
-import kotlin.properties.ReadWriteProperty
+import io.github.xxfast.kstore.KStore
+import kotlinx.coroutines.runBlocking
+import kotlinx.serialization.Serializable
+import kotlin.reflect.KClass
 import kotlin.reflect.KProperty
 
 interface PersistentStorage {
-  fun <T> preference(
+  fun <T : @Serializable Any> preference(
     key: String,
-    defaultValue: T,
-    serializer: Serializer<T>
-  ): Preference<T>
+    defaultValue: T?,
+    clazz: KClass<T>,
+  ): KStore<T>
 
   fun clear()
 }
 
-@OptIn(ExperimentalSerializationApi::class)
-inline fun <reified T> PersistentStorage.preference(
+inline fun <reified T : @Serializable Any> PersistentStorage.preference(
   key: String,
-  defaultValue: T,
-  format: SerialFormat = Cbor.Default,
-): Preference<T> {
-  return preference(key, defaultValue, KotlinXSerializer(format))
+  defaultValue: T?,
+): KStore<T> {
+  return preference(key, defaultValue, T::class)
 }
 
-interface Preference<T> : ReadWriteProperty<Any?, T> {
-  fun get(): T
-  fun set(value: T)
-  fun delete()
-  fun asFlow(): Flow<T>
-
-  override fun getValue(thisRef: Any?, property: KProperty<*>): T = get()
-  override fun setValue(thisRef: Any?, property: KProperty<*>, value: T) = set(value)
+operator fun <T : @Serializable Any> KStore<T>.setValue(
+  thisRef: Any?,
+  property: KProperty<*>,
+  value: T?,
+) {
+  runBlocking { set(value) }
 }
 
-interface Serializer<T> {
-  fun serialize(value: T): String
-  fun deserialize(serialized: String): T
+operator fun <T : @Serializable Any> KStore<T>.getValue(
+  thisRef: Any?,
+  property: KProperty<*>,
+): T? {
+  return runBlocking { get() }
 }

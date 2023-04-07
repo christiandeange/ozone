@@ -98,7 +98,7 @@ class LoginWorkflow(
           is SigningIn -> currentState.copy(mode = newMode)
         }
       },
-      server = serverRepository.server,
+      server = serverRepository.server!!,
       onChangeServer = eventHandler { server ->
         serverRepository.server = server
       },

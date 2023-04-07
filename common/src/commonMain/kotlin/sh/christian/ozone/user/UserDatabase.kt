@@ -22,7 +22,7 @@ class UserDatabase(
   private val apiProvider: ApiProvider,
 ) {
   fun profile(userReference: UserReference): Flow<FullProfile> = flow {
-    val preference = storage.preference<CacheObject?>(userReference.toString(), null)
+    val preference = storage.preference<CacheObject>(userReference.toString(), null)
 
     val cached = preference.get()
     if (cached != null && cached.isFresh()) {
@@ -38,12 +38,12 @@ class UserDatabase(
       ?.let { response ->
         val profile = response.toProfile()
         val newCacheObject = CacheObject(clock.now(), profile)
-        storage.preference<CacheObject?>(profile.did, null).set(newCacheObject)
-        storage.preference<CacheObject?>(profile.handle, null).set(newCacheObject)
+        storage.preference<CacheObject>(profile.did, null).set(newCacheObject)
+        storage.preference<CacheObject>(profile.handle, null).set(newCacheObject)
         emit(profile)
       }
 
-    emitAll(preference.asFlow().mapNotNull { it?.profile })
+    emitAll(preference.updates.mapNotNull { it?.profile })
   }.distinctUntilChanged()
 
   private fun CacheObject.isFresh() = (clock.now() - instant) < 5.minutes

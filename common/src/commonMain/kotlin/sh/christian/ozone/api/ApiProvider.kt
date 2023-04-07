@@ -21,7 +21,7 @@ class ApiProvider(
   private val loginRepository: LoginRepository,
 ) : Supervisor {
 
-  private val host = MutableStateFlow(apiRepository.server.host)
+  private val host = MutableStateFlow(apiRepository.server!!.host)
   private val auth = MutableStateFlow(loginRepository.auth)
   private val tokens = MutableStateFlow(loginRepository.auth?.toTokens())
 

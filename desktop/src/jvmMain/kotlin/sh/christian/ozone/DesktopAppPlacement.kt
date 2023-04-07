@@ -11,50 +11,53 @@ import androidx.compose.ui.window.WindowPosition
 import androidx.compose.ui.window.WindowPosition.Absolute
 import androidx.compose.ui.window.WindowPosition.Aligned
 import androidx.compose.ui.window.WindowPosition.PlatformDefault
+import kotlinx.coroutines.runBlocking
+import kotlinx.serialization.Serializable
 import sh.christian.ozone.store.PersistentStorage
-import sh.christian.ozone.store.Serializer
+import sh.christian.ozone.store.preference
 
 class DesktopAppPlacement(
   storage: PersistentStorage,
 ) {
-  private val sizePreference =
-    storage.preference("window-size", DEFAULT_SIZE, DpSizeSerializer)
-
-  private val positionPreference =
-    storage.preference("window-position", DEFAULT_POSITION, WindowPositionSerializer)
+  private val sizePreference = storage.preference("window-size", DEFAULT_SIZE)
+  private val positionPreference = storage.preference("window-position", DEFAULT_POSITION)
 
   var size: DpSize
-    get() = sizePreference.get()
+    get() = runBlocking { sizePreference.get()!!.toDpSize() }
     set(value) {
-      sizePreference.set(value)
+      runBlocking { sizePreference.set(WindowSize(value)) }
     }
 
   var position: WindowPosition
-    get() = positionPreference.get()
+    get() = runBlocking { positionPreference.get()!!.toWindowPosition() }
     set(value) {
-      positionPreference.set(value)
+      runBlocking { positionPreference.set(WindowZone(value)) }
     }
 
-  companion object {
-    val DEFAULT_SIZE: DpSize = DpSize(450.dp, 800.dp)
-    val DEFAULT_POSITION: WindowPosition = WindowPosition(Center)
+  private companion object {
+    val DEFAULT_SIZE = WindowSize(DpSize(450.dp, 800.dp))
+    val DEFAULT_POSITION = WindowZone(WindowPosition(Center))
   }
 }
 
-private object DpSizeSerializer : Serializer<DpSize> {
-  override fun deserialize(serialized: String): DpSize {
-    val (width, height) = serialized.split(":")
-    return DpSize(width.toFloat().dp, height.toFloat().dp)
-  }
+@Serializable
+private data class WindowSize(
+  val widthDp: Float,
+  val heightDp: Float,
+) {
+  constructor(dpSize: DpSize) : this(dpSize.width.value, dpSize.height.value)
 
-  override fun serialize(value: DpSize): String {
-    return "${value.width.value}:${value.height.value}"
+  fun toDpSize(): DpSize {
+    return DpSize(widthDp.dp, heightDp.dp)
   }
 }
 
-private object WindowPositionSerializer : Serializer<WindowPosition> {
-  override fun deserialize(serialized: String): WindowPosition {
-    val values = serialized.split(":")
+@Serializable
+private data class WindowZone(
+  val encodedValue: String,
+) {
+  fun toWindowPosition(): WindowPosition {
+    val values = encodedValue.split(":")
 
     return when (values.first()) {
       "PlatformDefault" -> {
@@ -85,36 +88,40 @@ private object WindowPositionSerializer : Serializer<WindowPosition> {
     }
   }
 
-  override fun serialize(value: WindowPosition): String {
-    return when (value) {
-      is PlatformDefault -> {
-        "PlatformDefault"
-      }
-
-      is Absolute -> {
-        "Absolute:${value.x.value}:${value.y.value}"
-      }
-
-      is Aligned -> {
-        when (val alignment = value.alignment) {
-          is BiasAlignment -> {
-            "Aligned:BiasAlignment:${alignment.horizontalBias}:${alignment.verticalBias}"
+  companion object {
+    operator fun invoke(windowPosition: WindowPosition): WindowZone {
+      return WindowZone(
+        when (windowPosition) {
+          is PlatformDefault -> {
+            "PlatformDefault"
           }
 
-          is BiasAbsoluteAlignment -> {
-            // Hacky trick to get the original (private) member fields.
-            val onePlusAlignments = alignment.align(IntSize(0, 0), IntSize(2, 2), Ltr)
-            val xAlign = onePlusAlignments.x - 1
-            val yAlign = onePlusAlignments.y - 1
-
-            "Aligned:BiasAbsoluteAlignment:$xAlign:$yAlign"
+          is Absolute -> {
+            "Absolute:${windowPosition.x.value}:${windowPosition.y.value}"
           }
 
-          else -> {
-            error("Unable to serialize $alignment.")
+          is Aligned -> {
+            when (val alignment = windowPosition.alignment) {
+              is BiasAlignment -> {
+                "Aligned:BiasAlignment:${alignment.horizontalBias}:${alignment.verticalBias}"
+              }
+
+              is BiasAbsoluteAlignment -> {
+                // Hacky trick to get the original (private) member fields.
+                val onePlusAlignments = alignment.align(IntSize(0, 0), IntSize(2, 2), Ltr)
+                val xAlign = onePlusAlignments.x - 1
+                val yAlign = onePlusAlignments.y - 1
+
+                "Aligned:BiasAbsoluteAlignment:$xAlign:$yAlign"
+              }
+
+              else -> {
+                error("Unable to serialize $alignment.")
+              }
+            }
           }
         }
-      }
+      )
     }
   }
 }
