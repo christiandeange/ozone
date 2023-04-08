@@ -47,7 +47,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.datetime.Instant
 import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.TimelinePost
-import sh.christian.ozone.timeline.TimelinePostItem
+import sh.christian.ozone.timeline.components.TimelinePostItem
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.BannerImage
 import sh.christian.ozone.ui.compose.InfiniteListHandler

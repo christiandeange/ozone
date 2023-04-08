@@ -33,6 +33,7 @@ import kotlinx.coroutines.launch
 import kotlinx.datetime.Instant
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.model.TimelinePost
+import sh.christian.ozone.timeline.components.TimelinePostItem
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.InfiniteListHandler
 import sh.christian.ozone.ui.compose.OpenImageAction
