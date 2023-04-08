@@ -59,6 +59,7 @@ class ComposePostScreen(
       .fillMaxSize()
       .padding(rememberSystemInsets())
       .onBackPressed(onExit),
+    contentWindowInsets = WindowInsets(0.dp),
     topBar = {
       TopAppBar(
         windowInsets = WindowInsets(0.dp),

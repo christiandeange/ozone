@@ -65,6 +65,7 @@ class TimelineScreen(
   Surface(modifier = Modifier.onBackPressed(onExit)) {
     Scaffold(
       modifier = Modifier.padding(rememberSystemInsets()),
+      contentWindowInsets = WindowInsets(0.dp),
       topBar = {
         CenterAlignedTopAppBar(
           windowInsets = WindowInsets(0.dp),
