@@ -6,30 +6,29 @@ import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.Timeline
 import sh.christian.ozone.profile.ProfileProps
 import sh.christian.ozone.ui.compose.OpenImageAction
-import sh.christian.ozone.util.RemoteData
 
 sealed interface TimelineState {
-  val profile: RemoteData<FullProfile>
-  val timeline: RemoteData<Timeline>
+  val profile: FullProfile?
+  val timeline: Timeline?
 
   data class FetchingTimeline(
-    override val profile: RemoteData<FullProfile>,
-    override val timeline: RemoteData<Timeline>,
+    override val profile: FullProfile?,
+    override val timeline: Timeline?,
+    val fullRefresh: Boolean,
   ) : TimelineState
 
   data class ShowingTimeline(
-    override val profile: RemoteData.Success<FullProfile>,
-    override val timeline: RemoteData.Success<Timeline>,
+    override val profile: FullProfile,
+    override val timeline: Timeline,
   ) : TimelineState
 
   data class ShowingProfile(
-    override val profile: RemoteData<FullProfile>,
-    override val timeline: RemoteData.Success<Timeline>,
+    val previousState: TimelineState,
     val props: ProfileProps,
-  ) : TimelineState
+  ) : TimelineState by previousState
 
   data class ShowingFullSizeImage(
-    val previousState: ShowingTimeline,
+    val previousState: TimelineState,
     val openImageAction: OpenImageAction,
   ) : TimelineState by previousState
 
@@ -39,12 +38,7 @@ sealed interface TimelineState {
   ) : TimelineState by previousState
 
   data class ShowingError(
-    override val profile: RemoteData<FullProfile>,
-    override val timeline: RemoteData<Timeline>,
-  ) : TimelineState {
-    val error: ErrorProps
-      get() = (profile as? RemoteData.Failed)?.error
-        ?: (timeline as? RemoteData.Failed)?.error
-        ?: error("No error found: profile=$profile, timeline=$timeline")
-  }
+    val previousState: TimelineState,
+    val props: ErrorProps,
+  ) : TimelineState by previousState
 }

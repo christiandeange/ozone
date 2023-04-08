@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExitToApp
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.FabPosition
 import androidx.compose.material3.FloatingActionButton
@@ -49,6 +50,7 @@ class TimelineScreen(
   private val profile: Profile?,
   private val timeline: List<TimelinePost>,
   private val showComposePostButton: Boolean,
+  private val onRefresh: () -> Unit,
   private val onLoadMore: () -> Unit,
   private val onComposePost: () -> Unit,
   private val onOpenUser: (UserReference) -> Unit,
@@ -98,6 +100,17 @@ class TimelineScreen(
             )
           },
           actions = {
+            IconButton(onClick = {
+              coroutineScope.launch {
+                feedState.scrollToItem(0)
+              }
+              onRefresh()
+            }) {
+              Icon(
+                painter = rememberVectorPainter(Icons.Default.Refresh),
+                contentDescription = "Refresh",
+              )
+            }
             IconButton(onClick = onSignOut) {
               Icon(
                 painter = rememberVectorPainter(Icons.Default.ExitToApp),

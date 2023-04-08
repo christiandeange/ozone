@@ -1,22 +1,17 @@
 package sh.christian.ozone.timeline
 
-import app.bsky.feed.GetTimelineQueryParams
 import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
-import com.squareup.workflow1.Worker
 import com.squareup.workflow1.action
 import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.datetime.Clock
-import sh.christian.ozone.api.ApiProvider
-import sh.christian.ozone.api.NetworkWorker
-import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.app.AppScreen
 import sh.christian.ozone.compose.ComposePostOutput
 import sh.christian.ozone.compose.ComposePostProps
 import sh.christian.ozone.compose.ComposePostWorkflow
 import sh.christian.ozone.error.ErrorOutput
-import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.Timeline
@@ -34,16 +29,14 @@ import sh.christian.ozone.ui.compose.ImageOverlayScreen
 import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.Dismissable.DismissHandler
-import sh.christian.ozone.ui.workflow.EmptyScreen
 import sh.christian.ozone.ui.workflow.plus
 import sh.christian.ozone.user.MyProfileRepository
 import sh.christian.ozone.user.UserReference
-import sh.christian.ozone.util.RemoteData
 
 class TimelineWorkflow(
   private val clock: Clock,
-  private val apiProvider: ApiProvider,
   private val myProfileRepository: MyProfileRepository,
+  private val timelineRepository: TimelineRepository,
   private val composePostWorkflow: ComposePostWorkflow,
   private val profileWorkflow: ProfileWorkflow,
   private val errorWorkflow: ErrorWorkflow,
@@ -53,8 +46,9 @@ class TimelineWorkflow(
     props: TimelineProps,
     snapshot: Snapshot?,
   ): TimelineState = FetchingTimeline(
-    profile = RemoteData.Fetching(),
-    timeline = RemoteData.Fetching(),
+    profile = null,
+    timeline = null,
+    fullRefresh = true,
   )
 
   override fun render(
@@ -62,66 +56,70 @@ class TimelineWorkflow(
     renderState: TimelineState,
     context: RenderContext
   ): AppScreen {
-    val myProfileWorker = myProfileRepository.me().asWorker()
+    val myProfileWorker = myProfileRepository.me().filterNotNull().asWorker()
     context.runningWorker(myProfileWorker) { profile ->
       action {
         state = state.withProfile(profile)
       }
     }
 
-    if (renderState.timeline is RemoteData.Fetching) {
-      val cursor = (renderState.timeline as? RemoteData.Fetching)?.previous?.cursor
-      context.runningWorker(loadTimeline(cursor = cursor)) { result ->
-        action {
-          val feedResult = RemoteData.fromAtpResponseOrError(result, state.timeline) {
-            ErrorProps.CustomError("Oops.", "Could not load timeline", true)
-          }
-          val combinedTimeline = if (feedResult is RemoteData.Success) {
-            val oldPosts = state.timeline.getOrNull()?.posts.orEmpty()
-            val newPosts = feedResult.getOrNull()?.posts.orEmpty()
-            RemoteData.Success(
-              Timeline(
-                cursor = feedResult.value.cursor,
-                posts = oldPosts + newPosts,
-              )
-            )
+    val timelineWorker = timelineRepository.timeline.asWorker()
+    context.runningWorker(timelineWorker) { newTimeline ->
+      action {
+        val existingProfile = state.profile
+        state = if (existingProfile != null) {
+          if (state is FetchingTimeline) {
+            ShowingTimeline(existingProfile, newTimeline)
           } else {
-            feedResult
+            state.withTimeline(newTimeline)
           }
-
-          state = determineState(state.profile, combinedTimeline)
+        } else {
+          FetchingTimeline(
+            profile = null,
+            timeline = newTimeline,
+            fullRefresh = (state as? FetchingTimeline)?.fullRefresh ?: true,
+          )
         }
+      }
+    }
+
+    val errorsWorker = timelineRepository.errors.asWorker()
+    context.runningWorker(errorsWorker) { errorProps ->
+      action {
+        state = ShowingError(state, errorProps)
       }
     }
 
     return when (renderState) {
       is FetchingTimeline -> {
-        val profileView = renderState.profile.getOrNull()
-        val timeline = renderState.timeline.getOrNull()
-
-        val overlay = if (timeline == null) {
-          TextOverlayScreen(
-            onDismiss = Dismissable.Ignore,
-            text = "Loading timeline for ${renderProps.authInfo.handle}...",
-          )
-        } else {
-          null
+        val fullRefresh = renderState.fullRefresh
+        context.runningSideEffect("fetch-timeline-$fullRefresh") {
+          if (fullRefresh) {
+            timelineRepository.refresh()
+          } else {
+            timelineRepository.loadMore()
+          }
         }
 
+        val profile = renderState.profile
+        val timeline = renderState.timeline
+
+        val overlay = TextOverlayScreen(
+          onDismiss = Dismissable.Ignore,
+          text = "Loading timeline for ${renderProps.authInfo.handle}...",
+        ).takeIf { timeline == null }
+
         AppScreen(
-          main = context.timelineScreen(profileView, timeline),
+          main = context.timelineScreen(profile, timeline),
           overlay = overlay,
         )
       }
       is ShowingTimeline -> {
-        AppScreen(main = context.timelineScreen(renderState.profile.value, renderState.timeline.value))
+        AppScreen(main = context.timelineScreen(renderState.profile, renderState.timeline))
       }
       is ShowingFullSizeImage -> {
         AppScreen(
-          main = context.timelineScreen(
-            profile = renderState.previousState.profile.value,
-            timelineResponse = renderState.previousState.timeline.value,
-          ),
+          main = context.timelineScreen(renderState.profile, renderState.timeline),
           overlay = ImageOverlayScreen(
             onDismiss = DismissHandler(
               context.eventHandler { state = renderState.previousState }
@@ -131,17 +129,11 @@ class TimelineWorkflow(
         )
       }
       is ShowingProfile -> {
-        val profile = renderState.profile.getOrNull()
-        val timelineResponse = renderState.timeline.value
-
         AppScreen(
-          main = context.timelineScreen(profile, timelineResponse) +
+          main = context.timelineScreen(renderState.profile, renderState.timeline) +
               context.renderChild(profileWorkflow, renderState.props) {
                 action {
-                  state = ShowingTimeline(
-                    profile = RemoteData.Success(state.profile.getOrNull()!!),
-                    timeline = renderState.timeline,
-                  )
+                  state = renderState.previousState
                 }
               }
         )
@@ -152,7 +144,7 @@ class TimelineWorkflow(
             action {
               state = when (output) {
                 is ComposePostOutput.CreatedPost -> {
-                  FetchingTimeline(state.profile, state.timeline)
+                  FetchingTimeline(state.profile, state.timeline, fullRefresh = true)
                 }
                 is ComposePostOutput.CanceledPost -> {
                   renderState.previousState
@@ -163,38 +155,16 @@ class TimelineWorkflow(
         )
       }
       is ShowingError -> {
-        val mainScreen = renderState.profile.getOrNull()
-          ?.let {
-            context.timelineScreen(
-              profile = it,
-              timelineResponse = renderState.timeline.getOrNull(),
-            )
-          }
-          ?: EmptyScreen
-
         AppScreen(
-          main = mainScreen,
-          overlay = context.renderChild(errorWorkflow, renderState.error) { output ->
+          main = context.timelineScreen(
+            profile = renderState.profile,
+            timelineResponse = renderState.timeline,
+          ),
+          overlay = context.renderChild(errorWorkflow, renderState.props) { output ->
             action {
-              val currentProfile = state.profile
-              val currentTimeline = state.timeline
               when (output) {
-                ErrorOutput.Dismiss -> {
-                  setOutput(SignOut)
-                }
-                ErrorOutput.Retry -> {
-                  val newProfile = when (currentProfile) {
-                    is RemoteData.Fetching -> currentProfile
-                    is RemoteData.Success -> currentProfile
-                    is RemoteData.Failed -> RemoteData.Fetching(currentProfile.previous)
-                  }
-                  val newFeed = when (currentTimeline) {
-                    is RemoteData.Fetching -> currentTimeline
-                    is RemoteData.Success -> currentTimeline
-                    is RemoteData.Failed -> RemoteData.Fetching(currentTimeline.previous)
-                  }
-                  state = FetchingTimeline(newProfile, newFeed)
-                }
+                ErrorOutput.Dismiss -> setOutput(SignOut)
+                ErrorOutput.Retry -> state = renderState.previousState
               }
             }
           }
@@ -205,21 +175,6 @@ class TimelineWorkflow(
 
   override fun snapshotState(state: TimelineState): Snapshot? = null
 
-  private fun determineState(
-    profile: RemoteData<FullProfile>,
-    timeline: RemoteData<Timeline>,
-  ): TimelineState {
-    return if (profile is RemoteData.Success && timeline is RemoteData.Success) {
-      ShowingTimeline(profile, timeline)
-    } else if (profile is RemoteData.Fetching || timeline is RemoteData.Fetching) {
-      FetchingTimeline(profile, timeline)
-    } else if (profile is RemoteData.Failed || timeline is RemoteData.Failed) {
-      ShowingError(profile, timeline)
-    } else {
-      error("Unknown state to transition to with profile=$profile, timeline=$timeline")
-    }
-  }
-
   private fun RenderContext.timelineScreen(
     profile: FullProfile?,
     timelineResponse: Timeline?,
@@ -229,10 +184,18 @@ class TimelineWorkflow(
       profile = profile,
       timeline = timelineResponse?.posts.orEmpty(),
       showComposePostButton = profile != null && timelineResponse != null,
+      onRefresh = eventHandler {
+        state = FetchingTimeline(
+          profile = state.profile,
+          timeline = state.timeline,
+          fullRefresh = true,
+        )
+      },
       onLoadMore = eventHandler {
         state = FetchingTimeline(
           profile = state.profile,
-          timeline = RemoteData.Fetching(state.timeline.getOrNull()),
+          timeline = state.timeline,
+          fullRefresh = false,
         )
       },
       onComposePost = eventHandler {
@@ -240,13 +203,12 @@ class TimelineWorkflow(
       },
       onOpenUser = eventHandler { user ->
         val isMe = when (user) {
-          is UserReference.Did -> user.did == state.profile.getOrNull()?.did
-          is UserReference.Handle -> user.handle == state.profile.getOrNull()?.handle
+          is UserReference.Did -> user.did == state.profile?.did
+          is UserReference.Handle -> user.handle == state.profile?.handle
         }
         state = ShowingProfile(
-          profile = state.profile,
-          timeline = RemoteData.Success(state.timeline.getOrNull()!!),
-          props = ProfileProps(user, state.profile.getOrNull(), profile?.takeIf { isMe }),
+          previousState = state,
+          props = ProfileProps(user, state.profile, profile?.takeIf { isMe }),
         )
       },
       onOpenImage = eventHandler { action ->
@@ -261,46 +223,44 @@ class TimelineWorkflow(
     )
   }
 
-  private fun loadTimeline(cursor: String?): Worker<AtpResponse<Timeline>> {
-    return NetworkWorker {
-      apiProvider.api.getTimeline(
-        GetTimelineQueryParams(
-          limit = 100,
-          cursor = cursor,
+  private fun TimelineState.withProfile(profile: FullProfile): TimelineState {
+    return when (this) {
+      is FetchingTimeline -> {
+        if (timeline != null) {
+          ShowingTimeline(profile, timeline!!)
+        } else {
+          copy(profile = profile)
+        }
+      }
+      is ShowingTimeline -> {
+        copy(profile = profile)
+      }
+      is ShowingProfile -> {
+        copy(previousState = previousState.withProfile(profile))
+      }
+      is ShowingFullSizeImage -> {
+        copy(previousState = previousState.withProfile(profile) as ShowingTimeline)
+      }
+      is ComposingPost -> {
+        copy(
+          previousState = previousState.withProfile(profile) as ShowingTimeline,
+          props = props.copy(profile = profile),
         )
-      ).map { Timeline.from(it.feed, it.cursor) }
+      }
+      is ShowingError -> {
+        copy(previousState = previousState.withProfile(profile))
+      }
     }
   }
 
-  private fun TimelineState.withProfile(profileResult: FullProfile?): TimelineState {
-    val profile = if (profileResult == null) {
-      RemoteData.Failed(ErrorProps.CustomError("Oops.", "Could not load your profile.", true))
-    } else {
-      RemoteData.Success(profileResult)
-    }
-
+  private fun TimelineState.withTimeline(timeline: Timeline): TimelineState {
     return when (this) {
-      is ComposingPost -> {
-        copy(
-          previousState = previousState.withProfile(profileResult) as ShowingTimeline,
-          props = profileResult?.let { props.copy(profile = it) } ?: props,
-        )
-      }
-      is FetchingTimeline -> {
-        copy(profile = profile)
-      }
-      is ShowingError -> {
-        copy(profile = profile)
-      }
-      is ShowingFullSizeImage -> {
-        copy(previousState = previousState.withProfile(profileResult) as ShowingTimeline)
-      }
-      is ShowingTimeline -> {
-        copy(profile = profile as RemoteData.Success<FullProfile>)
-      }
-      is ShowingProfile -> {
-        copy(profile = profile)
-      }
+      is FetchingTimeline -> copy(timeline = timeline)
+      is ShowingTimeline -> copy(timeline = timeline)
+      is ShowingProfile -> copy(previousState = previousState.withTimeline(timeline))
+      is ShowingFullSizeImage -> copy(previousState = previousState.withTimeline(timeline))
+      is ComposingPost -> copy(previousState = previousState.withTimeline(timeline))
+      is ShowingError -> copy(previousState = previousState.withTimeline(timeline))
     }
   }
 }
