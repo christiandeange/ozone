@@ -50,7 +50,7 @@ fun DefsPostView.toPost(
     cid = cid,
     author = author.toProfile(),
     text = postRecord.text,
-    textLinks = postRecord.entities.map { it.toLink() },
+    textLinks = postRecord.facets.map { it.toLink() },
     createdAt = Instant.parse(postRecord.createdAt),
     feature = embed?.toFeature(),
     replyCount = replyCount ?: 0,

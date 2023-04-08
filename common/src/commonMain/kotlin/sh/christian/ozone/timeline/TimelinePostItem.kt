@@ -37,7 +37,9 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.UrlAnnotation
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.style.TextOverflow
@@ -45,6 +47,7 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import io.kamel.image.lazyPainterResource
 import kotlinx.datetime.Instant
+import sh.christian.ozone.model.LinkTarget
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.model.TimelinePostFeature.ImagesFeature
@@ -57,10 +60,9 @@ import sh.christian.ozone.ui.icons.ChatBubbleOutline
 import sh.christian.ozone.ui.icons.Repeat
 import sh.christian.ozone.ui.icons.Reply
 import sh.christian.ozone.user.UserReference
-import sh.christian.ozone.user.UserReference.Did
 import sh.christian.ozone.user.UserReference.Handle
+import sh.christian.ozone.util.byteOffsets
 import sh.christian.ozone.util.color
-import sh.christian.ozone.util.isUrl
 import kotlin.time.Duration
 
 @Composable
@@ -180,6 +182,7 @@ private fun PostReplyLine(
   }
 }
 
+@OptIn(ExperimentalTextApi::class)
 @Composable
 private fun PostText(
   post: TimelinePost,
@@ -193,20 +196,12 @@ private fun PostText(
       text = postText,
       style = LocalTextStyle.current.copy(color = LocalContentColor.current),
       onClick = { index ->
-        postText.getStringAnnotations("clickable", index, index)
-          .firstOrNull()
-          ?.item
-          ?.let { target ->
-            if (target.startsWith("did:")) {
-              onOpenUser(Did(target))
-            } else if (target.isUrl()) {
-              uriHandler.openUri(target)
-            } else if (target.startsWith("#")) {
-              println("Clicked on hashtag $target")
-            } else {
-              println("Clicked on unknown target: $target")
-            }
-          }
+        postText.getStringAnnotations("did", index, index).firstOrNull()?.item?.let { did ->
+          onOpenUser(UserReference.Did(did))
+        }
+        postText.getUrlAnnotations(index, index).firstOrNull()?.item?.url?.let { url ->
+          uriHandler.openUri(url)
+        }
       },
     )
   }
@@ -321,6 +316,7 @@ private fun PostAction(
   }
 }
 
+@OptIn(ExperimentalTextApi::class)
 @Composable
 fun formatTextPost(
   text: String,
@@ -330,19 +326,25 @@ fun formatTextPost(
     buildAnnotatedString {
       append(text)
 
+      val byteOffsets = text.byteOffsets()
       textLinks.forEach { link ->
+        val start = byteOffsets[link.start]
+        val end = byteOffsets[link.end]
+
         addStyle(
           style = SpanStyle(color = Color(0xFF3B62FF)),
-          start = link.start,
-          end = link.end,
+          start = start,
+          end = end,
         )
 
-        addStringAnnotation(
-          tag = "clickable",
-          annotation = link.value,
-          start = link.start,
-          end = link.end,
-        )
+        when (link.target) {
+          is LinkTarget.ExternalLink -> {
+            addUrlAnnotation(UrlAnnotation(link.target.url), start, end)
+          }
+          is LinkTarget.UserMention -> {
+            addStringAnnotation("did", link.target.did, start, end)
+          }
+        }
       }
     }
   }

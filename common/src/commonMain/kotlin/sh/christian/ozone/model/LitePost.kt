@@ -12,7 +12,7 @@ data class LitePost(
 fun Post.toLitePost(): LitePost {
   return LitePost(
     text = text,
-    links = entities.map { it.toLink() },
+    links = facets.map { it.toLink() },
     createdAt = Instant.parse(createdAt),
   )
 }
