@@ -24,9 +24,10 @@ import sh.christian.ozone.profile.ProfileState.ShowingFullSizeImage
 import sh.christian.ozone.profile.ProfileState.ShowingProfile
 import sh.christian.ozone.ui.compose.ImageOverlayScreen
 import sh.christian.ozone.ui.compose.TextOverlayScreen
-import sh.christian.ozone.ui.workflow.CompositeViewRendering
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.EmptyScreen
+import sh.christian.ozone.ui.workflow.ViewRendering
+import sh.christian.ozone.ui.workflow.plus
 import sh.christian.ozone.user.UserDatabase
 import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.util.RemoteData
@@ -87,47 +88,36 @@ class ProfileWorkflow(
       }
     }
 
+    val screenStack = generateSequence(renderState) { it.previousState }
+      .toList()
+      .reversed()
+      .filter { it.profile is Success }
+      .map { state: ProfileState ->
+        context.profileScreen(
+          renderProps.copy(user = state.user),
+          state.profile.getOrNull()!!,
+          state.feed.getOrNull()?.posts.orEmpty()
+        )
+      }
+      .fold(EmptyScreen, ViewRendering::plus)
+
     return when (renderState) {
       is ShowingProfile -> {
-        val profileView = renderState.profile.getOrNull()
-        val feed = renderState.feed.getOrNull()
-
-        val previousScreen = renderState.previousState?.let { previousState ->
-          context.renderChild(
-            this,
-            ProfileProps(
-              previousState.user,
-              renderProps.self,
-              null,
-            ),
-            "child-${previousState.user}"
-          ) {
-            action {
-              state = previousState
-            }
-          }
-        }
-
-        if (profileView != null) {
-          val mainScreen = context.profileScreen(renderProps, profileView, feed?.posts.orEmpty())
-          AppScreen(main = CompositeViewRendering(listOfNotNull(previousScreen?.main, mainScreen)))
-        } else {
+        if (renderState.profile is Fetching) {
           AppScreen(
-            main = previousScreen ?: EmptyScreen,
+            main = screenStack,
             overlay = TextOverlayScreen(
               onDismiss = Dismissable.Ignore,
               text = "Loading ${renderState.user}...",
             ),
           )
+        } else {
+          AppScreen(main = screenStack)
         }
       }
       is ShowingFullSizeImage -> {
         AppScreen(
-          main = context.profileScreen(
-            props = renderProps,
-            profile = renderState.previousState.profile.getOrNull()!!,
-            feed = renderState.previousState.feed.getOrNull()?.posts.orEmpty(),
-          ),
+          main = screenStack,
           overlay = ImageOverlayScreen(
             onDismiss = Dismissable.DismissHandler(
               context.eventHandler { state = renderState.previousState }
@@ -137,18 +127,8 @@ class ProfileWorkflow(
         )
       }
       is ShowingError -> {
-        val mainScreen = renderState.profile.getOrNull()
-          ?.let {
-            context.profileScreen(
-              props = renderProps,
-              profile = it,
-              feed = renderState.feed.getOrNull()?.posts.orEmpty(),
-            )
-          }
-          ?: EmptyScreen
-
         AppScreen(
-          main = mainScreen,
+          main = screenStack,
           overlay = context.renderChild(errorWorkflow, renderState.error) { output ->
             action {
               val currentProfile = state.profile
