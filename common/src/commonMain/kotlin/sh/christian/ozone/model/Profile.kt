@@ -56,7 +56,7 @@ fun DefsProfileViewDetailed.toProfile(): FullProfile {
     followsCount = followsCount ?: 0,
     postsCount = postsCount ?: 0,
     indexedAt = indexedAt?.let { Instant.parse(it) },
-    mutedByMe = viewer?.muted != null,
+    mutedByMe = viewer?.muted == true,
     followingMe = viewer?.following != null,
     followedByMe = viewer?.followedBy != null,
   )
