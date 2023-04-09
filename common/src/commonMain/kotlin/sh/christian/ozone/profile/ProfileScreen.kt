@@ -22,6 +22,7 @@ import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
@@ -43,6 +44,7 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.datetime.Instant
 import sh.christian.ozone.model.FullProfile
@@ -243,6 +245,8 @@ class ProfileScreen(
           onOpenUser = onOpenUser,
           onOpenImage = onOpenImage,
         )
+
+        Divider(thickness = Dp.Hairline)
       }
     }
   }

@@ -14,6 +14,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.Divider
 import androidx.compose.material3.FabPosition
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -28,6 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Instant
@@ -148,6 +150,8 @@ class TimelineScreen(
               onOpenUser = onOpenUser,
               onOpenImage = onOpenImage,
             )
+
+            Divider(thickness = Dp.Hairline)
           }
         }
       }

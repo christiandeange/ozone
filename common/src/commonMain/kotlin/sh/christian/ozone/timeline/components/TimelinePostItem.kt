@@ -25,7 +25,7 @@ fun TimelinePostItem(
   onOpenImage: (OpenImageAction) -> Unit,
 ) {
   Row(
-    modifier = Modifier.padding(16.dp),
+    modifier = Modifier.padding(top = 16.dp, bottom = 8.dp, start = 16.dp, end = 16.dp),
     horizontalArrangement = spacedBy(16.dp),
   ) {
     val author: Profile = post.author
@@ -42,7 +42,7 @@ fun TimelinePostItem(
       PostReplyLine(post.reply, onOpenUser)
       PostReasonLine(post.reason, onOpenUser)
       Column(
-        modifier = Modifier.padding(vertical = 8.dp),
+        modifier = Modifier.padding(bottom = 8.dp),
         verticalArrangement = spacedBy(8.dp),
       ) {
         PostText(post, onOpenUser)

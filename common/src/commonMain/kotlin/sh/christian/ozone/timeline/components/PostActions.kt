@@ -79,12 +79,12 @@ private fun PostAction(
 ) {
   Row(
     modifier = Modifier
-      .padding(vertical = 4.dp)
       .clickable(
         interactionSource = remember { MutableInteractionSource() },
         indication = rememberRipple(bounded = false),
         onClick = {},
-      ),
+      )
+      .padding(vertical = 4.dp),
     verticalAlignment = Alignment.CenterVertically,
     horizontalArrangement = spacedBy(4.dp),
   ) {

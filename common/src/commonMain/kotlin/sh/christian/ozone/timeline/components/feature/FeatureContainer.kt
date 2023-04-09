@@ -23,7 +23,7 @@ internal fun FeatureContainer(
     modifier = modifier
       .fillMaxWidth()
       .clip(MaterialTheme.shapes.large)
-      .border(Dp.Hairline, MaterialTheme.colorScheme.outline, MaterialTheme.shapes.large)
+      .border(1.dp, MaterialTheme.colorScheme.outline, MaterialTheme.shapes.large)
       .clickable { onClick() }
       .padding(16.dp),
   ) {
