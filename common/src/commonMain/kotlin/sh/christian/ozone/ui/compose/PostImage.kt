@@ -11,7 +11,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import io.kamel.core.Resource
 import io.kamel.image.KamelImage
-import io.kamel.image.lazyPainterResource
 
 @Composable
 fun PostImage(
@@ -22,7 +21,7 @@ fun PostImage(
   fallbackColor: Color = Color.Transparent,
 ) {
   if (imageUrl != null) {
-    val resource = lazyPainterResource(imageUrl)
+    val resource = rememberUrlPainter(imageUrl)
     val clickable = if (resource is Resource.Success) {
       Modifier.clickable { onClick() }
     } else {

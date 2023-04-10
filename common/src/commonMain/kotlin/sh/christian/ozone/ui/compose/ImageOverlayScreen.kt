@@ -26,7 +26,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.IntSize
 import io.kamel.image.KamelImage
-import io.kamel.image.lazyPainterResource
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.OverlayRendering
 import sh.christian.ozone.ui.workflow.overlay
@@ -67,7 +66,7 @@ class ImageOverlayScreen(
             translationX = offsetX
             translationY = offsetY
           },
-        resource = lazyPainterResource(action.imageUrl),
+        resource = rememberUrlPainter(action.imageUrl),
         contentDescription = action.alt,
         contentScale = ContentScale.Fit,
       )

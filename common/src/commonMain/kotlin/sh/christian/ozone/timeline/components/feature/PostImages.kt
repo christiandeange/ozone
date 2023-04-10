@@ -7,10 +7,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import io.kamel.image.lazyPainterResource
 import sh.christian.ozone.model.TimelinePostFeature.ImagesFeature
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.compose.PostImage
+import sh.christian.ozone.ui.compose.rememberUrlPainter
 
 @Composable
 internal fun PostImages(
@@ -20,7 +20,7 @@ internal fun PostImages(
   Row(horizontalArrangement = spacedBy(8.dp)) {
     feature.images.forEach { image ->
       // Preload the full-size image into the cache.
-      lazyPainterResource(image.fullsize)
+      rememberUrlPainter(image.fullsize)
 
       PostImage(
         modifier = Modifier

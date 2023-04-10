@@ -10,7 +10,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import io.kamel.image.KamelImage
-import io.kamel.image.lazyPainterResource
 
 @Composable
 fun AvatarImage(
@@ -31,7 +30,7 @@ fun AvatarImage(
       modifier = modifier
         .clip(CircleShape)
         .then(clickableModifier),
-      resource = lazyPainterResource(avatarUrl),
+      resource = rememberUrlPainter(avatarUrl),
       contentDescription = contentDescription,
       onLoading = { EmptyAvatar(fallbackColor) },
       onFailure = { EmptyAvatar(fallbackColor) },

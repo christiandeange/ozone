@@ -81,11 +81,13 @@ class ProfileScreen(
 
   val transitionPercentage by remember {
     derivedStateOf {
-      if (state.layoutInfo.visibleItemsInfo.isNotEmpty() && state.firstVisibleItemIndex == 0) {
+      if (state.layoutInfo.visibleItemsInfo.isEmpty()) {
+        0f
+      } else if (state.firstVisibleItemIndex != 0) {
+        1f
+      } else {
         val firstItemInfo = state.layoutInfo.visibleItemsInfo.first()
         state.firstVisibleItemScrollOffset / firstItemInfo.size.toFloat()
-      } else {
-        1f
       }
     }
   }
