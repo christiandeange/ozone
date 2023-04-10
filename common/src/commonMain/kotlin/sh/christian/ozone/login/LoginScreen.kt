@@ -109,8 +109,10 @@ class LoginScreen(
     val password by passwordField
     val inviteCode by inviteCodeField
 
-    val credentials by derivedStateOf {
-      Credentials(email, username, password, inviteCode)
+    val credentials by remember {
+      derivedStateOf {
+        Credentials(email, username, password, inviteCode)
+      }
     }
 
     LargeTopAppBar(
@@ -150,13 +152,17 @@ class LoginScreen(
       horizontalAlignment = Alignment.CenterHorizontally,
     ) {
       var serverInfo: ServerInfo? by remember { mutableStateOf(null) }
-      val showInviteCodeField by derivedStateOf {
-        mode == SIGN_UP && serverInfo?.inviteCodeRequired == true
+      val showInviteCodeField by remember {
+        derivedStateOf {
+          mode == SIGN_UP && serverInfo?.inviteCodeRequired == true
+        }
       }
-      val allFieldsCompleted by derivedStateOf {
-        username.isNotEmpty() && password.isNotEmpty() && when (mode) {
-          SIGN_UP -> email.isNotEmpty() && (!showInviteCodeField || inviteCode.isNotEmpty())
-          SIGN_IN -> true
+      val allFieldsCompleted by remember {
+        derivedStateOf {
+          username.isNotEmpty() && password.isNotEmpty() && when (mode) {
+            SIGN_UP -> email.isNotEmpty() && (!showInviteCodeField || inviteCode.isNotEmpty())
+            SIGN_IN -> true
+          }
         }
       }
 

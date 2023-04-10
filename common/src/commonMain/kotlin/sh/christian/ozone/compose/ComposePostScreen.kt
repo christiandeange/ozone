@@ -47,11 +47,13 @@ class ComposePostScreen(
   private val onPost: (PostPayload) -> Unit,
 ) : ViewRendering by screen({
   var postText by remember { mutableStateOf("") }
-  val postPayload by derivedStateOf {
-    PostPayload(
-      authorDid = profile.did,
-      text = postText,
-    )
+  val postPayload by remember {
+    derivedStateOf {
+      PostPayload(
+        authorDid = profile.did,
+        text = postText,
+      )
+    }
   }
 
   Scaffold(

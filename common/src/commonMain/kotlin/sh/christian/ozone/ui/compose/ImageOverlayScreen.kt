@@ -46,8 +46,8 @@ class ImageOverlayScreen(
       var offsetY by remember { mutableStateOf(0f) }
       var size by remember { mutableStateOf(IntSize.Zero) }
 
-      val maxX by derivedStateOf { (size.width * (scale - 1)) / 2 }
-      val maxY by derivedStateOf { (size.height * (scale - 1)) / 2 }
+      val maxX by remember { derivedStateOf { (size.width * (scale - 1)) / 2 } }
+      val maxY by remember { derivedStateOf { (size.height * (scale - 1)) / 2 } }
 
       KamelImage(
         modifier = Modifier
