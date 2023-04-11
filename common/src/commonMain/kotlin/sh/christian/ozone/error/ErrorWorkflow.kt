@@ -6,7 +6,7 @@ import sh.christian.ozone.ui.workflow.OverlayRendering
 class ErrorWorkflow : StatelessWorkflow<ErrorProps, ErrorOutput, OverlayRendering>() {
   override fun render(
     renderProps: ErrorProps,
-    context: RenderContext
+    context: RenderContext,
   ): OverlayRendering {
     return ErrorScreen(
       title = renderProps.title,

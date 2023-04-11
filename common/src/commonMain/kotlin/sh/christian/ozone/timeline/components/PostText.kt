@@ -23,6 +23,7 @@ import sh.christian.ozone.util.byteOffsets
 @Composable
 internal fun PostText(
   post: TimelinePost,
+  onClick: () -> Unit,
   onOpenUser: (UserReference) -> Unit,
 ) {
   val maybeExternalLink = (post.feature as? ExternalFeature)?.uri
@@ -36,11 +37,17 @@ internal fun PostText(
       text = postText,
       style = LocalTextStyle.current.copy(color = LocalContentColor.current),
       onClick = { index ->
+        var performedAction = false
         postText.getStringAnnotations("did", index, index).firstOrNull()?.item?.let { did ->
+          performedAction = true
           onOpenUser(UserReference.Did(did))
         }
         postText.getUrlAnnotations(index, index).firstOrNull()?.item?.url?.let { url ->
+          performedAction = true
           uriHandler.openUri(url)
+        }
+        if (!performedAction) {
+          onClick()
         }
       },
     )

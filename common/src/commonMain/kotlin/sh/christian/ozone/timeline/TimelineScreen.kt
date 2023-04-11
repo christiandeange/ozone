@@ -56,6 +56,7 @@ class TimelineScreen(
   private val onRefresh: () -> Unit,
   private val onLoadMore: () -> Unit,
   private val onComposePost: () -> Unit,
+  private val onOpenThread: (TimelinePost) -> Unit,
   private val onOpenUser: (UserReference) -> Unit,
   private val onOpenImage: (OpenImageAction) -> Unit,
   private val onSignOut: () -> Unit,
@@ -147,6 +148,7 @@ class TimelineScreen(
             TimelinePostItem(
               now = now,
               post = post,
+              onOpenThread = onOpenThread,
               onOpenUser = onOpenUser,
               onOpenImage = onOpenImage,
             )

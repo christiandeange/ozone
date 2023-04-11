@@ -5,6 +5,7 @@ import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.Timeline
 import sh.christian.ozone.profile.ProfileProps
+import sh.christian.ozone.thread.ThreadProps
 import sh.christian.ozone.ui.compose.OpenImageAction
 
 sealed interface TimelineState {
@@ -25,6 +26,11 @@ sealed interface TimelineState {
   data class ShowingProfile(
     val previousState: TimelineState,
     val props: ProfileProps,
+  ) : TimelineState by previousState
+
+  data class ShowingThread(
+    val previousState: TimelineState,
+    val props: ThreadProps,
   ) : TimelineState by previousState
 
   data class ShowingFullSizeImage(

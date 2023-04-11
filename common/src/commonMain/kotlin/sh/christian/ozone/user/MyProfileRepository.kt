@@ -26,4 +26,11 @@ class MyProfileRepository(
   }
 
   fun me(): Flow<FullProfile?> = profileFlow
+
+  fun isMe(userReference: UserReference): Boolean {
+    return when (userReference) {
+      is UserReference.Did -> userReference.did == profileFlow.value!!.did
+      is UserReference.Handle -> userReference.handle == profileFlow.value!!.handle
+    }
+  }
 }

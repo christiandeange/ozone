@@ -25,13 +25,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.ui.icons.ChatBubbleOutline
 import sh.christian.ozone.ui.icons.Repeat
 
 @Composable
-internal fun PostActions(post: TimelinePost) {
+internal fun PostActions(
+  replyCount: String?,
+  repostCount: String?,
+  likeCount: String?,
+  reposted: Boolean,
+  liked: Boolean,
+  iconSize: Dp,
+) {
   Row(
     modifier = Modifier.fillMaxWidth(),
     verticalAlignment = Alignment.CenterVertically,
@@ -39,28 +46,31 @@ internal fun PostActions(post: TimelinePost) {
   ) {
     PostAction(
       icon = Icons.Default.ChatBubbleOutline,
+      iconSize = iconSize,
       contentDescription = "Reply",
-      text = post.replyCount.toString(),
+      text = replyCount,
     )
     PostAction(
       icon = Icons.Default.Repeat,
+      iconSize = iconSize,
       contentDescription = "Repost",
-      text = post.repostCount.toString(),
-      tint = if (post.reposted) {
+      text = repostCount,
+      tint = if (reposted) {
         Color.Green
       } else {
         MaterialTheme.colorScheme.outline
       },
     )
     PostAction(
-      icon = if (post.liked) {
+      icon = if (liked) {
         Icons.Default.Favorite
       } else {
         Icons.Default.FavoriteBorder
       },
+      iconSize = iconSize,
       contentDescription = "Like",
-      text = post.likeCount.toString(),
-      tint = if (post.liked) {
+      text = likeCount,
+      tint = if (liked) {
         Color.Red
       } else {
         MaterialTheme.colorScheme.outline
@@ -73,6 +83,7 @@ internal fun PostActions(post: TimelinePost) {
 @Composable
 private fun PostAction(
   icon: ImageVector,
+  iconSize: Dp,
   contentDescription: String,
   text: String?,
   tint: Color = MaterialTheme.colorScheme.outline,
@@ -89,7 +100,7 @@ private fun PostAction(
     horizontalArrangement = spacedBy(4.dp),
   ) {
     Icon(
-      modifier = Modifier.size(16.dp),
+      modifier = Modifier.size(iconSize),
       painter = rememberVectorPainter(icon),
       contentDescription = contentDescription,
       tint = tint,

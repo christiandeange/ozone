@@ -3,6 +3,7 @@ package sh.christian.ozone.profile
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.Timeline
+import sh.christian.ozone.thread.ThreadProps
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.util.RemoteData
@@ -24,6 +25,11 @@ sealed interface ProfileState {
   data class ShowingFullSizeImage(
     override val previousState: ShowingProfile,
     val openImageAction: OpenImageAction,
+  ) : ProfileState by previousState
+
+  data class ShowingThread(
+    override val previousState: ShowingProfile,
+    val props: ThreadProps,
   ) : ProfileState by previousState
 
   data class ShowingError(

@@ -2,7 +2,6 @@ package sh.christian.ozone.profile
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -43,7 +42,6 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.datetime.Instant
@@ -55,6 +53,7 @@ import sh.christian.ozone.ui.compose.BannerImage
 import sh.christian.ozone.ui.compose.InfiniteListHandler
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.compose.OverImageIconButton
+import sh.christian.ozone.ui.compose.Statistic
 import sh.christian.ozone.ui.compose.SystemInsets
 import sh.christian.ozone.ui.compose.foreground
 import sh.christian.ozone.ui.compose.onBackPressed
@@ -72,6 +71,7 @@ class ProfileScreen(
   private val feed: List<TimelinePost>,
   private val isSelf: Boolean,
   private val onLoadMore: () -> Unit,
+  private val onOpenThread: (TimelinePost) -> Unit,
   private val onOpenUser: (UserReference) -> Unit,
   private val onOpenImage: (OpenImageAction) -> Unit,
   private val onExit: () -> Unit,
@@ -244,6 +244,7 @@ class ProfileScreen(
         TimelinePostItem(
           now = now,
           post = post,
+          onOpenThread = onOpenThread,
           onOpenUser = onOpenUser,
           onOpenImage = onOpenImage,
         )
@@ -298,63 +299,8 @@ private fun ProfileStats(
     verticalAlignment = Alignment.CenterVertically,
     horizontalArrangement = spacedBy(8.dp),
   ) {
-    ProfileStat(followers, "followers", { /* TODO */ })
-    ProfileStat(following, "following", { /* TODO */ })
-    ProfileStat(posts, "posts", { /* TODO */ })
-  }
-}
-
-@Composable
-private fun ProfileStat(
-  value: Long,
-  description: String,
-  onClick: () -> Unit,
-) {
-  Row(
-    modifier = Modifier.clickable(onClick = onClick).padding(vertical = 8.dp),
-    verticalAlignment = Alignment.CenterVertically,
-    horizontalArrangement = spacedBy(2.dp),
-  ) {
-    Text(
-      modifier = Modifier.alignByBaseline(),
-      text = format(value),
-      maxLines = 1,
-      style = LocalTextStyle.current.copy(
-        color = MaterialTheme.colorScheme.onSurface,
-        fontWeight = Bold,
-      ),
-    )
-    Text(
-      modifier = Modifier.alignByBaseline(),
-      text = description,
-      maxLines = 1,
-      style = LocalTextStyle.current.copy(color = MaterialTheme.colorScheme.outline),
-    )
-  }
-}
-
-private fun format(value: Long): String {
-  return when (value) {
-    in 10_000_000..Long.MAX_VALUE -> format(value, 1_000_000f, "M", wholeNumber = true)
-    in 1_000_000..10_000_000 -> format(value, 1_000_000f, "M")
-    in 100_000..1_000_000 -> format(value, 1_000f, "K", wholeNumber = true)
-    in 10_000..1_000_000 -> format(value, 1_000f, "K")
-    else -> value.toString()
-  }
-}
-
-private fun format(
-  value: Long,
-  div: Float,
-  suffix: String,
-  wholeNumber: Boolean = false,
-): String {
-  val msd = (value / div).toInt()
-  val lsd = (value * 10 / div).toInt() % 10
-
-  return if (lsd == 0 || wholeNumber) {
-    "$msd$suffix"
-  } else {
-    "$msd.$lsd$suffix"
+    Statistic(followers, if (followers == 1L) "follower" else "followers", { /* TODO */ })
+    Statistic(following, "following", { /* TODO */ })
+    Statistic(posts, if (posts == 1L) "post" else "posts", { /* TODO */ })
   }
 }

@@ -5,6 +5,5 @@ import sh.christian.ozone.user.UserReference
 
 data class ProfileProps(
   val user: UserReference,
-  val self: FullProfile?,
   val preloadedProfile: FullProfile? = null,
 )

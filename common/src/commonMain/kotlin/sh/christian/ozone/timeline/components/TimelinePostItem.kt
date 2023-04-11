@@ -1,5 +1,6 @@
 package sh.christian.ozone.timeline.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,16 +17,21 @@ import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.user.UserReference.Handle
 import sh.christian.ozone.util.color
+import sh.christian.ozone.util.format
 
 @Composable
 fun TimelinePostItem(
+  modifier: Modifier = Modifier,
   now: Instant,
   post: TimelinePost,
+  onOpenThread: (TimelinePost) -> Unit,
   onOpenUser: (UserReference) -> Unit,
   onOpenImage: (OpenImageAction) -> Unit,
 ) {
   Row(
-    modifier = Modifier.padding(top = 16.dp, bottom = 8.dp, start = 16.dp, end = 16.dp),
+    modifier = modifier
+      .clickable { onOpenThread(post) }
+      .padding(top = 16.dp, bottom = 8.dp, start = 16.dp, end = 16.dp),
     horizontalArrangement = spacedBy(16.dp),
   ) {
     val author: Profile = post.author
@@ -45,10 +51,17 @@ fun TimelinePostItem(
         modifier = Modifier.padding(bottom = 8.dp),
         verticalArrangement = spacedBy(8.dp),
       ) {
-        PostText(post, onOpenUser)
+        PostText(post, { onOpenThread(post) }, onOpenUser)
         PostFeature(now, post.feature, onOpenImage)
       }
-      PostActions(post)
+      PostActions(
+        replyCount = format(post.replyCount),
+        repostCount = format(post.repostCount),
+        likeCount = format(post.likeCount),
+        reposted = post.reposted,
+        liked = post.liked,
+        iconSize = 16.dp,
+      )
     }
   }
 }

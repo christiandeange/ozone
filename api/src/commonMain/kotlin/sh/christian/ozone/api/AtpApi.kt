@@ -4,6 +4,8 @@ import app.bsky.actor.GetProfileQueryParams
 import app.bsky.actor.GetProfileResponse
 import app.bsky.feed.GetAuthorFeedQueryParams
 import app.bsky.feed.GetAuthorFeedResponse
+import app.bsky.feed.GetPostThreadQueryParams
+import app.bsky.feed.GetPostThreadResponse
 import app.bsky.feed.GetTimelineQueryParams
 import app.bsky.feed.GetTimelineResponse
 import com.atproto.repo.CreateRecordRequest
@@ -39,6 +41,10 @@ interface AtpApi {
   suspend fun getAuthorFeed(
     params: GetAuthorFeedQueryParams,
   ): AtpResponse<GetAuthorFeedResponse>
+
+  suspend fun getPostThread(
+    params: GetPostThreadQueryParams,
+  ): AtpResponse<GetPostThreadResponse>
 
   suspend fun describeServer(): AtpResponse<DescribeServerResponse>
 }

@@ -4,6 +4,8 @@ import app.bsky.actor.GetProfileQueryParams
 import app.bsky.actor.GetProfileResponse
 import app.bsky.feed.GetAuthorFeedQueryParams
 import app.bsky.feed.GetAuthorFeedResponse
+import app.bsky.feed.GetPostThreadQueryParams
+import app.bsky.feed.GetPostThreadResponse
 import app.bsky.feed.GetTimelineQueryParams
 import app.bsky.feed.GetTimelineResponse
 import com.atproto.repo.CreateRecordRequest
@@ -97,6 +99,12 @@ class XrpcApi(
     params: GetAuthorFeedQueryParams,
   ): AtpResponse<GetAuthorFeedResponse> {
     return client.query("/xrpc/app.bsky.feed.getAuthorFeed", params.toMap()).toAtpResponse()
+  }
+
+  override suspend fun getPostThread(
+    params: GetPostThreadQueryParams,
+  ): AtpResponse<GetPostThreadResponse> {
+    return client.query("/xrpc/app.bsky.feed.getPostThread", params.toMap()).toAtpResponse()
   }
 
   override suspend fun describeServer(): AtpResponse<DescribeServerResponse> {

@@ -22,12 +22,16 @@ import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.profile.ProfileState.ShowingError
 import sh.christian.ozone.profile.ProfileState.ShowingFullSizeImage
 import sh.christian.ozone.profile.ProfileState.ShowingProfile
+import sh.christian.ozone.profile.ProfileState.ShowingThread
+import sh.christian.ozone.thread.ThreadProps
+import sh.christian.ozone.thread.ThreadWorkflow
 import sh.christian.ozone.ui.compose.ImageOverlayScreen
 import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.EmptyScreen
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.plus
+import sh.christian.ozone.user.MyProfileRepository
 import sh.christian.ozone.user.UserDatabase
 import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.util.RemoteData
@@ -39,6 +43,8 @@ class ProfileWorkflow(
   private val clock: Clock,
   private val apiProvider: ApiProvider,
   private val userDatabase: UserDatabase,
+  private val myProfileRepository: MyProfileRepository,
+  private val threadWorkflow: ThreadWorkflow,
   private val errorWorkflow: ErrorWorkflow,
 ) : StatefulWorkflow<ProfileProps, ProfileState, Unit, AppScreen>() {
   override fun initialState(
@@ -94,7 +100,6 @@ class ProfileWorkflow(
       .filter { it.profile is Success }
       .map { state: ProfileState ->
         context.profileScreen(
-          renderProps.copy(user = state.user),
           state.profile.getOrNull()!!,
           state.feed.getOrNull()?.posts.orEmpty()
         )
@@ -125,6 +130,15 @@ class ProfileWorkflow(
             action = renderState.openImageAction,
           ),
         )
+      }
+      is ShowingThread -> {
+        val threadScreen = context.renderChild(threadWorkflow, renderState.props) {
+          action {
+            state = renderState.previousState
+          }
+        }
+
+        threadScreen.copy(main = screenStack + threadScreen.main)
       }
       is ShowingError -> {
         AppScreen(
@@ -161,7 +175,6 @@ class ProfileWorkflow(
   override fun snapshotState(state: ProfileState): Snapshot? = null
 
   private fun RenderContext.profileScreen(
-    props: ProfileProps,
     profile: FullProfile,
     feed: List<TimelinePost>,
   ): ProfileScreen {
@@ -169,13 +182,19 @@ class ProfileWorkflow(
       now = clock.now(),
       profile = profile,
       feed = feed,
-      isSelf = props.self?.did == profile.did,
+      isSelf = myProfileRepository.isMe(UserReference.Did(profile.did)),
       onLoadMore = eventHandler {
         state = ShowingProfile(
           user = state.user,
           profile = state.profile,
           feed = Fetching(state.feed.getOrNull()),
           previousState = state.previousState,
+        )
+      },
+      onOpenThread = eventHandler { post ->
+        state = ShowingThread(
+          previousState = state as ShowingProfile,
+          props = ThreadProps(post),
         )
       },
       onOpenUser = eventHandler { user ->

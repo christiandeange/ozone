@@ -10,21 +10,26 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
 internal fun FeatureContainer(
-  onClick: () -> Unit,
+  onClick: (() -> Unit)?,
   modifier: Modifier = Modifier,
   content: @Composable ColumnScope.() -> Unit,
 ) {
+  val clickableModifier = if (onClick != null) {
+    Modifier.clickable { onClick() }
+  } else {
+    Modifier
+  }
+
   Column(
     modifier = modifier
       .fillMaxWidth()
       .clip(MaterialTheme.shapes.large)
       .border(1.dp, MaterialTheme.colorScheme.outline, MaterialTheme.shapes.large)
-      .clickable { onClick() }
+      .then(clickableModifier)
       .padding(16.dp),
   ) {
     content()

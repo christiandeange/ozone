@@ -11,6 +11,7 @@ import sh.christian.ozone.login.LoginRepository
 import sh.christian.ozone.login.LoginWorkflow
 import sh.christian.ozone.profile.ProfileWorkflow
 import sh.christian.ozone.store.PersistentStorage
+import sh.christian.ozone.thread.ThreadWorkflow
 import sh.christian.ozone.timeline.TimelineRepository
 import sh.christian.ozone.timeline.TimelineWorkflow
 import sh.christian.ozone.user.MyProfileRepository
@@ -76,11 +77,21 @@ class AppComponent(
     )
   }
 
+  private val threadWorkflow: ThreadWorkflow by lazy {
+    ThreadWorkflow(
+      clock = clock,
+      apiProvider = apiProvider,
+      profileWorkflow = { profileWorkflow },
+      errorWorkflow = errorWorkflow,
+    )
+  }
+
   private val timelineWorkflow: TimelineWorkflow by lazy {
     TimelineWorkflow(
       clock = clock,
       myProfileRepository = myProfileRepository,
       timelineRepository = timelineRepository,
+      threadWorkflow = threadWorkflow,
       composePostWorkflow = composePostWorkflow,
       profileWorkflow = profileWorkflow,
       errorWorkflow = errorWorkflow,
@@ -92,6 +103,8 @@ class AppComponent(
       clock = clock,
       apiProvider = apiProvider,
       userDatabase = userDatabase,
+      myProfileRepository = myProfileRepository,
+      threadWorkflow = threadWorkflow,
       errorWorkflow = errorWorkflow,
     )
   }

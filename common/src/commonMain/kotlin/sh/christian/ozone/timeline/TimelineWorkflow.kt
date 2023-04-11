@@ -17,6 +17,8 @@ import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.Timeline
 import sh.christian.ozone.profile.ProfileProps
 import sh.christian.ozone.profile.ProfileWorkflow
+import sh.christian.ozone.thread.ThreadProps
+import sh.christian.ozone.thread.ThreadWorkflow
 import sh.christian.ozone.timeline.TimelineOutput.CloseApp
 import sh.christian.ozone.timeline.TimelineOutput.SignOut
 import sh.christian.ozone.timeline.TimelineState.ComposingPost
@@ -24,6 +26,7 @@ import sh.christian.ozone.timeline.TimelineState.FetchingTimeline
 import sh.christian.ozone.timeline.TimelineState.ShowingError
 import sh.christian.ozone.timeline.TimelineState.ShowingFullSizeImage
 import sh.christian.ozone.timeline.TimelineState.ShowingProfile
+import sh.christian.ozone.timeline.TimelineState.ShowingThread
 import sh.christian.ozone.timeline.TimelineState.ShowingTimeline
 import sh.christian.ozone.ui.compose.ImageOverlayScreen
 import sh.christian.ozone.ui.compose.TextOverlayScreen
@@ -31,12 +34,12 @@ import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.Dismissable.DismissHandler
 import sh.christian.ozone.ui.workflow.plus
 import sh.christian.ozone.user.MyProfileRepository
-import sh.christian.ozone.user.UserReference
 
 class TimelineWorkflow(
   private val clock: Clock,
   private val myProfileRepository: MyProfileRepository,
   private val timelineRepository: TimelineRepository,
+  private val threadWorkflow: ThreadWorkflow,
   private val composePostWorkflow: ComposePostWorkflow,
   private val profileWorkflow: ProfileWorkflow,
   private val errorWorkflow: ErrorWorkflow,
@@ -138,6 +141,16 @@ class TimelineWorkflow(
               }
         )
       }
+      is ShowingThread -> {
+        AppScreen(
+          main = context.timelineScreen(renderState.profile, renderState.timeline) +
+              context.renderChild(threadWorkflow, renderState.props) {
+                action {
+                  state = renderState.previousState
+                }
+              }
+        )
+      }
       is ComposingPost -> {
         AppScreen(
           main = context.renderChild(composePostWorkflow, renderState.props) { output ->
@@ -201,14 +214,13 @@ class TimelineWorkflow(
       onComposePost = eventHandler {
         state = ComposingPost(state, ComposePostProps(profile!!))
       },
+      onOpenThread = eventHandler { post ->
+        state = ShowingThread(state, ThreadProps(post))
+      },
       onOpenUser = eventHandler { user ->
-        val isMe = when (user) {
-          is UserReference.Did -> user.did == state.profile?.did
-          is UserReference.Handle -> user.handle == state.profile?.handle
-        }
         state = ShowingProfile(
           previousState = state,
-          props = ProfileProps(user, state.profile, profile?.takeIf { isMe }),
+          props = ProfileProps(user, profile?.takeIf { myProfileRepository.isMe(user) }),
         )
       },
       onOpenImage = eventHandler { action ->
@@ -238,6 +250,9 @@ class TimelineWorkflow(
       is ShowingProfile -> {
         copy(previousState = previousState.withProfile(profile))
       }
+      is ShowingThread -> {
+        copy(previousState = previousState.withProfile(profile))
+      }
       is ShowingFullSizeImage -> {
         copy(previousState = previousState.withProfile(profile) as ShowingTimeline)
       }
@@ -258,6 +273,7 @@ class TimelineWorkflow(
       is FetchingTimeline -> copy(timeline = timeline)
       is ShowingTimeline -> copy(timeline = timeline)
       is ShowingProfile -> copy(previousState = previousState.withTimeline(timeline))
+      is ShowingThread -> copy(previousState = previousState.withTimeline(timeline))
       is ShowingFullSizeImage -> copy(previousState = previousState.withTimeline(timeline))
       is ComposingPost -> copy(previousState = previousState.withTimeline(timeline))
       is ShowingError -> copy(previousState = previousState.withTimeline(timeline))
