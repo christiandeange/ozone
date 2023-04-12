@@ -10,7 +10,9 @@ import androidx.compose.ui.input.key.isShiftPressed
 import androidx.compose.ui.input.key.key
 import androidx.compose.ui.input.key.onPreviewKeyEvent
 import androidx.compose.ui.input.key.type
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
@@ -19,6 +21,7 @@ import kotlinx.coroutines.runBlocking
 import sh.christian.ozone.store.storage
 import sh.christian.ozone.ui.AppTheme
 import sh.christian.ozone.ui.compose.initTypography
+import java.awt.Dimension
 
 
 fun main() = runBlocking {
@@ -51,6 +54,8 @@ fun main() = runBlocking {
       state = windowState,
       onCloseRequest = ::exitApplication,
     ) {
+      val minDimension = with(LocalDensity.current) { 200.dp.roundToPx() }
+      window.minimumSize = Dimension(minDimension, minDimension)
       window.rootPane.apply {
         putClientProperty("apple.awt.fullWindowContent", true)
         putClientProperty("apple.awt.transparentTitleBar", true)
