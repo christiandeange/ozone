@@ -1,5 +1,6 @@
 package sh.christian.ozone.timeline
 
+import kotlinx.datetime.Instant
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.Timeline
@@ -18,6 +19,7 @@ sealed interface TimelineState {
   data class ShowingTimeline(
     override val profile: FullProfile,
     override val timeline: Timeline,
+    val showRefreshPrompt: Boolean,
   ) : TimelineState
 
   data class ShowingFullSizeImage(

@@ -2,6 +2,7 @@ package sh.christian.ozone.timeline
 
 import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
+import com.squareup.workflow1.Worker
 import com.squareup.workflow1.action
 import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
@@ -9,16 +10,13 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.datetime.Clock
 import sh.christian.ozone.app.AppScreen
 import sh.christian.ozone.compose.ComposePostProps
-import sh.christian.ozone.compose.ComposePostWorkflow
 import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.home.HomeSubDestination
 import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.Timeline
 import sh.christian.ozone.profile.ProfileProps
-import sh.christian.ozone.profile.ProfileWorkflow
 import sh.christian.ozone.thread.ThreadProps
-import sh.christian.ozone.thread.ThreadWorkflow
 import sh.christian.ozone.timeline.TimelineOutput.CloseApp
 import sh.christian.ozone.timeline.TimelineOutput.EnterScreen
 import sh.christian.ozone.timeline.TimelineOutput.SignOut
@@ -31,6 +29,7 @@ import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.Dismissable.DismissHandler
 import sh.christian.ozone.user.MyProfileRepository
+import kotlin.time.Duration.Companion.minutes
 
 class TimelineWorkflow(
   private val clock: Clock,
@@ -66,7 +65,7 @@ class TimelineWorkflow(
         val existingProfile = state.profile
         state = if (existingProfile != null) {
           if (state is FetchingTimeline) {
-            ShowingTimeline(existingProfile, newTimeline)
+            ShowingTimeline(existingProfile, newTimeline, showRefreshPrompt = false)
           } else {
             state.withTimeline(newTimeline)
           }
@@ -87,7 +86,11 @@ class TimelineWorkflow(
       }
     }
 
-    val timelineScreen = context.timelineScreen(renderState.profile, renderState.timeline)
+    val timelineScreen = context.timelineScreen(
+      profile = renderState.profile,
+      timelineResponse = renderState.timeline,
+      showRefreshPrompt = (renderState as? ShowingTimeline)?.showRefreshPrompt == true,
+    )
 
     return when (renderState) {
       is FetchingTimeline -> {
@@ -111,6 +114,15 @@ class TimelineWorkflow(
         )
       }
       is ShowingTimeline -> {
+        context.runningWorker(Worker.timer(1.minutes.inWholeMilliseconds)) {
+          action {
+            val currentState = state
+            if (currentState is ShowingTimeline) {
+              state = currentState.copy(showRefreshPrompt = true)
+            }
+          }
+        }
+
         AppScreen(main = timelineScreen)
       }
       is ShowingFullSizeImage -> {
@@ -145,11 +157,13 @@ class TimelineWorkflow(
   private fun RenderContext.timelineScreen(
     profile: FullProfile?,
     timelineResponse: Timeline?,
+    showRefreshPrompt: Boolean,
   ): TimelineScreen {
     return TimelineScreen(
       now = clock.now(),
       profile = profile,
       timeline = timelineResponse?.posts.orEmpty(),
+      showRefreshPrompt = showRefreshPrompt,
       showComposePostButton = profile != null && timelineResponse != null,
       onRefresh = eventHandler {
         state = FetchingTimeline(
@@ -193,7 +207,7 @@ class TimelineWorkflow(
     return when (this) {
       is FetchingTimeline -> {
         if (timeline != null) {
-          ShowingTimeline(profile, timeline!!)
+          ShowingTimeline(profile, timeline!!, showRefreshPrompt = false)
         } else {
           copy(profile = profile)
         }

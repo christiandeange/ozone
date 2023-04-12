@@ -1,10 +1,16 @@
 package sh.christian.ozone.timeline
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,6 +19,7 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material3.Button
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.Divider
 import androidx.compose.material3.FabPosition
@@ -25,6 +32,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
@@ -51,6 +59,7 @@ class TimelineScreen(
   private val now: Instant,
   private val profile: Profile?,
   private val timeline: List<TimelinePost>,
+  private val showRefreshPrompt: Boolean,
   private val showComposePostButton: Boolean,
   private val onRefresh: () -> Unit,
   private val onLoadMore: () -> Unit,
@@ -156,6 +165,26 @@ class TimelineScreen(
 
           item {
             Divider(thickness = Dp.Hairline)
+          }
+        }
+
+        AnimatedVisibility(
+          showRefreshPrompt,
+          enter = fadeIn() + slideInVertically(),
+          exit = fadeOut() + slideOutVertically(),
+        ) {
+          Box(modifier = Modifier.fillMaxWidth()) {
+            Button(
+              modifier = Modifier.align(Alignment.TopCenter),
+              onClick = {
+                coroutineScope.launch {
+                  feedState.scrollToItem(0)
+                }
+                onRefresh()
+              },
+            ) {
+              Text("Load Newest Posts")
+            }
           }
         }
       }

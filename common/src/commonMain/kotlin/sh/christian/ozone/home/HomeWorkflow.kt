@@ -62,19 +62,21 @@ class HomeWorkflow(
       is InTab.InSettings -> TODO()
     }
 
+    val homeScreen = HomeScreen(
+      homeContent = tabScreen.main,
+      tab = when (tabState) {
+        is InTab.InTimeline -> TIMELINE
+        is InTab.InNotifications -> NOTIFICATIONS
+        is InTab.InSettings -> SETTINGS
+      },
+      onChangeTab = context.eventHandler { _ -> }, // TODO
+      onExit = context.eventHandler { setOutput(HomeOutput.CloseApp) },
+    )
+
     return when (renderState) {
       is InTab -> {
         AppScreen(
-          main = HomeScreen(
-            homeContent = tabScreen.main,
-            tab = when (renderState) {
-              is InTab.InTimeline -> TIMELINE
-              is InTab.InNotifications -> NOTIFICATIONS
-              is InTab.InSettings -> SETTINGS
-            },
-            onChangeTab = context.eventHandler { _ -> Unit }, // TODO
-            onExit = context.eventHandler { setOutput(HomeOutput.CloseApp) },
-          ),
+          main = homeScreen,
           overlay = tabScreen.overlay,
         )
       }
@@ -95,7 +97,7 @@ class HomeWorkflow(
         }
 
         AppScreen(
-          main = tabScreen + subScreen.main,
+          main = homeScreen + subScreen.main,
           overlay = subScreen.overlay,
         )
       }
