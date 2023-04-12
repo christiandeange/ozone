@@ -6,8 +6,10 @@ import androidx.compose.foundation.layout.Arrangement.spacedBy
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -236,11 +238,15 @@ class ProfileScreen(
                 text = description,
               )
             }
+
+            Spacer(Modifier.height(16.dp))
           }
         }
       }
 
       items(items = feed) { post ->
+        Divider(thickness = Dp.Hairline)
+
         TimelinePostItem(
           now = now,
           post = post,
@@ -248,7 +254,9 @@ class ProfileScreen(
           onOpenUser = onOpenUser,
           onOpenImage = onOpenImage,
         )
+      }
 
+      item {
         Divider(thickness = Dp.Hairline)
       }
     }

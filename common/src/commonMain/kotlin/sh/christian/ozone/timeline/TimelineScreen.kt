@@ -143,6 +143,8 @@ class TimelineScreen(
           state = feedState,
         ) {
           items(items = timeline) { post ->
+            Divider(thickness = Dp.Hairline)
+
             TimelinePostItem(
               now = now,
               post = post,
@@ -150,7 +152,9 @@ class TimelineScreen(
               onOpenUser = onOpenUser,
               onOpenImage = onOpenImage,
             )
+          }
 
+          item {
             Divider(thickness = Dp.Hairline)
           }
         }
