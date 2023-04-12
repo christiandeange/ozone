@@ -8,11 +8,11 @@ import com.squareup.workflow1.runningWorker
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.datetime.Clock
 import sh.christian.ozone.app.AppScreen
-import sh.christian.ozone.compose.ComposePostOutput
 import sh.christian.ozone.compose.ComposePostProps
 import sh.christian.ozone.compose.ComposePostWorkflow
 import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorWorkflow
+import sh.christian.ozone.home.HomeSubDestination
 import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.Timeline
 import sh.christian.ozone.profile.ProfileProps
@@ -20,28 +20,22 @@ import sh.christian.ozone.profile.ProfileWorkflow
 import sh.christian.ozone.thread.ThreadProps
 import sh.christian.ozone.thread.ThreadWorkflow
 import sh.christian.ozone.timeline.TimelineOutput.CloseApp
+import sh.christian.ozone.timeline.TimelineOutput.EnterScreen
 import sh.christian.ozone.timeline.TimelineOutput.SignOut
-import sh.christian.ozone.timeline.TimelineState.ComposingPost
 import sh.christian.ozone.timeline.TimelineState.FetchingTimeline
 import sh.christian.ozone.timeline.TimelineState.ShowingError
 import sh.christian.ozone.timeline.TimelineState.ShowingFullSizeImage
-import sh.christian.ozone.timeline.TimelineState.ShowingProfile
-import sh.christian.ozone.timeline.TimelineState.ShowingThread
 import sh.christian.ozone.timeline.TimelineState.ShowingTimeline
 import sh.christian.ozone.ui.compose.ImageOverlayScreen
 import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.Dismissable.DismissHandler
-import sh.christian.ozone.ui.workflow.plus
 import sh.christian.ozone.user.MyProfileRepository
 
 class TimelineWorkflow(
   private val clock: Clock,
   private val myProfileRepository: MyProfileRepository,
   private val timelineRepository: TimelineRepository,
-  private val threadWorkflow: ThreadWorkflow,
-  private val composePostWorkflow: ComposePostWorkflow,
-  private val profileWorkflow: ProfileWorkflow,
   private val errorWorkflow: ErrorWorkflow,
 ) : StatefulWorkflow<TimelineProps, TimelineState, TimelineOutput, AppScreen>() {
 
@@ -106,13 +100,10 @@ class TimelineWorkflow(
           }
         }
 
-        val profile = renderState.profile
-        val timeline = renderState.timeline
-
         val overlay = TextOverlayScreen(
           onDismiss = Dismissable.Ignore,
           text = "Loading timeline for ${renderProps.authInfo.handle}...",
-        ).takeIf { timeline == null }
+        ).takeIf { renderState.timeline == null }
 
         AppScreen(
           main = timelineScreen,
@@ -132,40 +123,6 @@ class TimelineWorkflow(
             action = renderState.openImageAction,
           )
         )
-      }
-      is ShowingProfile -> {
-        val profileScreens = context.renderChild(profileWorkflow, renderState.props) {
-          action {
-            state = renderState.previousState
-          }
-        }
-
-        profileScreens.copy(main = timelineScreen + profileScreens.main)
-      }
-      is ShowingThread -> {
-        val threadScreens = context.renderChild(threadWorkflow, renderState.props) {
-          action {
-            state = renderState.previousState
-          }
-        }
-
-        threadScreens.copy(main = timelineScreen + threadScreens.main)
-      }
-      is ComposingPost -> {
-        val composeScreens = context.renderChild(composePostWorkflow, renderState.props) { output ->
-          action {
-            state = when (output) {
-              is ComposePostOutput.CreatedPost -> {
-                FetchingTimeline(state.profile, state.timeline, fullRefresh = true)
-              }
-              is ComposePostOutput.CanceledPost -> {
-                renderState.previousState
-              }
-            }
-          }
-        }
-
-        composeScreens.copy(main = timelineScreen + composeScreens.main)
       }
       is ShowingError -> {
         AppScreen(
@@ -209,16 +166,16 @@ class TimelineWorkflow(
         )
       },
       onComposePost = eventHandler {
-        state = ComposingPost(state, ComposePostProps(profile!!))
+        val props = ComposePostProps(profile!!)
+        setOutput(EnterScreen(HomeSubDestination.GoToComposePost(props)))
       },
       onOpenThread = eventHandler { post ->
-        state = ShowingThread(state, ThreadProps(post))
+        val props = ThreadProps(post)
+        setOutput(EnterScreen(HomeSubDestination.GoToThread(props)))
       },
       onOpenUser = eventHandler { user ->
-        state = ShowingProfile(
-          previousState = state,
-          props = ProfileProps(user, profile?.takeIf { myProfileRepository.isMe(user) }),
-        )
+        val props = ProfileProps(user, profile?.takeIf { myProfileRepository.isMe(user) })
+        setOutput(EnterScreen(HomeSubDestination.GoToProfile(props)))
       },
       onOpenImage = eventHandler { action ->
         state = ShowingFullSizeImage(state as ShowingTimeline, action)
@@ -244,20 +201,8 @@ class TimelineWorkflow(
       is ShowingTimeline -> {
         copy(profile = profile)
       }
-      is ShowingProfile -> {
-        copy(previousState = previousState.withProfile(profile))
-      }
-      is ShowingThread -> {
-        copy(previousState = previousState.withProfile(profile))
-      }
       is ShowingFullSizeImage -> {
         copy(previousState = previousState.withProfile(profile) as ShowingTimeline)
-      }
-      is ComposingPost -> {
-        copy(
-          previousState = previousState.withProfile(profile) as ShowingTimeline,
-          props = props.copy(profile = profile),
-        )
       }
       is ShowingError -> {
         copy(previousState = previousState.withProfile(profile))
@@ -269,10 +214,7 @@ class TimelineWorkflow(
     return when (this) {
       is FetchingTimeline -> copy(timeline = timeline)
       is ShowingTimeline -> copy(timeline = timeline)
-      is ShowingProfile -> copy(previousState = previousState.withTimeline(timeline))
-      is ShowingThread -> copy(previousState = previousState.withTimeline(timeline))
       is ShowingFullSizeImage -> copy(previousState = previousState.withTimeline(timeline))
-      is ComposingPost -> copy(previousState = previousState.withTimeline(timeline))
       is ShowingError -> copy(previousState = previousState.withTimeline(timeline))
     }
   }

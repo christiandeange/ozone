@@ -3,6 +3,7 @@ package sh.christian.ozone.app
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -18,7 +19,9 @@ data class AppScreen(
   val main: ViewRendering,
   val overlay: OverlayRendering? = null,
 ) : ViewRendering by screen({
-  main.Content()
+  Box {
+    main.Content()
+  }
 
   val overlayVisibility = remember { MutableTransitionState(false) }
 

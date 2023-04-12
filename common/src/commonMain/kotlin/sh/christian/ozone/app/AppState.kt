@@ -1,11 +1,11 @@
 package sh.christian.ozone.app
 
-import sh.christian.ozone.timeline.TimelineProps
+import sh.christian.ozone.home.HomeProps
 
 sealed interface AppState {
   object ShowingLogin : AppState
 
   data class ShowingLoggedIn(
-    val props: TimelineProps,
+    val props: HomeProps,
   ) : AppState
 }

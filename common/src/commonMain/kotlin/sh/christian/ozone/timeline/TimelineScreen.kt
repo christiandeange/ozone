@@ -40,7 +40,6 @@ import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.InfiniteListHandler
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.compose.onBackPressed
-import sh.christian.ozone.ui.compose.rememberSystemInsets
 import sh.christian.ozone.ui.icons.ChatBubbleOutline
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
@@ -67,7 +66,6 @@ class TimelineScreen(
 
   Surface(modifier = Modifier.onBackPressed(onExit)) {
     Scaffold(
-      modifier = Modifier.padding(rememberSystemInsets()),
       contentWindowInsets = WindowInsets(0.dp),
       topBar = {
         CenterAlignedTopAppBar(

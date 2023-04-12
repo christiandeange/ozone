@@ -7,6 +7,7 @@ import sh.christian.ozone.app.AppWorkflow
 import sh.christian.ozone.app.Supervisor
 import sh.christian.ozone.compose.ComposePostWorkflow
 import sh.christian.ozone.error.ErrorWorkflow
+import sh.christian.ozone.home.HomeWorkflow
 import sh.christian.ozone.login.LoginRepository
 import sh.christian.ozone.login.LoginWorkflow
 import sh.christian.ozone.profile.ProfileWorkflow
@@ -91,9 +92,6 @@ class AppComponent(
       clock = clock,
       myProfileRepository = myProfileRepository,
       timelineRepository = timelineRepository,
-      threadWorkflow = threadWorkflow,
-      composePostWorkflow = composePostWorkflow,
-      profileWorkflow = profileWorkflow,
       errorWorkflow = errorWorkflow,
     )
   }
@@ -109,11 +107,20 @@ class AppComponent(
     )
   }
 
+  private val homeWorkflow: HomeWorkflow by lazy {
+    HomeWorkflow(
+      timelineWorkflow = timelineWorkflow,
+      profileWorkflow = profileWorkflow,
+      threadWorkflow = threadWorkflow,
+      composePostWorkflow = composePostWorkflow,
+    )
+  }
+
   val appWorkflow: AppWorkflow by lazy {
     AppWorkflow(
       loginRepository = loginRepository,
       loginWorkflow = loginWorkflow,
-      timelineWorkflow = timelineWorkflow,
+      homeWorkflow = homeWorkflow,
     )
   }
 
