@@ -93,6 +93,8 @@ class TimelineWorkflow(
       }
     }
 
+    val timelineScreen = context.timelineScreen(renderState.profile, renderState.timeline)
+
     return when (renderState) {
       is FetchingTimeline -> {
         val fullRefresh = renderState.fullRefresh
@@ -113,16 +115,16 @@ class TimelineWorkflow(
         ).takeIf { timeline == null }
 
         AppScreen(
-          main = context.timelineScreen(profile, timeline),
+          main = timelineScreen,
           overlay = overlay,
         )
       }
       is ShowingTimeline -> {
-        AppScreen(main = context.timelineScreen(renderState.profile, renderState.timeline))
+        AppScreen(main = timelineScreen)
       }
       is ShowingFullSizeImage -> {
         AppScreen(
-          main = context.timelineScreen(renderState.profile, renderState.timeline),
+          main = timelineScreen,
           overlay = ImageOverlayScreen(
             onDismiss = DismissHandler(
               context.eventHandler { state = renderState.previousState }
@@ -132,47 +134,42 @@ class TimelineWorkflow(
         )
       }
       is ShowingProfile -> {
-        AppScreen(
-          main = context.timelineScreen(renderState.profile, renderState.timeline) +
-              context.renderChild(profileWorkflow, renderState.props) {
-                action {
-                  state = renderState.previousState
-                }
-              }
-        )
+        val profileScreens = context.renderChild(profileWorkflow, renderState.props) {
+          action {
+            state = renderState.previousState
+          }
+        }
+
+        profileScreens.copy(main = timelineScreen + profileScreens.main)
       }
       is ShowingThread -> {
-        AppScreen(
-          main = context.timelineScreen(renderState.profile, renderState.timeline) +
-              context.renderChild(threadWorkflow, renderState.props) {
-                action {
-                  state = renderState.previousState
-                }
-              }
-        )
+        val threadScreens = context.renderChild(threadWorkflow, renderState.props) {
+          action {
+            state = renderState.previousState
+          }
+        }
+
+        threadScreens.copy(main = timelineScreen + threadScreens.main)
       }
       is ComposingPost -> {
-        AppScreen(
-          main = context.renderChild(composePostWorkflow, renderState.props) { output ->
-            action {
-              state = when (output) {
-                is ComposePostOutput.CreatedPost -> {
-                  FetchingTimeline(state.profile, state.timeline, fullRefresh = true)
-                }
-                is ComposePostOutput.CanceledPost -> {
-                  renderState.previousState
-                }
+        val composeScreens = context.renderChild(composePostWorkflow, renderState.props) { output ->
+          action {
+            state = when (output) {
+              is ComposePostOutput.CreatedPost -> {
+                FetchingTimeline(state.profile, state.timeline, fullRefresh = true)
+              }
+              is ComposePostOutput.CanceledPost -> {
+                renderState.previousState
               }
             }
           }
-        )
+        }
+
+        composeScreens.copy(main = timelineScreen + composeScreens.main)
       }
       is ShowingError -> {
         AppScreen(
-          main = context.timelineScreen(
-            profile = renderState.profile,
-            timelineResponse = renderState.timeline,
-          ),
+          main = timelineScreen,
           overlay = context.renderChild(errorWorkflow, renderState.props) { output ->
             action {
               when (output) {
