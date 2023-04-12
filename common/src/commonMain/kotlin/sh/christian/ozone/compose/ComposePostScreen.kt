@@ -17,6 +17,7 @@ import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.LaunchedEffect
@@ -56,70 +57,71 @@ class ComposePostScreen(
     }
   }
 
-  Scaffold(
-    modifier = Modifier
-      .fillMaxSize()
-      .padding(rememberSystemInsets())
-      .onBackPressed(onExit),
-    contentWindowInsets = WindowInsets(0.dp),
-    topBar = {
-      TopAppBar(
-        windowInsets = WindowInsets(0.dp),
-        navigationIcon = {
-          IconButton(onClick = onExit) {
-            Icon(
-              painter = rememberVectorPainter(Icons.Default.Close),
-              contentDescription = "Cancel",
-            )
-          }
-        },
-        title = {},
-        actions = {
-          OutlinedButton(
-            modifier = Modifier.padding(end = 8.dp),
-            enabled = postText.isNotEmpty(),
-            onClick = { onPost(postPayload) },
-          ) {
-            Text("Post")
-          }
-        },
-      )
-    },
-  ) { contentPadding ->
-    Row(
-      modifier = Modifier.padding(contentPadding).padding(16.dp),
-      horizontalArrangement = spacedBy(16.dp),
-    ) {
-      AvatarImage(
-        modifier = Modifier.size(48.dp),
-        avatarUrl = profile.avatar,
-        contentDescription = profile.displayName ?: profile.handle,
-        fallbackColor = profile.handle.color(),
-      )
+  Surface(Modifier.onBackPressed(onExit)) {
+    Scaffold(
+      modifier = Modifier
+        .fillMaxSize()
+        .padding(rememberSystemInsets()),
+      contentWindowInsets = WindowInsets(0.dp),
+      topBar = {
+        TopAppBar(
+          windowInsets = WindowInsets(0.dp),
+          navigationIcon = {
+            IconButton(onClick = onExit) {
+              Icon(
+                painter = rememberVectorPainter(Icons.Default.Close),
+                contentDescription = "Cancel",
+              )
+            }
+          },
+          title = {},
+          actions = {
+            OutlinedButton(
+              modifier = Modifier.padding(end = 8.dp),
+              enabled = postText.isNotEmpty(),
+              onClick = { onPost(postPayload) },
+            ) {
+              Text("Post")
+            }
+          },
+        )
+      },
+    ) { contentPadding ->
+      Row(
+        modifier = Modifier.padding(contentPadding).padding(16.dp),
+        horizontalArrangement = spacedBy(16.dp),
+      ) {
+        AvatarImage(
+          modifier = Modifier.size(48.dp),
+          avatarUrl = profile.avatar,
+          contentDescription = profile.displayName ?: profile.handle,
+          fallbackColor = profile.handle.color(),
+        )
 
-      val textFieldFocusRequester = remember { FocusRequester() }
+        val textFieldFocusRequester = remember { FocusRequester() }
 
-      BasicTextField(
-        modifier = Modifier
-          .fillMaxSize()
-          .padding(top = 8.dp)
-          .focusRequester(textFieldFocusRequester),
-        value = postText,
-        onValueChange = { postText = it },
-        cursorBrush = SolidColor(MaterialTheme.colorScheme.primary),
-        textStyle = TextStyle(color = LocalContentColor.current),
-        keyboardOptions = KeyboardOptions(
-          imeAction = ImeAction.Send,
-        ),
-        keyboardActions = KeyboardActions {
-          if (postText.isNotEmpty()) {
-            onPost(postPayload)
-          }
-        },
-      )
+        BasicTextField(
+          modifier = Modifier
+            .fillMaxSize()
+            .padding(top = 8.dp)
+            .focusRequester(textFieldFocusRequester),
+          value = postText,
+          onValueChange = { postText = it },
+          cursorBrush = SolidColor(MaterialTheme.colorScheme.primary),
+          textStyle = TextStyle(color = LocalContentColor.current),
+          keyboardOptions = KeyboardOptions(
+            imeAction = ImeAction.Send,
+          ),
+          keyboardActions = KeyboardActions {
+            if (postText.isNotEmpty()) {
+              onPost(postPayload)
+            }
+          },
+        )
 
-      LaunchedEffect(Unit) {
-        textFieldFocusRequester.requestFocus()
+        LaunchedEffect(Unit) {
+          textFieldFocusRequester.requestFocus()
+        }
       }
     }
   }
