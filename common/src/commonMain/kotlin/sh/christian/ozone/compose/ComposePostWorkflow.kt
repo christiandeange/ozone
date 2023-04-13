@@ -104,7 +104,7 @@ class ComposePostWorkflow(
       record = Post.serializer().serialize(
         Post(
           text = post.text,
-          createdAt = clock.now().toString(),
+          createdAt = clock.now(),
         )
       ),
     )

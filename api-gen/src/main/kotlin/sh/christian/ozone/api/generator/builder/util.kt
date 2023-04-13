@@ -17,6 +17,7 @@ import com.squareup.kotlinpoet.STRING
 import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
 import org.gradle.configurationcache.extensions.capitalized
+import sh.christian.ozone.api.generator.INSTANT
 import sh.christian.ozone.api.generator.JSON_ELEMENT
 import sh.christian.ozone.api.generator.JVM_INLINE
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
@@ -37,6 +38,7 @@ import sh.christian.ozone.api.lexicon.LexiconPrimitive
 import sh.christian.ozone.api.lexicon.LexiconRecord
 import sh.christian.ozone.api.lexicon.LexiconSingleReference
 import sh.christian.ozone.api.lexicon.LexiconString
+import sh.christian.ozone.api.lexicon.LexiconStringFormat
 import sh.christian.ozone.api.lexicon.LexiconToken
 import sh.christian.ozone.api.lexicon.LexiconUnionReference
 import sh.christian.ozone.api.lexicon.LexiconUnknown
@@ -143,7 +145,19 @@ fun LexiconPrimitive.toTypeName() = when (this) {
   is LexiconBoolean -> BOOLEAN
   is LexiconInteger -> LONG
   is LexiconFloat -> DOUBLE
-  is LexiconString -> STRING
+  is LexiconString -> {
+    when (format) {
+      LexiconStringFormat.DATETIME -> INSTANT
+      LexiconStringFormat.URI -> STRING
+      LexiconStringFormat.AT_URI -> STRING
+      LexiconStringFormat.DID -> STRING
+      LexiconStringFormat.HANDLE -> STRING
+      LexiconStringFormat.AT_IDENTIFIER -> STRING
+      LexiconStringFormat.NSID -> STRING
+      LexiconStringFormat.CID -> STRING
+      null -> STRING
+    }
+  }
   is LexiconUnknown -> JSON_ELEMENT
 }
 

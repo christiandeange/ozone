@@ -13,6 +13,6 @@ fun Post.toLitePost(): LitePost {
   return LitePost(
     text = text,
     links = facets.map { it.toLink() },
-    createdAt = Instant.parse(createdAt),
+    createdAt = createdAt,
   )
 }

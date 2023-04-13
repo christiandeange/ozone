@@ -32,7 +32,6 @@ kotlin {
         // Uncomment to fetch all icons.
         // implementation("androidx.compose.material:material-icons-extended:1.3.1")
         implementation("com.alialbaali.kamel:kamel-image:0.4.1")
-        implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
 
         api(project(":api"))
         api(project(":store"))

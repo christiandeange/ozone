@@ -23,10 +23,11 @@ private fun Project.applyPlugin() {
   plugins.withId("org.jetbrains.kotlin.multiplatform") {
     val kotlinExtension = extensions.getByName<KotlinMultiplatformExtension>("kotlin")
 
-    kotlinExtension.sourceSets
-      .getByName("commonMain")
-      .kotlin
-      .srcDir(extension.outputDirectory)
+    val commonMain = kotlinExtension.sourceSets.getByName("commonMain")
+    commonMain.kotlin.srcDir(extension.outputDirectory)
+    commonMain.dependencies {
+      api("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+    }
 
     kotlinExtension.targets.configureEach {
       compilations.configureEach {

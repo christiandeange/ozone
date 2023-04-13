@@ -16,7 +16,7 @@ fun DefsFeedViewPostReasonUnion.toReason(): TimelinePostReason {
     is DefsFeedViewPostReasonUnion.ReasonRepost -> {
       TimelinePostRepost(
         repostAuthor = value.by.toProfile(),
-        indexedAt = Instant.parse(value.indexedAt),
+        indexedAt = value.indexedAt,
       )
     }
   }
