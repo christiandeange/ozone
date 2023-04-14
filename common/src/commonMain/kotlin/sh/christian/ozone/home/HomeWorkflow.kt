@@ -63,7 +63,7 @@ class HomeWorkflow(
     }
 
     val homeScreen = HomeScreen(
-      homeContent = tabScreen.main,
+      homeContent = tabScreen.mains,
       tab = when (tabState) {
         is InTab.InTimeline -> TIMELINE
         is InTab.InNotifications -> NOTIFICATIONS
@@ -97,7 +97,7 @@ class HomeWorkflow(
         }
 
         AppScreen(
-          main = homeScreen + subScreen.main,
+          mains = listOf(homeScreen) + subScreen.mains,
           overlay = subScreen.overlay,
         )
       }

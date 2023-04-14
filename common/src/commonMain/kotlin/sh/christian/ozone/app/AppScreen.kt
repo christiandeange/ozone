@@ -16,11 +16,11 @@ import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 
 data class AppScreen(
-  val main: ViewRendering,
+  val mains: List<ViewRendering>,
   val overlay: OverlayRendering? = null,
 ) : ViewRendering by screen({
   Box {
-    main.Content()
+    mains.forEach { main -> main.Content() }
   }
 
   val overlayVisibility = remember { MutableTransitionState(false) }
@@ -58,4 +58,9 @@ data class AppScreen(
       }
     }
   }
-})
+}) {
+  constructor(
+    main: ViewRendering,
+    overlay: OverlayRendering? = null
+  ) : this(listOf(main), overlay)
+}

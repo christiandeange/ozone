@@ -28,9 +28,6 @@ import sh.christian.ozone.thread.ThreadState.ShowingProfile
 import sh.christian.ozone.ui.compose.ImageOverlayScreen
 import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
-import sh.christian.ozone.ui.workflow.EmptyScreen
-import sh.christian.ozone.ui.workflow.ViewRendering
-import sh.christian.ozone.ui.workflow.plus
 
 class ThreadWorkflow(
   private val clock: Clock,
@@ -59,7 +56,6 @@ class ThreadWorkflow(
       .toList()
       .reversed()
       .map { state -> context.threadScreen(state.thread) }
-      .fold(EmptyScreen, ViewRendering::plus)
 
     return when (renderState) {
       is FetchingPost -> {
@@ -92,14 +88,14 @@ class ThreadWorkflow(
         }
 
         AppScreen(
-          main = screenStack,
+          mains = screenStack,
           overlay = TextOverlayScreen(
             onDismiss = Dismissable.Ignore,
             text = "Loading thread...",
           ),
         )
       }
-      is ShowingPost -> AppScreen(main = screenStack)
+      is ShowingPost -> AppScreen(mains = screenStack)
       is ShowingProfile -> {
         val profileScreen = context.renderChild(profileWorkflow(), renderState.props) {
           action {
@@ -107,11 +103,11 @@ class ThreadWorkflow(
           }
         }
 
-        profileScreen.copy(main = screenStack + profileScreen.main)
+        profileScreen.copy(mains = screenStack + profileScreen.mains)
       }
       is ShowingFullSizeImage -> {
         AppScreen(
-          main = screenStack,
+          mains = screenStack,
           overlay = ImageOverlayScreen(
             onDismiss = Dismissable.DismissHandler(
               context.eventHandler { state = renderState.previousState }
@@ -122,7 +118,7 @@ class ThreadWorkflow(
       }
       is ShowingError -> {
         AppScreen(
-          main = screenStack,
+          mains = screenStack,
           overlay = context.renderChild(errorWorkflow, renderState.props) { output ->
             action {
               when (output) {

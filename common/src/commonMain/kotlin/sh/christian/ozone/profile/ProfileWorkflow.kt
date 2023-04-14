@@ -28,9 +28,6 @@ import sh.christian.ozone.thread.ThreadWorkflow
 import sh.christian.ozone.ui.compose.ImageOverlayScreen
 import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
-import sh.christian.ozone.ui.workflow.EmptyScreen
-import sh.christian.ozone.ui.workflow.ViewRendering
-import sh.christian.ozone.ui.workflow.plus
 import sh.christian.ozone.user.MyProfileRepository
 import sh.christian.ozone.user.UserDatabase
 import sh.christian.ozone.user.UserReference
@@ -104,25 +101,24 @@ class ProfileWorkflow(
           state.feed.getOrNull()?.posts.orEmpty()
         )
       }
-      .fold(EmptyScreen, ViewRendering::plus)
 
     return when (renderState) {
       is ShowingProfile -> {
         if (renderState.profile is Fetching) {
           AppScreen(
-            main = screenStack,
+            mains = screenStack,
             overlay = TextOverlayScreen(
               onDismiss = Dismissable.Ignore,
               text = "Loading ${renderState.user}...",
             ),
           )
         } else {
-          AppScreen(main = screenStack)
+          AppScreen(mains = screenStack)
         }
       }
       is ShowingFullSizeImage -> {
         AppScreen(
-          main = screenStack,
+          mains = screenStack,
           overlay = ImageOverlayScreen(
             onDismiss = Dismissable.DismissHandler(
               context.eventHandler { state = renderState.previousState }
@@ -138,11 +134,11 @@ class ProfileWorkflow(
           }
         }
 
-        threadScreen.copy(main = screenStack + threadScreen.main)
+        threadScreen.copy(mains = screenStack + threadScreen.mains)
       }
       is ShowingError -> {
         AppScreen(
-          main = screenStack,
+          mains = screenStack,
           overlay = context.renderChild(errorWorkflow, renderState.error) { output ->
             action {
               val currentProfile = state.profile

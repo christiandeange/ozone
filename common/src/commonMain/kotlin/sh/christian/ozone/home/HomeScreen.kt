@@ -25,7 +25,7 @@ import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 
 class HomeScreen(
-  private val homeContent: ViewRendering,
+  private val homeContent: List<ViewRendering>,
   private val tab: SelectedHomeScreenTab,
   private val onChangeTab: (SelectedHomeScreenTab) -> Unit,
   private val onExit: () -> Unit,
@@ -58,7 +58,7 @@ class HomeScreen(
       },
     ) { contentPadding ->
       Box(Modifier.padding(contentPadding)) {
-        homeContent.Content()
+        homeContent.forEach { it.Content() }
       }
     }
   }
