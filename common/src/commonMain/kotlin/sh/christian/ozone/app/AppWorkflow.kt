@@ -3,7 +3,9 @@ package sh.christian.ozone.app
 import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.action
+import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.renderChild
+import com.squareup.workflow1.runningWorker
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import sh.christian.ozone.app.AppState.ShowingLoggedIn
@@ -15,11 +17,13 @@ import sh.christian.ozone.login.LoginOutput.CanceledLogin
 import sh.christian.ozone.login.LoginOutput.LoggedIn
 import sh.christian.ozone.login.LoginRepository
 import sh.christian.ozone.login.LoginWorkflow
+import sh.christian.ozone.notifications.NotificationsRepository
 
 class AppWorkflow(
   private val loginRepository: LoginRepository,
   private val loginWorkflow: LoginWorkflow,
   private val homeWorkflow: HomeWorkflow,
+  private val notificationsRepository: NotificationsRepository,
 ) : StatefulWorkflow<Unit, AppState, Unit, AppScreen>() {
   override fun initialState(
     props: Unit,
@@ -29,7 +33,7 @@ class AppWorkflow(
     return if (authInfo == null) {
       ShowingLogin
     } else {
-      ShowingLoggedIn(HomeProps(authInfo))
+      ShowingLoggedIn(HomeProps(authInfo, 0))
     }
   }
 
@@ -44,7 +48,7 @@ class AppWorkflow(
           when (output) {
             is LoggedIn -> {
               loginRepository.auth = output.authInfo
-              state = ShowingLoggedIn(HomeProps(output.authInfo))
+              state = ShowingLoggedIn(HomeProps(output.authInfo, 0))
             }
 
             is CanceledLogin -> setOutput(Unit)
@@ -53,6 +57,12 @@ class AppWorkflow(
       }
     }
     is ShowingLoggedIn -> {
+      context.runningWorker(notificationsRepository.unreadCount.asWorker()) { unread ->
+        action {
+          state = ShowingLoggedIn(renderState.props.copy(unreadNotificationCount = unread))
+        }
+      }
+
       context.renderChild(homeWorkflow, renderState.props) { output ->
         action {
           when (output) {

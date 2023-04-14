@@ -8,6 +8,8 @@ import app.bsky.feed.GetPostThreadQueryParams
 import app.bsky.feed.GetPostThreadResponse
 import app.bsky.feed.GetTimelineQueryParams
 import app.bsky.feed.GetTimelineResponse
+import app.bsky.notification.ListNotificationsQueryParams
+import app.bsky.notification.ListNotificationsResponse
 import com.atproto.repo.CreateRecordRequest
 import com.atproto.repo.CreateRecordResponse
 import com.atproto.server.CreateAccountRequest
@@ -45,6 +47,10 @@ interface AtpApi {
   suspend fun getPostThread(
     params: GetPostThreadQueryParams,
   ): AtpResponse<GetPostThreadResponse>
+
+  suspend fun listNotifications(
+    params: ListNotificationsQueryParams,
+  ): AtpResponse<ListNotificationsResponse>
 
   suspend fun describeServer(): AtpResponse<DescribeServerResponse>
 }

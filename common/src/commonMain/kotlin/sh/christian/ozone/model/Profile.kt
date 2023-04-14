@@ -1,5 +1,6 @@
 package sh.christian.ozone.model
 
+import app.bsky.actor.DefsProfileView
 import app.bsky.actor.DefsProfileViewBasic
 import app.bsky.actor.DefsProfileViewDetailed
 import kotlinx.datetime.Instant
@@ -69,6 +70,18 @@ fun DefsProfileViewBasic.toProfile(): Profile {
     displayName = displayName,
     avatar = avatar,
     mutedByMe = viewer?.muted != null,
+    followingMe = viewer?.following != null,
+    followedByMe = viewer?.followedBy != null,
+  )
+}
+
+fun DefsProfileView.toProfile(): Profile {
+  return LiteProfile(
+    did = did,
+    handle = handle,
+    displayName = displayName,
+    avatar = avatar,
+    mutedByMe = viewer?.muted == true,
     followingMe = viewer?.following != null,
     followedByMe = viewer?.followedBy != null,
   )

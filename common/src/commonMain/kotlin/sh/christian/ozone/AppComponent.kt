@@ -10,6 +10,8 @@ import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.home.HomeWorkflow
 import sh.christian.ozone.login.LoginRepository
 import sh.christian.ozone.login.LoginWorkflow
+import sh.christian.ozone.notifications.NotificationsRepository
+import sh.christian.ozone.notifications.NotificationsWorkflow
 import sh.christian.ozone.profile.ProfileWorkflow
 import sh.christian.ozone.store.PersistentStorage
 import sh.christian.ozone.thread.ThreadWorkflow
@@ -53,9 +55,12 @@ class AppComponent(
   }
 
   private val timelineRepository: TimelineRepository by lazy {
-    TimelineRepository(
-      apiProvider = apiProvider,
-    )
+    TimelineRepository(apiProvider)
+  }
+
+
+  private val notificationsRepository: NotificationsRepository by lazy {
+    NotificationsRepository(apiProvider)
   }
 
   private val errorWorkflow: ErrorWorkflow by lazy {
@@ -96,6 +101,14 @@ class AppComponent(
     )
   }
 
+  private val notificationsWorkflow: NotificationsWorkflow by lazy {
+    NotificationsWorkflow(
+      clock = clock,
+      notificationsRepository = notificationsRepository,
+      errorWorkflow = errorWorkflow,
+    )
+  }
+
   private val profileWorkflow: ProfileWorkflow by lazy {
     ProfileWorkflow(
       clock = clock,
@@ -110,6 +123,7 @@ class AppComponent(
   private val homeWorkflow: HomeWorkflow by lazy {
     HomeWorkflow(
       timelineWorkflow = timelineWorkflow,
+      notificationsWorkflow = notificationsWorkflow,
       profileWorkflow = profileWorkflow,
       threadWorkflow = threadWorkflow,
       composePostWorkflow = composePostWorkflow,
@@ -119,6 +133,7 @@ class AppComponent(
   val appWorkflow: AppWorkflow by lazy {
     AppWorkflow(
       loginRepository = loginRepository,
+      notificationsRepository = notificationsRepository,
       loginWorkflow = loginWorkflow,
       homeWorkflow = homeWorkflow,
     )
@@ -128,6 +143,7 @@ class AppComponent(
     listOf(
       apiProvider,
       myProfileRepository,
+      notificationsRepository,
     )
   }
 }

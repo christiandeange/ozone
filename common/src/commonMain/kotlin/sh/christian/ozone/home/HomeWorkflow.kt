@@ -4,6 +4,7 @@ import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.WorkflowAction
 import com.squareup.workflow1.action
+import com.squareup.workflow1.renderChild
 import sh.christian.ozone.app.AppScreen
 import sh.christian.ozone.compose.ComposePostWorkflow
 import sh.christian.ozone.home.HomeState.InSubScreen
@@ -14,15 +15,16 @@ import sh.christian.ozone.home.HomeSubDestination.GoToThread
 import sh.christian.ozone.home.SelectedHomeScreenTab.NOTIFICATIONS
 import sh.christian.ozone.home.SelectedHomeScreenTab.SETTINGS
 import sh.christian.ozone.home.SelectedHomeScreenTab.TIMELINE
+import sh.christian.ozone.notifications.NotificationsWorkflow
 import sh.christian.ozone.profile.ProfileWorkflow
 import sh.christian.ozone.thread.ThreadWorkflow
 import sh.christian.ozone.timeline.TimelineOutput
 import sh.christian.ozone.timeline.TimelineProps
 import sh.christian.ozone.timeline.TimelineWorkflow
-import sh.christian.ozone.ui.workflow.plus
 
 class HomeWorkflow(
   private val timelineWorkflow: TimelineWorkflow,
+  private val notificationsWorkflow: NotificationsWorkflow,
   private val profileWorkflow: ProfileWorkflow,
   private val threadWorkflow: ThreadWorkflow,
   private val composePostWorkflow: ComposePostWorkflow,
@@ -58,18 +60,35 @@ class HomeWorkflow(
           }
         }
       }
-      is InTab.InNotifications -> TODO()
+      is InTab.InNotifications -> {
+        context.renderChild(notificationsWorkflow) {
+          action {
+            setOutput(HomeOutput.CloseApp)
+          }
+        }
+      }
       is InTab.InSettings -> TODO()
     }
 
     val homeScreen = HomeScreen(
       homeContent = tabScreen.mains,
+      unreadCount = when (val unread = renderProps.unreadNotificationCount) {
+        0 -> null
+        in 1..99 -> unread.toString()
+        else -> "💯"
+      },
       tab = when (tabState) {
         is InTab.InTimeline -> TIMELINE
         is InTab.InNotifications -> NOTIFICATIONS
         is InTab.InSettings -> SETTINGS
       },
-      onChangeTab = context.eventHandler { _ -> }, // TODO
+      onChangeTab = context.eventHandler { tab ->
+        state = when (tab) {
+          TIMELINE -> InTab.InTimeline(TimelineProps(props.authInfo))
+          NOTIFICATIONS -> InTab.InNotifications
+          SETTINGS -> state // TODO
+        }
+      },
       onExit = context.eventHandler { setOutput(HomeOutput.CloseApp) },
     )
 

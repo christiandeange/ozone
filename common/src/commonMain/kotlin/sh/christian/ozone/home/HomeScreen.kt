@@ -7,6 +7,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.Badge
+import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -26,6 +28,7 @@ import sh.christian.ozone.ui.workflow.screen
 
 class HomeScreen(
   private val homeContent: List<ViewRendering>,
+  private val unreadCount: String?,
   private val tab: SelectedHomeScreenTab,
   private val onChangeTab: (SelectedHomeScreenTab) -> Unit,
   private val onExit: () -> Unit,
@@ -45,7 +48,18 @@ class HomeScreen(
           NavigationBarItem(
             selected = tab == NOTIFICATIONS,
             onClick = { onChangeTab(NOTIFICATIONS) },
-            icon = { Icon(rememberVectorPainter(Icons.Default.Notifications), "Dings") },
+            icon = {
+              BadgedBox(
+                badge = {
+                  if (unreadCount != null) {
+                    Badge { Text(unreadCount) }
+                  }
+                },
+                content = {
+                  Icon(rememberVectorPainter(Icons.Default.Notifications), "Dings")
+                },
+              )
+            },
             label = { Text("Dings") },
           )
           NavigationBarItem(
