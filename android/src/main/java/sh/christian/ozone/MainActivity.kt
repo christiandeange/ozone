@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.lifecycleScope
 import dev.marcellogalhardo.retained.activity.retain
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import sh.christian.ozone.store.storage
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     appComponent.supervisors.forEach { supervisor ->
       with(supervisor) {
-        lifecycleScope.launch { onStart() }
+        lifecycleScope.launch(SupervisorJob()) { onStart() }
       }
     }
 

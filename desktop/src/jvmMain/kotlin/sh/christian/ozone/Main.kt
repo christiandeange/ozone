@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import sh.christian.ozone.store.storage
@@ -31,7 +32,7 @@ fun main() = runBlocking {
 
   component.supervisors.forEach {
     with(it) {
-      launch { onStart() }
+      launch(SupervisorJob()) { onStart() }
     }
   }
 
