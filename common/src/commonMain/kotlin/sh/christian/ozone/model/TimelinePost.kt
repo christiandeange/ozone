@@ -20,6 +20,7 @@ data class TimelinePost(
   val indexedAt: Instant,
   val reposted: Boolean,
   val liked: Boolean,
+  val labels: List<Label>,
   val reply: TimelinePostReply?,
   val reason: TimelinePostReason?,
 )
@@ -59,6 +60,7 @@ fun DefsPostView.toPost(
     indexedAt = indexedAt,
     reposted = viewer?.repost != null,
     liked = viewer?.like != null,
+    labels = labels.map { it.toLabel() },
     reply = reply,
     reason = reason,
   )

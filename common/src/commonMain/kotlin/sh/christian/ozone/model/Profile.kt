@@ -15,6 +15,7 @@ sealed interface Profile {
   val mutedByMe: Boolean
   val followingMe: Boolean
   val followedByMe: Boolean
+  val labels: List<Label>
 }
 
 @Serializable
@@ -26,6 +27,7 @@ data class LiteProfile(
   override val mutedByMe: Boolean,
   override val followingMe: Boolean,
   override val followedByMe: Boolean,
+  override val labels: List<Label>,
 ) : Profile
 
 @Serializable
@@ -43,6 +45,7 @@ data class FullProfile(
   override val mutedByMe: Boolean,
   override val followingMe: Boolean,
   override val followedByMe: Boolean,
+  override val labels: List<Label>,
 ) : Profile
 
 fun DefsProfileViewDetailed.toProfile(): FullProfile {
@@ -60,6 +63,7 @@ fun DefsProfileViewDetailed.toProfile(): FullProfile {
     mutedByMe = viewer?.muted == true,
     followingMe = viewer?.following != null,
     followedByMe = viewer?.followedBy != null,
+    labels = labels.map { it.toLabel() },
   )
 }
 
@@ -72,6 +76,7 @@ fun DefsProfileViewBasic.toProfile(): Profile {
     mutedByMe = viewer?.muted != null,
     followingMe = viewer?.following != null,
     followedByMe = viewer?.followedBy != null,
+    labels = labels.map { it.toLabel() },
   )
 }
 
@@ -84,5 +89,6 @@ fun DefsProfileView.toProfile(): Profile {
     mutedByMe = viewer?.muted == true,
     followingMe = viewer?.following != null,
     followedByMe = viewer?.followedBy != null,
+    labels = labels.map { it.toLabel() },
   )
 }
