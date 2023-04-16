@@ -11,10 +11,15 @@
         "handle": {"type": "string", "format": "handle"},
         "displayName": {
           "type": "string",
-          "maxLength": 64
+          "maxGraphemes": 64,
+          "maxLength": 640
         },
         "avatar": { "type": "string" },
-        "viewer": {"type": "ref", "ref": "#viewerState"}
+        "viewer": {"type": "ref", "ref": "#viewerState"},
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
+        }
       }
     },
     "profileView": {
@@ -25,15 +30,21 @@
         "handle": {"type": "string", "format":"handle"},
         "displayName": {
           "type": "string",
-          "maxLength": 64
+          "maxGraphemes": 64,
+          "maxLength": 640
         },
         "description": {
           "type": "string",
-          "maxLength": 256
+          "maxGraphemes": 256,
+          "maxLength": 2560
         },
         "avatar": { "type": "string" },
         "indexedAt": {"type": "string", "format": "datetime"},
-        "viewer": {"type": "ref", "ref": "#viewerState"}
+        "viewer": {"type": "ref", "ref": "#viewerState"},
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
+        }
       }
     },
     "profileViewDetailed": {
@@ -44,11 +55,13 @@
         "handle": {"type": "string", "format": "handle"},
         "displayName": {
           "type": "string",
-          "maxLength": 64
+          "maxGraphemes": 64,
+          "maxLength": 640
         },
         "description": {
           "type": "string",
-          "maxLength": 256
+          "maxGraphemes": 256,
+          "maxLength": 2560
         },
         "avatar": { "type": "string" },
         "banner": { "type": "string" },
@@ -56,7 +69,11 @@
         "followsCount": {"type": "integer"},
         "postsCount": {"type": "integer"},
         "indexedAt": {"type": "string", "format": "datetime"},
-        "viewer": {"type": "ref", "ref": "#viewerState"}
+        "viewer": {"type": "ref", "ref": "#viewerState"},
+        "labels": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "com.atproto.label.defs#label"}
+        }
       }
     },
     "viewerState": {

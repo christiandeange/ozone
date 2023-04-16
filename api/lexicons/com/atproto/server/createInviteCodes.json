@@ -1,6 +1,6 @@
 {
   "lexicon": 1,
-  "id": "com.atproto.server.createInviteCode",
+  "id": "com.atproto.server.createInviteCodes",
   "defs": {
     "main": {
       "type": "procedure",
@@ -9,8 +9,9 @@
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["useCount"],
+          "required": ["codeCount", "useCount"],
           "properties": {
+            "codeCount": {"type": "integer", "default": 1},
             "useCount": {"type": "integer"},
             "forAccount": {"type": "string", "format": "did"}
           }
@@ -20,9 +21,12 @@
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["code"],
+          "required": ["codes"],
           "properties": {
-            "code": { "type": "string" }
+            "codes": { 
+              "type": "array",
+              "items": {"type": "string"}
+            }
           }
         }
       }

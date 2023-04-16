@@ -9,7 +9,7 @@
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["password"],
+          "required": ["identifier", "password"],
           "properties": {
             "identifier": {
               "type": "string",
@@ -28,7 +28,8 @@
             "accessJwt": {"type": "string"},
             "refreshJwt": {"type": "string"},
             "handle": {"type": "string", "format": "handle"},
-            "did": {"type": "string", "format": "did"}
+            "did": {"type": "string", "format": "did"},
+            "email": {"type": "string"}
           }
         }
       },
