@@ -13,22 +13,22 @@ sealed interface ProfileState {
   val user: UserReference
   val profile: RemoteData<FullProfile>
   val feed: RemoteData<Timeline>
-  val previousState: ShowingProfile?
+  val previousState: ProfileState?
 
   data class ShowingProfile(
     override val user: UserReference,
     override val profile: RemoteData<FullProfile>,
     override val feed: RemoteData<Timeline>,
-    override val previousState: ShowingProfile?,
+    override val previousState: ProfileState?,
   ) : ProfileState
 
   data class ShowingFullSizeImage(
-    override val previousState: ShowingProfile,
+    override val previousState: ProfileState,
     val openImageAction: OpenImageAction,
   ) : ProfileState by previousState
 
   data class ShowingThread(
-    override val previousState: ShowingProfile,
+    override val previousState: ProfileState,
     val props: ThreadProps,
   ) : ProfileState by previousState
 
@@ -36,7 +36,7 @@ sealed interface ProfileState {
     override val user: UserReference,
     override val profile: RemoteData<FullProfile>,
     override val feed: RemoteData<Timeline>,
-    override val previousState: ShowingProfile?,
+    override val previousState: ProfileState?,
   ) : ProfileState {
     val error: ErrorProps
       get() = (profile as? Failed)?.error

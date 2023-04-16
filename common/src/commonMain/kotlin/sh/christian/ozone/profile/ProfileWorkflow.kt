@@ -189,7 +189,7 @@ class ProfileWorkflow(
       },
       onOpenThread = eventHandler { post ->
         state = ShowingThread(
-          previousState = state as ShowingProfile,
+          previousState = state,
           props = ThreadProps(post),
         )
       },
@@ -199,12 +199,12 @@ class ProfileWorkflow(
             user = user,
             profile = Fetching(),
             feed = Fetching(),
-            previousState = state as ShowingProfile
+            previousState = state,
           )
         }
       },
       onOpenImage = eventHandler { action ->
-        state = ShowingFullSizeImage(state as ShowingProfile, action)
+        state = ShowingFullSizeImage(state, action)
       },
       onExit = eventHandler {
         state.previousState

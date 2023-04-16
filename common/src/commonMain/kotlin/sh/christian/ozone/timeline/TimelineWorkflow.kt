@@ -192,7 +192,7 @@ class TimelineWorkflow(
         setOutput(EnterScreen(HomeSubDestination.GoToProfile(props)))
       },
       onOpenImage = eventHandler { action ->
-        state = ShowingFullSizeImage(state as ShowingTimeline, action)
+        state = ShowingFullSizeImage(state, action)
       },
       onSignOut = eventHandler {
         setOutput(SignOut)
@@ -216,7 +216,7 @@ class TimelineWorkflow(
         copy(profile = profile)
       }
       is ShowingFullSizeImage -> {
-        copy(previousState = previousState.withProfile(profile) as ShowingTimeline)
+        copy(previousState = previousState.withProfile(profile))
       }
       is ShowingError -> {
         copy(previousState = previousState.withProfile(profile))
