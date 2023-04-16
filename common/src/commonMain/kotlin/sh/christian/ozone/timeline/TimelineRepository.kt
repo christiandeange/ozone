@@ -1,24 +1,34 @@
 package sh.christian.ozone.timeline
 
 import app.bsky.feed.GetTimelineQueryParams
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.api.response.AtpResponse
+import sh.christian.ozone.app.Supervisor
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.toErrorProps
 import sh.christian.ozone.model.Timeline
 
 class TimelineRepository(
   private val apiProvider: ApiProvider,
-) {
+): Supervisor {
   private val latest: MutableStateFlow<Timeline?> = MutableStateFlow(null)
   private val loadErrors: MutableSharedFlow<ErrorProps> = MutableSharedFlow()
 
   val timeline: Flow<Timeline> = latest.filterNotNull()
   val errors: Flow<ErrorProps> = loadErrors
+
+  override suspend fun CoroutineScope.onStart() {
+    apiProvider.auth().filter { it == null }.collect {
+      latest.value = null
+    }
+  }
 
   suspend fun refresh() {
     load(null)

@@ -143,6 +143,7 @@ class AppComponent(
     listOf(
       apiProvider,
       myProfileRepository,
+      timelineRepository,
       notificationsRepository,
     )
   }
