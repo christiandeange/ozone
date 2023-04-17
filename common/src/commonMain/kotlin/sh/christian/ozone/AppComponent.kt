@@ -13,6 +13,7 @@ import sh.christian.ozone.login.LoginWorkflow
 import sh.christian.ozone.notifications.NotificationsRepository
 import sh.christian.ozone.notifications.NotificationsWorkflow
 import sh.christian.ozone.profile.ProfileWorkflow
+import sh.christian.ozone.settings.SettingsWorkflow
 import sh.christian.ozone.store.PersistentStorage
 import sh.christian.ozone.thread.ThreadWorkflow
 import sh.christian.ozone.timeline.TimelineRepository
@@ -109,6 +110,10 @@ class AppComponent(
     )
   }
 
+  private val settingsWorkflow: SettingsWorkflow by lazy {
+    SettingsWorkflow()
+  }
+
   private val profileWorkflow: ProfileWorkflow by lazy {
     ProfileWorkflow(
       clock = clock,
@@ -124,6 +129,7 @@ class AppComponent(
     HomeWorkflow(
       timelineWorkflow = timelineWorkflow,
       notificationsWorkflow = notificationsWorkflow,
+      settingsWorkflow = settingsWorkflow,
       profileWorkflow = profileWorkflow,
       threadWorkflow = threadWorkflow,
       composePostWorkflow = composePostWorkflow,

@@ -7,7 +7,5 @@ sealed interface TimelineOutput {
     val dest: HomeSubDestination,
   ) : TimelineOutput
 
-  object SignOut : TimelineOutput
-
   object CloseApp : TimelineOutput
 }

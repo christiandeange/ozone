@@ -17,6 +17,8 @@ import sh.christian.ozone.home.SelectedHomeScreenTab.SETTINGS
 import sh.christian.ozone.home.SelectedHomeScreenTab.TIMELINE
 import sh.christian.ozone.notifications.NotificationsWorkflow
 import sh.christian.ozone.profile.ProfileWorkflow
+import sh.christian.ozone.settings.SettingsOutput
+import sh.christian.ozone.settings.SettingsWorkflow
 import sh.christian.ozone.thread.ThreadWorkflow
 import sh.christian.ozone.timeline.TimelineOutput
 import sh.christian.ozone.timeline.TimelineProps
@@ -25,6 +27,7 @@ import sh.christian.ozone.timeline.TimelineWorkflow
 class HomeWorkflow(
   private val timelineWorkflow: TimelineWorkflow,
   private val notificationsWorkflow: NotificationsWorkflow,
+  private val settingsWorkflow: SettingsWorkflow,
   private val profileWorkflow: ProfileWorkflow,
   private val threadWorkflow: ThreadWorkflow,
   private val composePostWorkflow: ComposePostWorkflow,
@@ -55,7 +58,6 @@ class HomeWorkflow(
                 state = output.dest.destinationState(tabState)
               }
               is TimelineOutput.CloseApp -> setOutput(HomeOutput.CloseApp)
-              is TimelineOutput.SignOut -> setOutput(HomeOutput.SignOut)
             }
           }
         }
@@ -67,7 +69,16 @@ class HomeWorkflow(
           }
         }
       }
-      is InTab.InSettings -> TODO()
+      is InTab.InSettings -> {
+        context.renderChild(settingsWorkflow) { output ->
+          action {
+            when (output) {
+              is SettingsOutput.CloseApp -> setOutput(HomeOutput.CloseApp)
+              is SettingsOutput.SignOut -> setOutput(HomeOutput.SignOut)
+            }
+          }
+        }
+      }
     }
 
     val homeScreen = HomeScreen(
@@ -86,7 +97,7 @@ class HomeWorkflow(
         state = when (tab) {
           TIMELINE -> InTab.InTimeline(TimelineProps(props.authInfo))
           NOTIFICATIONS -> InTab.InNotifications
-          SETTINGS -> state // TODO
+          SETTINGS -> InTab.InSettings
         }
       },
       onExit = context.eventHandler { setOutput(HomeOutput.CloseApp) },

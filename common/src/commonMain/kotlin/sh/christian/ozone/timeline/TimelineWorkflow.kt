@@ -19,7 +19,6 @@ import sh.christian.ozone.profile.ProfileProps
 import sh.christian.ozone.thread.ThreadProps
 import sh.christian.ozone.timeline.TimelineOutput.CloseApp
 import sh.christian.ozone.timeline.TimelineOutput.EnterScreen
-import sh.christian.ozone.timeline.TimelineOutput.SignOut
 import sh.christian.ozone.timeline.TimelineState.FetchingTimeline
 import sh.christian.ozone.timeline.TimelineState.ShowingError
 import sh.christian.ozone.timeline.TimelineState.ShowingFullSizeImage
@@ -142,7 +141,7 @@ class TimelineWorkflow(
           overlay = context.renderChild(errorWorkflow, renderState.props) { output ->
             action {
               when (output) {
-                ErrorOutput.Dismiss -> setOutput(SignOut)
+                ErrorOutput.Dismiss -> setOutput(CloseApp)
                 ErrorOutput.Retry -> state = renderState.previousState
               }
             }
@@ -193,9 +192,6 @@ class TimelineWorkflow(
       },
       onOpenImage = eventHandler { action ->
         state = ShowingFullSizeImage(state, action)
-      },
-      onSignOut = eventHandler {
-        setOutput(SignOut)
       },
       onExit = eventHandler {
         setOutput(CloseApp)

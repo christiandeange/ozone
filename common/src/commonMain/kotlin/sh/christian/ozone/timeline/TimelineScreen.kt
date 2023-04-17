@@ -17,7 +17,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Button
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -67,7 +66,6 @@ class TimelineScreen(
   private val onOpenThread: (TimelinePost) -> Unit,
   private val onOpenUser: (UserReference) -> Unit,
   private val onOpenImage: (OpenImageAction) -> Unit,
-  private val onSignOut: () -> Unit,
   private val onExit: () -> Unit,
 ) : ViewRendering by screen({
   val feedState = rememberLazyListState()
@@ -121,12 +119,6 @@ class TimelineScreen(
               Icon(
                 painter = rememberVectorPainter(Icons.Default.Refresh),
                 contentDescription = "Refresh",
-              )
-            }
-            IconButton(onClick = onSignOut) {
-              Icon(
-                painter = rememberVectorPainter(Icons.Default.ExitToApp),
-                contentDescription = "Sign Out",
               )
             }
           }
