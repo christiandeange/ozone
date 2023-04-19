@@ -4,9 +4,12 @@ import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Icon
@@ -30,6 +33,7 @@ import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.OverlayRendering
 import sh.christian.ozone.ui.workflow.overlay
 
+@OptIn(ExperimentalFoundationApi::class)
 class ImageOverlayScreen(
   onDismiss: Dismissable.DismissHandler,
   private val action: OpenImageAction,
@@ -40,36 +44,43 @@ class ImageOverlayScreen(
       .onBackPressed { onRequestDismiss() },
     color = Color.Black.copy(alpha = 0.8f),
   ) {
-    Box {
-      var scale by remember { mutableStateOf(1f) }
-      var offsetX by remember { mutableStateOf(0f) }
-      var offsetY by remember { mutableStateOf(0f) }
-      var size by remember { mutableStateOf(IntSize.Zero) }
+    val state = rememberPagerState(initialPage = action.selectedIndex)
 
-      val maxX by remember { derivedStateOf { (size.width * (scale - 1)) / 2 } }
-      val maxY by remember { derivedStateOf { (size.height * (scale - 1)) / 2 } }
+    HorizontalPager(
+      pageCount = action.images.size,
+      state = state,
+    ) { page ->
+      Box {
+        var scale by remember { mutableStateOf(1f) }
+        var offsetX by remember { mutableStateOf(0f) }
+        var offsetY by remember { mutableStateOf(0f) }
+        var size by remember { mutableStateOf(IntSize.Zero) }
 
-      KamelImage(
-        modifier = Modifier
-          .align(Alignment.Center)
-          .onSizeChanged { size = it }
-          .pointerInput(Unit) {
-            detectTransformGestures(panZoomLock = true) { _, pan, zoom, _ ->
-              scale = (scale * zoom).coerceIn(1f, 4f)
-              offsetX = (offsetX + pan.x).coerceIn(-maxX, maxX)
-              offsetY = (offsetY + pan.y).coerceIn(-maxY, maxY)
+        val maxX by remember { derivedStateOf { (size.width * (scale - 1)) / 2 } }
+        val maxY by remember { derivedStateOf { (size.height * (scale - 1)) / 2 } }
+
+        KamelImage(
+          modifier = Modifier
+            .align(Alignment.Center)
+            .onSizeChanged { size = it }
+            .pointerInput(Unit) {
+              detectTransformGestures(panZoomLock = true) { _, pan, zoom, _ ->
+                scale = (scale * zoom).coerceIn(1f, 4f)
+                offsetX = (offsetX + pan.x).coerceIn(-maxX, maxX)
+                offsetY = (offsetY + pan.y).coerceIn(-maxY, maxY)
+              }
             }
-          }
-          .graphicsLayer {
-            scaleX = scale
-            scaleY = scale
-            translationX = offsetX
-            translationY = offsetY
-          },
-        resource = rememberUrlPainter(action.imageUrl),
-        contentDescription = action.alt,
-        contentScale = ContentScale.Fit,
-      )
+            .graphicsLayer {
+              scaleX = scale
+              scaleY = scale
+              translationX = offsetX
+              translationY = offsetY
+            },
+          resource = rememberUrlPainter(action.images[page].imageUrl),
+          contentDescription = action.images[page].alt,
+          contentScale = ContentScale.Fit,
+        )
+      }
     }
 
     SystemInsets {
@@ -90,6 +101,17 @@ class ImageOverlayScreen(
 }
 
 data class OpenImageAction(
+  val images: List<BasicImage>,
+  val selectedIndex: Int,
+) {
+  init {
+    check(images.isNotEmpty()) { "List of images is empty" }
+  }
+
+  constructor(image: BasicImage) : this(listOf(image), 0)
+}
+
+data class BasicImage(
   val imageUrl: String,
   val alt: String?,
 )

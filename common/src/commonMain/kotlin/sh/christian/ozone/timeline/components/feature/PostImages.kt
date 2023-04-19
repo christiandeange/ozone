@@ -5,9 +5,11 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import sh.christian.ozone.model.TimelinePostFeature.ImagesFeature
+import sh.christian.ozone.ui.compose.BasicImage
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.compose.PostImage
 import sh.christian.ozone.ui.compose.rememberUrlPainter
@@ -17,8 +19,14 @@ internal fun PostImages(
   feature: ImagesFeature,
   onOpenImage: (OpenImageAction) -> Unit,
 ) {
+  val fullSizeImages = remember(feature.images) {
+    feature.images.map {
+      BasicImage(it.fullsize, it.alt)
+    }
+  }
+
   Row(horizontalArrangement = spacedBy(8.dp)) {
-    feature.images.forEach { image ->
+    feature.images.forEachIndexed { i, image ->
       // Preload the full-size image into the cache.
       rememberUrlPainter(image.fullsize)
 
@@ -29,7 +37,7 @@ internal fun PostImages(
         imageUrl = image.thumb,
         contentDescription = image.alt,
         onClick = {
-          onOpenImage(OpenImageAction(image.fullsize, image.alt))
+          onOpenImage(OpenImageAction(fullSizeImages, i))
         },
         fallbackColor = MaterialTheme.colorScheme.outline,
       )

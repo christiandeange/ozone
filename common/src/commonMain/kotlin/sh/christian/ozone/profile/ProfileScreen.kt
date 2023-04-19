@@ -52,6 +52,7 @@ import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.timeline.components.TimelinePostItem
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.BannerImage
+import sh.christian.ozone.ui.compose.BasicImage
 import sh.christian.ozone.ui.compose.InfiniteListHandler
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.compose.OverImageIconButton
@@ -140,7 +141,7 @@ class ProfileScreen(
             contentDescription = profile.displayName ?: profile.handle,
             fallbackColor = profile.handle.color(),
             onClick = {
-              onOpenImage(OpenImageAction(avatarUrl!!, profile.handle))
+              onOpenImage(OpenImageAction(BasicImage(avatarUrl!!, profile.handle)))
             }.takeIf { avatarUrl != null },
           )
 
