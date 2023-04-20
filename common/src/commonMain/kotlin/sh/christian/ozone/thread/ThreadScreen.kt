@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
@@ -38,12 +39,14 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.datetime.Instant
+import sh.christian.ozone.model.Profile
 import sh.christian.ozone.model.Thread
 import sh.christian.ozone.model.ThreadPost
 import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.timeline.components.ThreadPostItem
 import sh.christian.ozone.timeline.components.TimelinePostItem
 import sh.christian.ozone.timeline.components.feature.InvisiblePostPost
+import sh.christian.ozone.timeline.components.hasInteractions
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.compose.onBackPressed
@@ -51,6 +54,7 @@ import sh.christian.ozone.ui.compose.rememberSystemInsets
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 import sh.christian.ozone.user.UserReference
+import kotlin.math.min
 
 class ThreadScreen(
   private val now: Instant,
@@ -136,20 +140,26 @@ class ThreadScreen(
           }
         }
 
-        itemsIndexed(thread.replies) { i, reply ->
-          Box {
-            ConversationLinks(
-              drawAbove = false,
-              drawBelow = false,
-            )
+        items(thread.replies) { reply ->
+          val replyReplies = reply.withInterestingReplies(
+            ops = thread.parents.viewable().map { it.post.author } + thread.post.author,
+          )
 
-            SmallThreadPostItem(
-              now = now,
-              post = reply,
-              onOpenThread = onOpenThread,
-              onOpenUser = onOpenUser,
-              onOpenImage = onOpenImage,
-            )
+          replyReplies.forEachIndexed { i, replyPost ->
+            Box {
+              ConversationLinks(
+                drawAbove = i != 0,
+                drawBelow = i != replyReplies.lastIndex,
+              )
+
+              SmallThreadPostItem(
+                now = now,
+                post = replyPost,
+                onOpenThread = onOpenThread,
+                onOpenUser = onOpenUser,
+                onOpenImage = onOpenImage,
+              )
+            }
           }
         }
 
@@ -234,3 +244,35 @@ private fun ForbiddenPostItem() {
     }
   }
 }
+
+private fun ThreadPost.withInterestingReplies(ops: Collection<Profile>): List<ThreadPost> {
+  val conversation: Set<String?> = buildSet {
+    addAll(ops.map { it.did })
+    when (this@withInterestingReplies) {
+      is ThreadPost.ViewablePost -> add(post.author.did)
+      is ThreadPost.NotFoundPost -> Unit
+    }
+  }
+
+  return generateSequence(this@withInterestingReplies) { post ->
+    when (post) {
+      is ThreadPost.ViewablePost -> {
+        val viewableReplies = post.replies.viewable()
+        viewableReplies.firstOrNull { replyPost -> replyPost.post.author.did in conversation }
+          ?: viewableReplies.firstOrNull { replyPost -> replyPost.post.hasInteractions() }
+      }
+      is ThreadPost.NotFoundPost -> null
+    }
+  }.toList().let { replyThread ->
+    if (
+      replyThread.viewable().all { it.post.author.did in conversation }
+    ) {
+      replyThread.subList(0, min(replyThread.count(), 3))
+    } else {
+      replyThread
+    }
+  }
+}
+
+private fun List<ThreadPost>.viewable(): List<ThreadPost.ViewablePost> =
+  filterIsInstance<ThreadPost.ViewablePost>()

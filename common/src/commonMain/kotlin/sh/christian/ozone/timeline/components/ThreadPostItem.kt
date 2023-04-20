@@ -87,6 +87,6 @@ fun ThreadPostItem(
   }
 }
 
-private fun TimelinePost.hasInteractions(): Boolean {
+fun TimelinePost.hasInteractions(): Boolean {
   return replyCount > 0 || repostCount > 0 || likeCount > 0
 }
