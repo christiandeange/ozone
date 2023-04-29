@@ -6,12 +6,13 @@ import sh.christian.ozone.profile.ProfileProps
 import sh.christian.ozone.ui.compose.OpenImageAction
 
 sealed interface ThreadState {
-  val thread: Thread
+  val thread: Thread?
   val previousState: ThreadState?
 
   data class FetchingPost(
-    override val thread: Thread,
+    override val thread: Thread?,
     override val previousState: ThreadState?,
+    val uri: String,
   ) : ThreadState
 
   data class ShowingPost(

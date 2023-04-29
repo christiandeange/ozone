@@ -49,6 +49,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.datetime.Instant
 import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.TimelinePost
+import sh.christian.ozone.thread.ThreadProps
 import sh.christian.ozone.timeline.components.TimelinePostItem
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.BannerImage
@@ -74,7 +75,7 @@ class ProfileScreen(
   private val feed: List<TimelinePost>,
   private val isSelf: Boolean,
   private val onLoadMore: () -> Unit,
-  private val onOpenThread: (TimelinePost) -> Unit,
+  private val onOpenPost: (ThreadProps) -> Unit,
   private val onOpenUser: (UserReference) -> Unit,
   private val onOpenImage: (OpenImageAction) -> Unit,
   private val onExit: () -> Unit,
@@ -251,7 +252,7 @@ class ProfileScreen(
         TimelinePostItem(
           now = now,
           post = post,
-          onOpenThread = onOpenThread,
+          onOpenPost = onOpenPost,
           onOpenUser = onOpenUser,
           onOpenImage = onOpenImage,
         )

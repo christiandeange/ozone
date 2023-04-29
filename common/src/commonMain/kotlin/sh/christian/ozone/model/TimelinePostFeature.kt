@@ -50,7 +50,9 @@ sealed interface EmbedPost {
     val cid: String,
     val author: Profile,
     val litePost: LitePost,
-  ) : EmbedPost
+  ) : EmbedPost {
+    val reference: Reference = Reference(uri, cid)
+  }
 
   data class InvisibleEmbedPost(
     val uri: String,

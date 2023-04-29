@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.datetime.Instant
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.model.TimelinePost
+import sh.christian.ozone.thread.ThreadProps
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.user.UserReference
@@ -24,13 +25,13 @@ fun TimelinePostItem(
   modifier: Modifier = Modifier,
   now: Instant,
   post: TimelinePost,
-  onOpenThread: (TimelinePost) -> Unit,
+  onOpenPost: (ThreadProps) -> Unit,
   onOpenUser: (UserReference) -> Unit,
   onOpenImage: (OpenImageAction) -> Unit,
 ) {
   Row(
     modifier = modifier
-      .clickable { onOpenThread(post) }
+      .clickable { onOpenPost(ThreadProps.FromPost(post)) }
       .padding(top = 16.dp, bottom = 8.dp, start = 16.dp, end = 16.dp),
     horizontalArrangement = spacedBy(16.dp),
   ) {
@@ -51,8 +52,8 @@ fun TimelinePostItem(
         modifier = Modifier.padding(bottom = 8.dp),
         verticalArrangement = spacedBy(8.dp),
       ) {
-        PostText(post, { onOpenThread(post) }, onOpenUser)
-        PostFeature(now, post.feature, onOpenImage)
+        PostText(post, { onOpenPost(ThreadProps.FromPost(post)) }, onOpenUser)
+        PostFeature(now, post.feature, onOpenImage, onOpenPost)
       }
       PostActions(
         replyCount = format(post.replyCount),

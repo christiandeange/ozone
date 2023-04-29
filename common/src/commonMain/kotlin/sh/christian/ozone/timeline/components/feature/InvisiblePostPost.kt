@@ -6,8 +6,8 @@ import androidx.compose.runtime.Composable
 fun InvisiblePostPost(onClick: (() -> Unit)?) {
   FeatureContainer(onClick = onClick) {
     PostFeatureTextContent(
-      title = "This post cannot be loaded.",
-      description = "This post is restricted from being viewed.",
+      title = "Cannot be loaded.",
+      description = "This post is unable to be viewed.",
       url = null,
     )
   }

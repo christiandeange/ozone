@@ -42,7 +42,6 @@ import kotlinx.datetime.Instant
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.model.Thread
 import sh.christian.ozone.model.ThreadPost
-import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.timeline.components.ThreadPostItem
 import sh.christian.ozone.timeline.components.TimelinePostItem
 import sh.christian.ozone.timeline.components.feature.InvisiblePostPost
@@ -61,7 +60,7 @@ class ThreadScreen(
   private val thread: Thread,
   private val onExit: () -> Unit,
   private val onRefresh: () -> Unit,
-  private val onOpenThread: (TimelinePost) -> Unit,
+  private val onOpenPost: (ThreadProps) -> Unit,
   private val onOpenUser: (UserReference) -> Unit,
   private val onOpenImage: (OpenImageAction) -> Unit,
 ) : ViewRendering by screen({
@@ -117,7 +116,7 @@ class ThreadScreen(
             SmallThreadPostItem(
               now = now,
               post = parentPost,
-              onOpenThread = onOpenThread,
+              onOpenPost = onOpenPost,
               onOpenUser = onOpenUser,
               onOpenImage = onOpenImage,
             )
@@ -136,6 +135,7 @@ class ThreadScreen(
               post = thread.post,
               onOpenUser = onOpenUser,
               onOpenImage = onOpenImage,
+              onOpenPost = onOpenPost,
             )
           }
         }
@@ -155,7 +155,7 @@ class ThreadScreen(
               SmallThreadPostItem(
                 now = now,
                 post = replyPost,
-                onOpenThread = onOpenThread,
+                onOpenPost = onOpenPost,
                 onOpenUser = onOpenUser,
                 onOpenImage = onOpenImage,
               )
@@ -205,7 +205,7 @@ private fun BoxScope.ConversationLinks(
 private fun SmallThreadPostItem(
   now: Instant,
   post: ThreadPost,
-  onOpenThread: (TimelinePost) -> Unit,
+  onOpenPost: (ThreadProps) -> Unit,
   onOpenUser: (UserReference) -> Unit,
   onOpenImage: (OpenImageAction) -> Unit,
 ) {
@@ -214,9 +214,9 @@ private fun SmallThreadPostItem(
       TimelinePostItem(
         now = now,
         post = post.post,
-        onOpenThread = onOpenThread,
+        onOpenPost = onOpenPost,
         onOpenUser = onOpenUser,
-        onOpenImage = onOpenImage
+        onOpenImage = onOpenImage,
       )
     }
     is ThreadPost.NotFoundPost -> {

@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.datetime.Instant
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.model.TimelinePost
+import sh.christian.ozone.thread.ThreadProps
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.user.UserReference
@@ -29,8 +30,9 @@ fun ThreadPostItem(
   post: TimelinePost,
   onOpenUser: (UserReference) -> Unit,
   onOpenImage: (OpenImageAction) -> Unit,
+  onOpenPost: (ThreadProps) -> Unit,
 ) {
-  Column(modifier = modifier.padding(top = 16.dp),) {
+  Column(modifier = modifier.padding(top = 16.dp)) {
     Row(
       modifier = Modifier.padding(horizontal = 16.dp),
       horizontalArrangement = spacedBy(16.dp),
@@ -54,7 +56,7 @@ fun ThreadPostItem(
           CompositionLocalProvider(LocalTextStyle provides MaterialTheme.typography.headlineSmall) {
             PostText(post, {}, onOpenUser)
           }
-          PostFeature(now, post.feature, onOpenImage)
+          PostFeature(now, post.feature, onOpenImage, onOpenPost)
           PostDate(post.createdAt)
         }
       }

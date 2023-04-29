@@ -28,6 +28,7 @@ import sh.christian.ozone.thread.ThreadState.ShowingProfile
 import sh.christian.ozone.ui.compose.ImageOverlayScreen
 import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
+import sh.christian.ozone.ui.workflow.EmptyScreen
 
 class ThreadWorkflow(
   private val clock: Clock,
@@ -38,14 +39,19 @@ class ThreadWorkflow(
   override fun initialState(
     props: ThreadProps,
     snapshot: Snapshot?,
-  ): ThreadState = FetchingPost(
-    thread = Thread(
-      post = props.originalPost,
-      parents = emptyList(),
-      replies = emptyList(),
-    ),
-    previousState = null,
-  )
+  ): ThreadState {
+    return FetchingPost(
+      thread = props.originalPost?.let { originalPost ->
+        Thread(
+          post = originalPost,
+          parents = emptyList(),
+          replies = emptyList(),
+        )
+      },
+      previousState = null,
+      uri = props.uri,
+    )
+  }
 
   override fun render(
     renderProps: ThreadProps,
@@ -53,13 +59,15 @@ class ThreadWorkflow(
     context: RenderContext
   ): AppScreen {
     val screenStack = generateSequence(renderState) { it.previousState }
+      .filter { it.thread != null }
       .toList()
       .reversed()
-      .map { state -> context.threadScreen(state.thread) }
+      .map { state -> context.threadScreen(state.thread!!) }
+      .ifEmpty { listOf(EmptyScreen) }
 
     return when (renderState) {
       is FetchingPost -> {
-        context.runningWorker(loadPost(renderState.thread.post.uri)) { result ->
+        context.runningWorker(loadPost(renderState.uri)) { result ->
           action {
             state = when (result) {
               is AtpResponse.Success -> {
@@ -147,16 +155,20 @@ class ThreadWorkflow(
         state = FetchingPost(
           previousState = state.previousState,
           thread = thread,
+          uri = thread.post.uri,
         )
       },
-      onOpenThread = eventHandler { post ->
+      onOpenPost = eventHandler { post ->
         state = FetchingPost(
-          thread = Thread(
-            post = post,
-            parents = emptyList(),
-            replies = emptyList(),
-          ),
+          thread = post.originalPost?.let { originalPost ->
+            Thread(
+              post = originalPost,
+              parents = emptyList(),
+              replies = emptyList(),
+            )
+          },
           previousState = state,
+          uri = post.uri,
         )
       },
       onOpenImage = eventHandler { action ->

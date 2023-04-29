@@ -182,8 +182,7 @@ class TimelineWorkflow(
         val props = ComposePostProps(profile!!)
         setOutput(EnterScreen(HomeSubDestination.GoToComposePost(props)))
       },
-      onOpenThread = eventHandler { post ->
-        val props = ThreadProps(post)
+      onOpenPost = eventHandler { props ->
         setOutput(EnterScreen(HomeSubDestination.GoToThread(props)))
       },
       onOpenUser = eventHandler { user ->

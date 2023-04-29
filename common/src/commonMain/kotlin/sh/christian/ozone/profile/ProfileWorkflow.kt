@@ -23,7 +23,6 @@ import sh.christian.ozone.profile.ProfileState.ShowingError
 import sh.christian.ozone.profile.ProfileState.ShowingFullSizeImage
 import sh.christian.ozone.profile.ProfileState.ShowingProfile
 import sh.christian.ozone.profile.ProfileState.ShowingThread
-import sh.christian.ozone.thread.ThreadProps
 import sh.christian.ozone.thread.ThreadWorkflow
 import sh.christian.ozone.ui.compose.ImageOverlayScreen
 import sh.christian.ozone.ui.compose.TextOverlayScreen
@@ -187,10 +186,10 @@ class ProfileWorkflow(
           previousState = state.previousState,
         )
       },
-      onOpenThread = eventHandler { post ->
+      onOpenPost = eventHandler { props ->
         state = ShowingThread(
           previousState = state,
-          props = ThreadProps(post),
+          props = props,
         )
       },
       onOpenUser = eventHandler { user ->

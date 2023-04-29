@@ -9,6 +9,7 @@ import sh.christian.ozone.model.TimelinePostFeature.ExternalFeature
 import sh.christian.ozone.model.TimelinePostFeature.ImagesFeature
 import sh.christian.ozone.model.TimelinePostFeature.MediaPostFeature
 import sh.christian.ozone.model.TimelinePostFeature.PostFeature
+import sh.christian.ozone.thread.ThreadProps
 import sh.christian.ozone.timeline.components.feature.InvisiblePostPost
 import sh.christian.ozone.timeline.components.feature.PostExternal
 import sh.christian.ozone.timeline.components.feature.PostImages
@@ -20,6 +21,7 @@ internal fun PostFeature(
   now: Instant,
   feature: TimelinePostFeature?,
   onOpenImage: (OpenImageAction) -> Unit,
+  onOpenPost: (ThreadProps) -> Unit,
 ) {
   val uriHandler = LocalUriHandler.current
   when (feature) {
@@ -29,7 +31,9 @@ internal fun PostFeature(
     })
     is PostFeature -> when (val embedPost = feature.post) {
       is EmbedPost.VisibleEmbedPost -> {
-        VisiblePostPost(now, embedPost.litePost, embedPost.author, onClick = {})
+        VisiblePostPost(now, embedPost.litePost, embedPost.author, onClick = {
+          onOpenPost(ThreadProps.FromReference(embedPost.reference))
+        })
       }
       is EmbedPost.InvisibleEmbedPost -> InvisiblePostPost(onClick = {})
     }
@@ -42,7 +46,9 @@ internal fun PostFeature(
       }
       when (val embedPost = feature.post) {
         is EmbedPost.VisibleEmbedPost -> {
-          VisiblePostPost(now, embedPost.litePost, embedPost.author, onClick = {})
+          VisiblePostPost(now, embedPost.litePost, embedPost.author, onClick = {
+            onOpenPost(ThreadProps.FromReference(embedPost.reference))
+          })
         }
         is EmbedPost.InvisibleEmbedPost -> InvisiblePostPost(onClick = {})
       }
