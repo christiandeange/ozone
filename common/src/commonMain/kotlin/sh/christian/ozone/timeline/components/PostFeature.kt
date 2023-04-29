@@ -10,6 +10,7 @@ import sh.christian.ozone.model.TimelinePostFeature.ImagesFeature
 import sh.christian.ozone.model.TimelinePostFeature.MediaPostFeature
 import sh.christian.ozone.model.TimelinePostFeature.PostFeature
 import sh.christian.ozone.thread.ThreadProps
+import sh.christian.ozone.timeline.components.feature.BlockedPostPost
 import sh.christian.ozone.timeline.components.feature.InvisiblePostPost
 import sh.christian.ozone.timeline.components.feature.PostExternal
 import sh.christian.ozone.timeline.components.feature.PostImages
@@ -36,6 +37,7 @@ internal fun PostFeature(
         })
       }
       is EmbedPost.InvisibleEmbedPost -> InvisiblePostPost(onClick = {})
+      is EmbedPost.BlockedEmbedPost -> BlockedPostPost(onClick = {})
     }
     is MediaPostFeature -> {
       when (val embedMedia = feature.media) {
@@ -51,6 +53,7 @@ internal fun PostFeature(
           })
         }
         is EmbedPost.InvisibleEmbedPost -> InvisiblePostPost(onClick = {})
+        is EmbedPost.BlockedEmbedPost -> BlockedPostPost(onClick = {})
       }
     }
     null -> Unit

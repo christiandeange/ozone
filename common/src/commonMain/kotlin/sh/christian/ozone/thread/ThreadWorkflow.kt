@@ -1,6 +1,7 @@
 package sh.christian.ozone.thread
 
 import app.bsky.feed.GetPostThreadQueryParams
+import app.bsky.feed.GetPostThreadResponseThreadUnion.BlockedPost
 import app.bsky.feed.GetPostThreadResponseThreadUnion.NotFoundPost
 import app.bsky.feed.GetPostThreadResponseThreadUnion.ThreadViewPost
 import com.squareup.workflow1.Snapshot
@@ -76,7 +77,8 @@ class ThreadWorkflow(
                     previousState = state.previousState,
                     thread = thread.value.toThread(),
                   )
-                  is NotFoundPost -> ShowingError(
+                  is NotFoundPost,
+                  is BlockedPost -> ShowingError(
                     previousState = state,
                     props = ErrorProps.CustomError("Oops.", "Could not load thread.", false),
                   )

@@ -3,11 +3,11 @@ package sh.christian.ozone.timeline.components.feature
 import androidx.compose.runtime.Composable
 
 @Composable
-fun InvisiblePostPost(onClick: (() -> Unit)?) {
+fun BlockedPostPost(onClick: (() -> Unit)?) {
   FeatureContainer(onClick = onClick) {
     PostFeatureTextContent(
-      title = "Post not found",
-      description = "The post may have been deleted.",
+      title = "Post is blocked",
+      description = "You are blocked from reading this post.",
       url = null,
     )
   }

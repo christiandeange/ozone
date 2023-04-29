@@ -6,6 +6,7 @@ import app.bsky.embed.RecordViewRecordUnion
 import app.bsky.embed.RecordWithMediaViewMediaUnion
 import app.bsky.feed.DefsPostViewEmbedUnion
 import app.bsky.feed.Post
+import sh.christian.ozone.model.EmbedPost.BlockedEmbedPost
 import sh.christian.ozone.model.EmbedPost.InvisibleEmbedPost
 import sh.christian.ozone.model.EmbedPost.VisibleEmbedPost
 import sh.christian.ozone.model.TimelinePostFeature.ExternalFeature
@@ -55,6 +56,10 @@ sealed interface EmbedPost {
   }
 
   data class InvisibleEmbedPost(
+    val uri: String,
+  ) : EmbedPost
+
+  data class BlockedEmbedPost(
     val uri: String,
   ) : EmbedPost
 }
@@ -107,6 +112,11 @@ private fun ExternalView.toExternalFeature(): ExternalFeature {
 
 private fun RecordViewRecordUnion.toEmbedPost(): EmbedPost {
   return when (this) {
+    is RecordViewRecordUnion.ViewBlocked -> {
+      BlockedEmbedPost(
+        uri = value.uri,
+      )
+    }
     is RecordViewRecordUnion.ViewNotFound -> {
       InvisibleEmbedPost(
         uri = value.uri,

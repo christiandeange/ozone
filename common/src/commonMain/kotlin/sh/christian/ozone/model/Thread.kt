@@ -3,6 +3,7 @@ package sh.christian.ozone.model
 import app.bsky.feed.DefsThreadViewPost
 import app.bsky.feed.DefsThreadViewPostParentUnion
 import app.bsky.feed.DefsThreadViewPostReplieUnion
+import sh.christian.ozone.model.ThreadPost.BlockedPost
 import sh.christian.ozone.model.ThreadPost.NotFoundPost
 import sh.christian.ozone.model.ThreadPost.ViewablePost
 
@@ -19,6 +20,8 @@ sealed interface ThreadPost {
   ) : ThreadPost
 
   object NotFoundPost : ThreadPost
+
+  object BlockedPost : ThreadPost
 }
 
 fun DefsThreadViewPost.toThread(): Thread {
@@ -26,6 +29,7 @@ fun DefsThreadViewPost.toThread(): Thread {
     post = post.toPost(),
     parents = generateSequence(parent) { parentPost ->
       when (parentPost) {
+        is DefsThreadViewPostParentUnion.BlockedPost -> null
         is DefsThreadViewPostParentUnion.NotFoundPost -> null
         is DefsThreadViewPostParentUnion.ThreadViewPost -> parentPost.value.parent
       }
@@ -43,6 +47,7 @@ fun DefsThreadViewPostParentUnion.toThreadPost(): ThreadPost = when (this) {
     replies = value.replies.map { it.toThreadPost() }
   )
   is DefsThreadViewPostParentUnion.NotFoundPost -> NotFoundPost
+  is DefsThreadViewPostParentUnion.BlockedPost -> BlockedPost
 }
 
 fun DefsThreadViewPostReplieUnion.toThreadPost(): ThreadPost = when (this) {
@@ -51,4 +56,5 @@ fun DefsThreadViewPostReplieUnion.toThreadPost(): ThreadPost = when (this) {
     replies = value.replies.map { it.toThreadPost() },
   )
   is DefsThreadViewPostReplieUnion.NotFoundPost -> NotFoundPost
+  is DefsThreadViewPostReplieUnion.BlockedPost -> BlockedPost
 }

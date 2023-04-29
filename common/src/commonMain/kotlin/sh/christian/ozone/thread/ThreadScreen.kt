@@ -44,6 +44,7 @@ import sh.christian.ozone.model.Thread
 import sh.christian.ozone.model.ThreadPost
 import sh.christian.ozone.timeline.components.ThreadPostItem
 import sh.christian.ozone.timeline.components.TimelinePostItem
+import sh.christian.ozone.timeline.components.feature.BlockedPostPost
 import sh.christian.ozone.timeline.components.feature.InvisiblePostPost
 import sh.christian.ozone.timeline.components.hasInteractions
 import sh.christian.ozone.ui.compose.AvatarImage
@@ -220,13 +221,20 @@ private fun SmallThreadPostItem(
       )
     }
     is ThreadPost.NotFoundPost -> {
-      ForbiddenPostItem()
+      ForbiddenPostItem {
+        InvisiblePostPost(onClick = null)
+      }
+    }
+    is ThreadPost.BlockedPost -> {
+      ForbiddenPostItem {
+        BlockedPostPost(onClick = null)
+      }
     }
   }
 }
 
 @Composable
-private fun ForbiddenPostItem() {
+private fun ForbiddenPostItem(content: @Composable () -> Unit) {
   Row(
     modifier = Modifier.padding(16.dp),
     horizontalArrangement = Arrangement.spacedBy(16.dp),
@@ -240,7 +248,7 @@ private fun ForbiddenPostItem() {
     )
 
     Column(Modifier.weight(1f)) {
-      InvisiblePostPost(onClick = null)
+      content()
     }
   }
 }
@@ -250,7 +258,8 @@ private fun ThreadPost.withInterestingReplies(ops: Collection<Profile>): List<Th
     addAll(ops.map { it.did })
     when (this@withInterestingReplies) {
       is ThreadPost.ViewablePost -> add(post.author.did)
-      is ThreadPost.NotFoundPost -> Unit
+      is ThreadPost.NotFoundPost,
+      is ThreadPost.BlockedPost -> Unit
     }
   }
 
@@ -261,7 +270,8 @@ private fun ThreadPost.withInterestingReplies(ops: Collection<Profile>): List<Th
         viewableReplies.firstOrNull { replyPost -> replyPost.post.author.did in conversation }
           ?: viewableReplies.firstOrNull { replyPost -> replyPost.post.hasInteractions() }
       }
-      is ThreadPost.NotFoundPost -> null
+      is ThreadPost.NotFoundPost,
+      is ThreadPost.BlockedPost -> null
     }
   }.toList().let { replyThread ->
     if (
