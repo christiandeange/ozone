@@ -27,6 +27,7 @@ private fun Project.applyPlugin() {
     commonMain.kotlin.srcDir(extension.outputDirectory)
     commonMain.dependencies {
       api("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+      api(project(":api-gen-runtime"))
     }
 
     kotlinExtension.targets.configureEach {

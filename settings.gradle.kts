@@ -28,6 +28,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "ozone"
 
-include(":android", ":desktop", ":common", ":store", ":api")
+include(":android", ":desktop", ":common", ":store", ":api", ":api-gen-runtime")
 
 includeBuild("api-gen")

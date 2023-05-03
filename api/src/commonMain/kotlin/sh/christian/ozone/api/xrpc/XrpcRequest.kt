@@ -7,7 +7,7 @@ import io.ktor.client.request.parameter
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.client.statement.HttpResponse
-import sh.christian.ozone.api.Encoding
+import sh.christian.ozone.api.runtime.Encoding
 import sh.christian.ozone.api.response.AtpErrorDescription
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.api.response.StatusCode

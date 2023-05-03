@@ -4,11 +4,13 @@ import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.BOOLEAN
 import com.squareup.kotlinpoet.BYTE_ARRAY
 import com.squareup.kotlinpoet.ClassName
+import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.DOUBLE
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.LIST
 import com.squareup.kotlinpoet.LONG
+import com.squareup.kotlinpoet.MemberName
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.ParameterizedTypeName
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
@@ -20,6 +22,7 @@ import org.gradle.configurationcache.extensions.capitalized
 import sh.christian.ozone.api.generator.INSTANT
 import sh.christian.ozone.api.generator.JSON_ELEMENT
 import sh.christian.ozone.api.generator.JVM_INLINE
+import sh.christian.ozone.api.generator.KSERIALIZER
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.SERIALIZABLE
 import sh.christian.ozone.api.generator.SERIAL_NAME
@@ -93,11 +96,23 @@ fun createValueClass(
   className: ClassName,
   innerType: TypeName,
   additionalConfiguration: TypeSpec.Builder.() -> Unit = {},
-): TypeSpec {
-  return TypeSpec.classBuilder(className)
+): List<TypeSpec> {
+  val serializerClassName = className.peerClass(className.simpleName + "Serializer")
+  val serializerTypeSpec = TypeSpec.classBuilder(serializerClassName)
+    .addSuperinterface(
+      KSERIALIZER.parameterizedBy(className),
+      CodeBlock.of("%M()", MemberName("sh.christian.ozone.api.runtime", "valueClassSerializer"))
+    )
+    .build()
+
+  val valueClassTypeSpec = TypeSpec.classBuilder(className)
+    .addAnnotation(
+      AnnotationSpec.builder(SERIALIZABLE)
+        .addMember("with = %T::class", serializerClassName)
+        .build()
+    )
     .addModifiers(KModifier.VALUE)
     .addAnnotation(JVM_INLINE)
-    .addAnnotation(SERIALIZABLE)
     .primaryConstructor(
       FunSpec.constructorBuilder()
         .addParameter(
@@ -115,6 +130,8 @@ fun createValueClass(
     )
     .apply(additionalConfiguration)
     .build()
+
+  return listOf(serializerTypeSpec, valueClassTypeSpec)
 }
 
 fun createEnumClass(

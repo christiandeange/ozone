@@ -32,7 +32,6 @@ abstract class LexiconGeneratorTask : DefaultTask() {
     )
 
     val lexiconClassFileCreator = LexiconClassFileCreator(environment = processingEnvironment)
-    lexiconClassFileCreator.createCommonClasses()
 
     processingEnvironment.forEach { schemaId ->
       try {

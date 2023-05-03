@@ -300,9 +300,9 @@ class LexiconDataClassesGenerator(
         .replace(Regex("[.#][a-z]")) { it.value[1].uppercase() }
         .capitalized()
 
-      sealedInterface.addType(
+      sealedInterface.addTypes(
         createValueClass(
-          className = ClassName(context.authority, uniqueName),
+          className = name.nestedClass(uniqueName),
           innerType = typeName,
           additionalConfiguration = {
             addSuperinterface(name)
