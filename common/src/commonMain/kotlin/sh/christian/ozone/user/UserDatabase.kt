@@ -4,6 +4,7 @@ import app.bsky.actor.GetProfileQueryParams
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.emitAll
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.datetime.Clock
@@ -21,7 +22,11 @@ class UserDatabase(
   private val storage: PersistentStorage,
   private val apiProvider: ApiProvider,
 ) {
-  fun profile(userReference: UserReference): Flow<FullProfile> = flow {
+  fun profile(userReference: UserReference): Flow<FullProfile> {
+    return profileOrNull(userReference).filterNotNull()
+  }
+
+  fun profileOrNull(userReference: UserReference): Flow<FullProfile?> = flow {
     val key = when (userReference) {
       is UserReference.Did -> "did:${userReference.did}"
       is UserReference.Handle -> "handle:${userReference.handle}"
@@ -37,15 +42,18 @@ class UserDatabase(
       is UserReference.Did -> userReference.did
       is UserReference.Handle -> userReference.handle
     }
-    apiProvider.api.getProfile(GetProfileQueryParams(identifier))
-      .maybeResponse()
-      ?.let { response ->
-        val profile = response.toProfile()
-        val newCacheObject = CacheObject(clock.now(), profile)
-        storage.preference<CacheObject>("did:${profile.did}", null).set(newCacheObject)
-        storage.preference<CacheObject>("handle:${profile.handle}", null).set(newCacheObject)
-        emit(profile)
-      }
+
+    val profileOrNull =
+      apiProvider.api.getProfile(GetProfileQueryParams(identifier))
+        .maybeResponse()
+        ?.let { response ->
+          val profile = response.toProfile()
+          val newCacheObject = CacheObject(clock.now(), profile)
+          storage.preference<CacheObject>("did:${profile.did}", null).set(newCacheObject)
+          storage.preference<CacheObject>("handle:${profile.handle}", null).set(newCacheObject)
+          profile
+        }
+    emit(profileOrNull)
 
     emitAll(preference.updates.mapNotNull { it?.profile })
   }.distinctUntilChanged()

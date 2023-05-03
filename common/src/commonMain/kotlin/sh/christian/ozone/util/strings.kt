@@ -24,7 +24,9 @@ fun String.byteOffsets(): List<Int> {
       }
       i++
     }
-    add(this@buildList.last() + 1)
+    if (!isEmpty()) {
+      add(this@buildList.last() + 1)
+    }
   }
 }
 

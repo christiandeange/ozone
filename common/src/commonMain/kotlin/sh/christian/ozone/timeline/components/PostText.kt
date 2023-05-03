@@ -30,7 +30,7 @@ internal fun PostText(
   val text = post.text.removeSuffix(maybeExternalLink.orEmpty()).trim()
 
   if (text.isNotBlank()) {
-    val postText = formatTextPost(text, post.textLinks)
+    val postText = rememberFormattedTextPost(text, post.textLinks)
 
     val uriHandler = LocalUriHandler.current
     ClickableText(
@@ -54,35 +54,40 @@ internal fun PostText(
   }
 }
 
-@OptIn(ExperimentalTextApi::class)
 @Composable
+fun rememberFormattedTextPost(
+  text: String,
+  textLinks: List<TimelinePostLink>,
+): AnnotatedString {
+  return remember(text, textLinks) { formatTextPost(text, textLinks) }
+}
+
+@OptIn(ExperimentalTextApi::class)
 fun formatTextPost(
   text: String,
   textLinks: List<TimelinePostLink>,
 ): AnnotatedString {
-  return remember(text, textLinks) {
-    buildAnnotatedString {
-      append(text)
+  return buildAnnotatedString {
+    append(text)
 
-      val byteOffsets = text.byteOffsets()
-      textLinks.forEach { link ->
-        if (link.start < byteOffsets.size && link.end < byteOffsets.size) {
-          val start = byteOffsets[link.start]
-          val end = byteOffsets[link.end]
+    val byteOffsets = text.byteOffsets()
+    textLinks.forEach { link ->
+      if (link.start < byteOffsets.size && link.end < byteOffsets.size) {
+        val start = byteOffsets[link.start]
+        val end = byteOffsets[link.end]
 
-          addStyle(
-            style = SpanStyle(color = Color(0xFF3B62FF)),
-            start = start,
-            end = end,
-          )
+        addStyle(
+          style = SpanStyle(color = Color(0xFF3B62FF)),
+          start = start,
+          end = end,
+        )
 
-          when (link.target) {
-            is LinkTarget.ExternalLink -> {
-              addUrlAnnotation(UrlAnnotation(link.target.url), start, end)
-            }
-            is LinkTarget.UserMention -> {
-              addStringAnnotation("did", link.target.did, start, end)
-            }
+        when (link.target) {
+          is LinkTarget.ExternalLink -> {
+            addUrlAnnotation(UrlAnnotation(link.target.url), start, end)
+          }
+          is LinkTarget.UserMention -> {
+            addStringAnnotation("did", link.target.did, start, end)
           }
         }
       }

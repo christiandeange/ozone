@@ -80,6 +80,7 @@ class AppComponent(
     ComposePostWorkflow(
       clock = clock,
       apiProvider = apiProvider,
+      userDatabase = userDatabase,
       errorWorkflow = errorWorkflow,
     )
   }

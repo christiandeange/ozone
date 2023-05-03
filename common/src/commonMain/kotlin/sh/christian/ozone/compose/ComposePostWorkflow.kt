@@ -1,11 +1,21 @@
 package sh.christian.ozone.compose
 
 import app.bsky.feed.Post
+import app.bsky.richtext.Facet
+import app.bsky.richtext.FacetByteSlice
+import app.bsky.richtext.FacetFeatureUnion.Link
+import app.bsky.richtext.FacetFeatureUnion.Mention
+import app.bsky.richtext.FacetLink
+import app.bsky.richtext.FacetMention
 import com.atproto.repo.CreateRecordRequest
 import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.action
 import com.squareup.workflow1.runningWorker
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.flow.first
 import kotlinx.datetime.Clock
 import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.api.NetworkWorker
@@ -20,14 +30,19 @@ import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorProps.CustomError
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.error.toErrorProps
+import sh.christian.ozone.model.LinkTarget.ExternalLink
+import sh.christian.ozone.model.LinkTarget.UserMention
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
+import sh.christian.ozone.user.UserDatabase
+import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.util.serialize
 
 class ComposePostWorkflow(
   private val clock: Clock,
   private val apiProvider: ApiProvider,
+  private val userDatabase: UserDatabase,
   private val errorWorkflow: ErrorWorkflow,
 ) : StatefulWorkflow<ComposePostProps, ComposePostState, ComposePostOutput, AppScreen>() {
   override fun initialState(
@@ -98,12 +113,38 @@ class ComposePostWorkflow(
   }
 
   private fun post(post: PostPayload) = NetworkWorker {
+    val resolvedLinks = coroutineScope {
+      post.links.map { link ->
+        async {
+          when (link.target) {
+            is ExternalLink -> link
+            is UserMention -> {
+              userDatabase.profileOrNull(UserReference.Handle(link.target.did))
+                .first()
+                ?.let { profile -> link.copy(target = UserMention(profile.did)) }
+            }
+          }
+        }
+      }.awaitAll()
+    }.filterNotNull()
+
     val request = CreateRecordRequest(
       repo = post.authorDid,
       collection = "app.bsky.feed.post",
       record = Post.serializer().serialize(
         Post(
           text = post.text,
+          facets = resolvedLinks.map { link ->
+            Facet(
+              index = FacetByteSlice(link.start.toLong(), link.end.toLong()),
+              features = listOf(
+                when (link.target) {
+                  is ExternalLink -> Link(FacetLink(link.target.url))
+                  is UserMention -> Mention(FacetMention(link.target.did))
+                }
+              ),
+            )
+          },
           createdAt = clock.now(),
         )
       ),
