@@ -29,6 +29,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.runtime.key
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -145,15 +146,17 @@ class TimelineScreen(
           state = feedState,
         ) {
           items(items = timeline) { post ->
-            Divider(thickness = Dp.Hairline)
+            key(post) {
+              Divider(thickness = Dp.Hairline)
 
-            TimelinePostItem(
-              now = now,
-              post = post,
-              onOpenPost = onOpenPost,
-              onOpenUser = onOpenUser,
-              onOpenImage = onOpenImage,
-            )
+              TimelinePostItem(
+                now = now,
+                post = post,
+                onOpenPost = onOpenPost,
+                onOpenUser = onOpenUser,
+                onOpenImage = onOpenImage,
+              )
+            }
           }
 
           item {

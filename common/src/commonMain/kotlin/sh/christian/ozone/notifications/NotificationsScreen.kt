@@ -14,6 +14,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.runtime.key
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
@@ -51,13 +52,15 @@ class NotificationsScreen(
           Divider(thickness = Dp.Hairline)
         }
 
-        items(notifications) {
-          Column {
-            Column(Modifier.padding(16.dp), verticalArrangement = spacedBy(4.dp)) {
-              // TODO actually format notifications.
-              Text(it.reason)
+        items(notifications) { notification ->
+          key(notification) {
+            Column {
+              Column(Modifier.padding(16.dp), verticalArrangement = spacedBy(4.dp)) {
+                // TODO actually format notifications.
+                Text(notification.reason)
+              }
+              Divider(thickness = Dp.Hairline)
             }
-            Divider(thickness = Dp.Hairline)
           }
         }
       }

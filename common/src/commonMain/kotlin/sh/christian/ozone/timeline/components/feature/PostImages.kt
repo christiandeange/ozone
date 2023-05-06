@@ -26,14 +26,20 @@ internal fun PostImages(
   }
 
   Row(horizontalArrangement = spacedBy(8.dp)) {
+    val modifier = if (feature.images.size == 1) {
+      Modifier
+    } else {
+      Modifier
+        .weight(1f)
+        .aspectRatio(1f)
+    }
+
     feature.images.forEachIndexed { i, image ->
       // Preload the full-size image into the cache.
       rememberUrlPainter(image.fullsize)
 
       PostImage(
-        modifier = Modifier
-          .weight(1f)
-          .aspectRatio(1f),
+        modifier = modifier,
         imageUrl = image.thumb,
         contentDescription = image.alt,
         onClick = {

@@ -32,6 +32,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -108,19 +109,21 @@ class ThreadScreen(
         }
 
         itemsIndexed(thread.parents) { i, parentPost ->
-          Box {
-            ConversationLinks(
-              drawAbove = i != 0,
-              drawBelow = true,
-            )
+          key(parentPost) {
+            Box {
+              ConversationLinks(
+                drawAbove = i != 0,
+                drawBelow = true,
+              )
 
-            SmallThreadPostItem(
-              now = now,
-              post = parentPost,
-              onOpenPost = onOpenPost,
-              onOpenUser = onOpenUser,
-              onOpenImage = onOpenImage,
-            )
+              SmallThreadPostItem(
+                now = now,
+                post = parentPost,
+                onOpenPost = onOpenPost,
+                onOpenUser = onOpenUser,
+                onOpenImage = onOpenImage,
+              )
+            }
           }
         }
 
@@ -142,24 +145,26 @@ class ThreadScreen(
         }
 
         items(thread.replies) { reply ->
-          val replyReplies = reply.withInterestingReplies(
-            ops = thread.parents.viewable().map { it.post.author } + thread.post.author,
-          )
+          key(reply) {
+            val replyReplies = reply.withInterestingReplies(
+              ops = thread.parents.viewable().map { it.post.author } + thread.post.author,
+            )
 
-          replyReplies.forEachIndexed { i, replyPost ->
-            Box {
-              ConversationLinks(
-                drawAbove = i != 0,
-                drawBelow = i != replyReplies.lastIndex,
-              )
+            replyReplies.forEachIndexed { i, replyPost ->
+              Box {
+                ConversationLinks(
+                  drawAbove = i != 0,
+                  drawBelow = i != replyReplies.lastIndex,
+                )
 
-              SmallThreadPostItem(
-                now = now,
-                post = replyPost,
-                onOpenPost = onOpenPost,
-                onOpenUser = onOpenUser,
-                onOpenImage = onOpenImage,
-              )
+                SmallThreadPostItem(
+                  now = now,
+                  post = replyPost,
+                  onOpenPost = onOpenPost,
+                  onOpenUser = onOpenUser,
+                  onOpenImage = onOpenImage,
+                )
+              }
             }
           }
         }
