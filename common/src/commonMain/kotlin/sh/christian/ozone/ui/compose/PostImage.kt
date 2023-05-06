@@ -1,5 +1,6 @@
 package sh.christian.ozone.ui.compose
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -9,8 +10,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import io.kamel.core.Resource
-import io.kamel.image.KamelImage
 
 @Composable
 fun PostImage(
@@ -21,23 +20,22 @@ fun PostImage(
   fallbackColor: Color = Color.Transparent,
 ) {
   if (imageUrl != null) {
-    val resource = rememberUrlPainter(imageUrl)
-    val clickable = if (resource is Resource.Success) {
-      Modifier.clickable { onClick() }
-    } else {
-      Modifier
+    when (val resource = rememberUrlPainter(imageUrl)) {
+      is PainterResource.Failure,
+      is PainterResource.Loading -> {
+        EmptyPostImage(fallbackColor)
+      }
+      is PainterResource.Success -> {
+        Image(
+          modifier = modifier
+            .clip(MaterialTheme.shapes.large)
+            .clickable { onClick() },
+          painter = resource.painter,
+          contentDescription = contentDescription,
+          contentScale = ContentScale.Crop,
+        )
+      }
     }
-
-    KamelImage(
-      modifier = modifier
-        .clip(MaterialTheme.shapes.large)
-        .then(clickable),
-      resource = resource,
-      contentDescription = contentDescription,
-      onLoading = { EmptyPostImage(fallbackColor) },
-      onFailure = { EmptyPostImage(fallbackColor) },
-      contentScale = ContentScale.Crop,
-    )
   } else {
     EmptyPostImage(fallbackColor, modifier)
   }

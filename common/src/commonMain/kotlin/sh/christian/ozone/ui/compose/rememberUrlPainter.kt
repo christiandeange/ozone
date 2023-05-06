@@ -1,6 +1,7 @@
 package sh.christian.ozone.ui.compose
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -42,7 +43,7 @@ fun rememberUrlPainter(
   onLoadingPainter: @Composable (Float) -> Painter? = { null },
   onFailurePainter: @Composable (Throwable) -> Painter? = { null },
   block: ResourceConfigBuilder.() -> Unit = {},
-): Resource<Painter> {
+): PainterResource {
 
   val kamelConfig = LocalKamelConfig.current
   val density = LocalDensity.current
@@ -84,7 +85,7 @@ fun rememberUrlPainter(
     }
   }
 
-  return painterResourceWithFallbacks.map { value ->
+  val kamelResource = painterResourceWithFallbacks.map { value ->
     when (value) {
       is ImageVector -> rememberVectorPainter(value)
       is ImageBitmap -> remember(value) {
@@ -92,6 +93,12 @@ fun rememberUrlPainter(
       }
       else -> remember(value) { value as Painter }
     }
+  }
+
+  return when (kamelResource) {
+    is Resource.Failure -> PainterResource.Failure
+    is Resource.Loading -> PainterResource.Loading
+    is Resource.Success -> PainterResource.Success(kamelResource.value)
   }
 }
 
@@ -102,4 +109,16 @@ private fun KamelConfig.mapInput(input: Any): Any {
     output != null
   }
   return output ?: input
+}
+
+@Stable
+sealed interface PainterResource {
+  @Stable
+  object Loading : PainterResource
+
+  @Stable
+  object Failure : PainterResource
+
+  @Stable
+  data class Success(val painter: Painter) : PainterResource
 }

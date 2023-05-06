@@ -5,6 +5,7 @@ import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -28,7 +29,6 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.IntSize
-import io.kamel.image.KamelImage
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.OverlayRendering
 import sh.christian.ozone.ui.workflow.overlay
@@ -59,27 +59,34 @@ class ImageOverlayScreen(
         val maxX by remember { derivedStateOf { (size.width * (scale - 1)) / 2 } }
         val maxY by remember { derivedStateOf { (size.height * (scale - 1)) / 2 } }
 
-        KamelImage(
-          modifier = Modifier
-            .align(Alignment.Center)
-            .onSizeChanged { size = it }
-            .pointerInput(Unit) {
-              detectTransformGestures(panZoomLock = true) { _, pan, zoom, _ ->
-                scale = (scale * zoom).coerceIn(1f, 4f)
-                offsetX = (offsetX + pan.x).coerceIn(-maxX, maxX)
-                offsetY = (offsetY + pan.y).coerceIn(-maxY, maxY)
-              }
-            }
-            .graphicsLayer {
-              scaleX = scale
-              scaleY = scale
-              translationX = offsetX
-              translationY = offsetY
-            },
-          resource = rememberUrlPainter(action.images[page].imageUrl),
-          contentDescription = action.images[page].alt,
-          contentScale = ContentScale.Fit,
-        )
+        val url = action.images[page].imageUrl
+        when (val resource = rememberUrlPainter(url)) {
+          is PainterResource.Failure,
+          is PainterResource.Loading -> Unit
+          is PainterResource.Success -> {
+            Image(
+              modifier = Modifier
+                .fillMaxSize()
+                .onSizeChanged { size = it }
+                .pointerInput(Unit) {
+                  detectTransformGestures(panZoomLock = true) { _, pan, zoom, _ ->
+                    scale = (scale * zoom).coerceIn(1f, 4f)
+                    offsetX = (offsetX + pan.x).coerceIn(-maxX, maxX)
+                    offsetY = (offsetY + pan.y).coerceIn(-maxY, maxY)
+                  }
+                }
+                .graphicsLayer {
+                  scaleX = scale
+                  scaleY = scale
+                  translationX = offsetX
+                  translationY = offsetY
+                },
+              painter = resource.painter,
+              contentDescription = action.images[page].alt,
+              contentScale = ContentScale.Fit,
+            )
+          }
+        }
       }
     }
 
