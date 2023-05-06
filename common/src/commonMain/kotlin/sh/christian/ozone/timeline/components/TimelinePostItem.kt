@@ -46,8 +46,8 @@ fun TimelinePostItem(
 
     Column(Modifier.weight(1f)) {
       PostHeadline(now, post.createdAt, author)
-      PostReplyLine(post.reply, onOpenUser)
       PostReasonLine(post.reason, onOpenUser)
+      PostReplyLine(post.reply, onOpenUser)
       Column(
         modifier = Modifier.padding(bottom = 8.dp),
         verticalArrangement = spacedBy(8.dp),

@@ -1,10 +1,13 @@
 package sh.christian.ozone.timeline.components
 
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.AnnotatedString
@@ -12,6 +15,7 @@ import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.UrlAnnotation
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.unit.dp
 import sh.christian.ozone.model.LinkTarget
 import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.model.TimelinePostFeature.ExternalFeature
@@ -29,7 +33,9 @@ internal fun PostText(
   val maybeExternalLink = (post.feature as? ExternalFeature)?.uri
   val text = post.text.removeSuffix(maybeExternalLink.orEmpty()).trim()
 
-  if (text.isNotBlank()) {
+  if (text.isBlank()) {
+    Spacer(Modifier.height(0.dp))
+  } else {
     val postText = rememberFormattedTextPost(text, post.textLinks)
 
     val uriHandler = LocalUriHandler.current

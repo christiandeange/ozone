@@ -62,7 +62,7 @@ fun ThreadPostItem(
       }
     }
 
-    Column(verticalArrangement = spacedBy(8.dp)) {
+    Column {
       if (post.hasInteractions()) {
         Divider(thickness = 1.dp)
 
@@ -73,7 +73,7 @@ fun ThreadPostItem(
 
       Divider(thickness = 1.dp)
 
-      Box(modifier = Modifier.padding(start = 80.dp)) {
+      Box(modifier = Modifier.padding(start = 80.dp, top = 8.dp, bottom = 8.dp)) {
         PostActions(
           replyCount = null,
           repostCount = null,
