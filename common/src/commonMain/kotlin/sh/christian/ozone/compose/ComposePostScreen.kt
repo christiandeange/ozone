@@ -1,9 +1,13 @@
 package sh.christian.ozone.compose
 
+import androidx.compose.animation.core.CubicBezierEasing
 import androidx.compose.foundation.layout.Arrangement.spacedBy
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.BasicTextField
@@ -11,6 +15,7 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalContentColor
@@ -25,15 +30,17 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import sh.christian.ozone.model.LinkTarget
 import sh.christian.ozone.model.Profile
@@ -46,12 +53,16 @@ import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 import sh.christian.ozone.util.byteOffsets
 import sh.christian.ozone.util.color
+import kotlin.math.min
+import androidx.compose.ui.graphics.lerp as lerpColor
+import androidx.compose.ui.unit.lerp as lerpDp
 
 class ComposePostScreen(
   private val profile: Profile,
   private val onExit: () -> Unit,
   private val onPost: (PostPayload) -> Unit,
 ) : ViewRendering by screen({
+  val postTextLimit = 300
   var postText by remember { mutableStateOf(TextFieldValue(AnnotatedString(""))) }
   val postPayload by lazy {
     PostPayload(
@@ -102,33 +113,70 @@ class ComposePostScreen(
           fallbackColor = profile.handle.color(),
         )
 
-        val textFieldFocusRequester = remember { FocusRequester() }
+        Column {
+          val textFieldFocusRequester = remember { FocusRequester() }
 
-        BasicTextField(
-          modifier = Modifier
-            .fillMaxSize()
-            .padding(top = 8.dp)
-            .focusRequester(textFieldFocusRequester),
-          value = postText,
-          onValueChange = {
-            postText = it.copy(
-              annotatedString = formatTextPost(it.text, it.annotatedString.links())
+          BasicTextField(
+            modifier = Modifier
+              .fillMaxSize()
+              .weight(1f)
+              .focusRequester(textFieldFocusRequester),
+            value = postText,
+            onValueChange = {
+              postText = it.copy(
+                annotatedString = formatTextPost(it.text, it.annotatedString.links())
+              )
+            },
+            cursorBrush = SolidColor(MaterialTheme.colorScheme.primary),
+            textStyle = MaterialTheme.typography.bodyLarge.copy(color = LocalContentColor.current),
+            keyboardOptions = KeyboardOptions(
+              imeAction = ImeAction.Send,
+            ),
+            keyboardActions = KeyboardActions {
+              if (postText.annotatedString.isNotEmpty()) {
+                onPost(postPayload)
+              }
+            },
+          )
+
+          LaunchedEffect(Unit) {
+            textFieldFocusRequester.requestFocus()
+          }
+
+          Row(
+            modifier = Modifier
+              .fillMaxWidth()
+              .padding(vertical = 16.dp),
+            horizontalArrangement = spacedBy(16.dp, Alignment.End),
+            verticalAlignment = Alignment.CenterVertically,
+          ) {
+            val postByteCount = postText.text.codePointCount(0, postText.text.length)
+            val unboundedProgress = postByteCount / postTextLimit.toFloat()
+
+            Text(
+              modifier = Modifier.padding(top = 12.dp),
+              textAlign = TextAlign.Right,
+              text = (postTextLimit - postByteCount).toString(),
             )
-          },
-          cursorBrush = SolidColor(MaterialTheme.colorScheme.primary),
-          textStyle = TextStyle(color = LocalContentColor.current),
-          keyboardOptions = KeyboardOptions(
-            imeAction = ImeAction.Send,
-          ),
-          keyboardActions = KeyboardActions {
-            if (postText.annotatedString.isNotEmpty()) {
-              onPost(postPayload)
-            }
-          },
-        )
 
-        LaunchedEffect(Unit) {
-          textFieldFocusRequester.requestFocus()
+            val progress = min(1f, unboundedProgress)
+            val easing = remember { CubicBezierEasing(.42f, 0f, 1f, 0.58f) }
+
+            CircularProgressIndicator(
+              modifier = Modifier.height(24.dp),
+              progress = progress,
+              strokeWidth = lerpDp(
+                start = 8.dp,
+                stop = 24.dp,
+                fraction = ((unboundedProgress - 1) * 4).coerceIn(0f, 1f),
+              ),
+              color = lerpColor(
+                start = MaterialTheme.colorScheme.primary,
+                stop = Color.Red,
+                fraction = easing.transform(progress),
+              )
+            )
+          }
         }
       }
     }
