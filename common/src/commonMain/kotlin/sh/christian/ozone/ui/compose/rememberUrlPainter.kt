@@ -40,9 +40,6 @@ fun rememberUrlPainter(
   data: Any,
   key: Any? = data,
   filterQuality: FilterQuality = DrawScope.DefaultFilterQuality,
-  onLoadingPainter: @Composable (Float) -> Painter? = { null },
-  onFailurePainter: @Composable (Throwable) -> Painter? = { null },
-  block: ResourceConfigBuilder.() -> Unit = {},
 ): PainterResource {
 
   val kamelConfig = LocalKamelConfig.current
@@ -50,17 +47,16 @@ fun rememberUrlPainter(
   val resourceConfig = remember(key, density) {
     ResourceConfigBuilder()
       .apply { this.density = density }
-      .apply(block)
       .build()
   }
 
-  val cachedOutput = remember(key) {
+  val cachedOutput = remember(key, resourceConfig) {
     val output = kamelConfig.mapInput(data)
     when (data.toString().substringAfterLast(".")) {
       "svg" -> kamelConfig.svgCache[output]?.let { Resource.Success(it, DataSource.Memory) }
       "xml" -> kamelConfig.imageVectorCache[output]?.let { Resource.Success(it, DataSource.Memory) }
       else -> kamelConfig.imageBitmapCache[output]?.let { Resource.Success(it, DataSource.Memory) }
-    }
+    } ?: Resource.Loading(0f)
   }
 
   val painterResource by remember(key, resourceConfig) {
@@ -69,28 +65,12 @@ fun rememberUrlPainter(
       "xml" -> kamelConfig.loadImageVectorResource(data, resourceConfig)
       else -> kamelConfig.loadImageBitmapResource(data, resourceConfig)
     }
-  }.collectAsState(cachedOutput ?: Resource.Loading(0F), resourceConfig.coroutineContext)
+  }.collectAsState(cachedOutput, resourceConfig.coroutineContext)
 
-  val painterResourceWithFallbacks = when (painterResource) {
-    is Resource.Loading -> {
-      val resource = painterResource as Resource.Loading
-      val painter = onLoadingPainter(resource.progress)
-      if (painter != null) Resource.Success(painter) else painterResource
-    }
-    is Resource.Success -> painterResource
-    is Resource.Failure -> {
-      val resource = painterResource as Resource.Failure
-      val painter = onFailurePainter(resource.exception)
-      if (painter != null) Resource.Success(painter) else painterResource
-    }
-  }
-
-  val kamelResource = painterResourceWithFallbacks.map { value ->
+  val kamelResource = painterResource.map { value ->
     when (value) {
       is ImageVector -> rememberVectorPainter(value)
-      is ImageBitmap -> remember(value) {
-        BitmapPainter(value, filterQuality = filterQuality)
-      }
+      is ImageBitmap -> remember(value) { BitmapPainter(value, filterQuality = filterQuality) }
       else -> remember(value) { value as Painter }
     }
   }
