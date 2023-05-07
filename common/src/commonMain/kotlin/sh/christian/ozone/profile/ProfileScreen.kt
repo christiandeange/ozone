@@ -160,7 +160,7 @@ class ProfileScreen(
 
       item(contentType = "profile_header") {
         Box(Modifier.fillMaxWidth()) {
-          var isFollowing by remember { mutableStateOf(profile.followingMe) }
+          var isFollowing by remember { mutableStateOf(profile.followedByMe) }
 
           if (isSelf) {
             FollowButton(

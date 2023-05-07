@@ -61,8 +61,8 @@ fun DefsProfileViewDetailed.toProfile(): FullProfile {
     postsCount = postsCount ?: 0,
     indexedAt = indexedAt,
     mutedByMe = viewer?.muted == true,
-    followingMe = viewer?.following != null,
-    followedByMe = viewer?.followedBy != null,
+    followingMe = viewer?.followedBy != null,
+    followedByMe = viewer?.following != null,
     labels = labels.map { it.toLabel() },
   )
 }
@@ -74,8 +74,8 @@ fun DefsProfileViewBasic.toProfile(): Profile {
     displayName = displayName,
     avatar = avatar,
     mutedByMe = viewer?.muted != null,
-    followingMe = viewer?.following != null,
-    followedByMe = viewer?.followedBy != null,
+    followingMe = viewer?.followedBy != null,
+    followedByMe = viewer?.following != null,
     labels = labels.map { it.toLabel() },
   )
 }
@@ -87,8 +87,8 @@ fun DefsProfileView.toProfile(): Profile {
     displayName = displayName,
     avatar = avatar,
     mutedByMe = viewer?.muted == true,
-    followingMe = viewer?.following != null,
-    followedByMe = viewer?.followedBy != null,
+    followingMe = viewer?.followedBy != null,
+    followedByMe = viewer?.following != null,
     labels = labels.map { it.toLabel() },
   )
 }
