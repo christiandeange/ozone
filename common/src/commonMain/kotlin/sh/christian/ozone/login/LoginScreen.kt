@@ -43,7 +43,6 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -109,12 +108,6 @@ class LoginScreen(
     val password by passwordField
     val inviteCode by inviteCodeField
 
-    val credentials by remember {
-      derivedStateOf {
-        Credentials(email, username, password, inviteCode)
-      }
-    }
-
     LargeTopAppBar(
       title = {
         Text("Welcome to Ozone.")
@@ -152,18 +145,12 @@ class LoginScreen(
       horizontalAlignment = Alignment.CenterHorizontally,
     ) {
       var serverInfo: ServerInfo? by remember { mutableStateOf(null) }
-      val showInviteCodeField by remember {
-        derivedStateOf {
-          mode == SIGN_UP && serverInfo?.inviteCodeRequired == true
-        }
-      }
-      val allFieldsCompleted by remember {
-        derivedStateOf {
-          username.isNotEmpty() && password.isNotEmpty() && when (mode) {
-            SIGN_UP -> email.isNotEmpty() && (!showInviteCodeField || inviteCode.isNotEmpty())
-            SIGN_IN -> true
-          }
-        }
+
+      val showInviteCodeField = mode == SIGN_UP && serverInfo?.inviteCodeRequired == true
+
+      val allFieldsCompleted = username.isNotEmpty() && password.isNotEmpty() && when (mode) {
+        SIGN_UP -> email.isNotEmpty() && (!showInviteCodeField || inviteCode.isNotEmpty())
+        SIGN_IN -> true
       }
 
       LaunchedEffect(server) {
@@ -231,7 +218,7 @@ class LoginScreen(
         password = passwordField,
         onKeyboardAction = {
           if (allFieldsCompleted) {
-            onLogin(credentials)
+            onLogin(Credentials(email, username, password, inviteCode))
           }
         },
       )
@@ -250,7 +237,7 @@ class LoginScreen(
         modifier = Modifier.fillMaxWidth(),
         mode = mode,
         enabled = allFieldsCompleted,
-        onClick = { onLogin(credentials) },
+        onClick = { onLogin(Credentials(email, username, password, inviteCode)) },
       )
     }
   }
