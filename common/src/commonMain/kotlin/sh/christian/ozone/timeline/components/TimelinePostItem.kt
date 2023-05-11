@@ -28,6 +28,7 @@ fun TimelinePostItem(
   onOpenPost: (ThreadProps) -> Unit,
   onOpenUser: (UserReference) -> Unit,
   onOpenImage: (OpenImageAction) -> Unit,
+  onReplyToPost: () -> Unit,
 ) {
   Row(
     modifier = modifier
@@ -47,7 +48,7 @@ fun TimelinePostItem(
     Column(Modifier.weight(1f)) {
       PostHeadline(now, post.createdAt, author)
       PostReasonLine(post.reason, onOpenUser)
-      PostReplyLine(post.reply, onOpenUser)
+      PostReplyLine(post.reply?.parent?.author, onOpenUser)
       Column(
         modifier = Modifier.padding(bottom = 8.dp),
         verticalArrangement = spacedBy(8.dp),
@@ -62,6 +63,7 @@ fun TimelinePostItem(
         reposted = post.reposted,
         liked = post.liked,
         iconSize = 16.dp,
+        onReplyToPost = onReplyToPost,
       )
     }
   }

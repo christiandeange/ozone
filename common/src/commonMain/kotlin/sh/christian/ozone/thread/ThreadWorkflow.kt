@@ -13,6 +13,10 @@ import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.api.NetworkWorker
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.app.AppScreen
+import sh.christian.ozone.compose.ComposePostOutput.CanceledPost
+import sh.christian.ozone.compose.ComposePostOutput.CreatedPost
+import sh.christian.ozone.compose.ComposePostProps
+import sh.christian.ozone.compose.ComposePostWorkflow
 import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
@@ -21,6 +25,7 @@ import sh.christian.ozone.model.Thread
 import sh.christian.ozone.model.toThread
 import sh.christian.ozone.profile.ProfileProps
 import sh.christian.ozone.profile.ProfileWorkflow
+import sh.christian.ozone.thread.ThreadState.ComposingReply
 import sh.christian.ozone.thread.ThreadState.FetchingPost
 import sh.christian.ozone.thread.ThreadState.ShowingError
 import sh.christian.ozone.thread.ThreadState.ShowingFullSizeImage
@@ -35,6 +40,7 @@ class ThreadWorkflow(
   private val clock: Clock,
   private val apiProvider: ApiProvider,
   private val profileWorkflow: () -> ProfileWorkflow,
+  private val composePostWorkflow: ComposePostWorkflow,
   private val errorWorkflow: ErrorWorkflow,
 ) : StatefulWorkflow<ThreadProps, ThreadState, Unit, AppScreen>() {
   override fun initialState(
@@ -126,6 +132,22 @@ class ThreadWorkflow(
           ),
         )
       }
+      is ComposingReply -> {
+        val profileScreen = context.renderChild(composePostWorkflow, renderState.props) { output ->
+          action {
+            state = when (output) {
+              CanceledPost -> renderState.previousState
+              CreatedPost -> FetchingPost(
+                thread = state.thread,
+                previousState = renderState.previousState.previousState,
+                uri = props.uri,
+              )
+            }
+          }
+        }
+
+        profileScreen.copy(mains = screenStack + profileScreen.mains)
+      }
       is ShowingError -> {
         AppScreen(
           mains = screenStack,
@@ -178,6 +200,9 @@ class ThreadWorkflow(
       },
       onOpenUser = eventHandler { user ->
         state = ShowingProfile(state, ProfileProps(user, null))
+      },
+      onReplyToPost = eventHandler { postInfo ->
+        state = ComposingReply(state, ComposePostProps(replyTo = postInfo))
       }
     )
   }

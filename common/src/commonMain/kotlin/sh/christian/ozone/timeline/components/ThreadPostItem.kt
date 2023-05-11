@@ -31,6 +31,7 @@ fun ThreadPostItem(
   onOpenUser: (UserReference) -> Unit,
   onOpenImage: (OpenImageAction) -> Unit,
   onOpenPost: (ThreadProps) -> Unit,
+  onReplyToPost: () -> Unit,
 ) {
   Column(modifier = modifier.padding(top = 16.dp)) {
     Row(
@@ -67,7 +68,10 @@ fun ThreadPostItem(
         Divider(thickness = 1.dp)
 
         Box(modifier = Modifier.padding(start = 80.dp)) {
-          PostStatistics(post)
+          PostStatistics(
+            post = post,
+            onReplyToPost = onReplyToPost,
+          )
         }
       }
 
@@ -81,6 +85,7 @@ fun ThreadPostItem(
           reposted = post.reposted,
           liked = post.liked,
           iconSize = 24.dp,
+          onReplyToPost = onReplyToPost,
         )
       }
 

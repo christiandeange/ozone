@@ -81,6 +81,7 @@ class AppComponent(
       clock = clock,
       apiProvider = apiProvider,
       userDatabase = userDatabase,
+      myProfileRepository = myProfileRepository,
       errorWorkflow = errorWorkflow,
     )
   }
@@ -90,6 +91,7 @@ class AppComponent(
       clock = clock,
       apiProvider = apiProvider,
       profileWorkflow = { profileWorkflow },
+      composePostWorkflow = composePostWorkflow,
       errorWorkflow = errorWorkflow,
     )
   }
@@ -121,6 +123,7 @@ class AppComponent(
       apiProvider = apiProvider,
       userDatabase = userDatabase,
       myProfileRepository = myProfileRepository,
+      composePostWorkflow = composePostWorkflow,
       threadWorkflow = threadWorkflow,
       errorWorkflow = errorWorkflow,
     )

@@ -45,6 +45,7 @@ import androidx.compose.ui.unit.dp
 import sh.christian.ozone.model.LinkTarget
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.model.TimelinePostLink
+import sh.christian.ozone.timeline.components.PostReplyLine
 import sh.christian.ozone.timeline.components.formatTextPost
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.onBackPressed
@@ -59,6 +60,7 @@ import androidx.compose.ui.unit.lerp as lerpDp
 
 class ComposePostScreen(
   private val profile: Profile,
+  private val replyingTo: Profile?,
   private val onExit: () -> Unit,
   private val onPost: (PostPayload) -> Unit,
 ) : ViewRendering by screen({
@@ -114,6 +116,12 @@ class ComposePostScreen(
         )
 
         Column {
+          PostReplyLine(
+            modifier = Modifier.padding(bottom = 8.dp),
+            replyingTo = replyingTo,
+            onOpenUser = { },
+          )
+
           val textFieldFocusRequester = remember { FocusRequester() }
 
           BasicTextField(

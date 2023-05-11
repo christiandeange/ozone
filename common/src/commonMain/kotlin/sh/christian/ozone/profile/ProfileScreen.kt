@@ -48,6 +48,8 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.datetime.Instant
+import sh.christian.ozone.compose.PostReplyInfo
+import sh.christian.ozone.compose.asReplyInfo
 import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.thread.ThreadProps
@@ -79,6 +81,7 @@ class ProfileScreen(
   private val onOpenPost: (ThreadProps) -> Unit,
   private val onOpenUser: (UserReference) -> Unit,
   private val onOpenImage: (OpenImageAction) -> Unit,
+  private val onReplyToPost: (PostReplyInfo) -> Unit,
   private val onExit: () -> Unit,
 ) : ViewRendering by screen({
   val density = LocalDensity.current.density
@@ -257,6 +260,7 @@ class ProfileScreen(
             onOpenPost = onOpenPost,
             onOpenUser = onOpenUser,
             onOpenImage = onOpenImage,
+            onReplyToPost = { onReplyToPost(post.asReplyInfo()) },
           )
         }
       }

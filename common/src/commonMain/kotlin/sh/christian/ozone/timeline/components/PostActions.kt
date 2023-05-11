@@ -38,6 +38,7 @@ internal fun PostActions(
   reposted: Boolean,
   liked: Boolean,
   iconSize: Dp,
+  onReplyToPost: () -> Unit,
 ) {
   Row(
     modifier = Modifier.fillMaxWidth(),
@@ -49,12 +50,14 @@ internal fun PostActions(
       iconSize = iconSize,
       contentDescription = "Reply",
       text = replyCount,
+      onClick = onReplyToPost,
     )
     PostAction(
       icon = Icons.Default.Repeat,
       iconSize = iconSize,
       contentDescription = "Repost",
       text = repostCount,
+      onClick = {},
       tint = if (reposted) {
         Color.Green
       } else {
@@ -70,6 +73,7 @@ internal fun PostActions(
       iconSize = iconSize,
       contentDescription = "Like",
       text = likeCount,
+      onClick = {},
       tint = if (liked) {
         Color.Red
       } else {
@@ -86,6 +90,7 @@ private fun PostAction(
   iconSize: Dp,
   contentDescription: String,
   text: String?,
+  onClick: () -> Unit,
   tint: Color = MaterialTheme.colorScheme.outline,
 ) {
   Row(
@@ -93,7 +98,7 @@ private fun PostAction(
       .clickable(
         interactionSource = remember { MutableInteractionSource() },
         indication = rememberRipple(bounded = false),
-        onClick = {},
+        onClick = onClick,
       )
       .padding(vertical = 4.dp),
     verticalAlignment = Alignment.CenterVertically,

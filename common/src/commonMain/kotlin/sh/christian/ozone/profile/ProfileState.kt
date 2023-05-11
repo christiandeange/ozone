@@ -1,5 +1,6 @@
 package sh.christian.ozone.profile
 
+import sh.christian.ozone.compose.ComposePostProps
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.Timeline
@@ -25,6 +26,11 @@ sealed interface ProfileState {
   data class ShowingFullSizeImage(
     override val previousState: ProfileState,
     val openImageAction: OpenImageAction,
+  ) : ProfileState by previousState
+
+  data class ComposingReply(
+    override val previousState: ProfileState,
+    val props: ComposePostProps,
   ) : ProfileState by previousState
 
   data class ShowingThread(

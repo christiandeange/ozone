@@ -41,9 +41,12 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.datetime.Instant
+import sh.christian.ozone.compose.PostReplyInfo
+import sh.christian.ozone.compose.asReplyInfo
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.model.Thread
 import sh.christian.ozone.model.ThreadPost
+import sh.christian.ozone.model.ThreadPost.ViewablePost
 import sh.christian.ozone.timeline.components.ThreadPostItem
 import sh.christian.ozone.timeline.components.TimelinePostItem
 import sh.christian.ozone.timeline.components.feature.BlockedPostPost
@@ -66,6 +69,7 @@ class ThreadScreen(
   private val onOpenPost: (ThreadProps) -> Unit,
   private val onOpenUser: (UserReference) -> Unit,
   private val onOpenImage: (OpenImageAction) -> Unit,
+  private val onReplyToPost: (PostReplyInfo) -> Unit,
 ) : ViewRendering by screen({
   Surface(
     modifier = Modifier
@@ -123,25 +127,29 @@ class ThreadScreen(
                 onOpenPost = onOpenPost,
                 onOpenUser = onOpenUser,
                 onOpenImage = onOpenImage,
+                onReplyToPost = { onReplyToPost(it.post.asReplyInfo()) },
               )
             }
           }
         }
 
         item {
-          Box {
-            ConversationLinks(
-              drawAbove = thread.parents.isNotEmpty(),
-              drawBelow = false,
-            )
+          key(thread.post) {
+            Box {
+              ConversationLinks(
+                drawAbove = thread.parents.isNotEmpty(),
+                drawBelow = false,
+              )
 
-            ThreadPostItem(
-              now = now,
-              post = thread.post,
-              onOpenUser = onOpenUser,
-              onOpenImage = onOpenImage,
-              onOpenPost = onOpenPost,
-            )
+              ThreadPostItem(
+                now = now,
+                post = thread.post,
+                onOpenUser = onOpenUser,
+                onOpenImage = onOpenImage,
+                onOpenPost = onOpenPost,
+                onReplyToPost = { onReplyToPost(thread.post.asReplyInfo()) },
+              )
+            }
           }
         }
 
@@ -164,6 +172,7 @@ class ThreadScreen(
                   onOpenPost = onOpenPost,
                   onOpenUser = onOpenUser,
                   onOpenImage = onOpenImage,
+                  onReplyToPost = { onReplyToPost(it.post.asReplyInfo()) },
                 )
               }
             }
@@ -220,15 +229,17 @@ private fun SmallThreadPostItem(
   onOpenPost: (ThreadProps) -> Unit,
   onOpenUser: (UserReference) -> Unit,
   onOpenImage: (OpenImageAction) -> Unit,
+  onReplyToPost: (ViewablePost) -> Unit,
 ) {
   when (post) {
-    is ThreadPost.ViewablePost -> {
+    is ViewablePost -> {
       TimelinePostItem(
         now = now,
         post = post.post,
         onOpenPost = onOpenPost,
         onOpenUser = onOpenUser,
         onOpenImage = onOpenImage,
+        onReplyToPost = { onReplyToPost(post) },
       )
     }
     is ThreadPost.NotFoundPost -> {
@@ -268,7 +279,7 @@ private fun ThreadPost.withInterestingReplies(ops: Collection<Profile>): List<Th
   val conversation: Set<String?> = buildSet {
     addAll(ops.map { it.did })
     when (this@withInterestingReplies) {
-      is ThreadPost.ViewablePost -> add(post.author.did)
+      is ViewablePost -> add(post.author.did)
       is ThreadPost.NotFoundPost,
       is ThreadPost.BlockedPost -> Unit
     }
@@ -276,7 +287,7 @@ private fun ThreadPost.withInterestingReplies(ops: Collection<Profile>): List<Th
 
   return generateSequence(this@withInterestingReplies) { post ->
     when (post) {
-      is ThreadPost.ViewablePost -> {
+      is ViewablePost -> {
         val viewableReplies = post.replies.viewable()
         viewableReplies.firstOrNull { replyPost -> replyPost.post.author.did in conversation }
           ?: viewableReplies.firstOrNull { replyPost -> replyPost.post.hasInteractions() }
@@ -295,5 +306,5 @@ private fun ThreadPost.withInterestingReplies(ops: Collection<Profile>): List<Th
   }
 }
 
-private fun List<ThreadPost>.viewable(): List<ThreadPost.ViewablePost> =
-  filterIsInstance<ThreadPost.ViewablePost>()
+private fun List<ThreadPost>.viewable(): List<ViewablePost> =
+  filterIsInstance<ViewablePost>()

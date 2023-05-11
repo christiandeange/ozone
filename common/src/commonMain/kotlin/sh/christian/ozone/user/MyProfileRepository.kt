@@ -2,8 +2,8 @@ package sh.christian.ozone.user
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import sh.christian.ozone.api.ApiProvider
@@ -25,7 +25,7 @@ class MyProfileRepository(
     }.collect(profileFlow)
   }
 
-  fun me(): Flow<FullProfile?> = profileFlow
+  fun me(): StateFlow<FullProfile?> = profileFlow
 
   fun isMe(userReference: UserReference): Boolean {
     return when (userReference) {

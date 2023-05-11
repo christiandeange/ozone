@@ -1,5 +1,6 @@
 package sh.christian.ozone.thread
 
+import sh.christian.ozone.compose.ComposePostProps
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.model.Thread
 import sh.christian.ozone.profile.ProfileProps
@@ -29,11 +30,11 @@ sealed interface ThreadState {
     override val previousState: ThreadState,
     val openImageAction: OpenImageAction,
   ) : ThreadState by previousState
-//
-//  data class ComposingReply(
-//    val previousState: ThreadState,
-//    val props: ComposePostProps,
-//  ) : ThreadState by previousState
+
+  data class ComposingReply(
+    override val previousState: ThreadState,
+    val props: ComposePostProps,
+  ) : ThreadState by previousState
 
   data class ShowingError(
     override val previousState: ThreadState,

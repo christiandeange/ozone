@@ -41,6 +41,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Instant
+import sh.christian.ozone.compose.PostReplyInfo
+import sh.christian.ozone.compose.asReplyInfo
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.thread.ThreadProps
@@ -68,6 +70,7 @@ class TimelineScreen(
   private val onOpenPost: (ThreadProps) -> Unit,
   private val onOpenUser: (UserReference) -> Unit,
   private val onOpenImage: (OpenImageAction) -> Unit,
+  private val onReplyToPost: (PostReplyInfo) -> Unit,
   private val onExit: () -> Unit,
 ) : ViewRendering by screen({
   val feedState = rememberLazyListState()
@@ -155,6 +158,7 @@ class TimelineScreen(
                 onOpenPost = onOpenPost,
                 onOpenUser = onOpenUser,
                 onOpenImage = onOpenImage,
+                onReplyToPost = { onReplyToPost(post.asReplyInfo()) },
               )
             }
           }

@@ -13,18 +13,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
-import sh.christian.ozone.model.TimelinePostReply
+import sh.christian.ozone.model.Profile
 import sh.christian.ozone.ui.icons.Reply
 import sh.christian.ozone.user.UserReference
 
 @Composable
 internal fun PostReplyLine(
-  reply: TimelinePostReply?,
+  replyingTo: Profile?,
   onOpenUser: (UserReference) -> Unit,
+  modifier: Modifier = Modifier,
 ) {
-  reply?.parent?.author?.let { original ->
+  if (replyingTo != null) {
     Row(
-      modifier = Modifier.clickable { onOpenUser(UserReference.Handle(original.handle)) },
+      modifier = modifier.clickable { onOpenUser(UserReference.Handle(replyingTo.handle)) },
       verticalAlignment = Alignment.CenterVertically,
       horizontalArrangement = spacedBy(4.dp),
     ) {
@@ -36,7 +37,7 @@ internal fun PostReplyLine(
       )
 
       Text(
-        text = "Reply to ${original.displayName ?: original.handle}",
+        text = "Reply to ${replyingTo.displayName ?: replyingTo.handle}",
         maxLines = 1,
         style = MaterialTheme.typography.bodySmall,
       )

@@ -13,12 +13,17 @@ import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.api.NetworkWorker
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.app.AppScreen
+import sh.christian.ozone.compose.ComposePostOutput.CanceledPost
+import sh.christian.ozone.compose.ComposePostOutput.CreatedPost
+import sh.christian.ozone.compose.ComposePostProps
+import sh.christian.ozone.compose.ComposePostWorkflow
 import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.Timeline
 import sh.christian.ozone.model.TimelinePost
+import sh.christian.ozone.profile.ProfileState.ComposingReply
 import sh.christian.ozone.profile.ProfileState.ShowingError
 import sh.christian.ozone.profile.ProfileState.ShowingFullSizeImage
 import sh.christian.ozone.profile.ProfileState.ShowingProfile
@@ -40,6 +45,7 @@ class ProfileWorkflow(
   private val apiProvider: ApiProvider,
   private val userDatabase: UserDatabase,
   private val myProfileRepository: MyProfileRepository,
+  private val composePostWorkflow: ComposePostWorkflow,
   private val threadWorkflow: ThreadWorkflow,
   private val errorWorkflow: ErrorWorkflow,
 ) : StatefulWorkflow<ProfileProps, ProfileState, Unit, AppScreen>() {
@@ -126,6 +132,23 @@ class ProfileWorkflow(
           ),
         )
       }
+      is ComposingReply -> {
+        val composeScreen = context.renderChild(composePostWorkflow, renderState.props) { output ->
+          action {
+            state = when (output) {
+              CanceledPost -> renderState.previousState
+              CreatedPost -> ShowingProfile(
+                user = renderState.user,
+                profile = Fetching(renderState.profile.getOrNull()),
+                feed = Fetching(renderState.feed.getOrNull()),
+                previousState = renderState.previousState.previousState,
+              )
+            }
+          }
+        }
+
+        composeScreen.copy(mains = screenStack + composeScreen.mains)
+      }
       is ShowingThread -> {
         val threadScreen = context.renderChild(threadWorkflow, renderState.props) {
           action {
@@ -204,6 +227,9 @@ class ProfileWorkflow(
       },
       onOpenImage = eventHandler { action ->
         state = ShowingFullSizeImage(state, action)
+      },
+      onReplyToPost = eventHandler { postInfo ->
+        state = ComposingReply(state, ComposePostProps(replyTo = postInfo))
       },
       onExit = eventHandler {
         state.previousState

@@ -11,6 +11,7 @@ import sh.christian.ozone.ui.compose.Statistic
 @Composable
 internal fun PostStatistics(
   post: TimelinePost,
+  onReplyToPost: () -> Unit,
 ) {
   Row(
     verticalAlignment = Alignment.CenterVertically,
@@ -24,8 +25,8 @@ internal fun PostStatistics(
 
     when (replies) {
       0L -> Unit
-      1L -> Statistic(replies, "reply", noOpHandler)
-      else -> Statistic(replies, "replies", noOpHandler)
+      1L -> Statistic(replies, "reply", onReplyToPost)
+      else -> Statistic(replies, "replies", onReplyToPost)
     }
 
     when (reposts) {

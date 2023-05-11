@@ -16,7 +16,6 @@ import sh.christian.ozone.home.HomeSubDestination
 import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.Timeline
 import sh.christian.ozone.profile.ProfileProps
-import sh.christian.ozone.thread.ThreadProps
 import sh.christian.ozone.timeline.TimelineOutput.CloseApp
 import sh.christian.ozone.timeline.TimelineOutput.EnterScreen
 import sh.christian.ozone.timeline.TimelineState.FetchingTimeline
@@ -41,7 +40,7 @@ class TimelineWorkflow(
     props: TimelineProps,
     snapshot: Snapshot?,
   ): TimelineState = FetchingTimeline(
-    profile = null,
+    profile = myProfileRepository.me().value,
     timeline = null,
     fullRefresh = true,
   )
@@ -179,7 +178,7 @@ class TimelineWorkflow(
         )
       },
       onComposePost = eventHandler {
-        val props = ComposePostProps(profile!!)
+        val props = ComposePostProps(replyTo = null)
         setOutput(EnterScreen(HomeSubDestination.GoToComposePost(props)))
       },
       onOpenPost = eventHandler { props ->
@@ -191,6 +190,10 @@ class TimelineWorkflow(
       },
       onOpenImage = eventHandler { action ->
         state = ShowingFullSizeImage(state, action)
+      },
+      onReplyToPost = eventHandler { postInfo ->
+        val props = ComposePostProps(replyTo = postInfo)
+        setOutput(EnterScreen(HomeSubDestination.GoToComposePost(props)))
       },
       onExit = eventHandler {
         setOutput(CloseApp)
