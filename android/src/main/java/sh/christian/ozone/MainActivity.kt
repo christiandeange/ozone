@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     setContent {
       AppTheme {
         StatusBarTheme()
-        App(workflow, onExit = { onBackPressedDispatcher.onBackPressed() })
+        App(workflow, onExit = { finish() })
       }
     }
   }
