@@ -29,7 +29,7 @@ kotlin {
         api("io.github.xxfast:kstore-file:0.5.0")
 
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
         implementation(kotlin("reflect"))
       }
     }
