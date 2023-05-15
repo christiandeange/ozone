@@ -35,7 +35,7 @@ private fun PostRepostReasonLine(
   onOpenUser: (UserReference) -> Unit,
 ) {
   Row(
-    modifier = Modifier.clickable { onOpenUser(UserReference.Handle(reason.repostAuthor.handle)) },
+    modifier = Modifier.clickable { onOpenUser(UserReference.Did(reason.repostAuthor.did)) },
     verticalAlignment = Alignment.CenterVertically,
     horizontalArrangement = spacedBy(4.dp),
   ) {

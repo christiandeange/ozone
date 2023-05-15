@@ -19,8 +19,8 @@ class MyProfileRepository(
   @OptIn(ExperimentalCoroutinesApi::class)
   override suspend fun CoroutineScope.onStart() {
     apiProvider.auth().flatMapLatest { auth ->
-      auth?.handle
-        ?.let { handle -> userDatabase.profile(UserReference.Handle(handle)) }
+      auth?.did
+        ?.let { did -> userDatabase.profile(UserReference.Did(did)) }
         ?: flowOf(null)
     }.collect(profileFlow)
   }

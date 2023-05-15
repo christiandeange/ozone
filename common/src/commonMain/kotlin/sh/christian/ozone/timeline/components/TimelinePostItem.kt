@@ -16,7 +16,6 @@ import sh.christian.ozone.thread.ThreadProps
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.user.UserReference
-import sh.christian.ozone.user.UserReference.Handle
 import sh.christian.ozone.util.color
 import sh.christian.ozone.util.format
 
@@ -40,7 +39,7 @@ fun TimelinePostItem(
     AvatarImage(
       modifier = Modifier.size(48.dp),
       avatarUrl = author.avatar,
-      onClick = { onOpenUser(Handle(author.handle)) },
+      onClick = { onOpenUser(UserReference.Did(author.did)) },
       contentDescription = author.displayName ?: author.handle,
       fallbackColor = author.handle.color(),
     )

@@ -55,7 +55,6 @@ import sh.christian.ozone.ui.icons.ChatBubbleOutline
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 import sh.christian.ozone.user.UserReference
-import sh.christian.ozone.user.UserReference.Handle
 import sh.christian.ozone.util.color
 
 class TimelineScreen(
@@ -87,7 +86,7 @@ class TimelineScreen(
               AvatarImage(
                 modifier = Modifier.size(32.dp),
                 avatarUrl = profile?.avatar,
-                onClick = { profile?.handle?.let { onOpenUser(Handle(it)) } },
+                onClick = { profile?.did?.let { onOpenUser(UserReference.Did(it)) } },
                 contentDescription = profile?.displayName ?: profile?.handle,
                 fallbackColor = profile?.handle?.color() ?: Color.Black,
               )

@@ -25,7 +25,7 @@ internal fun PostReplyLine(
 ) {
   if (replyingTo != null) {
     Row(
-      modifier = modifier.clickable { onOpenUser(UserReference.Handle(replyingTo.handle)) },
+      modifier = modifier.clickable { onOpenUser(UserReference.Did(replyingTo.did)) },
       verticalAlignment = Alignment.CenterVertically,
       horizontalArrangement = spacedBy(4.dp),
     ) {
