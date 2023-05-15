@@ -82,13 +82,13 @@ class XrpcApi(
   override suspend fun getTimeline(
     params: GetTimelineQueryParams,
   ): AtpResponse<GetTimelineResponse> {
-    return client.query("/xrpc/app.bsky.feed.getTimeline", params.toMap()).toAtpResponse()
+    return client.query("/xrpc/app.bsky.feed.getTimeline", params.asList()).toAtpResponse()
   }
 
   override suspend fun getProfile(
     params: GetProfileQueryParams,
   ): AtpResponse<GetProfileResponse> {
-    return client.query("/xrpc/app.bsky.actor.getProfile", params.toMap()).toAtpResponse()
+    return client.query("/xrpc/app.bsky.actor.getProfile", params.asList()).toAtpResponse()
   }
 
   override suspend fun createRecord(
@@ -100,19 +100,19 @@ class XrpcApi(
   override suspend fun getAuthorFeed(
     params: GetAuthorFeedQueryParams,
   ): AtpResponse<GetAuthorFeedResponse> {
-    return client.query("/xrpc/app.bsky.feed.getAuthorFeed", params.toMap()).toAtpResponse()
+    return client.query("/xrpc/app.bsky.feed.getAuthorFeed", params.asList()).toAtpResponse()
   }
 
   override suspend fun getPostThread(
     params: GetPostThreadQueryParams,
   ): AtpResponse<GetPostThreadResponse> {
-    return client.query("/xrpc/app.bsky.feed.getPostThread", params.toMap()).toAtpResponse()
+    return client.query("/xrpc/app.bsky.feed.getPostThread", params.asList()).toAtpResponse()
   }
 
   override suspend fun listNotifications(
     params: ListNotificationsQueryParams,
   ): AtpResponse<ListNotificationsResponse> {
-    return client.query("/xrpc/app.bsky.notification.listNotifications", params.toMap())
+    return client.query("/xrpc/app.bsky.notification.listNotifications", params.asList())
       .toAtpResponse()
   }
 

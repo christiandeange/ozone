@@ -7,17 +7,17 @@ import io.ktor.client.request.parameter
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.client.statement.HttpResponse
-import sh.christian.ozone.api.runtime.Encoding
 import sh.christian.ozone.api.response.AtpErrorDescription
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.api.response.StatusCode
+import sh.christian.ozone.api.runtime.Encoding
 
 internal suspend inline fun HttpClient.query(
   path: String,
-  queryParams: Map<String, Any?> = emptyMap(),
+  queryParams: List<Pair<String, Any?>> = emptyList(),
 ): HttpResponse {
   return get(path) {
-    queryParams.forEach(::parameter)
+    queryParams.forEach { (key, value) -> parameter(key, value) }
   }
 }
 

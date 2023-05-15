@@ -1,15 +1,26 @@
 package sh.christian.ozone.api.generator.builder
 
 import com.squareup.kotlinpoet.ANY
+import com.squareup.kotlinpoet.COLLECTION
+import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.FunSpec
+import com.squareup.kotlinpoet.ITERABLE
 import com.squareup.kotlinpoet.LIST
 import com.squareup.kotlinpoet.MAP
+import com.squareup.kotlinpoet.MUTABLE_COLLECTION
+import com.squareup.kotlinpoet.MUTABLE_ITERABLE
+import com.squareup.kotlinpoet.MUTABLE_LIST
+import com.squareup.kotlinpoet.MUTABLE_MAP
+import com.squareup.kotlinpoet.MUTABLE_SET
+import com.squareup.kotlinpoet.ParameterizedTypeName
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
+import com.squareup.kotlinpoet.SET
 import com.squareup.kotlinpoet.STRING
 import com.squareup.kotlinpoet.TypeSpec
 import com.squareup.kotlinpoet.withIndent
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
+import sh.christian.ozone.api.generator.PAIR
 import sh.christian.ozone.api.lexicon.LexiconUserType
 import sh.christian.ozone.api.lexicon.LexiconXrpcParameter
 import sh.christian.ozone.api.lexicon.LexiconXrpcParameters
@@ -72,21 +83,44 @@ class XrpcQueryParamsGenerator(
   }
 
   private fun toMap(properties: List<SimpleProperty>): FunSpec {
-    val stringStringMap = MAP.parameterizedBy(STRING, ANY.copy(nullable = true))
+    val returns = LIST.parameterizedBy(PAIR.parameterizedBy(STRING, ANY.copy(nullable = true)))
 
-    return FunSpec.builder("toMap")
-      .returns(stringStringMap)
+    return FunSpec.builder("asList")
+      .returns(returns)
       .addCode(
         CodeBlock.builder()
-          .add("return mapOf(\n")
+          .add("return buildList {\n")
           .withIndent {
             properties.forEach { property ->
-              add("%S to %L,\n", property.name, property.name)
+              if (property.type is ParameterizedTypeName && property.type.rawType.isCollection) {
+                add("%L.forEach {\n", property.name)
+                withIndent {
+                  addStatement("add(%S to it)", property.name)
+                }
+                add("}\n")
+              } else {
+                addStatement("add(%S to %L)", property.name, property.name)
+              }
             }
           }
-          .add(")")
+          .add("}")
           .build()
       )
       .build()
   }
+
+  private val ClassName.isCollection
+    get() = when (this) {
+      ITERABLE,
+      COLLECTION,
+      LIST,
+      SET,
+      MAP,
+      MUTABLE_ITERABLE,
+      MUTABLE_COLLECTION,
+      MUTABLE_LIST,
+      MUTABLE_SET,
+      MUTABLE_MAP -> true
+      else -> false
+    }
 }
