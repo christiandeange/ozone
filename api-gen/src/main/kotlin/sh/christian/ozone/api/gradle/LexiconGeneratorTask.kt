@@ -35,7 +35,6 @@ abstract class LexiconGeneratorTask : DefaultTask() {
 
     processingEnvironment.forEach { schemaId ->
       try {
-        println("Processing schema $schemaId...")
         val lexiconDocument = processingEnvironment.loadDocument(schemaId)
         lexiconClassFileCreator.createClassForLexicon(lexiconDocument)
       } catch (e: Exception) {

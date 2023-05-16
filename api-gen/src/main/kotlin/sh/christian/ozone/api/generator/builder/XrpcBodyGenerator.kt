@@ -47,9 +47,7 @@ class XrpcBodyGenerator(
           createBodyType(context, "${context.classPrefix}Response", it)
         }
       }
-      else -> {
-        println("Skipping: $userType")
-      }
+      else -> Unit
     }
   }
 
