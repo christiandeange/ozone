@@ -1,4 +1,5 @@
 pluginManagement {
+  val kotlinVersion: String by settings
   repositories {
     gradlePluginPortal()
     google()
@@ -6,7 +7,7 @@ pluginManagement {
   }
 
   plugins {
-    kotlin("jvm").version(extra["kotlin.version"] as String) apply false
+    kotlin("jvm").version(kotlinVersion) apply false
   }
 }
 

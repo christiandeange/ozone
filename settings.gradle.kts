@@ -1,4 +1,8 @@
 pluginManagement {
+  val kotlinVersion: String by settings
+  val agpVersion: String by settings
+  val composeVersion: String by settings
+
   repositories {
     gradlePluginPortal()
     google()
@@ -7,13 +11,13 @@ pluginManagement {
   }
 
   plugins {
-    kotlin("jvm").version(extra["kotlin.version"] as String) apply false
-    kotlin("multiplatform").version(extra["kotlin.version"] as String) apply false
-    kotlin("plugin.serialization").version(extra["kotlin.version"] as String) apply false
-    kotlin("android").version(extra["kotlin.version"] as String) apply false
-    id("com.android.application").version(extra["agp.version"] as String) apply false
-    id("com.android.library").version(extra["agp.version"] as String) apply false
-    id("org.jetbrains.compose").version(extra["compose.version"] as String) apply false
+    kotlin("jvm").version(kotlinVersion) apply false
+    kotlin("multiplatform").version(kotlinVersion) apply false
+    kotlin("plugin.serialization").version(kotlinVersion) apply false
+    kotlin("android").version(kotlinVersion) apply false
+    id("com.android.application").version(agpVersion) apply false
+    id("com.android.library").version(agpVersion) apply false
+    id("org.jetbrains.compose").version(composeVersion) apply false
   }
 }
 
