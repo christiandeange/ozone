@@ -1,6 +1,9 @@
 package sh.christian.ozone.notifications
 
+import app.bsky.feed.GetPostsQueryParams
+import app.bsky.notification.ListNotificationsNotification
 import app.bsky.notification.ListNotificationsQueryParams
+import app.bsky.notification.ListNotificationsResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.currentCoroutineContext
@@ -19,7 +22,9 @@ import sh.christian.ozone.app.Supervisor
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.toErrorProps
 import sh.christian.ozone.model.Notifications
+import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.model.toNotification
+import sh.christian.ozone.model.toPost
 import kotlin.time.Duration.Companion.minutes
 
 class NotificationsRepository(
@@ -60,13 +65,18 @@ class NotificationsRepository(
   }
 
   private suspend fun load(cursor: String?) {
-    val response: AtpResponse<Notifications> = apiProvider.api
-      .listNotifications(ListNotificationsQueryParams(limit = 100, cursor = cursor))
-      .map { it -> Notifications(it.notifications.map { it.toNotification() }, it.cursor) }
+    val response: AtpResponse<ListNotificationsResponse> = apiProvider.api
+      .listNotifications(ListNotificationsQueryParams(limit = 25, cursor = cursor))
 
     when (response) {
       is AtpResponse.Success -> {
-        val newNotifications = response.response
+        val posts = fetchPosts(response.response).associateBy { it.uri }
+
+        val newNotifications = Notifications(
+          list = response.response.notifications.map { it.toNotification(posts) },
+          cursor = response.response.cursor,
+        )
+
         val mergedNotifications = if (cursor != null) {
           Notifications(
             list = latest.value.list + newNotifications.list,
@@ -87,7 +97,26 @@ class NotificationsRepository(
     }
   }
 
-  private companion object {
+  private suspend fun fetchPosts(response: ListNotificationsResponse): List<TimelinePost> {
+    val postUris = response.notifications.mapNotNull { it.getPostUri() }.distinct()
+
+    return apiProvider.api
+      .getPosts(GetPostsQueryParams(postUris))
+      .requireResponse()
+      .posts
+      .map { it.toPost() }
+  }
+
+  companion object {
     private val EMPTY_VALUE = Notifications(listOf(), null)
+
+    fun ListNotificationsNotification.getPostUri(): String? = when (reason) {
+      "like" -> reasonSubject!!
+      "repost" -> reasonSubject!!
+      "mention" -> uri
+      "reply" -> uri
+      "quote" -> uri
+      else -> null
+    }
   }
 }

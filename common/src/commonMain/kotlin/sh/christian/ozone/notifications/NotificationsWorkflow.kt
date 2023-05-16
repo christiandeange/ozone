@@ -7,17 +7,22 @@ import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
 import kotlinx.datetime.Clock
 import sh.christian.ozone.app.AppScreen
+import sh.christian.ozone.compose.ComposePostProps
 import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorWorkflow
+import sh.christian.ozone.home.HomeSubDestination
 import sh.christian.ozone.model.Notifications
+import sh.christian.ozone.notifications.NotificationsOutput.CloseApp
+import sh.christian.ozone.notifications.NotificationsOutput.EnterScreen
 import sh.christian.ozone.notifications.NotificationsState.ShowingError
 import sh.christian.ozone.notifications.NotificationsState.ShowingNotifications
+import sh.christian.ozone.profile.ProfileProps
 
 class NotificationsWorkflow(
   private val clock: Clock,
   private val notificationsRepository: NotificationsRepository,
   private val errorWorkflow: ErrorWorkflow,
-) : StatefulWorkflow<Unit, NotificationsState, Unit, AppScreen>() {
+) : StatefulWorkflow<Unit, NotificationsState, NotificationsOutput, AppScreen>() {
   override fun initialState(
     props: Unit,
     snapshot: Snapshot?,
@@ -89,7 +94,20 @@ class NotificationsWorkflow(
         )
       },
       onExit = eventHandler {
-        setOutput(Unit)
+        setOutput(CloseApp)
+      },
+      onOpenPost = eventHandler { props ->
+        setOutput(EnterScreen(HomeSubDestination.GoToThread(props)))
+      },
+      onOpenUser = eventHandler { user ->
+        setOutput(EnterScreen(HomeSubDestination.GoToProfile(ProfileProps(user))))
+      },
+      onOpenImage = eventHandler { action ->
+        // No-op
+      },
+      onReplyToPost = eventHandler { postInfo ->
+        val props = ComposePostProps(replyTo = postInfo)
+        setOutput(EnterScreen(HomeSubDestination.GoToComposePost(props)))
       },
     )
   }

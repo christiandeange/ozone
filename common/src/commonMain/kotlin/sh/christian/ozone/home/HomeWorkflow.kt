@@ -15,6 +15,7 @@ import sh.christian.ozone.home.HomeSubDestination.GoToThread
 import sh.christian.ozone.home.SelectedHomeScreenTab.NOTIFICATIONS
 import sh.christian.ozone.home.SelectedHomeScreenTab.SETTINGS
 import sh.christian.ozone.home.SelectedHomeScreenTab.TIMELINE
+import sh.christian.ozone.notifications.NotificationsOutput
 import sh.christian.ozone.notifications.NotificationsWorkflow
 import sh.christian.ozone.profile.ProfileWorkflow
 import sh.christian.ozone.settings.SettingsOutput
@@ -63,9 +64,14 @@ class HomeWorkflow(
         }
       }
       is InTab.InNotifications -> {
-        context.renderChild(notificationsWorkflow) {
+        context.renderChild(notificationsWorkflow) { output ->
           action {
-            setOutput(HomeOutput.CloseApp)
+            when (output) {
+              is NotificationsOutput.EnterScreen -> {
+                state = output.dest.destinationState(tabState)
+              }
+              is NotificationsOutput.CloseApp -> setOutput(HomeOutput.CloseApp)
+            }
           }
         }
       }

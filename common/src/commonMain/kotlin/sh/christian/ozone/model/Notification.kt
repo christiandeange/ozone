@@ -1,8 +1,5 @@
 package sh.christian.ozone.model
 
-import app.bsky.feed.Like
-import app.bsky.feed.Post
-import app.bsky.feed.Repost
 import app.bsky.graph.Follow
 import app.bsky.notification.ListNotificationsNotification
 import kotlinx.datetime.Instant
@@ -13,6 +10,7 @@ import sh.christian.ozone.model.Notification.Content.Mentioned
 import sh.christian.ozone.model.Notification.Content.Quoted
 import sh.christian.ozone.model.Notification.Content.RepliedTo
 import sh.christian.ozone.model.Notification.Content.Reposted
+import sh.christian.ozone.notifications.NotificationsRepository.Companion.getPostUri
 import sh.christian.ozone.util.deserialize
 
 @Serializable
@@ -34,11 +32,11 @@ data class Notification(
 ) {
   sealed interface Content {
     data class Liked(
-      val like: Like,
+      val post: TimelinePost,
     ) : Content
 
     data class Reposted(
-      val repost: Repost,
+      val post: TimelinePost,
     ) : Content
 
     data class Followed(
@@ -46,36 +44,39 @@ data class Notification(
     ) : Content
 
     data class Mentioned(
-      val mention: LitePost,
+      val post: TimelinePost,
     ) : Content
 
     data class RepliedTo(
-      val reply: LitePost,
+      val post: TimelinePost,
     ) : Content
 
     data class Quoted(
-      val quote: LitePost,
+      val post: TimelinePost,
     ) : Content
   }
 }
 
-fun ListNotificationsNotification.toNotification(): Notification {
+fun ListNotificationsNotification.toNotification(
+  postsByUri: Map<String, TimelinePost>,
+): Notification {
+  val notificationPost by lazy { postsByUri[getPostUri()!!]!! }
+
   return Notification(
     uri = uri,
     cid = cid,
     author = author.toProfile(),
     reason = reason,
     reasonSubject = reasonSubject,
-    content = null,
-//    content = when (reason) {
-//      "like" -> Liked(Like.serializer().deserialize(record))
-//      "repost" -> Reposted(Repost.serializer().deserialize(record))
-//      "follow" -> Followed(Follow.serializer().deserialize(record))
-//      "mention" -> Mentioned(Post.serializer().deserialize(record).toLitePost())
-//      "reply" -> RepliedTo(Post.serializer().deserialize(record).toLitePost())
-//      "quote" -> Quoted(Post.serializer().deserialize(record).toLitePost())
-//      else -> null
-//    },
+    content = when (reason) {
+      "like" -> Liked(notificationPost)
+      "repost" -> Reposted(notificationPost)
+      "follow" -> Followed(Follow.serializer().deserialize(record))
+      "mention" -> Mentioned(notificationPost)
+      "reply" -> RepliedTo(notificationPost)
+      "quote" -> Quoted(notificationPost)
+      else -> null
+    },
     isRead = isRead,
     indexedAt = indexedAt,
   )

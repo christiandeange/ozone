@@ -6,6 +6,8 @@ import app.bsky.feed.GetAuthorFeedQueryParams
 import app.bsky.feed.GetAuthorFeedResponse
 import app.bsky.feed.GetPostThreadQueryParams
 import app.bsky.feed.GetPostThreadResponse
+import app.bsky.feed.GetPostsQueryParams
+import app.bsky.feed.GetPostsResponse
 import app.bsky.feed.GetTimelineQueryParams
 import app.bsky.feed.GetTimelineResponse
 import app.bsky.notification.ListNotificationsQueryParams
@@ -114,6 +116,12 @@ class XrpcApi(
   ): AtpResponse<ListNotificationsResponse> {
     return client.query("/xrpc/app.bsky.notification.listNotifications", params.asList())
       .toAtpResponse()
+  }
+
+  override suspend fun getPosts(
+    params: GetPostsQueryParams,
+  ): AtpResponse<GetPostsResponse> {
+    return client.query("/xrpc/app.bsky.feed.getPosts", params.asList()).toAtpResponse()
   }
 
   override suspend fun describeServer(): AtpResponse<DescribeServerResponse> {

@@ -12,7 +12,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import kotlinx.datetime.Instant
 import sh.christian.ozone.model.Profile
-import kotlin.time.Duration
+import sh.christian.ozone.ui.compose.TimeDelta
 
 @Composable
 internal fun PostHeadline(
@@ -48,21 +48,9 @@ internal fun PostHeadline(
       )
     }
 
-    val timeDelta: Duration = now - createdAt
-    Text(
+    TimeDelta(
       modifier = Modifier.alignByBaseline(),
-      text = timeDelta.toComponents { days, hours, minutes, seconds, _ ->
-        when {
-          days > 0 -> "${days}d"
-          hours > 0 -> "${hours}h"
-          minutes > 0 -> "${minutes}m"
-          seconds > 0 -> "${seconds}s"
-          seconds < 0 || minutes < 0 || hours < 0 || days < 0 -> "The Future"
-          else -> "Now"
-        }
-      },
-      maxLines = 1,
-      style = MaterialTheme.typography.bodySmall,
+      duration = now - createdAt,
     )
   }
 }

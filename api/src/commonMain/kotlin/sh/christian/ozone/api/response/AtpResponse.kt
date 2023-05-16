@@ -22,7 +22,7 @@ sealed interface AtpResponse<T> {
     is Success -> response
     is Failure -> requireNotNull(response) {
       if (error != null) {
-        "Failing request provided error instead of valid response body."
+        "Failing request provided error instead of valid response body: $error"
       } else {
         "Failing request provided no response body."
       }
