@@ -4,6 +4,7 @@ import app.bsky.feed.GetPostsQueryParams
 import app.bsky.notification.ListNotificationsNotification
 import app.bsky.notification.ListNotificationsQueryParams
 import app.bsky.notification.ListNotificationsResponse
+import app.bsky.notification.UpdateSeenRequest
 import kotlinx.atomicfu.atomic
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -16,8 +17,10 @@ import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.datetime.Instant
 import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.app.Supervisor
@@ -34,11 +37,16 @@ class NotificationsRepository(
 ) : Supervisor {
   private val latest: MutableStateFlow<Notifications> = MutableStateFlow(EMPTY_VALUE)
   private val loadErrors: MutableSharedFlow<ErrorProps> = MutableSharedFlow()
+  private val onUpdateSeen: MutableSharedFlow<Unit> = MutableSharedFlow()
   private val doNotRefreshInstances = atomic(0)
 
   val notifications: Flow<Notifications> = latest
-  val unreadCount: Flow<Int> = latest.map { it.list.count { notification -> !notification.isRead } }
   val errors: Flow<ErrorProps> = loadErrors
+
+  val unreadCount: Flow<Int> = merge(
+    latest.map { it.list.count { notification -> !notification.isRead } },
+    onUpdateSeen.map { 0 },
+  )
 
   @OptIn(ExperimentalCoroutinesApi::class)
   override suspend fun CoroutineScope.onStart() {
@@ -80,6 +88,11 @@ class NotificationsRepository(
     } finally {
       doNotRefreshInstances.decrementAndGet()
     }
+  }
+
+  suspend fun updateSeenAt(time: Instant) {
+    apiProvider.api.updateSeen(UpdateSeenRequest(time)).requireResponse()
+    onUpdateSeen.emit(Unit)
   }
 
   private suspend fun load(cursor: String?) {

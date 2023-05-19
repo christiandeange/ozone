@@ -5,6 +5,7 @@ import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.action
 import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
+import kotlinx.coroutines.delay
 import kotlinx.datetime.Clock
 import sh.christian.ozone.app.AppScreen
 import sh.christian.ozone.compose.ComposePostProps
@@ -17,6 +18,7 @@ import sh.christian.ozone.notifications.NotificationsOutput.EnterScreen
 import sh.christian.ozone.notifications.NotificationsState.ShowingError
 import sh.christian.ozone.notifications.NotificationsState.ShowingNotifications
 import sh.christian.ozone.profile.ProfileProps
+import kotlin.time.Duration.Companion.seconds
 
 class NotificationsWorkflow(
   private val clock: Clock,
@@ -55,6 +57,14 @@ class NotificationsWorkflow(
 
     return when (renderState) {
       is ShowingNotifications -> {
+        renderState.notifications.list.maxOfOrNull { it.indexedAt }?.let { lastSeenNotification ->
+          context.runningSideEffect("last-notification-seen-$lastSeenNotification") {
+            val now = clock.now()
+            delay(2.seconds)
+            notificationsRepository.updateSeenAt(now)
+          }
+        }
+
         if (renderState.isLoading) {
           context.runningSideEffect("load-notifications") {
             if (renderState.notifications.list.isEmpty()) {

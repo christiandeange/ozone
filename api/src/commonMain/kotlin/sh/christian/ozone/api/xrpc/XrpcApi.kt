@@ -12,6 +12,7 @@ import app.bsky.feed.GetTimelineQueryParams
 import app.bsky.feed.GetTimelineResponse
 import app.bsky.notification.ListNotificationsQueryParams
 import app.bsky.notification.ListNotificationsResponse
+import app.bsky.notification.UpdateSeenRequest
 import com.atproto.repo.CreateRecordRequest
 import com.atproto.repo.CreateRecordResponse
 import com.atproto.server.CreateAccountRequest
@@ -115,6 +116,13 @@ class XrpcApi(
     params: ListNotificationsQueryParams,
   ): AtpResponse<ListNotificationsResponse> {
     return client.query("/xrpc/app.bsky.notification.listNotifications", params.asList())
+      .toAtpResponse()
+  }
+
+  override suspend fun updateSeen(
+    request: UpdateSeenRequest,
+  ): AtpResponse<Unit> {
+    return client.procedure("/xrpc/app.bsky.notification.updateSeen", request)
       .toAtpResponse()
   }
 

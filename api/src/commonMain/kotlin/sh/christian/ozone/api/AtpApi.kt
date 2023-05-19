@@ -12,6 +12,7 @@ import app.bsky.feed.GetTimelineQueryParams
 import app.bsky.feed.GetTimelineResponse
 import app.bsky.notification.ListNotificationsQueryParams
 import app.bsky.notification.ListNotificationsResponse
+import app.bsky.notification.UpdateSeenRequest
 import com.atproto.repo.CreateRecordRequest
 import com.atproto.repo.CreateRecordResponse
 import com.atproto.server.CreateAccountRequest
@@ -53,6 +54,10 @@ interface AtpApi {
   suspend fun listNotifications(
     params: ListNotificationsQueryParams,
   ): AtpResponse<ListNotificationsResponse>
+
+  suspend fun updateSeen(
+    request: UpdateSeenRequest,
+  ): AtpResponse<Unit>
 
   suspend fun getPosts(
     params: GetPostsQueryParams,
