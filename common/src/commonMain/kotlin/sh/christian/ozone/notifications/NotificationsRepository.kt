@@ -4,6 +4,7 @@ import app.bsky.feed.GetPostsQueryParams
 import app.bsky.notification.ListNotificationsNotification
 import app.bsky.notification.ListNotificationsQueryParams
 import app.bsky.notification.ListNotificationsResponse
+import kotlinx.atomicfu.atomic
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.currentCoroutineContext
@@ -16,6 +17,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.isActive
+import kotlinx.coroutines.suspendCancellableCoroutine
 import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.app.Supervisor
@@ -32,6 +34,7 @@ class NotificationsRepository(
 ) : Supervisor {
   private val latest: MutableStateFlow<Notifications> = MutableStateFlow(EMPTY_VALUE)
   private val loadErrors: MutableSharedFlow<ErrorProps> = MutableSharedFlow()
+  private val doNotRefreshInstances = atomic(0)
 
   val notifications: Flow<Notifications> = latest
   val unreadCount: Flow<Int> = latest.map { it.list.count { notification -> !notification.isRead } }
@@ -53,7 +56,11 @@ class NotificationsRepository(
           emptyFlow()
         }
       }
-      .collect { refresh() }
+      .collect {
+        if (doNotRefreshInstances.value == 0) {
+          refresh()
+        }
+      }
   }
 
   suspend fun refresh() {
@@ -62,6 +69,17 @@ class NotificationsRepository(
 
   suspend fun loadMore() {
     load(latest.value.cursor)
+  }
+
+  suspend fun doNotRefreshWhileActive() {
+    try {
+      doNotRefreshInstances.incrementAndGet()
+
+      // Hang forever, or until this coroutine is cancelled.
+      suspendCancellableCoroutine<Nothing> { }
+    } finally {
+      doNotRefreshInstances.decrementAndGet()
+    }
   }
 
   private suspend fun load(cursor: String?) {
@@ -100,11 +118,15 @@ class NotificationsRepository(
   private suspend fun fetchPosts(response: ListNotificationsResponse): List<TimelinePost> {
     val postUris = response.notifications.mapNotNull { it.getPostUri() }.distinct()
 
-    return apiProvider.api
-      .getPosts(GetPostsQueryParams(postUris))
-      .requireResponse()
-      .posts
-      .map { it.toPost() }
+    return if (postUris.isEmpty()) {
+      emptyList()
+    } else {
+      apiProvider.api
+        .getPosts(GetPostsQueryParams(postUris))
+        .requireResponse()
+        .posts
+        .map { it.toPost() }
+    }
   }
 
   companion object {

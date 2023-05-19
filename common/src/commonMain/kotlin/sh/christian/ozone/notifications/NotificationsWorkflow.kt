@@ -36,6 +36,10 @@ class NotificationsWorkflow(
     renderState: NotificationsState,
     context: RenderContext,
   ): AppScreen {
+    context.runningSideEffect("prevent-notification-refresh") {
+      notificationsRepository.doNotRefreshWhileActive()
+    }
+
     context.runningWorker(notificationsRepository.notifications.asWorker()) { notifications ->
       action {
         state = ShowingNotifications(notifications, isLoading = false)
@@ -89,7 +93,7 @@ class NotificationsWorkflow(
       notifications = notifications.list,
       onLoadMore = eventHandler {
         state = ShowingNotifications(
-          notifications = notifications,
+          notifications = state.notifications,
           isLoading = true,
         )
       },

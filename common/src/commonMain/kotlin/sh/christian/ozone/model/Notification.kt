@@ -1,6 +1,5 @@
 package sh.christian.ozone.model
 
-import app.bsky.graph.Follow
 import app.bsky.notification.ListNotificationsNotification
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
@@ -11,7 +10,6 @@ import sh.christian.ozone.model.Notification.Content.Quoted
 import sh.christian.ozone.model.Notification.Content.RepliedTo
 import sh.christian.ozone.model.Notification.Content.Reposted
 import sh.christian.ozone.notifications.NotificationsRepository.Companion.getPostUri
-import sh.christian.ozone.util.deserialize
 
 @Serializable
 data class Notifications(
@@ -39,9 +37,7 @@ data class Notification(
       val post: TimelinePost,
     ) : Content
 
-    data class Followed(
-      val follow: Follow,
-    ) : Content
+    object Followed : Content
 
     data class Mentioned(
       val post: TimelinePost,
@@ -60,7 +56,10 @@ data class Notification(
 fun ListNotificationsNotification.toNotification(
   postsByUri: Map<String, TimelinePost>,
 ): Notification {
-  val notificationPost by lazy { postsByUri[getPostUri()!!]!! }
+  val notificationPost by lazy {
+    val postUri = getPostUri()!!
+    postsByUri[postUri]
+  }
 
   return Notification(
     uri = uri,
@@ -69,12 +68,12 @@ fun ListNotificationsNotification.toNotification(
     reason = reason,
     reasonSubject = reasonSubject,
     content = when (reason) {
-      "like" -> Liked(notificationPost)
-      "repost" -> Reposted(notificationPost)
-      "follow" -> Followed(Follow.serializer().deserialize(record))
-      "mention" -> Mentioned(notificationPost)
-      "reply" -> RepliedTo(notificationPost)
-      "quote" -> Quoted(notificationPost)
+      "like" -> notificationPost?.let(::Liked)
+      "repost" -> notificationPost?.let(::Reposted)
+      "follow" -> Followed
+      "mention" -> notificationPost?.let(::Mentioned)
+      "reply" -> notificationPost?.let(::RepliedTo)
+      "quote" -> notificationPost?.let(::Quoted)
       else -> null
     },
     isRead = isRead,

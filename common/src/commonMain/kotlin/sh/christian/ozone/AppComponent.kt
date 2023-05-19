@@ -59,7 +59,6 @@ class AppComponent(
     TimelineRepository(apiProvider)
   }
 
-
   private val notificationsRepository: NotificationsRepository by lazy {
     NotificationsRepository(apiProvider)
   }

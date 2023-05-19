@@ -38,6 +38,8 @@ kotlin {
         // implementation("androidx.compose.material:material-icons-extended:1.3.1")
         implementation("com.alialbaali.kamel:kamel-image:0.4.1")
 
+        implementation("org.jetbrains.kotlinx:atomicfu:0.20.2")
+
         api(project(":api"))
         api(project(":store"))
       }

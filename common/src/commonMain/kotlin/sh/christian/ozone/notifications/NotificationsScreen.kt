@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
@@ -32,6 +33,7 @@ import sh.christian.ozone.notifications.type.QuoteRow
 import sh.christian.ozone.notifications.type.ReplyRow
 import sh.christian.ozone.notifications.type.RepostRow
 import sh.christian.ozone.thread.ThreadProps
+import sh.christian.ozone.ui.compose.InfiniteListHandler
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.workflow.ViewRendering
@@ -49,6 +51,7 @@ class NotificationsScreen(
   private val onOpenImage: (OpenImageAction) -> Unit,
   private val onReplyToPost: (PostReplyInfo) -> Unit,
 ) : ViewRendering by screen({
+  val state = rememberLazyListState()
   val context = remember {
     NotificationRowContext(now, onOpenPost, onOpenUser, onOpenImage, onReplyToPost)
   }
@@ -68,7 +71,12 @@ class NotificationsScreen(
         )
       },
     ) { contentPadding ->
-      LazyColumn(Modifier.padding(contentPadding).fillMaxSize()) {
+      InfiniteListHandler(state, buffer = 10, onLoadMore = onLoadMore)
+
+      LazyColumn(
+        modifier = Modifier.padding(contentPadding).fillMaxSize(),
+        state = state,
+      ) {
         stickyHeader {
           Divider(thickness = Dp.Hairline)
         }
