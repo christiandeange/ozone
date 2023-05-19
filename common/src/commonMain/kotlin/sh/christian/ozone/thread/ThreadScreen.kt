@@ -186,7 +186,7 @@ class ThreadScreen(
 
       LaunchedEffect(thread.parents.size) {
         // Default scroll position to the highlighted post.
-        state.scrollToItem(thread.parents.size)
+        state.scrollToItem(thread.parents.size + 1)
       }
     }
   }
