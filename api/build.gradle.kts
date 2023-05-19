@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
   id("com.android.library")
   id("sh.christian.ozone.api-gen")
@@ -19,9 +21,16 @@ android {
   }
 }
 
+tasks.withType<JavaCompile>().configureEach { options.release.set(11) }
+tasks.withType<KotlinCompile>().configureEach { kotlinOptions.jvmTarget = "11" }
+
 kotlin {
   android()
-  jvm("desktop")
+  jvm("desktop") {
+    compilations.all {
+      kotlinOptions.jvmTarget = "11"
+    }
+  }
 
   sourceSets {
     val commonMain by getting {

@@ -1,5 +1,6 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.plugin.sources.android.findAndroidSourceSet
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
   kotlin("multiplatform")
@@ -10,7 +11,11 @@ plugins {
 
 kotlin {
   android()
-  jvm("desktop")
+  jvm("desktop") {
+    compilations.all {
+      kotlinOptions.jvmTarget = "11"
+    }
+  }
 
   sourceSets {
     all {
@@ -70,3 +75,6 @@ android {
     targetCompatibility = JavaVersion.VERSION_11
   }
 }
+
+tasks.withType<JavaCompile>().configureEach { options.release.set(11) }
+tasks.withType<KotlinCompile>().configureEach { kotlinOptions.jvmTarget = "11" }

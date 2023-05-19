@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
   id("org.jetbrains.compose")
   id("com.android.application")
@@ -29,3 +31,6 @@ android {
     targetCompatibility = JavaVersion.VERSION_11
   }
 }
+
+tasks.withType<JavaCompile>().configureEach { options.release.set(11) }
+tasks.withType<KotlinCompile>().configureEach { kotlinOptions.jvmTarget = "11" }
