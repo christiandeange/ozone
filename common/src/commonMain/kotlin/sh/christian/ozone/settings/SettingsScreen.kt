@@ -27,9 +27,9 @@ import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import sh.christian.ozone.ui.compose.heroFont
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
@@ -47,7 +47,7 @@ class SettingsScreen(
           title = {
             Text(
               text = "Settings",
-              style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
+              style = MaterialTheme.typography.titleLarge.copy(fontFamily = heroFont),
             )
           },
         )

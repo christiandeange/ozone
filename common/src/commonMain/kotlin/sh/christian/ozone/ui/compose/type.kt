@@ -19,11 +19,17 @@ internal val styles: Map<FontStyle, String> = mapOf(
   FontStyle.Italic to "Italic",
 )
 
+internal lateinit var heroFont: FontFamily
+  private set
+
 internal lateinit var appFont: FontFamily
   private set
 
 suspend fun initTypography() {
+  heroFont = heroFont()
   appFont = appFont()
 }
+
+expect suspend fun heroFont(): FontFamily
 
 expect suspend fun appFont(): FontFamily

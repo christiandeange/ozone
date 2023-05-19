@@ -71,6 +71,7 @@ import sh.christian.ozone.login.auth.ServerInfo
 import sh.christian.ozone.ui.compose.Overlay
 import sh.christian.ozone.ui.compose.SystemInsets
 import sh.christian.ozone.ui.compose.autofill
+import sh.christian.ozone.ui.compose.heroFont
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.compose.rememberSystemInsets
 import sh.christian.ozone.ui.icons.AlternateEmail
@@ -110,7 +111,10 @@ class LoginScreen(
 
     LargeTopAppBar(
       title = {
-        Text("Welcome to Ozone.")
+        Text(
+          text = "Welcome to Ozone.",
+          style = MaterialTheme.typography.titleLarge.copy(fontFamily = heroFont),
+        )
       },
       actions = {
         TextButton(onClick = {

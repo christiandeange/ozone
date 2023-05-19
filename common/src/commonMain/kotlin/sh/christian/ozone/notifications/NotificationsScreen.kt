@@ -20,7 +20,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.key
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.datetime.Instant
@@ -35,6 +34,7 @@ import sh.christian.ozone.notifications.type.RepostRow
 import sh.christian.ozone.thread.ThreadProps
 import sh.christian.ozone.ui.compose.InfiniteListHandler
 import sh.christian.ozone.ui.compose.OpenImageAction
+import sh.christian.ozone.ui.compose.heroFont
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
@@ -65,7 +65,7 @@ class NotificationsScreen(
           title = {
             Text(
               text = "Notifications",
-              style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
+              style = MaterialTheme.typography.titleLarge.copy(fontFamily = heroFont),
             )
           },
         )

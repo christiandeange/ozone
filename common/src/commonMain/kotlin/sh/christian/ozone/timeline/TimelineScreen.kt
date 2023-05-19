@@ -36,7 +36,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
@@ -50,6 +49,7 @@ import sh.christian.ozone.timeline.components.TimelinePostItem
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.InfiniteListHandler
 import sh.christian.ozone.ui.compose.OpenImageAction
+import sh.christian.ozone.ui.compose.heroFont
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.icons.ChatBubbleOutline
 import sh.christian.ozone.ui.workflow.ViewRendering
@@ -109,8 +109,8 @@ class TimelineScreen(
                   }
                 },
               ),
-              text = "Ozone",
-              style = MaterialTheme.typography.titleLarge.copy(fontWeight = Bold),
+              text = "OZONE",
+              style = MaterialTheme.typography.titleLarge.copy(fontFamily = heroFont),
             )
           },
           actions = {
