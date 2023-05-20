@@ -10,13 +10,17 @@ import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
+import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.api.ApiProvider
+import sh.christian.ozone.di.SingleInApp
 import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.toProfile
 import sh.christian.ozone.store.PersistentStorage
 import sh.christian.ozone.store.preference
 import kotlin.time.Duration.Companion.minutes
 
+@Inject
+@SingleInApp
 class UserDatabase(
   private val clock: Clock,
   private val storage: PersistentStorage,

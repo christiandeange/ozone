@@ -6,10 +6,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
+import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.app.Supervisor
+import sh.christian.ozone.di.SingleInApp
 import sh.christian.ozone.model.FullProfile
 
+@Inject
+@SingleInApp
 class MyProfileRepository(
   private val apiProvider: ApiProvider,
   private val userDatabase: UserDatabase,

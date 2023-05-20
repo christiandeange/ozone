@@ -19,6 +19,8 @@ import androidx.compose.ui.window.rememberWindowState
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import sh.christian.ozone.di.AppComponent
+import sh.christian.ozone.di.create
 import sh.christian.ozone.store.storage
 import sh.christian.ozone.ui.AppTheme
 import sh.christian.ozone.ui.compose.initTypography
@@ -28,7 +30,8 @@ import java.awt.Dimension
 fun main() = runBlocking {
   val storage = storage()
   val appPlacement = DesktopAppPlacement(storage)
-  val component = AppComponent(storage)
+  val component = AppComponent::class.create(storage)
+  val workflow = component.appWorkflow
 
   component.supervisors.forEach {
     with(it) {
@@ -74,7 +77,7 @@ fun main() = runBlocking {
         }
       ) {
         AppTheme {
-          App(component.appWorkflow, onExit = { exitApplication() })
+          App(workflow, onExit = { exitApplication() })
         }
       }
     }

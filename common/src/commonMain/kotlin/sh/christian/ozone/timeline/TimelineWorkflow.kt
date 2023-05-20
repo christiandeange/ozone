@@ -8,6 +8,7 @@ import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.datetime.Clock
+import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.app.AppScreen
 import sh.christian.ozone.compose.ComposePostProps
 import sh.christian.ozone.error.ErrorOutput
@@ -29,6 +30,7 @@ import sh.christian.ozone.ui.workflow.Dismissable.DismissHandler
 import sh.christian.ozone.user.MyProfileRepository
 import kotlin.time.Duration.Companion.minutes
 
+@Inject
 class TimelineWorkflow(
   private val clock: Clock,
   private val myProfileRepository: MyProfileRepository,

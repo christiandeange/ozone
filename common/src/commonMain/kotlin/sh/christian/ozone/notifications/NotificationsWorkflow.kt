@@ -7,6 +7,7 @@ import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
 import kotlinx.coroutines.delay
 import kotlinx.datetime.Clock
+import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.app.AppScreen
 import sh.christian.ozone.compose.ComposePostProps
 import sh.christian.ozone.error.ErrorOutput
@@ -20,6 +21,7 @@ import sh.christian.ozone.notifications.NotificationsState.ShowingNotifications
 import sh.christian.ozone.profile.ProfileProps
 import kotlin.time.Duration.Companion.seconds
 
+@Inject
 class NotificationsWorkflow(
   private val clock: Clock,
   private val notificationsRepository: NotificationsRepository,
