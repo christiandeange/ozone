@@ -21,9 +21,11 @@ import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.datetime.Instant
+import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.app.Supervisor
+import sh.christian.ozone.di.SingleInApp
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.toErrorProps
 import sh.christian.ozone.model.Notifications
@@ -32,6 +34,8 @@ import sh.christian.ozone.model.toNotification
 import sh.christian.ozone.model.toPost
 import kotlin.time.Duration.Companion.minutes
 
+@Inject
+@SingleInApp
 class NotificationsRepository(
   private val apiProvider: ApiProvider,
 ) : Supervisor {

@@ -22,6 +22,7 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.datetime.Clock
+import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.api.NetworkWorker
 import sh.christian.ozone.api.response.AtpResponse
@@ -45,6 +46,7 @@ import sh.christian.ozone.user.UserDatabase
 import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.util.serialize
 
+@Inject
 class ComposePostWorkflow(
   private val clock: Clock,
   private val apiProvider: ApiProvider,

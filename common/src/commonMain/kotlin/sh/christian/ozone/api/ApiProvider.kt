@@ -10,12 +10,16 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.yield
+import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.api.xrpc.Tokens
 import sh.christian.ozone.api.xrpc.XrpcApi
 import sh.christian.ozone.app.Supervisor
+import sh.christian.ozone.di.SingleInApp
 import sh.christian.ozone.login.LoginRepository
 import sh.christian.ozone.login.auth.AuthInfo
 
+@Inject
+@SingleInApp
 class ApiProvider(
   private val apiRepository: ServerRepository,
   private val loginRepository: LoginRepository,

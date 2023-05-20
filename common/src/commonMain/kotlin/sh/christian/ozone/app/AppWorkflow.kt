@@ -8,6 +8,7 @@ import com.squareup.workflow1.renderChild
 import com.squareup.workflow1.runningWorker
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
+import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.app.AppState.ShowingLoggedIn
 import sh.christian.ozone.app.AppState.ShowingLogin
 import sh.christian.ozone.home.HomeOutput
@@ -19,6 +20,7 @@ import sh.christian.ozone.login.LoginRepository
 import sh.christian.ozone.login.LoginWorkflow
 import sh.christian.ozone.notifications.NotificationsRepository
 
+@Inject
 class AppWorkflow(
   private val loginRepository: LoginRepository,
   private val loginWorkflow: LoginWorkflow,

@@ -9,6 +9,7 @@ import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.action
 import com.squareup.workflow1.runningWorker
 import kotlinx.datetime.Clock
+import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.api.NetworkWorker
 import sh.christian.ozone.api.response.AtpResponse
@@ -36,6 +37,7 @@ import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.EmptyScreen
 
+@Inject
 class ThreadWorkflow(
   private val clock: Clock,
   private val apiProvider: ApiProvider,

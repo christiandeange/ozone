@@ -5,6 +5,7 @@ import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.WorkflowAction
 import com.squareup.workflow1.action
 import com.squareup.workflow1.renderChild
+import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.app.AppScreen
 import sh.christian.ozone.compose.ComposePostWorkflow
 import sh.christian.ozone.home.HomeState.InSubScreen
@@ -25,6 +26,7 @@ import sh.christian.ozone.timeline.TimelineOutput
 import sh.christian.ozone.timeline.TimelineProps
 import sh.christian.ozone.timeline.TimelineWorkflow
 
+@Inject
 class HomeWorkflow(
   private val timelineWorkflow: TimelineWorkflow,
   private val notificationsWorkflow: NotificationsWorkflow,

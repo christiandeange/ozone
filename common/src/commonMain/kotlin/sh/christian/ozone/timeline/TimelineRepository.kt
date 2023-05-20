@@ -8,13 +8,17 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
+import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.app.Supervisor
+import sh.christian.ozone.di.SingleInApp
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.toErrorProps
 import sh.christian.ozone.model.Timeline
 
+@Inject
+@SingleInApp
 class TimelineRepository(
   private val apiProvider: ApiProvider,
 ): Supervisor {

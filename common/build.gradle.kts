@@ -7,6 +7,7 @@ plugins {
   kotlin("plugin.serialization")
   id("org.jetbrains.compose")
   id("com.android.library")
+  id("com.google.devtools.ksp") version "1.8.20-1.0.11"
 }
 
 kotlin {
@@ -38,6 +39,7 @@ kotlin {
         // implementation("androidx.compose.material:material-icons-extended:1.3.1")
         implementation("com.alialbaali.kamel:kamel-image:0.4.1")
 
+        implementation("me.tatarka.inject:kotlin-inject-runtime:0.6.1")
         implementation("org.jetbrains.kotlinx:atomicfu:0.20.2")
 
         api(project(":api"))
@@ -53,6 +55,8 @@ kotlin {
       }
     }
     val desktopMain by getting {
+      kotlin.srcDir("build/generated/ksp/desktop/desktopMain/kotlin")
+
       sourceSets {
         resources.srcDir("fonts")
       }
@@ -62,6 +66,10 @@ kotlin {
       }
     }
   }
+}
+
+dependencies {
+  ksp("me.tatarka.inject:kotlin-inject-compiler-ksp:0.6.1")
 }
 
 android {
