@@ -10,6 +10,7 @@ import com.squareup.kotlinpoet.TypeAliasSpec
 import com.squareup.kotlinpoet.TypeSpec
 import org.gradle.configurationcache.extensions.capitalized
 import sh.christian.ozone.api.generator.ENCODING
+import sh.christian.ozone.api.generator.IMMUTABLE_LIST
 import sh.christian.ozone.api.generator.JSON_ELEMENT
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
@@ -113,7 +114,7 @@ class XrpcBodyGenerator(
                   }
                 }
               }
-            }.let { type -> LIST.parameterizedBy(type) },
+            }.let { type -> IMMUTABLE_LIST.parameterizedBy(type) },
           )
         }
         is LexiconObjectProperty.Primitive -> {

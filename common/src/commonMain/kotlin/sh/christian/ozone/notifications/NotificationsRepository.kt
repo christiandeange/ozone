@@ -6,6 +6,7 @@ import app.bsky.notification.ListNotificationsQueryParams
 import app.bsky.notification.ListNotificationsResponse
 import app.bsky.notification.UpdateSeenRequest
 import kotlinx.atomicfu.atomic
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.currentCoroutineContext
@@ -133,7 +134,10 @@ class NotificationsRepository(
   }
 
   private suspend fun fetchPosts(response: ListNotificationsResponse): List<TimelinePost> {
-    val postUris = response.notifications.mapNotNull { it.getPostUri() }.distinct()
+    val postUris = response.notifications
+      .mapNotNull { it.getPostUri() }
+      .distinct()
+      .toImmutableList()
 
     return if (postUris.isEmpty()) {
       emptyList()

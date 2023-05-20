@@ -19,8 +19,10 @@ import com.squareup.kotlinpoet.SET
 import com.squareup.kotlinpoet.STRING
 import com.squareup.kotlinpoet.TypeSpec
 import com.squareup.kotlinpoet.withIndent
+import sh.christian.ozone.api.generator.IMMUTABLE_LIST
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.PAIR
+import sh.christian.ozone.api.generator.toImmutableList
 import sh.christian.ozone.api.lexicon.LexiconUserType
 import sh.christian.ozone.api.lexicon.LexiconXrpcParameter
 import sh.christian.ozone.api.lexicon.LexiconXrpcParameters
@@ -61,7 +63,7 @@ class XrpcQueryParamsGenerator(
         is LexiconXrpcParameter.PrimitiveArray -> {
           SimpleProperty(
             name = name,
-            type = LIST.parameterizedBy(prop.array.items.toTypeName()),
+            type = IMMUTABLE_LIST.parameterizedBy(prop.array.items.toTypeName()),
             nullable = nullable,
           )
         }
@@ -83,7 +85,7 @@ class XrpcQueryParamsGenerator(
   }
 
   private fun toMap(properties: List<SimpleProperty>): FunSpec {
-    val returns = LIST.parameterizedBy(PAIR.parameterizedBy(STRING, ANY.copy(nullable = true)))
+    val returns = IMMUTABLE_LIST.parameterizedBy(PAIR.parameterizedBy(STRING, ANY.copy(nullable = true)))
 
     return FunSpec.builder("asList")
       .returns(returns)
@@ -103,7 +105,7 @@ class XrpcQueryParamsGenerator(
               }
             }
           }
-          .add("}")
+          .add("}.%M()", toImmutableList)
           .build()
       )
       .build()
@@ -120,7 +122,8 @@ class XrpcQueryParamsGenerator(
       MUTABLE_COLLECTION,
       MUTABLE_LIST,
       MUTABLE_SET,
-      MUTABLE_MAP -> true
+      MUTABLE_MAP,
+      IMMUTABLE_LIST -> true
       else -> false
     }
 }

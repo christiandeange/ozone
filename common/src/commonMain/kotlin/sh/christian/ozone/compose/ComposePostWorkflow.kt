@@ -16,6 +16,8 @@ import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.action
 import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
+import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
@@ -174,14 +176,14 @@ class ComposePostWorkflow(
           facets = resolvedLinks.map { link ->
             Facet(
               index = FacetByteSlice(link.start.toLong(), link.end.toLong()),
-              features = listOf(
+              features = persistentListOf(
                 when (link.target) {
                   is ExternalLink -> Link(FacetLink(link.target.url))
                   is UserMention -> Mention(FacetMention(link.target.did))
                 }
               ),
             )
-          },
+          }.toImmutableList(),
           createdAt = clock.now(),
         )
       ),

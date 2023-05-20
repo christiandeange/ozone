@@ -19,6 +19,7 @@ import com.squareup.kotlinpoet.STRING
 import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
 import org.gradle.configurationcache.extensions.capitalized
+import sh.christian.ozone.api.generator.IMMUTABLE_LIST
 import sh.christian.ozone.api.generator.INSTANT
 import sh.christian.ozone.api.generator.JSON_ELEMENT
 import sh.christian.ozone.api.generator.JVM_INLINE
@@ -26,6 +27,7 @@ import sh.christian.ozone.api.generator.KSERIALIZER
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.SERIALIZABLE
 import sh.christian.ozone.api.generator.SERIAL_NAME
+import sh.christian.ozone.api.generator.valueClassSerializer
 import sh.christian.ozone.api.lexicon.LexiconArray
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
 import sh.christian.ozone.api.lexicon.LexiconBlob
@@ -101,7 +103,7 @@ fun createValueClass(
   val serializerTypeSpec = TypeSpec.classBuilder(serializerClassName)
     .addSuperinterface(
       KSERIALIZER.parameterizedBy(className),
-      CodeBlock.of("%M()", MemberName("sh.christian.ozone.api.runtime", "valueClassSerializer"))
+      CodeBlock.of("%M()", valueClassSerializer)
     )
     .build()
 
@@ -245,7 +247,7 @@ fun typeName(
           )
         }
       }
-    }.let { LIST.parameterizedBy(it) }
+    }.let { IMMUTABLE_LIST.parameterizedBy(it) }
   }
   is LexiconBlob -> {
     JSON_ELEMENT

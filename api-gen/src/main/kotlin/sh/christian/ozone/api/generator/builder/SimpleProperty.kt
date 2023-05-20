@@ -43,6 +43,7 @@ import com.squareup.kotlinpoet.U_LONG_ARRAY
 import com.squareup.kotlinpoet.U_SHORT
 import com.squareup.kotlinpoet.U_SHORT_ARRAY
 import com.squareup.kotlinpoet.WildcardTypeName
+import sh.christian.ozone.api.generator.IMMUTABLE_LIST
 
 data class SimpleProperty(
   val name: String,
@@ -110,6 +111,7 @@ private fun TypeName.defaultValue(nullable: Boolean): String = when (this) {
       MUTABLE_LIST -> "mutableListOf()"
       MUTABLE_SET -> "mutableSetOf()"
       MUTABLE_MAP -> "mutableMapOf()"
+      IMMUTABLE_LIST -> "kotlinx.collections.immutable.persistentListOf()"
       else -> error("Unable to provide non-null default for ParameterizedTypeName: $this")
     }
   }

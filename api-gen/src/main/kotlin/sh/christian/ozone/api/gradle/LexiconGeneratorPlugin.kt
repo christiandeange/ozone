@@ -26,7 +26,6 @@ private fun Project.applyPlugin() {
     val commonMain = kotlinExtension.sourceSets.getByName("commonMain")
     commonMain.kotlin.srcDir(extension.outputDirectory)
     commonMain.dependencies {
-      api("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
       api(project(":api-gen-runtime"))
     }
 

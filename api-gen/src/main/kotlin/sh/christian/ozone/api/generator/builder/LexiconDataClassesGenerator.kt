@@ -10,6 +10,7 @@ import com.squareup.kotlinpoet.TypeAliasSpec
 import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
 import org.gradle.configurationcache.extensions.capitalized
+import sh.christian.ozone.api.generator.IMMUTABLE_LIST
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.SERIALIZABLE
 import sh.christian.ozone.api.generator.SERIAL_NAME
@@ -119,7 +120,7 @@ class LexiconDataClassesGenerator(
                 }
               }
             }
-          }.let { LIST.parameterizedBy(it) }
+          }.let { IMMUTABLE_LIST.parameterizedBy(it) }
         }
         is LexiconObjectProperty.Blob -> typeName(environment, context, "", property.blob)
         is LexiconObjectProperty.IpldType -> typeName(environment, context, "", property.ipld)

@@ -34,6 +34,8 @@ kotlin {
   sourceSets {
     val commonMain by getting {
       dependencies {
+        api("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5")
+        api("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
         api("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
         implementation(kotlin("reflect"))
       }
