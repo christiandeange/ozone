@@ -2,8 +2,8 @@ package sh.christian.ozone.timeline.components
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalUriHandler
-import kotlinx.datetime.Instant
 import sh.christian.ozone.model.EmbedPost
+import sh.christian.ozone.model.Moment
 import sh.christian.ozone.model.TimelinePostFeature
 import sh.christian.ozone.model.TimelinePostFeature.ExternalFeature
 import sh.christian.ozone.model.TimelinePostFeature.ImagesFeature
@@ -19,7 +19,7 @@ import sh.christian.ozone.ui.compose.OpenImageAction
 
 @Composable
 internal fun PostFeature(
-  now: Instant,
+  now: Moment,
   feature: TimelinePostFeature?,
   onOpenImage: (OpenImageAction) -> Unit,
   onOpenPost: (ThreadProps) -> Unit,

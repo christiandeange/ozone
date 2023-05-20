@@ -22,6 +22,7 @@ import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.error.toErrorProps
+import sh.christian.ozone.model.Moment
 import sh.christian.ozone.model.Thread
 import sh.christian.ozone.model.toThread
 import sh.christian.ozone.profile.ProfileProps
@@ -170,7 +171,7 @@ class ThreadWorkflow(
 
   private fun RenderContext.threadScreen(thread: Thread): ThreadScreen {
     return ThreadScreen(
-      now = clock.now(),
+      now = Moment(clock.now()),
       thread = thread,
       onExit = eventHandler {
         state.previousState

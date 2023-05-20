@@ -15,6 +15,7 @@ import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.home.HomeSubDestination
 import sh.christian.ozone.model.FullProfile
+import sh.christian.ozone.model.Moment
 import sh.christian.ozone.model.Timeline
 import sh.christian.ozone.profile.ProfileProps
 import sh.christian.ozone.timeline.TimelineOutput.CloseApp
@@ -160,7 +161,7 @@ class TimelineWorkflow(
     showRefreshPrompt: Boolean,
   ): TimelineScreen {
     return TimelineScreen(
-      now = clock.now(),
+      now = Moment(clock.now()),
       profile = profile,
       timeline = timelineResponse?.posts.orEmpty(),
       showRefreshPrompt = showRefreshPrompt,

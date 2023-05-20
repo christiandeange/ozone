@@ -4,16 +4,16 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import kotlin.time.Duration
+import sh.christian.ozone.model.Delta
 
 @Composable
 fun TimeDelta(
-  duration: Duration,
+  delta: Delta,
   modifier: Modifier = Modifier,
 ) {
   Text(
     modifier = modifier,
-    text = duration.toComponents { days, hours, minutes, seconds, _ ->
+    text = delta.duration.toComponents { days, hours, minutes, seconds, _ ->
       when {
         days > 0 -> "${days}d"
         hours > 0 -> "${hours}h"

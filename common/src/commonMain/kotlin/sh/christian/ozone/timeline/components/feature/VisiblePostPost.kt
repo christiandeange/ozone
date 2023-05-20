@@ -9,8 +9,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import kotlinx.datetime.Instant
 import sh.christian.ozone.model.LitePost
+import sh.christian.ozone.model.Moment
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.timeline.components.PostHeadline
 import sh.christian.ozone.ui.compose.AvatarImage
@@ -18,7 +18,7 @@ import sh.christian.ozone.util.color
 
 @Composable
 fun VisiblePostPost(
-  now: Instant,
+  now: Moment,
   post: LitePost,
   author: Profile,
   onClick: () -> Unit,

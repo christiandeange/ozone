@@ -1,7 +1,6 @@
 package sh.christian.ozone.model
 
 import app.bsky.notification.ListNotificationsNotification
-import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
 import sh.christian.ozone.model.Notification.Content.Followed
 import sh.christian.ozone.model.Notification.Content.Liked
@@ -26,7 +25,7 @@ data class Notification(
   val reasonSubject: String?,
   val content: Content?,
   val isRead: Boolean,
-  val indexedAt: Instant,
+  val indexedAt: Moment,
 ) {
   sealed interface Content {
     data class Liked(
@@ -77,6 +76,6 @@ fun ListNotificationsNotification.toNotification(
       else -> null
     },
     isRead = isRead,
-    indexedAt = indexedAt,
+    indexedAt = Moment(indexedAt),
   )
 }

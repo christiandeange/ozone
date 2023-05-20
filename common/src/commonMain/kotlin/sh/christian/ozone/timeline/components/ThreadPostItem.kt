@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import kotlinx.datetime.Instant
+import sh.christian.ozone.model.Moment
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.thread.ThreadProps
@@ -25,7 +25,7 @@ import sh.christian.ozone.util.color
 @Composable
 fun ThreadPostItem(
   modifier: Modifier = Modifier,
-  now: Instant,
+  now: Moment,
   post: TimelinePost,
   onOpenUser: (UserReference) -> Unit,
   onOpenImage: (OpenImageAction) -> Unit,

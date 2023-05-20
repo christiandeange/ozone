@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
@@ -51,7 +50,7 @@ fun RepostRow(
 
           TimeDelta(
             modifier = Modifier.alignByBaseline(),
-            duration = context.now - notification.indexedAt,
+            delta = context.now - notification.indexedAt,
           )
         }
         Text(

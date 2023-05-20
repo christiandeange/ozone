@@ -22,8 +22,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import kotlinx.datetime.Instant
 import sh.christian.ozone.compose.PostReplyInfo
+import sh.christian.ozone.model.Moment
 import sh.christian.ozone.model.Notification
 import sh.christian.ozone.notifications.type.FollowRow
 import sh.christian.ozone.notifications.type.LikeRow
@@ -42,7 +42,7 @@ import sh.christian.ozone.user.UserReference
 
 @OptIn(ExperimentalFoundationApi::class)
 class NotificationsScreen(
-  private val now: Instant,
+  private val now: Moment,
   private val notifications: List<Notification>,
   private val onLoadMore: () -> Unit,
   private val onExit: () -> Unit,
@@ -116,7 +116,7 @@ class NotificationsScreen(
 })
 
 data class NotificationRowContext(
-  val now: Instant,
+  val now: Moment,
   val onOpenPost: (ThreadProps) -> Unit,
   val onOpenUser: (UserReference) -> Unit,
   val onOpenImage: (OpenImageAction) -> Unit,

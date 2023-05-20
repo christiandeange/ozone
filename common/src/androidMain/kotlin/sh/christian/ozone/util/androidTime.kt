@@ -3,20 +3,20 @@ package sh.christian.ozone.util
 import android.text.format.DateFormat
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
-import kotlinx.datetime.Instant
 import kotlinx.datetime.toJavaInstant
+import sh.christian.ozone.model.Moment
 import java.util.Date
 
 @Composable
-actual fun Instant.formatDate(): String {
+actual fun Moment.formatDate(): String {
   return DateFormat
     .getDateFormat(LocalContext.current)
-    .format(Date.from(toJavaInstant()))
+    .format(Date.from(instant.toJavaInstant()))
 }
 
 @Composable
-actual fun Instant.formatTime(): String {
+actual fun Moment.formatTime(): String {
   return DateFormat
     .getTimeFormat(LocalContext.current)
-    .format(Date.from(toJavaInstant()))
+    .format(Date.from(instant.toJavaInstant()))
 }

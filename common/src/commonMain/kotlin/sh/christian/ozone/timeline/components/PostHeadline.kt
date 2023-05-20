@@ -10,14 +10,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import kotlinx.datetime.Instant
+import sh.christian.ozone.model.Moment
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.ui.compose.TimeDelta
 
 @Composable
 internal fun PostHeadline(
-  now: Instant,
-  createdAt: Instant,
+  now: Moment,
+  createdAt: Moment,
   author: Profile,
 ) {
   Row(horizontalArrangement = spacedBy(4.dp)) {
@@ -50,7 +50,7 @@ internal fun PostHeadline(
 
     TimeDelta(
       modifier = Modifier.alignByBaseline(),
-      duration = now - createdAt,
+      delta = now - createdAt,
     )
   }
 }

@@ -22,6 +22,7 @@ import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.model.FullProfile
+import sh.christian.ozone.model.Moment
 import sh.christian.ozone.model.Timeline
 import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.profile.ProfileState.ComposingReply
@@ -199,7 +200,7 @@ class ProfileWorkflow(
     feed: List<TimelinePost>,
   ): ProfileScreen {
     return ProfileScreen(
-      now = clock.now(),
+      now = Moment(clock.now()),
       profile = profile,
       feed = feed,
       isSelf = myProfileRepository.isMe(UserReference.Did(profile.did)),

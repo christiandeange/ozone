@@ -47,10 +47,10 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import kotlinx.datetime.Instant
 import sh.christian.ozone.compose.PostReplyInfo
 import sh.christian.ozone.compose.asReplyInfo
 import sh.christian.ozone.model.FullProfile
+import sh.christian.ozone.model.Moment
 import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.thread.ThreadProps
 import sh.christian.ozone.timeline.components.TimelinePostItem
@@ -73,7 +73,7 @@ import kotlin.math.max
 
 @OptIn(ExperimentalFoundationApi::class)
 class ProfileScreen(
-  private val now: Instant,
+  private val now: Moment,
   private val profile: FullProfile,
   private val feed: List<TimelinePost>,
   private val isSelf: Boolean,

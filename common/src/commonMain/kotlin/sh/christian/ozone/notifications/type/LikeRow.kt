@@ -50,7 +50,7 @@ fun LikeRow(
 
           TimeDelta(
             modifier = Modifier.alignByBaseline(),
-            duration = context.now - notification.indexedAt,
+            delta = context.now - notification.indexedAt,
           )
         }
         Text(

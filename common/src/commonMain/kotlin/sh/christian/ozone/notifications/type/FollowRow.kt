@@ -44,7 +44,7 @@ fun FollowRow(
         )
         TimeDelta(
           modifier = Modifier.alignByBaseline(),
-          duration = context.now - notification.indexedAt,
+          delta = context.now - notification.indexedAt,
         )
       }
     },

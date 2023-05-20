@@ -87,4 +87,16 @@ android {
 }
 
 tasks.withType<JavaCompile>().configureEach { options.release.set(11) }
-tasks.withType<KotlinCompile>().configureEach { kotlinOptions.jvmTarget = "11" }
+tasks.withType<KotlinCompile>().configureEach {
+  kotlinOptions.jvmTarget = "11"
+
+  if (project.findProperty("enableComposeCompilerReports") == "true") {
+    val destinationPath = project.buildDir.absolutePath + "/compose_metrics"
+    kotlinOptions.freeCompilerArgs += listOf(
+      "-P",
+      "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=$destinationPath",
+      "-P",
+      "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=$destinationPath"
+    )
+  }
+}

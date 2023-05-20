@@ -3,7 +3,6 @@ package sh.christian.ozone.model
 import app.bsky.feed.DefsFeedViewPost
 import app.bsky.feed.DefsPostView
 import app.bsky.feed.Post
-import kotlinx.datetime.Instant
 import sh.christian.ozone.util.deserialize
 
 data class TimelinePost(
@@ -12,12 +11,12 @@ data class TimelinePost(
   val author: Profile,
   val text: String,
   val textLinks: List<TimelinePostLink>,
-  val createdAt: Instant,
+  val createdAt: Moment,
   val feature: TimelinePostFeature?,
   val replyCount: Long,
   val repostCount: Long,
   val likeCount: Long,
-  val indexedAt: Instant,
+  val indexedAt: Moment,
   val reposted: Boolean,
   val liked: Boolean,
   val labels: List<Label>,
@@ -52,12 +51,12 @@ fun DefsPostView.toPost(
     author = author.toProfile(),
     text = postRecord.text,
     textLinks = postRecord.facets.map { it.toLink() },
-    createdAt = postRecord.createdAt,
+    createdAt = Moment(postRecord.createdAt),
     feature = embed?.toFeature(),
     replyCount = replyCount ?: 0,
     repostCount = repostCount ?: 0,
     likeCount = likeCount ?: 0,
-    indexedAt = indexedAt,
+    indexedAt = Moment(indexedAt),
     reposted = viewer?.repost != null,
     liked = viewer?.like != null,
     labels = labels.map { it.toLabel() },

@@ -13,6 +13,7 @@ import sh.christian.ozone.compose.ComposePostProps
 import sh.christian.ozone.error.ErrorOutput
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.home.HomeSubDestination
+import sh.christian.ozone.model.Moment
 import sh.christian.ozone.model.Notifications
 import sh.christian.ozone.notifications.NotificationsOutput.CloseApp
 import sh.christian.ozone.notifications.NotificationsOutput.EnterScreen
@@ -101,7 +102,7 @@ class NotificationsWorkflow(
     notifications: Notifications,
   ): NotificationsScreen {
     return NotificationsScreen(
-      now = clock.now(),
+      now = Moment(clock.now()),
       notifications = notifications.list,
       onLoadMore = eventHandler {
         state = ShowingNotifications(

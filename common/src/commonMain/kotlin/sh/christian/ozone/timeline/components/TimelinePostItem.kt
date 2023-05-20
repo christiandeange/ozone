@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import kotlinx.datetime.Instant
+import sh.christian.ozone.model.Moment
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.thread.ThreadProps
@@ -22,7 +22,7 @@ import sh.christian.ozone.util.format
 @Composable
 fun TimelinePostItem(
   modifier: Modifier = Modifier,
-  now: Instant,
+  now: Moment,
   post: TimelinePost,
   onOpenPost: (ThreadProps) -> Unit,
   onOpenUser: (UserReference) -> Unit,

@@ -3,7 +3,6 @@ package sh.christian.ozone.model
 import app.bsky.actor.DefsProfileView
 import app.bsky.actor.DefsProfileViewBasic
 import app.bsky.actor.DefsProfileViewDetailed
-import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -41,7 +40,7 @@ data class FullProfile(
   val followersCount: Long,
   val followsCount: Long,
   val postsCount: Long,
-  val indexedAt: Instant?,
+  val indexedAt: Moment?,
   override val mutedByMe: Boolean,
   override val followingMe: Boolean,
   override val followedByMe: Boolean,
@@ -59,7 +58,7 @@ fun DefsProfileViewDetailed.toProfile(): FullProfile {
     followersCount = followersCount ?: 0,
     followsCount = followsCount ?: 0,
     postsCount = postsCount ?: 0,
-    indexedAt = indexedAt,
+    indexedAt = indexedAt?.let(::Moment),
     mutedByMe = viewer?.muted == true,
     followingMe = viewer?.followedBy != null,
     followedByMe = viewer?.following != null,

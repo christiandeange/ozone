@@ -1,10 +1,10 @@
 package sh.christian.ozone.util
 
 import androidx.compose.runtime.Composable
-import kotlinx.datetime.Instant
+import sh.christian.ozone.model.Moment
 
 @Composable
-expect fun Instant.formatDate(): String
+expect fun Moment.formatDate(): String
 
 @Composable
-expect fun Instant.formatTime(): String
+expect fun Moment.formatTime(): String

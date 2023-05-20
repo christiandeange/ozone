@@ -39,9 +39,9 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
-import kotlinx.datetime.Instant
 import sh.christian.ozone.compose.PostReplyInfo
 import sh.christian.ozone.compose.asReplyInfo
+import sh.christian.ozone.model.Moment
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.thread.ThreadProps
@@ -58,7 +58,7 @@ import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.util.color
 
 class TimelineScreen(
-  private val now: Instant,
+  private val now: Moment,
   private val profile: Profile?,
   private val timeline: List<TimelinePost>,
   private val showRefreshPrompt: Boolean,

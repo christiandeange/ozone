@@ -1,13 +1,12 @@
 package sh.christian.ozone.model
 
 import app.bsky.feed.DefsFeedViewPostReasonUnion
-import kotlinx.datetime.Instant
 import sh.christian.ozone.model.TimelinePostReason.TimelinePostRepost
 
 sealed interface TimelinePostReason {
   data class TimelinePostRepost(
     val repostAuthor: Profile,
-    val indexedAt: Instant,
+    val indexedAt: Moment,
   ) : TimelinePostReason
 }
 
@@ -16,7 +15,7 @@ fun DefsFeedViewPostReasonUnion.toReason(): TimelinePostReason {
     is DefsFeedViewPostReasonUnion.ReasonRepost -> {
       TimelinePostRepost(
         repostAuthor = value.by.toProfile(),
-        indexedAt = value.indexedAt,
+        indexedAt = Moment(value.indexedAt),
       )
     }
   }

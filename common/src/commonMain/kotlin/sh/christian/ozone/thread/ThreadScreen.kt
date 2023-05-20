@@ -40,9 +40,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import kotlinx.datetime.Instant
 import sh.christian.ozone.compose.PostReplyInfo
 import sh.christian.ozone.compose.asReplyInfo
+import sh.christian.ozone.model.Moment
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.model.Thread
 import sh.christian.ozone.model.ThreadPost
@@ -62,7 +62,7 @@ import sh.christian.ozone.user.UserReference
 import kotlin.math.min
 
 class ThreadScreen(
-  private val now: Instant,
+  private val now: Moment,
   private val thread: Thread,
   private val onExit: () -> Unit,
   private val onRefresh: () -> Unit,
@@ -224,7 +224,7 @@ private fun BoxScope.ConversationLinks(
 
 @Composable
 private fun SmallThreadPostItem(
-  now: Instant,
+  now: Moment,
   post: ThreadPost,
   onOpenPost: (ThreadProps) -> Unit,
   onOpenUser: (UserReference) -> Unit,
