@@ -65,7 +65,7 @@ class TimelineRepository(
       is AtpResponse.Failure -> {
         loadErrors.emit(
           response.toErrorProps(true)
-            ?: ErrorProps.CustomError("Oops.", "Could not load timeline", true)
+            ?: ErrorProps("Oops.", "Could not load timeline", true)
         )
       }
     }

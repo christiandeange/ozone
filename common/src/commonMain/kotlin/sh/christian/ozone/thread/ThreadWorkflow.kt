@@ -92,13 +92,13 @@ class ThreadWorkflow(
                   is NotFoundPost,
                   is BlockedPost -> ShowingError(
                     previousState = state,
-                    props = ErrorProps.CustomError("Oops.", "Could not load thread.", false),
+                    props = ErrorProps("Oops.", "Could not load thread.", false),
                   )
                 }
               }
               is AtpResponse.Failure -> {
                 val errorProps = result.toErrorProps(true)
-                  ?: ErrorProps.CustomError("Oops.", "Could not load thread.", false)
+                  ?: ErrorProps("Oops.", "Could not load thread.", false)
 
                 ShowingError(
                   previousState = state,

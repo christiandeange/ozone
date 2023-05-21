@@ -41,7 +41,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -60,7 +59,6 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation.Companion.None
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import sh.christian.ozone.api.AtpApi
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import sh.christian.ozone.login.LoginScreenMode.SIGN_IN
@@ -84,10 +82,10 @@ import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 
 class LoginScreen(
-  private val api: AtpApi,
   private val mode: LoginScreenMode,
   private val onChangeMode: (LoginScreenMode) -> Unit,
   private val server: Server,
+  private val serverInfo: ServerInfo?,
   private val onChangeServer: (Server) -> Unit,
   private val onExit: () -> Unit,
   private val onLogin: (Credentials) -> Unit,
@@ -150,24 +148,11 @@ class LoginScreen(
         .fillMaxWidth(),
       horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-      var serverInfo: ServerInfo? by remember { mutableStateOf(null) }
-
       val showInviteCodeField = mode == SIGN_UP && serverInfo?.inviteCodeRequired == true
 
       val allFieldsCompleted = username.isNotEmpty() && password.isNotEmpty() && when (mode) {
         SIGN_UP -> email.isNotEmpty() && (!showInviteCodeField || inviteCode.isNotEmpty())
         SIGN_IN -> true
-      }
-
-      LaunchedEffect(server) {
-        serverInfo = api.describeServer().maybeResponse()?.let { response ->
-          ServerInfo(
-            inviteCodeRequired = response.inviteCodeRequired ?: false,
-            availableUserDomains = response.availableUserDomains,
-            privacyPolicy = response.links?.privacyPolicy,
-            termsOfService = response.links?.termsOfService,
-          )
-        }
       }
 
       val animationDistance = with(LocalDensity.current) { 32.dp.roundToPx() }

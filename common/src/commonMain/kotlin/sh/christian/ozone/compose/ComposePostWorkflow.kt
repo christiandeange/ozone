@@ -35,7 +35,7 @@ import sh.christian.ozone.compose.ComposePostState.ComposingPost
 import sh.christian.ozone.compose.ComposePostState.CreatingPost
 import sh.christian.ozone.compose.ComposePostState.ShowingError
 import sh.christian.ozone.error.ErrorOutput
-import sh.christian.ozone.error.ErrorProps.CustomError
+import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.error.toErrorProps
 import sh.christian.ozone.model.LinkTarget.ExternalLink
@@ -90,7 +90,7 @@ class ComposePostWorkflow(
               }
               is AtpResponse.Failure -> {
                 val errorProps = result.toErrorProps(true)
-                  ?: CustomError("Oops.", "Something bad happened.", false)
+                  ?: ErrorProps("Oops.", "Something bad happened.", false)
 
                 state = ShowingError(state.myProfile, errorProps, renderState.postPayload)
               }

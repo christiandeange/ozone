@@ -80,7 +80,7 @@ class ProfileWorkflow(
       context.runningWorker(worker, renderState.user.toString()) { result ->
         action {
           val feedResult = RemoteData.fromAtpResponseOrError(result, state.feed) {
-            ErrorProps.CustomError("Oops.", "Could not load feed for @${props.user}.", true)
+            ErrorProps("Oops.", "Could not load feed for @${props.user}.", true)
           }
           val combinedFeed = if (feedResult is Success) {
             val oldPosts = state.feed.getOrNull()?.posts.orEmpty()
