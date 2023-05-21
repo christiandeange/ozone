@@ -37,8 +37,8 @@ import io.kamel.image.config.LocalKamelConfig
  */
 @Composable
 fun rememberUrlPainter(
-  data: Any,
-  key: Any? = data,
+  data: String,
+  key: String? = data,
   filterQuality: FilterQuality = DrawScope.DefaultFilterQuality,
 ): PainterResource {
 
@@ -52,7 +52,7 @@ fun rememberUrlPainter(
 
   val cachedOutput = remember(key, resourceConfig) {
     val output = kamelConfig.mapInput(data)
-    when (data.toString().substringAfterLast(".")) {
+    when (data.substringAfterLast(".")) {
       "svg" -> kamelConfig.svgCache[output]?.let { Resource.Success(it, DataSource.Memory) }
       "xml" -> kamelConfig.imageVectorCache[output]?.let { Resource.Success(it, DataSource.Memory) }
       else -> kamelConfig.imageBitmapCache[output]?.let { Resource.Success(it, DataSource.Memory) }
@@ -60,7 +60,7 @@ fun rememberUrlPainter(
   }
 
   val painterResource by remember(key, resourceConfig) {
-    when (data.toString().substringAfterLast(".")) {
+    when (data.substringAfterLast(".")) {
       "svg" -> kamelConfig.loadSvgResource(data, resourceConfig)
       "xml" -> kamelConfig.loadImageVectorResource(data, resourceConfig)
       else -> kamelConfig.loadImageBitmapResource(data, resourceConfig)

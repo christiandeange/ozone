@@ -41,7 +41,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
@@ -61,11 +60,13 @@ import sh.christian.ozone.ui.compose.BasicImage
 import sh.christian.ozone.ui.compose.InfiniteListHandler
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.compose.OverImageIconButton
+import sh.christian.ozone.ui.compose.StablePainter
 import sh.christian.ozone.ui.compose.Statistic
 import sh.christian.ozone.ui.compose.SystemInsets
 import sh.christian.ozone.ui.compose.foreground
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.compose.rememberSystemInsets
+import sh.christian.ozone.ui.compose.stable
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 import sh.christian.ozone.user.UserReference
@@ -173,7 +174,7 @@ class ProfileScreen(
                 containerColor = MaterialTheme.colorScheme.outlineVariant,
               ),
               textTint = MaterialTheme.colorScheme.onSurface,
-              icon = rememberVectorPainter(Icons.Default.Edit),
+              icon = rememberVectorPainter(Icons.Default.Edit).stable,
               text = "Edit Profile",
               onClick = { /* TODO */ },
             )
@@ -184,7 +185,7 @@ class ProfileScreen(
                 containerColor = MaterialTheme.colorScheme.outlineVariant,
               ),
               textTint = MaterialTheme.colorScheme.onSurface,
-              icon = rememberVectorPainter(Icons.Default.Check),
+              icon = rememberVectorPainter(Icons.Default.Check).stable,
               text = "Following",
               onClick = { isFollowing = !isFollowing },
             )
@@ -195,7 +196,7 @@ class ProfileScreen(
                 containerColor = MaterialTheme.colorScheme.primary,
               ),
               textTint = MaterialTheme.colorScheme.inverseOnSurface,
-              icon = rememberVectorPainter(Icons.Default.Add),
+              icon = rememberVectorPainter(Icons.Default.Add).stable,
               text = "Follow",
               onClick = { isFollowing = !isFollowing },
             )
@@ -278,7 +279,7 @@ private fun FollowButton(
   modifier: Modifier = Modifier,
   buttonColors: ButtonColors,
   textTint: Color,
-  icon: Painter,
+  icon: StablePainter,
   text: String,
   onClick: () -> Unit,
 ) {
@@ -293,7 +294,7 @@ private fun FollowButton(
     ) {
       Icon(
         modifier = Modifier.size(16.dp),
-        painter = icon,
+        painter = icon.painter,
         contentDescription = text,
         tint = textTint,
       )

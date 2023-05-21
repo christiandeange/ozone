@@ -25,12 +25,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import sh.christian.ozone.ui.compose.StablePainter
 import sh.christian.ozone.ui.compose.heroFont
 import sh.christian.ozone.ui.compose.onBackPressed
+import sh.christian.ozone.ui.compose.stable
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 
@@ -55,7 +56,7 @@ class SettingsScreen(
     ) { contentPadding ->
       Column(Modifier.padding(contentPadding).fillMaxSize()) {
         SettingsRow(
-          icon = rememberVectorPainter(Icons.Default.ExitToApp),
+          icon = rememberVectorPainter(Icons.Default.ExitToApp).stable,
           text = "Sign Out",
           onClick = onSignOut,
         )
@@ -75,7 +76,7 @@ class SettingsScreen(
 
 @Composable
 private fun SettingsRow(
-  icon: Painter,
+  icon: StablePainter,
   text: String,
   onClick: () -> Unit,
 ) {
@@ -94,7 +95,7 @@ private fun SettingsRow(
       contentAlignment = Alignment.Center,
     ) {
       Icon(
-        painter = icon,
+        painter = icon.painter,
         contentDescription = null,
       )
     }

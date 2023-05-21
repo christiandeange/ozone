@@ -69,11 +69,13 @@ import sh.christian.ozone.login.auth.Server.BlueskySocial
 import sh.christian.ozone.login.auth.Server.CustomServer
 import sh.christian.ozone.login.auth.ServerInfo
 import sh.christian.ozone.ui.compose.Overlay
+import sh.christian.ozone.ui.compose.StablePainter
 import sh.christian.ozone.ui.compose.SystemInsets
 import sh.christian.ozone.ui.compose.autofill
 import sh.christian.ozone.ui.compose.heroFont
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.compose.rememberSystemInsets
+import sh.christian.ozone.ui.compose.stable
 import sh.christian.ozone.ui.icons.AlternateEmail
 import sh.christian.ozone.ui.icons.LocalActivity
 import sh.christian.ozone.ui.icons.Visibility
@@ -185,7 +187,7 @@ class LoginScreen(
           BasicInputField(
             modifier = Modifier.fillMaxWidth(),
             label = "Email Address",
-            icon = rememberVectorPainter(Icons.Default.Email),
+            icon = rememberVectorPainter(Icons.Default.Email).stable,
             field = emailField,
             autofillTypes = persistentListOf(AutofillType.EmailAddress),
           )
@@ -197,7 +199,7 @@ class LoginScreen(
       BasicInputField(
         modifier = Modifier.fillMaxWidth(),
         label = "Username",
-        icon = rememberVectorPainter(Icons.Default.AlternateEmail),
+        icon = rememberVectorPainter(Icons.Default.AlternateEmail).stable,
         field = usernameField,
         autofillTypes = persistentListOf(AutofillType.Username),
       )
@@ -266,7 +268,7 @@ private fun InviteCodeField(
 private fun BasicInputField(
   modifier: Modifier = Modifier,
   label: String,
-  icon: Painter,
+  icon: StablePainter,
   field: MutableState<String>,
   autofillTypes: ImmutableList<AutofillType>,
 ) {
@@ -279,7 +281,7 @@ private fun BasicInputField(
     onValueChange = { field.value = it },
     leadingIcon = {
       Icon(
-        painter = icon,
+        painter = icon.painter,
         contentDescription = label,
       )
     },
