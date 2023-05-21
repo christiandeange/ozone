@@ -29,6 +29,8 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.IntSize
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.OverlayRendering
 import sh.christian.ozone.ui.workflow.overlay
@@ -108,14 +110,14 @@ class ImageOverlayScreen(
 }
 
 data class OpenImageAction(
-  val images: List<BasicImage>,
+  val images: ImmutableList<BasicImage>,
   val selectedIndex: Int,
 ) {
   init {
     check(images.isNotEmpty()) { "List of images is empty" }
   }
 
-  constructor(image: BasicImage) : this(listOf(image), 0)
+  constructor(image: BasicImage) : this(persistentListOf(image), 0)
 }
 
 data class BasicImage(

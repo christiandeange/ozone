@@ -3,7 +3,10 @@ package sh.christian.ozone.model
 import app.bsky.actor.DefsProfileView
 import app.bsky.actor.DefsProfileViewBasic
 import app.bsky.actor.DefsProfileViewDetailed
+import kotlinx.collections.immutable.ImmutableList
 import kotlinx.serialization.Serializable
+import sh.christian.ozone.api.runtime.ImmutableListSerializer
+import sh.christian.ozone.util.mapImmutable
 
 @Serializable
 sealed interface Profile {
@@ -14,7 +17,7 @@ sealed interface Profile {
   val mutedByMe: Boolean
   val followingMe: Boolean
   val followedByMe: Boolean
-  val labels: List<Label>
+  val labels: ImmutableList<Label>
 }
 
 @Serializable
@@ -26,7 +29,8 @@ data class LiteProfile(
   override val mutedByMe: Boolean,
   override val followingMe: Boolean,
   override val followedByMe: Boolean,
-  override val labels: List<Label>,
+  @Serializable(ImmutableListSerializer::class)
+  override val labels: ImmutableList<Label>,
 ) : Profile
 
 @Serializable
@@ -44,7 +48,8 @@ data class FullProfile(
   override val mutedByMe: Boolean,
   override val followingMe: Boolean,
   override val followedByMe: Boolean,
-  override val labels: List<Label>,
+  @Serializable(ImmutableListSerializer::class)
+  override val labels: ImmutableList<Label>,
 ) : Profile
 
 fun DefsProfileViewDetailed.toProfile(): FullProfile {
@@ -62,7 +67,7 @@ fun DefsProfileViewDetailed.toProfile(): FullProfile {
     mutedByMe = viewer?.muted == true,
     followingMe = viewer?.followedBy != null,
     followedByMe = viewer?.following != null,
-    labels = labels.map { it.toLabel() },
+    labels = labels.mapImmutable { it.toLabel() },
   )
 }
 
@@ -75,7 +80,7 @@ fun DefsProfileViewBasic.toProfile(): Profile {
     mutedByMe = viewer?.muted != null,
     followingMe = viewer?.followedBy != null,
     followedByMe = viewer?.following != null,
-    labels = labels.map { it.toLabel() },
+    labels = labels.mapImmutable { it.toLabel() },
   )
 }
 
@@ -88,6 +93,6 @@ fun DefsProfileView.toProfile(): Profile {
     mutedByMe = viewer?.muted == true,
     followingMe = viewer?.followedBy != null,
     followedByMe = viewer?.following != null,
-    labels = labels.map { it.toLabel() },
+    labels = labels.mapImmutable { it.toLabel() },
   )
 }

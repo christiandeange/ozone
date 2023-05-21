@@ -296,9 +296,7 @@ private fun ThreadPost.withInterestingReplies(ops: Collection<Profile>): List<Th
       is ThreadPost.BlockedPost -> null
     }
   }.toList().let { replyThread ->
-    if (
-      replyThread.viewable().all { it.post.author.did in conversation }
-    ) {
+    if (replyThread.viewable().all { it.post.author.did in conversation }) {
       replyThread.subList(0, min(replyThread.count(), 3))
     } else {
       replyThread

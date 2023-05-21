@@ -13,6 +13,7 @@ import sh.christian.ozone.ui.compose.BasicImage
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.compose.PostImage
 import sh.christian.ozone.ui.compose.rememberUrlPainter
+import sh.christian.ozone.util.mapImmutable
 
 @Composable
 internal fun PostImages(
@@ -20,7 +21,7 @@ internal fun PostImages(
   onOpenImage: (OpenImageAction) -> Unit,
 ) {
   val fullSizeImages = remember(feature.images) {
-    feature.images.map {
+    feature.images.mapImmutable {
       BasicImage(it.fullsize, it.alt)
     }
   }

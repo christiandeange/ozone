@@ -6,6 +6,7 @@ import app.bsky.notification.ListNotificationsQueryParams
 import app.bsky.notification.ListNotificationsResponse
 import app.bsky.notification.UpdateSeenRequest
 import kotlinx.atomicfu.atomic
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -33,6 +34,7 @@ import sh.christian.ozone.model.Notifications
 import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.model.toNotification
 import sh.christian.ozone.model.toPost
+import sh.christian.ozone.util.mapImmutable
 import kotlin.time.Duration.Companion.minutes
 
 @Inject
@@ -109,13 +111,13 @@ class NotificationsRepository(
         val posts = fetchPosts(response.response).associateBy { it.uri }
 
         val newNotifications = Notifications(
-          list = response.response.notifications.map { it.toNotification(posts) },
+          list = response.response.notifications.mapImmutable { it.toNotification(posts) },
           cursor = response.response.cursor,
         )
 
         val mergedNotifications = if (cursor != null) {
           Notifications(
-            list = latest.value.list + newNotifications.list,
+            list = (latest.value.list + newNotifications.list).toImmutableList(),
             cursor = newNotifications.cursor,
           )
         } else {
@@ -151,7 +153,7 @@ class NotificationsRepository(
   }
 
   companion object {
-    private val EMPTY_VALUE = Notifications(listOf(), null)
+    private val EMPTY_VALUE = Notifications(persistentListOf(), null)
 
     fun ListNotificationsNotification.getPostUri(): String? = when (reason) {
       "like" -> reasonSubject!!

@@ -16,6 +16,7 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.UrlAnnotation
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.ImmutableList
 import sh.christian.ozone.model.LinkTarget
 import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.model.TimelinePostFeature.ExternalFeature
@@ -63,7 +64,7 @@ internal fun PostText(
 @Composable
 fun rememberFormattedTextPost(
   text: String,
-  textLinks: List<TimelinePostLink>,
+  textLinks: ImmutableList<TimelinePostLink>,
 ): AnnotatedString {
   return remember(text, textLinks) { formatTextPost(text, textLinks) }
 }

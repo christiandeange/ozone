@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 import sh.christian.ozone.ui.compose.Overlay
 import sh.christian.ozone.ui.workflow.Dismissable.DismissHandler
 import sh.christian.ozone.ui.workflow.Dismissable.Ignore
@@ -16,7 +18,7 @@ import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 
 data class AppScreen(
-  val mains: List<ViewRendering>,
+  val mains: ImmutableList<ViewRendering>,
   val overlay: OverlayRendering? = null,
 ) : ViewRendering by screen({
   Box {
@@ -62,5 +64,5 @@ data class AppScreen(
   constructor(
     main: ViewRendering,
     overlay: OverlayRendering? = null
-  ) : this(listOf(main), overlay)
+  ) : this(persistentListOf(main), overlay)
 }

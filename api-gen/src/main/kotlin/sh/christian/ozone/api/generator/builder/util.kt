@@ -20,6 +20,7 @@ import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
 import org.gradle.configurationcache.extensions.capitalized
 import sh.christian.ozone.api.generator.IMMUTABLE_LIST
+import sh.christian.ozone.api.generator.IMMUTABLE_LIST_SERIALIZER
 import sh.christian.ozone.api.generator.INSTANT
 import sh.christian.ozone.api.generator.JSON_ELEMENT
 import sh.christian.ozone.api.generator.JVM_INLINE
@@ -71,7 +72,18 @@ fun createDataClass(
                   nullable = property.nullable && property.type !is ParameterizedTypeName
                 )
               )
-              .apply { if (property.nullable) defaultValue(property.defaultValue()) }
+              .apply {
+                if (property.nullable) {
+                  defaultValue(property.defaultValue())
+                }
+                if ((property.type as? ParameterizedTypeName)?.rawType == IMMUTABLE_LIST) {
+                  addAnnotation(
+                    AnnotationSpec.builder(SERIALIZABLE)
+                      .addMember("%T::class", IMMUTABLE_LIST_SERIALIZER)
+                      .build()
+                  )
+                }
+              }
               .build()
           }
         )

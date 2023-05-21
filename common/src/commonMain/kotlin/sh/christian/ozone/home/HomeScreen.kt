@@ -18,6 +18,7 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.ImmutableList
 import sh.christian.ozone.home.SelectedHomeScreenTab.NOTIFICATIONS
 import sh.christian.ozone.home.SelectedHomeScreenTab.SETTINGS
 import sh.christian.ozone.home.SelectedHomeScreenTab.TIMELINE
@@ -27,7 +28,7 @@ import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 
 class HomeScreen(
-  private val homeContent: List<ViewRendering>,
+  private val homeContent: ImmutableList<ViewRendering>,
   private val unreadCount: String?,
   private val tab: SelectedHomeScreenTab,
   private val onChangeTab: (SelectedHomeScreenTab) -> Unit,

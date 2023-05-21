@@ -6,6 +6,7 @@ import app.bsky.embed.RecordViewRecordUnion
 import app.bsky.embed.RecordWithMediaViewMediaUnion
 import app.bsky.feed.DefsPostViewEmbedUnion
 import app.bsky.feed.Post
+import kotlinx.collections.immutable.ImmutableList
 import sh.christian.ozone.model.EmbedPost.BlockedEmbedPost
 import sh.christian.ozone.model.EmbedPost.InvisibleEmbedPost
 import sh.christian.ozone.model.EmbedPost.VisibleEmbedPost
@@ -14,10 +15,11 @@ import sh.christian.ozone.model.TimelinePostFeature.ImagesFeature
 import sh.christian.ozone.model.TimelinePostFeature.MediaPostFeature
 import sh.christian.ozone.model.TimelinePostFeature.PostFeature
 import sh.christian.ozone.util.deserialize
+import sh.christian.ozone.util.mapImmutable
 
 sealed interface TimelinePostFeature {
   data class ImagesFeature(
-    val images: List<EmbedImage>,
+    val images: ImmutableList<EmbedImage>,
   ) : TimelinePostFeature, TimelinePostMedia
 
   data class ExternalFeature(
@@ -91,7 +93,7 @@ fun DefsPostViewEmbedUnion.toFeature(): TimelinePostFeature {
 
 private fun ImagesView.toImagesFeature(): ImagesFeature {
   return ImagesFeature(
-    images = images.map {
+    images = images.mapImmutable {
       EmbedImage(
         thumb = it.thumb,
         fullsize = it.fullsize,

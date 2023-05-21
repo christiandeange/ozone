@@ -8,6 +8,8 @@ import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.action
 import com.squareup.workflow1.runningWorker
+import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.datetime.Clock
 import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.api.ApiProvider
@@ -54,8 +56,8 @@ class ThreadWorkflow(
       thread = props.originalPost?.let { originalPost ->
         Thread(
           post = originalPost,
-          parents = emptyList(),
-          replies = emptyList(),
+          parents = persistentListOf(),
+          replies = persistentListOf(),
         )
       },
       previousState = null,
@@ -74,6 +76,7 @@ class ThreadWorkflow(
       .reversed()
       .map { state -> context.threadScreen(state.thread!!) }
       .ifEmpty { listOf(EmptyScreen) }
+      .toImmutableList()
 
     return when (renderState) {
       is FetchingPost -> {
@@ -122,7 +125,7 @@ class ThreadWorkflow(
           }
         }
 
-        profileScreen.copy(mains = screenStack + profileScreen.mains)
+        profileScreen.copy(mains = (screenStack + profileScreen.mains).toImmutableList())
       }
       is ShowingFullSizeImage -> {
         AppScreen(
@@ -149,7 +152,7 @@ class ThreadWorkflow(
           }
         }
 
-        profileScreen.copy(mains = screenStack + profileScreen.mains)
+        profileScreen.copy(mains = (screenStack + profileScreen.mains).toImmutableList())
       }
       is ShowingError -> {
         AppScreen(
@@ -190,8 +193,8 @@ class ThreadWorkflow(
           thread = post.originalPost?.let { originalPost ->
             Thread(
               post = originalPost,
-              parents = emptyList(),
-              replies = emptyList(),
+              parents = persistentListOf(),
+              replies = persistentListOf(),
             )
           },
           previousState = state,

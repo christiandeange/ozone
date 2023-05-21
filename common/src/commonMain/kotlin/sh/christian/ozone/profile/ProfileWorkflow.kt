@@ -8,6 +8,7 @@ import com.squareup.workflow1.WorkflowAction
 import com.squareup.workflow1.action
 import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.datetime.Clock
 import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.api.ApiProvider
@@ -87,7 +88,7 @@ class ProfileWorkflow(
             Success(
               Timeline(
                 cursor = feedResult.value.cursor,
-                posts = oldPosts + newPosts,
+                posts = (oldPosts + newPosts).toImmutableList(),
               )
             )
           } else {
@@ -105,10 +106,11 @@ class ProfileWorkflow(
       .filter { it.profile is Success }
       .map { state: ProfileState ->
         context.profileScreen(
-          state.profile.getOrNull()!!,
-          state.feed.getOrNull()?.posts.orEmpty()
+          profile = state.profile.getOrNull()!!,
+          feed = state.feed.getOrNull()?.posts.orEmpty(),
         )
       }
+      .toImmutableList()
 
     return when (renderState) {
       is ShowingProfile -> {
@@ -150,7 +152,7 @@ class ProfileWorkflow(
           }
         }
 
-        composeScreen.copy(mains = screenStack + composeScreen.mains)
+        composeScreen.copy(mains = (screenStack + composeScreen.mains).toImmutableList())
       }
       is ShowingThread -> {
         val threadScreen = context.renderChild(threadWorkflow, renderState.props) {
@@ -159,7 +161,7 @@ class ProfileWorkflow(
           }
         }
 
-        threadScreen.copy(mains = screenStack + threadScreen.mains)
+        threadScreen.copy(mains = (screenStack + threadScreen.mains).toImmutableList())
       }
       is ShowingError -> {
         AppScreen(
@@ -202,7 +204,7 @@ class ProfileWorkflow(
     return ProfileScreen(
       now = Moment(clock.now()),
       profile = profile,
-      feed = feed,
+      feed = feed.toImmutableList(),
       isSelf = myProfileRepository.isMe(UserReference.Did(profile.did)),
       onLoadMore = eventHandler {
         state = ShowingProfile(

@@ -5,6 +5,7 @@ import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.action
 import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
 import kotlinx.datetime.Clock
 import me.tatarka.inject.annotations.Inject
@@ -32,7 +33,7 @@ class NotificationsWorkflow(
     props: Unit,
     snapshot: Snapshot?,
   ): NotificationsState = ShowingNotifications(
-    notifications = Notifications(emptyList(), null),
+    notifications = Notifications(persistentListOf(), null),
     isLoading = true,
   )
 

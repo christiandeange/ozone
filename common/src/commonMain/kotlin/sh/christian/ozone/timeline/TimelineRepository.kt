@@ -1,6 +1,7 @@
 package sh.christian.ozone.timeline
 
 import app.bsky.feed.GetTimelineQueryParams
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -52,7 +53,7 @@ class TimelineRepository(
         val nextTimeline = response.response
         val mergedTimeline = if (cursor != null && previousTimeline != null) {
           Timeline(
-            posts = previousTimeline.posts + nextTimeline.posts,
+            posts = (previousTimeline.posts + nextTimeline.posts).toImmutableList(),
             cursor = nextTimeline.cursor,
           )
         } else {

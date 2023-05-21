@@ -6,6 +6,7 @@ import com.squareup.workflow1.Worker
 import com.squareup.workflow1.action
 import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.datetime.Clock
 import me.tatarka.inject.annotations.Inject
@@ -163,7 +164,7 @@ class TimelineWorkflow(
     return TimelineScreen(
       now = Moment(clock.now()),
       profile = profile,
-      timeline = timelineResponse?.posts.orEmpty(),
+      timeline = timelineResponse?.posts.orEmpty().toImmutableList(),
       showRefreshPrompt = showRefreshPrompt,
       showComposePostButton = profile != null && timelineResponse != null,
       onRefresh = eventHandler {

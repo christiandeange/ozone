@@ -47,6 +47,7 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.ImmutableList
 import sh.christian.ozone.compose.PostReplyInfo
 import sh.christian.ozone.compose.asReplyInfo
 import sh.christian.ozone.model.FullProfile
@@ -75,7 +76,7 @@ import kotlin.math.max
 class ProfileScreen(
   private val now: Moment,
   private val profile: FullProfile,
-  private val feed: List<TimelinePost>,
+  private val feed: ImmutableList<TimelinePost>,
   private val isSelf: Boolean,
   private val onLoadMore: () -> Unit,
   private val onOpenPost: (ThreadProps) -> Unit,

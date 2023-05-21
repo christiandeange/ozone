@@ -1,7 +1,9 @@
 package sh.christian.ozone.model
 
 import app.bsky.notification.ListNotificationsNotification
+import kotlinx.collections.immutable.ImmutableList
 import kotlinx.serialization.Serializable
+import sh.christian.ozone.api.runtime.ImmutableListSerializer
 import sh.christian.ozone.model.Notification.Content.Followed
 import sh.christian.ozone.model.Notification.Content.Liked
 import sh.christian.ozone.model.Notification.Content.Mentioned
@@ -12,7 +14,8 @@ import sh.christian.ozone.notifications.NotificationsRepository.Companion.getPos
 
 @Serializable
 data class Notifications(
-  val list: List<Notification>,
+  @Serializable(ImmutableListSerializer::class)
+  val list: ImmutableList<Notification>,
   val cursor: String?,
 )
 

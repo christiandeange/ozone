@@ -42,6 +42,8 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.toImmutableList
 import sh.christian.ozone.model.LinkTarget
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.model.TimelinePostLink
@@ -191,7 +193,7 @@ class ComposePostScreen(
   }
 })
 
-private fun AnnotatedString.links(): List<TimelinePostLink> {
+private fun AnnotatedString.links(): ImmutableList<TimelinePostLink> {
   val byteOffsets = text.byteOffsets()
   val handleRegex = Regex(
     "(^|\\s|\\()(@)([a-zA-Z0-9.-]+)(\\b)",
@@ -228,11 +230,11 @@ private fun AnnotatedString.links(): List<TimelinePostLink> {
       )
     }
 
-  return (mentions + hyperlinks).toList()
+  return (mentions + hyperlinks).toImmutableList()
 }
 
 data class PostPayload(
   val authorDid: String,
   val text: String,
-  val links: List<TimelinePostLink>,
+  val links: ImmutableList<TimelinePostLink>,
 )

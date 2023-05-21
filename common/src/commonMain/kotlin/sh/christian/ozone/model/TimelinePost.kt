@@ -1,16 +1,20 @@
 package sh.christian.ozone.model
 
+import androidx.compose.runtime.Immutable
 import app.bsky.feed.DefsFeedViewPost
 import app.bsky.feed.DefsPostView
 import app.bsky.feed.Post
+import kotlinx.collections.immutable.ImmutableList
 import sh.christian.ozone.util.deserialize
+import sh.christian.ozone.util.mapImmutable
 
+@Immutable
 data class TimelinePost(
   val uri: String,
   val cid: String,
   val author: Profile,
   val text: String,
-  val textLinks: List<TimelinePostLink>,
+  val textLinks: ImmutableList<TimelinePostLink>,
   val createdAt: Moment,
   val feature: TimelinePostFeature?,
   val replyCount: Long,
@@ -19,7 +23,7 @@ data class TimelinePost(
   val indexedAt: Moment,
   val reposted: Boolean,
   val liked: Boolean,
-  val labels: List<Label>,
+  val labels: ImmutableList<Label>,
   val reply: TimelinePostReply?,
   val reason: TimelinePostReason?,
 )
@@ -50,7 +54,7 @@ fun DefsPostView.toPost(
     cid = cid,
     author = author.toProfile(),
     text = postRecord.text,
-    textLinks = postRecord.facets.map { it.toLink() },
+    textLinks = postRecord.facets.mapImmutable { it.toLink() },
     createdAt = Moment(postRecord.createdAt),
     feature = embed?.toFeature(),
     replyCount = replyCount ?: 0,
@@ -59,7 +63,7 @@ fun DefsPostView.toPost(
     indexedAt = Moment(indexedAt),
     reposted = viewer?.repost != null,
     liked = viewer?.like != null,
-    labels = labels.map { it.toLabel() },
+    labels = labels.mapImmutable { it.toLabel() },
     reply = reply,
     reason = reason,
   )

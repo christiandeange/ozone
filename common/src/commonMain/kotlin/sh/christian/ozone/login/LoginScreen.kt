@@ -61,6 +61,8 @@ import androidx.compose.ui.text.input.VisualTransformation.Companion.None
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import sh.christian.ozone.api.AtpApi
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 import sh.christian.ozone.login.LoginScreenMode.SIGN_IN
 import sh.christian.ozone.login.LoginScreenMode.SIGN_UP
 import sh.christian.ozone.login.auth.Credentials
@@ -200,7 +202,7 @@ class LoginScreen(
             label = "Email Address",
             icon = rememberVectorPainter(Icons.Default.Email),
             field = emailField,
-            autofillTypes = listOf(AutofillType.EmailAddress),
+            autofillTypes = persistentListOf(AutofillType.EmailAddress),
           )
 
           Spacer(Modifier.height(8.dp))
@@ -212,7 +214,7 @@ class LoginScreen(
         label = "Username",
         icon = rememberVectorPainter(Icons.Default.AlternateEmail),
         field = usernameField,
-        autofillTypes = listOf(AutofillType.Username),
+        autofillTypes = persistentListOf(AutofillType.Username),
       )
 
       Spacer(Modifier.height(8.dp))
@@ -281,7 +283,7 @@ private fun BasicInputField(
   label: String,
   icon: Painter,
   field: MutableState<String>,
-  autofillTypes: List<AutofillType>,
+  autofillTypes: ImmutableList<AutofillType>,
 ) {
   OutlinedTextField(
     modifier = modifier.autofill(
