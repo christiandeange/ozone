@@ -49,7 +49,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.autofill.AutofillType
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
@@ -70,7 +69,6 @@ import sh.christian.ozone.login.auth.Server.CustomServer
 import sh.christian.ozone.login.auth.ServerInfo
 import sh.christian.ozone.ui.compose.Overlay
 import sh.christian.ozone.ui.compose.SystemInsets
-import sh.christian.ozone.ui.compose.autofill
 import sh.christian.ozone.ui.compose.heroFont
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.compose.rememberSystemInsets
@@ -84,6 +82,7 @@ import sh.christian.ozone.ui.workflow.screen
 class LoginScreen(
   private val api: AtpApi,
   private val mode: LoginScreenMode,
+  private val saved: Credentials?,
   private val onChangeMode: (LoginScreenMode) -> Unit,
   private val server: Server,
   private val onChangeServer: (Server) -> Unit,
@@ -100,8 +99,8 @@ class LoginScreen(
       .onBackPressed(onExit)
   ) {
     val emailField = remember(mode) { mutableStateOf("") }
-    val usernameField = remember(mode) { mutableStateOf("") }
-    val passwordField = remember(mode) { mutableStateOf("") }
+    val usernameField = remember(mode, saved) { mutableStateOf(saved?.username.orEmpty()) }
+    val passwordField = remember(mode, saved) { mutableStateOf(saved?.password.orEmpty()) }
     val inviteCodeField = remember(mode) { mutableStateOf("") }
 
     val email by emailField
@@ -200,7 +199,6 @@ class LoginScreen(
             label = "Email Address",
             icon = rememberVectorPainter(Icons.Default.Email),
             field = emailField,
-            autofillTypes = listOf(AutofillType.EmailAddress),
           )
 
           Spacer(Modifier.height(8.dp))
@@ -212,7 +210,6 @@ class LoginScreen(
         label = "Username",
         icon = rememberVectorPainter(Icons.Default.AlternateEmail),
         field = usernameField,
-        autofillTypes = listOf(AutofillType.Username),
       )
 
       Spacer(Modifier.height(8.dp))
@@ -281,13 +278,9 @@ private fun BasicInputField(
   label: String,
   icon: Painter,
   field: MutableState<String>,
-  autofillTypes: List<AutofillType>,
 ) {
   OutlinedTextField(
-    modifier = modifier.autofill(
-      autofillTypes = autofillTypes,
-      onFill = { field.value = it },
-    ),
+    modifier = modifier,
     value = field.value,
     onValueChange = { field.value = it },
     leadingIcon = {
@@ -311,10 +304,7 @@ private fun PasswordField(
 ) {
   var showPassword by remember { mutableStateOf(false) }
   OutlinedTextField(
-    modifier = modifier.autofill(
-      autofillTypes = listOf(AutofillType.Password),
-      onFill = { password.value = it },
-    ),
+    modifier = modifier,
     value = password.value,
     onValueChange = { password.value = it },
     leadingIcon = {
@@ -474,4 +464,10 @@ private fun ServerSelectorOverlay(
 enum class LoginScreenMode {
   SIGN_UP,
   SIGN_IN,
+}
+
+sealed interface SavedCredentials {
+  object FetchSavedCredentials : SavedCredentials
+  data class LoadedSavedCredentials(val credentials: Credentials?) : SavedCredentials
+  object DoNotFetchSavedCredentials : SavedCredentials
 }

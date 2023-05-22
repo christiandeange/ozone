@@ -8,6 +8,7 @@ sealed interface LoginState {
 
   data class ShowingLogin(
     override val mode: LoginScreenMode,
+    val savedCredentials: SavedCredentials,
   ) : LoginState
 
   data class SigningIn(

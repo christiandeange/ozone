@@ -7,7 +7,7 @@ import me.tatarka.inject.annotations.Provides
 import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.app.AppWorkflow
 import sh.christian.ozone.app.Supervisor
-import sh.christian.ozone.di.SingleInApp
+import sh.christian.ozone.login.auth.CredentialManager
 import sh.christian.ozone.notifications.NotificationsRepository
 import sh.christian.ozone.store.PersistentStorage
 import sh.christian.ozone.timeline.TimelineRepository
@@ -16,7 +16,8 @@ import sh.christian.ozone.user.MyProfileRepository
 @Component
 @SingleInApp
 abstract class AppComponent(
-  @get:Provides @get:SingleInApp protected val storage: PersistentStorage,
+  @get:Provides protected val storage: PersistentStorage,
+  @get:Provides protected val credentialManager: CredentialManager,
 ) {
   abstract val appWorkflow: AppWorkflow
 

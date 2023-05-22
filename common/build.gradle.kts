@@ -52,6 +52,9 @@ kotlin {
 
       dependencies {
         implementation("androidx.activity:activity-compose:1.7.1")
+
+        implementation("androidx.credentials:credentials:1.2.0-alpha04")
+        implementation("androidx.credentials:credentials-play-services-auth:1.2.0-alpha04")
       }
     }
     val desktopMain by getting {
@@ -73,7 +76,7 @@ dependencies {
 }
 
 android {
-  compileSdk = 33
+  compileSdkPreview = "UpsideDownCake"
   namespace = "sh.christian.ozone.common"
 
   defaultConfig {

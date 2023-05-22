@@ -8,7 +8,7 @@ plugins {
 
 android {
   namespace = "sh.christian.ozone.api.runtime"
-  compileSdk = 33
+  compileSdkPreview = "UpsideDownCake"
 
   defaultConfig {
     minSdk = 30

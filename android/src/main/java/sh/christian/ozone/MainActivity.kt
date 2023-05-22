@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import sh.christian.ozone.di.AppComponent
 import sh.christian.ozone.di.create
+import sh.christian.ozone.login.auth.AndroidCredentialManager
 import sh.christian.ozone.store.storage
 import sh.christian.ozone.ui.AppTheme
 import sh.christian.ozone.ui.compose.fontsAssetManager
@@ -19,7 +20,12 @@ import sh.christian.ozone.ui.compose.initTypography
 
 class MainActivity : AppCompatActivity() {
 
-  private val appComponent by retain { AppComponent::class.create(storage) }
+  private val appComponent by retain {
+    AppComponent::class.create(
+      storage = storage,
+      credentialManager = AndroidCredentialManager(this),
+    )
+  }
   private val workflow by lazy { appComponent.appWorkflow }
 
   override fun onCreate(savedInstanceState: Bundle?) {

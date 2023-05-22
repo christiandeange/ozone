@@ -15,7 +15,7 @@ dependencies {
 }
 
 android {
-  compileSdk = 33
+  compileSdkPreview = "UpsideDownCake"
   namespace = "sh.christian.ozone"
 
   defaultConfig {

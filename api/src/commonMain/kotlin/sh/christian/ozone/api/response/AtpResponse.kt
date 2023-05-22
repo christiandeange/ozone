@@ -29,8 +29,8 @@ sealed interface AtpResponse<T> {
     }
   }
 
-  fun <R> map(transform: (T) -> R): AtpResponse<R> = when (this) {
+  suspend fun <R> map(transform: suspend (T) -> R): AtpResponse<R> = when (this) {
     is Success -> Success(transform(response), headers)
-    is Failure -> Failure(statusCode, response?.let(transform), error, headers)
+    is Failure -> Failure(statusCode, response?.let { transform(it) }, error, headers)
   }
 }
