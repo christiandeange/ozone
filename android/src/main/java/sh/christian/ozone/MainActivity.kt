@@ -16,6 +16,7 @@ import sh.christian.ozone.store.storage
 import sh.christian.ozone.ui.AppTheme
 import sh.christian.ozone.ui.compose.fontsAssetManager
 import sh.christian.ozone.ui.compose.initTypography
+import sh.christian.ozone.ui.workflow.WorkflowRendering
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,7 +44,12 @@ class MainActivity : AppCompatActivity() {
     setContent {
       AppTheme {
         StatusBarTheme()
-        App(workflow, onExit = { finish() })
+        WorkflowRendering(
+          workflow = workflow,
+          props = Unit,
+          onOutput = { finish() },
+          content = { it.Content() },
+        )
       }
     }
   }

@@ -21,42 +21,44 @@ data class AppScreen(
   val mains: ImmutableList<ViewRendering>,
   val overlay: OverlayRendering? = null,
 ) : ViewRendering by screen({
-  Box {
-    mains.forEach { main -> main.Content() }
-  }
+  Box(Modifier.fillMaxSize()) {
+    Box {
+      mains.forEach { main -> main.Content() }
+    }
 
-  val overlayVisibility = remember { MutableTransitionState(false) }
+    val overlayVisibility = remember { MutableTransitionState(false) }
 
-  Overlay(
-    modifier = Modifier.fillMaxSize(),
-    visibleState = overlayVisibility,
-    enter = overlay?.enter ?: EnterTransition.None,
-    exit = overlay?.exit ?: ExitTransition.None,
-    onClickOutside = {
-      when (overlay?.onDismiss) {
-        is DismissHandler -> overlayVisibility.targetState = false
-        is Ignore -> Unit
-        null -> Unit
-      }
-    },
-  ) {
-    overlay?.Content(onRequestDismiss = {
-      when (overlay.onDismiss) {
-        is DismissHandler -> overlayVisibility.targetState = false
-        is Ignore -> Unit
-      }
-    })
-  }
+    Overlay(
+      modifier = Modifier.fillMaxSize(),
+      visibleState = overlayVisibility,
+      enter = overlay?.enter ?: EnterTransition.None,
+      exit = overlay?.exit ?: ExitTransition.None,
+      onClickOutside = {
+        when (overlay?.onDismiss) {
+          is DismissHandler -> overlayVisibility.targetState = false
+          is Ignore -> Unit
+          null -> Unit
+        }
+      },
+    ) {
+      overlay?.Content(onRequestDismiss = {
+        when (overlay.onDismiss) {
+          is DismissHandler -> overlayVisibility.targetState = false
+          is Ignore -> Unit
+        }
+      })
+    }
 
-  LaunchedEffect(overlay) {
-    overlayVisibility.targetState = overlay != null
-  }
+    LaunchedEffect(overlay) {
+      overlayVisibility.targetState = overlay != null
+    }
 
-  LaunchedEffect(overlayVisibility.currentState) {
-    if (!overlayVisibility.targetState && !overlayVisibility.currentState && overlay != null) {
-      when (val onDismiss = overlay.onDismiss) {
-        is DismissHandler -> onDismiss.handler()
-        is Ignore -> Unit
+    LaunchedEffect(overlayVisibility.currentState) {
+      if (!overlayVisibility.targetState && !overlayVisibility.currentState && overlay != null) {
+        when (val onDismiss = overlay.onDismiss) {
+          is DismissHandler -> onDismiss.handler()
+          is Ignore -> Unit
+        }
       }
     }
   }
