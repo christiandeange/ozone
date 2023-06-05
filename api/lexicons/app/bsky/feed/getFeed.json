@@ -1,14 +1,15 @@
 {
   "lexicon": 1,
-  "id": "app.bsky.unspecced.getPopular",
+  "id": "app.bsky.feed.getFeed",
   "defs": {
     "main": {
       "type": "query",
-      "description": "An unspecced view of globally popular items",
+      "description": "Compose and hydrate a feed from a user's selected feed generator",
       "parameters": {
         "type": "params",
+        "required": ["feed"],
         "properties": {
-          "includeNsfw": {"type": "boolean", "default": false},
+          "feed": {"type": "string", "format": "at-uri"},
           "limit": {"type": "integer", "minimum": 1, "maximum": 100, "default": 50},
           "cursor": {"type": "string"}
         }
@@ -26,7 +27,10 @@
             }
           }
         }
-      }
+      },
+      "errors": [
+        {"name": "UnknownFeed"}
+      ]
     }
   }
 }

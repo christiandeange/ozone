@@ -35,7 +35,9 @@
           "type": "union",
           "refs": [
             "#repoView",
-            "#recordView"
+            "#repoViewNotFound",
+            "#recordView",
+            "#recordViewNotFound"
           ]
         },
         "subjectBlobs": {"type": "array", "items": {"type": "ref", "ref": "#blobView"}},
@@ -70,7 +72,8 @@
       "knownValues": [
         "#takedown",
         "#flag",
-        "#acknowledge"
+        "#acknowledge",
+        "#escalate"
       ]
     },
     "takedown": {
@@ -84,6 +87,10 @@
     "acknowledge": {
       "type": "token",
       "description": "Moderation action type: Acknowledge. Indicates that the content was reviewed and not considered to violate PDS rules."
+    },
+    "escalate": {
+      "type": "token",
+      "description": "Moderation action type: Escalate. Indicates that the content has been flagged for additional review."
     },
     "reportView": {
       "type": "object",
@@ -115,7 +122,9 @@
           "type": "union",
           "refs": [
             "#repoView",
-            "#recordView"
+            "#repoViewNotFound",
+            "#recordView",
+            "#recordViewNotFound"
           ]
         },
         "reportedBy": {"type": "string", "format": "did"},
@@ -133,7 +142,8 @@
         "relatedRecords": {"type": "array", "items": {"type": "unknown"}},
         "indexedAt": {"type": "string", "format": "datetime"},
         "moderation": {"type": "ref", "ref": "#moderation"},
-        "invitedBy": {"type": "ref", "ref": "com.atproto.server.defs#inviteCode"}
+        "invitedBy": {"type": "ref", "ref": "com.atproto.server.defs#inviteCode"},
+        "invitesDisabled": {"type": "boolean"}
       }
     },
     "repoViewDetail": {
@@ -154,7 +164,15 @@
         "invites": {
           "type": "array",
           "items": {"type": "ref", "ref": "com.atproto.server.defs#inviteCode"}
-        }
+        },
+        "invitesDisabled": {"type": "boolean"}
+      }
+    },
+    "repoViewNotFound": {
+      "type": "object",
+      "required": ["did"],
+      "properties": {
+        "did": {"type": "string", "format": "did"}
       }
     },
     "repoRef": {
@@ -192,6 +210,13 @@
         "indexedAt": {"type": "string", "format": "datetime"},
         "moderation": {"type": "ref", "ref": "#moderationDetail"},
         "repo": {"type": "ref", "ref": "#repoView"}
+      }
+    },
+    "recordViewNotFound": {
+      "type": "object",
+      "required": ["uri"],
+      "properties": {
+        "uri": {"type": "string", "format": "at-uri"}
       }
     },
     "moderation": {

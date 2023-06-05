@@ -205,11 +205,34 @@ fun LexiconSingleReference.typeName(
     )
   }
 
+  val isUnionType = when (lexiconRefType) {
+    is LexiconArray -> {
+      when (lexiconRefType.items) {
+        is LexiconArrayItem.Reference -> {
+          lexiconRefType.items.reference is LexiconUnionReference
+        }
+        is LexiconArrayItem.Blob,
+        is LexiconArrayItem.IpldType,
+        is LexiconArrayItem.Primitive -> false
+      }
+    }
+    is LexiconBlob,
+    is LexiconIpldType,
+    is LexiconObject,
+    is LexiconPrimitive,
+    is LexiconRecord,
+    is LexiconToken,
+    is LexiconXrpcQuery,
+    is LexiconXrpcProcedure,
+    is LexiconXrpcSubscription -> false
+  }
+
   val (lexiconId, objectRef) = ref.parseLexiconRef(source)
 
   val packageName = lexiconId.substringBeforeLast(".")
   val className = lexiconId.substringAfterLast(".").capitalized() +
-      if (objectRef == "main") "" else objectRef.capitalized()
+      if (objectRef == "main") "" else objectRef.capitalized() +
+          if (isUnionType) "Union" else ""
 
   return ClassName(packageName, className)
 }

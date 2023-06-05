@@ -1,14 +1,15 @@
 {
   "lexicon": 1,
-  "id": "app.bsky.unspecced.getPopular",
+  "id": "app.bsky.feed.getFeedSkeleton",
   "defs": {
     "main": {
       "type": "query",
-      "description": "An unspecced view of globally popular items",
+      "description": "A skeleton of a feed provided by a feed generator",
       "parameters": {
         "type": "params",
+        "required": ["feed"],
         "properties": {
-          "includeNsfw": {"type": "boolean", "default": false},
+          "feed": {"type": "string", "format": "at-uri"},
           "limit": {"type": "integer", "minimum": 1, "maximum": 100, "default": 50},
           "cursor": {"type": "string"}
         }
@@ -22,11 +23,14 @@
             "cursor": {"type": "string"},
             "feed": {
               "type": "array",
-              "items": {"type": "ref", "ref": "app.bsky.feed.defs#feedViewPost"}
+              "items": {"type": "ref", "ref": "app.bsky.feed.defs#skeletonFeedPost"}
             }
           }
         }
-      }
+      },
+      "errors": [
+        {"name": "UnknownFeed"}
+      ]
     }
   }
 }

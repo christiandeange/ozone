@@ -135,5 +135,11 @@ private fun RecordViewRecordUnion.toEmbedPost(): EmbedPost {
         litePost = litePost,
       )
     }
+    is RecordViewRecordUnion.FeedDefsGeneratorView -> {
+      // TODO support generator views.
+      InvisibleEmbedPost(
+        uri = value.uri,
+      )
+    }
   }
 }
