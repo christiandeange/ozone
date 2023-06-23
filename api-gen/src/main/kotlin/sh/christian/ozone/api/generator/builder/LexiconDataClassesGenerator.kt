@@ -3,10 +3,7 @@ package sh.christian.ozone.api.generator.builder
 import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.KModifier
-import com.squareup.kotlinpoet.LIST
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
-import com.squareup.kotlinpoet.STRING
-import com.squareup.kotlinpoet.TypeAliasSpec
 import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
 import org.gradle.configurationcache.extensions.capitalized
@@ -17,19 +14,14 @@ import sh.christian.ozone.api.generator.SERIAL_NAME
 import sh.christian.ozone.api.lexicon.LexiconArray
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
 import sh.christian.ozone.api.lexicon.LexiconBlob
-import sh.christian.ozone.api.lexicon.LexiconBoolean
-import sh.christian.ozone.api.lexicon.LexiconFloat
-import sh.christian.ozone.api.lexicon.LexiconInteger
 import sh.christian.ozone.api.lexicon.LexiconIpldType
 import sh.christian.ozone.api.lexicon.LexiconObject
 import sh.christian.ozone.api.lexicon.LexiconObjectProperty
 import sh.christian.ozone.api.lexicon.LexiconPrimitive
 import sh.christian.ozone.api.lexicon.LexiconRecord
 import sh.christian.ozone.api.lexicon.LexiconSingleReference
-import sh.christian.ozone.api.lexicon.LexiconString
 import sh.christian.ozone.api.lexicon.LexiconToken
 import sh.christian.ozone.api.lexicon.LexiconUnionReference
-import sh.christian.ozone.api.lexicon.LexiconUnknown
 import sh.christian.ozone.api.lexicon.LexiconUserType
 import sh.christian.ozone.api.lexicon.LexiconXrpcBody
 import sh.christian.ozone.api.lexicon.LexiconXrpcProcedure
@@ -153,17 +145,7 @@ class LexiconDataClassesGenerator(
     context: GeneratorContext,
     primitive: LexiconPrimitive,
   ) {
-    when (primitive) {
-      is LexiconBoolean -> Unit
-      is LexiconInteger -> Unit
-      is LexiconFloat -> Unit
-      is LexiconString -> {
-        if (primitive.knownValues.isNotEmpty()) {
-          context.addTypeAlias(TypeAliasSpec.builder(context.classPrefix, STRING).build())
-        }
-      }
-      is LexiconUnknown -> Unit
-    }
+    return
   }
 
   private fun generateTypes(
