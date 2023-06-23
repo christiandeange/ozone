@@ -6,7 +6,6 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.pager.HorizontalPager
@@ -15,22 +14,17 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.derivedStateOf
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.layout.onSizeChanged
-import androidx.compose.ui.unit.IntSize
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
+import me.saket.telephoto.zoomable.ZoomableContentLocation
+import me.saket.telephoto.zoomable.rememberZoomableState
+import me.saket.telephoto.zoomable.zoomable
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.OverlayRendering
 import sh.christian.ozone.ui.workflow.overlay
@@ -53,40 +47,36 @@ class ImageOverlayScreen(
       state = state,
     ) { page ->
       Box {
-        var scale by remember { mutableStateOf(1f) }
-        var offsetX by remember { mutableStateOf(0f) }
-        var offsetY by remember { mutableStateOf(0f) }
-        var size by remember { mutableStateOf(IntSize.Zero) }
-
-        val maxX by remember { derivedStateOf { (size.width * (scale - 1)) / 2 } }
-        val maxY by remember { derivedStateOf { (size.height * (scale - 1)) / 2 } }
+        val zoomableState = rememberZoomableState()
 
         val url = action.images[page].imageUrl
         when (val resource = rememberUrlPainter(url)) {
           is PainterResource.Failure,
           is PainterResource.Loading -> Unit
           is PainterResource.Success -> {
+            val painter = resource.painter
+
             Image(
               modifier = Modifier
                 .fillMaxSize()
-                .onSizeChanged { size = it }
-                .pointerInput(Unit) {
-                  detectTransformGestures(panZoomLock = true) { _, pan, zoom, _ ->
-                    scale = (scale * zoom).coerceIn(1f, 4f)
-                    offsetX = (offsetX + pan.x).coerceIn(-maxX, maxX)
-                    offsetY = (offsetY + pan.y).coerceIn(-maxY, maxY)
-                  }
-                }
-                .graphicsLayer {
-                  scaleX = scale
-                  scaleY = scale
-                  translationX = offsetX
-                  translationY = offsetY
-                },
-              painter = resource.painter,
+                .zoomable(zoomableState),
+              painter = painter,
               contentDescription = action.images[page].alt,
-              contentScale = ContentScale.Fit,
+              contentScale = ContentScale.Inside,
+              alignment = Alignment.Center,
             )
+
+            LaunchedEffect(painter) {
+              zoomableState.setContentLocation(
+                ZoomableContentLocation.scaledInsideAndCenterAligned(painter.intrinsicSize)
+              )
+            }
+
+            if (state.settledPage != page) {
+              LaunchedEffect(Unit) {
+                zoomableState.resetZoom(withAnimation = false)
+              }
+            }
           }
         }
       }
