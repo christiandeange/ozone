@@ -8,9 +8,7 @@ import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.DOUBLE
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier
-import com.squareup.kotlinpoet.LIST
 import com.squareup.kotlinpoet.LONG
-import com.squareup.kotlinpoet.MemberName
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.ParameterizedTypeName
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
@@ -200,8 +198,8 @@ fun LexiconSingleReference.typeName(
   if (lexiconRefType is LexiconString && lexiconRefType.isEnum()) {
     val refDoc = environment.loadReferenceDocument(source, this)
     return ClassName(
-      refDoc.id.substringBeforeLast('.'),
-      refDoc.id.substringAfterLast('.').capitalized() + "Enum",
+      refDoc.id.substringBeforeLast(".").removeSuffix(".defs"),
+      refDoc.id.substringAfterLast(".").removePrefix("defs").capitalized() + "Token",
     )
   }
 
@@ -229,8 +227,8 @@ fun LexiconSingleReference.typeName(
 
   val (lexiconId, objectRef) = ref.parseLexiconRef(source)
 
-  val packageName = lexiconId.substringBeforeLast(".")
-  val className = lexiconId.substringAfterLast(".").capitalized() +
+  val packageName = lexiconId.substringBeforeLast(".").removeSuffix(".defs")
+  val className = lexiconId.substringAfterLast(".").removePrefix("defs").capitalized() +
       if (objectRef == "main") "" else objectRef.capitalized() +
           if (isUnionType) "Union" else ""
 

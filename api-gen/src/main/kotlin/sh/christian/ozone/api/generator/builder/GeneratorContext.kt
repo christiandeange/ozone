@@ -18,7 +18,7 @@ private constructor(
   ) : this(document, definitionName, null)
 
   val authority: String = document.id.substringBeforeLast('.')
-  val procedureName: String = document.id.substringAfterLast('.')
+  val procedureName: String = document.id.substringAfterLast('.').removePrefix("defs")
   val classPrefix: String = prefixOverride ?: procedureName.capitalized()
 
   private val enums = mutableMapOf<ClassName, MutableSet<String>>()

@@ -1,6 +1,6 @@
 package sh.christian.ozone.model
 
-import app.bsky.feed.DefsFeedViewPost
+import app.bsky.feed.FeedViewPost
 import kotlinx.collections.immutable.ImmutableList
 import sh.christian.ozone.util.mapImmutable
 
@@ -10,7 +10,7 @@ data class Timeline(
 ) {
   companion object {
     fun from(
-      posts: List<DefsFeedViewPost>,
+      posts: List<FeedViewPost>,
       cursor: String?,
     ): Timeline {
       return Timeline(

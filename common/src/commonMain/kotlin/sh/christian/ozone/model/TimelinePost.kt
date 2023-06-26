@@ -1,9 +1,9 @@
 package sh.christian.ozone.model
 
 import androidx.compose.runtime.Immutable
-import app.bsky.feed.DefsFeedViewPost
-import app.bsky.feed.DefsPostView
+import app.bsky.feed.FeedViewPost
 import app.bsky.feed.Post
+import app.bsky.feed.PostView
 import kotlinx.collections.immutable.ImmutableList
 import sh.christian.ozone.util.deserialize
 import sh.christian.ozone.util.mapImmutable
@@ -28,21 +28,21 @@ data class TimelinePost(
   val reason: TimelinePostReason?,
 )
 
-fun DefsFeedViewPost.toPost(): TimelinePost {
+fun FeedViewPost.toPost(): TimelinePost {
   return post.toPost(
     reply = reply?.toReply(),
     reason = reason?.toReason(),
   )
 }
 
-fun DefsPostView.toPost(): TimelinePost {
+fun PostView.toPost(): TimelinePost {
   return toPost(
     reply = null,
     reason = null
   )
 }
 
-fun DefsPostView.toPost(
+fun PostView.toPost(
   reply: TimelinePostReply?,
   reason: TimelinePostReason?,
 ): TimelinePost {

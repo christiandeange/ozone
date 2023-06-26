@@ -44,8 +44,8 @@ class LexiconClassFileCreator(
       }
     }
 
-    val context = GeneratorContext(document, "Enum")
-    val enumFile = FileSpec.builder(context.authority, context.procedureName + "Enum")
+    val context = GeneratorContext(document, "Token")
+    val enumFile = FileSpec.builder(context.authority, context.procedureName + "Token")
       .apply {
         enums.forEach { (className, enumNames) ->
           addType(createEnumClass(className, enumNames))

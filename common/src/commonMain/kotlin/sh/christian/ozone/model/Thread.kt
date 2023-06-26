@@ -1,8 +1,8 @@
 package sh.christian.ozone.model
 
-import app.bsky.feed.DefsThreadViewPost
-import app.bsky.feed.DefsThreadViewPostParentUnion
-import app.bsky.feed.DefsThreadViewPostReplieUnion
+import app.bsky.feed.ThreadViewPost
+import app.bsky.feed.ThreadViewPostParentUnion
+import app.bsky.feed.ThreadViewPostReplieUnion
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 import sh.christian.ozone.model.ThreadPost.BlockedPost
@@ -27,14 +27,14 @@ sealed interface ThreadPost {
   object BlockedPost : ThreadPost
 }
 
-fun DefsThreadViewPost.toThread(): Thread {
+fun ThreadViewPost.toThread(): Thread {
   return Thread(
     post = post.toPost(),
     parents = generateSequence(parent) { parentPost ->
       when (parentPost) {
-        is DefsThreadViewPostParentUnion.BlockedPost -> null
-        is DefsThreadViewPostParentUnion.NotFoundPost -> null
-        is DefsThreadViewPostParentUnion.ThreadViewPost -> parentPost.value.parent
+        is ThreadViewPostParentUnion.BlockedPost -> null
+        is ThreadViewPostParentUnion.NotFoundPost -> null
+        is ThreadViewPostParentUnion.ThreadViewPost -> parentPost.value.parent
       }
     }
       .map { it.toThreadPost() }
@@ -45,20 +45,20 @@ fun DefsThreadViewPost.toThread(): Thread {
   )
 }
 
-fun DefsThreadViewPostParentUnion.toThreadPost(): ThreadPost = when (this) {
-  is DefsThreadViewPostParentUnion.ThreadViewPost -> ViewablePost(
+fun ThreadViewPostParentUnion.toThreadPost(): ThreadPost = when (this) {
+  is ThreadViewPostParentUnion.ThreadViewPost -> ViewablePost(
     post = value.post.toPost(),
     replies = value.replies.mapImmutable { it.toThreadPost() }
   )
-  is DefsThreadViewPostParentUnion.NotFoundPost -> NotFoundPost
-  is DefsThreadViewPostParentUnion.BlockedPost -> BlockedPost
+  is ThreadViewPostParentUnion.NotFoundPost -> NotFoundPost
+  is ThreadViewPostParentUnion.BlockedPost -> BlockedPost
 }
 
-fun DefsThreadViewPostReplieUnion.toThreadPost(): ThreadPost = when (this) {
-  is DefsThreadViewPostReplieUnion.ThreadViewPost -> ViewablePost(
+fun ThreadViewPostReplieUnion.toThreadPost(): ThreadPost = when (this) {
+  is ThreadViewPostReplieUnion.ThreadViewPost -> ViewablePost(
     post = value.post.toPost(),
     replies = value.replies.mapImmutable { it.toThreadPost() },
   )
-  is DefsThreadViewPostReplieUnion.NotFoundPost -> NotFoundPost
-  is DefsThreadViewPostReplieUnion.BlockedPost -> BlockedPost
+  is ThreadViewPostReplieUnion.NotFoundPost -> NotFoundPost
+  is ThreadViewPostReplieUnion.BlockedPost -> BlockedPost
 }

@@ -1,14 +1,14 @@
 package sh.christian.ozone.model
 
-import com.atproto.label.DefsLabel
 import kotlinx.serialization.Serializable
+import com.atproto.label.Label as AtProtoLabel
 
 @Serializable
 data class Label(
   val value: String,
 )
 
-fun DefsLabel.toLabel(): Label {
+fun AtProtoLabel.toLabel(): Label {
   return Label(
     value = `val`,
   )

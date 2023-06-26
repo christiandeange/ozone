@@ -4,8 +4,8 @@ import app.bsky.embed.ExternalView
 import app.bsky.embed.ImagesView
 import app.bsky.embed.RecordViewRecordUnion
 import app.bsky.embed.RecordWithMediaViewMediaUnion
-import app.bsky.feed.DefsPostViewEmbedUnion
 import app.bsky.feed.Post
+import app.bsky.feed.PostViewEmbedUnion
 import kotlinx.collections.immutable.ImmutableList
 import sh.christian.ozone.model.EmbedPost.BlockedEmbedPost
 import sh.christian.ozone.model.EmbedPost.InvisibleEmbedPost
@@ -66,20 +66,20 @@ sealed interface EmbedPost {
   ) : EmbedPost
 }
 
-fun DefsPostViewEmbedUnion.toFeature(): TimelinePostFeature {
+fun PostViewEmbedUnion.toFeature(): TimelinePostFeature {
   return when (this) {
-    is DefsPostViewEmbedUnion.ImagesView -> {
+    is PostViewEmbedUnion.ImagesView -> {
       value.toImagesFeature()
     }
-    is DefsPostViewEmbedUnion.ExternalView -> {
+    is PostViewEmbedUnion.ExternalView -> {
       value.toExternalFeature()
     }
-    is DefsPostViewEmbedUnion.RecordView -> {
+    is PostViewEmbedUnion.RecordView -> {
       PostFeature(
         post = value.record.toEmbedPost(),
       )
     }
-    is DefsPostViewEmbedUnion.RecordWithMediaView -> {
+    is PostViewEmbedUnion.RecordWithMediaView -> {
       MediaPostFeature(
         post = value.record.record.toEmbedPost(),
         media = when (val media = value.media) {
@@ -135,7 +135,7 @@ private fun RecordViewRecordUnion.toEmbedPost(): EmbedPost {
         litePost = litePost,
       )
     }
-    is RecordViewRecordUnion.FeedDefsGeneratorView -> {
+    is RecordViewRecordUnion.FeedGeneratorView -> {
       // TODO support generator views.
       InvisibleEmbedPost(
         uri = value.uri,

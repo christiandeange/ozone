@@ -1,25 +1,25 @@
 package sh.christian.ozone.model
 
-import app.bsky.feed.DefsReplyRef
-import app.bsky.feed.DefsReplyRefParentUnion
-import app.bsky.feed.DefsReplyRefRootUnion
+import app.bsky.feed.ReplyRef
+import app.bsky.feed.ReplyRefParentUnion
+import app.bsky.feed.ReplyRefRootUnion
 
 data class TimelinePostReply(
   val root: TimelinePost?,
   val parent: TimelinePost?,
 )
 
-fun DefsReplyRef.toReply(): TimelinePostReply {
+fun ReplyRef.toReply(): TimelinePostReply {
   return TimelinePostReply(
     root = when (val root = root) {
-      is DefsReplyRefRootUnion.BlockedPost -> null
-      is DefsReplyRefRootUnion.NotFoundPost -> null
-      is DefsReplyRefRootUnion.PostView -> root.value.toPost()
+      is ReplyRefRootUnion.BlockedPost -> null
+      is ReplyRefRootUnion.NotFoundPost -> null
+      is ReplyRefRootUnion.PostView -> root.value.toPost()
     },
     parent = when (val parent = parent) {
-      is DefsReplyRefParentUnion.BlockedPost -> null
-      is DefsReplyRefParentUnion.NotFoundPost -> null
-      is DefsReplyRefParentUnion.PostView -> parent.value.toPost()
+      is ReplyRefParentUnion.BlockedPost -> null
+      is ReplyRefParentUnion.NotFoundPost -> null
+      is ReplyRefParentUnion.PostView -> parent.value.toPost()
     }
   )
 }

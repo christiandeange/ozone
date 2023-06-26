@@ -1,8 +1,8 @@
 package sh.christian.ozone.model
 
-import app.bsky.actor.DefsProfileView
-import app.bsky.actor.DefsProfileViewBasic
-import app.bsky.actor.DefsProfileViewDetailed
+import app.bsky.actor.ProfileView
+import app.bsky.actor.ProfileViewBasic
+import app.bsky.actor.ProfileViewDetailed
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.serialization.Serializable
 import sh.christian.ozone.api.runtime.ImmutableListSerializer
@@ -52,7 +52,7 @@ data class FullProfile(
   override val labels: ImmutableList<Label>,
 ) : Profile
 
-fun DefsProfileViewDetailed.toProfile(): FullProfile {
+fun ProfileViewDetailed.toProfile(): FullProfile {
   return FullProfile(
     did = did,
     handle = handle,
@@ -71,7 +71,7 @@ fun DefsProfileViewDetailed.toProfile(): FullProfile {
   )
 }
 
-fun DefsProfileViewBasic.toProfile(): Profile {
+fun ProfileViewBasic.toProfile(): Profile {
   return LiteProfile(
     did = did,
     handle = handle,
@@ -84,7 +84,7 @@ fun DefsProfileViewBasic.toProfile(): Profile {
   )
 }
 
-fun DefsProfileView.toProfile(): Profile {
+fun ProfileView.toProfile(): Profile {
   return LiteProfile(
     did = did,
     handle = handle,

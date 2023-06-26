@@ -159,7 +159,7 @@ class LexiconDataClassesGenerator(
     context: GeneratorContext,
     token: LexiconToken,
   ) {
-    val className = ClassName(context.authority, context.classPrefix + "Enum")
+    val className = ClassName(context.authority, context.classPrefix + "Token")
 
     val enumName =
       context.definitionName.takeIf { it.isNotBlank() }
@@ -280,6 +280,7 @@ class LexiconDataClassesGenerator(
       val uniqueName = reference.ref
         .removePrefix(commonPrefix)
         .removeSuffix(commonSuffix)
+        .replace(".defs", "")
         .replace(Regex("[.#][a-z]")) { it.value[1].uppercase() }
         .capitalized()
 

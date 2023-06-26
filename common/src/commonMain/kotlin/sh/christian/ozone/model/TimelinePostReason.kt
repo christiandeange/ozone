@@ -1,6 +1,6 @@
 package sh.christian.ozone.model
 
-import app.bsky.feed.DefsFeedViewPostReasonUnion
+import app.bsky.feed.FeedViewPostReasonUnion
 import sh.christian.ozone.model.TimelinePostReason.TimelinePostRepost
 
 sealed interface TimelinePostReason {
@@ -10,9 +10,9 @@ sealed interface TimelinePostReason {
   ) : TimelinePostReason
 }
 
-fun DefsFeedViewPostReasonUnion.toReason(): TimelinePostReason {
+fun FeedViewPostReasonUnion.toReason(): TimelinePostReason {
   return when (this) {
-    is DefsFeedViewPostReasonUnion.ReasonRepost -> {
+    is FeedViewPostReasonUnion.ReasonRepost -> {
       TimelinePostRepost(
         repostAuthor = value.by.toProfile(),
         indexedAt = Moment(value.indexedAt),
