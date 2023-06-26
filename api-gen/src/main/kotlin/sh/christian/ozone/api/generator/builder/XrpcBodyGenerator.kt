@@ -115,6 +115,12 @@ class XrpcBodyGenerator(
                 }
               }
             }.let { type -> IMMUTABLE_LIST.parameterizedBy(type) },
+            description = when (val items = prop.array.items) {
+              is LexiconArrayItem.Blob -> items.blob.description
+              is LexiconArrayItem.IpldType -> items.ipld.description
+              is LexiconArrayItem.Primitive -> items.primitive.description
+              is LexiconArrayItem.Reference -> items.reference.description
+            },
           )
         }
         is LexiconObjectProperty.Primitive -> {
@@ -122,6 +128,7 @@ class XrpcBodyGenerator(
             name = name,
             type = prop.primitive.toTypeName(),
             nullable = nullable,
+            description = prop.primitive.description,
           )
         }
         is LexiconObjectProperty.Blob ->
@@ -129,6 +136,7 @@ class XrpcBodyGenerator(
             name = name,
             type = JSON_ELEMENT,
             nullable = nullable,
+            description = prop.blob.description,
           )
         is LexiconObjectProperty.IpldType ->
           SimpleProperty(
@@ -138,6 +146,7 @@ class XrpcBodyGenerator(
               is LexiconBytes -> BYTE_ARRAY
               is LexiconCidLink -> STRING
             },
+            description = prop.ipld.description,
           )
         is LexiconObjectProperty.Reference -> {
           SimpleProperty(
@@ -151,6 +160,7 @@ class XrpcBodyGenerator(
                 ClassName(context.authority, className + name.capitalized() + "Union")
               }
             },
+            description = prop.reference.description,
           )
         }
       }
@@ -159,6 +169,7 @@ class XrpcBodyGenerator(
     return createDataClass(
       className = className,
       properties = properties,
+      description = body.description,
     )
   }
 

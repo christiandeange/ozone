@@ -49,6 +49,7 @@ data class SimpleProperty(
   val name: String,
   val type: TypeName,
   val nullable: Boolean,
+  val description: String?,
 ) {
   fun defaultValue(): String = type.defaultValue(nullable)
 

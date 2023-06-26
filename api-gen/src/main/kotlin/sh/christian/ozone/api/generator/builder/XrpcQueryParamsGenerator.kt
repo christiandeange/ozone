@@ -58,6 +58,7 @@ class XrpcQueryParamsGenerator(
             name = name,
             type = prop.primitive.toTypeName(),
             nullable = nullable,
+            description = prop.primitive.description,
           )
         }
         is LexiconXrpcParameter.PrimitiveArray -> {
@@ -65,6 +66,7 @@ class XrpcQueryParamsGenerator(
             name = name,
             type = IMMUTABLE_LIST.parameterizedBy(prop.array.items.toTypeName()),
             nullable = nullable,
+            description = prop.array.description,
           )
         }
       }
@@ -74,6 +76,7 @@ class XrpcQueryParamsGenerator(
       createDataClass(
         className = "${context.classPrefix}QueryParams",
         properties = properties,
+        description = queryParams.description,
         additionalConfiguration = {
           addFunction(toMap(properties))
 

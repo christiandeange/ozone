@@ -54,6 +54,7 @@ import sh.christian.ozone.api.lexicon.LexiconXrpcSubscription
 fun createDataClass(
   className: String,
   properties: List<SimpleProperty>,
+  description: String?,
   additionalConfiguration: TypeSpec.Builder.() -> Unit = {},
 ): TypeSpec {
   return TypeSpec.classBuilder(className)
@@ -73,6 +74,9 @@ fun createDataClass(
               .apply {
                 if (property.nullable) {
                   defaultValue(property.defaultValue())
+                }
+                if (property.description != null) {
+                  addKdoc(property.description)
                 }
                 if ((property.type as? ParameterizedTypeName)?.rawType == IMMUTABLE_LIST) {
                   addAnnotation(
@@ -100,6 +104,11 @@ fun createDataClass(
           .build()
       }
     )
+    .apply {
+      if (description != null) {
+        addKdoc(description)
+      }
+    }
     .apply(additionalConfiguration)
     .build()
 }

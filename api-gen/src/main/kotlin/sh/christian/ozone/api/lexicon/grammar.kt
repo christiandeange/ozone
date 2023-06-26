@@ -7,14 +7,14 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class LexiconBoolean(
-  val description: String?,
+  override val description: String?,
   val default: Boolean?,
   val const: Boolean?,
 ) : LexiconPrimitive
 
 @JsonClass(generateAdapter = true)
 data class LexiconFloat(
-  val description: String?,
+  override val description: String?,
   val default: Double?,
   val minimum: Double?,
   val maximum: Double?,
@@ -24,7 +24,7 @@ data class LexiconFloat(
 
 @JsonClass(generateAdapter = true)
 data class LexiconInteger(
-  val description: String?,
+  override val description: String?,
   val default: Int?,
   val minimum: Int?,
   val maximum: Int?,
@@ -47,7 +47,7 @@ enum class LexiconStringFormat {
 @JsonClass(generateAdapter = true)
 data class LexiconString(
   val format: LexiconStringFormat?,
-  val description: String?,
+  override val description: String?,
   val default: String?,
   val minLength: Long?,
   val maxLength: Long?,
@@ -60,7 +60,7 @@ data class LexiconString(
 
 @JsonClass(generateAdapter = true)
 data class LexiconUnknown(
-  val description: String?,
+  override val description: String?,
 ) : LexiconPrimitive
 
 sealed interface LexiconPrimitive : LexiconUserType
@@ -71,14 +71,14 @@ sealed interface LexiconPrimitive : LexiconUserType
 
 @JsonClass(generateAdapter = true)
 data class LexiconBytes(
-  val description: String?,
+  override val description: String?,
   val maxLength: Double?,
   val minLength: Double?,
 ) : LexiconIpldType
 
 @JsonClass(generateAdapter = true)
 data class LexiconCidLink(
-  val description: String?,
+  override val description: String?,
 ) : LexiconIpldType
 
 sealed interface LexiconIpldType : LexiconUserType
@@ -89,13 +89,13 @@ sealed interface LexiconIpldType : LexiconUserType
 
 @JsonClass(generateAdapter = true)
 data class LexiconSingleReference(
-  val description: String?,
+  override val description: String?,
   val ref: String,
 ) : LexiconReference
 
 @JsonClass(generateAdapter = true)
 data class LexiconUnionReference(
-  val description: String?,
+  override val description: String?,
   val refs: List<String>,
   val closed: Boolean?,
 ) : LexiconReference {
@@ -103,7 +103,9 @@ data class LexiconUnionReference(
     get() = refs.map { LexiconSingleReference(description = null, ref = it) }
 }
 
-sealed interface LexiconReference
+sealed interface LexiconReference {
+  val description: String?
+}
 
 // endregion
 
@@ -111,7 +113,7 @@ sealed interface LexiconReference
 
 @JsonClass(generateAdapter = true)
 data class LexiconBlob(
-  val description: String?,
+  override val description: String?,
   val accept: List<String> = emptyList(),
   val maxSize: Double?,
 ) : LexiconUserType
@@ -122,7 +124,7 @@ data class LexiconBlob(
 
 @JsonClass(generateAdapter = true)
 data class LexiconArray(
-  val description: String?,
+  override val description: String?,
   val items: LexiconArrayItem,
   val minLength: Long?,
   val maxLength: Long?,
@@ -156,12 +158,12 @@ data class LexiconPrimitiveArray(
 
 @JsonClass(generateAdapter = true)
 data class LexiconToken(
-  val description: String?,
+  override val description: String?,
 ) : LexiconUserType
 
 @JsonClass(generateAdapter = true)
 data class LexiconObject(
-  val description: String?,
+  override val description: String?,
   val required: List<String> = emptyList(),
   val nullable: List<String> = emptyList(),
   val properties: Map<String, LexiconObjectProperty> = emptyMap(),
@@ -242,7 +244,7 @@ data class LexiconXrpcError(
 
 @JsonClass(generateAdapter = true)
 data class LexiconXrpcQuery(
-  val description: String?,
+  override val description: String?,
   val parameters: LexiconXrpcParameters?,
   val output: LexiconXrpcBody?,
   val errors: List<LexiconXrpcError> = emptyList(),
@@ -250,7 +252,7 @@ data class LexiconXrpcQuery(
 
 @JsonClass(generateAdapter = true)
 data class LexiconXrpcProcedure(
-  val description: String?,
+  override val description: String?,
   val parameters: LexiconXrpcParameters?,
   val input: LexiconXrpcBody?,
   val output: LexiconXrpcBody?,
@@ -259,7 +261,7 @@ data class LexiconXrpcProcedure(
 
 @JsonClass(generateAdapter = true)
 data class LexiconXrpcSubscription(
-  val description: String?,
+  override val description: String?,
   val parameters: LexiconXrpcParameters?,
   val message: LexiconXrpcSubscriptionMessage?,
   val errors: List<LexiconXrpcError> = emptyList(),
@@ -267,7 +269,7 @@ data class LexiconXrpcSubscription(
 
 @JsonClass(generateAdapter = true)
 data class LexiconRecord(
-  val description: String?,
+  override val description: String?,
   val key: String?,
   val record: LexiconObject,
 ) : LexiconUserType
@@ -276,7 +278,9 @@ data class LexiconRecord(
 
 // region Core
 
-sealed interface LexiconUserType
+sealed interface LexiconUserType {
+  val description: String?
+}
 
 @JsonClass(generateAdapter = true)
 data class LexiconDocument(

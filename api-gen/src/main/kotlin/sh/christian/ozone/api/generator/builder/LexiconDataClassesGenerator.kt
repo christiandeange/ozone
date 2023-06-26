@@ -130,13 +130,22 @@ class LexiconDataClassesGenerator(
         }
       }
 
-      SimpleProperty(propertyName, propertyType, nullable)
+      val description = when (property) {
+        is LexiconObjectProperty.Array -> property.array.description
+        is LexiconObjectProperty.Blob -> property.blob.description
+        is LexiconObjectProperty.IpldType -> property.ipld.description
+        is LexiconObjectProperty.Primitive -> property.primitive.description
+        is LexiconObjectProperty.Reference -> property.reference.description
+      }
+
+      SimpleProperty(propertyName, propertyType, nullable, description)
     }
 
     context.addType(
       createDataClass(
         className = context.classPrefix + context.definitionName.capitalized(),
         properties = properties,
+        description = obj.description,
       )
     )
   }
