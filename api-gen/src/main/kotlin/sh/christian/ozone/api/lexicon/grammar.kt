@@ -41,6 +41,7 @@ enum class LexiconStringFormat {
   @Json(name = "at-identifier") AT_IDENTIFIER,
   @Json(name = "nsid") NSID,
   @Json(name = "cid") CID,
+  @Json(name = "language") LANGUAGE,
 }
 
 @JsonClass(generateAdapter = true)
@@ -261,7 +262,6 @@ data class LexiconXrpcSubscription(
   val description: String?,
   val parameters: LexiconXrpcParameters?,
   val message: LexiconXrpcSubscriptionMessage?,
-  val infos: List<LexiconXrpcError> = emptyList(),
   val errors: List<LexiconXrpcError> = emptyList(),
 ) : LexiconUserType
 

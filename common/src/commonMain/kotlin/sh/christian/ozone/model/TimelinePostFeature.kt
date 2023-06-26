@@ -141,5 +141,11 @@ private fun RecordViewRecordUnion.toEmbedPost(): EmbedPost {
         uri = value.uri,
       )
     }
+    is RecordViewRecordUnion.GraphListView -> {
+      // TODO support graph list views.
+      InvisibleEmbedPost(
+        uri = value.uri,
+      )
+    }
   }
 }

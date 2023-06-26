@@ -184,6 +184,7 @@ fun LexiconPrimitive.toTypeName() = when (this) {
       LexiconStringFormat.AT_IDENTIFIER -> STRING
       LexiconStringFormat.NSID -> STRING
       LexiconStringFormat.CID -> STRING
+      LexiconStringFormat.LANGUAGE -> STRING
       null -> STRING
     }
   }
