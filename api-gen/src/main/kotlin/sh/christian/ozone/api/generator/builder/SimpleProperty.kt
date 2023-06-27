@@ -9,6 +9,7 @@ import com.squareup.kotlinpoet.CHAR
 import com.squareup.kotlinpoet.CHAR_ARRAY
 import com.squareup.kotlinpoet.COLLECTION
 import com.squareup.kotlinpoet.ClassName
+import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.DOUBLE
 import com.squareup.kotlinpoet.DOUBLE_ARRAY
 import com.squareup.kotlinpoet.Dynamic
@@ -44,6 +45,7 @@ import com.squareup.kotlinpoet.U_SHORT
 import com.squareup.kotlinpoet.U_SHORT_ARRAY
 import com.squareup.kotlinpoet.WildcardTypeName
 import sh.christian.ozone.api.generator.IMMUTABLE_LIST
+import sh.christian.ozone.api.generator.persistentListOf
 
 data class SimpleProperty(
   val name: String,
@@ -51,83 +53,92 @@ data class SimpleProperty(
   val nullable: Boolean,
   val description: String?,
 ) {
-  fun defaultValue(): String = type.defaultValue(nullable)
+  fun defaultValue(): CodeBlock = type.defaultValue(nullable)
 
   override fun toString(): String {
-    return "SimpleProperty(name='$name', type=$type, nullable=$nullable)"
+    return "SimpleProperty(name='$name', type=$type, nullable=$nullable, description=$description)"
   }
 }
 
-private fun TypeName.defaultValue(nullable: Boolean): String = when (this) {
-  is ClassName -> {
-    if (nullable) {
-      "null"
-    } else {
-      when (this) {
-        BOOLEAN -> "false"
-        BYTE -> "0"
-        SHORT -> "0"
-        INT -> "0"
-        LONG -> "0L"
-        U_BYTE -> "0u"
-        U_SHORT -> "0u"
-        U_INT -> "0u"
-        U_LONG -> "0uL"
-        CHAR -> "Char(0)"
-        FLOAT -> "0f"
-        DOUBLE -> "0.0"
-        STRING -> "\"\""
-        else -> error("Unable to provide non-null default for ClassName: $this")
+private fun TypeName.defaultValue(nullable: Boolean): CodeBlock = CodeBlock.builder().apply {
+  when (this@defaultValue) {
+    is ClassName -> {
+      add(
+        if (nullable) {
+          "null"
+        } else {
+          when (this@defaultValue) {
+            BOOLEAN -> "false"
+            BYTE -> "0"
+            SHORT -> "0"
+            INT -> "0"
+            LONG -> "0L"
+            U_BYTE -> "0u"
+            U_SHORT -> "0u"
+            U_INT -> "0u"
+            U_LONG -> "0uL"
+            CHAR -> "Char(0)"
+            FLOAT -> "0f"
+            DOUBLE -> "0.0"
+            STRING -> "\"\""
+            else -> error("Unable to provide non-null default for ClassName: $this")
+          }
+        }
+      )
+    }
+    is Dynamic -> add("dynamic")
+    is LambdaTypeName -> {
+      val parametersList = parameters.joinToString(", ") { "_" }
+      val defaultReturnValue = returnType.defaultValue(returnType.isNullable)
+
+      beginControlFlow("{ $parametersList -> ")
+      add(defaultReturnValue)
+      endControlFlow()
+    }
+    is ParameterizedTypeName -> {
+      when (rawType) {
+        ARRAY -> add("emptyArray()")
+        BOOLEAN_ARRAY -> add("booleanArrayOf()")
+        BYTE_ARRAY -> add("byteArrayOf()")
+        CHAR_ARRAY -> add("charArrayOf()")
+        SHORT_ARRAY -> add("shortArrayOf()")
+        INT_ARRAY -> add("intArrayOf()")
+        LONG_ARRAY -> add("longArrayOf()")
+        FLOAT_ARRAY -> add("floatArrayOf()")
+        DOUBLE_ARRAY -> add("doubleArrayOf()")
+        U_BYTE_ARRAY -> add("ubyteArrayOf()")
+        U_SHORT_ARRAY -> add("ushortArrayOf()")
+        U_INT_ARRAY -> add("uintArrayOf()")
+        U_LONG_ARRAY -> add("ulongArrayOf()")
+        ITERABLE -> add("emptyList()")
+        COLLECTION -> add("emptyList()")
+        LIST -> add("emptyList()")
+        SET -> add("emptySet()")
+        MAP -> add("emptyMap()")
+        MUTABLE_ITERABLE -> add("mutableListOf()")
+        MUTABLE_COLLECTION -> add("mutableListOf()")
+        MUTABLE_LIST -> add("mutableListOf()")
+        MUTABLE_SET -> add("mutableSetOf()")
+        MUTABLE_MAP -> add("mutableMapOf()")
+        IMMUTABLE_LIST -> add("%M()", persistentListOf)
+        else -> error("Unable to provide non-null default for ParameterizedTypeName: $this")
+      }
+    }
+
+    is TypeVariableName -> {
+      if (nullable) {
+        add("null")
+      } else {
+        error("Unable to provide non-null default for TypeVariableName: $this")
+      }
+    }
+
+    is WildcardTypeName -> {
+      if (nullable) {
+        add("null")
+      } else {
+        error("TODO: Default value for WildcardTypeName: $this")
       }
     }
   }
-  is Dynamic -> "dynamic"
-  is LambdaTypeName -> {
-    val parametersList = parameters.joinToString(", ") { "_" }
-    val defaultReturnValue = returnType.defaultValue(returnType.isNullable)
-    "{ $parametersList -> $defaultReturnValue }"
-  }
-  is ParameterizedTypeName -> {
-    when (rawType) {
-      ARRAY -> "emptyArray()"
-      BOOLEAN_ARRAY -> "booleanArrayOf()"
-      BYTE_ARRAY -> "byteArrayOf()"
-      CHAR_ARRAY -> "charArrayOf()"
-      SHORT_ARRAY -> "shortArrayOf()"
-      INT_ARRAY -> "intArrayOf()"
-      LONG_ARRAY -> "longArrayOf()"
-      FLOAT_ARRAY -> "floatArrayOf()"
-      DOUBLE_ARRAY -> "doubleArrayOf()"
-      U_BYTE_ARRAY -> "ubyteArrayOf()"
-      U_SHORT_ARRAY -> "ushortArrayOf()"
-      U_INT_ARRAY -> "uintArrayOf()"
-      U_LONG_ARRAY -> "ulongArrayOf()"
-      ITERABLE -> "emptyList()"
-      COLLECTION -> "emptyList()"
-      LIST -> "emptyList()"
-      SET -> "emptySet()"
-      MAP -> "emptyMap()"
-      MUTABLE_ITERABLE -> "mutableListOf()"
-      MUTABLE_COLLECTION -> "mutableListOf()"
-      MUTABLE_LIST -> "mutableListOf()"
-      MUTABLE_SET -> "mutableSetOf()"
-      MUTABLE_MAP -> "mutableMapOf()"
-      IMMUTABLE_LIST -> "kotlinx.collections.immutable.persistentListOf()"
-      else -> error("Unable to provide non-null default for ParameterizedTypeName: $this")
-    }
-  }
-  is TypeVariableName -> {
-    if (nullable) {
-      "null"
-    } else {
-      error("Unable to provide non-null default for TypeVariableName: $this")
-    }
-  }
-  is WildcardTypeName -> {
-    if (nullable) {
-      "null"
-    } else {
-      error("TODO: Default value for WildcardTypeName: $this")
-    }
-  }
-}
+}.build()
