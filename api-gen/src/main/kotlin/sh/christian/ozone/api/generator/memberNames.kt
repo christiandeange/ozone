@@ -1,24 +1,26 @@
 package sh.christian.ozone.api.generator
 
 import com.squareup.kotlinpoet.MemberName
+import kotlin.properties.ReadOnlyProperty
 
-val persistentListOf: MemberName =
-  MemberName("kotlinx.collections.immutable", "persistentListOf")
+val persistentListOf by memberOfPackage("kotlinx.collections.immutable")
 
-val procedure: MemberName =
-  MemberName("sh.christian.ozone.api.xrpc", "procedure", isExtension = true)
+val procedure by extensionMemberOfPackage("sh.christian.ozone.api.xrpc")
 
-val query: MemberName =
-  MemberName("sh.christian.ozone.api.xrpc", "query", isExtension = true)
+val query by extensionMemberOfPackage("sh.christian.ozone.api.xrpc")
 
-val toAtpResponse: MemberName =
-  MemberName("sh.christian.ozone.api.xrpc", "toAtpResponse", isExtension = true)
+val toAtpResponse by extensionMemberOfPackage("sh.christian.ozone.api.xrpc")
 
-val toImmutableList: MemberName =
-  MemberName("kotlinx.collections.immutable", "toImmutableList", isExtension = true)
+val toImmutableList by extensionMemberOfPackage("kotlinx.collections.immutable")
 
-val valueClassSerializer =
-  MemberName("sh.christian.ozone.api.runtime", "valueClassSerializer")
+val valueClassSerializer by memberOfPackage("sh.christian.ozone.api.runtime")
 
-val withJsonConfiguration =
-  MemberName("sh.christian.ozone.api.xrpc", "withJsonConfiguration", isExtension = true)
+val withJsonConfiguration by extensionMemberOfPackage("sh.christian.ozone.api.xrpc")
+
+private fun memberOfPackage(packageName: String): ReadOnlyProperty<Any?, MemberName> {
+  return ReadOnlyProperty { _, property -> MemberName(packageName, property.name) }
+}
+
+private fun extensionMemberOfPackage(packageName: String): ReadOnlyProperty<Any?, MemberName> {
+  return ReadOnlyProperty { _, property -> MemberName(packageName, property.name, isExtension = true) }
+}
