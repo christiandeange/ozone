@@ -24,7 +24,7 @@ class MyProfileRepository(
   override suspend fun CoroutineScope.onStart() {
     apiProvider.auth().flatMapLatest { auth ->
       auth?.did
-        ?.let { did -> userDatabase.profile(UserReference.Did(did)) }
+        ?.let { did -> userDatabase.profile(UserDid(did)) }
         ?: flowOf(null)
     }.collect(profileFlow)
   }
@@ -33,8 +33,8 @@ class MyProfileRepository(
 
   fun isMe(userReference: UserReference): Boolean {
     return when (userReference) {
-      is UserReference.Did -> userReference.did == profileFlow.value!!.did
-      is UserReference.Handle -> userReference.handle == profileFlow.value!!.handle
+      is UserDid -> userReference.did == profileFlow.value!!.did
+      is UserHandle -> userReference.handle == profileFlow.value!!.handle
     }
   }
 }

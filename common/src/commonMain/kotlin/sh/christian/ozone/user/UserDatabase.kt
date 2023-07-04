@@ -33,8 +33,8 @@ class UserDatabase(
 
   fun profileOrNull(userReference: UserReference): Flow<FullProfile?> = flow {
     val key = when (userReference) {
-      is UserReference.Did -> "did:${userReference.did}"
-      is UserReference.Handle -> "handle:${userReference.handle}"
+      is UserDid -> "did:${userReference.did}"
+      is UserHandle -> "handle:${userReference.handle}"
     }
     val preference = storage.preference<CacheObject>(key, null)
 
@@ -44,8 +44,8 @@ class UserDatabase(
     }
 
     val identifier = when (userReference) {
-      is UserReference.Did -> AtIdentifier(userReference.did.did)
-      is UserReference.Handle -> AtIdentifier(userReference.handle.handle)
+      is UserDid -> AtIdentifier(userReference.did.did)
+      is UserHandle -> AtIdentifier(userReference.handle.handle)
     }
 
     val profileOrNull =

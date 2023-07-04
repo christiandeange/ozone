@@ -41,15 +41,15 @@ import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.error.toErrorProps
 import sh.christian.ozone.model.LinkTarget.ExternalLink
-import sh.christian.ozone.model.LinkTarget.UserHandleMention
 import sh.christian.ozone.model.LinkTarget.UserDidMention
+import sh.christian.ozone.model.LinkTarget.UserHandleMention
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.model.TimelinePostLink
 import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
+import sh.christian.ozone.user.UserHandle
 import sh.christian.ozone.user.MyProfileRepository
 import sh.christian.ozone.user.UserDatabase
-import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.util.serialize
 
 @Inject
@@ -155,7 +155,7 @@ class ComposePostWorkflow(
             is ExternalLink -> link
             is UserDidMention -> link
             is UserHandleMention -> {
-              userDatabase.profileOrNull(UserReference.Handle(link.target.handle))
+              userDatabase.profileOrNull(UserHandle(link.target.handle))
                 .first()
                 ?.let { profile -> link.copy(target = UserDidMention(profile.did)) }
             }

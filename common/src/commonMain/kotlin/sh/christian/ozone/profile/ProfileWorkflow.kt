@@ -36,6 +36,8 @@ import sh.christian.ozone.thread.ThreadWorkflow
 import sh.christian.ozone.ui.compose.ImageOverlayScreen
 import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
+import sh.christian.ozone.user.UserDid
+import sh.christian.ozone.user.UserHandle
 import sh.christian.ozone.user.MyProfileRepository
 import sh.christian.ozone.user.UserDatabase
 import sh.christian.ozone.user.UserReference
@@ -206,7 +208,7 @@ class ProfileWorkflow(
       now = Moment(clock.now()),
       profile = profile,
       feed = feed.toImmutableList(),
-      isSelf = myProfileRepository.isMe(UserReference.Did(profile.did)),
+      isSelf = myProfileRepository.isMe(UserDid(profile.did)),
       onLoadMore = eventHandler {
         state = ShowingProfile(
           user = state.user,
@@ -261,8 +263,8 @@ class ProfileWorkflow(
     cursor: String?,
   ): Worker<AtpResponse<Timeline>> = NetworkWorker {
     val identifier = when (user) {
-      is UserReference.Did -> AtIdentifier(user.did.did)
-      is UserReference.Handle -> AtIdentifier(user.handle.handle)
+      is UserDid -> AtIdentifier(user.did.did)
+      is UserHandle -> AtIdentifier(user.handle.handle)
     }
     apiProvider.api.getAuthorFeed(
       GetAuthorFeedQueryParams(

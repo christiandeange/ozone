@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.notifications.NotificationRowContext
 import sh.christian.ozone.ui.compose.AvatarImage
-import sh.christian.ozone.user.UserReference
+import sh.christian.ozone.user.UserDid
 import sh.christian.ozone.util.color
 
 @Composable
@@ -40,7 +40,7 @@ fun NotificationRowScaffold(
       AvatarImage(
         modifier = Modifier.size(32.dp),
         avatarUrl = profile.avatar,
-        onClick = { profile.did.let { context.onOpenUser(UserReference.Did(it)) } },
+        onClick = { profile.did.let { context.onOpenUser(UserDid(it)) } },
         contentDescription = profile.displayName ?: profile.handle.handle,
         fallbackColor = profile.handle.color(),
       )

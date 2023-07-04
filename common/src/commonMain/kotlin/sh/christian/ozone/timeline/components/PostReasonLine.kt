@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import sh.christian.ozone.model.TimelinePostReason
 import sh.christian.ozone.model.TimelinePostReason.TimelinePostRepost
 import sh.christian.ozone.ui.icons.Repeat
+import sh.christian.ozone.user.UserDid
 import sh.christian.ozone.user.UserReference
 
 @Composable
@@ -35,7 +36,7 @@ private fun PostRepostReasonLine(
   onOpenUser: (UserReference) -> Unit,
 ) {
   Row(
-    modifier = Modifier.clickable { onOpenUser(UserReference.Did(reason.repostAuthor.did)) },
+    modifier = Modifier.clickable { onOpenUser(UserDid(reason.repostAuthor.did)) },
     verticalAlignment = Alignment.CenterVertically,
     horizontalArrangement = spacedBy(4.dp),
   ) {

@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.ui.icons.Reply
+import sh.christian.ozone.user.UserDid
 import sh.christian.ozone.user.UserReference
 
 @Composable
@@ -25,7 +26,7 @@ internal fun PostReplyLine(
 ) {
   if (replyingTo != null) {
     Row(
-      modifier = modifier.clickable { onOpenUser(UserReference.Did(replyingTo.did)) },
+      modifier = modifier.clickable { onOpenUser(UserDid(replyingTo.did)) },
       verticalAlignment = Alignment.CenterVertically,
       horizontalArrangement = spacedBy(4.dp),
     ) {

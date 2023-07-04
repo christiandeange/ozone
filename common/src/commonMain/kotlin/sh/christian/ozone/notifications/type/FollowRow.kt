@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import sh.christian.ozone.model.Notification
 import sh.christian.ozone.notifications.NotificationRowContext
 import sh.christian.ozone.ui.compose.TimeDelta
-import sh.christian.ozone.user.UserReference
+import sh.christian.ozone.user.UserDid
 
 @Composable
 fun FollowRow(
@@ -25,7 +25,7 @@ fun FollowRow(
 ) {
   val profile = notification.author
   NotificationRowScaffold(
-    modifier = Modifier.clickable { context.onOpenUser(UserReference.Did(profile.did)) },
+    modifier = Modifier.clickable { context.onOpenUser(UserDid(profile.did)) },
     context = context,
     profile = profile,
     icon = {

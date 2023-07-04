@@ -23,6 +23,8 @@ import sh.christian.ozone.model.LinkTarget
 import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.model.TimelinePostFeature.ExternalFeature
 import sh.christian.ozone.model.TimelinePostLink
+import sh.christian.ozone.user.UserDid
+import sh.christian.ozone.user.UserHandle
 import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.util.byteOffsets
 
@@ -49,11 +51,11 @@ internal fun PostText(
         var performedAction = false
         postText.getStringAnnotations("did", index, index).firstOrNull()?.item?.let { did ->
           performedAction = true
-          onOpenUser(UserReference.Did(Did(did)))
+          onOpenUser(UserDid(Did(did)))
         }
         postText.getStringAnnotations("handle", index, index).firstOrNull()?.item?.let { handle ->
           performedAction = true
-          onOpenUser(UserReference.Handle(Handle(handle)))
+          onOpenUser(UserHandle(Handle(handle)))
         }
         postText.getUrlAnnotations(index, index).firstOrNull()?.item?.url?.let { url ->
           performedAction = true
