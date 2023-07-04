@@ -163,9 +163,6 @@ class XrpcBodyGenerator(
       className = className,
       properties = properties,
       description = body.description,
-      additionalConfiguration = {
-        addType(TypeSpec.companionObjectBuilder().build())
-      }
     )
   }
 }

@@ -17,7 +17,6 @@ import com.squareup.kotlinpoet.ParameterizedTypeName
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.SET
 import com.squareup.kotlinpoet.STRING
-import com.squareup.kotlinpoet.TypeSpec
 import com.squareup.kotlinpoet.asClassName
 import com.squareup.kotlinpoet.withIndent
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
@@ -77,13 +76,9 @@ class XrpcQueryParamsGenerator(
         className = "${context.classPrefix}QueryParams",
         properties = properties,
         description = queryParams.description,
-        additionalConfiguration = {
-          addFunction(toMap(properties))
-
-          // Allows for custom static extension methods on the generated type.
-          addType(TypeSpec.companionObjectBuilder().build())
-        }
-      )
+      ).toBuilder()
+        .addFunction(toMap(properties))
+        .build()
     )
   }
 

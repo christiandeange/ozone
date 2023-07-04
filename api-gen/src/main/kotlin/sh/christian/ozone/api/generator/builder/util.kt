@@ -48,7 +48,6 @@ fun createDataClass(
   className: String,
   properties: List<SimpleProperty>,
   description: String?,
-  additionalConfiguration: TypeSpec.Builder.() -> Unit = {},
 ): TypeSpec {
   return TypeSpec.classBuilder(className)
     .addModifiers(KModifier.DATA)
@@ -102,7 +101,6 @@ fun createDataClass(
         addKdoc(description)
       }
     }
-    .apply(additionalConfiguration)
     .build()
 }
 
