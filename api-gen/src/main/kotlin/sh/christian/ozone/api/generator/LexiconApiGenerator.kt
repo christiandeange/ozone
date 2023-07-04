@@ -75,7 +75,6 @@ class LexiconApiGenerator(
       description = procedure.description,
       inputType = procedure.input?.type(context, suffix = "Request"),
       outputType = procedure.output?.type(context, suffix = "Response"),
-      inputContentType = procedure.input?.encoding,
     )
   }
 
@@ -83,6 +82,7 @@ class LexiconApiGenerator(
     return ApiType(
       className = ClassName(context.authority, "${context.classPrefix}QueryParams"),
       description = description,
+      encoding = "",
     ).takeIf { properties.isNotEmpty() }
   }
 
@@ -94,6 +94,7 @@ class LexiconApiGenerator(
         else -> ClassName(context.authority, "${context.classPrefix}$suffix")
       },
       description = description,
+      encoding = encoding,
     )
   }
 
@@ -178,19 +179,29 @@ class LexiconApiGenerator(
                 val path = "/xrpc/${apiCall.id}"
                 when (apiCall) {
                   is Query -> {
-                    val args = arrayOf(query, path, toAtpResponse)
                     if (apiCall.propertiesType == null) {
-                      add("return client.%M(%S).%M()", *args)
+                      add(
+                        "return client.%M(%S).%M()",
+                        query, path, toAtpResponse
+                      )
                     } else {
-                      add("return client.%M(%S, params.asList()).%M()", *args)
+                      add(
+                        "return client.%M(%S, params.asList()).%M()",
+                        query, path, toAtpResponse,
+                      )
                     }
                   }
                   is Procedure -> {
-                    val args = arrayOf(procedure, path, toAtpResponse)
                     if (apiCall.inputType == null) {
-                      add("return client.%M(%S).%M()", *args)
+                      add(
+                        "return client.%M(%S).%M()",
+                        procedure, path, toAtpResponse,
+                      )
                     } else {
-                      add("return client.%M(%S, request).%M()", *args)
+                      add(
+                        "return client.%M(%S, request, %S).%M()",
+                        procedure, path, apiCall.inputType.encoding, toAtpResponse,
+                      )
                     }
                   }
                 }
@@ -228,12 +239,12 @@ class LexiconApiGenerator(
       override val description: String?,
       val inputType: ApiType?,
       val outputType: ApiType?,
-      val inputContentType: String?,
     ) : ApiCall
   }
 
   private data class ApiType(
     val className: ClassName,
     val description: String?,
+    val encoding: String,
   )
 }

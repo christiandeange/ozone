@@ -10,7 +10,6 @@ import io.ktor.client.statement.HttpResponse
 import sh.christian.ozone.api.response.AtpErrorDescription
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.api.response.StatusCode
-import sh.christian.ozone.api.runtime.Encoding
 
 suspend inline fun HttpClient.query(
   path: String,
@@ -28,13 +27,10 @@ suspend inline fun HttpClient.procedure(path: String): HttpResponse {
 suspend inline fun <reified T : Any> HttpClient.procedure(
   path: String,
   body: T,
+  encoding: String,
 ): HttpResponse {
   return post(path) {
-    val annotation = body::class.annotations.filterIsInstance<Encoding>().firstOrNull()
-    annotation?.type?.firstOrNull()?.let { encoding ->
-      headers["Content-Type"] = encoding
-    }
-
+    headers["Content-Type"] = encoding
     setBody(body)
   }
 }

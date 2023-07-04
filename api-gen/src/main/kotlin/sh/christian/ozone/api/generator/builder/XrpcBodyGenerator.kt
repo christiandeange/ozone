@@ -1,6 +1,5 @@
 package sh.christian.ozone.api.generator.builder
 
-import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.BYTE_ARRAY
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
@@ -57,10 +56,7 @@ class XrpcBodyGenerator(
     when (body.schema) {
       null -> Unit
       is LexiconXrpcSchemaDefinition.Object -> {
-        context.addType(
-          createType(context, className, body.schema.value)
-            .forRequestOrResponse(body.encoding)
-        )
+        context.addType(createType(context, className, body.schema.value))
       }
       is LexiconXrpcSchemaDefinition.Reference -> {
         val typeAliasType = when (body.schema.reference) {
@@ -167,18 +163,9 @@ class XrpcBodyGenerator(
       className = className,
       properties = properties,
       description = body.description,
+      additionalConfiguration = {
+        addType(TypeSpec.companionObjectBuilder().build())
+      }
     )
-  }
-
-  private fun TypeSpec.forRequestOrResponse(encoding: String): TypeSpec {
-    return toBuilder()
-      .addAnnotation(
-        AnnotationSpec.builder(TypeNames.Encoding)
-          .addMember("%S", encoding)
-          .build()
-      )
-      // Allows for custom static extension methods on the generated type.
-      .addType(TypeSpec.companionObjectBuilder().build())
-      .build()
   }
 }
