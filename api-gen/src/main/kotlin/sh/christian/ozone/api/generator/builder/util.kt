@@ -17,15 +17,8 @@ import com.squareup.kotlinpoet.STRING
 import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
 import org.gradle.configurationcache.extensions.capitalized
-import sh.christian.ozone.api.generator.IMMUTABLE_LIST
-import sh.christian.ozone.api.generator.IMMUTABLE_LIST_SERIALIZER
-import sh.christian.ozone.api.generator.INSTANT
-import sh.christian.ozone.api.generator.JSON_ELEMENT
-import sh.christian.ozone.api.generator.JVM_INLINE
-import sh.christian.ozone.api.generator.KSERIALIZER
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
-import sh.christian.ozone.api.generator.SERIALIZABLE
-import sh.christian.ozone.api.generator.SERIAL_NAME
+import sh.christian.ozone.api.generator.TypeNames
 import sh.christian.ozone.api.generator.valueClassSerializer
 import sh.christian.ozone.api.lexicon.LexiconArray
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
@@ -59,7 +52,7 @@ fun createDataClass(
 ): TypeSpec {
   return TypeSpec.classBuilder(className)
     .addModifiers(KModifier.DATA)
-    .addAnnotation(SERIALIZABLE)
+    .addAnnotation(TypeNames.Serializable)
     .primaryConstructor(
       FunSpec.constructorBuilder()
         .addParameters(
@@ -78,10 +71,10 @@ fun createDataClass(
                 if (property.description != null) {
                   addKdoc(property.description)
                 }
-                if ((property.type as? ParameterizedTypeName)?.rawType == IMMUTABLE_LIST) {
+                if ((property.type as? ParameterizedTypeName)?.rawType == TypeNames.ImmutableList) {
                   addAnnotation(
-                    AnnotationSpec.builder(SERIALIZABLE)
-                      .addMember("%T::class", IMMUTABLE_LIST_SERIALIZER)
+                    AnnotationSpec.builder(TypeNames.Serializable)
+                      .addMember("%T::class", TypeNames.ImmutableListSerializer)
                       .build()
                   )
                 }
@@ -121,19 +114,19 @@ fun createValueClass(
   val serializerClassName = className.peerClass(className.simpleName + "Serializer")
   val serializerTypeSpec = TypeSpec.classBuilder(serializerClassName)
     .addSuperinterface(
-      KSERIALIZER.parameterizedBy(className),
+      TypeNames.KSerializer.parameterizedBy(className),
       CodeBlock.of("%M()", valueClassSerializer)
     )
     .build()
 
   val valueClassTypeSpec = TypeSpec.classBuilder(className)
     .addAnnotation(
-      AnnotationSpec.builder(SERIALIZABLE)
+      AnnotationSpec.builder(TypeNames.Serializable)
         .addMember("with = %T::class", serializerClassName)
         .build()
     )
     .addModifiers(KModifier.VALUE)
-    .addAnnotation(JVM_INLINE)
+    .addAnnotation(JvmInline::class)
     .primaryConstructor(
       FunSpec.constructorBuilder()
         .addParameter(
@@ -167,7 +160,7 @@ fun createEnumClass(
           name = value.toEnumCase(),
           typeSpec = TypeSpec.anonymousClassBuilder()
             .addAnnotation(
-              AnnotationSpec.builder(SERIAL_NAME)
+              AnnotationSpec.builder(TypeNames.SerialName)
                 .addMember("%S", value)
                 .build()
             )
@@ -185,7 +178,7 @@ fun LexiconPrimitive.toTypeName() = when (this) {
   is LexiconFloat -> DOUBLE
   is LexiconString -> {
     when (format) {
-      LexiconStringFormat.DATETIME -> INSTANT
+      LexiconStringFormat.DATETIME -> TypeNames.Instant
       LexiconStringFormat.URI -> STRING
       LexiconStringFormat.AT_URI -> STRING
       LexiconStringFormat.DID -> STRING
@@ -197,7 +190,7 @@ fun LexiconPrimitive.toTypeName() = when (this) {
       null -> STRING
     }
   }
-  is LexiconUnknown -> JSON_ELEMENT
+  is LexiconUnknown -> TypeNames.JsonElement
 }
 
 fun LexiconSingleReference.typeName(
@@ -290,10 +283,10 @@ fun typeName(
           )
         }
       }
-    }.let { IMMUTABLE_LIST.parameterizedBy(it) }
+    }.let { TypeNames.ImmutableList.parameterizedBy(it) }
   }
   is LexiconBlob -> {
-    JSON_ELEMENT
+    TypeNames.JsonElement
   }
   is LexiconIpldType -> {
     when (userType) {

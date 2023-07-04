@@ -44,7 +44,7 @@ import com.squareup.kotlinpoet.U_LONG_ARRAY
 import com.squareup.kotlinpoet.U_SHORT
 import com.squareup.kotlinpoet.U_SHORT_ARRAY
 import com.squareup.kotlinpoet.WildcardTypeName
-import sh.christian.ozone.api.generator.IMMUTABLE_LIST
+import sh.christian.ozone.api.generator.TypeNames
 import sh.christian.ozone.api.generator.persistentListOf
 
 data class SimpleProperty(
@@ -120,7 +120,7 @@ private fun TypeName.defaultValue(nullable: Boolean): CodeBlock = CodeBlock.buil
         MUTABLE_LIST -> add("mutableListOf()")
         MUTABLE_SET -> add("mutableSetOf()")
         MUTABLE_MAP -> add("mutableMapOf()")
-        IMMUTABLE_LIST -> add("%M()", persistentListOf)
+        TypeNames.ImmutableList -> add("%M()", persistentListOf)
         else -> error("Unable to provide non-null default for ParameterizedTypeName: $this")
       }
     }

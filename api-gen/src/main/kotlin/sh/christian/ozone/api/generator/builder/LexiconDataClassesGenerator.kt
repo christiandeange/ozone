@@ -7,10 +7,8 @@ import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
 import org.gradle.configurationcache.extensions.capitalized
-import sh.christian.ozone.api.generator.IMMUTABLE_LIST
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
-import sh.christian.ozone.api.generator.SERIALIZABLE
-import sh.christian.ozone.api.generator.SERIAL_NAME
+import sh.christian.ozone.api.generator.TypeNames
 import sh.christian.ozone.api.lexicon.LexiconArray
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
 import sh.christian.ozone.api.lexicon.LexiconBlob
@@ -112,7 +110,7 @@ class LexiconDataClassesGenerator(
                 }
               }
             }
-          }.let { IMMUTABLE_LIST.parameterizedBy(it) }
+          }.let { TypeNames.ImmutableList.parameterizedBy(it) }
         }
         is LexiconObjectProperty.Blob -> typeName(environment, context, "", property.blob)
         is LexiconObjectProperty.IpldType -> typeName(environment, context, "", property.ipld)
@@ -275,7 +273,7 @@ class LexiconDataClassesGenerator(
 
     val sealedInterface = TypeSpec.interfaceBuilder(name)
       .addModifiers(KModifier.SEALED)
-      .addAnnotation(SERIALIZABLE)
+      .addAnnotation(TypeNames.Serializable)
 
     val canonicalReferences = unionReference.references
       .map { it.ref.parseLexiconRef(context.document) }
@@ -302,7 +300,7 @@ class LexiconDataClassesGenerator(
 
             val (lexiconId, objectRef) = reference.ref.parseLexiconRef(context.document)
             addAnnotation(
-              AnnotationSpec.builder(SERIAL_NAME)
+              AnnotationSpec.builder(TypeNames.SerialName)
                 .addMember("%S", "$lexiconId#$objectRef".removeSuffix("#main"))
                 .build()
             )

@@ -3,16 +3,13 @@ package sh.christian.ozone.api.generator.builder
 import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.BYTE_ARRAY
 import com.squareup.kotlinpoet.ClassName
-import com.squareup.kotlinpoet.LIST
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.STRING
 import com.squareup.kotlinpoet.TypeAliasSpec
 import com.squareup.kotlinpoet.TypeSpec
 import org.gradle.configurationcache.extensions.capitalized
-import sh.christian.ozone.api.generator.ENCODING
-import sh.christian.ozone.api.generator.IMMUTABLE_LIST
-import sh.christian.ozone.api.generator.JSON_ELEMENT
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
+import sh.christian.ozone.api.generator.TypeNames
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
 import sh.christian.ozone.api.lexicon.LexiconBytes
 import sh.christian.ozone.api.lexicon.LexiconCidLink
@@ -94,7 +91,7 @@ class XrpcBodyGenerator(
               is LexiconArrayItem.Primitive -> {
                 prop.array.items.primitive.toTypeName()
               }
-              is LexiconArrayItem.Blob -> JSON_ELEMENT
+              is LexiconArrayItem.Blob -> TypeNames.JsonElement
               is LexiconArrayItem.IpldType -> {
                 when (prop.array.items.ipld) {
                   is LexiconBytes -> BYTE_ARRAY
@@ -114,7 +111,7 @@ class XrpcBodyGenerator(
                   }
                 }
               }
-            }.let { type -> IMMUTABLE_LIST.parameterizedBy(type) },
+            }.let { type -> TypeNames.ImmutableList.parameterizedBy(type) },
             description = when (val items = prop.array.items) {
               is LexiconArrayItem.Blob -> items.blob.description
               is LexiconArrayItem.IpldType -> items.ipld.description
@@ -134,7 +131,7 @@ class XrpcBodyGenerator(
         is LexiconObjectProperty.Blob ->
           SimpleProperty(
             name = name,
-            type = JSON_ELEMENT,
+            type = TypeNames.JsonElement,
             nullable = nullable,
             description = prop.blob.description,
           )
@@ -176,7 +173,7 @@ class XrpcBodyGenerator(
   private fun TypeSpec.forRequestOrResponse(encoding: String): TypeSpec {
     return toBuilder()
       .addAnnotation(
-        AnnotationSpec.builder(ENCODING)
+        AnnotationSpec.builder(TypeNames.Encoding)
           .addMember("%S", encoding)
           .build()
       )

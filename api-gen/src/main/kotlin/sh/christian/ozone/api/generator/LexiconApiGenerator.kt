@@ -116,7 +116,7 @@ class LexiconApiGenerator(
                   .build()
               )
             }
-            returns(ATP_RESPONSE.parameterizedBy(outputType.className))
+            returns(TypeNames.AtpResponse.parameterizedBy(outputType.className))
           }
 
           is Procedure -> {
@@ -127,7 +127,7 @@ class LexiconApiGenerator(
                   .build()
               )
             }
-            returns(ATP_RESPONSE.parameterizedBy(outputType?.className ?: UNIT))
+            returns(TypeNames.AtpResponse.parameterizedBy(outputType?.className ?: UNIT))
           }
         }
       }
@@ -158,14 +158,14 @@ class LexiconApiGenerator(
         FunSpec.constructorBuilder()
           .addParameter(
             ParameterSpec
-              .builder("httpClient", HTTP_CLIENT)
+              .builder("httpClient", TypeNames.HttpClient)
               .build()
           )
           .build()
       )
       .addProperty(
         PropertySpec
-          .builder("client", HTTP_CLIENT)
+          .builder("client", TypeNames.HttpClient)
           .addModifiers(KModifier.PRIVATE)
           .initializer(CodeBlock.of("httpClient.%M()", withJsonConfiguration))
           .build()
