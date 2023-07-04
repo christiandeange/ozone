@@ -1,11 +1,9 @@
 package sh.christian.ozone.ui
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.compositionLocalOf
 import sh.christian.ozone.ui.compose.appFont
 
@@ -76,19 +74,16 @@ private val DarkColors = darkColorScheme(
 )
 
 @Composable
-fun AppTheme(
-  useDarkTheme: Boolean = isSystemInDarkTheme(),
-  content: @Composable() () -> Unit
-) {
-  val colors = if (!useDarkTheme) {
-    LightColors
-  } else {
-    DarkColors
-  }
+fun AppTheme(content: @Composable () -> Unit) {
+  DynamicDarkMode {
+    val colors = if (LocalColorTheme.current.isLight()) {
+      LightColors
+    } else {
+      DarkColors
+    }
 
-  val typography = AppTypography(appFont)
+    val typography = AppTypography(appFont)
 
-  CompositionLocalProvider(LocalColorTheme provides ColorTheme(useDarkTheme)) {
     MaterialTheme(
       typography = typography.copy(
         bodySmall = typography.bodySmall.copy(
