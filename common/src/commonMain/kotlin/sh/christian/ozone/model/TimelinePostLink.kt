@@ -2,8 +2,11 @@ package sh.christian.ozone.model
 
 import app.bsky.richtext.Facet
 import app.bsky.richtext.FacetFeatureUnion
+import sh.christian.ozone.api.Did
+import sh.christian.ozone.api.Handle
+import sh.christian.ozone.api.Uri
 import sh.christian.ozone.model.LinkTarget.ExternalLink
-import sh.christian.ozone.model.LinkTarget.UserMention
+import sh.christian.ozone.model.LinkTarget.UserDidMention
 
 data class TimelinePostLink(
   val start: Int,
@@ -12,12 +15,16 @@ data class TimelinePostLink(
 )
 
 sealed interface LinkTarget {
-  data class UserMention(
-    val did: String,
+  data class UserHandleMention(
+    val handle: Handle,
+  ) : LinkTarget
+
+  data class UserDidMention(
+    val did: Did,
   ) : LinkTarget
 
   data class ExternalLink(
-    val url: String,
+    val uri: Uri,
   ) : LinkTarget
 }
 
@@ -27,7 +34,7 @@ fun Facet.toLink(): TimelinePostLink {
     end = index.byteEnd.toInt(),
     target = when (val feature = features.first()) {
       is FacetFeatureUnion.Link -> ExternalLink(feature.value.uri)
-      is FacetFeatureUnion.Mention -> UserMention(feature.value.did)
+      is FacetFeatureUnion.Mention -> UserDidMention(feature.value.did)
     },
   )
 }

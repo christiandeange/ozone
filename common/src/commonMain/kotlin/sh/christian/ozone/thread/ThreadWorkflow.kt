@@ -13,6 +13,7 @@ import kotlinx.collections.immutable.toImmutableList
 import kotlinx.datetime.Clock
 import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.api.ApiProvider
+import sh.christian.ozone.api.AtUri
 import sh.christian.ozone.api.NetworkWorker
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.app.AppScreen
@@ -89,6 +90,7 @@ class ThreadWorkflow(
                     previousState = state.previousState,
                     thread = thread.value.toThread(),
                   )
+
                   is NotFoundPost,
                   is BlockedPost -> ShowingError(
                     previousState = state,
@@ -96,6 +98,7 @@ class ThreadWorkflow(
                   )
                 }
               }
+
               is AtpResponse.Failure -> {
                 val errorProps = result.toErrorProps(true)
                   ?: ErrorProps("Oops.", "Could not load thread.", false)
@@ -117,6 +120,7 @@ class ThreadWorkflow(
           ),
         )
       }
+
       is ShowingPost -> AppScreen(mains = screenStack)
       is ShowingProfile -> {
         val profileScreen = context.renderChild(profileWorkflow(), renderState.props) {
@@ -127,6 +131,7 @@ class ThreadWorkflow(
 
         profileScreen.copy(mains = (screenStack + profileScreen.mains).toImmutableList())
       }
+
       is ShowingFullSizeImage -> {
         AppScreen(
           mains = screenStack,
@@ -138,6 +143,7 @@ class ThreadWorkflow(
           ),
         )
       }
+
       is ComposingReply -> {
         val profileScreen = context.renderChild(composePostWorkflow, renderState.props) { output ->
           action {
@@ -154,6 +160,7 @@ class ThreadWorkflow(
 
         profileScreen.copy(mains = (screenStack + profileScreen.mains).toImmutableList())
       }
+
       is ShowingError -> {
         AppScreen(
           mains = screenStack,
@@ -213,7 +220,7 @@ class ThreadWorkflow(
     )
   }
 
-  private fun loadPost(uri: String) = NetworkWorker {
+  private fun loadPost(uri: AtUri) = NetworkWorker {
     apiProvider.api.getPostThread(GetPostThreadQueryParams(uri))
   }
 }

@@ -29,7 +29,7 @@ fun VisiblePostPost(
         modifier = Modifier.size(16.dp).align(Alignment.CenterVertically),
         avatarUrl = author.avatar,
         onClick = null,
-        contentDescription = author.displayName ?: author.handle,
+        contentDescription = author.displayName ?: author.handle.handle,
         fallbackColor = author.handle.color(),
       )
 

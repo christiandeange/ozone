@@ -179,7 +179,7 @@ class LoginWorkflow(
         }
       }
       LoginScreenMode.SIGN_IN -> {
-        val request = CreateSessionRequest(credentials.username, credentials.password)
+        val request = CreateSessionRequest(credentials.username.handle, credentials.password)
         apiProvider.api.createSession(request).map { response ->
           AuthInfo(
             accessJwt = response.accessJwt,

@@ -40,7 +40,7 @@ fun TimelinePostItem(
       modifier = Modifier.size(48.dp),
       avatarUrl = author.avatar,
       onClick = { onOpenUser(UserReference.Did(author.did)) },
-      contentDescription = author.displayName ?: author.handle,
+      contentDescription = author.displayName ?: author.handle.handle,
       fallbackColor = author.handle.color(),
     )
 

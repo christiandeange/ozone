@@ -12,6 +12,7 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import sh.christian.ozone.api.Uri
 import sh.christian.ozone.model.TimelinePostFeature.ExternalFeature
 import sh.christian.ozone.ui.compose.PostImage
 
@@ -29,7 +30,7 @@ fun PostExternal(
           modifier = Modifier.requiredSizeIn(maxWidth = 96.dp, maxHeight = 96.dp),
           imageUrl = feature.thumb,
           contentDescription = feature.title,
-          onClick = { uriHandler.openUri(feature.uri) },
+          onClick = { uriHandler.openUri(feature.uri.uri) },
           fallbackColor = MaterialTheme.colorScheme.outline,
         )
       }
@@ -37,7 +38,7 @@ fun PostExternal(
         modifier = Modifier.weight(1f),
         title = feature.title,
         description = feature.description,
-        url = feature.uri,
+        uri = feature.uri,
       )
     }
   }
@@ -48,7 +49,7 @@ fun PostFeatureTextContent(
   modifier: Modifier = Modifier,
   title: String?,
   description: String?,
-  url: String?,
+  uri: Uri?,
 ) {
   Column(modifier, verticalArrangement = spacedBy(4.dp)) {
     if (!title.isNullOrBlank()) {
@@ -67,6 +68,7 @@ fun PostFeatureTextContent(
         style = MaterialTheme.typography.bodyLarge,
       )
     }
+    val url = uri?.uri
     if (!url.isNullOrBlank()) {
       Text(
         text = url,

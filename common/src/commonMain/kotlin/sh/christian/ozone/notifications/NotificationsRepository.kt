@@ -25,6 +25,7 @@ import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.datetime.Instant
 import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.api.ApiProvider
+import sh.christian.ozone.api.AtUri
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.app.Supervisor
 import sh.christian.ozone.di.SingleInApp
@@ -155,7 +156,7 @@ class NotificationsRepository(
   companion object {
     private val EMPTY_VALUE = Notifications(persistentListOf(), null)
 
-    fun ListNotificationsNotification.getPostUri(): String? = when (reason) {
+    fun ListNotificationsNotification.getPostUri(): AtUri? = when (reason) {
       "like" -> reasonSubject!!
       "repost" -> reasonSubject!!
       "mention" -> uri

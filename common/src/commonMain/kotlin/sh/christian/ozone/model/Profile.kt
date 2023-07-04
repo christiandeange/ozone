@@ -5,13 +5,15 @@ import app.bsky.actor.ProfileViewBasic
 import app.bsky.actor.ProfileViewDetailed
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.serialization.Serializable
+import sh.christian.ozone.api.Did
+import sh.christian.ozone.api.Handle
 import sh.christian.ozone.api.runtime.ImmutableListSerializer
 import sh.christian.ozone.util.mapImmutable
 
 @Serializable
 sealed interface Profile {
-  val did: String
-  val handle: String
+  val did: Did
+  val handle: Handle
   val displayName: String?
   val avatar: String?
   val mutedByMe: Boolean
@@ -22,8 +24,8 @@ sealed interface Profile {
 
 @Serializable
 data class LiteProfile(
-  override val did: String,
-  override val handle: String,
+  override val did: Did,
+  override val handle: Handle,
   override val displayName: String?,
   override val avatar: String?,
   override val mutedByMe: Boolean,
@@ -35,8 +37,8 @@ data class LiteProfile(
 
 @Serializable
 data class FullProfile(
-  override val did: String,
-  override val handle: String,
+  override val did: Did,
+  override val handle: Handle,
   override val displayName: String?,
   val description: String?,
   override val avatar: String?,

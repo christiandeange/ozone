@@ -41,7 +41,7 @@ fun NotificationRowScaffold(
         modifier = Modifier.size(32.dp),
         avatarUrl = profile.avatar,
         onClick = { profile.did.let { context.onOpenUser(UserReference.Did(it)) } },
-        contentDescription = profile.displayName ?: profile.handle,
+        contentDescription = profile.displayName ?: profile.handle.handle,
         fallbackColor = profile.handle.color(),
       )
 

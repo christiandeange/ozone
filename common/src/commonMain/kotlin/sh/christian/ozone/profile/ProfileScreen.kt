@@ -145,10 +145,10 @@ class ProfileScreen(
                 translationY = 40 * density - firstItemTranslationY
               },
             avatarUrl = avatarUrl,
-            contentDescription = profile.displayName ?: profile.handle,
+            contentDescription = profile.displayName ?: profile.handle.handle,
             fallbackColor = profile.handle.color(),
             onClick = {
-              onOpenImage(OpenImageAction(BasicImage(avatarUrl!!, profile.handle)))
+              onOpenImage(OpenImageAction(BasicImage(avatarUrl!!, profile.handle.handle)))
             }.takeIf { avatarUrl != null },
           )
 

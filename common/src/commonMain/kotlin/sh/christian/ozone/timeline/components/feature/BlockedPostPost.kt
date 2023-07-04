@@ -8,7 +8,7 @@ fun BlockedPostPost(onClick: (() -> Unit)?) {
     PostFeatureTextContent(
       title = "Post is blocked",
       description = "You are blocked from reading this post.",
-      url = null,
+      uri = null,
     )
   }
 }

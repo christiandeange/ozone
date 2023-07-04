@@ -12,6 +12,7 @@ import kotlinx.collections.immutable.toImmutableList
 import kotlinx.datetime.Clock
 import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.api.ApiProvider
+import sh.christian.ozone.api.AtIdentifier
 import sh.christian.ozone.api.NetworkWorker
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.app.AppScreen
@@ -260,8 +261,8 @@ class ProfileWorkflow(
     cursor: String?,
   ): Worker<AtpResponse<Timeline>> = NetworkWorker {
     val identifier = when (user) {
-      is UserReference.Did -> user.did
-      is UserReference.Handle -> user.handle
+      is UserReference.Did -> AtIdentifier(user.did.did)
+      is UserReference.Handle -> AtIdentifier(user.handle.handle)
     }
     apiProvider.api.getAuthorFeed(
       GetAuthorFeedQueryParams(

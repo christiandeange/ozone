@@ -7,6 +7,9 @@ import app.bsky.embed.RecordWithMediaViewMediaUnion
 import app.bsky.feed.Post
 import app.bsky.feed.PostViewEmbedUnion
 import kotlinx.collections.immutable.ImmutableList
+import sh.christian.ozone.api.AtUri
+import sh.christian.ozone.api.Cid
+import sh.christian.ozone.api.Uri
 import sh.christian.ozone.model.EmbedPost.BlockedEmbedPost
 import sh.christian.ozone.model.EmbedPost.InvisibleEmbedPost
 import sh.christian.ozone.model.EmbedPost.VisibleEmbedPost
@@ -23,7 +26,7 @@ sealed interface TimelinePostFeature {
   ) : TimelinePostFeature, TimelinePostMedia
 
   data class ExternalFeature(
-    val uri: String,
+    val uri: Uri,
     val title: String,
     val description: String,
     val thumb: String?,
@@ -49,8 +52,8 @@ data class EmbedImage(
 
 sealed interface EmbedPost {
   data class VisibleEmbedPost(
-    val uri: String,
-    val cid: String,
+    val uri: AtUri,
+    val cid: Cid,
     val author: Profile,
     val litePost: LitePost,
   ) : EmbedPost {
@@ -58,11 +61,11 @@ sealed interface EmbedPost {
   }
 
   data class InvisibleEmbedPost(
-    val uri: String,
+    val uri: AtUri,
   ) : EmbedPost
 
   data class BlockedEmbedPost(
-    val uri: String,
+    val uri: AtUri,
   ) : EmbedPost
 }
 

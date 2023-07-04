@@ -21,8 +21,8 @@ internal fun PostHeadline(
   author: Profile,
 ) {
   Row(horizontalArrangement = spacedBy(4.dp)) {
-    val primaryText = author.displayName ?: author.handle
-    val secondaryText = author.handle.takeUnless { it == primaryText }
+    val primaryText = author.displayName ?: author.handle.handle
+    val secondaryText = author.handle.handle.takeUnless { it == primaryText }
 
     Text(
       modifier = Modifier.alignByBaseline(),
@@ -34,7 +34,7 @@ internal fun PostHeadline(
     if (secondaryText != null) {
       Text(
         modifier = Modifier.alignByBaseline().weight(1f, fill = false),
-        text = author.handle,
+        text = author.handle.handle,
         overflow = TextOverflow.Ellipsis,
         maxLines = 1,
         style = MaterialTheme.typography.bodySmall,

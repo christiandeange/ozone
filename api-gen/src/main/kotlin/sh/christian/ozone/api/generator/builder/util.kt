@@ -177,14 +177,14 @@ fun LexiconPrimitive.toTypeName() = when (this) {
   is LexiconString -> {
     when (format) {
       LexiconStringFormat.DATETIME -> TypeNames.Instant
-      LexiconStringFormat.URI -> STRING
-      LexiconStringFormat.AT_URI -> STRING
-      LexiconStringFormat.DID -> STRING
-      LexiconStringFormat.HANDLE -> STRING
-      LexiconStringFormat.AT_IDENTIFIER -> STRING
-      LexiconStringFormat.NSID -> STRING
-      LexiconStringFormat.CID -> STRING
-      LexiconStringFormat.LANGUAGE -> STRING
+      LexiconStringFormat.URI -> TypeNames.Uri
+      LexiconStringFormat.AT_URI -> TypeNames.AtUri
+      LexiconStringFormat.DID -> TypeNames.Did
+      LexiconStringFormat.HANDLE -> TypeNames.Handle
+      LexiconStringFormat.AT_IDENTIFIER -> TypeNames.AtIdentifier
+      LexiconStringFormat.NSID -> TypeNames.Nsid
+      LexiconStringFormat.CID -> TypeNames.Cid
+      LexiconStringFormat.LANGUAGE -> TypeNames.Language
       null -> STRING
     }
   }

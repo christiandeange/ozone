@@ -26,7 +26,9 @@ import kotlinx.coroutines.flow.first
 import kotlinx.datetime.Clock
 import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.api.ApiProvider
+import sh.christian.ozone.api.AtIdentifier
 import sh.christian.ozone.api.NetworkWorker
+import sh.christian.ozone.api.Nsid
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.app.AppScreen
 import sh.christian.ozone.compose.ComposePostOutput.CanceledPost
@@ -39,8 +41,10 @@ import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.error.toErrorProps
 import sh.christian.ozone.model.LinkTarget.ExternalLink
-import sh.christian.ozone.model.LinkTarget.UserMention
+import sh.christian.ozone.model.LinkTarget.UserHandleMention
+import sh.christian.ozone.model.LinkTarget.UserDidMention
 import sh.christian.ozone.model.Profile
+import sh.christian.ozone.model.TimelinePostLink
 import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.user.MyProfileRepository
@@ -144,15 +148,16 @@ class ComposePostWorkflow(
     post: PostPayload,
     originalPost: PostReplyInfo?,
   ): NetworkWorker<CreateRecordResponse> = NetworkWorker {
-    val resolvedLinks = coroutineScope {
+    val resolvedLinks: List<TimelinePostLink> = coroutineScope {
       post.links.map { link ->
         async {
           when (link.target) {
             is ExternalLink -> link
-            is UserMention -> {
-              userDatabase.profileOrNull(UserReference.Handle(link.target.did))
+            is UserDidMention -> link
+            is UserHandleMention -> {
+              userDatabase.profileOrNull(UserReference.Handle(link.target.handle))
                 .first()
-                ?.let { profile -> link.copy(target = UserMention(profile.did)) }
+                ?.let { profile -> link.copy(target = UserDidMention(profile.did)) }
             }
           }
         }
@@ -167,8 +172,8 @@ class ComposePostWorkflow(
     }
 
     val request = CreateRecordRequest(
-      repo = post.authorDid,
-      collection = "app.bsky.feed.post",
+      repo = AtIdentifier(post.authorDid.did),
+      collection = Nsid("app.bsky.feed.post"),
       record = Post.serializer().serialize(
         Post(
           text = post.text,
@@ -176,12 +181,11 @@ class ComposePostWorkflow(
           facets = resolvedLinks.map { link ->
             Facet(
               index = FacetByteSlice(link.start.toLong(), link.end.toLong()),
-              features = persistentListOf(
-                when (link.target) {
-                  is ExternalLink -> Link(FacetLink(link.target.url))
-                  is UserMention -> Mention(FacetMention(link.target.did))
-                }
-              ),
+              features = when (link.target) {
+                is ExternalLink -> persistentListOf(Link(FacetLink(link.target.uri)))
+                is UserDidMention -> persistentListOf(Mention(FacetMention(link.target.did)))
+                is UserHandleMention -> persistentListOf()
+              },
             )
           }.toImmutableList(),
           createdAt = clock.now(),

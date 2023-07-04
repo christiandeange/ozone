@@ -40,6 +40,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import sh.christian.ozone.api.Did
 import sh.christian.ozone.compose.PostReplyInfo
 import sh.christian.ozone.compose.asReplyInfo
 import sh.christian.ozone.model.Moment
@@ -276,7 +277,7 @@ private fun ForbiddenPostItem(content: @Composable () -> Unit) {
 }
 
 private fun ThreadPost.withInterestingReplies(ops: Collection<Profile>): List<ThreadPost> {
-  val conversation: Set<String?> = buildSet {
+  val conversation: Set<Did?> = buildSet {
     addAll(ops.map { it.did })
     when (this@withInterestingReplies) {
       is ViewablePost -> add(post.author.did)

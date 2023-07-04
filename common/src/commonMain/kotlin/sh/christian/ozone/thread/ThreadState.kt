@@ -1,5 +1,6 @@
 package sh.christian.ozone.thread
 
+import sh.christian.ozone.api.AtUri
 import sh.christian.ozone.compose.ComposePostProps
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.model.Thread
@@ -13,7 +14,7 @@ sealed interface ThreadState {
   data class FetchingPost(
     override val thread: Thread?,
     override val previousState: ThreadState?,
-    val uri: String,
+    val uri: AtUri,
   ) : ThreadState
 
   data class ShowingPost(

@@ -8,7 +8,7 @@ fun InvisiblePostPost(onClick: (() -> Unit)?) {
     PostFeatureTextContent(
       title = "Post not found",
       description = "The post may have been deleted.",
-      url = null,
+      uri = null,
     )
   }
 }

@@ -28,7 +28,7 @@ internal fun PostFeature(
   when (feature) {
     is ImagesFeature -> PostImages(feature, onOpenImage)
     is ExternalFeature -> PostExternal(feature, onClick = {
-      uriHandler.openUri(feature.uri)
+      uriHandler.openUri(feature.uri.uri)
     })
     is PostFeature -> when (val embedPost = feature.post) {
       is EmbedPost.VisibleEmbedPost -> {
@@ -43,7 +43,7 @@ internal fun PostFeature(
       when (val embedMedia = feature.media) {
         is ImagesFeature -> PostImages(embedMedia, onOpenImage)
         is ExternalFeature -> PostExternal(embedMedia, onClick = {
-          uriHandler.openUri(embedMedia.uri)
+          uriHandler.openUri(embedMedia.uri.uri)
         })
       }
       when (val embedPost = feature.post) {

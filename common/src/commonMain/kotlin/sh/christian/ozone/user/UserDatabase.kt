@@ -12,6 +12,7 @@ import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
 import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.api.ApiProvider
+import sh.christian.ozone.api.AtIdentifier
 import sh.christian.ozone.di.SingleInApp
 import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.toProfile
@@ -43,8 +44,8 @@ class UserDatabase(
     }
 
     val identifier = when (userReference) {
-      is UserReference.Did -> userReference.did
-      is UserReference.Handle -> userReference.handle
+      is UserReference.Did -> AtIdentifier(userReference.did.did)
+      is UserReference.Handle -> AtIdentifier(userReference.handle.handle)
     }
 
     val profileOrNull =

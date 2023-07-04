@@ -61,6 +61,7 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
+import sh.christian.ozone.api.Handle
 import sh.christian.ozone.login.LoginScreenMode.SIGN_IN
 import sh.christian.ozone.login.LoginScreenMode.SIGN_UP
 import sh.christian.ozone.login.auth.Credentials
@@ -211,7 +212,7 @@ class LoginScreen(
         password = passwordField,
         onKeyboardAction = {
           if (allFieldsCompleted) {
-            onLogin(Credentials(email, username, password, inviteCode))
+            onLogin(Credentials(email, Handle(username), password, inviteCode))
           }
         },
       )
@@ -230,7 +231,7 @@ class LoginScreen(
         modifier = Modifier.fillMaxWidth(),
         mode = mode,
         enabled = allFieldsCompleted,
-        onClick = { onLogin(Credentials(email, username, password, inviteCode)) },
+        onClick = { onLogin(Credentials(email, Handle(username), password, inviteCode)) },
       )
     }
   }

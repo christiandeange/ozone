@@ -44,6 +44,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
+import sh.christian.ozone.api.Did
+import sh.christian.ozone.api.Handle
+import sh.christian.ozone.api.Uri
 import sh.christian.ozone.model.LinkTarget
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.model.TimelinePostLink
@@ -113,7 +116,7 @@ class ComposePostScreen(
         AvatarImage(
           modifier = Modifier.size(48.dp),
           avatarUrl = profile.avatar,
-          contentDescription = profile.displayName ?: profile.handle,
+          contentDescription = profile.displayName ?: profile.handle.handle,
           fallbackColor = profile.handle.color(),
         )
 
@@ -208,7 +211,8 @@ private fun AnnotatedString.links(): ImmutableList<TimelinePostLink> {
       TimelinePostLink(
         start = byteOffsets.indexOf(it.range.first),
         end = byteOffsets.indexOf(it.range.last + 1),
-        target = LinkTarget.UserMention(it.groupValues[3]),
+        // Ok this is actually a handle for now, but it is resolved to a Did later on.
+        target = LinkTarget.UserHandleMention(Handle(it.groupValues[3])),
       )
     }
 
@@ -226,7 +230,7 @@ private fun AnnotatedString.links(): ImmutableList<TimelinePostLink> {
       TimelinePostLink(
         start = byteOffsets.indexOf(it.range.first),
         end = byteOffsets.indexOf(it.range.last + 1),
-        target = LinkTarget.ExternalLink(url),
+        target = LinkTarget.ExternalLink(Uri(url)),
       )
     }
 
@@ -234,7 +238,7 @@ private fun AnnotatedString.links(): ImmutableList<TimelinePostLink> {
 }
 
 data class PostPayload(
-  val authorDid: String,
+  val authorDid: Did,
   val text: String,
   val links: ImmutableList<TimelinePostLink>,
 )

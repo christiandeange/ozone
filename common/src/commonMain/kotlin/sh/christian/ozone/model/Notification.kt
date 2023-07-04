@@ -3,6 +3,8 @@ package sh.christian.ozone.model
 import app.bsky.notification.ListNotificationsNotification
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.serialization.Serializable
+import sh.christian.ozone.api.AtUri
+import sh.christian.ozone.api.Cid
 import sh.christian.ozone.api.runtime.ImmutableListSerializer
 import sh.christian.ozone.model.Notification.Content.Followed
 import sh.christian.ozone.model.Notification.Content.Liked
@@ -21,11 +23,11 @@ data class Notifications(
 
 @Serializable
 data class Notification(
-  val uri: String,
-  val cid: String,
+  val uri: AtUri,
+  val cid: Cid,
   val author: Profile,
   val reason: String,
-  val reasonSubject: String?,
+  val reasonSubject: AtUri?,
   val content: Content?,
   val isRead: Boolean,
   val indexedAt: Moment,
@@ -56,7 +58,7 @@ data class Notification(
 }
 
 fun ListNotificationsNotification.toNotification(
-  postsByUri: Map<String, TimelinePost>,
+  postsByUri: Map<AtUri, TimelinePost>,
 ): Notification {
   val notificationPost by lazy {
     val postUri = getPostUri()!!

@@ -17,6 +17,8 @@ import androidx.compose.ui.text.UrlAnnotation
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.unit.dp
 import kotlinx.collections.immutable.ImmutableList
+import sh.christian.ozone.api.Did
+import sh.christian.ozone.api.Handle
 import sh.christian.ozone.model.LinkTarget
 import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.model.TimelinePostFeature.ExternalFeature
@@ -31,7 +33,7 @@ internal fun PostText(
   onClick: () -> Unit,
   onOpenUser: (UserReference) -> Unit,
 ) {
-  val maybeExternalLink = (post.feature as? ExternalFeature)?.uri
+  val maybeExternalLink = (post.feature as? ExternalFeature)?.uri?.uri
   val text = post.text.removeSuffix(maybeExternalLink.orEmpty()).trim()
 
   if (text.isBlank()) {
@@ -47,7 +49,11 @@ internal fun PostText(
         var performedAction = false
         postText.getStringAnnotations("did", index, index).firstOrNull()?.item?.let { did ->
           performedAction = true
-          onOpenUser(UserReference.Did(did))
+          onOpenUser(UserReference.Did(Did(did)))
+        }
+        postText.getStringAnnotations("handle", index, index).firstOrNull()?.item?.let { handle ->
+          performedAction = true
+          onOpenUser(UserReference.Handle(Handle(handle)))
         }
         postText.getUrlAnnotations(index, index).firstOrNull()?.item?.url?.let { url ->
           performedAction = true
@@ -91,10 +97,13 @@ fun formatTextPost(
 
         when (link.target) {
           is LinkTarget.ExternalLink -> {
-            addUrlAnnotation(UrlAnnotation(link.target.url), start, end)
+            addUrlAnnotation(UrlAnnotation(link.target.uri.uri), start, end)
           }
-          is LinkTarget.UserMention -> {
-            addStringAnnotation("did", link.target.did, start, end)
+          is LinkTarget.UserDidMention -> {
+            addStringAnnotation("did", link.target.did.did, start, end)
+          }
+          is LinkTarget.UserHandleMention -> {
+            addStringAnnotation("handle", link.target.handle.handle, start, end)
           }
         }
       }
