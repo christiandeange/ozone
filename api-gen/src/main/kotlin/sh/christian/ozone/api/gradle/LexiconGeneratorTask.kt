@@ -8,6 +8,7 @@ import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.PathSensitive
 import org.gradle.api.tasks.PathSensitivity.RELATIVE
 import org.gradle.api.tasks.TaskAction
+import sh.christian.ozone.api.generator.LexiconApiGenerator
 import sh.christian.ozone.api.generator.LexiconClassFileCreator
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 
@@ -32,14 +33,18 @@ abstract class LexiconGeneratorTask : DefaultTask() {
     )
 
     val lexiconClassFileCreator = LexiconClassFileCreator(environment = processingEnvironment)
+    val lexiconApiGenerator = LexiconApiGenerator(environment = processingEnvironment)
 
     processingEnvironment.forEach { schemaId ->
       try {
         val lexiconDocument = processingEnvironment.loadDocument(schemaId)
         lexiconClassFileCreator.createClassForLexicon(lexiconDocument)
+        lexiconApiGenerator.processDocument(lexiconDocument)
       } catch (e: Exception) {
         throw IllegalArgumentException("Failed to process $schemaId", e)
       }
     }
+
+    lexiconApiGenerator.generateApi()
   }
 }

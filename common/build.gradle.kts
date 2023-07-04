@@ -45,6 +45,8 @@ kotlin {
 
         api(project(":api"))
         api(project(":store"))
+
+        runtimeOnly("org.slf4j:slf4j-simple:2.0.6")
       }
     }
     val androidMain by getting {

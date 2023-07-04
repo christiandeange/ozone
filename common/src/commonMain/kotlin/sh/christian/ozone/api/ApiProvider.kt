@@ -1,5 +1,13 @@
 package sh.christian.ozone.api
 
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.cio.CIO
+import io.ktor.client.plugins.DefaultRequest
+import io.ktor.client.plugins.logging.DEFAULT
+import io.ktor.client.plugins.logging.LogLevel
+import io.ktor.client.plugins.logging.Logger
+import io.ktor.client.plugins.logging.Logging
+import io.ktor.http.Url
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
@@ -11,8 +19,9 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.yield
 import me.tatarka.inject.annotations.Inject
+import sh.christian.atp.api.AtpApi
+import sh.christian.atp.api.XrpcApi
 import sh.christian.ozone.api.xrpc.Tokens
-import sh.christian.ozone.api.xrpc.XrpcApi
 import sh.christian.ozone.app.Supervisor
 import sh.christian.ozone.di.SingleInApp
 import sh.christian.ozone.login.LoginRepository
@@ -25,19 +34,38 @@ class ApiProvider(
   private val loginRepository: LoginRepository,
 ) : Supervisor {
 
-  private val host = MutableStateFlow(apiRepository.server!!.host)
+  private val apiHost = MutableStateFlow(apiRepository.server!!.host)
   private val auth = MutableStateFlow(loginRepository.auth)
   private val tokens = MutableStateFlow(loginRepository.auth?.toTokens())
 
-  private val _api: XrpcApi = XrpcApi(host, tokens)
-  val api: AtpApi get() = _api
+  private val client = HttpClient(CIO) {
+    install(Logging) {
+      logger = Logger.DEFAULT
+      level = LogLevel.INFO
+    }
+
+    install(XrpcAuthPlugin) {
+      authTokens = tokens
+    }
+
+    install(DefaultRequest) {
+      val hostUrl = Url(apiHost.value)
+      url.protocol = hostUrl.protocol
+      url.host = hostUrl.host
+      url.port = hostUrl.port
+    }
+
+    expectSuccess = false
+  }
+
+  val api: AtpApi = XrpcApi(client)
 
   override suspend fun CoroutineScope.onStart() {
     coroutineScope {
       launch(Dispatchers.IO) {
         apiRepository.server().map { it.host }
           .distinctUntilChanged()
-          .collect(host)
+          .collect(apiHost)
       }
 
       launch(Dispatchers.IO) {

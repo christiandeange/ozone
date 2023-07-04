@@ -12,7 +12,7 @@ import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.api.response.StatusCode
 import sh.christian.ozone.api.runtime.Encoding
 
-internal suspend inline fun HttpClient.query(
+suspend inline fun HttpClient.query(
   path: String,
   queryParams: List<Pair<String, Any?>> = emptyList(),
 ): HttpResponse {
@@ -21,7 +21,11 @@ internal suspend inline fun HttpClient.query(
   }
 }
 
-internal suspend inline fun <reified T : Any> HttpClient.procedure(
+suspend inline fun HttpClient.procedure(path: String): HttpResponse {
+  return post(path)
+}
+
+suspend inline fun <reified T : Any> HttpClient.procedure(
   path: String,
   body: T,
 ): HttpResponse {
@@ -35,7 +39,7 @@ internal suspend inline fun <reified T : Any> HttpClient.procedure(
   }
 }
 
-internal suspend inline fun <reified T : Any> HttpResponse.toAtpResponse(): AtpResponse<T> {
+suspend inline fun <reified T : Any> HttpResponse.toAtpResponse(): AtpResponse<T> {
   val headers = headers.entries().associateByTo(mutableMapOf(), { it.key }, { it.value.last() })
 
   return when (val code = StatusCode.fromCode(status.value)) {

@@ -2,7 +2,9 @@ package sh.christian.ozone.api.generator
 
 import com.squareup.kotlinpoet.ClassName
 
+val ATP_RESPONSE = ClassName("sh.christian.ozone.api.response", "AtpResponse")
 val ENCODING = ClassName("sh.christian.ozone.api.runtime", "Encoding")
+val HTTP_CLIENT = ClassName("io.ktor.client", "HttpClient")
 val IMMUTABLE_LIST = ClassName("kotlinx.collections.immutable", "ImmutableList")
 val IMMUTABLE_LIST_SERIALIZER =
   ClassName("sh.christian.ozone.api.runtime", "ImmutableListSerializer")

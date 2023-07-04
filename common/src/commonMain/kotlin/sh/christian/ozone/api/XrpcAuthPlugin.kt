@@ -1,4 +1,4 @@
-package sh.christian.ozone.api.xrpc
+package sh.christian.ozone.api
 
 import com.atproto.server.RefreshSessionResponse
 import io.ktor.client.HttpClient
@@ -12,12 +12,12 @@ import io.ktor.client.request.post
 import io.ktor.client.statement.bodyAsText
 import io.ktor.http.HttpHeaders.Authorization
 import io.ktor.http.HttpStatusCode.Companion.BadRequest
-import io.ktor.serialization.kotlinx.json.DefaultJson
 import io.ktor.util.AttributeKey
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import sh.christian.ozone.api.response.AtpErrorDescription
+import sh.christian.ozone.api.xrpc.Tokens
+import sh.christian.ozone.api.xrpc.toAtpResponse
 
 /**
  * Appends the `Authorization` header to XRPC requests, as well as automatically refreshing and
@@ -28,7 +28,7 @@ internal class XrpcAuthPlugin(
   private val authTokens: MutableStateFlow<Tokens?>,
 ) {
   class Config(
-    var json: Json = DefaultJson,
+    var json: Json = Json { ignoreUnknownKeys = true },
     var authTokens: MutableStateFlow<Tokens?> = MutableStateFlow(null),
   )
 

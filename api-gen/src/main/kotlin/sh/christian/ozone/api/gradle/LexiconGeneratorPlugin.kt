@@ -20,6 +20,7 @@ private fun Project.applyPlugin() {
     outputDirectory.set(extension.outputDirectory)
   }
 
+  plugins.apply("org.jetbrains.kotlin.plugin.serialization")
   plugins.withId("org.jetbrains.kotlin.multiplatform") {
     val kotlinExtension = extensions.getByName<KotlinMultiplatformExtension>("kotlin")
 
