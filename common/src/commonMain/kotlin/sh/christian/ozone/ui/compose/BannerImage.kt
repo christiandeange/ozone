@@ -10,6 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import io.kamel.core.Resource
+import io.kamel.image.asyncPainterResource
 
 @Composable
 fun BannerImage(
@@ -26,15 +28,15 @@ fun BannerImage(
       Modifier
     }
 
-    when (val resource = rememberUrlPainter(imageUrl)) {
-      is PainterResource.Failure,
-      is PainterResource.Loading -> {
+    when (val resource = asyncPainterResource(imageUrl)) {
+      is Resource.Failure,
+      is Resource.Loading -> {
         EmptyPostImage(fallbackColor)
       }
-      is PainterResource.Success -> {
+      is Resource.Success -> {
         Image(
           modifier = modifier.aspectRatio(3f).then(clickable),
-          painter = resource.painter,
+          painter = resource.value,
           contentDescription = contentDescription,
           contentScale = ContentScale.Crop,
         )

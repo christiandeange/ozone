@@ -10,6 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import io.kamel.core.Resource
+import io.kamel.image.asyncPainterResource
 
 @Composable
 fun AvatarImage(
@@ -26,21 +28,21 @@ fun AvatarImage(
   }
 
   if (avatarUrl != null) {
-    when (val painter = rememberUrlPainter(avatarUrl)) {
-      is PainterResource.Failure,
-      is PainterResource.Loading -> {
+    when (val painter = asyncPainterResource(avatarUrl)) {
+      is Resource.Failure,
+      is Resource.Loading -> {
         EmptyAvatar(
           modifier = modifier,
           fallbackColor = fallbackColor,
           onClick = null,
         )
       }
-      is PainterResource.Success -> {
+      is Resource.Success -> {
         Image(
           modifier = modifier
             .clip(CircleShape)
             .then(clickableModifier),
-          painter = painter.painter,
+          painter = painter.value,
           contentDescription = contentDescription,
           contentScale = ContentScale.Crop,
         )

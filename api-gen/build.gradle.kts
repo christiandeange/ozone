@@ -6,11 +6,11 @@ plugins {
 
 dependencies {
   api(kotlin("gradle-plugin"))
-  api("com.squareup:kotlinpoet:1.12.0")
-  api("com.squareup.moshi:moshi:1.14.0")
-  api("com.squareup.moshi:moshi-adapters:1.14.0")
+  api("com.squareup:kotlinpoet:1.14.2")
+  api("com.squareup.moshi:moshi:1.15.0")
+  api("com.squareup.moshi:moshi-adapters:1.15.0")
 
-  ksp("com.squareup.moshi:moshi-kotlin-codegen:1.14.0")
+  ksp("com.squareup.moshi:moshi-kotlin-codegen:1.15.0")
 }
 
 kotlin {

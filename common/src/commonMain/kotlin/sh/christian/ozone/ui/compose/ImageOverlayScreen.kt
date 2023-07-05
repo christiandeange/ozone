@@ -20,6 +20,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
+import io.kamel.core.Resource
+import io.kamel.image.asyncPainterResource
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import me.saket.telephoto.zoomable.ZoomableContentLocation
@@ -50,11 +52,11 @@ class ImageOverlayScreen(
         val zoomableState = rememberZoomableState()
 
         val url = action.images[page].imageUrl
-        when (val resource = rememberUrlPainter(url)) {
-          is PainterResource.Failure,
-          is PainterResource.Loading -> Unit
-          is PainterResource.Success -> {
-            val painter = resource.painter
+        when (val resource = asyncPainterResource(url)) {
+          is Resource.Failure,
+          is Resource.Loading -> Unit
+          is Resource.Success -> {
+            val painter = resource.value
 
             Image(
               modifier = Modifier

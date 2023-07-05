@@ -6,7 +6,7 @@ import java.nio.file.Paths
 
 fun storage(): PersistentStorage {
   val filesDir: Path =
-    Paths.get(AppDirs().getUserDataDir("Ozone", "1", "sh.christian.ozone")).resolve("storage")
+    Paths.get(AppDirs("sh.christian.ozone", "1").getUserDataDir()).resolve("storage")
 
   return object : KStorePersistentStorage() {
     override fun pathTo(key: String): String {

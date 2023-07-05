@@ -35,15 +35,15 @@ kotlin {
     val commonMain by getting {
       dependencies {
         api("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5")
-        api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+        api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.2")
         api("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
         api("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
 
-        api("io.ktor:ktor-client-content-negotiation:2.2.3")
-        api("io.ktor:ktor-client-core:2.2.3")
-        api("io.ktor:ktor-client-cio:2.2.3")
-        api("io.ktor:ktor-client-logging:2.2.3")
-        api("io.ktor:ktor-serialization-kotlinx-json:2.2.3")
+        api("io.ktor:ktor-client-content-negotiation:2.3.2")
+        api("io.ktor:ktor-client-core:2.3.2")
+        api("io.ktor:ktor-client-cio:2.3.2")
+        api("io.ktor:ktor-client-logging:2.3.2")
+        api("io.ktor:ktor-serialization-kotlinx-json:2.3.2")
 
         implementation(kotlin("reflect"))
       }

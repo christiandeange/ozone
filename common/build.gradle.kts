@@ -32,21 +32,21 @@ kotlin {
         api(compose.foundation)
         api(compose.material3)
 
-        api("com.squareup.workflow1:workflow-core:1.10.0-beta01")
-        api("com.squareup.workflow1:workflow-runtime:1.10.0-beta01")
+        api("com.squareup.workflow1:workflow-core:1.11.0-beta01")
+        api("com.squareup.workflow1:workflow-runtime:1.11.0-beta01")
 
         // Uncomment to fetch all icons.
         // implementation("androidx.compose.material:material-icons-extended:1.3.1")
-        implementation("com.alialbaali.kamel:kamel-image:0.4.1")
+        implementation("media.kamel:kamel-image:0.6.1")
 
         implementation("me.saket.telephoto:zoomable:0.4.0")
         implementation("me.tatarka.inject:kotlin-inject-runtime:0.6.1")
-        implementation("org.jetbrains.kotlinx:atomicfu:0.20.2")
+        implementation("org.jetbrains.kotlinx:atomicfu:0.21.0")
 
         api(project(":api"))
         api(project(":store"))
 
-        runtimeOnly("org.slf4j:slf4j-simple:2.0.6")
+        runtimeOnly("org.slf4j:slf4j-simple:2.0.7")
       }
     }
     val androidMain by getting {
@@ -54,7 +54,7 @@ kotlin {
       findAndroidSourceSet(this)!!.assets.srcDir("fonts")
 
       dependencies {
-        implementation("androidx.activity:activity-compose:1.6.1")
+        implementation("androidx.activity:activity-compose:1.7.2")
       }
     }
     val desktopMain by getting {
