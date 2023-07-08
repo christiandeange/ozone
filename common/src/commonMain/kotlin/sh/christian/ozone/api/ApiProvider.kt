@@ -21,7 +21,6 @@ import kotlinx.coroutines.yield
 import me.tatarka.inject.annotations.Inject
 import sh.christian.atp.api.AtpApi
 import sh.christian.atp.api.XrpcApi
-import sh.christian.ozone.api.xrpc.Tokens
 import sh.christian.ozone.app.Supervisor
 import sh.christian.ozone.di.SingleInApp
 import sh.christian.ozone.login.LoginRepository

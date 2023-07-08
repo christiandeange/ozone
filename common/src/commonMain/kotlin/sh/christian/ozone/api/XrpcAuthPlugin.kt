@@ -3,6 +3,7 @@ package sh.christian.ozone.api
 import com.atproto.server.RefreshSessionResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.HttpClientCall
+import io.ktor.client.call.body
 import io.ktor.client.call.save
 import io.ktor.client.plugins.HttpClientPlugin
 import io.ktor.client.plugins.HttpSend
@@ -16,8 +17,6 @@ import io.ktor.util.AttributeKey
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.serialization.json.Json
 import sh.christian.ozone.api.response.AtpErrorDescription
-import sh.christian.ozone.api.xrpc.Tokens
-import sh.christian.ozone.api.xrpc.toAtpResponse
 
 /**
  * Appends the `Authorization` header to XRPC requests, as well as automatically refreshing and
@@ -62,13 +61,10 @@ internal class XrpcAuthPlugin(
         }
 
         if (response.getOrNull()?.error == "ExpiredToken") {
-          scope
-            .post("/xrpc/com.atproto.server.refreshSession") {
-              plugin.authTokens.value?.refresh?.let { bearerAuth(it) }
-            }
-            .toAtpResponse<RefreshSessionResponse>()
-            .maybeResponse()
-            ?.let { refreshed ->
+          val refreshResponse = scope.post("/xrpc/com.atproto.server.refreshSession") {
+            plugin.authTokens.value?.refresh?.let { bearerAuth(it) }
+          }
+          runCatching { refreshResponse.body<RefreshSessionResponse>() }.getOrNull()?.let { refreshed ->
               val newAccessToken = refreshed.accessJwt
               val newRefreshToken = refreshed.refreshJwt
 

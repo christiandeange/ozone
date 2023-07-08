@@ -27,7 +27,14 @@ private fun Project.applyPlugin() {
     val commonMain = kotlinExtension.sourceSets.getByName("commonMain")
     commonMain.kotlin.srcDir(extension.outputDirectory)
     commonMain.dependencies {
-      api(project(":api-gen-runtime"))
+      api("io.ktor:ktor-client-core:2.3.2")
+      api("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+
+      // Expose certain types that are publicly used in the generated classes.
+      api(project(":api-gen-runtime-api"))
+
+      // Keep some internal utility methods only on the runtime classpath
+      implementation(project(":api-gen-runtime-implementation"))
     }
 
     kotlinExtension.targets.configureEach {

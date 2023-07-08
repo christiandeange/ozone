@@ -14,7 +14,7 @@ import kotlinx.serialization.encoding.Encoder
 @OptIn(ExperimentalSerializationApi::class)
 @Serializer(forClass = ImmutableList::class)
 class ImmutableListSerializer<T>(
-  private val dataSerializer: KSerializer<T>,
+  dataSerializer: KSerializer<T>,
 ) : KSerializer<ImmutableList<T>> {
   private val listSerializer = ListSerializer(dataSerializer)
 

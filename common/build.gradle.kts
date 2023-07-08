@@ -41,6 +41,8 @@ kotlin {
 
         implementation("me.saket.telephoto:zoomable:0.4.0")
         implementation("me.tatarka.inject:kotlin-inject-runtime:0.6.1")
+        implementation("io.ktor:ktor-client-cio:2.3.2")
+        implementation("io.ktor:ktor-client-logging:2.3.2")
         implementation("org.jetbrains.kotlinx:atomicfu:0.21.0")
 
         api(project(":api"))

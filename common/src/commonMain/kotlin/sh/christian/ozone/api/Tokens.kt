@@ -1,4 +1,4 @@
-package sh.christian.ozone.api.xrpc
+package sh.christian.ozone.api
 
 data class Tokens(
   val auth: String,
