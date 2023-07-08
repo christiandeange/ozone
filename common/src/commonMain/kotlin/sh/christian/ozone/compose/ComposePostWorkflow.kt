@@ -47,9 +47,9 @@ import sh.christian.ozone.model.Profile
 import sh.christian.ozone.model.TimelinePostLink
 import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
-import sh.christian.ozone.user.UserHandle
 import sh.christian.ozone.user.MyProfileRepository
 import sh.christian.ozone.user.UserDatabase
+import sh.christian.ozone.user.UserHandle
 import sh.christian.ozone.util.serialize
 
 @Inject

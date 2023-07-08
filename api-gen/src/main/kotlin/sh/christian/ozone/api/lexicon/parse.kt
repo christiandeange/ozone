@@ -4,7 +4,7 @@ package sh.christian.ozone.api.lexicon
 
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader
-import com.squareup.moshi.JsonReader.Token.*
+import com.squareup.moshi.JsonReader.Token.BEGIN_OBJECT
 import com.squareup.moshi.JsonWriter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapter

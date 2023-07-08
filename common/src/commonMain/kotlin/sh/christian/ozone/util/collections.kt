@@ -1,7 +1,6 @@
 package sh.christian.ozone.util
 
 import kotlinx.collections.immutable.ImmutableList
-import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList
 
 inline fun <T, R> Iterable<T>.mapImmutable(transform: (T) -> R): ImmutableList<R> {

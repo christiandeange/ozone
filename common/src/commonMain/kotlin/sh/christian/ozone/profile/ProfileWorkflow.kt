@@ -36,10 +36,10 @@ import sh.christian.ozone.thread.ThreadWorkflow
 import sh.christian.ozone.ui.compose.ImageOverlayScreen
 import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
-import sh.christian.ozone.user.UserDid
-import sh.christian.ozone.user.UserHandle
 import sh.christian.ozone.user.MyProfileRepository
 import sh.christian.ozone.user.UserDatabase
+import sh.christian.ozone.user.UserDid
+import sh.christian.ozone.user.UserHandle
 import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.util.RemoteData
 import sh.christian.ozone.util.RemoteData.Failed
