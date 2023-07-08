@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-  namespace = "sh.christian.ozone.api.runtime"
+  namespace = "sh.christian.ozone.api.runtime.implementation"
   compileSdk = 33
 
   defaultConfig {

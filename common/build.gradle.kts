@@ -44,6 +44,7 @@ kotlin {
         implementation("io.ktor:ktor-client-cio:2.3.2")
         implementation("io.ktor:ktor-client-logging:2.3.2")
         implementation("org.jetbrains.kotlinx:atomicfu:0.21.0")
+        implementation("org.jetbrains.skiko:skiko:0.7.63")
 
         api(project(":api"))
         api(project(":store"))
@@ -74,7 +75,8 @@ kotlin {
 }
 
 dependencies {
-  ksp("me.tatarka.inject:kotlin-inject-compiler-ksp:0.6.1")
+  add("kspAndroid", "me.tatarka.inject:kotlin-inject-compiler-ksp:0.6.1")
+  add("kspDesktop", "me.tatarka.inject:kotlin-inject-compiler-ksp:0.6.1")
 }
 
 android {
