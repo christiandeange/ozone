@@ -3,7 +3,7 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 plugins {
   kotlin("multiplatform")
   kotlin("plugin.serialization")
-  id("org.jetbrains.compose")
+  id("ozone-compose")
 }
 
 kotlin {
@@ -13,12 +13,6 @@ kotlin {
     }
   }
   sourceSets {
-    all {
-      languageSettings.apply {
-        optIn("androidx.compose.ui.ExperimentalComposeUiApi")
-      }
-    }
-
     val jvmMain by getting {
       dependencies {
         implementation(project(":common"))

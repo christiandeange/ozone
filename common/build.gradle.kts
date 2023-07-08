@@ -1,31 +1,19 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.plugin.sources.android.findAndroidSourceSet
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-  kotlin("multiplatform")
   kotlin("plugin.serialization")
-  id("org.jetbrains.compose")
-  id("com.android.library")
+  id("ozone-multiplatform")
+  id("ozone-compose")
   id("com.google.devtools.ksp") version "1.8.20-1.0.11"
 }
 
+android {
+  namespace = "sh.christian.ozone.common"
+}
+
 kotlin {
-  android()
-  jvm("desktop") {
-    compilations.all {
-      kotlinOptions.jvmTarget = "11"
-    }
-  }
-
   sourceSets {
-    all {
-      languageSettings.apply {
-        optIn("androidx.compose.material3.ExperimentalMaterial3Api")
-        optIn("androidx.compose.ui.ExperimentalComposeUiApi")
-      }
-    }
-
     val commonMain by getting {
       dependencies {
         api(compose.runtime)
@@ -46,7 +34,7 @@ kotlin {
         implementation("org.jetbrains.kotlinx:atomicfu:0.21.0")
         implementation("org.jetbrains.skiko:skiko:0.7.63")
 
-        api(project(":api"))
+        api(project(":bluesky"))
         api(project(":store"))
 
         runtimeOnly("org.slf4j:slf4j-simple:2.0.7")
@@ -77,33 +65,4 @@ kotlin {
 dependencies {
   add("kspAndroid", "me.tatarka.inject:kotlin-inject-compiler-ksp:0.6.1")
   add("kspDesktop", "me.tatarka.inject:kotlin-inject-compiler-ksp:0.6.1")
-}
-
-android {
-  compileSdk = 33
-  namespace = "sh.christian.ozone.common"
-
-  defaultConfig {
-    minSdk = 30
-  }
-
-  compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
-  }
-}
-
-tasks.withType<JavaCompile>().configureEach { options.release.set(11) }
-tasks.withType<KotlinCompile>().configureEach {
-  kotlinOptions.jvmTarget = "11"
-
-  if (project.findProperty("enableComposeCompilerReports") == "true") {
-    val destinationPath = project.buildDir.absolutePath + "/compose_metrics"
-    kotlinOptions.freeCompilerArgs += listOf(
-      "-P",
-      "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=$destinationPath",
-      "-P",
-      "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=$destinationPath"
-    )
-  }
 }

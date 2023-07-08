@@ -19,8 +19,4 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "api-gen"
-
-include(":api-gen-runtime-api", ":api-gen-runtime-implementation")
-
-includeBuild("../build-logic")
+rootProject.name = "build-logic"

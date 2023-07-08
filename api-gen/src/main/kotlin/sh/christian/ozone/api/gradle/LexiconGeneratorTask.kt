@@ -3,6 +3,8 @@ package sh.christian.ozone.api.gradle
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.ConfigurableFileCollection
 import org.gradle.api.file.DirectoryProperty
+import org.gradle.api.provider.Property
+import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFiles
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.PathSensitive
@@ -17,6 +19,9 @@ abstract class LexiconGeneratorTask : DefaultTask() {
   @get:InputFiles
   @get:PathSensitive(RELATIVE)
   abstract val schemasClasspath: ConfigurableFileCollection
+
+  @get:Input
+  abstract val apiName: Property<String>
 
   @get:OutputDirectory
   abstract val outputDirectory: DirectoryProperty
@@ -33,7 +38,7 @@ abstract class LexiconGeneratorTask : DefaultTask() {
     )
 
     val lexiconClassFileCreator = LexiconClassFileCreator(environment = processingEnvironment)
-    val lexiconApiGenerator = LexiconApiGenerator(environment = processingEnvironment)
+    val lexiconApiGenerator = LexiconApiGenerator(environment = processingEnvironment, apiName = apiName.get())
 
     processingEnvironment.forEach { schemaId ->
       try {

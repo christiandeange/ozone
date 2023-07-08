@@ -30,6 +30,7 @@ import sh.christian.ozone.api.lexicon.LexiconXrpcSubscription
 
 class LexiconApiGenerator(
   private val environment: LexiconProcessingEnvironment,
+  private val apiName: String,
 ) {
   private val apiCalls = mutableSetOf<ApiCall>()
 
@@ -53,7 +54,7 @@ class LexiconApiGenerator(
   }
 
   fun generateApi() {
-    val packageName = "sh.christian.atp.api"
+    val packageName = "sh.christian.ozone"
     generateAtpApi(packageName)
     generateXrpcApi(packageName)
   }
@@ -137,7 +138,7 @@ class LexiconApiGenerator(
   }
 
   private fun generateAtpApi(packageName: String) {
-    val interfaceType = TypeSpec.interfaceBuilder(ClassName(packageName, "AtpApi"))
+    val interfaceType = TypeSpec.interfaceBuilder(ClassName(packageName, apiName))
       .apply {
         apiCalls.forEach { apiCall ->
           addFunction(apiCall.toFunctionSpec {
@@ -146,15 +147,15 @@ class LexiconApiGenerator(
         }
       }.build()
 
-    FileSpec.builder(packageName, "AtpApi")
+    FileSpec.builder(packageName, apiName)
       .addType(interfaceType)
       .build()
       .writeTo(environment.outputDirectory)
   }
 
   private fun generateXrpcApi(packageName: String) {
-    val classType = TypeSpec.classBuilder(ClassName(packageName, "XrpcApi"))
-      .addSuperinterface(ClassName(packageName, "AtpApi"))
+    val classType = TypeSpec.classBuilder(ClassName(packageName, "Xrpc$apiName"))
+      .addSuperinterface(ClassName(packageName, apiName))
       .primaryConstructor(
         FunSpec.constructorBuilder()
           .addParameter(
@@ -214,7 +215,7 @@ class LexiconApiGenerator(
         }
       }.build()
 
-    FileSpec.builder(packageName, "XrpcApi")
+    FileSpec.builder(packageName, "Xrpc$apiName")
       .addType(classType)
       .build()
       .writeTo(environment.outputDirectory)

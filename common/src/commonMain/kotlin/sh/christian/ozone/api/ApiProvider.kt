@@ -19,8 +19,8 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.yield
 import me.tatarka.inject.annotations.Inject
-import sh.christian.atp.api.AtpApi
-import sh.christian.atp.api.XrpcApi
+import sh.christian.ozone.BlueskyApi
+import sh.christian.ozone.XrpcBlueskyApi
 import sh.christian.ozone.app.Supervisor
 import sh.christian.ozone.di.SingleInApp
 import sh.christian.ozone.login.LoginRepository
@@ -57,7 +57,7 @@ class ApiProvider(
     expectSuccess = false
   }
 
-  val api: AtpApi = XrpcApi(client)
+  val api: BlueskyApi = XrpcBlueskyApi(client)
 
   override suspend fun CoroutineScope.onStart() {
     coroutineScope {

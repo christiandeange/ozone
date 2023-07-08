@@ -2,8 +2,12 @@ package sh.christian.ozone.api.gradle
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.Task
+import org.gradle.api.UnknownTaskException
 import org.gradle.api.file.DirectoryProperty
+import org.gradle.api.tasks.TaskContainer
 import org.gradle.api.tasks.TaskProvider
+import org.gradle.jvm.tasks.Jar
 import org.gradle.kotlin.dsl.create
 import org.gradle.kotlin.dsl.register
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
@@ -21,15 +25,22 @@ private fun Project.applyPlugin() {
 
   val generateLexicons = tasks.register<LexiconGeneratorTask>("generateLexicons") {
     schemasClasspath.from(configuration)
+    apiName.set(extension.apiName)
     outputDirectory.set(extension.outputDirectory)
   }
 
   val pluginConfiguration: Plugin<*>.() -> Unit = {
+    tasks.locateTask<Jar>("sourcesJar")?.configure {
+      dependsOn(generateLexicons)
+    }
+
     val generatedSrcDir = extension.outputDirectory
 
     when (val kotlinExtension = project.kotlinExtension) {
       is KotlinSingleTargetExtension<*> -> {
-        kotlinExtension.target.applyConfiguration("main", generatedSrcDir, generateLexicons)
+        kotlinExtension.target.apply {
+          applyConfiguration("main", generatedSrcDir, generateLexicons)
+        }
       }
 
       is KotlinMultiplatformExtension -> {
@@ -67,9 +78,23 @@ private fun KotlinTarget.applyConfiguration(
     }
   }
 
+  components.forEach {
+    project.tasks.locateTask<Jar>("${it.name}SourcesJar")?.configure {
+      dependsOn(compileTaskDependency)
+    }
+  }
+
   compilations.configureEach {
     compileTaskProvider.configure {
       dependsOn(compileTaskDependency)
     }
+  }
+}
+
+private inline fun <reified T : Task> TaskContainer.locateTask(name: String): TaskProvider<T>? {
+  return try {
+    withType(T::class.java).named(name)
+  } catch (e: UnknownTaskException) {
+    null
   }
 }

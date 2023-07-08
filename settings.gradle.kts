@@ -17,6 +17,7 @@ pluginManagement {
     kotlin("android").version(kotlinVersion) apply false
     id("com.android.application").version(agpVersion) apply false
     id("com.android.library").version(agpVersion) apply false
+    id("com.vanniktech.maven.publish").version("0.25.3") apply false
     id("org.jetbrains.compose").version(composeVersion) apply false
   }
 }
@@ -32,6 +33,13 @@ dependencyResolutionManagement {
 
 rootProject.name = "ozone"
 
-include(":android", ":desktop", ":common", ":store", ":api", ":api-gen-runtime-api", ":api-gen-runtime-implementation")
+include(":android")
+include(":api-gen-runtime-api")
+include(":api-gen-runtime-implementation")
+include(":bluesky")
+include(":desktop")
+include(":common")
+include(":store")
 
 includeBuild("api-gen")
+includeBuild("build-logic")

@@ -1,5 +1,6 @@
 plugins {
   kotlin("jvm")
+  id("ozone-base")
   id("com.google.devtools.ksp") version "1.8.20-1.0.11"
   `kotlin-dsl`
 }
@@ -11,12 +12,6 @@ dependencies {
   api("com.squareup.moshi:moshi-adapters:1.15.0")
 
   ksp("com.squareup.moshi:moshi-kotlin-codegen:1.15.0")
-}
-
-kotlin {
-  jvmToolchain {
-    languageVersion.set(JavaLanguageVersion.of("11"))
-  }
 }
 
 gradlePlugin {
