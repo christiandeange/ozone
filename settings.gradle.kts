@@ -19,8 +19,8 @@ dependencyResolutionManagement {
 rootProject.name = "ozone"
 
 include(":android")
-include(":api-gen-runtime-api")
-include(":api-gen-runtime-implementation")
+include(":api-gen-runtime")
+include(":api-gen-runtime-internal")
 include(":bluesky")
 include(":desktop")
 include(":common")

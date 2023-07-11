@@ -72,10 +72,10 @@ private fun KotlinTarget.applyConfiguration(
       api(Dependencies.KTOR_CORE)
 
       // Expose certain types that are publicly used in the generated classes.
-      api(project(":api-gen-runtime-api"))
+      api(project(":api-gen-runtime"))
 
       // Keep some internal utility methods only on the runtime classpath
-      implementation(project(":api-gen-runtime-implementation"))
+      implementation(project(":api-gen-runtime-internal"))
     }
   }
 

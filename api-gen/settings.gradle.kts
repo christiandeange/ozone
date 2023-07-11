@@ -22,7 +22,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "api-gen"
 
-include(":api-gen-runtime-api")
-include(":api-gen-runtime-implementation")
+include(":api-gen-runtime")
+include(":api-gen-runtime-internal")
 
 includeBuild("../build-logic")

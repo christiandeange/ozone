@@ -18,7 +18,7 @@ kotlin {
         api(libs.kotlinx.serialization.json)
         api(libs.ktor.core)
 
-        api(project(":api-gen-runtime-api"))
+        api(project(":api-gen-runtime"))
 
         implementation(libs.ktor.contentnegotiation)
         implementation(libs.ktor.serialization.json)
