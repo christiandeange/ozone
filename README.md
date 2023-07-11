@@ -39,7 +39,7 @@ O<sub>3</sub> exists at all levels in the [ATmosphere](https://bsky.app/profile/
 // build.gradle[.kts]
 
 dependencies {
-  api("sh.christian.ozone:bluesky:0.0.1")
+  api("sh.christian.ozone:bluesky:0.0.1-SNAPSHOT")
 }
 ```
 
@@ -51,7 +51,7 @@ dependencies {
 // build.gradle[.kts]
 
 plugins {
-  id("sh.christian.ozone.api-gen") version "0.0.1"
+  id("sh.christian.ozone.api-gen") version "0.0.1-SNAPSHOT"
 }
 
 dependencies {
