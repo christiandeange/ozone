@@ -1,18 +1,19 @@
 pluginManagement {
-  val kotlinVersion: String by settings
   repositories {
     gradlePluginPortal()
     google()
     mavenCentral()
   }
-
-  plugins {
-    kotlin("jvm").version(kotlinVersion) apply false
-  }
 }
 
 @Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
+  versionCatalogs {
+    create("libs") {
+      from(files("../gradle/libs.versions.toml"))
+    }
+  }
+
   repositories {
     google()
     mavenCentral()

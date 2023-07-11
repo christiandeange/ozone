@@ -14,6 +14,7 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinSingleTargetExtension
 import org.jetbrains.kotlin.gradle.dsl.kotlinExtension
 import org.jetbrains.kotlin.gradle.plugin.KotlinTarget
+import sh.christian.ozone.buildconfig.Dependencies
 
 class LexiconGeneratorPlugin : Plugin<Project> {
   override fun apply(target: Project) = target.applyPlugin()
@@ -67,8 +68,8 @@ private fun KotlinTarget.applyConfiguration(
   project.kotlinExtension.sourceSets.getByName(sourceSetName).apply {
     kotlin.srcDir(generatedSrcDir)
     dependencies {
-      api("io.ktor:ktor-client-core:2.3.2")
-      api("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+      api(Dependencies.KOTLINX_DATETIME)
+      api(Dependencies.KTOR_CORE)
 
       // Expose certain types that are publicly used in the generated classes.
       api(project(":api-gen-runtime-api"))

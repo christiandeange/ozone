@@ -1,17 +1,19 @@
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-  kotlin("jvm")
+  kotlin("jvm") version libs.versions.kotlin
   id("ozone-base")
-  id("com.google.devtools.ksp") version "1.8.20-1.0.11"
+  id("com.github.gmazzo.buildconfig") version libs.versions.buildconfig
+  id("com.google.devtools.ksp") version libs.versions.ksp
   `kotlin-dsl`
 }
 
 dependencies {
   api(kotlin("gradle-plugin"))
-  api("com.squareup:kotlinpoet:1.14.2")
-  api("com.squareup.moshi:moshi:1.15.0")
-  api("com.squareup.moshi:moshi-adapters:1.15.0")
+  api(libs.kotlinpoet)
+  api(libs.moshi)
+  api(libs.moshi.adapters)
 
-  ksp("com.squareup.moshi:moshi-kotlin-codegen:1.15.0")
+  ksp(libs.moshi.codegen)
 }
 
 gradlePlugin {
@@ -20,5 +22,18 @@ gradlePlugin {
       id = "sh.christian.ozone.api-gen"
       implementationClass = "sh.christian.ozone.api.gradle.LexiconGeneratorPlugin"
     }
+  }
+}
+
+buildConfig {
+  packageName("sh.christian.ozone.buildconfig")
+
+  useKotlinOutput {
+    internalVisibility = true
+  }
+
+  forClass("Dependencies") {
+    buildConfigField("String", "KTOR_CORE", "\"${libs.ktor.core.get()}\"")
+    buildConfigField("String", "KOTLINX_DATETIME", "\"${libs.kotlinx.datetime.get()}\"")
   }
 }

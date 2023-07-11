@@ -1,18 +1,17 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
   `java-gradle-plugin`
   `kotlin-dsl`
-  kotlin("jvm")
+  kotlin("jvm") version libs.versions.kotlin
 }
 
-val agpVersion by project.properties
-val kotlinVersion by project.properties
-
 dependencies {
-  implementation("com.vanniktech:gradle-maven-publish-plugin:0.25.3")
-  compileOnly("com.android.tools.build:gradle-api:$agpVersion")
-  compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+  implementation(libs.maven.publish)
+
+  compileOnly(libs.agp)
+  compileOnly(kotlin("gradle-plugin"))
 }
 
 tasks.withType<JavaCompile>().configureEach { options.release.set(11) }

@@ -1,18 +1,19 @@
 pluginManagement {
-  val kotlinVersion: String by settings
   repositories {
     gradlePluginPortal()
     google()
     mavenCentral()
   }
-
-  plugins {
-    kotlin("jvm").version(kotlinVersion) apply false
-  }
 }
 
 @Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
+  versionCatalogs {
+    create("libs") {
+      from(files("../gradle/libs.versions.toml"))
+    }
+  }
+
   repositories {
     google()
     mavenCentral()
@@ -21,6 +22,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "api-gen"
 
-include(":api-gen-runtime-api", ":api-gen-runtime-implementation")
+include(":api-gen-runtime-api")
+include(":api-gen-runtime-implementation")
 
 includeBuild("../build-logic")

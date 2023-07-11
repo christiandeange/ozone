@@ -11,17 +11,17 @@ kotlin {
   sourceSets {
     val commonMain by getting {
       dependencies {
-        api("io.github.xxfast:kstore:0.6.0")
-        api("io.github.xxfast:kstore-file:0.6.0")
+        api(libs.kstore)
+        api(libs.kstore.file)
 
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.2")
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
+        implementation(libs.kotlinx.coroutines)
+        implementation(libs.kotlinx.serialization.json)
         implementation(kotlin("reflect"))
       }
     }
     val desktopMain by getting {
       dependencies {
-        implementation("ca.gosyer:kotlin-multiplatform-appdirs:1.1.0")
+        implementation(libs.appdirs)
       }
     }
   }

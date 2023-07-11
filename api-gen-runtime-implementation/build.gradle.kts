@@ -15,13 +15,13 @@ kotlin {
   sourceSets {
     val commonMain by getting {
       dependencies {
-        api("io.ktor:ktor-client-core:2.3.2")
-        api("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
+        api(libs.kotlinx.serialization.json)
+        api(libs.ktor.core)
 
         api(project(":api-gen-runtime-api"))
 
-        implementation("io.ktor:ktor-client-content-negotiation:2.3.2")
-        implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.2")
+        implementation(libs.ktor.contentnegotiation)
+        implementation(libs.ktor.serialization.json)
 
         implementation(kotlin("reflect"))
       }
