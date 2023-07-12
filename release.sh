@@ -32,7 +32,7 @@ git add gradle.properties
 git add gradle/libs.versions.toml
 
 git commit -m "Releasing v$NEXT_RELEASE"
-git tag "v$NEXT_RELEASE"
+git tag "v$NEXT_RELEASE" --force
 
 sed -i '' "s/$NEXT_RELEASE/$NEXT_SNAPSHOT_VERSION-SNAPSHOT/g" gradle.properties
 
