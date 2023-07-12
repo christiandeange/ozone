@@ -4,7 +4,6 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
 import org.gradle.api.UnknownTaskException
-import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.tasks.TaskContainer
 import org.gradle.api.tasks.TaskProvider
 import org.gradle.jvm.tasks.Jar
@@ -14,6 +13,7 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinSingleTargetExtension
 import org.jetbrains.kotlin.gradle.dsl.kotlinExtension
 import org.jetbrains.kotlin.gradle.plugin.KotlinTarget
+import sh.christian.ozone.api.generator.ApiConfiguration.GenerateApiConfiguration
 import sh.christian.ozone.buildconfig.Dependencies
 
 class LexiconGeneratorPlugin : Plugin<Project> {
@@ -26,7 +26,7 @@ private fun Project.applyPlugin() {
 
   val generateLexicons = tasks.register<LexiconGeneratorTask>("generateLexicons") {
     schemasClasspath.from(configuration)
-    apiName.set(extension.apiName)
+    apiConfiguration.set(extension.apiConfiguration)
     outputDirectory.set(extension.outputDirectory)
   }
 
@@ -35,18 +35,16 @@ private fun Project.applyPlugin() {
       dependsOn(generateLexicons)
     }
 
-    val generatedSrcDir = extension.outputDirectory
-
     when (val kotlinExtension = project.kotlinExtension) {
       is KotlinSingleTargetExtension<*> -> {
         kotlinExtension.target.apply {
-          applyConfiguration("main", generatedSrcDir, generateLexicons)
+          applyConfiguration(extension, "main", generateLexicons)
         }
       }
 
       is KotlinMultiplatformExtension -> {
         kotlinExtension.targets.configureEach {
-          applyConfiguration("commonMain", generatedSrcDir, generateLexicons)
+          applyConfiguration(extension, "commonMain", generateLexicons)
         }
       }
 
@@ -60,16 +58,18 @@ private fun Project.applyPlugin() {
 }
 
 private fun KotlinTarget.applyConfiguration(
+  extension: LexiconGeneratorExtension,
   sourceSetName: String,
-  generatedSrcDir: DirectoryProperty,
   compileTaskDependency: TaskProvider<*>,
 ) {
   project.plugins.apply("org.jetbrains.kotlin.plugin.serialization")
   project.kotlinExtension.sourceSets.getByName(sourceSetName).apply {
-    kotlin.srcDir(generatedSrcDir)
+    kotlin.srcDir(extension.outputDirectory)
     dependencies {
       api(Dependencies.KOTLINX_DATETIME)
-      api(Dependencies.KTOR_CORE)
+      if (extension.apiConfiguration.get() is GenerateApiConfiguration) {
+        api(Dependencies.KTOR_CORE)
+      }
 
       // Expose certain types that are publicly used in the generated classes.
       api(project(":api-gen-runtime"))

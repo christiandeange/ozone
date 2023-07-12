@@ -9,10 +9,14 @@ import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.PropertySpec
+import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
 import com.squareup.kotlinpoet.UNIT
+import sh.christian.ozone.api.generator.ApiConfiguration.GenerateApiConfiguration
 import sh.christian.ozone.api.generator.LexiconApiGenerator.ApiCall.Procedure
 import sh.christian.ozone.api.generator.LexiconApiGenerator.ApiCall.Query
+import sh.christian.ozone.api.generator.TypeNames.AtpResponse
+import sh.christian.ozone.api.generator.TypeNames.Result
 import sh.christian.ozone.api.generator.builder.GeneratorContext
 import sh.christian.ozone.api.lexicon.LexiconArray
 import sh.christian.ozone.api.lexicon.LexiconBlob
@@ -30,9 +34,11 @@ import sh.christian.ozone.api.lexicon.LexiconXrpcSubscription
 
 class LexiconApiGenerator(
   private val environment: LexiconProcessingEnvironment,
-  private val apiName: String,
+  private val configuration: GenerateApiConfiguration,
 ) {
   private val apiCalls = mutableSetOf<ApiCall>()
+  private val apiName = configuration.interfaceName
+  private val xrpcApiName = "Xrpc${apiName}"
 
   fun processDocument(lexiconDocument: LexiconDocument) {
     val mainDefinition = lexiconDocument.defs["main"] ?: return
@@ -118,7 +124,7 @@ class LexiconApiGenerator(
                   .build()
               )
             }
-            returns(TypeNames.AtpResponse.parameterizedBy(outputType.className))
+            returns(outputTypeFor(outputType.className))
           }
 
           is Procedure -> {
@@ -129,7 +135,7 @@ class LexiconApiGenerator(
                   .build()
               )
             }
-            returns(TypeNames.AtpResponse.parameterizedBy(outputType?.className ?: UNIT))
+            returns(outputTypeFor(outputType?.className ?: UNIT))
           }
         }
       }
@@ -154,7 +160,7 @@ class LexiconApiGenerator(
   }
 
   private fun generateXrpcApi(packageName: String) {
-    val classType = TypeSpec.classBuilder(ClassName(packageName, "Xrpc$apiName"))
+    val classType = TypeSpec.classBuilder(ClassName(packageName, xrpcApiName))
       .addSuperinterface(ClassName(packageName, apiName))
       .primaryConstructor(
         FunSpec.constructorBuilder()
@@ -177,35 +183,31 @@ class LexiconApiGenerator(
           addFunction(apiCall.toFunctionSpec {
             val code = CodeBlock.builder()
               .apply {
-                val path = "/xrpc/${apiCall.id}"
-                when (apiCall) {
-                  is Query -> {
-                    if (apiCall.propertiesType == null) {
-                      add(
-                        "return client.%M(%S).%M()",
-                        query, path, toAtpResponse
-                      )
-                    } else {
-                      add(
-                        "return client.%M(%S, params.asList()).%M()",
-                        query, path, toAtpResponse,
-                      )
-                    }
-                  }
-                  is Procedure -> {
-                    if (apiCall.inputType == null) {
-                      add(
-                        "return client.%M(%S).%M()",
-                        procedure, path, toAtpResponse,
-                      )
-                    } else {
-                      add(
-                        "return client.%M(%S, request, %S).%M()",
-                        procedure, path, apiCall.inputType.encoding, toAtpResponse,
-                      )
-                    }
-                  }
+                val methodName = when (apiCall) {
+                  is Query -> query
+                  is Procedure -> procedure
                 }
+                val path = "/xrpc/${apiCall.id}"
+
+                val formatStringBuilder = StringBuilder("return client.%M(%S")
+                val arguments = mutableListOf(methodName, path)
+
+                if (apiCall is Query && apiCall.propertiesType != null) {
+                  formatStringBuilder.append(", params.asList()")
+                }
+                if (apiCall is Procedure && apiCall.inputType != null) {
+                  formatStringBuilder.append(", request, %S")
+                  arguments += apiCall.inputType.encoding
+                }
+
+                formatStringBuilder.append(").%M()")
+                arguments += when (configuration.returnType) {
+                  ApiReturnType.Raw -> toAtpModel
+                  ApiReturnType.Result -> toAtpResult
+                  ApiReturnType.Response -> toAtpResponse
+                }
+
+                add(formatStringBuilder.toString(), *arguments.toTypedArray())
               }
               .build()
 
@@ -215,10 +217,16 @@ class LexiconApiGenerator(
         }
       }.build()
 
-    FileSpec.builder(packageName, "Xrpc$apiName")
+    FileSpec.builder(packageName, xrpcApiName)
       .addType(classType)
       .build()
       .writeTo(environment.outputDirectory)
+  }
+
+  private fun outputTypeFor(className: ClassName): TypeName = when (configuration.returnType) {
+    ApiReturnType.Raw -> className
+    ApiReturnType.Result -> Result.parameterizedBy(className)
+    ApiReturnType.Response -> AtpResponse.parameterizedBy(className)
   }
 
   private sealed interface ApiCall {

@@ -8,6 +8,7 @@ import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.client.statement.HttpResponse
 import sh.christian.ozone.api.response.AtpErrorDescription
+import sh.christian.ozone.api.response.AtpException
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.api.response.StatusCode
 
@@ -32,6 +33,20 @@ suspend inline fun <reified T : Any> HttpClient.procedure(
   return post(path) {
     headers["Content-Type"] = encoding
     setBody(body)
+  }
+}
+
+suspend inline fun <reified T : Any> HttpResponse.toAtpModel(): T {
+  return when (val status = StatusCode.fromCode(status.value)) {
+    is StatusCode.Okay -> body<T>()
+    is StatusCode.Failure -> throw AtpException(status)
+  }
+}
+
+suspend inline fun <reified T : Any> HttpResponse.toAtpResult(): Result<T> {
+  return when (val status = StatusCode.fromCode(status.value)) {
+    is StatusCode.Okay -> Result.success(body<T>())
+    is StatusCode.Failure -> Result.failure(AtpException(status))
   }
 }
 

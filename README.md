@@ -60,9 +60,15 @@ dependencies {
 }
 
 lexicons {
-  // Determines the name of the generated interface.
-  // Defaults to "AtpApi".
-  apiName.set("BlueskyApi")
+  // Determines if an interface + XRPC implementation should be generated for the target API.
+  // Defaults to not generating an API.
+  generateApi("BlueskyApi") {
+    // Determines the return type for each generated API method. Defaults to Raw.
+    // - Raw: the raw data type
+    // - Result: Result<T>
+    // - Response: AtpResponse<T>
+    returnType.set(ApiReturnType.Result)
+  }
 
   // File path where Kotlin source files will be written to.
   // Defaults to /build/generated/lexicons.

@@ -1,3 +1,5 @@
+import sh.christian.ozone.api.generator.ApiReturnType
+
 plugins {
   kotlin("multiplatform")
   id("ozone-base")
@@ -18,5 +20,7 @@ dependencies {
 }
 
 lexicons {
-  apiName.set("BlueskyApi")
+  generateApi("BlueskyApi") {
+    returnType.set(ApiReturnType.Response)
+  }
 }

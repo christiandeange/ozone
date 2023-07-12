@@ -11,6 +11,10 @@ val query by extensionMemberOfPackage("sh.christian.ozone.api.xrpc")
 
 val toAtpResponse by extensionMemberOfPackage("sh.christian.ozone.api.xrpc")
 
+val toAtpResult by extensionMemberOfPackage("sh.christian.ozone.api.xrpc")
+
+val toAtpModel by extensionMemberOfPackage("sh.christian.ozone.api.xrpc")
+
 val toImmutableList by extensionMemberOfPackage("kotlinx.collections.immutable")
 
 val valueClassSerializer by memberOfPackage("sh.christian.ozone.api.runtime")
