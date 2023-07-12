@@ -1,3 +1,5 @@
+![Maven Central](https://img.shields.io/maven-central/v/sh.christian.ozone/bluesky?versionPrefix=0.0.1) ![CI](https://github.com/christiandeange/ozone/actions/workflows/ci.yml/badge.svg)
+
 ozone
 =====
 

@@ -1,0 +1,57 @@
+name : CI
+
+on :
+  push :
+    branches :
+      - main
+    tags-ignore :
+      - '**'
+  pull_request :
+
+jobs :
+
+  test :
+    runs-on : ubuntu-latest
+    timeout-minutes : 10
+
+    steps :
+      - uses : actions/checkout@v3
+      - uses : actions/setup-java@v3
+        with :
+          distribution : 'temurin'
+          java-version : '17'
+          check-latest : true
+
+      - name : Assemble & Test
+        run : ./gradlew clean assemble test --no-daemon --stacktrace
+
+      - name : Upload Test Results
+        uses : actions/upload-artifact@v2
+        if : ${{ failure() }}
+        with :
+          name : test-results
+          path : ./**/build/reports/tests/
+
+  publish-snapshot :
+    runs-on : ubuntu-latest
+    if : github.repository == 'christiandeange/ozone' && github.ref == 'refs/heads/main'
+    timeout-minutes : 10
+    needs :
+      - test
+
+    steps :
+      - uses : actions/checkout@v3
+      - uses : actions/setup-java@v3
+        with :
+          distribution : 'temurin'
+          java-version : '17'
+          check-latest : true
+
+      - name : Publish Snapshot
+        env :
+          SONATYPE_NEXUS_USERNAME : ${{ secrets.SONATYPE_NEXUS_USERNAME }}
+          SONATYPE_NEXUS_PASSWORD : ${{ secrets.SONATYPE_NEXUS_PASSWORD }}
+        run : |
+          ORG_GRADLE_PROJECT_mavenCentralUsername="$SONATYPE_NEXUS_USERNAME" \
+          ORG_GRADLE_PROJECT_mavenCentralPassword="$SONATYPE_NEXUS_PASSWORD" \
+          ./gradlew clean publish --no-daemon --stacktrace
