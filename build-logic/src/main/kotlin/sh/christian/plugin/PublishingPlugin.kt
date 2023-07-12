@@ -55,10 +55,7 @@ class PublishingPlugin : Plugin<Project> {
       }
 
       publishToMavenCentral(SonatypeHost.S01, automaticRelease = true)
-
-      if (!target.findProperty("signing.password")?.toString().isNullOrEmpty()) {
-        signAllPublications()
-      }
+      signAllPublications()
     }
   }
 
