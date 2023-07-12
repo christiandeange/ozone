@@ -37,8 +37,6 @@ class LexiconApiGenerator(
   private val configuration: GenerateApiConfiguration,
 ) {
   private val apiCalls = mutableSetOf<ApiCall>()
-  private val apiName = configuration.interfaceName
-  private val xrpcApiName = "Xrpc${apiName}"
 
   fun processDocument(lexiconDocument: LexiconDocument) {
     val mainDefinition = lexiconDocument.defs["main"] ?: return
@@ -60,9 +58,18 @@ class LexiconApiGenerator(
   }
 
   fun generateApi() {
-    val packageName = "sh.christian.ozone"
-    generateAtpApi(packageName)
-    generateXrpcApi(packageName)
+    generateAtpApi(
+      interfaceName = ClassName(configuration.packageName, configuration.interfaceName),
+      suspending = configuration.suspending,
+    )
+
+    configuration.implementationName?.let { implementationName ->
+      generateXrpcApi(
+        className = ClassName(configuration.packageName, implementationName),
+        interfaceName = ClassName(configuration.packageName, configuration.interfaceName),
+        suspending = configuration.suspending,
+      )
+    }
   }
 
   private fun processQuery(context: GeneratorContext, query: LexiconXrpcQuery) {
@@ -109,12 +116,12 @@ class LexiconApiGenerator(
     block: FunSpec.Builder.() -> Unit = {},
   ): FunSpec {
     return FunSpec.builder(name)
-      .addModifiers(KModifier.SUSPEND)
       .apply {
         description?.let { description ->
           addKdoc(description)
         }
-
+      }
+      .apply {
         when (this@toFunctionSpec) {
           is Query -> {
             if (propertiesType != null) {
@@ -143,25 +150,35 @@ class LexiconApiGenerator(
       .build()
   }
 
-  private fun generateAtpApi(packageName: String) {
-    val interfaceType = TypeSpec.interfaceBuilder(ClassName(packageName, apiName))
+  private fun generateAtpApi(
+    interfaceName: ClassName,
+    suspending: Boolean,
+  ) {
+    val interfaceType = TypeSpec.interfaceBuilder(interfaceName)
       .apply {
         apiCalls.sortedBy { it.name }.forEach { apiCall ->
           addFunction(apiCall.toFunctionSpec {
+            if (suspending) {
+              addModifiers(KModifier.SUSPEND)
+            }
             addModifiers(KModifier.ABSTRACT)
           })
         }
       }.build()
 
-    FileSpec.builder(packageName, apiName)
+    FileSpec.builder(interfaceName)
       .addType(interfaceType)
       .build()
       .writeTo(environment.outputDirectory)
   }
 
-  private fun generateXrpcApi(packageName: String) {
-    val classType = TypeSpec.classBuilder(ClassName(packageName, xrpcApiName))
-      .addSuperinterface(ClassName(packageName, apiName))
+  private fun generateXrpcApi(
+    className: ClassName,
+    interfaceName: ClassName,
+    suspending: Boolean,
+  ) {
+    val classType = TypeSpec.classBuilder(className)
+      .addSuperinterface(interfaceName)
       .primaryConstructor(
         FunSpec.constructorBuilder()
           .addParameter(
@@ -181,6 +198,10 @@ class LexiconApiGenerator(
       .apply {
         apiCalls.sortedBy { it.name }.forEach { apiCall ->
           addFunction(apiCall.toFunctionSpec {
+            if (suspending) {
+              addModifiers(KModifier.SUSPEND)
+            }
+
             val code = CodeBlock.builder()
               .apply {
                 val methodName = when (apiCall) {
@@ -197,7 +218,13 @@ class LexiconApiGenerator(
                 // Workaround to prevent expression methods from being generated.
                 add("%L", "")
 
-                add("return client.%M(\n", methodName)
+                if (suspending) {
+                  add("return client.%M(\n", methodName)
+                } else {
+                  beginControlFlow("return %M {", runBlocking)
+                  add("client.%M(\n", methodName)
+                }
+
                 indent()
                 add("path = %S,\n", path)
                 if (apiCall is Query && apiCall.propertiesType != null) {
@@ -209,6 +236,11 @@ class LexiconApiGenerator(
                 }
                 unindent()
                 add(").%M()", transformingMethodName)
+
+                if (!suspending) {
+                  add("\n")
+                  endControlFlow()
+                }
               }
               .build()
 
@@ -218,7 +250,7 @@ class LexiconApiGenerator(
         }
       }.build()
 
-    FileSpec.builder(packageName, xrpcApiName)
+    FileSpec.builder(className)
       .addType(classType)
       .build()
       .writeTo(environment.outputDirectory)

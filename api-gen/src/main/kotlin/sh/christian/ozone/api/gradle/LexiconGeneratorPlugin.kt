@@ -13,7 +13,6 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinSingleTargetExtension
 import org.jetbrains.kotlin.gradle.dsl.kotlinExtension
 import org.jetbrains.kotlin.gradle.plugin.KotlinTarget
-import sh.christian.ozone.api.generator.ApiConfiguration.GenerateApiConfiguration
 import sh.christian.ozone.buildconfig.Dependencies
 
 class LexiconGeneratorPlugin : Plugin<Project> {
@@ -67,9 +66,7 @@ private fun KotlinTarget.applyConfiguration(
     kotlin.srcDir(extension.outputDirectory)
     dependencies {
       api(Dependencies.KOTLINX_DATETIME)
-      if (extension.apiConfiguration.get() is GenerateApiConfiguration) {
-        api(Dependencies.KTOR_CORE)
-      }
+      api(Dependencies.KTOR_CORE)
 
       // Expose certain types that are publicly used in the generated classes.
       api(project(":api-gen-runtime"))

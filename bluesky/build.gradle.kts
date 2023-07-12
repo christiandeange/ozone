@@ -21,6 +21,7 @@ dependencies {
 
 lexicons {
   generateApi("BlueskyApi") {
+    withKtorImplementation("XrpcBlueskyApi")
     returnType.set(ApiReturnType.Response)
   }
 }

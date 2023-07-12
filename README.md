@@ -62,18 +62,29 @@ dependencies {
 }
 
 lexicons {
-  // Determines if an interface + XRPC implementation should be generated for the target API.
-  // Defaults to not generating an API.
+  // Generates an additional interface for the target schemas.
   generateApi("BlueskyApi") {
+    // Determines the package name of the generated API. Defaults to "sh.christian.ozone".
+    packageName.set("com.example.myapp")
+
+    // Generates an additional class that implements this interface by sending corresponding
+    // XRPC requests to a provided host conforming to the AT Protocol.
+    // Inherits the same package name as the generated interface.
+    withKtorImplementation("XrpcBlueskyApi")
+
     // Determines the return type for each generated API method. Defaults to Raw.
     // - Raw: the raw data type
     // - Result: Result<T>
     // - Response: AtpResponse<T>
     returnType.set(ApiReturnType.Result)
+
+    // Determines whether the generated methods should be marked as suspend functions.
+    // When generating a Ktor implementation as well, execution will block the current thread
+    // for non-suspending methods. Defaults to true.
+    suspending.set(true)
   }
 
-  // File path where Kotlin source files will be written to.
-  // Defaults to /build/generated/lexicons.
+  // File path where Kotlin source files will be written to. Defaults to "/build/generated/lexicons".
   outputDirectory.set(project.layout.buildDirectory.dir("out"))
 }
 ```

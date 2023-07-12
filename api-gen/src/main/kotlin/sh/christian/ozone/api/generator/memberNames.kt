@@ -9,6 +9,8 @@ val procedure by extensionMemberOfPackage("sh.christian.ozone.api.xrpc")
 
 val query by extensionMemberOfPackage("sh.christian.ozone.api.xrpc")
 
+val runBlocking by memberOfPackage("kotlinx.coroutines")
+
 val toAtpResponse by extensionMemberOfPackage("sh.christian.ozone.api.xrpc")
 
 val toAtpResult by extensionMemberOfPackage("sh.christian.ozone.api.xrpc")

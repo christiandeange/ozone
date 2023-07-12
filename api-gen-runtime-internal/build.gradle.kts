@@ -15,6 +15,7 @@ kotlin {
   sourceSets {
     val commonMain by getting {
       dependencies {
+        api(libs.kotlinx.coroutines)
         api(libs.kotlinx.serialization.json)
         api(libs.ktor.core)
 
