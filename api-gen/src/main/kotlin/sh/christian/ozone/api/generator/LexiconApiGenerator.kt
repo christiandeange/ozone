@@ -146,7 +146,7 @@ class LexiconApiGenerator(
   private fun generateAtpApi(packageName: String) {
     val interfaceType = TypeSpec.interfaceBuilder(ClassName(packageName, apiName))
       .apply {
-        apiCalls.forEach { apiCall ->
+        apiCalls.sortedBy { it.name }.forEach { apiCall ->
           addFunction(apiCall.toFunctionSpec {
             addModifiers(KModifier.ABSTRACT)
           })
@@ -179,7 +179,7 @@ class LexiconApiGenerator(
           .build()
       )
       .apply {
-        apiCalls.forEach { apiCall ->
+        apiCalls.sortedBy { it.name }.forEach { apiCall ->
           addFunction(apiCall.toFunctionSpec {
             val code = CodeBlock.builder()
               .apply {
