@@ -5,6 +5,8 @@ import com.vanniktech.maven.publish.SonatypeHost
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.withType
+import org.jetbrains.dokka.gradle.DokkaTaskPartial
 
 @Suppress("UnstableApiUsage", "unused")
 class PublishingPlugin : Plugin<Project> {
@@ -17,6 +19,21 @@ class PublishingPlugin : Plugin<Project> {
     target.version = version
 
     target.plugins.apply("com.vanniktech.maven.publish")
+    target.plugins.apply("org.jetbrains.dokka")
+
+    target.tasks.withType<DokkaTaskPartial>().configureEach {
+      dokkaSourceSets.configureEach {
+        suppress.set("internal" in project.name)
+        suppressGeneratedFiles.set(false)
+        reportUndocumented.set(true)
+      }
+    }
+
+    target.pluginManager.withPlugin("sh.christian.ozone.api-gen") {
+      target.tasks.withType<DokkaTaskPartial>().configureEach {
+        dependsOn(target.tasks.named("generateLexicons"))
+      }
+    }
 
     target.extensions.configure<MavenPublishBaseExtension> {
       coordinates(

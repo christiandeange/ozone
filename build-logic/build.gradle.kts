@@ -8,6 +8,7 @@ plugins {
 }
 
 dependencies {
+  implementation(libs.dokka)
   implementation(libs.maven.publish)
 
   compileOnly(libs.agp)

@@ -15,9 +15,14 @@ plugins {
   id("com.google.devtools.ksp") version ksp apply false
   id("com.vanniktech.maven.publish") version mavenPublish apply false
   id("org.jetbrains.compose") version compose apply false
+  id("org.jetbrains.dokka") version kotlin
 }
 
 allprojects {
   group = property("POM_GROUP_ID").toString()
   version = property("POM_VERSION").toString()
+}
+
+tasks.dokkaHtmlMultiModule {
+  moduleName.set("Ozone")
 }
