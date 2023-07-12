@@ -4,11 +4,13 @@ import org.gradle.api.DefaultTask
 import org.gradle.api.file.ConfigurableFileCollection
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.provider.Property
+import org.gradle.api.tasks.CacheableTask
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFiles
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.PathSensitive
 import org.gradle.api.tasks.PathSensitivity.RELATIVE
+import org.gradle.api.tasks.SkipWhenEmpty
 import org.gradle.api.tasks.TaskAction
 import sh.christian.ozone.api.generator.ApiConfiguration
 import sh.christian.ozone.api.generator.ApiConfiguration.GenerateApiConfiguration
@@ -17,9 +19,10 @@ import sh.christian.ozone.api.generator.LexiconApiGenerator
 import sh.christian.ozone.api.generator.LexiconClassFileCreator
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 
-//@CacheableTask
+@CacheableTask
 abstract class LexiconGeneratorTask : DefaultTask() {
   @get:InputFiles
+  @get:SkipWhenEmpty
   @get:PathSensitive(RELATIVE)
   abstract val schemasClasspath: ConfigurableFileCollection
 
