@@ -188,26 +188,27 @@ class LexiconApiGenerator(
                   is Procedure -> procedure
                 }
                 val path = "/xrpc/${apiCall.id}"
-
-                val formatStringBuilder = StringBuilder("return client.%M(%S")
-                val arguments = mutableListOf(methodName, path)
-
-                if (apiCall is Query && apiCall.propertiesType != null) {
-                  formatStringBuilder.append(", params.asList()")
-                }
-                if (apiCall is Procedure && apiCall.inputType != null) {
-                  formatStringBuilder.append(", request, %S")
-                  arguments += apiCall.inputType.encoding
-                }
-
-                formatStringBuilder.append(").%M()")
-                arguments += when (configuration.returnType) {
+                val transformingMethodName = when (configuration.returnType) {
                   ApiReturnType.Raw -> toAtpModel
                   ApiReturnType.Result -> toAtpResult
                   ApiReturnType.Response -> toAtpResponse
                 }
 
-                add(formatStringBuilder.toString(), *arguments.toTypedArray())
+                // Workaround to prevent expression methods from being generated.
+                add("%L", "")
+
+                add("return client.%M(\n", methodName)
+                indent()
+                add("path = %S,\n", path)
+                if (apiCall is Query && apiCall.propertiesType != null) {
+                  add("queryParams = params.asList(),\n")
+                }
+                if (apiCall is Procedure && apiCall.inputType != null) {
+                  add("body = request,\n")
+                  add("encoding = %S,\n", apiCall.inputType.encoding)
+                }
+                unindent()
+                add(").%M()", transformingMethodName)
               }
               .build()
 
