@@ -120,7 +120,7 @@ class NotificationsWorkflow(
       onOpenUser = eventHandler { user ->
         setOutput(EnterScreen(HomeSubDestination.GoToProfile(ProfileProps(user))))
       },
-      onOpenImage = eventHandler { action ->
+      onOpenImage = eventHandler { _ ->
         // No-op
       },
       onReplyToPost = eventHandler { postInfo ->

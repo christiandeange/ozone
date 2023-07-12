@@ -9,7 +9,6 @@ import sh.christian.ozone.timeline.components.TimelinePostItem
 @Composable
 fun MentionRow(
   context: NotificationRowContext,
-  notification: Notification,
   content: Notification.Content.Mentioned,
 ) {
   TimelinePostItem(

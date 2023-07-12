@@ -96,11 +96,11 @@ class NotificationsScreen(
                 propagateMinConstraints = true,
               ) {
                 when (val content = notification.content) {
-                  is Notification.Content.Followed -> FollowRow(context, notification, content)
+                  is Notification.Content.Followed -> FollowRow(context, notification)
                   is Notification.Content.Liked -> LikeRow(context, notification, content)
-                  is Notification.Content.Mentioned -> MentionRow(context, notification, content)
-                  is Notification.Content.Quoted -> QuoteRow(context, notification, content)
-                  is Notification.Content.RepliedTo -> ReplyRow(context, notification, content)
+                  is Notification.Content.Mentioned -> MentionRow(context, content)
+                  is Notification.Content.Quoted -> QuoteRow(context, content)
+                  is Notification.Content.RepliedTo -> ReplyRow(context, content)
                   is Notification.Content.Reposted -> RepostRow(context, notification, content)
                   null -> Unit
                 }

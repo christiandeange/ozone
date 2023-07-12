@@ -9,7 +9,6 @@ import sh.christian.ozone.timeline.components.TimelinePostItem
 @Composable
 fun ReplyRow(
   context: NotificationRowContext,
-  notification: Notification,
   content: Notification.Content.RepliedTo,
 ) {
   TimelinePostItem(

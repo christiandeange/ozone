@@ -9,7 +9,6 @@ import sh.christian.ozone.timeline.components.TimelinePostItem
 @Composable
 fun QuoteRow(
   context: NotificationRowContext,
-  notification: Notification,
   content: Notification.Content.Quoted,
 ) {
   TimelinePostItem(

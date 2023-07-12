@@ -21,7 +21,6 @@ import sh.christian.ozone.user.UserDid
 fun FollowRow(
   context: NotificationRowContext,
   notification: Notification,
-  content: Notification.Content.Followed,
 ) {
   val profile = notification.author
   NotificationRowScaffold(
