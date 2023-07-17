@@ -10,7 +10,7 @@ import org.gradle.kotlin.dsl.configure
 class PublishingPlugin : Plugin<Project> {
   override fun apply(target: Project) {
     val groupId = target.stringProperty("POM_GROUP_ID")
-    val artifactId = target.path.trimStart(':').replace(':', '-')
+    val artifactId = target.name
     val version = target.stringProperty("POM_VERSION")
 
     target.group = groupId

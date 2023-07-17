@@ -2,10 +2,14 @@
 plugins {
   kotlin("jvm") version libs.versions.kotlin
   id("ozone-base")
+  id("ozone-publish")
   id("com.github.gmazzo.buildconfig") version libs.versions.buildconfig
   id("com.google.devtools.ksp") version libs.versions.ksp
   `kotlin-dsl`
 }
+
+setProperty("POM_NAME", "AT Protocol for Kotlin Generator")
+setProperty("POM_DESCRIPTION", "Gradle Plugin to generate AT Protocol classes.")
 
 dependencies {
   api(kotlin("gradle-plugin"))
@@ -18,8 +22,8 @@ dependencies {
 
 gradlePlugin {
   plugins {
-    create("api-gen") {
-      id = "sh.christian.ozone.api-gen"
+    create("generator") {
+      id = "sh.christian.ozone.generator"
       implementationClass = "sh.christian.ozone.api.gradle.LexiconGeneratorPlugin"
     }
   }

@@ -53,7 +53,7 @@ dependencies {
 // build.gradle[.kts]
 
 plugins {
-  id("sh.christian.ozone.api-gen") version "0.0.1"
+  id("sh.christian.ozone.generator") version "0.0.1"
 }
 
 dependencies {

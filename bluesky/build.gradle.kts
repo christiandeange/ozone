@@ -4,7 +4,7 @@ plugins {
   kotlin("multiplatform")
   id("ozone-base")
   id("ozone-publish")
-  id("sh.christian.ozone.api-gen")
+  id("sh.christian.ozone.generator")
 }
 
 kotlin {

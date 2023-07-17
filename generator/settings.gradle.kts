@@ -20,7 +20,7 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "api-gen"
+rootProject.name = "generator"
 
 include(":api-gen-runtime")
 include(":api-gen-runtime-internal")
