@@ -9,10 +9,8 @@ import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.PropertySpec
-import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
 import com.squareup.kotlinpoet.UNIT
-import sh.christian.ozone.api.generator.ApiConfiguration.GenerateApiConfiguration
 import sh.christian.ozone.api.generator.LexiconApiGenerator.ApiCall.Procedure
 import sh.christian.ozone.api.generator.LexiconApiGenerator.ApiCall.Query
 import sh.christian.ozone.api.generator.TypeNames.AtpResponse
@@ -34,7 +32,7 @@ import sh.christian.ozone.api.lexicon.LexiconXrpcSubscription
 
 class LexiconApiGenerator(
   private val environment: LexiconProcessingEnvironment,
-  private val configuration: GenerateApiConfiguration,
+  private val configurations: List<ApiConfiguration>,
 ) {
   private val apiCalls = mutableSetOf<ApiCall>()
 
@@ -57,18 +55,20 @@ class LexiconApiGenerator(
     }
   }
 
-  fun generateApi() {
-    generateAtpApi(
-      interfaceName = ClassName(configuration.packageName, configuration.interfaceName),
-      suspending = configuration.suspending,
-    )
-
-    configuration.implementationName?.let { implementationName ->
-      generateXrpcApi(
-        className = ClassName(configuration.packageName, implementationName),
+  fun generateApis() {
+    configurations.forEach { configuration ->
+      generateAtpApi(
+        configuration = configuration,
         interfaceName = ClassName(configuration.packageName, configuration.interfaceName),
-        suspending = configuration.suspending,
       )
+
+      configuration.implementationName?.let { implementationName ->
+        generateXrpcApi(
+          configuration = configuration,
+          className = ClassName(configuration.packageName, implementationName),
+          interfaceName = ClassName(configuration.packageName, configuration.interfaceName),
+        )
+      }
     }
   }
 
@@ -113,52 +113,52 @@ class LexiconApiGenerator(
   }
 
   private fun ApiCall.toFunctionSpec(
+    returnType: ApiReturnType,
     block: FunSpec.Builder.() -> Unit = {},
   ): FunSpec {
     return FunSpec.builder(name)
       .apply {
+        val (name, inputType) = when (this@toFunctionSpec) {
+          is Query -> "params" to propertiesType
+          is Procedure -> "request" to inputType
+        }
+        val outputClassName = when (this@toFunctionSpec) {
+          is Query -> outputType.className
+          is Procedure -> outputType?.className ?: UNIT
+        }
+        val methodReturnClassName = when (returnType) {
+          ApiReturnType.Raw -> outputClassName
+          ApiReturnType.Result -> Result.parameterizedBy(outputClassName)
+          ApiReturnType.Response -> AtpResponse.parameterizedBy(outputClassName)
+        }
+
         description?.let { description ->
           addKdoc(description)
         }
-      }
-      .apply {
-        when (this@toFunctionSpec) {
-          is Query -> {
-            if (propertiesType != null) {
-              addParameter(
-                ParameterSpec.builder("params", propertiesType.className)
-                  .apply { propertiesType.description?.let { addKdoc(it) } }
-                  .build()
-              )
-            }
-            returns(outputTypeFor(outputType.className))
-          }
 
-          is Procedure -> {
-            if (inputType != null) {
-              addParameter(
-                ParameterSpec.builder("request", inputType.className)
-                  .apply { inputType.description?.let { addKdoc(it) } }
-                  .build()
-              )
-            }
-            returns(outputTypeFor(outputType?.className ?: UNIT))
-          }
+        if (inputType != null) {
+          addParameter(
+            ParameterSpec.builder(name, inputType.className)
+              .apply { inputType.description?.let { addKdoc(it) } }
+              .build()
+          )
         }
+
+        returns(methodReturnClassName)
       }
       .apply(block)
       .build()
   }
 
   private fun generateAtpApi(
+    configuration: ApiConfiguration,
     interfaceName: ClassName,
-    suspending: Boolean,
   ) {
     val interfaceType = TypeSpec.interfaceBuilder(interfaceName)
       .apply {
         apiCalls.sortedBy { it.name }.forEach { apiCall ->
-          addFunction(apiCall.toFunctionSpec {
-            if (suspending) {
+          addFunction(apiCall.toFunctionSpec(configuration.returnType) {
+            if (configuration.suspending) {
               addModifiers(KModifier.SUSPEND)
             }
             addModifiers(KModifier.ABSTRACT)
@@ -173,9 +173,9 @@ class LexiconApiGenerator(
   }
 
   private fun generateXrpcApi(
+    configuration: ApiConfiguration,
     className: ClassName,
     interfaceName: ClassName,
-    suspending: Boolean,
   ) {
     val classType = TypeSpec.classBuilder(className)
       .addSuperinterface(interfaceName)
@@ -197,8 +197,8 @@ class LexiconApiGenerator(
       )
       .apply {
         apiCalls.sortedBy { it.name }.forEach { apiCall ->
-          addFunction(apiCall.toFunctionSpec {
-            if (suspending) {
+          addFunction(apiCall.toFunctionSpec(configuration.returnType) {
+            if (configuration.suspending) {
               addModifiers(KModifier.SUSPEND)
             }
 
@@ -218,7 +218,7 @@ class LexiconApiGenerator(
                 // Workaround to prevent expression methods from being generated.
                 add("%L", "")
 
-                if (suspending) {
+                if (configuration.suspending) {
                   add("return client.%M(\n", methodName)
                 } else {
                   beginControlFlow("return %M {", runBlocking)
@@ -237,7 +237,7 @@ class LexiconApiGenerator(
                 unindent()
                 add(").%M()", transformingMethodName)
 
-                if (!suspending) {
+                if (!configuration.suspending) {
                   add("\n")
                   endControlFlow()
                 }
@@ -254,12 +254,6 @@ class LexiconApiGenerator(
       .addType(classType)
       .build()
       .writeTo(environment.outputDirectory)
-  }
-
-  private fun outputTypeFor(className: ClassName): TypeName = when (configuration.returnType) {
-    ApiReturnType.Raw -> className
-    ApiReturnType.Result -> Result.parameterizedBy(className)
-    ApiReturnType.Response -> AtpResponse.parameterizedBy(className)
   }
 
   private sealed interface ApiCall {

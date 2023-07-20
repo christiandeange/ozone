@@ -25,7 +25,7 @@ private fun Project.applyPlugin() {
 
   val generateLexicons = tasks.register<LexiconGeneratorTask>("generateLexicons") {
     schemasClasspath.from(configuration)
-    apiConfiguration.set(extension.apiConfiguration)
+    apiConfigurations.set(extension.apiConfigurations)
     outputDirectory.set(extension.outputDirectory)
   }
 

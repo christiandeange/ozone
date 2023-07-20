@@ -63,6 +63,7 @@ dependencies {
 
 lexicons {
   // Generates an additional interface for the target schemas.
+  // This method can be called more than once to generate multiple API interfaces.
   generateApi("BlueskyApi") {
     // Determines the package name of the generated API. Defaults to "sh.christian.ozone".
     packageName.set("com.example.myapp")
