@@ -13,7 +13,6 @@ object TypeNames {
   val HttpClient by classOfPackage("io.ktor.client")
   val ImmutableList by classOfPackage("kotlinx.collections.immutable")
   val ImmutableListSerializer by classOfPackage("sh.christian.ozone.api.runtime")
-  val Instant by classOfPackage("kotlinx.datetime")
   val JsonElement by classOfPackage("kotlinx.serialization.json")
   val KSerializer by classOfPackage("kotlinx.serialization")
   val Language by classOfPackage("sh.christian.ozone.api")
@@ -21,6 +20,7 @@ object TypeNames {
   val Result by classOfPackage("kotlin")
   val SerialName by classOfPackage("kotlinx.serialization")
   val Serializable by classOfPackage("kotlinx.serialization")
+  val Timestamp by classOfPackage("sh.christian.ozone.api.model")
   val Uri by classOfPackage("sh.christian.ozone.api")
 }
 

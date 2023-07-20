@@ -176,7 +176,7 @@ fun LexiconPrimitive.toTypeName() = when (this) {
   is LexiconFloat -> DOUBLE
   is LexiconString -> {
     when (format) {
-      LexiconStringFormat.DATETIME -> TypeNames.Instant
+      LexiconStringFormat.DATETIME -> TypeNames.Timestamp
       LexiconStringFormat.URI -> TypeNames.Uri
       LexiconStringFormat.AT_URI -> TypeNames.AtUri
       LexiconStringFormat.DID -> TypeNames.Did

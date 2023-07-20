@@ -15,6 +15,7 @@ kotlin {
   sourceSets {
     val commonMain by getting {
       dependencies {
+        api(libs.kotlinx.datetime)
         api(libs.kotlinx.immutable)
         api(libs.kotlinx.serialization.json)
 
