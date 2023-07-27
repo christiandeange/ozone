@@ -26,6 +26,7 @@ import sh.christian.ozone.api.lexicon.LexiconXrpcProcedure
 import sh.christian.ozone.api.lexicon.LexiconXrpcQuery
 import sh.christian.ozone.api.lexicon.LexiconXrpcSchemaDefinition
 import sh.christian.ozone.api.lexicon.LexiconXrpcSubscription
+import sh.christian.ozone.api.lexicon.LexiconXrpcSubscriptionMessage
 
 class LexiconDataClassesGenerator(
   private val environment: LexiconProcessingEnvironment,
@@ -190,15 +191,34 @@ class LexiconDataClassesGenerator(
     context: GeneratorContext,
     xrpcSubscription: LexiconXrpcSubscription,
   ) {
-    // TODO
+    xrpcSubscription.message?.let { generateTypes(context, "Message", it) }
   }
 
   private fun generateTypes(
     context: GeneratorContext,
     className: String,
-    xrpcProcedure: LexiconXrpcBody,
+    xrpcBody: LexiconXrpcBody,
   ) {
-    val schema = xrpcProcedure.schema ?: return
+    xrpcBody.schema?.let { schema ->
+      generateTypes(context, className, schema)
+    }
+  }
+
+  private fun generateTypes(
+    context: GeneratorContext,
+    className: String,
+    xrpcSubscriptionMessage: LexiconXrpcSubscriptionMessage,
+  ) {
+    xrpcSubscriptionMessage.schema?.let { schema ->
+      generateTypes(context, className, schema)
+    }
+  }
+
+  private fun generateTypes(
+    context: GeneratorContext,
+    className: String,
+    schema: LexiconXrpcSchemaDefinition,
+  ) {
     when (schema) {
       is LexiconXrpcSchemaDefinition.Object -> {
         schema.value.properties.forEach { (propertyName, property) ->

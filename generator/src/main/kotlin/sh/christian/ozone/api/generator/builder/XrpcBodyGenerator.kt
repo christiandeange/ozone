@@ -17,10 +17,10 @@ import sh.christian.ozone.api.lexicon.LexiconObjectProperty
 import sh.christian.ozone.api.lexicon.LexiconSingleReference
 import sh.christian.ozone.api.lexicon.LexiconUnionReference
 import sh.christian.ozone.api.lexicon.LexiconUserType
-import sh.christian.ozone.api.lexicon.LexiconXrpcBody
 import sh.christian.ozone.api.lexicon.LexiconXrpcProcedure
 import sh.christian.ozone.api.lexicon.LexiconXrpcQuery
 import sh.christian.ozone.api.lexicon.LexiconXrpcSchemaDefinition
+import sh.christian.ozone.api.lexicon.LexiconXrpcSubscription
 
 class XrpcBodyGenerator(
   private val environment: LexiconProcessingEnvironment,
@@ -33,15 +33,20 @@ class XrpcBodyGenerator(
     when (userType) {
       is LexiconXrpcProcedure -> {
         userType.input?.let {
-          createBodyType(context, "${context.classPrefix}Request", it)
+          createBodyType(context, "${context.classPrefix}Request", it.schema)
         }
         userType.output?.let {
-          createBodyType(context, "${context.classPrefix}Response", it)
+          createBodyType(context, "${context.classPrefix}Response", it.schema)
         }
       }
       is LexiconXrpcQuery -> {
         userType.output?.let {
-          createBodyType(context, "${context.classPrefix}Response", it)
+          createBodyType(context, "${context.classPrefix}Response", it.schema)
+        }
+      }
+      is LexiconXrpcSubscription -> {
+        userType.message?.let {
+          createBodyType(context, "${context.classPrefix}Message", it.schema)
         }
       }
       else -> Unit
@@ -51,16 +56,16 @@ class XrpcBodyGenerator(
   private fun createBodyType(
     context: GeneratorContext,
     className: String,
-    body: LexiconXrpcBody,
+    schema: LexiconXrpcSchemaDefinition?,
   ) {
-    when (body.schema) {
+    when (schema) {
       null -> Unit
       is LexiconXrpcSchemaDefinition.Object -> {
-        context.addType(createType(context, className, body.schema.value))
+        context.addType(createType(context, className, schema.value))
       }
       is LexiconXrpcSchemaDefinition.Reference -> {
-        val typeAliasType = when (body.schema.reference) {
-          is LexiconSingleReference -> body.schema.reference.typeName(environment, context.document)
+        val typeAliasType = when (schema.reference) {
+          is LexiconSingleReference -> schema.reference.typeName(environment, context.document)
           is LexiconUnionReference -> ClassName(
             context.authority, className.capitalized() + "Union"
           )

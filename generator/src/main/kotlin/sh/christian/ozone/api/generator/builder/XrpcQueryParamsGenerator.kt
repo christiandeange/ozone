@@ -27,6 +27,7 @@ import sh.christian.ozone.api.lexicon.LexiconXrpcParameter
 import sh.christian.ozone.api.lexicon.LexiconXrpcParameters
 import sh.christian.ozone.api.lexicon.LexiconXrpcProcedure
 import sh.christian.ozone.api.lexicon.LexiconXrpcQuery
+import sh.christian.ozone.api.lexicon.LexiconXrpcSubscription
 
 class XrpcQueryParamsGenerator(
   private val environment: LexiconProcessingEnvironment,
@@ -38,6 +39,7 @@ class XrpcQueryParamsGenerator(
     when (userType) {
       is LexiconXrpcProcedure -> createQueryParamsType(context, userType.parameters)
       is LexiconXrpcQuery -> createQueryParamsType(context, userType.parameters)
+      is LexiconXrpcSubscription -> createQueryParamsType(context, userType.parameters)
       else -> Unit
     }
   }
