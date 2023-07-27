@@ -155,7 +155,7 @@ fun createEnumClass(
     .apply {
       values.forEach { value ->
         addEnumConstant(
-          name = value.toEnumCase(),
+          name = value.substringAfterLast('#').toEnumCase(),
           typeSpec = TypeSpec.anonymousClassBuilder()
             .addAnnotation(
               AnnotationSpec.builder(TypeNames.SerialName)

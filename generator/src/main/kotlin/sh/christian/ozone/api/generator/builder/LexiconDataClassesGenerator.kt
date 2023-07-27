@@ -167,11 +167,7 @@ class LexiconDataClassesGenerator(
     token: LexiconToken,
   ) {
     val className = ClassName(context.authority, context.classPrefix + "Token")
-
-    val enumName =
-      context.definitionName.takeIf { it.isNotBlank() }
-        ?: context.procedureName
-
+    val enumName = context.document.id + "#" + context.definitionName
     context.addEnum(className, enumName)
   }
 
