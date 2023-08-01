@@ -9,11 +9,14 @@ import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.PropertySpec
+import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
 import com.squareup.kotlinpoet.UNIT
 import sh.christian.ozone.api.generator.LexiconApiGenerator.ApiCall.Procedure
 import sh.christian.ozone.api.generator.LexiconApiGenerator.ApiCall.Query
+import sh.christian.ozone.api.generator.LexiconApiGenerator.ApiCall.Subscription
 import sh.christian.ozone.api.generator.TypeNames.AtpResponse
+import sh.christian.ozone.api.generator.TypeNames.Flow
 import sh.christian.ozone.api.generator.TypeNames.Result
 import sh.christian.ozone.api.generator.builder.GeneratorContext
 import sh.christian.ozone.api.lexicon.LexiconArray
@@ -29,6 +32,7 @@ import sh.christian.ozone.api.lexicon.LexiconXrpcParameters
 import sh.christian.ozone.api.lexicon.LexiconXrpcProcedure
 import sh.christian.ozone.api.lexicon.LexiconXrpcQuery
 import sh.christian.ozone.api.lexicon.LexiconXrpcSubscription
+import sh.christian.ozone.api.lexicon.LexiconXrpcSubscriptionMessage
 
 class LexiconApiGenerator(
   private val environment: LexiconProcessingEnvironment,
@@ -47,11 +51,10 @@ class LexiconApiGenerator(
       is LexiconObject,
       is LexiconPrimitive,
       is LexiconRecord,
-      is LexiconToken,
-      is LexiconXrpcSubscription -> return
-
+      is LexiconToken -> return
       is LexiconXrpcQuery -> processQuery(context, mainDefinition)
       is LexiconXrpcProcedure -> processProcedure(context, mainDefinition)
+      is LexiconXrpcSubscription -> processSubscription(context, mainDefinition)
     }
   }
 
@@ -92,9 +95,19 @@ class LexiconApiGenerator(
     )
   }
 
+  private fun processSubscription(context: GeneratorContext, subscription: LexiconXrpcSubscription) {
+    apiCalls += Subscription(
+      id = context.document.id,
+      name = context.procedureName,
+      description = subscription.description,
+      propertiesType = subscription.parameters?.type(context),
+      outputType = subscription.message!!.type(context, suffix = "Message"),
+    )
+  }
+
   private fun LexiconXrpcParameters.type(context: GeneratorContext): ApiType? {
     return ApiType(
-      className = ClassName(context.authority, "${context.classPrefix}QueryParams"),
+      typeName = ClassName(context.authority, "${context.classPrefix}QueryParams"),
       description = description,
       encoding = "",
     ).takeIf { properties.isNotEmpty() }
@@ -102,13 +115,21 @@ class LexiconApiGenerator(
 
   private fun LexiconXrpcBody.type(context: GeneratorContext, suffix: String): ApiType {
     return ApiType(
-      className = when (encoding) {
+      typeName = when (encoding) {
         "*/*" -> BYTE_ARRAY
         "application/vnd.ipld.car" -> BYTE_ARRAY
         else -> ClassName(context.authority, "${context.classPrefix}$suffix")
       },
       description = description,
       encoding = encoding,
+    )
+  }
+
+  private fun LexiconXrpcSubscriptionMessage.type(context: GeneratorContext, suffix: String): ApiType {
+    return ApiType(
+      typeName = ClassName(context.authority, "${context.classPrefix}$suffix"),
+      description = description,
+      encoding = "",
     )
   }
 
@@ -121,15 +142,12 @@ class LexiconApiGenerator(
         val (name, inputType) = when (this@toFunctionSpec) {
           is Query -> "params" to propertiesType
           is Procedure -> "request" to inputType
+          is Subscription -> "params" to propertiesType
         }
-        val outputClassName = when (this@toFunctionSpec) {
-          is Query -> outputType.className
-          is Procedure -> outputType?.className ?: UNIT
-        }
-        val methodReturnClassName = when (returnType) {
-          ApiReturnType.Raw -> outputClassName
-          ApiReturnType.Result -> Result.parameterizedBy(outputClassName)
-          ApiReturnType.Response -> AtpResponse.parameterizedBy(outputClassName)
+        val outputType = when (this@toFunctionSpec) {
+          is Query -> returnType.wrap(outputType.typeName)
+          is Procedure -> returnType.wrap(outputType?.typeName ?: UNIT)
+          is Subscription -> Flow.parameterizedBy(returnType.wrap(outputType.typeName))
         }
 
         description?.let { description ->
@@ -138,13 +156,13 @@ class LexiconApiGenerator(
 
         if (inputType != null) {
           addParameter(
-            ParameterSpec.builder(name, inputType.className)
+            ParameterSpec.builder(name, inputType.typeName)
               .apply { inputType.description?.let { addKdoc(it) } }
               .build()
           )
         }
 
-        returns(methodReturnClassName)
+        returns(outputType)
       }
       .apply(block)
       .build()
@@ -192,7 +210,7 @@ class LexiconApiGenerator(
         PropertySpec
           .builder("client", TypeNames.HttpClient)
           .addModifiers(KModifier.PRIVATE)
-          .initializer(CodeBlock.of("httpClient.%M()", withJsonConfiguration))
+          .initializer(CodeBlock.of("httpClient.%M()", withXrpcConfiguration))
           .build()
       )
       .apply {
@@ -207,6 +225,7 @@ class LexiconApiGenerator(
                 val methodName = when (apiCall) {
                   is Query -> query
                   is Procedure -> procedure
+                  is Subscription -> subscription
                 }
                 val path = "/xrpc/${apiCall.id}"
                 val transformingMethodName = when (configuration.returnType) {
@@ -227,13 +246,26 @@ class LexiconApiGenerator(
 
                 indent()
                 add("path = %S,\n", path)
-                if (apiCall is Query && apiCall.propertiesType != null) {
-                  add("queryParams = params.asList(),\n")
+
+                when (apiCall) {
+                  is Query -> {
+                    if (apiCall.propertiesType != null) {
+                      add("queryParams = params.asList(),\n")
+                    }
+                  }
+                  is Procedure -> {
+                    if (apiCall.inputType != null) {
+                      add("body = request,\n")
+                      add("encoding = %S,\n", apiCall.inputType.encoding)
+                    }
+                  }
+                  is Subscription -> {
+                    if (apiCall.propertiesType != null) {
+                      add("queryParams = params.asList(),\n")
+                    }
+                  }
                 }
-                if (apiCall is Procedure && apiCall.inputType != null) {
-                  add("body = request,\n")
-                  add("encoding = %S,\n", apiCall.inputType.encoding)
-                }
+
                 unindent()
                 add(").%M()", transformingMethodName)
 
@@ -256,6 +288,12 @@ class LexiconApiGenerator(
       .writeTo(environment.outputDirectory)
   }
 
+  private fun ApiReturnType.wrap(typeName: TypeName): TypeName = when (this) {
+    ApiReturnType.Raw -> typeName
+    ApiReturnType.Result -> Result.parameterizedBy(typeName)
+    ApiReturnType.Response -> AtpResponse.parameterizedBy(typeName)
+  }
+
   private sealed interface ApiCall {
     val id: String
     val name: String
@@ -276,10 +314,18 @@ class LexiconApiGenerator(
       val inputType: ApiType?,
       val outputType: ApiType?,
     ) : ApiCall
+
+    data class Subscription(
+      override val id: String,
+      override val name: String,
+      override val description: String?,
+      val propertiesType: ApiType?,
+      val outputType: ApiType,
+    ) : ApiCall
   }
 
   private data class ApiType(
-    val className: ClassName,
+    val typeName: TypeName,
     val description: String?,
     val encoding: String,
   )

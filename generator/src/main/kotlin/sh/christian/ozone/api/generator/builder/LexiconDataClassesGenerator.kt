@@ -83,7 +83,7 @@ class LexiconDataClassesGenerator(
     obj: LexiconObject,
   ) {
     val properties = obj.properties.map { (propertyName, property) ->
-      val nullable = propertyName !in obj.required
+      val nullable = propertyName !in obj.required || propertyName in obj.nullable
 
       val propertyType: TypeName = when (property) {
         is LexiconObjectProperty.Array -> {

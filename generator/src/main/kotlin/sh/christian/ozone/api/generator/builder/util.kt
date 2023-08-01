@@ -6,9 +6,11 @@ import com.squareup.kotlinpoet.BYTE_ARRAY
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.DOUBLE
+import com.squareup.kotlinpoet.Dynamic
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.LONG
+import com.squareup.kotlinpoet.LambdaTypeName
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.ParameterizedTypeName
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
@@ -16,6 +18,8 @@ import com.squareup.kotlinpoet.PropertySpec
 import com.squareup.kotlinpoet.STRING
 import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
+import com.squareup.kotlinpoet.TypeVariableName
+import com.squareup.kotlinpoet.WildcardTypeName
 import org.gradle.configurationcache.extensions.capitalized
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.TypeNames
@@ -24,8 +28,6 @@ import sh.christian.ozone.api.lexicon.LexiconArray
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
 import sh.christian.ozone.api.lexicon.LexiconBlob
 import sh.christian.ozone.api.lexicon.LexiconBoolean
-import sh.christian.ozone.api.lexicon.LexiconBytes
-import sh.christian.ozone.api.lexicon.LexiconCidLink
 import sh.christian.ozone.api.lexicon.LexiconDocument
 import sh.christian.ozone.api.lexicon.LexiconFloat
 import sh.christian.ozone.api.lexicon.LexiconInteger
@@ -70,12 +72,15 @@ fun createDataClass(
                 if (property.description != null) {
                   addKdoc(property.description)
                 }
-                if ((property.type as? ParameterizedTypeName)?.rawType == TypeNames.ImmutableList) {
+                if (property.type is ParameterizedTypeName && property.type.rawType == TypeNames.ImmutableList) {
                   addAnnotation(
                     AnnotationSpec.builder(TypeNames.Serializable)
                       .addMember("%T::class", TypeNames.ImmutableListSerializer)
                       .build()
                   )
+                }
+                if (property.type.hasClassName(BYTE_ARRAY)) {
+                  addAnnotation(AnnotationSpec.builder(TypeNames.ByteString).build())
                 }
               }
               .build()
@@ -287,10 +292,7 @@ fun typeName(
     TypeNames.JsonElement
   }
   is LexiconIpldType -> {
-    when (userType) {
-      is LexiconBytes -> BYTE_ARRAY
-      is LexiconCidLink -> STRING
-    }
+    BYTE_ARRAY
   }
   is LexiconObject -> {
     val sourceId = context.document.id
@@ -339,4 +341,25 @@ private fun String.toSnakeCase(): String {
 
 private fun String.toEnumCase(): String {
   return CAMEL_CASE_REGEX.replace(this) { "_${it.value}" }.uppercase()
+}
+
+private fun TypeName.hasClassName(className: ClassName): Boolean = when (this) {
+  is ClassName -> this.canonicalName == className.canonicalName
+  is Dynamic -> false
+  is LambdaTypeName -> {
+    (receiver?.hasClassName(className) != false) ||
+        returnType.hasClassName(className) ||
+        parameters.any { parameter -> parameter.type.hasClassName(className) }
+  }
+  is ParameterizedTypeName -> {
+    rawType.hasClassName(className) ||
+        typeArguments.any { argument -> argument.hasClassName(className) }
+  }
+  is TypeVariableName -> {
+    bounds.any { bound -> bound.hasClassName(className) }
+  }
+  is WildcardTypeName -> {
+    inTypes.any { inType -> inType.hasClassName(className) } ||
+        outTypes.any { outType -> outType.hasClassName(className) }
+  }
 }

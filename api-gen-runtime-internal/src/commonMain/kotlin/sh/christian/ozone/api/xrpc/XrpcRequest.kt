@@ -2,11 +2,20 @@ package sh.christian.ozone.api.xrpc
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
+import io.ktor.client.plugins.websocket.wss
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.client.statement.HttpResponse
+import io.ktor.websocket.Frame
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emitAll
+import kotlinx.coroutines.flow.filterIsInstance
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.serialization.ExperimentalSerializationApi
 import sh.christian.ozone.api.response.AtpErrorDescription
 import sh.christian.ozone.api.response.AtpException
 import sh.christian.ozone.api.response.AtpResponse
@@ -33,6 +42,22 @@ suspend inline fun <reified T : Any> HttpClient.procedure(
   return post(path) {
     headers["Content-Type"] = encoding
     setBody(body)
+  }
+}
+
+suspend fun HttpClient.subscription(
+  path: String,
+  queryParams: List<Pair<String, Any?>> = emptyList(),
+): Flow<XrpcSubscriptionResponse> = flow {
+  wss(
+    path = path,
+    request = { queryParams.forEach { (key, value) -> parameter(key, value) } },
+  ) {
+    emitAll(
+      incoming.receiveAsFlow()
+        .filterIsInstance<Frame.Binary>()
+        .map { frame -> XrpcSubscriptionResponse(frame.data) }
+    )
   }
 }
 
@@ -77,3 +102,30 @@ suspend inline fun <reified T : Any> HttpResponse.toAtpResponse(): AtpResponse<T
     }
   }
 }
+
+inline fun <reified T : Any> Flow<XrpcSubscriptionResponse>.toAtpModel(): Flow<T> =
+  toAtpResult<T>().map { it.getOrThrow() }
+
+@OptIn(ExperimentalSerializationApi::class)
+inline fun <reified T : Any> Flow<XrpcSubscriptionResponse>.toAtpResult(): Flow<Result<T>> =
+  map { response -> runCatching { response.body<T>() } }
+
+inline fun <reified T : Any> Flow<XrpcSubscriptionResponse>.toAtpResponse(): Flow<AtpResponse<T>> =
+  toAtpResult<T>().map {
+    it.fold(
+      onSuccess = { body ->
+        AtpResponse.Success(
+          response = body,
+          headers = emptyMap(),
+        )
+      },
+      onFailure = { e ->
+        AtpResponse.Failure(
+          statusCode = StatusCode.InvalidRequest,
+          response = null,
+          error = (e as? XrpcSubscriptionParseException)?.error,
+          headers = emptyMap(),
+        )
+      }
+    )
+  }

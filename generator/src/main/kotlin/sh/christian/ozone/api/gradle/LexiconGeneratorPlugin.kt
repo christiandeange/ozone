@@ -62,11 +62,17 @@ private fun KotlinTarget.applyConfiguration(
   compileTaskDependency: TaskProvider<*>,
 ) {
   project.plugins.apply("org.jetbrains.kotlin.plugin.serialization")
+
+  project.kotlinExtension.sourceSets.all {
+    languageSettings.optIn("kotlinx.serialization.ExperimentalSerializationApi")
+  }
+
   project.kotlinExtension.sourceSets.getByName(sourceSetName).apply {
     kotlin.srcDir(extension.outputDirectory)
     dependencies {
-      api(Dependencies.KOTLINX_DATETIME)
-      api(Dependencies.KTOR_CORE)
+      api("io.ktor:ktor-client-core:${Dependencies.KTOR}")
+      api("org.jetbrains.kotlinx:kotlinx-datetime:${Dependencies.KOTLINX_DATETIME}")
+      api("org.jetbrains.kotlinx:kotlinx-serialization-cbor:${Dependencies.KOTLINX_SERIALIZATION}")
 
       // Expose certain types that are publicly used in the generated classes.
       api(project(":api-gen-runtime"))
