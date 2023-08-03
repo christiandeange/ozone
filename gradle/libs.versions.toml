@@ -59,4 +59,4 @@ maven-publish = { module = "com.vanniktech:gradle-maven-publish-plugin", version
 workflow-core = { module = "com.squareup.workflow1:workflow-core", version.ref = "workflow" }
 workflow-runtime = { module = "com.squareup.workflow1:workflow-runtime", version.ref = "workflow" }
 
-bluesky = { module = "sh.christian.ozone:bluesky", version = "0.0.1" }
+bluesky = { module = "sh.christian.ozone:bluesky", version = "0.0.2" }
