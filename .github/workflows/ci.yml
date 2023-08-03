@@ -54,4 +54,4 @@ jobs :
         run : |
           ORG_GRADLE_PROJECT_mavenCentralUsername="$SONATYPE_NEXUS_USERNAME" \
           ORG_GRADLE_PROJECT_mavenCentralPassword="$SONATYPE_NEXUS_PASSWORD" \
-          ./gradlew clean publish --no-daemon --stacktrace
+          ./gradlew clean publish :generator:publish --no-daemon --stacktrace

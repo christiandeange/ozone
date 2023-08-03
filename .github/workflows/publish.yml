@@ -31,4 +31,4 @@ jobs :
           ORG_GRADLE_PROJECT_mavenCentralPassword="$SONATYPE_NEXUS_PASSWORD" \
           ORG_GRADLE_PROJECT_signingInMemoryKey="$ARTIFACT_SIGNING_PRIVATE_KEY" \
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword="$ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD" \
-          ./gradlew clean publish --no-daemon --stacktrace
+          ./gradlew clean publish :generator:publish --no-daemon --stacktrace
