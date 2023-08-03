@@ -12,7 +12,7 @@ jobs :
 
   test :
     runs-on : ubuntu-latest
-    timeout-minutes : 10
+    timeout-minutes : 15
 
     steps :
       - uses : actions/checkout@v3
@@ -35,7 +35,7 @@ jobs :
   publish-snapshot :
     runs-on : ubuntu-latest
     if : github.repository == 'christiandeange/ozone' && github.ref == 'refs/heads/main'
-    timeout-minutes : 10
+    timeout-minutes : 15
     needs :
       - test
 
