@@ -295,8 +295,12 @@ class LexiconDataClassesGenerator(
       .map { it.ref.parseLexiconRef(context.document) }
       .map { (lexiconId, objectRef) -> "$lexiconId#$objectRef" }
 
-    val (commonPrefix, commonSuffix) =
+    val (commonPrefix, commonSuffix) = if (canonicalReferences.size == 1) {
+      canonicalReferences.first().substringBefore('#') + '#' to ""
+      // Special case for when there's only one value in the union. Strip out the authority prefix, if present.
+    } else {
       canonicalReferences.commonPrefix() to canonicalReferences.commonSuffix()
+    }
 
     unionReference.references.forEach { reference ->
       val typeName = reference.typeName(environment, context.document)
