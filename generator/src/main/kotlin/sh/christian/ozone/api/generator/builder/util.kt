@@ -175,22 +175,29 @@ fun createEnumClass(
     .build()
 }
 
-fun LexiconPrimitive.toTypeName() = when (this) {
+fun GeneratorContext.primitiveTypeName(
+  primitive: LexiconPrimitive,
+  propertyName: String,
+) = when (primitive) {
   is LexiconBoolean -> BOOLEAN
   is LexiconInteger -> LONG
   is LexiconFloat -> DOUBLE
   is LexiconString -> {
-    when (format) {
-      LexiconStringFormat.DATETIME -> TypeNames.Timestamp
-      LexiconStringFormat.URI -> TypeNames.Uri
-      LexiconStringFormat.AT_URI -> TypeNames.AtUri
-      LexiconStringFormat.DID -> TypeNames.Did
-      LexiconStringFormat.HANDLE -> TypeNames.Handle
-      LexiconStringFormat.AT_IDENTIFIER -> TypeNames.AtIdentifier
-      LexiconStringFormat.NSID -> TypeNames.Nsid
-      LexiconStringFormat.CID -> TypeNames.Cid
-      LexiconStringFormat.LANGUAGE -> TypeNames.Language
-      null -> STRING
+    if (primitive.isEnumValues()) {
+      ClassName(authority, classPrefix + propertyName.capitalized())
+    } else {
+      when (primitive.format) {
+        LexiconStringFormat.DATETIME -> TypeNames.Timestamp
+        LexiconStringFormat.URI -> TypeNames.Uri
+        LexiconStringFormat.AT_URI -> TypeNames.AtUri
+        LexiconStringFormat.DID -> TypeNames.Did
+        LexiconStringFormat.HANDLE -> TypeNames.Handle
+        LexiconStringFormat.AT_IDENTIFIER -> TypeNames.AtIdentifier
+        LexiconStringFormat.NSID -> TypeNames.Nsid
+        LexiconStringFormat.CID -> TypeNames.Cid
+        LexiconStringFormat.LANGUAGE -> TypeNames.Language
+        null -> STRING
+      }
     }
   }
   is LexiconUnknown -> TypeNames.JsonElement
@@ -201,7 +208,7 @@ fun LexiconSingleReference.typeName(
   source: LexiconDocument
 ): TypeName {
   val lexiconRefType = environment.loadReference(source, this)
-  if (lexiconRefType is LexiconString && lexiconRefType.isEnum()) {
+  if (lexiconRefType is LexiconString && lexiconRefType.isEnumReference()) {
     val refDoc = environment.loadReferenceDocument(source, this)
     return ClassName(
       refDoc.id.substringBeforeLast(".").removeSuffix(".defs"),
@@ -301,7 +308,7 @@ fun typeName(
     ClassName(packageName, className)
   }
   is LexiconPrimitive -> {
-    userType.toTypeName()
+    context.primitiveTypeName(userType, propertyName!!)
   }
   is LexiconRecord -> {
     typeName(environment, context, userType.key, userType.record)
@@ -309,18 +316,8 @@ fun typeName(
   is LexiconToken -> {
     STRING
   }
-  is LexiconXrpcProcedure -> {
-    val sourceId = context.document.id
-    val packageName = sourceId.substringBeforeLast(".")
-    val className = sourceId.substringAfterLast(".").capitalized() + propertyName!!.capitalized()
-    ClassName(packageName, className)
-  }
-  is LexiconXrpcQuery -> {
-    val sourceId = context.document.id
-    val packageName = sourceId.substringBeforeLast(".")
-    val className = sourceId.substringAfterLast(".").capitalized() + propertyName!!.capitalized()
-    ClassName(packageName, className)
-  }
+  is LexiconXrpcProcedure,
+  is LexiconXrpcQuery,
   is LexiconXrpcSubscription -> {
     val sourceId = context.document.id
     val packageName = sourceId.substringBeforeLast(".")
@@ -329,7 +326,11 @@ fun typeName(
   }
 }
 
-fun LexiconString.isEnum(): Boolean {
+fun LexiconString.isEnumValues(): Boolean {
+  return knownValues.isNotEmpty() && knownValues.none { '#' in it }
+}
+
+fun LexiconString.isEnumReference(): Boolean {
   return knownValues.isNotEmpty() && knownValues.all { '#' in it }
 }
 

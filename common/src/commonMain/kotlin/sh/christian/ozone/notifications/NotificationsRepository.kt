@@ -3,6 +3,7 @@ package sh.christian.ozone.notifications
 import app.bsky.feed.GetPostsQueryParams
 import app.bsky.notification.ListNotificationsNotification
 import app.bsky.notification.ListNotificationsQueryParams
+import app.bsky.notification.ListNotificationsReason
 import app.bsky.notification.ListNotificationsResponse
 import app.bsky.notification.UpdateSeenRequest
 import kotlinx.atomicfu.atomic
@@ -157,12 +158,12 @@ class NotificationsRepository(
     private val EMPTY_VALUE = Notifications(persistentListOf(), null)
 
     fun ListNotificationsNotification.getPostUri(): AtUri? = when (reason) {
-      "like" -> reasonSubject!!
-      "repost" -> reasonSubject!!
-      "mention" -> uri
-      "reply" -> uri
-      "quote" -> uri
-      else -> null
+      ListNotificationsReason.LIKE -> reasonSubject
+      ListNotificationsReason.REPOST -> reasonSubject
+      ListNotificationsReason.MENTION -> uri
+      ListNotificationsReason.REPLY -> uri
+      ListNotificationsReason.QUOTE -> uri
+      ListNotificationsReason.FOLLOW -> null
     }
   }
 }

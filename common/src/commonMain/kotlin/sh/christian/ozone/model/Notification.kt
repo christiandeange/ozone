@@ -1,6 +1,12 @@
 package sh.christian.ozone.model
 
 import app.bsky.notification.ListNotificationsNotification
+import app.bsky.notification.ListNotificationsReason.FOLLOW
+import app.bsky.notification.ListNotificationsReason.LIKE
+import app.bsky.notification.ListNotificationsReason.MENTION
+import app.bsky.notification.ListNotificationsReason.QUOTE
+import app.bsky.notification.ListNotificationsReason.REPLY
+import app.bsky.notification.ListNotificationsReason.REPOST
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.serialization.Serializable
 import sh.christian.ozone.api.AtUri
@@ -26,7 +32,7 @@ data class Notification(
   val uri: AtUri,
   val cid: Cid,
   val author: Profile,
-  val reason: String,
+  val reason: Reason,
   val reasonSubject: AtUri?,
   val content: Content?,
   val isRead: Boolean,
@@ -55,6 +61,15 @@ data class Notification(
       val post: TimelinePost,
     ) : Content
   }
+
+  enum class Reason {
+    LIKE,
+    REPOST,
+    FOLLOW,
+    MENTION,
+    REPLY,
+    QUOTE,
+  }
 }
 
 fun ListNotificationsNotification.toNotification(
@@ -65,21 +80,22 @@ fun ListNotificationsNotification.toNotification(
     postsByUri[postUri]
   }
 
+  val (notificationReason, content) = when (reason) {
+    LIKE -> Notification.Reason.LIKE to notificationPost?.let(::Liked)
+    REPOST -> Notification.Reason.REPOST to notificationPost?.let(::Reposted)
+    FOLLOW -> Notification.Reason.FOLLOW to Followed
+    MENTION -> Notification.Reason.MENTION to notificationPost?.let(::Mentioned)
+    REPLY -> Notification.Reason.REPLY to notificationPost?.let(::RepliedTo)
+    QUOTE -> Notification.Reason.QUOTE to notificationPost?.let(::Quoted)
+  }
+
   return Notification(
     uri = uri,
     cid = cid,
     author = author.toProfile(),
-    reason = reason,
+    reason = notificationReason,
     reasonSubject = reasonSubject,
-    content = when (reason) {
-      "like" -> notificationPost?.let(::Liked)
-      "repost" -> notificationPost?.let(::Reposted)
-      "follow" -> Followed
-      "mention" -> notificationPost?.let(::Mentioned)
-      "reply" -> notificationPost?.let(::RepliedTo)
-      "quote" -> notificationPost?.let(::Quoted)
-      else -> null
-    },
+    content = content,
     isRead = isRead,
     indexedAt = Moment(indexedAt),
   )

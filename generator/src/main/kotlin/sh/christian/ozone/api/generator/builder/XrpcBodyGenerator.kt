@@ -3,15 +3,12 @@ package sh.christian.ozone.api.generator.builder
 import com.squareup.kotlinpoet.BYTE_ARRAY
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
-import com.squareup.kotlinpoet.STRING
 import com.squareup.kotlinpoet.TypeAliasSpec
 import com.squareup.kotlinpoet.TypeSpec
 import org.gradle.configurationcache.extensions.capitalized
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.TypeNames
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
-import sh.christian.ozone.api.lexicon.LexiconBytes
-import sh.christian.ozone.api.lexicon.LexiconCidLink
 import sh.christian.ozone.api.lexicon.LexiconObject
 import sh.christian.ozone.api.lexicon.LexiconObjectProperty
 import sh.christian.ozone.api.lexicon.LexiconSingleReference
@@ -90,7 +87,7 @@ class XrpcBodyGenerator(
             nullable = nullable,
             type = when (prop.array.items) {
               is LexiconArrayItem.Primitive -> {
-                prop.array.items.primitive.toTypeName()
+                context.primitiveTypeName(prop.array.items.primitive, name)
               }
               is LexiconArrayItem.Blob -> TypeNames.JsonElement
               is LexiconArrayItem.IpldType -> BYTE_ARRAY
@@ -119,7 +116,7 @@ class XrpcBodyGenerator(
         is LexiconObjectProperty.Primitive -> {
           SimpleProperty(
             name = name,
-            type = prop.primitive.toTypeName(),
+            type = context.primitiveTypeName(prop.primitive, name),
             nullable = nullable,
             description = prop.primitive.description,
           )

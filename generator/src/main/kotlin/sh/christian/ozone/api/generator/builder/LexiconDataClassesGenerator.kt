@@ -18,10 +18,13 @@ import sh.christian.ozone.api.lexicon.LexiconObjectProperty
 import sh.christian.ozone.api.lexicon.LexiconPrimitive
 import sh.christian.ozone.api.lexicon.LexiconRecord
 import sh.christian.ozone.api.lexicon.LexiconSingleReference
+import sh.christian.ozone.api.lexicon.LexiconString
 import sh.christian.ozone.api.lexicon.LexiconToken
 import sh.christian.ozone.api.lexicon.LexiconUnionReference
 import sh.christian.ozone.api.lexicon.LexiconUserType
 import sh.christian.ozone.api.lexicon.LexiconXrpcBody
+import sh.christian.ozone.api.lexicon.LexiconXrpcParameter
+import sh.christian.ozone.api.lexicon.LexiconXrpcParameters
 import sh.christian.ozone.api.lexicon.LexiconXrpcProcedure
 import sh.christian.ozone.api.lexicon.LexiconXrpcQuery
 import sh.christian.ozone.api.lexicon.LexiconXrpcSchemaDefinition
@@ -34,17 +37,19 @@ class LexiconDataClassesGenerator(
   override fun generateTypes(
     context: GeneratorContext,
     userType: LexiconUserType,
-  ) = when (userType) {
-    is LexiconArray -> generateTypes(context, userType)
-    is LexiconBlob -> generateTypes(context, userType)
-    is LexiconIpldType -> generateTypes(context, userType)
-    is LexiconObject -> generateTypes(context, userType)
-    is LexiconPrimitive -> generateTypes(context, userType)
-    is LexiconRecord -> generateTypes(context, userType)
-    is LexiconToken -> generateTypes(context, userType)
-    is LexiconXrpcProcedure -> generateTypes(context, userType)
-    is LexiconXrpcQuery -> generateTypes(context, userType)
-    is LexiconXrpcSubscription -> generateTypes(context, userType)
+  ) {
+    when (userType) {
+      is LexiconArray -> generateTypes(context, userType)
+      is LexiconBlob -> generateTypes(context, userType)
+      is LexiconIpldType -> generateTypes(context, userType)
+      is LexiconObject -> generateTypes(context, userType)
+      is LexiconPrimitive -> generateTypes(context, userType)
+      is LexiconRecord -> generateTypes(context, userType)
+      is LexiconToken -> generateTypes(context, userType)
+      is LexiconXrpcProcedure -> generateTypes(context, userType)
+      is LexiconXrpcQuery -> generateTypes(context, userType)
+      is LexiconXrpcSubscription -> generateTypes(context, userType)
+    }
   }
 
   private fun generateTypes(
@@ -54,7 +59,7 @@ class LexiconDataClassesGenerator(
     when (array.items) {
       is LexiconArrayItem.Blob -> Unit
       is LexiconArrayItem.IpldType -> Unit
-      is LexiconArrayItem.Primitive -> Unit
+      is LexiconArrayItem.Primitive -> generateTypes(context, array.items.primitive)
       is LexiconArrayItem.Reference -> {
         when (array.items.reference) {
           is LexiconSingleReference -> Unit
@@ -95,12 +100,7 @@ class LexiconDataClassesGenerator(
               "",
               itemType.ipld
             )
-            is LexiconArrayItem.Primitive -> typeName(
-              environment,
-              context,
-              "",
-              itemType.primitive
-            )
+            is LexiconArrayItem.Primitive -> generateTypes(context, itemType.primitive, propertyName)
             is LexiconArrayItem.Reference -> {
               when (itemType.reference) {
                 is LexiconSingleReference -> {
@@ -115,12 +115,7 @@ class LexiconDataClassesGenerator(
         }
         is LexiconObjectProperty.Blob -> typeName(environment, context, "", property.blob)
         is LexiconObjectProperty.IpldType -> typeName(environment, context, "", property.ipld)
-        is LexiconObjectProperty.Primitive -> typeName(
-          environment,
-          context,
-          "",
-          property.primitive
-        )
+        is LexiconObjectProperty.Primitive -> generateTypes(context, property.primitive, propertyName)
         is LexiconObjectProperty.Reference -> {
           when (property.reference) {
             is LexiconSingleReference -> property.reference.typeName(environment, context.document)
@@ -152,8 +147,17 @@ class LexiconDataClassesGenerator(
   private fun generateTypes(
     context: GeneratorContext,
     primitive: LexiconPrimitive,
-  ) {
-    return
+    propertyName: String = "",
+  ): TypeName {
+    if (primitive !is LexiconString || !primitive.isEnumValues()) {
+      return typeName(environment, context, "", primitive)
+    }
+
+    val className = ClassName(context.authority, context.classPrefix + propertyName.capitalized())
+    primitive.knownValues.forEach { enum ->
+      context.addEnum(className, enum)
+    }
+    return className
   }
 
   private fun generateTypes(
@@ -184,6 +188,7 @@ class LexiconDataClassesGenerator(
     context: GeneratorContext,
     xrpcQuery: LexiconXrpcQuery,
   ) {
+    xrpcQuery.parameters?.let { generateTypes(context, "Params", it) }
     xrpcQuery.output?.let { generateTypes(context, "Response", it) }
   }
 
@@ -192,6 +197,19 @@ class LexiconDataClassesGenerator(
     xrpcSubscription: LexiconXrpcSubscription,
   ) {
     xrpcSubscription.message?.let { generateTypes(context, "Message", it) }
+  }
+
+  private fun generateTypes(
+    context: GeneratorContext,
+    className: String,
+    xrpcBody: LexiconXrpcParameters,
+  ) {
+    xrpcBody.properties.forEach { (name, property) ->
+      when (property) {
+        is LexiconXrpcParameter.Primitive -> generateTypes(context, property.primitive, name)
+        is LexiconXrpcParameter.PrimitiveArray -> generateTypes(context, property.array.items, name)
+      }
+    }
   }
 
   private fun generateTypes(
@@ -228,7 +246,7 @@ class LexiconDataClassesGenerator(
                 is LexiconArrayItem.Blob -> Unit
                 is LexiconArrayItem.IpldType -> Unit
                 is LexiconArrayItem.Primitive -> {
-                  generateTypes(context, property.array.items.primitive)
+                  generateTypes(context, property.array.items.primitive, propertyName)
                 }
                 is LexiconArrayItem.Reference -> {
                   when (property.array.items.reference) {
@@ -247,7 +265,7 @@ class LexiconDataClassesGenerator(
             is LexiconObjectProperty.Blob -> Unit
             is LexiconObjectProperty.IpldType -> Unit
             is LexiconObjectProperty.Primitive -> {
-              generateTypes(context, property.primitive)
+              generateTypes(context, property.primitive, propertyName)
             }
             is LexiconObjectProperty.Reference -> {
               when (property.reference) {

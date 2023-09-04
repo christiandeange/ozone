@@ -57,7 +57,7 @@ class XrpcQueryParamsGenerator(
         is LexiconXrpcParameter.Primitive -> {
           SimpleProperty(
             name = name,
-            type = prop.primitive.toTypeName(),
+            type = context.primitiveTypeName(prop.primitive, name),
             nullable = nullable,
             description = prop.primitive.description,
           )
@@ -65,7 +65,7 @@ class XrpcQueryParamsGenerator(
         is LexiconXrpcParameter.PrimitiveArray -> {
           SimpleProperty(
             name = name,
-            type = TypeNames.ImmutableList.parameterizedBy(prop.array.items.toTypeName()),
+            type = TypeNames.ImmutableList.parameterizedBy(context.primitiveTypeName(prop.array.items, name)),
             nullable = nullable,
             description = prop.array.description,
           )
