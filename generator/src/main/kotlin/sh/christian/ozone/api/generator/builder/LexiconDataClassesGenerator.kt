@@ -111,7 +111,7 @@ class LexiconDataClassesGenerator(
                 }
               }
             }
-          }.let { TypeNames.ImmutableList.parameterizedBy(it) }
+          }.let { TypeNames.ReadOnlyList.parameterizedBy(it) }
         }
         is LexiconObjectProperty.Blob -> typeName(environment, context, "", property.blob)
         is LexiconObjectProperty.IpldType -> typeName(environment, context, "", property.ipld)

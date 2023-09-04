@@ -72,13 +72,6 @@ fun createDataClass(
                 if (property.description != null) {
                   addKdoc(property.description)
                 }
-                if (property.type is ParameterizedTypeName && property.type.rawType == TypeNames.ImmutableList) {
-                  addAnnotation(
-                    AnnotationSpec.builder(TypeNames.Serializable)
-                      .addMember("%T::class", TypeNames.ImmutableListSerializer)
-                      .build()
-                  )
-                }
                 if (property.type.hasClassName(BYTE_ARRAY)) {
                   addAnnotation(AnnotationSpec.builder(TypeNames.ByteString).build())
                 }
@@ -293,7 +286,7 @@ fun typeName(
           )
         }
       }
-    }.let { TypeNames.ImmutableList.parameterizedBy(it) }
+    }.let { TypeNames.ReadOnlyList.parameterizedBy(it) }
   }
   is LexiconBlob -> {
     TypeNames.JsonElement

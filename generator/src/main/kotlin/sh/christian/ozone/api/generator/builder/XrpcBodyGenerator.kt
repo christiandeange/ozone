@@ -104,7 +104,7 @@ class XrpcBodyGenerator(
                   }
                 }
               }
-            }.let { type -> TypeNames.ImmutableList.parameterizedBy(type) },
+            }.let { type -> TypeNames.ReadOnlyList.parameterizedBy(type) },
             description = when (val items = prop.array.items) {
               is LexiconArrayItem.Blob -> items.blob.description
               is LexiconArrayItem.IpldType -> items.ipld.description

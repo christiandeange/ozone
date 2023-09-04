@@ -120,7 +120,7 @@ private fun TypeName.defaultValue(nullable: Boolean): CodeBlock = CodeBlock.buil
         MUTABLE_LIST -> add("mutableListOf()")
         MUTABLE_SET -> add("mutableSetOf()")
         MUTABLE_MAP -> add("mutableMapOf()")
-        TypeNames.ImmutableList -> add("%M()", persistentListOf)
+        TypeNames.ReadOnlyList -> add("%M()", persistentListOf)
         else -> error("Unable to provide non-null default for ParameterizedTypeName: $this")
       }
     }

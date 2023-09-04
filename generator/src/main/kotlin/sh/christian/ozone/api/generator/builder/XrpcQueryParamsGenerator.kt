@@ -65,7 +65,7 @@ class XrpcQueryParamsGenerator(
         is LexiconXrpcParameter.PrimitiveArray -> {
           SimpleProperty(
             name = name,
-            type = TypeNames.ImmutableList.parameterizedBy(context.primitiveTypeName(prop.array.items, name)),
+            type = TypeNames.ReadOnlyList.parameterizedBy(context.primitiveTypeName(prop.array.items, name)),
             nullable = nullable,
             description = prop.array.description,
           )
@@ -85,7 +85,7 @@ class XrpcQueryParamsGenerator(
   }
 
   private fun toMap(properties: List<SimpleProperty>): FunSpec {
-    val returns = TypeNames.ImmutableList.parameterizedBy(
+    val returns = TypeNames.ReadOnlyList.parameterizedBy(
       Pair::class.asClassName().parameterizedBy(STRING, ANY.copy(nullable = true))
     )
 
@@ -125,7 +125,7 @@ class XrpcQueryParamsGenerator(
       MUTABLE_LIST,
       MUTABLE_SET,
       MUTABLE_MAP,
-      TypeNames.ImmutableList -> true
+      TypeNames.ReadOnlyList -> true
       else -> false
     }
 }
