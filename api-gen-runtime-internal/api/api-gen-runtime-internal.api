@@ -1,0 +1,79 @@
+public final class sh/christian/ozone/api/runtime/OverrideDescriptorDecoder : kotlinx/serialization/encoding/Decoder {
+	public fun <init> (Ljava/util/Map;Lkotlinx/serialization/encoding/Decoder;)V
+	public fun beginStructure (Lkotlinx/serialization/descriptors/SerialDescriptor;)Lkotlinx/serialization/encoding/CompositeDecoder;
+	public fun decodeBoolean ()Z
+	public fun decodeByte ()B
+	public fun decodeChar ()C
+	public fun decodeDouble ()D
+	public fun decodeEnum (Lkotlinx/serialization/descriptors/SerialDescriptor;)I
+	public fun decodeFloat ()F
+	public fun decodeInline (Lkotlinx/serialization/descriptors/SerialDescriptor;)Lkotlinx/serialization/encoding/Decoder;
+	public fun decodeInt ()I
+	public fun decodeLong ()J
+	public fun decodeNotNullMark ()Z
+	public fun decodeNull ()Ljava/lang/Void;
+	public fun decodeNullableSerializableValue (Lkotlinx/serialization/DeserializationStrategy;)Ljava/lang/Object;
+	public fun decodeSerializableValue (Lkotlinx/serialization/DeserializationStrategy;)Ljava/lang/Object;
+	public fun decodeShort ()S
+	public fun decodeString ()Ljava/lang/String;
+	public fun getSerializersModule ()Lkotlinx/serialization/modules/SerializersModule;
+}
+
+public final class sh/christian/ozone/api/runtime/OverrideDescriptorEncoder : kotlinx/serialization/encoding/Encoder {
+	public fun <init> (Ljava/util/Map;Lkotlinx/serialization/encoding/Encoder;)V
+	public fun beginCollection (Lkotlinx/serialization/descriptors/SerialDescriptor;I)Lkotlinx/serialization/encoding/CompositeEncoder;
+	public fun beginStructure (Lkotlinx/serialization/descriptors/SerialDescriptor;)Lkotlinx/serialization/encoding/CompositeEncoder;
+	public fun encodeBoolean (Z)V
+	public fun encodeByte (B)V
+	public fun encodeChar (C)V
+	public fun encodeDouble (D)V
+	public fun encodeEnum (Lkotlinx/serialization/descriptors/SerialDescriptor;I)V
+	public fun encodeFloat (F)V
+	public fun encodeInline (Lkotlinx/serialization/descriptors/SerialDescriptor;)Lkotlinx/serialization/encoding/Encoder;
+	public fun encodeInt (I)V
+	public fun encodeLong (J)V
+	public fun encodeNotNullMark ()V
+	public fun encodeNull ()V
+	public fun encodeNullableSerializableValue (Lkotlinx/serialization/SerializationStrategy;Ljava/lang/Object;)V
+	public fun encodeSerializableValue (Lkotlinx/serialization/SerializationStrategy;Ljava/lang/Object;)V
+	public fun encodeShort (S)V
+	public fun encodeString (Ljava/lang/String;)V
+	public fun getSerializersModule ()Lkotlinx/serialization/modules/SerializersModule;
+}
+
+public final class sh/christian/ozone/api/runtime/SealedValueClassSerialNameKSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> (Lkotlin/reflect/KClass;)V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class sh/christian/ozone/api/xrpc/XrpcConfigurationKt {
+	public static final fun withXrpcConfiguration (Lio/ktor/client/HttpClient;)Lio/ktor/client/HttpClient;
+}
+
+public final class sh/christian/ozone/api/xrpc/XrpcRequestKt {
+	public static final fun procedure (Lio/ktor/client/HttpClient;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun query (Lio/ktor/client/HttpClient;Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun query$default (Lio/ktor/client/HttpClient;Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static final fun subscription (Lio/ktor/client/HttpClient;Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun subscription$default (Lio/ktor/client/HttpClient;Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class sh/christian/ozone/api/xrpc/XrpcSubscriptionParseException : java/lang/RuntimeException {
+	public fun <init> (Lsh/christian/ozone/api/response/AtpErrorDescription;)V
+	public final fun getError ()Lsh/christian/ozone/api/response/AtpErrorDescription;
+}
+
+public final class sh/christian/ozone/api/xrpc/XrpcSubscriptionResponse {
+	public fun <init> ([B)V
+	public final fun body (Lkotlin/reflect/KClass;)Ljava/lang/Object;
+	public final fun component1 ()[B
+	public final fun copy ([B)Lsh/christian/ozone/api/xrpc/XrpcSubscriptionResponse;
+	public static synthetic fun copy$default (Lsh/christian/ozone/api/xrpc/XrpcSubscriptionResponse;[BILjava/lang/Object;)Lsh/christian/ozone/api/xrpc/XrpcSubscriptionResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBytes ()[B
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+

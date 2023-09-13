@@ -2,6 +2,7 @@ package sh.christian.plugin
 
 import com.vanniktech.maven.publish.MavenPublishBaseExtension
 import com.vanniktech.maven.publish.SonatypeHost
+import kotlinx.validation.ApiValidationExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -16,7 +17,12 @@ class PublishingPlugin : Plugin<Project> {
     target.group = groupId
     target.version = version
 
+    target.plugins.apply("org.jetbrains.kotlinx.binary-compatibility-validator")
     target.plugins.apply("com.vanniktech.maven.publish")
+
+    target.extensions.configure<ApiValidationExtension> {
+      nonPublicMarkers += "kotlin.Deprecated"
+    }
 
     target.extensions.configure<MavenPublishBaseExtension> {
       coordinates(

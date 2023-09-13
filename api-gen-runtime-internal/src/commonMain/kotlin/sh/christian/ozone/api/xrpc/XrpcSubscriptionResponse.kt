@@ -69,5 +69,4 @@ data class XrpcSubscriptionResponse(
   }
 }
 
-@PublishedApi
 internal fun Int.isCborMapStart(): Boolean = (this and 0b11100000) == 0b10100000

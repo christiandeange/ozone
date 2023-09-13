@@ -23,7 +23,7 @@ jobs :
           check-latest : true
 
       - name : Assemble & Test
-        run : ./gradlew clean assemble test --no-daemon --stacktrace
+        run : ./gradlew clean assemble test check --no-daemon --stacktrace
 
       - name : Upload Test Results
         uses : actions/upload-artifact@v2

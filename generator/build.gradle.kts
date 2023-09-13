@@ -5,6 +5,7 @@ plugins {
   id("ozone-publish")
   id("com.github.gmazzo.buildconfig") version libs.versions.buildconfig
   id("com.google.devtools.ksp") version libs.versions.ksp
+  id("org.jetbrains.kotlinx.binary-compatibility-validator") version libs.versions.kotlinx.abi.plugin
   `kotlin-dsl`
 }
 

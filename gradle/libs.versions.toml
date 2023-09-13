@@ -3,6 +3,7 @@ agp = "7.4.2"
 buildconfig = "3.1.0"
 compose = "1.4.1"
 kotlin = "1.8.20"
+kotlinx-abi-plugin = "0.13.2"
 kotlinx-datetime = "0.4.0"
 kotlininject = "0.6.1"
 ksp = "1.8.20-1.0.11"
@@ -39,6 +40,7 @@ moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
 moshi-adapters = { module = "com.squareup.moshi:moshi-adapters", version.ref = "moshi" }
 moshi-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }
 
+kotlinx-abi = { module = "org.jetbrains.kotlinx:binary-compatibility-validator", version.ref = "kotlinx-abi-plugin" }
 kotlinx-atomicfu = { module = "org.jetbrains.kotlinx:atomicfu", version = "0.21.0" }
 kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version = "1.7.2" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }

@@ -8,6 +8,7 @@ plugins {
 }
 
 dependencies {
+  implementation(libs.kotlinx.abi)
   implementation(libs.maven.publish)
 
   compileOnly(libs.agp)

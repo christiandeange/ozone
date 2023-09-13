@@ -5,6 +5,7 @@ plugins {
   id("ozone-base")
   id("ozone-publish")
   id("sh.christian.ozone.generator")
+  id("org.jetbrains.kotlinx.binary-compatibility-validator")
 }
 
 kotlin {
