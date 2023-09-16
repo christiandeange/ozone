@@ -46,6 +46,18 @@ import sh.christian.ozone.api.lexicon.LexiconXrpcProcedure
 import sh.christian.ozone.api.lexicon.LexiconXrpcQuery
 import sh.christian.ozone.api.lexicon.LexiconXrpcSubscription
 
+fun createClassForProperties(
+  className: String,
+  properties: List<SimpleProperty>,
+  description: String?,
+): TypeSpec {
+  return if (properties.isEmpty()) {
+    createObjectClass(className, description)
+  } else {
+    createDataClass(className, properties, description)
+  }
+}
+
 fun createDataClass(
   className: String,
   properties: List<SimpleProperty>,
@@ -142,6 +154,20 @@ fun createValueClass(
     .build()
 
   return listOf(serializerTypeSpec, valueClassTypeSpec)
+}
+
+fun createObjectClass(
+  className: String,
+  description: String?,
+): TypeSpec {
+  return TypeSpec.objectBuilder(className)
+    .addAnnotation(TypeNames.Serializable)
+    .apply {
+      if (description != null) {
+        addKdoc(description)
+      }
+    }
+    .build()
 }
 
 fun createEnumClass(

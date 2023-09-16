@@ -136,7 +136,7 @@ class LexiconDataClassesGenerator(
     }
 
     context.addType(
-      createDataClass(
+      createClassForProperties(
         className = context.classPrefix + context.definitionName.capitalized(),
         properties = properties,
         description = obj.description,

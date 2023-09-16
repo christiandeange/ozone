@@ -74,7 +74,7 @@ class XrpcQueryParamsGenerator(
     }
 
     context.addType(
-      createDataClass(
+      createClassForProperties(
         className = "${context.classPrefix}QueryParams",
         properties = properties,
         description = queryParams.description,

@@ -153,7 +153,7 @@ class XrpcBodyGenerator(
       }
     }
 
-    return createDataClass(
+    return createClassForProperties(
       className = className,
       properties = properties,
       description = body.description,
