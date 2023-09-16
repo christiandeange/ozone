@@ -60,6 +60,7 @@ class XrpcQueryParamsGenerator(
             type = context.primitiveTypeName(prop.primitive, name),
             nullable = nullable,
             description = prop.primitive.description,
+            defaultValue = context.primitiveDefaultValue(prop.primitive, name),
           )
         }
         is LexiconXrpcParameter.PrimitiveArray -> {
@@ -68,6 +69,7 @@ class XrpcQueryParamsGenerator(
             type = TypeNames.ReadOnlyList.parameterizedBy(context.primitiveTypeName(prop.array.items, name)),
             nullable = nullable,
             description = prop.array.description,
+            defaultValue = context.primitiveDefaultValue(prop.array.items, name),
           )
         }
       }

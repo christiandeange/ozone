@@ -1,15 +1,12 @@
 package sh.christian.ozone.api.generator.builder
 
 import com.squareup.kotlinpoet.AnnotationSpec
-import com.squareup.kotlinpoet.BOOLEAN
 import com.squareup.kotlinpoet.BYTE_ARRAY
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.CodeBlock
-import com.squareup.kotlinpoet.DOUBLE
 import com.squareup.kotlinpoet.Dynamic
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier
-import com.squareup.kotlinpoet.LONG
 import com.squareup.kotlinpoet.LambdaTypeName
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.ParameterizedTypeName
@@ -27,20 +24,15 @@ import sh.christian.ozone.api.generator.valueClassSerializer
 import sh.christian.ozone.api.lexicon.LexiconArray
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
 import sh.christian.ozone.api.lexicon.LexiconBlob
-import sh.christian.ozone.api.lexicon.LexiconBoolean
 import sh.christian.ozone.api.lexicon.LexiconDocument
-import sh.christian.ozone.api.lexicon.LexiconFloat
-import sh.christian.ozone.api.lexicon.LexiconInteger
 import sh.christian.ozone.api.lexicon.LexiconIpldType
 import sh.christian.ozone.api.lexicon.LexiconObject
 import sh.christian.ozone.api.lexicon.LexiconPrimitive
 import sh.christian.ozone.api.lexicon.LexiconRecord
 import sh.christian.ozone.api.lexicon.LexiconSingleReference
 import sh.christian.ozone.api.lexicon.LexiconString
-import sh.christian.ozone.api.lexicon.LexiconStringFormat
 import sh.christian.ozone.api.lexicon.LexiconToken
 import sh.christian.ozone.api.lexicon.LexiconUnionReference
-import sh.christian.ozone.api.lexicon.LexiconUnknown
 import sh.christian.ozone.api.lexicon.LexiconUserType
 import sh.christian.ozone.api.lexicon.LexiconXrpcProcedure
 import sh.christian.ozone.api.lexicon.LexiconXrpcQuery
@@ -194,34 +186,6 @@ fun createEnumClass(
     .build()
 }
 
-fun GeneratorContext.primitiveTypeName(
-  primitive: LexiconPrimitive,
-  propertyName: String,
-) = when (primitive) {
-  is LexiconBoolean -> BOOLEAN
-  is LexiconInteger -> LONG
-  is LexiconFloat -> DOUBLE
-  is LexiconString -> {
-    if (primitive.isEnumValues()) {
-      ClassName(authority, classPrefix + propertyName.capitalized())
-    } else {
-      when (primitive.format) {
-        LexiconStringFormat.DATETIME -> TypeNames.Timestamp
-        LexiconStringFormat.URI -> TypeNames.Uri
-        LexiconStringFormat.AT_URI -> TypeNames.AtUri
-        LexiconStringFormat.DID -> TypeNames.Did
-        LexiconStringFormat.HANDLE -> TypeNames.Handle
-        LexiconStringFormat.AT_IDENTIFIER -> TypeNames.AtIdentifier
-        LexiconStringFormat.NSID -> TypeNames.Nsid
-        LexiconStringFormat.CID -> TypeNames.Cid
-        LexiconStringFormat.LANGUAGE -> TypeNames.Language
-        null -> STRING
-      }
-    }
-  }
-  is LexiconUnknown -> TypeNames.JsonElement
-}
-
 fun LexiconSingleReference.typeName(
   environment: LexiconProcessingEnvironment,
   source: LexiconDocument
@@ -355,11 +319,11 @@ fun LexiconString.isEnumReference(): Boolean {
 
 private val CAMEL_CASE_REGEX = "(?<=[a-zA-Z])[A-Z]".toRegex()
 
-private fun String.toSnakeCase(): String {
+fun String.toSnakeCase(): String {
   return CAMEL_CASE_REGEX.replace(this) { "_${it.value}" }.lowercase()
 }
 
-private fun String.toEnumCase(): String {
+fun String.toEnumCase(): String {
   return CAMEL_CASE_REGEX.replace(this) { "_${it.value}" }.uppercase()
 }
 

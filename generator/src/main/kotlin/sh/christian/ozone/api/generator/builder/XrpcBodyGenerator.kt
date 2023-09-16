@@ -111,6 +111,12 @@ class XrpcBodyGenerator(
               is LexiconArrayItem.Primitive -> items.primitive.description
               is LexiconArrayItem.Reference -> items.reference.description
             },
+            defaultValue = when (val items = prop.array.items) {
+              is LexiconArrayItem.Primitive -> context.primitiveDefaultValue(items.primitive, name)
+              is LexiconArrayItem.Blob,
+              is LexiconArrayItem.IpldType,
+              is LexiconArrayItem.Reference -> null
+            }
           )
         }
         is LexiconObjectProperty.Primitive -> {
@@ -119,6 +125,7 @@ class XrpcBodyGenerator(
             type = context.primitiveTypeName(prop.primitive, name),
             nullable = nullable,
             description = prop.primitive.description,
+            defaultValue = context.primitiveDefaultValue(prop.primitive, name),
           )
         }
         is LexiconObjectProperty.Blob ->
@@ -127,6 +134,7 @@ class XrpcBodyGenerator(
             type = TypeNames.JsonElement,
             nullable = nullable,
             description = prop.blob.description,
+            defaultValue = null,
           )
         is LexiconObjectProperty.IpldType ->
           SimpleProperty(
@@ -134,6 +142,7 @@ class XrpcBodyGenerator(
             nullable = nullable,
             type = BYTE_ARRAY,
             description = prop.ipld.description,
+            defaultValue = null,
           )
         is LexiconObjectProperty.Reference -> {
           SimpleProperty(
@@ -148,6 +157,7 @@ class XrpcBodyGenerator(
               }
             },
             description = prop.reference.description,
+            defaultValue = null,
           )
         }
       }

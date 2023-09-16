@@ -132,7 +132,22 @@ class LexiconDataClassesGenerator(
         is LexiconObjectProperty.Reference -> property.reference.description
       }
 
-      SimpleProperty(propertyName, propertyType, nullable, description)
+      val defaultValue = when (property) {
+        is LexiconObjectProperty.Array -> {
+          when (val items = property.array.items) {
+            is LexiconArrayItem.Primitive -> context.primitiveDefaultValue(items.primitive, propertyName)
+            is LexiconArrayItem.Blob,
+            is LexiconArrayItem.IpldType,
+            is LexiconArrayItem.Reference -> null
+          }
+        }
+        is LexiconObjectProperty.Primitive -> context.primitiveDefaultValue(property.primitive, propertyName)
+        is LexiconObjectProperty.Blob,
+        is LexiconObjectProperty.IpldType,
+        is LexiconObjectProperty.Reference -> null
+      }
+
+      SimpleProperty(propertyName, propertyType, nullable, description, defaultValue)
     }
 
     context.addType(

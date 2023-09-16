@@ -52,8 +52,9 @@ data class SimpleProperty(
   val type: TypeName,
   val nullable: Boolean,
   val description: String?,
+  private val defaultValue: CodeBlock?,
 ) {
-  fun defaultValue(): CodeBlock = type.defaultValue(nullable)
+  fun defaultValue(): CodeBlock = defaultValue ?: type.defaultValue(nullable)
 
   override fun toString(): String {
     return "SimpleProperty(name='$name', type=$type, nullable=$nullable, description=$description)"
