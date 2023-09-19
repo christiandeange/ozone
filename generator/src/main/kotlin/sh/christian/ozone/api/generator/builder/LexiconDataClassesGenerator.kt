@@ -146,13 +146,14 @@ class LexiconDataClassesGenerator(
         is LexiconObjectProperty.IpldType,
         is LexiconObjectProperty.Reference -> null
       }
+      val requirements = property.requirements()
 
-      SimpleProperty(propertyName, propertyType, nullable, description, defaultValue)
+      SimpleProperty(propertyName, propertyType, nullable, description, defaultValue, requirements)
     }
 
     context.addType(
       createClassForProperties(
-        className = context.classPrefix + context.definitionName.capitalized(),
+        className = ClassName(context.authority, context.classPrefix + context.definitionName.capitalized()),
         properties = properties,
         description = obj.description,
       )

@@ -74,3 +74,11 @@ fun GeneratorContext.primitiveTypeName(
   }
   is LexiconUnknown -> TypeNames.JsonElement
 }
+
+fun LexiconString.isEnumValues(): Boolean {
+  return knownValues.isNotEmpty() && knownValues.none { '#' in it }
+}
+
+fun LexiconString.isEnumReference(): Boolean {
+  return knownValues.isNotEmpty() && knownValues.all { '#' in it }
+}

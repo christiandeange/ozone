@@ -61,6 +61,7 @@ class XrpcQueryParamsGenerator(
             nullable = nullable,
             description = prop.primitive.description,
             defaultValue = context.primitiveDefaultValue(prop.primitive, name),
+            requirements = prop.primitive.requirements(),
           )
         }
         is LexiconXrpcParameter.PrimitiveArray -> {
@@ -70,6 +71,7 @@ class XrpcQueryParamsGenerator(
             nullable = nullable,
             description = prop.array.description,
             defaultValue = context.primitiveDefaultValue(prop.array.items, name),
+            requirements = prop.array.requirements(),
           )
         }
       }
@@ -77,7 +79,7 @@ class XrpcQueryParamsGenerator(
 
     context.addType(
       createClassForProperties(
-        className = "${context.classPrefix}QueryParams",
+        className = ClassName(context.authority, "${context.classPrefix}QueryParams"),
         properties = properties,
         description = queryParams.description,
       ).toBuilder()

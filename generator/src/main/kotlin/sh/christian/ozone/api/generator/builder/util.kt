@@ -8,6 +8,7 @@ import com.squareup.kotlinpoet.Dynamic
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.LambdaTypeName
+import com.squareup.kotlinpoet.MemberName
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.ParameterizedTypeName
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
@@ -39,7 +40,7 @@ import sh.christian.ozone.api.lexicon.LexiconXrpcQuery
 import sh.christian.ozone.api.lexicon.LexiconXrpcSubscription
 
 fun createClassForProperties(
-  className: String,
+  className: ClassName,
   properties: List<SimpleProperty>,
   description: String?,
 ): TypeSpec {
@@ -51,7 +52,7 @@ fun createClassForProperties(
 }
 
 fun createDataClass(
-  className: String,
+  className: ClassName,
   properties: List<SimpleProperty>,
   description: String?,
 ): TypeSpec {
@@ -102,6 +103,46 @@ fun createDataClass(
       if (description != null) {
         addKdoc(description)
       }
+
+      val allRequirements = properties.associateWith { it.requirements }.filterValues { it.isNotEmpty() }
+      if (allRequirements.isNotEmpty()) {
+        addInitializerBlock(
+          CodeBlock.builder()
+            .apply {
+              allRequirements.forEach { (property, requirements) ->
+                val name = MemberName(className, property.name)
+                val nullable = property.nullable
+
+                requirements.forEach { requirement ->
+                  val (accessor, operator, value) = when (requirement) {
+                    is Requirement.MinValue -> listOf("", ">=", requirement.minValue)
+                    is Requirement.MaxValue -> listOf("", "<=", requirement.maxValue)
+                    is Requirement.MinLength -> listOf(".count()", ">=", requirement.minLength)
+                    is Requirement.MaxLength -> listOf(".count()", "<=", requirement.maxLength)
+                  }
+
+                  add("require(")
+                  if (property.nullable) {
+                    add("%N == null || ", name)
+                  }
+                  add("%N$accessor $operator %L", name, value)
+
+                  beginControlFlow(")")
+                  val args = arrayOf(name.simpleName, value, name)
+                  if (accessor.toString().isEmpty()) {
+                    addStatement("\"%L must be $operator %L, but was \$%N\"", *args)
+                  } else if (!nullable) {
+                    addStatement("\"%L$accessor must be $operator %L, but was \${%N$accessor}\"", *args)
+                  } else {
+                    addStatement("\"%L$accessor must be $operator %L, but was \${%N?$accessor}\"", *args)
+                  }
+                  endControlFlow()
+                }
+              }
+            }
+            .build()
+        )
+      }
     }
     .build()
 }
@@ -149,7 +190,7 @@ fun createValueClass(
 }
 
 fun createObjectClass(
-  className: String,
+  className: ClassName,
   description: String?,
 ): TypeSpec {
   return TypeSpec.objectBuilder(className)
@@ -307,14 +348,6 @@ fun typeName(
     val className = sourceId.substringAfterLast(".").capitalized() + propertyName!!.capitalized()
     ClassName(packageName, className)
   }
-}
-
-fun LexiconString.isEnumValues(): Boolean {
-  return knownValues.isNotEmpty() && knownValues.none { '#' in it }
-}
-
-fun LexiconString.isEnumReference(): Boolean {
-  return knownValues.isNotEmpty() && knownValues.all { '#' in it }
 }
 
 private val CAMEL_CASE_REGEX = "(?<=[a-zA-Z])[A-Z]".toRegex()

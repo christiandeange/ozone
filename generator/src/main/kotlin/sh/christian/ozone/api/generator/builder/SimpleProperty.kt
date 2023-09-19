@@ -53,6 +53,7 @@ data class SimpleProperty(
   val nullable: Boolean,
   val description: String?,
   private val defaultValue: CodeBlock?,
+  val requirements: List<Requirement>,
 ) {
   fun defaultValue(): CodeBlock = defaultValue ?: type.defaultValue(nullable)
 

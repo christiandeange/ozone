@@ -79,6 +79,7 @@ class XrpcBodyGenerator(
   ): TypeSpec {
     val properties: List<SimpleProperty> = body.properties.map { (name, prop) ->
       val nullable = name !in body.required
+      val requirements = prop.requirements()
 
       when (prop) {
         is LexiconObjectProperty.Array -> {
@@ -116,7 +117,8 @@ class XrpcBodyGenerator(
               is LexiconArrayItem.Blob,
               is LexiconArrayItem.IpldType,
               is LexiconArrayItem.Reference -> null
-            }
+            },
+            requirements = requirements,
           )
         }
         is LexiconObjectProperty.Primitive -> {
@@ -126,6 +128,7 @@ class XrpcBodyGenerator(
             nullable = nullable,
             description = prop.primitive.description,
             defaultValue = context.primitiveDefaultValue(prop.primitive, name),
+            requirements =  prop.requirements(),
           )
         }
         is LexiconObjectProperty.Blob ->
@@ -135,6 +138,7 @@ class XrpcBodyGenerator(
             nullable = nullable,
             description = prop.blob.description,
             defaultValue = null,
+            requirements = requirements,
           )
         is LexiconObjectProperty.IpldType ->
           SimpleProperty(
@@ -143,6 +147,7 @@ class XrpcBodyGenerator(
             type = BYTE_ARRAY,
             description = prop.ipld.description,
             defaultValue = null,
+            requirements = requirements,
           )
         is LexiconObjectProperty.Reference -> {
           SimpleProperty(
@@ -158,13 +163,14 @@ class XrpcBodyGenerator(
             },
             description = prop.reference.description,
             defaultValue = null,
+            requirements = requirements,
           )
         }
       }
     }
 
     return createClassForProperties(
-      className = className,
+      className = ClassName(context.authority, className),
       properties = properties,
       description = body.description,
     )
