@@ -12,6 +12,7 @@ import com.squareup.kotlinpoet.PropertySpec
 import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
 import com.squareup.kotlinpoet.UNIT
+import com.squareup.kotlinpoet.buildCodeBlock
 import sh.christian.ozone.api.generator.LexiconApiGenerator.ApiCall.Procedure
 import sh.christian.ozone.api.generator.LexiconApiGenerator.ApiCall.Query
 import sh.christian.ozone.api.generator.LexiconApiGenerator.ApiCall.Subscription
@@ -220,8 +221,7 @@ class LexiconApiGenerator(
               addModifiers(KModifier.SUSPEND)
             }
 
-            val code = CodeBlock.builder()
-              .apply {
+            val code = buildCodeBlock {
                 val methodName = when (apiCall) {
                   is Query -> query
                   is Procedure -> procedure
@@ -274,7 +274,6 @@ class LexiconApiGenerator(
                   endControlFlow()
                 }
               }
-              .build()
 
             addModifiers(KModifier.OVERRIDE)
             addCode(code)

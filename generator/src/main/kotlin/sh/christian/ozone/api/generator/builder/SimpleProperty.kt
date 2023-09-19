@@ -44,6 +44,7 @@ import com.squareup.kotlinpoet.U_LONG_ARRAY
 import com.squareup.kotlinpoet.U_SHORT
 import com.squareup.kotlinpoet.U_SHORT_ARRAY
 import com.squareup.kotlinpoet.WildcardTypeName
+import com.squareup.kotlinpoet.buildCodeBlock
 import sh.christian.ozone.api.generator.TypeNames
 import sh.christian.ozone.api.generator.persistentListOf
 
@@ -62,7 +63,7 @@ data class SimpleProperty(
   }
 }
 
-private fun TypeName.defaultValue(nullable: Boolean): CodeBlock = CodeBlock.builder().apply {
+private fun TypeName.defaultValue(nullable: Boolean): CodeBlock = buildCodeBlock {
   when (this@defaultValue) {
     is ClassName -> {
       add(
@@ -143,4 +144,4 @@ private fun TypeName.defaultValue(nullable: Boolean): CodeBlock = CodeBlock.buil
       }
     }
   }
-}.build()
+}

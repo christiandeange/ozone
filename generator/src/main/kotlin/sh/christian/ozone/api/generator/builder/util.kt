@@ -18,6 +18,7 @@ import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
 import com.squareup.kotlinpoet.TypeVariableName
 import com.squareup.kotlinpoet.WildcardTypeName
+import com.squareup.kotlinpoet.buildCodeBlock
 import org.gradle.configurationcache.extensions.capitalized
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.TypeNames
@@ -107,8 +108,7 @@ fun createDataClass(
       val allRequirements = properties.associateWith { it.requirements }.filterValues { it.isNotEmpty() }
       if (allRequirements.isNotEmpty()) {
         addInitializerBlock(
-          CodeBlock.builder()
-            .apply {
+          buildCodeBlock {
               allRequirements.forEach { (property, requirements) ->
                 val name = MemberName(className, property.name)
                 val nullable = property.nullable
@@ -140,7 +140,6 @@ fun createDataClass(
                 }
               }
             }
-            .build()
         )
       }
     }
