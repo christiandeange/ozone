@@ -34,6 +34,34 @@ public final class app/bsky/actor/ContentLabelPref$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/actor/FeedViewPref {
+	public static final field Companion Lapp/bsky/actor/FeedViewPref$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Boolean;
+	public final fun component3 ()Ljava/lang/Boolean;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun component5 ()Ljava/lang/Boolean;
+	public final fun component6 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/Boolean;)Lapp/bsky/actor/FeedViewPref;
+	public static synthetic fun copy$default (Lapp/bsky/actor/FeedViewPref;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/actor/FeedViewPref;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFeed ()Ljava/lang/String;
+	public final fun getHideQuotePosts ()Ljava/lang/Boolean;
+	public final fun getHideReplies ()Ljava/lang/Boolean;
+	public final fun getHideRepliesByLikeCount ()Ljava/lang/Long;
+	public final fun getHideRepliesByUnfollowed ()Ljava/lang/Boolean;
+	public final fun getHideReposts ()Ljava/lang/Boolean;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lapp/bsky/actor/FeedViewPref;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class app/bsky/actor/FeedViewPref$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/actor/GetPreferencesResponse {
 	public static final field Companion Lapp/bsky/actor/GetPreferencesResponse$Companion;
 	public fun <init> (Lapp/bsky/actor/PreferencesUnion;)V
@@ -229,6 +257,34 @@ public final class app/bsky/actor/PreferencesUnion$ContentLabelPrefSerializer : 
 	public fun serialize-t2zCZWA (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/ContentLabelPref;)V
 }
 
+public final class app/bsky/actor/PreferencesUnion$FeedViewPref : app/bsky/actor/PreferencesUnion {
+	public static final field Companion Lapp/bsky/actor/PreferencesUnion$FeedViewPref$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/actor/FeedViewPref;)Lapp/bsky/actor/PreferencesUnion$FeedViewPref;
+	public static fun constructor-impl (Lapp/bsky/actor/FeedViewPref;)Lapp/bsky/actor/FeedViewPref;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/actor/FeedViewPref;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/actor/FeedViewPref;Lapp/bsky/actor/FeedViewPref;)Z
+	public final fun getValue ()Lapp/bsky/actor/FeedViewPref;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/actor/FeedViewPref;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/actor/FeedViewPref;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/actor/FeedViewPref;
+}
+
+public final class app/bsky/actor/PreferencesUnion$FeedViewPref$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/PreferencesUnion$FeedViewPrefSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-bPJ87zs (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/actor/FeedViewPref;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-R98AQEE (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/FeedViewPref;)V
+}
+
 public final class app/bsky/actor/PreferencesUnion$PersonalDetailsPref : app/bsky/actor/PreferencesUnion {
 	public static final field Companion Lapp/bsky/actor/PreferencesUnion$PersonalDetailsPref$Companion;
 	public static final synthetic fun box-impl (Lapp/bsky/actor/PersonalDetailsPref;)Lapp/bsky/actor/PreferencesUnion$PersonalDetailsPref;
@@ -283,6 +339,34 @@ public final class app/bsky/actor/PreferencesUnion$SavedFeedsPrefSerializer : ko
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-VojszPc (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/SavedFeedsPref;)V
+}
+
+public final class app/bsky/actor/PreferencesUnion$ThreadViewPref : app/bsky/actor/PreferencesUnion {
+	public static final field Companion Lapp/bsky/actor/PreferencesUnion$ThreadViewPref$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/actor/ThreadViewPref;)Lapp/bsky/actor/PreferencesUnion$ThreadViewPref;
+	public static fun constructor-impl (Lapp/bsky/actor/ThreadViewPref;)Lapp/bsky/actor/ThreadViewPref;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/actor/ThreadViewPref;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/actor/ThreadViewPref;Lapp/bsky/actor/ThreadViewPref;)Z
+	public final fun getValue ()Lapp/bsky/actor/ThreadViewPref;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/actor/ThreadViewPref;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/actor/ThreadViewPref;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/actor/ThreadViewPref;
+}
+
+public final class app/bsky/actor/PreferencesUnion$ThreadViewPref$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/PreferencesUnion$ThreadViewPrefSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-FNh0qMw (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/actor/ThreadViewPref;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-US-LDEE (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/ThreadViewPref;)V
 }
 
 public final class app/bsky/actor/Profile {
@@ -564,6 +648,36 @@ public final class app/bsky/actor/SearchActorsTypeaheadResponse {
 }
 
 public final class app/bsky/actor/SearchActorsTypeaheadResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/Sort : java/lang/Enum {
+	public static final field MOST-LIKES Lapp/bsky/actor/Sort;
+	public static final field NEWEST Lapp/bsky/actor/Sort;
+	public static final field OLDEST Lapp/bsky/actor/Sort;
+	public static final field RANDOM Lapp/bsky/actor/Sort;
+	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/actor/Sort;
+	public static fun values ()[Lapp/bsky/actor/Sort;
+}
+
+public final class app/bsky/actor/ThreadViewPref {
+	public static final field Companion Lapp/bsky/actor/ThreadViewPref$Companion;
+	public fun <init> ()V
+	public fun <init> (Lapp/bsky/actor/Sort;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Lapp/bsky/actor/Sort;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lapp/bsky/actor/Sort;
+	public final fun component2 ()Ljava/lang/Boolean;
+	public final fun copy (Lapp/bsky/actor/Sort;Ljava/lang/Boolean;)Lapp/bsky/actor/ThreadViewPref;
+	public static synthetic fun copy$default (Lapp/bsky/actor/ThreadViewPref;Lapp/bsky/actor/Sort;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/actor/ThreadViewPref;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPrioritizeFollowedUsers ()Ljava/lang/Boolean;
+	public final fun getSort ()Lapp/bsky/actor/Sort;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lapp/bsky/actor/ThreadViewPref;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class app/bsky/actor/ThreadViewPref$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
