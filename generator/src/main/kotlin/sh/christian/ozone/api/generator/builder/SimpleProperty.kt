@@ -53,10 +53,10 @@ data class SimpleProperty(
   val type: TypeName,
   val nullable: Boolean,
   val description: String?,
-  private val defaultValue: CodeBlock?,
+  val definedDefault: CodeBlock?,
   val requirements: List<Requirement>,
 ) {
-  fun defaultValue(): CodeBlock = defaultValue ?: type.defaultValue(nullable)
+  fun defaultValue(): CodeBlock = definedDefault ?: type.defaultValue(nullable)
 
   override fun toString(): String {
     return "SimpleProperty(name='$name', type=$type, nullable=$nullable, description=$description)"
@@ -66,28 +66,36 @@ data class SimpleProperty(
 private fun TypeName.defaultValue(nullable: Boolean): CodeBlock = buildCodeBlock {
   when (this@defaultValue) {
     is ClassName -> {
-      add(
-        if (nullable) {
-          "null"
-        } else {
-          when (this@defaultValue) {
-            BOOLEAN -> "false"
-            BYTE -> "0"
-            SHORT -> "0"
-            INT -> "0"
-            LONG -> "0L"
-            U_BYTE -> "0u"
-            U_SHORT -> "0u"
-            U_INT -> "0u"
-            U_LONG -> "0uL"
-            CHAR -> "Char(0)"
-            FLOAT -> "0f"
-            DOUBLE -> "0.0"
-            STRING -> "\"\""
-            else -> error("Unable to provide non-null default for ClassName: $this")
+      if (nullable) {
+        add("null")
+      } else {
+        when (this@defaultValue) {
+          BOOLEAN -> add("false")
+          BYTE -> add("0")
+          SHORT -> add("0")
+          INT -> add("0")
+          LONG -> add("0L")
+          U_BYTE -> add("0u")
+          U_SHORT -> add("0u")
+          U_INT -> add("0u")
+          U_LONG -> add("0uL")
+          CHAR -> add("Char(0)")
+          FLOAT -> add("0f")
+          DOUBLE -> add("0.0")
+          STRING -> add("\"\"")
+          TypeNames.AtIdentifier,
+          TypeNames.AtUri,
+          TypeNames.Cid,
+          TypeNames.Did,
+          TypeNames.Handle,
+          TypeNames.Language,
+          TypeNames.Nsid,
+          TypeNames.Uri -> {
+            add("%T(\"\")", this@defaultValue)
           }
+          else -> error("Unable to provide non-null default for ClassName: $this")
         }
-      )
+      }
     }
     is Dynamic -> add("dynamic")
     is LambdaTypeName -> {

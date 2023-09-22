@@ -85,7 +85,6 @@ class XrpcBodyGenerator(
         is LexiconObjectProperty.Array -> {
           SimpleProperty(
             name = name,
-            nullable = nullable,
             type = when (prop.array.items) {
               is LexiconArrayItem.Primitive -> {
                 context.primitiveTypeName(prop.array.items.primitive, name)
@@ -106,13 +105,14 @@ class XrpcBodyGenerator(
                 }
               }
             }.let { type -> TypeNames.ReadOnlyList.parameterizedBy(type) },
+            nullable = nullable,
             description = when (val items = prop.array.items) {
               is LexiconArrayItem.Blob -> items.blob.description
               is LexiconArrayItem.IpldType -> items.ipld.description
               is LexiconArrayItem.Primitive -> items.primitive.description
               is LexiconArrayItem.Reference -> items.reference.description
             },
-            defaultValue = when (val items = prop.array.items) {
+            definedDefault = when (val items = prop.array.items) {
               is LexiconArrayItem.Primitive -> context.primitiveDefaultValue(items.primitive, name)
               is LexiconArrayItem.Blob,
               is LexiconArrayItem.IpldType,
@@ -127,7 +127,7 @@ class XrpcBodyGenerator(
             type = context.primitiveTypeName(prop.primitive, name),
             nullable = nullable,
             description = prop.primitive.description,
-            defaultValue = context.primitiveDefaultValue(prop.primitive, name),
+            definedDefault = context.primitiveDefaultValue(prop.primitive, name),
             requirements =  prop.requirements(),
           )
         }
@@ -137,22 +137,21 @@ class XrpcBodyGenerator(
             type = TypeNames.JsonElement,
             nullable = nullable,
             description = prop.blob.description,
-            defaultValue = null,
+            definedDefault = null,
             requirements = requirements,
           )
         is LexiconObjectProperty.IpldType ->
           SimpleProperty(
             name = name,
-            nullable = nullable,
             type = BYTE_ARRAY,
+            nullable = nullable,
             description = prop.ipld.description,
-            defaultValue = null,
+            definedDefault = null,
             requirements = requirements,
           )
         is LexiconObjectProperty.Reference -> {
           SimpleProperty(
             name = name,
-            nullable = nullable,
             type = when (prop.reference) {
               is LexiconSingleReference -> {
                 prop.reference.typeName(environment, context.document)
@@ -161,8 +160,9 @@ class XrpcBodyGenerator(
                 ClassName(context.authority, className + name.capitalized() + "Union")
               }
             },
+            nullable = nullable,
             description = prop.reference.description,
-            defaultValue = null,
+            definedDefault = null,
             requirements = requirements,
           )
         }
