@@ -42,12 +42,13 @@ class ImageOverlayScreen(
       .onBackPressed { onRequestDismiss() },
     color = Color.Black.copy(alpha = 0.8f),
   ) {
-    val state = rememberPagerState(initialPage = action.selectedIndex)
+    val state = rememberPagerState(
+      initialPage = action.selectedIndex,
+      initialPageOffsetFraction = 0f,
+      pageCount = action.images::size,
+    )
 
-    HorizontalPager(
-      pageCount = action.images.size,
-      state = state,
-    ) { page ->
+    HorizontalPager(state = state) { page ->
       Box {
         val zoomableState = rememberZoomableState()
 

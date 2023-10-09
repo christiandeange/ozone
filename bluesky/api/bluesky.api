@@ -660,6 +660,7 @@ public final class app/bsky/actor/Sort : java/lang/Enum {
 	public static final field NEWEST Lapp/bsky/actor/Sort;
 	public static final field OLDEST Lapp/bsky/actor/Sort;
 	public static final field RANDOM Lapp/bsky/actor/Sort;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/actor/Sort;
 	public static fun values ()[Lapp/bsky/actor/Sort;
 }
@@ -717,6 +718,7 @@ public final class app/bsky/actor/Visibility : java/lang/Enum {
 	public static final field HIDE Lapp/bsky/actor/Visibility;
 	public static final field SHOW Lapp/bsky/actor/Visibility;
 	public static final field WARN Lapp/bsky/actor/Visibility;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/actor/Visibility;
 	public static fun values ()[Lapp/bsky/actor/Visibility;
 }
@@ -1811,6 +1813,7 @@ public final class app/bsky/feed/GetAuthorFeedFilter : java/lang/Enum {
 	public static final field POSTS_NO_REPLIES Lapp/bsky/feed/GetAuthorFeedFilter;
 	public static final field POSTS_WITH_MEDIA Lapp/bsky/feed/GetAuthorFeedFilter;
 	public static final field POSTS_WITH_REPLIES Lapp/bsky/feed/GetAuthorFeedFilter;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/feed/GetAuthorFeedFilter;
 	public static fun values ()[Lapp/bsky/feed/GetAuthorFeedFilter;
 }
@@ -4318,6 +4321,7 @@ public final class app/bsky/graph/MuteActorRequest$Companion {
 public final class app/bsky/graph/Token : java/lang/Enum {
 	public static final field CURATELIST Lapp/bsky/graph/Token;
 	public static final field MODLIST Lapp/bsky/graph/Token;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/graph/Token;
 	public static fun values ()[Lapp/bsky/graph/Token;
 }
@@ -4458,6 +4462,7 @@ public final class app/bsky/notification/ListNotificationsReason : java/lang/Enu
 	public static final field QUOTE Lapp/bsky/notification/ListNotificationsReason;
 	public static final field REPLY Lapp/bsky/notification/ListNotificationsReason;
 	public static final field REPOST Lapp/bsky/notification/ListNotificationsReason;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/notification/ListNotificationsReason;
 	public static fun values ()[Lapp/bsky/notification/ListNotificationsReason;
 }
@@ -4486,6 +4491,7 @@ public final class app/bsky/notification/RegisterPushPlatform : java/lang/Enum {
 	public static final field ANDROID Lapp/bsky/notification/RegisterPushPlatform;
 	public static final field IOS Lapp/bsky/notification/RegisterPushPlatform;
 	public static final field WEB Lapp/bsky/notification/RegisterPushPlatform;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/notification/RegisterPushPlatform;
 	public static fun values ()[Lapp/bsky/notification/RegisterPushPlatform;
 }
@@ -5474,6 +5480,7 @@ public final class com/atproto/admin/GetInviteCodesResponse$Companion {
 public final class com/atproto/admin/GetInviteCodesSort : java/lang/Enum {
 	public static final field RECENT Lcom/atproto/admin/GetInviteCodesSort;
 	public static final field USAGE Lcom/atproto/admin/GetInviteCodesSort;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/admin/GetInviteCodesSort;
 	public static fun values ()[Lcom/atproto/admin/GetInviteCodesSort;
 }
@@ -6372,6 +6379,7 @@ public final class com/atproto/admin/Token : java/lang/Enum {
 	public static final field ESCALATE Lcom/atproto/admin/Token;
 	public static final field FLAG Lcom/atproto/admin/Token;
 	public static final field TAKEDOWN Lcom/atproto/admin/Token;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/admin/Token;
 	public static fun values ()[Lcom/atproto/admin/Token;
 }
@@ -6699,6 +6707,7 @@ public final class com/atproto/label/SubscribeLabelsMessageUnion$LabelsSerialize
 
 public final class com/atproto/label/SubscribeLabelsName : java/lang/Enum {
 	public static final field OUTDATED_CURSOR Lcom/atproto/label/SubscribeLabelsName;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/label/SubscribeLabelsName;
 	public static fun values ()[Lcom/atproto/label/SubscribeLabelsName;
 }
@@ -6908,6 +6917,7 @@ public final class com/atproto/moderation/Token : java/lang/Enum {
 	public static final field REASON_SEXUAL Lcom/atproto/moderation/Token;
 	public static final field REASON_SPAM Lcom/atproto/moderation/Token;
 	public static final field REASON_VIOLATION Lcom/atproto/moderation/Token;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/moderation/Token;
 	public static fun values ()[Lcom/atproto/moderation/Token;
 }
@@ -8306,6 +8316,7 @@ public final class com/atproto/sync/SubscribeReposAction : java/lang/Enum {
 	public static final field CREATE Lcom/atproto/sync/SubscribeReposAction;
 	public static final field DELETE Lcom/atproto/sync/SubscribeReposAction;
 	public static final field UPDATE Lcom/atproto/sync/SubscribeReposAction;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/sync/SubscribeReposAction;
 	public static fun values ()[Lcom/atproto/sync/SubscribeReposAction;
 }
@@ -8567,6 +8578,7 @@ public final class com/atproto/sync/SubscribeReposMigrate$Companion {
 
 public final class com/atproto/sync/SubscribeReposName : java/lang/Enum {
 	public static final field OUTDATED_CURSOR Lcom/atproto/sync/SubscribeReposName;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/sync/SubscribeReposName;
 	public static fun values ()[Lcom/atproto/sync/SubscribeReposName;
 }

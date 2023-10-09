@@ -1,18 +1,18 @@
 [versions]
 agp = "7.4.2"
-buildconfig = "3.1.0"
-compose = "1.4.1"
-kotlin = "1.8.20"
+buildconfig = "4.1.2"
+compose = "1.5.3"
+kotlin = "1.9.10"
 kotlinx-abi-plugin = "0.13.2"
-kotlinx-datetime = "0.4.0"
-kotlininject = "0.6.1"
-ksp = "1.8.20-1.0.11"
+kotlinx-datetime = "0.4.1"
+kotlininject = "0.6.3"
+ksp = "1.9.10-1.0.13"
 kstore = "0.6.0"
-ktor = "2.3.2"
+ktor = "2.3.5"
 maven-publish = "0.25.3"
 moshi = "1.15.0"
-serialization = "1.5.1"
-workflow = "1.11.0-beta01"
+serialization = "1.6.0"
+workflow = "1.12.1-beta01"
 
 [libraries]
 agp = { module = "com.android.tools.build:gradle", version.ref = "agp" }
