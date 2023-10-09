@@ -89,7 +89,7 @@ class XrpcBodyGenerator(
               is LexiconArrayItem.Primitive -> {
                 context.primitiveTypeName(prop.array.items.primitive, name)
               }
-              is LexiconArrayItem.Blob -> TypeNames.JsonElement
+              is LexiconArrayItem.Blob -> TypeNames.Blob
               is LexiconArrayItem.IpldType -> BYTE_ARRAY
               is LexiconArrayItem.Reference -> {
                 when (prop.array.items.reference) {
@@ -134,7 +134,7 @@ class XrpcBodyGenerator(
         is LexiconObjectProperty.Blob ->
           SimpleProperty(
             name = name,
-            type = TypeNames.JsonElement,
+            type = TypeNames.Blob,
             nullable = nullable,
             description = prop.blob.description,
             definedDefault = null,

@@ -319,7 +319,7 @@ fun typeName(
     }.let { TypeNames.ReadOnlyList.parameterizedBy(it) }
   }
   is LexiconBlob -> {
-    TypeNames.JsonElement
+    TypeNames.Blob
   }
   is LexiconIpldType -> {
     BYTE_ARRAY

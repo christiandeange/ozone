@@ -372,18 +372,18 @@ public final class app/bsky/actor/PreferencesUnion$ThreadViewPrefSerializer : ko
 public final class app/bsky/actor/Profile {
 	public static final field Companion Lapp/bsky/actor/Profile$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;Lkotlinx/serialization/json/JsonElement;Lapp/bsky/actor/ProfileLabelsUnion;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;Lkotlinx/serialization/json/JsonElement;Lapp/bsky/actor/ProfileLabelsUnion;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lsh/christian/ozone/api/model/Blob;Lapp/bsky/actor/ProfileLabelsUnion;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lsh/christian/ozone/api/model/Blob;Lapp/bsky/actor/ProfileLabelsUnion;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Lkotlinx/serialization/json/JsonElement;
-	public final fun component4 ()Lkotlinx/serialization/json/JsonElement;
+	public final fun component3 ()Lsh/christian/ozone/api/model/Blob;
+	public final fun component4 ()Lsh/christian/ozone/api/model/Blob;
 	public final fun component5 ()Lapp/bsky/actor/ProfileLabelsUnion;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;Lkotlinx/serialization/json/JsonElement;Lapp/bsky/actor/ProfileLabelsUnion;)Lapp/bsky/actor/Profile;
-	public static synthetic fun copy$default (Lapp/bsky/actor/Profile;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;Lkotlinx/serialization/json/JsonElement;Lapp/bsky/actor/ProfileLabelsUnion;ILjava/lang/Object;)Lapp/bsky/actor/Profile;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lsh/christian/ozone/api/model/Blob;Lapp/bsky/actor/ProfileLabelsUnion;)Lapp/bsky/actor/Profile;
+	public static synthetic fun copy$default (Lapp/bsky/actor/Profile;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lsh/christian/ozone/api/model/Blob;Lapp/bsky/actor/ProfileLabelsUnion;ILjava/lang/Object;)Lapp/bsky/actor/Profile;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAvatar ()Lkotlinx/serialization/json/JsonElement;
-	public final fun getBanner ()Lkotlinx/serialization/json/JsonElement;
+	public final fun getAvatar ()Lsh/christian/ozone/api/model/Blob;
+	public final fun getBanner ()Lsh/christian/ozone/api/model/Blob;
 	public final fun getDescription ()Ljava/lang/String;
 	public final fun getDisplayName ()Ljava/lang/String;
 	public final fun getLabels ()Lapp/bsky/actor/ProfileLabelsUnion;
@@ -740,17 +740,17 @@ public final class app/bsky/embed/External$Companion {
 
 public final class app/bsky/embed/ExternalExternal {
 	public static final field Companion Lapp/bsky/embed/ExternalExternal$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-v5vOzEc ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun component4 ()Lkotlinx/serialization/json/JsonElement;
-	public final fun copy-U4PCevw (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;)Lapp/bsky/embed/ExternalExternal;
-	public static synthetic fun copy-U4PCevw$default (Lapp/bsky/embed/ExternalExternal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;ILjava/lang/Object;)Lapp/bsky/embed/ExternalExternal;
+	public final fun component4 ()Lsh/christian/ozone/api/model/Blob;
+	public final fun copy-U4PCevw (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;)Lapp/bsky/embed/ExternalExternal;
+	public static synthetic fun copy-U4PCevw$default (Lapp/bsky/embed/ExternalExternal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;ILjava/lang/Object;)Lapp/bsky/embed/ExternalExternal;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDescription ()Ljava/lang/String;
-	public final fun getThumb ()Lkotlinx/serialization/json/JsonElement;
+	public final fun getThumb ()Lsh/christian/ozone/api/model/Blob;
 	public final fun getTitle ()Ljava/lang/String;
 	public final fun getUri-v5vOzEc ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -841,17 +841,17 @@ public final class app/bsky/embed/ImagesAspectRatio$Companion {
 
 public final class app/bsky/embed/ImagesImage {
 	public static final field Companion Lapp/bsky/embed/ImagesImage$Companion;
-	public fun <init> (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;)V
-	public synthetic fun <init> (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Lkotlinx/serialization/json/JsonElement;
+	public fun <init> (Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lsh/christian/ozone/api/model/Blob;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Lapp/bsky/embed/ImagesAspectRatio;
-	public final fun copy (Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;)Lapp/bsky/embed/ImagesImage;
-	public static synthetic fun copy$default (Lapp/bsky/embed/ImagesImage;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;ILjava/lang/Object;)Lapp/bsky/embed/ImagesImage;
+	public final fun copy (Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;)Lapp/bsky/embed/ImagesImage;
+	public static synthetic fun copy$default (Lapp/bsky/embed/ImagesImage;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;ILjava/lang/Object;)Lapp/bsky/embed/ImagesImage;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAlt ()Ljava/lang/String;
 	public final fun getAspectRatio ()Lapp/bsky/embed/ImagesAspectRatio;
-	public final fun getImage ()Lkotlinx/serialization/json/JsonElement;
+	public final fun getImage ()Lsh/christian/ozone/api/model/Blob;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 	public static final synthetic fun write$Self (Lapp/bsky/embed/ImagesImage;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
@@ -1601,19 +1601,19 @@ public final class app/bsky/feed/FeedViewPostReasonUnion$ReasonRepostSerializer 
 
 public final class app/bsky/feed/Generator {
 	public static final field Companion Lapp/bsky/feed/Generator$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/serialization/json/JsonElement;Lapp/bsky/feed/GeneratorLabelsUnion;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/serialization/json/JsonElement;Lapp/bsky/feed/GeneratorLabelsUnion;Lkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lsh/christian/ozone/api/model/Blob;Lapp/bsky/feed/GeneratorLabelsUnion;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lsh/christian/ozone/api/model/Blob;Lapp/bsky/feed/GeneratorLabelsUnion;Lkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component5 ()Lkotlinx/serialization/json/JsonElement;
+	public final fun component5 ()Lsh/christian/ozone/api/model/Blob;
 	public final fun component6 ()Lapp/bsky/feed/GeneratorLabelsUnion;
 	public final fun component7 ()Lkotlinx/datetime/Instant;
-	public final fun copy-1wHYYHY (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/serialization/json/JsonElement;Lapp/bsky/feed/GeneratorLabelsUnion;Lkotlinx/datetime/Instant;)Lapp/bsky/feed/Generator;
-	public static synthetic fun copy-1wHYYHY$default (Lapp/bsky/feed/Generator;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/serialization/json/JsonElement;Lapp/bsky/feed/GeneratorLabelsUnion;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lapp/bsky/feed/Generator;
+	public final fun copy-1wHYYHY (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lsh/christian/ozone/api/model/Blob;Lapp/bsky/feed/GeneratorLabelsUnion;Lkotlinx/datetime/Instant;)Lapp/bsky/feed/Generator;
+	public static synthetic fun copy-1wHYYHY$default (Lapp/bsky/feed/Generator;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lsh/christian/ozone/api/model/Blob;Lapp/bsky/feed/GeneratorLabelsUnion;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lapp/bsky/feed/Generator;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAvatar ()Lkotlinx/serialization/json/JsonElement;
+	public final fun getAvatar ()Lsh/christian/ozone/api/model/Blob;
 	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
 	public final fun getDescription ()Ljava/lang/String;
 	public final fun getDescriptionFacets ()Lkotlinx/collections/immutable/ImmutableList;
@@ -4074,19 +4074,19 @@ public final class app/bsky/graph/GetSuggestedFollowsByActorResponse$Companion {
 
 public final class app/bsky/graph/List {
 	public static final field Companion Lapp/bsky/graph/List$Companion;
-	public fun <init> (Lapp/bsky/graph/Token;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/serialization/json/JsonElement;Lapp/bsky/graph/ListLabelsUnion;Lkotlinx/datetime/Instant;)V
-	public synthetic fun <init> (Lapp/bsky/graph/Token;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/serialization/json/JsonElement;Lapp/bsky/graph/ListLabelsUnion;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lapp/bsky/graph/Token;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lsh/christian/ozone/api/model/Blob;Lapp/bsky/graph/ListLabelsUnion;Lkotlinx/datetime/Instant;)V
+	public synthetic fun <init> (Lapp/bsky/graph/Token;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lsh/christian/ozone/api/model/Blob;Lapp/bsky/graph/ListLabelsUnion;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lapp/bsky/graph/Token;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component5 ()Lkotlinx/serialization/json/JsonElement;
+	public final fun component5 ()Lsh/christian/ozone/api/model/Blob;
 	public final fun component6 ()Lapp/bsky/graph/ListLabelsUnion;
 	public final fun component7 ()Lkotlinx/datetime/Instant;
-	public final fun copy (Lapp/bsky/graph/Token;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/serialization/json/JsonElement;Lapp/bsky/graph/ListLabelsUnion;Lkotlinx/datetime/Instant;)Lapp/bsky/graph/List;
-	public static synthetic fun copy$default (Lapp/bsky/graph/List;Lapp/bsky/graph/Token;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/serialization/json/JsonElement;Lapp/bsky/graph/ListLabelsUnion;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lapp/bsky/graph/List;
+	public final fun copy (Lapp/bsky/graph/Token;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lsh/christian/ozone/api/model/Blob;Lapp/bsky/graph/ListLabelsUnion;Lkotlinx/datetime/Instant;)Lapp/bsky/graph/List;
+	public static synthetic fun copy$default (Lapp/bsky/graph/List;Lapp/bsky/graph/Token;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lsh/christian/ozone/api/model/Blob;Lapp/bsky/graph/ListLabelsUnion;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lapp/bsky/graph/List;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAvatar ()Lkotlinx/serialization/json/JsonElement;
+	public final fun getAvatar ()Lsh/christian/ozone/api/model/Blob;
 	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
 	public final fun getDescription ()Ljava/lang/String;
 	public final fun getDescriptionFacets ()Lkotlinx/collections/immutable/ImmutableList;
@@ -7395,12 +7395,12 @@ public final class com/atproto/repo/StrongRef$Companion {
 
 public final class com/atproto/repo/UploadBlobResponse {
 	public static final field Companion Lcom/atproto/repo/UploadBlobResponse$Companion;
-	public fun <init> (Lkotlinx/serialization/json/JsonElement;)V
-	public final fun component1 ()Lkotlinx/serialization/json/JsonElement;
-	public final fun copy (Lkotlinx/serialization/json/JsonElement;)Lcom/atproto/repo/UploadBlobResponse;
-	public static synthetic fun copy$default (Lcom/atproto/repo/UploadBlobResponse;Lkotlinx/serialization/json/JsonElement;ILjava/lang/Object;)Lcom/atproto/repo/UploadBlobResponse;
+	public fun <init> (Lsh/christian/ozone/api/model/Blob;)V
+	public final fun component1 ()Lsh/christian/ozone/api/model/Blob;
+	public final fun copy (Lsh/christian/ozone/api/model/Blob;)Lcom/atproto/repo/UploadBlobResponse;
+	public static synthetic fun copy$default (Lcom/atproto/repo/UploadBlobResponse;Lsh/christian/ozone/api/model/Blob;ILjava/lang/Object;)Lcom/atproto/repo/UploadBlobResponse;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getBlob ()Lkotlinx/serialization/json/JsonElement;
+	public final fun getBlob ()Lsh/christian/ozone/api/model/Blob;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 	public static final synthetic fun write$Self (Lcom/atproto/repo/UploadBlobResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
