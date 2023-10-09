@@ -1,21 +1,10 @@
 package sh.christian.ozone.api.generator.builder
 
 import com.squareup.kotlinpoet.ANY
-import com.squareup.kotlinpoet.COLLECTION
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.FunSpec
-import com.squareup.kotlinpoet.ITERABLE
-import com.squareup.kotlinpoet.LIST
-import com.squareup.kotlinpoet.MAP
-import com.squareup.kotlinpoet.MUTABLE_COLLECTION
-import com.squareup.kotlinpoet.MUTABLE_ITERABLE
-import com.squareup.kotlinpoet.MUTABLE_LIST
-import com.squareup.kotlinpoet.MUTABLE_MAP
-import com.squareup.kotlinpoet.MUTABLE_SET
-import com.squareup.kotlinpoet.ParameterizedTypeName
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
-import com.squareup.kotlinpoet.SET
 import com.squareup.kotlinpoet.STRING
 import com.squareup.kotlinpoet.asClassName
 import com.squareup.kotlinpoet.withIndent
@@ -100,7 +89,7 @@ class XrpcQueryParamsGenerator(
           .add("return buildList {\n")
           .withIndent {
             properties.forEach { property ->
-              if (property.type is ParameterizedTypeName && property.type.rawType.isCollection) {
+              if (property.isCollection()) {
                 add("%L.forEach {\n", property.name)
                 withIndent {
                   addStatement("add(%S to it)", property.name)
@@ -116,20 +105,4 @@ class XrpcQueryParamsGenerator(
       )
       .build()
   }
-
-  private val ClassName.isCollection
-    get() = when (this) {
-      ITERABLE,
-      COLLECTION,
-      LIST,
-      SET,
-      MAP,
-      MUTABLE_ITERABLE,
-      MUTABLE_COLLECTION,
-      MUTABLE_LIST,
-      MUTABLE_SET,
-      MUTABLE_MAP,
-      TypeNames.ReadOnlyList -> true
-      else -> false
-    }
 }

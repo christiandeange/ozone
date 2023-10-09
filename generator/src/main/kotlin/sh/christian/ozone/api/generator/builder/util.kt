@@ -111,7 +111,7 @@ fun createDataClass(
           buildCodeBlock {
               allRequirements.forEach { (property, requirements) ->
                 val name = MemberName(className, property.name)
-                val nullable = property.nullable
+                val nullable = property.nullable && !property.isCollection()
 
                 requirements.forEach { requirement ->
                   val (accessor, operator, value) = when (requirement) {
@@ -122,7 +122,7 @@ fun createDataClass(
                   }
 
                   add("require(")
-                  if (property.nullable) {
+                  if (nullable) {
                     add("%N == null || ", name)
                   }
                   add("%N$accessor $operator %L", name, value)
