@@ -201,6 +201,9 @@ private fun AnnotatedString.links(): ImmutableList<TimelinePostLink> {
   val handleRegex = Regex(
     "(^|\\s|\\()(@)([a-zA-Z0-9.-]+)(\\b)",
   )
+  val hashtagRegex = Regex(
+    "(^|\\s|\\()(#)([a-zA-Z0-9]+)(\\b)",
+  )
   val hyperlinkRegex = Regex(
     "(^|\\s|\\()((https?://\\S+)|(([a-z][a-z0-9]*(\\.[a-z0-9]+)+)\\S*))",
     setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE),
@@ -213,6 +216,15 @@ private fun AnnotatedString.links(): ImmutableList<TimelinePostLink> {
         end = byteOffsets.indexOf(it.range.last + 1),
         // Ok this is actually a handle for now, but it is resolved to a Did later on.
         target = LinkTarget.UserHandleMention(Handle(it.groupValues[3])),
+      )
+    }
+
+  val hashtags = hashtagRegex.findAll(text)
+    .map {
+      TimelinePostLink(
+        start = byteOffsets.indexOf(it.range.first),
+        end = byteOffsets.indexOf(it.range.last + 1),
+        target = LinkTarget.Hashtag(it.groupValues[3]),
       )
     }
 
@@ -234,7 +246,7 @@ private fun AnnotatedString.links(): ImmutableList<TimelinePostLink> {
       )
     }
 
-  return (mentions + hyperlinks).toImmutableList()
+  return (mentions + hashtags + hyperlinks).toImmutableList()
 }
 
 data class PostPayload(

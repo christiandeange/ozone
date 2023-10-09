@@ -28,6 +28,7 @@ data class TimelinePost(
   val labels: ImmutableList<Label>,
   val reply: TimelinePostReply?,
   val reason: TimelinePostReason?,
+  val tags: List<String>,
 )
 
 fun FeedViewPost.toPost(): TimelinePost {
@@ -68,5 +69,6 @@ fun PostView.toPost(
     labels = labels.mapImmutable { it.toLabel() },
     reply = reply,
     reason = reason,
+    tags = postRecord.tags,
   )
 }
