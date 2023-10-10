@@ -16,6 +16,7 @@ fun parseDocument(json: String): LexiconDocument {
   return moshi.adapter<LexiconDocument>().fromJson(json)!!
 }
 
+@OptIn(ExperimentalStdlibApi::class)
 fun parseDocumentMetadata(json: String): LexiconDocumentMetadata {
   return moshi.adapter<LexiconDocumentMetadata>().fromJson(json)!!
 }

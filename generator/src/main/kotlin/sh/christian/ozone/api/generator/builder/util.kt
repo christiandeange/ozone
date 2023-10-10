@@ -356,7 +356,7 @@ fun String.toSnakeCase(): String {
 }
 
 fun String.toEnumCase(): String {
-  return CAMEL_CASE_REGEX.replace(this) { "_${it.value}" }.uppercase()
+  return CAMEL_CASE_REGEX.replace(this) { "_${it.value}" }
 }
 
 private fun TypeName.hasClassName(className: ClassName): Boolean = when (this) {

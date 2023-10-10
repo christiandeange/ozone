@@ -22,6 +22,7 @@ dependencies {
 
 lexicons {
   generateApi("BlueskyApi") {
+    packageName.set("radiant.nimbus")
     withKtorImplementation("XrpcBlueskyApi")
     returnType.set(ApiReturnType.Response)
   }

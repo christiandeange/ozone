@@ -355,7 +355,7 @@ class LexiconDataClassesGenerator(
             val (lexiconId, objectRef) = reference.ref.parseLexiconRef(context.document)
             addAnnotation(
               AnnotationSpec.builder(TypeNames.SerialName)
-                .addMember("%S", "$lexiconId#$objectRef".removeSuffix("#main"))
+                .addMember("%S", "$lexiconId#$objectRef")//.removeSuffix("#main"))
                 .build()
             )
           }
