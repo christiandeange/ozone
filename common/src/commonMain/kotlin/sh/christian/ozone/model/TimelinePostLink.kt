@@ -6,6 +6,7 @@ import sh.christian.ozone.api.Did
 import sh.christian.ozone.api.Handle
 import sh.christian.ozone.api.Uri
 import sh.christian.ozone.model.LinkTarget.ExternalLink
+import sh.christian.ozone.model.LinkTarget.Hashtag
 import sh.christian.ozone.model.LinkTarget.UserDidMention
 
 data class TimelinePostLink(
@@ -26,6 +27,10 @@ sealed interface LinkTarget {
   data class ExternalLink(
     val uri: Uri,
   ) : LinkTarget
+
+  data class Hashtag(
+    val tag: String,
+  ) : LinkTarget
 }
 
 fun Facet.toLink(): TimelinePostLink {
@@ -35,6 +40,7 @@ fun Facet.toLink(): TimelinePostLink {
     target = when (val feature = features.first()) {
       is FacetFeatureUnion.Link -> ExternalLink(feature.value.uri)
       is FacetFeatureUnion.Mention -> UserDidMention(feature.value.did)
+      is FacetFeatureUnion.Tag -> Hashtag(feature.value.tag)
     },
   )
 }

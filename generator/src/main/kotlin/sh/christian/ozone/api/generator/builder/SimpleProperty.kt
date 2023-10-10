@@ -63,6 +63,23 @@ data class SimpleProperty(
   }
 }
 
+fun SimpleProperty.isCollection(): Boolean {
+  return type is ParameterizedTypeName && when (type.rawType) {
+    ITERABLE,
+    COLLECTION,
+    LIST,
+    SET,
+    MAP,
+    MUTABLE_ITERABLE,
+    MUTABLE_COLLECTION,
+    MUTABLE_LIST,
+    MUTABLE_SET,
+    MUTABLE_MAP,
+    TypeNames.ReadOnlyList -> true
+    else -> false
+  }
+}
+
 private fun TypeName.defaultValue(nullable: Boolean): CodeBlock = buildCodeBlock {
   when (this@defaultValue) {
     is ClassName -> {

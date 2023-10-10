@@ -6,8 +6,10 @@ import app.bsky.richtext.Facet
 import app.bsky.richtext.FacetByteSlice
 import app.bsky.richtext.FacetFeatureUnion.Link
 import app.bsky.richtext.FacetFeatureUnion.Mention
+import app.bsky.richtext.FacetFeatureUnion.Tag
 import app.bsky.richtext.FacetLink
 import app.bsky.richtext.FacetMention
+import app.bsky.richtext.FacetTag
 import com.atproto.repo.CreateRecordRequest
 import com.atproto.repo.CreateRecordResponse
 import com.atproto.repo.StrongRef
@@ -41,6 +43,7 @@ import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.error.toErrorProps
 import sh.christian.ozone.model.LinkTarget.ExternalLink
+import sh.christian.ozone.model.LinkTarget.Hashtag
 import sh.christian.ozone.model.LinkTarget.UserDidMention
 import sh.christian.ozone.model.LinkTarget.UserHandleMention
 import sh.christian.ozone.model.Profile
@@ -85,6 +88,7 @@ class ComposePostWorkflow(
       is ComposingPost -> {
         AppScreen(main = context.composePostScreen(renderState.myProfile, renderProps.replyTo))
       }
+
       is CreatingPost -> {
         context.runningWorker(post(renderState.postPayload, renderProps.replyTo)) { result ->
           action {
@@ -92,6 +96,7 @@ class ComposePostWorkflow(
               is AtpResponse.Success -> {
                 setOutput(CreatedPost)
               }
+
               is AtpResponse.Failure -> {
                 val errorProps = result.toErrorProps(true)
                   ?: ErrorProps("Oops.", "Something bad happened.", false)
@@ -110,6 +115,7 @@ class ComposePostWorkflow(
           )
         )
       }
+
       is ShowingError -> {
         AppScreen(
           main = context.composePostScreen(renderState.myProfile, renderProps.replyTo),
@@ -154,6 +160,7 @@ class ComposePostWorkflow(
           when (link.target) {
             is ExternalLink -> link
             is UserDidMention -> link
+            is Hashtag -> link
             is UserHandleMention -> {
               userDatabase.profileOrNull(UserHandle(link.target.handle))
                 .first()
@@ -184,6 +191,7 @@ class ComposePostWorkflow(
               features = when (link.target) {
                 is ExternalLink -> persistentListOf(Link(FacetLink(link.target.uri)))
                 is UserDidMention -> persistentListOf(Mention(FacetMention(link.target.did)))
+                is Hashtag -> persistentListOf(Tag(FacetTag(link.target.tag)))
                 is UserHandleMention -> persistentListOf()
               },
             )

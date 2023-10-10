@@ -49,6 +49,9 @@ internal fun PostText(
       style = LocalTextStyle.current.copy(color = LocalContentColor.current),
       onClick = { index ->
         var performedAction = false
+        postText.getStringAnnotations("hashtag", index, index).firstOrNull()?.item?.let { hashtag ->
+          // TODO handle hashtag click
+        }
         postText.getStringAnnotations("did", index, index).firstOrNull()?.item?.let { did ->
           performedAction = true
           onOpenUser(UserDid(Did(did)))
@@ -100,6 +103,9 @@ fun formatTextPost(
         when (link.target) {
           is LinkTarget.ExternalLink -> {
             addUrlAnnotation(UrlAnnotation(link.target.uri.uri), start, end)
+          }
+          is LinkTarget.Hashtag -> {
+            addStringAnnotation("hashtag", link.target.tag, start, end)
           }
           is LinkTarget.UserDidMention -> {
             addStringAnnotation("did", link.target.did.did, start, end)

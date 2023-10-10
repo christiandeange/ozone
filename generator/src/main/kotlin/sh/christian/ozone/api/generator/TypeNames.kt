@@ -7,6 +7,7 @@ object TypeNames {
   val AtIdentifier by classOfPackage("sh.christian.ozone.api")
   val AtUri by classOfPackage("sh.christian.ozone.api")
   val AtpResponse by classOfPackage("sh.christian.ozone.api.response")
+  val Blob by classOfPackage("sh.christian.ozone.api.model")
   val ByteString by classOfPackage("kotlinx.serialization.cbor")
   val Cid by classOfPackage("sh.christian.ozone.api")
   val Did by classOfPackage("sh.christian.ozone.api")
