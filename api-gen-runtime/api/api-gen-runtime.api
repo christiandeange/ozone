@@ -150,24 +150,51 @@ public final class sh/christian/ozone/api/Uri$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class sh/christian/ozone/api/model/Blob {
+public abstract interface class sh/christian/ozone/api/model/Blob {
 	public static final field Companion Lsh/christian/ozone/api/model/Blob$Companion;
+}
+
+public final class sh/christian/ozone/api/model/Blob$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class sh/christian/ozone/api/model/Blob$LegacyBlob : sh/christian/ozone/api/model/Blob {
+	public static final field Companion Lsh/christian/ozone/api/model/Blob$LegacyBlob$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lsh/christian/ozone/api/model/Blob$LegacyBlob;
+	public static synthetic fun copy$default (Lsh/christian/ozone/api/model/Blob$LegacyBlob;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lsh/christian/ozone/api/model/Blob$LegacyBlob;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCid ()Ljava/lang/String;
+	public final fun getMimeType ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lsh/christian/ozone/api/model/Blob$LegacyBlob;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class sh/christian/ozone/api/model/Blob$LegacyBlob$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class sh/christian/ozone/api/model/Blob$StandardBlob : sh/christian/ozone/api/model/Blob {
+	public static final field Companion Lsh/christian/ozone/api/model/Blob$StandardBlob$Companion;
 	public fun <init> (Lsh/christian/ozone/api/model/BlobRef;Ljava/lang/String;J)V
 	public final fun component1 ()Lsh/christian/ozone/api/model/BlobRef;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()J
-	public final fun copy (Lsh/christian/ozone/api/model/BlobRef;Ljava/lang/String;J)Lsh/christian/ozone/api/model/Blob;
-	public static synthetic fun copy$default (Lsh/christian/ozone/api/model/Blob;Lsh/christian/ozone/api/model/BlobRef;Ljava/lang/String;JILjava/lang/Object;)Lsh/christian/ozone/api/model/Blob;
+	public final fun copy (Lsh/christian/ozone/api/model/BlobRef;Ljava/lang/String;J)Lsh/christian/ozone/api/model/Blob$StandardBlob;
+	public static synthetic fun copy$default (Lsh/christian/ozone/api/model/Blob$StandardBlob;Lsh/christian/ozone/api/model/BlobRef;Ljava/lang/String;JILjava/lang/Object;)Lsh/christian/ozone/api/model/Blob$StandardBlob;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getMimeType ()Ljava/lang/String;
 	public final fun getRef ()Lsh/christian/ozone/api/model/BlobRef;
 	public final fun getSize ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lsh/christian/ozone/api/model/Blob;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+	public static final synthetic fun write$Self (Lsh/christian/ozone/api/model/Blob$StandardBlob;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
-public final class sh/christian/ozone/api/model/Blob$Companion {
+public final class sh/christian/ozone/api/model/Blob$StandardBlob$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -186,6 +213,10 @@ public final class sh/christian/ozone/api/model/BlobRef {
 
 public final class sh/christian/ozone/api/model/BlobRef$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class sh/christian/ozone/api/model/BlobSerializer : kotlinx/serialization/json/JsonContentPolymorphicSerializer {
+	public fun <init> ()V
 }
 
 public final class sh/christian/ozone/api/response/AtpErrorDescription {
