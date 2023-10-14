@@ -17,7 +17,8 @@ private fun Project.applyPlugin() {
   plugins.apply("ozone-android")
 
   (project.kotlinExtension as KotlinMultiplatformExtension).apply {
-    android()
+    androidTarget()
+
     jvm("desktop") {
       compilations.all {
         kotlinOptions.jvmTarget = "11"
