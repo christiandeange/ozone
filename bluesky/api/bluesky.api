@@ -688,19 +688,21 @@ public final class app/bsky/actor/ThreadViewPref$Companion {
 
 public final class app/bsky/actor/ViewerState {
 	public static final field Companion Lapp/bsky/actor/ViewerState$Companion;
-	public synthetic fun <init> (Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Boolean;
 	public final fun component2 ()Lapp/bsky/graph/ListViewBasic;
 	public final fun component3 ()Ljava/lang/Boolean;
 	public final fun component4-W3xQKsw ()Ljava/lang/String;
-	public final fun component5-W3xQKsw ()Ljava/lang/String;
+	public final fun component5 ()Lapp/bsky/graph/ListViewBasic;
 	public final fun component6-W3xQKsw ()Ljava/lang/String;
-	public final fun copy-afOoOz4 (Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/actor/ViewerState;
-	public static synthetic fun copy-afOoOz4$default (Lapp/bsky/actor/ViewerState;Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/actor/ViewerState;
+	public final fun component7-W3xQKsw ()Ljava/lang/String;
+	public final fun copy-Moa4pic (Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/actor/ViewerState;
+	public static synthetic fun copy-Moa4pic$default (Lapp/bsky/actor/ViewerState;Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/actor/ViewerState;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getBlockedBy ()Ljava/lang/Boolean;
 	public final fun getBlocking-W3xQKsw ()Ljava/lang/String;
+	public final fun getBlockingByList ()Lapp/bsky/graph/ListViewBasic;
 	public final fun getFollowedBy-W3xQKsw ()Ljava/lang/String;
 	public final fun getFollowing-W3xQKsw ()Ljava/lang/String;
 	public final fun getMuted ()Ljava/lang/Boolean;
@@ -7441,22 +7443,24 @@ public final class com/atproto/server/ConfirmEmailRequest$Companion {
 
 public final class com/atproto/server/CreateAccountRequest {
 	public static final field Companion Lcom/atproto/server/CreateAccountRequest$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[BILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[BLkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2-hDwCUG8 ()Ljava/lang/String;
 	public final fun component3-68yuAGA ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
 	public final fun component5 ()Ljava/lang/String;
 	public final fun component6 ()Ljava/lang/String;
-	public final fun copy-H04LzoI (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/server/CreateAccountRequest;
-	public static synthetic fun copy-H04LzoI$default (Lcom/atproto/server/CreateAccountRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/server/CreateAccountRequest;
+	public final fun component7 ()[B
+	public final fun copy-gsCEa_4 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)Lcom/atproto/server/CreateAccountRequest;
+	public static synthetic fun copy-gsCEa_4$default (Lcom/atproto/server/CreateAccountRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[BILjava/lang/Object;)Lcom/atproto/server/CreateAccountRequest;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDid-68yuAGA ()Ljava/lang/String;
 	public final fun getEmail ()Ljava/lang/String;
 	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
 	public final fun getInviteCode ()Ljava/lang/String;
 	public final fun getPassword ()Ljava/lang/String;
+	public final fun getPlcOp ()[B
 	public final fun getRecoveryKey ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -7469,16 +7473,19 @@ public final class com/atproto/server/CreateAccountRequest$Companion {
 
 public final class com/atproto/server/CreateAccountResponse {
 	public static final field Companion Lcom/atproto/server/CreateAccountResponse$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3-hDwCUG8 ()Ljava/lang/String;
 	public final fun component4-715Ygxc ()Ljava/lang/String;
-	public final fun copy-H2Dy2f4 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/server/CreateAccountResponse;
-	public static synthetic fun copy-H2Dy2f4$default (Lcom/atproto/server/CreateAccountResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/server/CreateAccountResponse;
+	public final fun component5 ()Lkotlinx/serialization/json/JsonElement;
+	public final fun copy-CXsk5zw (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;)Lcom/atproto/server/CreateAccountResponse;
+	public static synthetic fun copy-CXsk5zw$default (Lcom/atproto/server/CreateAccountResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;ILjava/lang/Object;)Lcom/atproto/server/CreateAccountResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAccessJwt ()Ljava/lang/String;
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getDidDoc ()Lkotlinx/serialization/json/JsonElement;
 	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
 	public final fun getRefreshJwt ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -7644,19 +7651,21 @@ public final class com/atproto/server/CreateSessionRequest$Companion {
 
 public final class com/atproto/server/CreateSessionResponse {
 	public static final field Companion Lcom/atproto/server/CreateSessionResponse$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3-hDwCUG8 ()Ljava/lang/String;
 	public final fun component4-715Ygxc ()Ljava/lang/String;
-	public final fun component5 ()Ljava/lang/String;
-	public final fun component6 ()Ljava/lang/Boolean;
-	public final fun copy-gezImb0 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)Lcom/atproto/server/CreateSessionResponse;
-	public static synthetic fun copy-gezImb0$default (Lcom/atproto/server/CreateSessionResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Lcom/atproto/server/CreateSessionResponse;
+	public final fun component5 ()Lkotlinx/serialization/json/JsonElement;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/Boolean;
+	public final fun copy-WoPUJvw (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;Ljava/lang/Boolean;)Lcom/atproto/server/CreateSessionResponse;
+	public static synthetic fun copy-WoPUJvw$default (Lcom/atproto/server/CreateSessionResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Lcom/atproto/server/CreateSessionResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAccessJwt ()Ljava/lang/String;
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getDidDoc ()Lkotlinx/serialization/json/JsonElement;
 	public final fun getEmail ()Ljava/lang/String;
 	public final fun getEmailConfirmed ()Ljava/lang/Boolean;
 	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
@@ -7883,16 +7892,19 @@ public final class com/atproto/server/ListAppPasswordsResponse$Companion {
 
 public final class com/atproto/server/RefreshSessionResponse {
 	public static final field Companion Lcom/atproto/server/RefreshSessionResponse$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3-hDwCUG8 ()Ljava/lang/String;
 	public final fun component4-715Ygxc ()Ljava/lang/String;
-	public final fun copy-H2Dy2f4 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/server/RefreshSessionResponse;
-	public static synthetic fun copy-H2Dy2f4$default (Lcom/atproto/server/RefreshSessionResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/server/RefreshSessionResponse;
+	public final fun component5 ()Lkotlinx/serialization/json/JsonElement;
+	public final fun copy-CXsk5zw (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;)Lcom/atproto/server/RefreshSessionResponse;
+	public static synthetic fun copy-CXsk5zw$default (Lcom/atproto/server/RefreshSessionResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;ILjava/lang/Object;)Lcom/atproto/server/RefreshSessionResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAccessJwt ()Ljava/lang/String;
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getDidDoc ()Lkotlinx/serialization/json/JsonElement;
 	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
 	public final fun getRefreshJwt ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -7935,6 +7947,23 @@ public final class com/atproto/server/RequestPasswordResetRequest {
 }
 
 public final class com/atproto/server/RequestPasswordResetRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/server/ReserveSigningKeyResponse {
+	public static final field Companion Lcom/atproto/server/ReserveSigningKeyResponse$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/server/ReserveSigningKeyResponse;
+	public static synthetic fun copy$default (Lcom/atproto/server/ReserveSigningKeyResponse;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/server/ReserveSigningKeyResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSigningKey ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/server/ReserveSigningKeyResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/server/ReserveSigningKeyResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -8731,6 +8760,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun requestEmailConfirmation (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun requestEmailUpdate (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun requestPasswordReset (Lcom/atproto/server/RequestPasswordResetRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun reserveSigningKey (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun resetPassword (Lcom/atproto/server/ResetPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun resolveHandle (Lcom/atproto/identity/ResolveHandleQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun resolveModerationReports (Lcom/atproto/admin/ResolveModerationReportsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -8842,6 +8872,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun requestEmailConfirmation (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun requestEmailUpdate (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun requestPasswordReset (Lcom/atproto/server/RequestPasswordResetRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun reserveSigningKey (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun resetPassword (Lcom/atproto/server/ResetPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun resolveHandle (Lcom/atproto/identity/ResolveHandleQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun resolveModerationReports (Lcom/atproto/admin/ResolveModerationReportsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
