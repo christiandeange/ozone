@@ -21,4 +21,10 @@ android {
     versionCode = 100
     versionName = version.toString()
   }
+
+  packaging {
+    resources {
+      excludes += "META-INF/versions/9/previous-compilation-data.bin"
+    }
+  }
 }
