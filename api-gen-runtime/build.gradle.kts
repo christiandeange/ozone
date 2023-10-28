@@ -1,7 +1,6 @@
 plugins {
   kotlin("multiplatform")
   id("ozone-base")
-  id("ozone-dokka")
   id("ozone-publish")
   kotlin("plugin.serialization")
 }

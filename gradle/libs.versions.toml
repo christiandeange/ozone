@@ -2,7 +2,6 @@
 agp = "8.1.2"
 buildconfig = "4.1.2"
 compose = "1.5.3"
-dokka = "1.9.0"
 kotlin = "1.9.10"
 kotlinx-abi-plugin = "0.13.2"
 kotlinx-datetime = "0.4.1"
@@ -57,7 +56,6 @@ ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 ktor-websockets = { module = "io.ktor:ktor-client-websockets", version.ref = "ktor" }
 
-dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokka" }
 maven-publish = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "maven-publish" }
 
 workflow-core = { module = "com.squareup.workflow1:workflow-core", version.ref = "workflow" }

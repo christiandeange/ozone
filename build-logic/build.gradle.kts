@@ -12,7 +12,6 @@ dependencies {
   implementation(libs.maven.publish)
 
   compileOnly(libs.agp)
-  compileOnly(libs.dokka)
   compileOnly(kotlin("gradle-plugin"))
 }
 
@@ -40,11 +39,6 @@ gradlePlugin {
     create("ozone-compose") {
       id = "ozone-compose"
       implementationClass = "sh.christian.plugin.ComposePlugin"
-    }
-
-    create("ozone-dokka") {
-      id = "ozone-dokka"
-      implementationClass = "sh.christian.plugin.DokkaPlugin"
     }
 
     create("ozone-multiplatform") {

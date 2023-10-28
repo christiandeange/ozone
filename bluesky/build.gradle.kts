@@ -3,7 +3,6 @@ import sh.christian.ozone.api.generator.ApiReturnType
 plugins {
   kotlin("multiplatform")
   id("ozone-base")
-  id("ozone-dokka")
   id("ozone-publish")
   id("sh.christian.ozone.generator")
   id("org.jetbrains.kotlinx.binary-compatibility-validator")
