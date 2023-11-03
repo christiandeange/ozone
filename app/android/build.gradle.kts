@@ -6,7 +6,7 @@ plugins {
 }
 
 dependencies {
-  implementation(project(":common"))
+  implementation(project(":app:common"))
   implementation(libs.androidx.activity.compose)
   implementation(libs.androidx.appcompat)
   implementation(libs.androidx.core)

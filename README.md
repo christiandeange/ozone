@@ -21,16 +21,16 @@ The Ozone project for the [AT Protocol](https://atproto.com/) consists of 3 comp
 
 O<sub>3</sub> exists at all levels in the [ATmosphere](https://bsky.app/profile/shreyanjain.net/post/3k26nw6kwnh2e).
 
-### Bluesky Social Client App
+### Bluesky Social Client Apps
 
 #### Usage
 
 ```shell
 # Desktop app
-./gradlew :desktop:run
+./gradlew :app:desktop:run
 
 # Android app
-./gradlew :android:installDebug
+./gradlew :app:android:installDebug
 ```
 
 ### Bluesky Social Bindings

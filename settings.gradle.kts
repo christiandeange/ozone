@@ -18,13 +18,16 @@ dependencyResolutionManagement {
 
 rootProject.name = "ozone"
 
-include(":android")
+// Sample app modules
+include(":app:android")
+include(":app:common")
+include(":app:desktop")
+include(":app:store")
+
+// Published artifact modules
 include(":api-gen-runtime")
 include(":api-gen-runtime-internal")
 include(":bluesky")
-include(":common")
-include(":desktop")
-include(":store")
 
 includeBuild("build-logic")
 includeBuild("generator")

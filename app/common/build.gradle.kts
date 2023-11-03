@@ -33,7 +33,7 @@ kotlin {
         implementation(libs.zoomable)
 
         api(project(":bluesky"))
-        api(project(":store"))
+        api(project(":app:store"))
 
         runtimeOnly(libs.slf4j.simple)
       }
