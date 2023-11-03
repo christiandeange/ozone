@@ -18,6 +18,8 @@ dependencies {
   api(libs.moshi)
   api(libs.moshi.adapters)
 
+  implementation(libs.okio)
+
   ksp(libs.moshi.codegen)
 }
 
