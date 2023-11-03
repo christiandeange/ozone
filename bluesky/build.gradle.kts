@@ -1,3 +1,4 @@
+import com.android.build.gradle.internal.tasks.factory.dependsOn
 import sh.christian.ozone.api.generator.ApiReturnType
 
 plugins {
@@ -26,3 +27,6 @@ lexicons {
     returnType.set(ApiReturnType.Response)
   }
 }
+
+tasks.apiDump.dependsOn(tasks.assemble)
+tasks.apiCheck.dependsOn(tasks.assemble)
