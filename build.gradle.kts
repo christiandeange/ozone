@@ -22,4 +22,14 @@ plugins {
 allprojects {
   group = property("POM_GROUP_ID").toString()
   version = property("POM_VERSION").toString()
+
+  configurations.all {
+    resolutionStrategy.dependencySubstitution {
+      substitute(module("$group:api-gen-runtime:$version"))
+        .using(project(":api-gen-runtime"))
+
+      substitute(module("$group:api-gen-runtime-internal:$version"))
+        .using(project(":api-gen-runtime-internal"))
+    }
+  }
 }

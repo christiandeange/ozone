@@ -30,15 +30,3 @@ lexicons {
 
 tasks.apiDump.dependsOn(tasks.assemble)
 tasks.apiCheck.dependsOn(tasks.assemble)
-
-configurations.all {
-  resolutionStrategy {
-    dependencySubstitution {
-      substitute(module("sh.christian.ozone:api-gen-runtime:$version"))
-        .using(project(":api-gen-runtime"))
-
-      substitute(module("sh.christian.ozone:api-gen-runtime-internal:$version"))
-        .using(project(":api-gen-runtime-internal"))
-    }
-  }
-}
