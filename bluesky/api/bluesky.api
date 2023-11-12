@@ -4977,8 +4977,8 @@ public final class app/bsky/unspecced/SkeletonSearchPost$Companion {
 
 public final class com/atproto/admin/AccountView {
 	public static final field Companion Lcom/atproto/admin/AccountView$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component2-hDwCUG8 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
@@ -4986,12 +4986,14 @@ public final class com/atproto/admin/AccountView {
 	public final fun component5 ()Lcom/atproto/server/InviteCode;
 	public final fun component6 ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun component7 ()Ljava/lang/Boolean;
-	public final fun component8 ()Ljava/lang/String;
-	public final fun copy-kn8txC8 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Ljava/lang/String;)Lcom/atproto/admin/AccountView;
-	public static synthetic fun copy-kn8txC8$default (Lcom/atproto/admin/AccountView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/AccountView;
+	public final fun component8 ()Lkotlinx/datetime/Instant;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy-A84qRCI (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/lang/String;)Lcom/atproto/admin/AccountView;
+	public static synthetic fun copy-A84qRCI$default (Lcom/atproto/admin/AccountView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/AccountView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getEmail ()Ljava/lang/String;
+	public final fun getEmailConfirmedAt ()Lkotlinx/datetime/Instant;
 	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
 	public final fun getIndexedAt ()Lkotlinx/datetime/Instant;
 	public final fun getInviteNote ()Ljava/lang/String;
@@ -6059,11 +6061,12 @@ public final class com/atproto/admin/RepoView$Companion {
 
 public final class com/atproto/admin/RepoViewDetail {
 	public static final field Companion Lcom/atproto/admin/RepoViewDetail$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;Lcom/atproto/admin/ModerationDetail;Lkotlinx/collections/immutable/ImmutableList;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;Lcom/atproto/admin/ModerationDetail;Lkotlinx/collections/immutable/ImmutableList;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;Lcom/atproto/admin/ModerationDetail;Lkotlinx/collections/immutable/ImmutableList;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;Lcom/atproto/admin/ModerationDetail;Lkotlinx/collections/immutable/ImmutableList;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component10 ()Ljava/lang/Boolean;
 	public final fun component11 ()Ljava/lang/String;
+	public final fun component12 ()Lkotlinx/datetime/Instant;
 	public final fun component2-hDwCUG8 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Lkotlinx/collections/immutable/ImmutableList;
@@ -6072,11 +6075,12 @@ public final class com/atproto/admin/RepoViewDetail {
 	public final fun component7 ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun component8 ()Lcom/atproto/server/InviteCode;
 	public final fun component9 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun copy-0ZV35KY (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;Lcom/atproto/admin/ModerationDetail;Lkotlinx/collections/immutable/ImmutableList;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Ljava/lang/String;)Lcom/atproto/admin/RepoViewDetail;
-	public static synthetic fun copy-0ZV35KY$default (Lcom/atproto/admin/RepoViewDetail;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;Lcom/atproto/admin/ModerationDetail;Lkotlinx/collections/immutable/ImmutableList;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/RepoViewDetail;
+	public final fun copy-R9Hcdks (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;Lcom/atproto/admin/ModerationDetail;Lkotlinx/collections/immutable/ImmutableList;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/datetime/Instant;)Lcom/atproto/admin/RepoViewDetail;
+	public static synthetic fun copy-R9Hcdks$default (Lcom/atproto/admin/RepoViewDetail;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;Lcom/atproto/admin/ModerationDetail;Lkotlinx/collections/immutable/ImmutableList;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lcom/atproto/admin/RepoViewDetail;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getEmail ()Ljava/lang/String;
+	public final fun getEmailConfirmedAt ()Lkotlinx/datetime/Instant;
 	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
 	public final fun getIndexedAt ()Lkotlinx/datetime/Instant;
 	public final fun getInviteNote ()Ljava/lang/String;
