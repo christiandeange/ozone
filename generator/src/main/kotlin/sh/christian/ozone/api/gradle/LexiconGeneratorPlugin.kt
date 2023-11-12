@@ -73,12 +73,13 @@ private fun KotlinTarget.applyConfiguration(
       api("io.ktor:ktor-client-core:${Dependencies.KTOR}")
       api("org.jetbrains.kotlinx:kotlinx-datetime:${Dependencies.KOTLINX_DATETIME}")
       api("org.jetbrains.kotlinx:kotlinx-serialization-cbor:${Dependencies.KOTLINX_SERIALIZATION}")
+      api("org.jetbrains.kotlinx:kotlinx-serialization-core:${Dependencies.KOTLINX_SERIALIZATION}")
 
       // Expose certain types that are publicly used in the generated classes.
-      api(project(":api-gen-runtime"))
+      api("sh.christian.ozone:api-gen-runtime:${Dependencies.OZONE}")
 
       // Keep some internal utility methods only on the runtime classpath
-      implementation(project(":api-gen-runtime-internal"))
+      implementation("sh.christian.ozone:api-gen-runtime-internal:${Dependencies.OZONE}")
     }
   }
 

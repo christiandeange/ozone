@@ -14,6 +14,8 @@ setProperty("POM_DESCRIPTION", "Gradle Plugin to generate AT Protocol classes.")
 
 dependencies {
   api(kotlin("gradle-plugin"))
+  api(kotlin("serialization"))
+
   api(libs.kotlinpoet)
   api(libs.moshi)
   api(libs.moshi.adapters)
@@ -43,5 +45,6 @@ buildConfig {
     buildConfigField("String", "KOTLINX_DATETIME", "\"${libs.versions.kotlinx.datetime.get()}\"")
     buildConfigField("String", "KOTLINX_SERIALIZATION", "\"${libs.versions.serialization.get()}\"")
     buildConfigField("String", "KTOR", "\"${libs.versions.ktor.get()}\"")
+    buildConfigField("String", "OZONE", "\"$version\"")
   }
 }
