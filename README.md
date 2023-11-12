@@ -1,4 +1,4 @@
-![Maven Central](https://img.shields.io/maven-central/v/sh.christian.ozone/bluesky?versionPrefix=0.0.3) ![CI](https://github.com/christiandeange/ozone/actions/workflows/ci.yml/badge.svg)
+![Maven Central](https://img.shields.io/maven-central/v/sh.christian.ozone/bluesky?versionPrefix=0.0.4) ![CI](https://github.com/christiandeange/ozone/actions/workflows/ci.yml/badge.svg)
 
 ozone
 =====
@@ -41,7 +41,7 @@ O<sub>3</sub> exists at all levels in the [ATmosphere](https://bsky.app/profile/
 // build.gradle[.kts]
 
 dependencies {
-  api("sh.christian.ozone:bluesky:0.0.3")
+  api("sh.christian.ozone:bluesky:0.0.4")
 }
 ```
 
@@ -53,7 +53,7 @@ dependencies {
 // build.gradle[.kts]
 
 plugins {
-  id("sh.christian.ozone.generator") version "0.0.3"
+  id("sh.christian.ozone.generator") version "0.0.4"
 }
 
 dependencies {
