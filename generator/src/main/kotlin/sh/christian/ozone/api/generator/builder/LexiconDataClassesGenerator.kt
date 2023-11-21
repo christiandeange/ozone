@@ -1,6 +1,5 @@
 package sh.christian.ozone.api.generator.builder
 
-import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
@@ -345,19 +344,16 @@ class LexiconDataClassesGenerator(
         .replace(Regex("[.#][a-z]")) { it.value[1].uppercase() }
         .capitalized()
 
+      val (lexiconId, objectRef) = reference.ref.parseLexiconRef(context.document)
+      val serialName = "$lexiconId#$objectRef".removeSuffix("#main")
+
       sealedInterface.addTypes(
         createValueClass(
           className = name.nestedClass(uniqueName),
           innerType = typeName,
+          serialName = serialName,
           additionalConfiguration = {
             addSuperinterface(name)
-
-            val (lexiconId, objectRef) = reference.ref.parseLexiconRef(context.document)
-            addAnnotation(
-              AnnotationSpec.builder(TypeNames.SerialName)
-                .addMember("%S", "$lexiconId#$objectRef".removeSuffix("#main"))
-                .build()
-            )
           }
         ),
       )

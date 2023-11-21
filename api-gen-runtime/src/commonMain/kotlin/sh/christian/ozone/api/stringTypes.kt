@@ -1,6 +1,7 @@
 package sh.christian.ozone.api
 
 import kotlinx.serialization.Serializable
+import kotlin.jvm.JvmInline
 
 @Serializable
 @JvmInline

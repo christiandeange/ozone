@@ -148,6 +148,7 @@ fun createDataClass(
 
 fun createValueClass(
   className: ClassName,
+  serialName: String,
   innerType: TypeName,
   additionalConfiguration: TypeSpec.Builder.() -> Unit = {},
 ): List<TypeSpec> {
@@ -155,7 +156,21 @@ fun createValueClass(
   val serializerTypeSpec = TypeSpec.classBuilder(serializerClassName)
     .addSuperinterface(
       TypeNames.KSerializer.parameterizedBy(className),
-      CodeBlock.of("%M()", valueClassSerializer)
+      CodeBlock.of(
+        """
+        %M(
+        ⇥serialName = %S,⇤
+        ⇥constructor = ::%T,⇤
+        ⇥valueProvider = %T::value,⇤
+        ⇥valueSerializerProvider = { %T.serializer() },⇤
+        )
+        """.trimIndent(),
+        valueClassSerializer,
+        serialName,
+        className,
+        className,
+        innerType,
+      )
     )
     .build()
 
@@ -167,6 +182,11 @@ fun createValueClass(
     )
     .addModifiers(KModifier.VALUE)
     .addAnnotation(JvmInline::class)
+    .addAnnotation(
+      AnnotationSpec.builder(TypeNames.SerialName)
+        .addMember("%S", serialName)
+        .build()
+    )
     .primaryConstructor(
       FunSpec.constructorBuilder()
         .addParameter(
@@ -356,7 +376,7 @@ fun String.toSnakeCase(): String {
 }
 
 fun String.toEnumCase(): String {
-  return CAMEL_CASE_REGEX.replace(this) { "_${it.value}" }.uppercase()
+  return CAMEL_CASE_REGEX.replace(this) { "_${it.value}" }.uppercase().replace('-', '_')
 }
 
 private fun TypeName.hasClassName(className: ClassName): Boolean = when (this) {

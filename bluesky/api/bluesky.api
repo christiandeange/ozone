@@ -656,7 +656,7 @@ public final class app/bsky/actor/SearchActorsTypeaheadResponse$Companion {
 }
 
 public final class app/bsky/actor/Sort : java/lang/Enum {
-	public static final field MOST-LIKES Lapp/bsky/actor/Sort;
+	public static final field MOST_LIKES Lapp/bsky/actor/Sort;
 	public static final field NEWEST Lapp/bsky/actor/Sort;
 	public static final field OLDEST Lapp/bsky/actor/Sort;
 	public static final field RANDOM Lapp/bsky/actor/Sort;

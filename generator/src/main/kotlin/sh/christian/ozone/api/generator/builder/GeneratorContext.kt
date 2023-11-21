@@ -51,12 +51,4 @@ private constructor(
   fun types(): Set<TypeSpec> = types.values.toSet()
 
   fun typeAliases(): Set<TypeAliasSpec> = typeAliases.values.toSet()
-
-  fun withPrefix(prefix: String): GeneratorContext {
-    return GeneratorContext(document, definitionName, classPrefix + prefix.capitalized()).also {
-      it.enums += enums
-      it.types += types
-      it.typeAliases += typeAliases
-    }
-  }
 }

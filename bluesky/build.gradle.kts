@@ -15,6 +15,11 @@ kotlin {
       kotlinOptions.jvmTarget = "11"
     }
   }
+  js(IR) {
+    browser()
+    nodejs()
+    binaries.executable()
+  }
 }
 
 dependencies {

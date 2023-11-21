@@ -72,17 +72,17 @@ sealed class StatusCode(val code: Int) {
   object UpstreamRequestTimeout : ServerFailure(504)
 
   companion object {
-    fun values(): List<StatusCode> {
-      return StatusCode::class.nestedClasses
-        .mapNotNull { it.objectInstance }
-        .filterIsInstance<StatusCode>()
-    }
-
     fun fromCode(code: Int): StatusCode {
-      val codeMapping = values().associateBy { it.code }
-
       return when (code) {
-        in codeMapping.keys -> codeMapping[code]!!
+        // Explicit mappings.
+        200 -> Okay
+        400 -> InvalidRequest
+        401 -> AuthenticationRequired
+        403 -> Forbidden
+        404 -> XrpcNotSupported
+        413 -> PayloadTooLarge
+        429 -> RateLimitExceeded
+        // Mappings for ranges.
         in 100..199 -> XrpcNotSupported
         in 200..299 -> Okay
         in 300..399 -> XrpcNotSupported

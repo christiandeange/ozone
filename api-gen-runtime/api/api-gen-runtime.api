@@ -238,7 +238,7 @@ public final class sh/christian/ozone/api/response/AtpErrorDescription$Companion
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class sh/christian/ozone/api/response/AtpException : java/io/IOException {
+public final class sh/christian/ozone/api/response/AtpException : java/lang/Exception {
 	public fun <init> (Lsh/christian/ozone/api/response/StatusCode;)V
 	public final fun getStatusCode ()Lsh/christian/ozone/api/response/StatusCode;
 }
@@ -307,7 +307,6 @@ public abstract class sh/christian/ozone/api/response/StatusCode$ClientFailure :
 
 public final class sh/christian/ozone/api/response/StatusCode$Companion {
 	public final fun fromCode (I)Lsh/christian/ozone/api/response/StatusCode;
-	public final fun values ()Ljava/util/List;
 }
 
 public abstract class sh/christian/ozone/api/response/StatusCode$Failure : sh/christian/ozone/api/response/StatusCode {

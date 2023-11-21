@@ -32,6 +32,6 @@ class ImmutableListSerializer<T>(
   private class ImmutableListDescriptor<T>(
     private val elementDescriptor: SerialDescriptor,
   ) : SerialDescriptor by listSerialDescriptor(elementDescriptor) {
-    override val serialName: String = ImmutableList::class.qualifiedName!!
+    override val serialName: String = "kotlinx.collections.immutable.ImmutableList"
   }
 }
