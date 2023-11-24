@@ -43,7 +43,7 @@ import kotlin.time.Duration.Companion.minutes
 @SingleInApp
 class NotificationsRepository(
   private val apiProvider: ApiProvider,
-) : Supervisor {
+) : Supervisor() {
   private val latest: MutableStateFlow<Notifications> = MutableStateFlow(EMPTY_VALUE)
   private val loadErrors: MutableSharedFlow<ErrorProps> = MutableSharedFlow()
   private val onUpdateSeen: MutableSharedFlow<Unit> = MutableSharedFlow()

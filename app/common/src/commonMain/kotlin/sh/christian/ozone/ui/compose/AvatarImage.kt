@@ -11,7 +11,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import io.kamel.core.Resource
-import io.kamel.image.asyncPainterResource
 
 @Composable
 fun AvatarImage(
@@ -28,7 +27,7 @@ fun AvatarImage(
   }
 
   if (avatarUrl != null) {
-    when (val painter = asyncPainterResource(avatarUrl)) {
+    when (val painter = urlImagePainter(avatarUrl)) {
       is Resource.Failure,
       is Resource.Loading -> {
         EmptyAvatar(

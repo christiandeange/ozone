@@ -8,11 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import io.kamel.image.asyncPainterResource
 import sh.christian.ozone.model.TimelinePostFeature.ImagesFeature
 import sh.christian.ozone.ui.compose.BasicImage
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.compose.PostImage
+import sh.christian.ozone.ui.compose.urlImagePainter
 import sh.christian.ozone.util.mapImmutable
 
 @Composable
@@ -37,7 +37,7 @@ internal fun PostImages(
 
     feature.images.forEachIndexed { i, image ->
       // Preload the full-size image into the cache.
-      asyncPainterResource(image.fullsize)
+      urlImagePainter(image.fullsize)
 
       PostImage(
         modifier = modifier,

@@ -12,16 +12,27 @@ kotlin {
     val commonMain by getting {
       dependencies {
         api(libs.kstore)
-        api(libs.kstore.file)
 
         implementation(libs.kotlinx.coroutines)
         implementation(libs.kotlinx.serialization.json)
         implementation(kotlin("reflect"))
       }
     }
+    val androidMain by getting {
+      dependencies {
+        implementation(libs.appdirs)
+        implementation(libs.kstore.file)
+      }
+    }
     val desktopMain by getting {
       dependencies {
         implementation(libs.appdirs)
+        implementation(libs.kstore.file)
+      }
+    }
+    val jsMain by getting {
+      dependencies {
+        implementation(libs.kstore.storage)
       }
     }
   }

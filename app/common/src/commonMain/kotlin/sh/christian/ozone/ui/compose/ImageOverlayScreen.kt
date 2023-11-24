@@ -5,7 +5,6 @@ import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.pager.HorizontalPager
@@ -21,12 +20,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
 import io.kamel.core.Resource
-import io.kamel.image.asyncPainterResource
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
-import me.saket.telephoto.zoomable.ZoomableContentLocation
-import me.saket.telephoto.zoomable.rememberZoomableState
-import me.saket.telephoto.zoomable.zoomable
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.OverlayRendering
 import sh.christian.ozone.ui.workflow.overlay
@@ -50,34 +45,22 @@ class ImageOverlayScreen(
 
     HorizontalPager(state = state) { page ->
       Box {
-        val zoomableState = rememberZoomableState()
-
-        val url = action.images[page].imageUrl
-        when (val resource = asyncPainterResource(url)) {
+        val imageUrl = action.images[page].imageUrl
+        when (val resource = urlImagePainter(imageUrl)) {
           is Resource.Failure,
           is Resource.Loading -> Unit
           is Resource.Success -> {
-            val painter = resource.value
-
-            Image(
-              modifier = Modifier
-                .fillMaxSize()
-                .zoomable(zoomableState),
-              painter = painter,
+            val zoomableImageHandle = ZoomableImage(
+              modifier = Modifier.fillMaxSize(),
+              painter = resource.value,
               contentDescription = action.images[page].alt,
               contentScale = ContentScale.Inside,
               alignment = Alignment.Center,
             )
 
-            LaunchedEffect(painter) {
-              zoomableState.setContentLocation(
-                ZoomableContentLocation.scaledInsideAndCenterAligned(painter.intrinsicSize)
-              )
-            }
-
             if (state.settledPage != page) {
               LaunchedEffect(Unit) {
-                zoomableState.resetZoom(withAnimation = false)
+                zoomableImageHandle.resetZoom()
               }
             }
           }

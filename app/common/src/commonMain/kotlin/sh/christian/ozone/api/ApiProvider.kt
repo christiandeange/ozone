@@ -1,7 +1,6 @@
 package sh.christian.ozone.api
 
 import io.ktor.client.HttpClient
-import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.DefaultRequest
 import io.ktor.client.plugins.logging.DEFAULT
 import io.ktor.client.plugins.logging.LogLevel
@@ -9,7 +8,6 @@ import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.http.Url
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -31,16 +29,16 @@ import sh.christian.ozone.login.auth.AuthInfo
 class ApiProvider(
   private val apiRepository: ServerRepository,
   private val loginRepository: LoginRepository,
-) : Supervisor {
+) : Supervisor() {
 
-  private val apiHost = MutableStateFlow(apiRepository.server!!.host)
-  private val auth = MutableStateFlow(loginRepository.auth)
-  private val tokens = MutableStateFlow(loginRepository.auth?.toTokens())
+  private val apiHost = MutableStateFlow<String?>(null)
+  private val auth = MutableStateFlow<AuthInfo?>(null)
+  private val tokens = MutableStateFlow<Tokens?>(null)
 
-  private val client = HttpClient(CIO) {
+  private val client = HttpClient(engine) {
     install(Logging) {
       logger = Logger.DEFAULT
-      level = LogLevel.INFO
+      level = LogLevel.NONE
     }
 
     install(XrpcAuthPlugin) {
@@ -48,7 +46,7 @@ class ApiProvider(
     }
 
     install(DefaultRequest) {
-      val hostUrl = Url(apiHost.value)
+      val hostUrl = Url(apiHost.value!!)
       url.protocol = hostUrl.protocol
       url.host = hostUrl.host
       url.port = hostUrl.port
@@ -61,13 +59,13 @@ class ApiProvider(
 
   override suspend fun CoroutineScope.onStart() {
     coroutineScope {
-      launch(Dispatchers.IO) {
+      launch(OzoneDispatchers.IO) {
         apiRepository.server().map { it.host }
           .distinctUntilChanged()
           .collect(apiHost)
       }
 
-      launch(Dispatchers.IO) {
+      launch(OzoneDispatchers.IO) {
         loginRepository.auth()
           .distinctUntilChanged()
           .collect {
@@ -77,12 +75,12 @@ class ApiProvider(
           }
       }
 
-      launch(Dispatchers.IO) {
+      launch(OzoneDispatchers.IO) {
         tokens.collect { tokens ->
           if (tokens != null) {
-            loginRepository.auth = loginRepository.auth().first()!!.withTokens(tokens)
+            loginRepository.setAuth(loginRepository.auth().first()!!.withTokens(tokens))
           } else {
-            loginRepository.auth = null
+            loginRepository.setAuth(null)
           }
         }
       }

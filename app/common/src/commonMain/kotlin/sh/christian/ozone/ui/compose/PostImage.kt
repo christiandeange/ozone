@@ -11,7 +11,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import io.kamel.core.Resource
-import io.kamel.image.asyncPainterResource
 
 @Composable
 fun PostImage(
@@ -22,7 +21,7 @@ fun PostImage(
   fallbackColor: Color = Color.Transparent,
 ) {
   if (imageUrl != null) {
-    when (val resource = asyncPainterResource(imageUrl)) {
+    when (val resource = urlImagePainter(imageUrl)) {
       is Resource.Failure,
       is Resource.Loading -> {
         EmptyPostImage(fallbackColor)

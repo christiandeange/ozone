@@ -17,6 +17,7 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import sh.christian.ozone.di.AppComponent
@@ -27,7 +28,6 @@ import sh.christian.ozone.ui.compose.initTypography
 import sh.christian.ozone.ui.workflow.WorkflowRendering
 import java.awt.Dimension
 
-
 fun main() = runBlocking {
   val storage = storage()
   val appPlacement = DesktopAppPlacement(storage)
@@ -36,13 +36,17 @@ fun main() = runBlocking {
 
   component.supervisors.forEach {
     with(it) {
-      launch(SupervisorJob()) { onStart() }
+      launch(SupervisorJob()) { start() }
     }
   }
 
   runBlocking {
     // Ensure that this is set up before we actually use it in the theme.
     initTypography()
+  }
+
+  val authInfo = runBlocking {
+    component.loginRepository.auth().first()
   }
 
   application {
@@ -80,7 +84,7 @@ fun main() = runBlocking {
         AppTheme {
           WorkflowRendering(
             workflow = workflow,
-            props = Unit,
+            props = authInfo,
             onOutput = { exitApplication() },
             content = { it.Content() },
           )

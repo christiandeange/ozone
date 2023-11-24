@@ -2,6 +2,7 @@ package sh.christian.ozone.user
 
 import sh.christian.ozone.api.Did
 import sh.christian.ozone.api.Handle
+import kotlin.jvm.JvmInline
 
 sealed interface UserReference
 

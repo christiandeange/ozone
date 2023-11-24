@@ -11,7 +11,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import io.kamel.core.Resource
-import io.kamel.image.asyncPainterResource
 
 @Composable
 fun BannerImage(
@@ -28,7 +27,7 @@ fun BannerImage(
       Modifier
     }
 
-    when (val resource = asyncPainterResource(imageUrl)) {
+    when (val resource = urlImagePainter(imageUrl)) {
       is Resource.Failure,
       is Resource.Loading -> {
         EmptyPostImage(fallbackColor)

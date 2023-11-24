@@ -3,6 +3,7 @@ package sh.christian.ozone.model
 import androidx.compose.runtime.Immutable
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
+import kotlin.jvm.JvmInline
 
 @Serializable
 @Immutable

@@ -7,6 +7,8 @@ import androidx.compose.ui.text.platform.Font
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.InputStream
+import java.util.stream.IntStream
+import kotlin.streams.toList
 
 actual suspend fun heroFont(): FontFamily {
   return FontFamily(
@@ -30,6 +32,14 @@ actual suspend fun appFont(): FontFamily {
       }
     }
   )
+}
+
+actual fun String.codepoints(): List<Int> {
+  return codePoints().toList()
+}
+
+actual fun String.codePointsCount(): Int {
+  return codePointCount(0, length)
 }
 
 private fun file(fileName: String): File {

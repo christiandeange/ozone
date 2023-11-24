@@ -20,6 +20,7 @@ kotlin {
         api(compose.material3)
         api(compose.runtime)
 
+        api(libs.kotlinx.serialization.core)
         api(libs.workflow.core)
         api(libs.workflow.runtime)
 
@@ -28,9 +29,8 @@ kotlin {
         implementation(libs.kamel)
         implementation(libs.kotlininject)
         implementation(libs.kotlinx.atomicfu)
-        implementation(libs.ktor.cio)
+        implementation(libs.kotlinx.coroutines)
         implementation(libs.ktor.logging)
-        implementation(libs.zoomable)
 
         api(project(":bluesky"))
         api(project(":app:store"))
@@ -44,17 +44,26 @@ kotlin {
 
       dependencies {
         implementation(libs.androidx.activity.compose)
+        implementation(libs.ktor.cio)
+        implementation(libs.zoomable)
       }
     }
     val desktopMain by getting {
       kotlin.srcDir("build/generated/ksp/desktop/desktopMain/kotlin")
-
-      sourceSets {
-        resources.srcDir("fonts")
-      }
+      resources.srcDir("fonts")
 
       dependencies {
         implementation(libs.apache.commons)
+        implementation(libs.ktor.cio)
+        implementation(libs.zoomable)
+      }
+    }
+    val jsMain by getting {
+      kotlin.srcDir("build/generated/ksp/js/jsMain/kotlin")
+      resources.srcDir("fonts")
+
+      dependencies {
+        implementation(libs.ktor.js)
       }
     }
   }
@@ -63,4 +72,5 @@ kotlin {
 dependencies {
   add("kspAndroid", libs.kotlininject.compiler)
   add("kspDesktop", libs.kotlininject.compiler)
+  add("kspJs", libs.kotlininject.compiler)
 }

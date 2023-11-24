@@ -21,7 +21,7 @@ import sh.christian.ozone.model.Timeline
 @SingleInApp
 class TimelineRepository(
   private val apiProvider: ApiProvider,
-): Supervisor {
+): Supervisor() {
   private val latest: MutableStateFlow<Timeline?> = MutableStateFlow(null)
   private val loadErrors: MutableSharedFlow<ErrorProps> = MutableSharedFlow()
 

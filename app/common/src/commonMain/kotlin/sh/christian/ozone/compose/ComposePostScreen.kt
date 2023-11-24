@@ -53,6 +53,7 @@ import sh.christian.ozone.model.TimelinePostLink
 import sh.christian.ozone.timeline.components.PostReplyLine
 import sh.christian.ozone.timeline.components.formatTextPost
 import sh.christian.ozone.ui.compose.AvatarImage
+import sh.christian.ozone.ui.compose.codePointsCount
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.compose.rememberSystemInsets
 import sh.christian.ozone.ui.workflow.ViewRendering
@@ -163,7 +164,7 @@ class ComposePostScreen(
             horizontalArrangement = spacedBy(16.dp, Alignment.End),
             verticalAlignment = Alignment.CenterVertically,
           ) {
-            val postByteCount = postText.text.codePointCount(0, postText.text.length)
+            val postByteCount = postText.text.codePointsCount()
             val unboundedProgress = postByteCount / postTextLimit.toFloat()
 
             Text(

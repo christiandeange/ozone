@@ -1,5 +1,7 @@
 package sh.christian.ozone.util
 
+import sh.christian.ozone.ui.compose.codepoints
+
 /**
  * Returns a mapping of byte offsets to character offsets.
  * Assumes that you are providing a valid UTF-8 string as input.
@@ -9,7 +11,7 @@ fun String.byteOffsets(): List<Int> {
   val string = this
   return buildList {
     var i = 0
-    string.codePoints().forEach { code ->
+    string.codepoints().forEach { code ->
       if (string[i].isLowSurrogate()) i++
 
       add(i)

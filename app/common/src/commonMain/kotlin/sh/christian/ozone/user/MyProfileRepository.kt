@@ -17,7 +17,7 @@ import sh.christian.ozone.model.FullProfile
 class MyProfileRepository(
   private val apiProvider: ApiProvider,
   private val userDatabase: UserDatabase,
-) : Supervisor {
+) : Supervisor() {
   private val profileFlow = MutableStateFlow<FullProfile?>(null)
 
   @OptIn(ExperimentalCoroutinesApi::class)

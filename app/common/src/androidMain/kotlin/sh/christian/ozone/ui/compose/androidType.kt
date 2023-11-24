@@ -5,6 +5,7 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import kotlin.streams.toList
 
 lateinit var fontsAssetManager: AssetManager
 
@@ -32,4 +33,12 @@ actual suspend fun appFont(): FontFamily {
       }
     }
   )
+}
+
+actual fun String.codepoints(): List<Int> {
+  return codePoints().toList()
+}
+
+actual fun String.codePointsCount(): Int {
+  return codePointCount(0, length)
 }
