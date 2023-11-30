@@ -7,7 +7,6 @@ import androidx.compose.ui.text.platform.Font
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.InputStream
-import java.util.stream.IntStream
 import kotlin.streams.toList
 
 actual suspend fun heroFont(): FontFamily {
