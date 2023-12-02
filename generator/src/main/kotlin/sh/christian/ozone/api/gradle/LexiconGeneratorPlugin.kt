@@ -53,6 +53,7 @@ private fun Project.applyPlugin() {
   }
 
   plugins.withId("org.jetbrains.kotlin.android", pluginConfiguration)
+  plugins.withId("org.jetbrains.kotlin.js", pluginConfiguration)
   plugins.withId("org.jetbrains.kotlin.jvm", pluginConfiguration)
   plugins.withId("org.jetbrains.kotlin.multiplatform", pluginConfiguration)
 }
