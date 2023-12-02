@@ -12,7 +12,6 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.yield
@@ -31,9 +30,9 @@ class ApiProvider(
   private val loginRepository: LoginRepository,
 ) : Supervisor() {
 
-  private val apiHost = MutableStateFlow<String?>(null)
-  private val auth = MutableStateFlow<AuthInfo?>(null)
-  private val tokens = MutableStateFlow<Tokens?>(null)
+  private val apiHost = MutableStateFlow(apiRepository.server.host)
+  private val auth = MutableStateFlow(loginRepository.auth)
+  private val tokens = MutableStateFlow(loginRepository.auth?.toTokens())
 
   private val client = HttpClient(engine) {
     install(Logging) {
@@ -46,7 +45,7 @@ class ApiProvider(
     }
 
     install(DefaultRequest) {
-      val hostUrl = Url(apiHost.value!!)
+      val hostUrl = Url(apiHost.value)
       url.protocol = hostUrl.protocol
       url.host = hostUrl.host
       url.port = hostUrl.port
@@ -60,15 +59,13 @@ class ApiProvider(
   override suspend fun CoroutineScope.onStart() {
     coroutineScope {
       launch(OzoneDispatchers.IO) {
-        apiRepository.server().map { it.host }
+        apiRepository.serverFlow().map { it.host }
           .distinctUntilChanged()
           .collect(apiHost)
       }
 
       launch(OzoneDispatchers.IO) {
-        loginRepository.auth()
-          .distinctUntilChanged()
-          .collect {
+        loginRepository.authFlow().collect {
             tokens.value = it?.toTokens()
             yield()
             auth.value = it
@@ -78,9 +75,9 @@ class ApiProvider(
       launch(OzoneDispatchers.IO) {
         tokens.collect { tokens ->
           if (tokens != null) {
-            loginRepository.setAuth(loginRepository.auth().first()!!.withTokens(tokens))
+            loginRepository.auth = loginRepository.auth?.withTokens(tokens)
           } else {
-            loginRepository.setAuth(null)
+            loginRepository.auth = null
           }
         }
       }

@@ -21,11 +21,4 @@ android {
     versionCode = 100
     versionName = version.toString()
   }
-
-  packaging {
-    resources {
-      excludes += "META-INF/AL2.0"
-      excludes += "META-INF/LGPL2.1"
-    }
-  }
 }

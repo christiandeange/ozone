@@ -13,6 +13,11 @@ android {
 }
 
 kotlin {
+  @Suppress("OPT_IN_USAGE")
+  compilerOptions {
+    freeCompilerArgs.add("-Xexpect-actual-classes")
+  }
+
   sourceSets {
     val commonMain by getting {
       dependencies {

@@ -14,7 +14,6 @@ import androidx.compose.ui.window.CanvasBasedWindow
 import kotlinx.browser.window
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.jetbrains.skiko.wasm.onWasmReady
 import sh.christian.ozone.di.AppComponent
@@ -40,8 +39,6 @@ suspend fun main() {
   // Ensure that this is set up before we actually use it in the theme.
   initTypography()
 
-  val authInfo = component.loginRepository.auth().first()
-
   onWasmReady {
     CanvasBasedWindow {
       val focusManager = LocalFocusManager.current
@@ -58,7 +55,6 @@ suspend fun main() {
         AppTheme {
           WorkflowRendering(
             workflow = workflow,
-            props = authInfo,
             onOutput = { window.close() },
             content = { it.Content() },
           )

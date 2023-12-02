@@ -9,6 +9,7 @@ import com.squareup.workflow1.runningWorker
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import me.tatarka.inject.annotations.Inject
+import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.app.AppState.ShowingLoggedIn
 import sh.christian.ozone.app.AppState.ShowingLogin
 import sh.christian.ozone.home.HomeOutput
@@ -18,7 +19,6 @@ import sh.christian.ozone.login.LoginOutput.CanceledLogin
 import sh.christian.ozone.login.LoginOutput.LoggedIn
 import sh.christian.ozone.login.LoginRepository
 import sh.christian.ozone.login.LoginWorkflow
-import sh.christian.ozone.login.auth.AuthInfo
 import sh.christian.ozone.notifications.NotificationsRepository
 
 @Inject
@@ -27,25 +27,27 @@ class AppWorkflow(
   private val loginWorkflow: LoginWorkflow,
   private val homeWorkflow: HomeWorkflow,
   private val notificationsRepository: NotificationsRepository,
-) : StatefulWorkflow<AuthInfo?, AppState, Unit, AppScreen>() {
+  private val apiProvider: ApiProvider,
+) : StatefulWorkflow<Unit, AppState, Unit, AppScreen>() {
   override fun initialState(
-    props: AuthInfo?,
+    props: Unit,
     snapshot: Snapshot?,
   ): AppState {
-    return if (props == null) {
+    val authInfo = loginRepository.auth
+    return if (authInfo == null) {
       ShowingLogin
     } else {
-      ShowingLoggedIn(HomeProps(props, 0))
+      ShowingLoggedIn(HomeProps(authInfo, 0))
     }
   }
 
   override fun render(
-    renderProps: AuthInfo?,
+    renderProps: Unit,
     renderState: AppState,
     context: RenderContext,
   ): AppScreen = when (renderState) {
     is ShowingLogin -> {
-      context.runningWorker(loginRepository.auth().filterNotNull().asWorker(), "has-auth") { auth ->
+      context.runningWorker(apiProvider.auth().filterNotNull().asWorker(), "has-auth") { auth ->
         action {
           state = ShowingLoggedIn(HomeProps(auth, 0))
         }
@@ -54,7 +56,7 @@ class AppWorkflow(
       context.renderChild(loginWorkflow) { output ->
         action {
           when (output) {
-            is LoggedIn -> loginRepository.setAuth(output.authInfo)
+            is LoggedIn -> loginRepository.auth = output.authInfo
             is CanceledLogin -> setOutput(Unit)
           }
         }
@@ -66,7 +68,7 @@ class AppWorkflow(
           state = ShowingLoggedIn(renderState.props.copy(unreadNotificationCount = unread))
         }
       }
-      context.runningWorker(loginRepository.auth().filter { it == null }.asWorker(), "no-auth") {
+      context.runningWorker(apiProvider.auth().filter { it == null }.asWorker(), "no-auth") {
         action {
           state = ShowingLogin
         }
@@ -76,7 +78,7 @@ class AppWorkflow(
         action {
           when (output) {
             is HomeOutput.CloseApp -> setOutput(Unit)
-            is HomeOutput.SignOut -> loginRepository.setAuth(null)
+            is HomeOutput.SignOut -> loginRepository.auth = null
           }
         }
       }

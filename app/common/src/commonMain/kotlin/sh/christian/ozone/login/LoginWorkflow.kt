@@ -5,9 +5,7 @@ import com.atproto.server.CreateSessionRequest
 import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.action
-import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
-import kotlinx.collections.immutable.persistentListOf
 import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.api.NetworkWorker
@@ -20,7 +18,6 @@ import sh.christian.ozone.error.ErrorWorkflow
 import sh.christian.ozone.error.toErrorProps
 import sh.christian.ozone.login.LoginOutput.CanceledLogin
 import sh.christian.ozone.login.LoginOutput.LoggedIn
-import sh.christian.ozone.login.LoginState.FetchingServer
 import sh.christian.ozone.login.LoginState.ShowingError
 import sh.christian.ozone.login.LoginState.ShowingLogin
 import sh.christian.ozone.login.LoginState.SigningIn
@@ -40,7 +37,7 @@ class LoginWorkflow(
   override fun initialState(
     props: Unit,
     snapshot: Snapshot?,
-  ): LoginState = FetchingServer(
+  ): LoginState = ShowingLogin(
     mode = LoginScreenMode.SIGN_IN,
     serverInfo = null,
   )
@@ -50,44 +47,22 @@ class LoginWorkflow(
     renderState: LoginState,
     context: RenderContext,
   ): AppScreen {
-    val currentServer = when (renderState) {
-      is FetchingServer -> null
-      is ShowingError -> renderState.server
-      is ShowingLogin -> renderState.server
-      is SigningIn -> renderState.server
-    }
-
-    if (currentServer != null) {
-      context.runningWorker(serverInfo(), "server-info-$currentServer") { response ->
-        action {
-          val maybeServerInfo = response.maybeResponse()
-          state = when (val currentState = state) {
-            is FetchingServer -> currentState.copy(serverInfo = maybeServerInfo)
-            is ShowingLogin -> currentState.copy(serverInfo = maybeServerInfo)
-            is SigningIn -> currentState.copy(serverInfo = maybeServerInfo)
-            is ShowingError -> currentState.copy(serverInfo = maybeServerInfo)
-          }
-        }
-      }
-    }
-
-    context.runningWorker(serverRepository.server().asWorker(), "current-server") { newServer ->
+    val server = serverRepository.server
+    context.runningWorker(serverInfo(), "server-info-${server}") { response ->
       action {
+        val maybeServerInfo = response.maybeResponse()
         state = when (val currentState = state) {
-          is FetchingServer -> ShowingLogin(state.mode, state.serverInfo, newServer)
-          is ShowingLogin -> currentState.copy(server = newServer)
-          is SigningIn -> currentState.copy(server = newServer)
-          is ShowingError -> currentState.copy(server = newServer)
+          is ShowingLogin -> currentState.copy(serverInfo = maybeServerInfo)
+          is SigningIn -> currentState.copy(serverInfo = maybeServerInfo)
+          is ShowingError -> currentState.copy(serverInfo = maybeServerInfo)
         }
       }
     }
+
+    val loginScreen = context.loginScreen(renderState.mode, server, renderState.serverInfo)
 
     return when (renderState) {
-      is FetchingServer -> {
-        AppScreen(mains = persistentListOf())
-      }
       is ShowingLogin -> {
-        val loginScreen = context.loginScreen(renderState.mode, renderState.server, renderState.serverInfo)
         AppScreen(main = loginScreen)
       }
       is SigningIn -> {
@@ -102,21 +77,17 @@ class LoginWorkflow(
                 val errorProps = result.toErrorProps(true)
                   ?: ErrorProps("Oops.", "Something bad happened.", false)
 
-                state = ShowingError(state.mode, state.serverInfo, renderState.server, errorProps, credentials)
+                state = ShowingError(state.mode, state.serverInfo, errorProps, credentials)
               }
             }
           }
         }
 
         AppScreen(
-          main = context.loginScreen(renderState.mode, renderState.server, renderState.serverInfo),
+          main = loginScreen,
           overlay = TextOverlayScreen(
             onDismiss = DismissHandler(context.eventHandler {
-              state = ShowingLogin(
-                mode = state.mode,
-                server = renderState.server,
-                serverInfo = state.serverInfo,
-              )
+              state = ShowingLogin(mode = state.mode, serverInfo = state.serverInfo)
             }),
             text = "Signing in as ${credentials.username}...",
           )
@@ -124,20 +95,15 @@ class LoginWorkflow(
       }
       is ShowingError -> {
         AppScreen(
-          main = context.loginScreen(renderState.mode, renderState.server, renderState.serverInfo),
+          main = loginScreen,
           overlay = context.renderChild(errorWorkflow, renderState.errorProps) { output ->
             action {
               state = when (output) {
                 ErrorOutput.Dismiss -> ShowingLogin(
-                  mode = state.mode,
-                  server = renderState.server,
-                  serverInfo = state.serverInfo,
+                  mode = state.mode, serverInfo = state.serverInfo
                 )
                 ErrorOutput.Retry -> SigningIn(
-                  mode = state.mode,
-                  serverInfo = state.serverInfo,
-                  server = renderState.server,
-                  credentials = renderState.credentials,
+                  state.mode, state.serverInfo, renderState.credentials
                 )
               }
             }
@@ -158,7 +124,6 @@ class LoginWorkflow(
       mode = mode,
       onChangeMode = eventHandler { newMode ->
         state = when (val currentState = state) {
-          is FetchingServer -> currentState.copy(mode = newMode)
           is ShowingError -> currentState.copy(mode = newMode)
           is ShowingLogin -> currentState.copy(mode = newMode)
           is SigningIn -> currentState.copy(mode = newMode)
@@ -167,13 +132,13 @@ class LoginWorkflow(
       server = server,
       serverInfo = serverInfo,
       onChangeServer = eventHandler { newServer ->
-        serverRepository.setServer(newServer)
+        serverRepository.server = newServer
       },
       onExit = eventHandler {
         setOutput(CanceledLogin)
       },
       onLogin = eventHandler { credentials ->
-        state = SigningIn(state.mode, state.serverInfo, server, credentials)
+        state = SigningIn(state.mode, state.serverInfo, credentials)
       },
     )
   }

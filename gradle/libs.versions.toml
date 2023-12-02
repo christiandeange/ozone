@@ -7,10 +7,10 @@ kotlinx-abi-plugin = "0.13.2"
 kotlinx-datetime = "0.5.0"
 kotlininject = "0.6.3"
 ksp = "1.9.21-1.0.15"
-kstore = "0.6.0"
 ktor = "2.3.6"
 maven-publish = "0.25.3"
 moshi = "1.15.0"
+multiplatform-settings = "1.1.1"
 serialization = "1.6.2"
 workflow = "1.12.1-beta04"
 
@@ -23,11 +23,9 @@ androidx-core = { module = "androidx.core:core-ktx", version = "1.12.0" }
 androidx-icons-extended = { module = "androidx.compose.material:material-icons-extended", version = "1.5.4" }
 retainedactivity = { module = "dev.marcellogalhardo:retained-activity", version = "1.0.1" }
 
-appdirs = { module = "ca.gosyer:kotlin-multiplatform-appdirs", version = "1.1.1" }
 kamel = { module = "media.kamel:kamel-image", version = "0.8.2" }
-kstore = { module = "io.github.xxfast:kstore", version.ref = "kstore" }
-kstore-file = { module = "io.github.xxfast:kstore-file", version.ref = "kstore" }
-kstore-storage = { module = "io.github.xxfast:kstore-storage", version.ref = "kstore" }
+multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatform-settings" }
+multiplatform-settings-serialization = { module = "com.russhwolf:multiplatform-settings-serialization", version.ref = "multiplatform-settings" }
 zoomable = { module = "me.saket.telephoto:zoomable", version = "0.6.2" }
 
 apache-commons = { module = "org.apache.commons:commons-lang3", version = "3.13.0" }

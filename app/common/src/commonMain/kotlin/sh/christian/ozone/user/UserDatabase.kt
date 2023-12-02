@@ -17,7 +17,7 @@ import sh.christian.ozone.di.SingleInApp
 import sh.christian.ozone.model.FullProfile
 import sh.christian.ozone.model.toProfile
 import sh.christian.ozone.store.PersistentStorage
-import sh.christian.ozone.store.preference
+import sh.christian.ozone.store.nullablePreference
 import kotlin.time.Duration.Companion.minutes
 
 @Inject
@@ -36,7 +36,7 @@ class UserDatabase(
       is UserDid -> "did:${userReference.did}"
       is UserHandle -> "handle:${userReference.handle}"
     }
-    val preference = storage.preference<CacheObject>(key, null)
+    val preference = storage.nullablePreference<CacheObject>(key, null)
 
     val cached = preference.get()
     if (cached != null && cached.isFresh()) {
@@ -54,8 +54,8 @@ class UserDatabase(
         ?.let { response ->
           val profile = response.toProfile()
           val newCacheObject = CacheObject(clock.now(), profile)
-          storage.preference<CacheObject>("did:${profile.did}", null).set(newCacheObject)
-          storage.preference<CacheObject>("handle:${profile.handle}", null).set(newCacheObject)
+          storage.nullablePreference<CacheObject>("did:${profile.did}", null).set(newCacheObject)
+          storage.nullablePreference<CacheObject>("handle:${profile.handle}", null).set(newCacheObject)
           profile
         }
     emit(profileOrNull)

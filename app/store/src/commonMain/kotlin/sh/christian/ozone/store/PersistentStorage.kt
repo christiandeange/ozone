@@ -1,20 +1,31 @@
 package sh.christian.ozone.store
 
-import io.github.xxfast.kstore.KStore
-import kotlinx.serialization.Serializable
 import kotlin.reflect.KClass
 
 interface PersistentStorage {
-  fun <T : @Serializable Any> preference(
+  fun <T : Any> preference(
+    key: String,
+    defaultValue: T,
+    clazz: KClass<T>,
+  ): Preference<T>
+
+  fun <T : Any> nullablePreference(
     key: String,
     defaultValue: T?,
     clazz: KClass<T>,
-  ): KStore<T>
+  ): Preference<T?>
 }
 
-inline fun <reified T : @Serializable Any> PersistentStorage.preference(
+inline fun <reified T : Any> PersistentStorage.preference(
+  key: String,
+  defaultValue: T,
+): Preference<T> {
+  return preference(key, defaultValue, T::class)
+}
+
+inline fun <reified T : Any> PersistentStorage.nullablePreference(
   key: String,
   defaultValue: T?,
-): KStore<T> {
-  return preference(key, defaultValue, T::class)
+): Preference<T?> {
+  return nullablePreference(key, defaultValue, T::class)
 }

@@ -11,7 +11,6 @@ import androidx.compose.ui.window.WindowPosition
 import androidx.compose.ui.window.WindowPosition.Absolute
 import androidx.compose.ui.window.WindowPosition.Aligned
 import androidx.compose.ui.window.WindowPosition.PlatformDefault
-import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.Serializable
 import sh.christian.ozone.store.PersistentStorage
 import sh.christian.ozone.store.preference
@@ -23,15 +22,15 @@ class DesktopAppPlacement(
   private val positionPreference = storage.preference("window-position", DEFAULT_POSITION)
 
   var size: DpSize
-    get() = runBlocking { sizePreference.get()!!.toDpSize() }
+    get() = sizePreference.get().toDpSize()
     set(value) {
-      runBlocking { sizePreference.set(WindowSize(value)) }
+      sizePreference.set(WindowSize(value))
     }
 
   var position: WindowPosition
-    get() = runBlocking { positionPreference.get()!!.toWindowPosition() }
+    get() = positionPreference.get().toWindowPosition()
     set(value) {
-      runBlocking { positionPreference.set(WindowZone(value)) }
+      positionPreference.set(WindowZone(value))
     }
 
   private companion object {

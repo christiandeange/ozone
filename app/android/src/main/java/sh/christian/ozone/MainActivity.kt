@@ -8,7 +8,6 @@ import androidx.core.view.WindowCompat
 import androidx.lifecycle.lifecycleScope
 import dev.marcellogalhardo.retained.activity.retain
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import sh.christian.ozone.di.AppComponent
@@ -32,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     appComponent.supervisors.forEach { supervisor ->
       with(supervisor) {
-        lifecycleScope.launch(SupervisorJob()) { onStart() }
+        lifecycleScope.launch(SupervisorJob()) { start() }
       }
     }
 
@@ -42,16 +41,11 @@ class MainActivity : AppCompatActivity() {
       initTypography()
     }
 
-    val authInfo = runBlocking {
-      appComponent.loginRepository.auth().first()
-    }
-
     setContent {
       AppTheme {
         StatusBarTheme()
         WorkflowRendering(
           workflow = workflow,
-          props = authInfo,
           onOutput = { finish() },
           content = { it.Content() },
         )
