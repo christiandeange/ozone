@@ -31,11 +31,6 @@ lexicons {
     withKtorImplementation("XrpcBlueskyApi")
     returnType.set(ApiReturnType.Response)
   }
-  generateApi("BlueskyApi2") {
-    withKtorImplementation("XrpcBlueskyApi2")
-    returnType.set(ApiReturnType.Raw)
-    suspending.set(false)
-  }
 }
 
 tasks.apiDump.dependsOn(tasks.assemble)

@@ -12,6 +12,7 @@ import org.gradle.kotlin.dsl.register
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinSingleTargetExtension
 import org.jetbrains.kotlin.gradle.dsl.kotlinExtension
+import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
 import org.jetbrains.kotlin.gradle.plugin.KotlinTarget
 import sh.christian.ozone.buildconfig.Dependencies
 
@@ -59,8 +60,16 @@ private fun Project.applyPlugin() {
 private fun KotlinTarget.applyConfiguration(
   extension: LexiconGeneratorExtension,
   sourceSetName: String,
-  compileTaskDependency: TaskProvider<*>,
+  compileTaskDependency: TaskProvider<LexiconGeneratorTask>,
 ) {
+  compileTaskDependency.configure {
+    if (platformType == KotlinPlatformType.js) {
+      if (apiConfigurations.get().any { !it.suspending }) {
+        error("Cannot generate non-suspending methods for JS targets.")
+      }
+    }
+  }
+
   project.plugins.apply("org.jetbrains.kotlin.plugin.serialization")
 
   project.kotlinExtension.sourceSets.all {
