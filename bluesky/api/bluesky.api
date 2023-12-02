@@ -3248,19 +3248,17 @@ public final class app/bsky/feed/SkeletonReasonRepost$Companion {
 
 public final class app/bsky/feed/ThreadViewPost {
 	public static final field Companion Lapp/bsky/feed/ThreadViewPost$Companion;
-	public fun <init> (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ThreadViewPostParentUnion;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/feed/ViewerThreadState;)V
-	public synthetic fun <init> (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ThreadViewPostParentUnion;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/feed/ViewerThreadState;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ThreadViewPostParentUnion;Lkotlinx/collections/immutable/ImmutableList;)V
+	public synthetic fun <init> (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ThreadViewPostParentUnion;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lapp/bsky/feed/PostView;
 	public final fun component2 ()Lapp/bsky/feed/ThreadViewPostParentUnion;
 	public final fun component3 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component4 ()Lapp/bsky/feed/ViewerThreadState;
-	public final fun copy (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ThreadViewPostParentUnion;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/feed/ViewerThreadState;)Lapp/bsky/feed/ThreadViewPost;
-	public static synthetic fun copy$default (Lapp/bsky/feed/ThreadViewPost;Lapp/bsky/feed/PostView;Lapp/bsky/feed/ThreadViewPostParentUnion;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/feed/ViewerThreadState;ILjava/lang/Object;)Lapp/bsky/feed/ThreadViewPost;
+	public final fun copy (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ThreadViewPostParentUnion;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/feed/ThreadViewPost;
+	public static synthetic fun copy$default (Lapp/bsky/feed/ThreadViewPost;Lapp/bsky/feed/PostView;Lapp/bsky/feed/ThreadViewPostParentUnion;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/feed/ThreadViewPost;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getParent ()Lapp/bsky/feed/ThreadViewPostParentUnion;
 	public final fun getPost ()Lapp/bsky/feed/PostView;
 	public final fun getReplies ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun getViewer ()Lapp/bsky/feed/ViewerThreadState;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 	public static final synthetic fun write$Self (Lapp/bsky/feed/ThreadViewPost;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
@@ -3621,14 +3619,16 @@ public final class app/bsky/feed/ThreadgateView$Companion {
 
 public final class app/bsky/feed/ViewerState {
 	public static final field Companion Lapp/bsky/feed/ViewerState$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-W3xQKsw ()Ljava/lang/String;
 	public final fun component2-W3xQKsw ()Ljava/lang/String;
-	public final fun copy-CmbVH14 (Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/feed/ViewerState;
-	public static synthetic fun copy-CmbVH14$default (Lapp/bsky/feed/ViewerState;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/ViewerState;
+	public final fun component3 ()Ljava/lang/Boolean;
+	public final fun copy-GpdQMtM (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)Lapp/bsky/feed/ViewerState;
+	public static synthetic fun copy-GpdQMtM$default (Lapp/bsky/feed/ViewerState;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/feed/ViewerState;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getLike-W3xQKsw ()Ljava/lang/String;
+	public final fun getReplyDisabled ()Ljava/lang/Boolean;
 	public final fun getRepost-W3xQKsw ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -3636,25 +3636,6 @@ public final class app/bsky/feed/ViewerState {
 }
 
 public final class app/bsky/feed/ViewerState$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class app/bsky/feed/ViewerThreadState {
-	public static final field Companion Lapp/bsky/feed/ViewerThreadState$Companion;
-	public fun <init> ()V
-	public fun <init> (Ljava/lang/Boolean;)V
-	public synthetic fun <init> (Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Ljava/lang/Boolean;
-	public final fun copy (Ljava/lang/Boolean;)Lapp/bsky/feed/ViewerThreadState;
-	public static synthetic fun copy$default (Lapp/bsky/feed/ViewerThreadState;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/feed/ViewerThreadState;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getCanReply ()Ljava/lang/Boolean;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/ViewerThreadState;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
-}
-
-public final class app/bsky/feed/ViewerThreadState$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -4109,12 +4090,14 @@ public final class app/bsky/graph/List$Companion {
 
 public final class app/bsky/graph/ListItemView {
 	public static final field Companion Lapp/bsky/graph/ListItemView$Companion;
-	public fun <init> (Lapp/bsky/actor/ProfileView;)V
-	public final fun component1 ()Lapp/bsky/actor/ProfileView;
-	public final fun copy (Lapp/bsky/actor/ProfileView;)Lapp/bsky/graph/ListItemView;
-	public static synthetic fun copy$default (Lapp/bsky/graph/ListItemView;Lapp/bsky/actor/ProfileView;ILjava/lang/Object;)Lapp/bsky/graph/ListItemView;
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/actor/ProfileView;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2 ()Lapp/bsky/actor/ProfileView;
+	public final fun copy-wMvghHc (Ljava/lang/String;Lapp/bsky/actor/ProfileView;)Lapp/bsky/graph/ListItemView;
+	public static synthetic fun copy-wMvghHc$default (Lapp/bsky/graph/ListItemView;Ljava/lang/String;Lapp/bsky/actor/ProfileView;ILjava/lang/Object;)Lapp/bsky/graph/ListItemView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getSubject ()Lapp/bsky/actor/ProfileView;
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 	public static final synthetic fun write$Self (Lapp/bsky/graph/ListItemView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
@@ -5009,313 +4992,6 @@ public final class com/atproto/admin/AccountView$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/admin/ActionReversal {
-	public static final field Companion Lcom/atproto/admin/ActionReversal$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun component2-715Ygxc ()Ljava/lang/String;
-	public final fun component3 ()Lkotlinx/datetime/Instant;
-	public final fun copy-BOQ1QvE (Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;)Lcom/atproto/admin/ActionReversal;
-	public static synthetic fun copy-BOQ1QvE$default (Lcom/atproto/admin/ActionReversal;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lcom/atproto/admin/ActionReversal;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
-	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
-	public final fun getReason ()Ljava/lang/String;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ActionReversal;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
-}
-
-public final class com/atproto/admin/ActionReversal$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/admin/ActionView {
-	public static final field Companion Lcom/atproto/admin/ActionView$Companion;
-	public synthetic fun <init> (JLcom/atproto/admin/Token;Ljava/lang/Long;Lcom/atproto/admin/ActionViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/admin/ActionReversal;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JLcom/atproto/admin/Token;Ljava/lang/Long;Lcom/atproto/admin/ActionViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/admin/ActionReversal;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()J
-	public final fun component10 ()Lkotlinx/datetime/Instant;
-	public final fun component11 ()Lcom/atproto/admin/ActionReversal;
-	public final fun component12 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component2 ()Lcom/atproto/admin/Token;
-	public final fun component3 ()Ljava/lang/Long;
-	public final fun component4 ()Lcom/atproto/admin/ActionViewSubjectUnion;
-	public final fun component5 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component6 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component7 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component8 ()Ljava/lang/String;
-	public final fun component9-715Ygxc ()Ljava/lang/String;
-	public final fun copy-6bsa6Kc (JLcom/atproto/admin/Token;Ljava/lang/Long;Lcom/atproto/admin/ActionViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/admin/ActionReversal;Lkotlinx/collections/immutable/ImmutableList;)Lcom/atproto/admin/ActionView;
-	public static synthetic fun copy-6bsa6Kc$default (Lcom/atproto/admin/ActionView;JLcom/atproto/admin/Token;Ljava/lang/Long;Lcom/atproto/admin/ActionViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/admin/ActionReversal;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lcom/atproto/admin/ActionView;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAction ()Lcom/atproto/admin/Token;
-	public final fun getCreateLabelVals ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
-	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
-	public final fun getDurationInHours ()Ljava/lang/Long;
-	public final fun getId ()J
-	public final fun getNegateLabelVals ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun getReason ()Ljava/lang/String;
-	public final fun getResolvedReportIds ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun getReversal ()Lcom/atproto/admin/ActionReversal;
-	public final fun getSubject ()Lcom/atproto/admin/ActionViewSubjectUnion;
-	public final fun getSubjectBlobCids ()Lkotlinx/collections/immutable/ImmutableList;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ActionView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
-}
-
-public final class com/atproto/admin/ActionView$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/admin/ActionViewCurrent {
-	public static final field Companion Lcom/atproto/admin/ActionViewCurrent$Companion;
-	public fun <init> (JLcom/atproto/admin/Token;Ljava/lang/Long;)V
-	public synthetic fun <init> (JLcom/atproto/admin/Token;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()J
-	public final fun component2 ()Lcom/atproto/admin/Token;
-	public final fun component3 ()Ljava/lang/Long;
-	public final fun copy (JLcom/atproto/admin/Token;Ljava/lang/Long;)Lcom/atproto/admin/ActionViewCurrent;
-	public static synthetic fun copy$default (Lcom/atproto/admin/ActionViewCurrent;JLcom/atproto/admin/Token;Ljava/lang/Long;ILjava/lang/Object;)Lcom/atproto/admin/ActionViewCurrent;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAction ()Lcom/atproto/admin/Token;
-	public final fun getDurationInHours ()Ljava/lang/Long;
-	public final fun getId ()J
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ActionViewCurrent;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
-}
-
-public final class com/atproto/admin/ActionViewCurrent$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/admin/ActionViewDetail {
-	public static final field Companion Lcom/atproto/admin/ActionViewDetail$Companion;
-	public synthetic fun <init> (JLcom/atproto/admin/Token;Ljava/lang/Long;Lcom/atproto/admin/ActionViewDetailSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/admin/ActionReversal;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JLcom/atproto/admin/Token;Ljava/lang/Long;Lcom/atproto/admin/ActionViewDetailSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/admin/ActionReversal;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()J
-	public final fun component10 ()Lkotlinx/datetime/Instant;
-	public final fun component11 ()Lcom/atproto/admin/ActionReversal;
-	public final fun component12 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component2 ()Lcom/atproto/admin/Token;
-	public final fun component3 ()Ljava/lang/Long;
-	public final fun component4 ()Lcom/atproto/admin/ActionViewDetailSubjectUnion;
-	public final fun component5 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component6 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component7 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component8 ()Ljava/lang/String;
-	public final fun component9-715Ygxc ()Ljava/lang/String;
-	public final fun copy-6bsa6Kc (JLcom/atproto/admin/Token;Ljava/lang/Long;Lcom/atproto/admin/ActionViewDetailSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/admin/ActionReversal;Lkotlinx/collections/immutable/ImmutableList;)Lcom/atproto/admin/ActionViewDetail;
-	public static synthetic fun copy-6bsa6Kc$default (Lcom/atproto/admin/ActionViewDetail;JLcom/atproto/admin/Token;Ljava/lang/Long;Lcom/atproto/admin/ActionViewDetailSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/admin/ActionReversal;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lcom/atproto/admin/ActionViewDetail;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAction ()Lcom/atproto/admin/Token;
-	public final fun getCreateLabelVals ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
-	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
-	public final fun getDurationInHours ()Ljava/lang/Long;
-	public final fun getId ()J
-	public final fun getNegateLabelVals ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun getReason ()Ljava/lang/String;
-	public final fun getResolvedReports ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun getReversal ()Lcom/atproto/admin/ActionReversal;
-	public final fun getSubject ()Lcom/atproto/admin/ActionViewDetailSubjectUnion;
-	public final fun getSubjectBlobs ()Lkotlinx/collections/immutable/ImmutableList;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ActionViewDetail;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
-}
-
-public final class com/atproto/admin/ActionViewDetail$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public abstract interface class com/atproto/admin/ActionViewDetailSubjectUnion {
-	public static final field Companion Lcom/atproto/admin/ActionViewDetailSubjectUnion$Companion;
-}
-
-public final class com/atproto/admin/ActionViewDetailSubjectUnion$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/admin/ActionViewDetailSubjectUnion$RecordView : com/atproto/admin/ActionViewDetailSubjectUnion {
-	public static final field Companion Lcom/atproto/admin/ActionViewDetailSubjectUnion$RecordView$Companion;
-	public static final synthetic fun box-impl (Lcom/atproto/admin/RecordView;)Lcom/atproto/admin/ActionViewDetailSubjectUnion$RecordView;
-	public static fun constructor-impl (Lcom/atproto/admin/RecordView;)Lcom/atproto/admin/RecordView;
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lcom/atproto/admin/RecordView;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lcom/atproto/admin/RecordView;Lcom/atproto/admin/RecordView;)Z
-	public final fun getValue ()Lcom/atproto/admin/RecordView;
-	public fun hashCode ()I
-	public static fun hashCode-impl (Lcom/atproto/admin/RecordView;)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lcom/atproto/admin/RecordView;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lcom/atproto/admin/RecordView;
-}
-
-public final class com/atproto/admin/ActionViewDetailSubjectUnion$RecordView$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/admin/ActionViewDetailSubjectUnion$RecordViewNotFound : com/atproto/admin/ActionViewDetailSubjectUnion {
-	public static final field Companion Lcom/atproto/admin/ActionViewDetailSubjectUnion$RecordViewNotFound$Companion;
-	public static final synthetic fun box-impl (Lcom/atproto/admin/RecordViewNotFound;)Lcom/atproto/admin/ActionViewDetailSubjectUnion$RecordViewNotFound;
-	public static fun constructor-impl (Lcom/atproto/admin/RecordViewNotFound;)Lcom/atproto/admin/RecordViewNotFound;
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lcom/atproto/admin/RecordViewNotFound;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lcom/atproto/admin/RecordViewNotFound;Lcom/atproto/admin/RecordViewNotFound;)Z
-	public final fun getValue ()Lcom/atproto/admin/RecordViewNotFound;
-	public fun hashCode ()I
-	public static fun hashCode-impl (Lcom/atproto/admin/RecordViewNotFound;)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lcom/atproto/admin/RecordViewNotFound;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lcom/atproto/admin/RecordViewNotFound;
-}
-
-public final class com/atproto/admin/ActionViewDetailSubjectUnion$RecordViewNotFound$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/admin/ActionViewDetailSubjectUnion$RecordViewNotFoundSerializer : kotlinx/serialization/KSerializer {
-	public fun <init> ()V
-	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public fun deserialize-vSabTJQ (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/RecordViewNotFound;
-	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
-	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun serialize-saTIqWI (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/RecordViewNotFound;)V
-}
-
-public final class com/atproto/admin/ActionViewDetailSubjectUnion$RecordViewSerializer : kotlinx/serialization/KSerializer {
-	public fun <init> ()V
-	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public fun deserialize-1jT7tYg (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/RecordView;
-	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
-	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun serialize-7NUdsY4 (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/RecordView;)V
-}
-
-public final class com/atproto/admin/ActionViewDetailSubjectUnion$RepoView : com/atproto/admin/ActionViewDetailSubjectUnion {
-	public static final field Companion Lcom/atproto/admin/ActionViewDetailSubjectUnion$RepoView$Companion;
-	public static final synthetic fun box-impl (Lcom/atproto/admin/RepoView;)Lcom/atproto/admin/ActionViewDetailSubjectUnion$RepoView;
-	public static fun constructor-impl (Lcom/atproto/admin/RepoView;)Lcom/atproto/admin/RepoView;
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lcom/atproto/admin/RepoView;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lcom/atproto/admin/RepoView;Lcom/atproto/admin/RepoView;)Z
-	public final fun getValue ()Lcom/atproto/admin/RepoView;
-	public fun hashCode ()I
-	public static fun hashCode-impl (Lcom/atproto/admin/RepoView;)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lcom/atproto/admin/RepoView;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lcom/atproto/admin/RepoView;
-}
-
-public final class com/atproto/admin/ActionViewDetailSubjectUnion$RepoView$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/admin/ActionViewDetailSubjectUnion$RepoViewNotFound : com/atproto/admin/ActionViewDetailSubjectUnion {
-	public static final field Companion Lcom/atproto/admin/ActionViewDetailSubjectUnion$RepoViewNotFound$Companion;
-	public static final synthetic fun box-impl (Lcom/atproto/admin/RepoViewNotFound;)Lcom/atproto/admin/ActionViewDetailSubjectUnion$RepoViewNotFound;
-	public static fun constructor-impl (Lcom/atproto/admin/RepoViewNotFound;)Lcom/atproto/admin/RepoViewNotFound;
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lcom/atproto/admin/RepoViewNotFound;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lcom/atproto/admin/RepoViewNotFound;Lcom/atproto/admin/RepoViewNotFound;)Z
-	public final fun getValue ()Lcom/atproto/admin/RepoViewNotFound;
-	public fun hashCode ()I
-	public static fun hashCode-impl (Lcom/atproto/admin/RepoViewNotFound;)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lcom/atproto/admin/RepoViewNotFound;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lcom/atproto/admin/RepoViewNotFound;
-}
-
-public final class com/atproto/admin/ActionViewDetailSubjectUnion$RepoViewNotFound$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/admin/ActionViewDetailSubjectUnion$RepoViewNotFoundSerializer : kotlinx/serialization/KSerializer {
-	public fun <init> ()V
-	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public fun deserialize-9B7N8EQ (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/RepoViewNotFound;
-	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
-	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun serialize-7wL1uvg (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/RepoViewNotFound;)V
-}
-
-public final class com/atproto/admin/ActionViewDetailSubjectUnion$RepoViewSerializer : kotlinx/serialization/KSerializer {
-	public fun <init> ()V
-	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public fun deserialize-mjZHy1s (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/RepoView;
-	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
-	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun serialize-ENUtdi0 (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/RepoView;)V
-}
-
-public abstract interface class com/atproto/admin/ActionViewSubjectUnion {
-	public static final field Companion Lcom/atproto/admin/ActionViewSubjectUnion$Companion;
-}
-
-public final class com/atproto/admin/ActionViewSubjectUnion$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/admin/ActionViewSubjectUnion$RepoRef : com/atproto/admin/ActionViewSubjectUnion {
-	public static final field Companion Lcom/atproto/admin/ActionViewSubjectUnion$RepoRef$Companion;
-	public static final synthetic fun box-impl (Lcom/atproto/admin/RepoRef;)Lcom/atproto/admin/ActionViewSubjectUnion$RepoRef;
-	public static fun constructor-impl (Lcom/atproto/admin/RepoRef;)Lcom/atproto/admin/RepoRef;
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lcom/atproto/admin/RepoRef;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lcom/atproto/admin/RepoRef;Lcom/atproto/admin/RepoRef;)Z
-	public final fun getValue ()Lcom/atproto/admin/RepoRef;
-	public fun hashCode ()I
-	public static fun hashCode-impl (Lcom/atproto/admin/RepoRef;)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lcom/atproto/admin/RepoRef;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lcom/atproto/admin/RepoRef;
-}
-
-public final class com/atproto/admin/ActionViewSubjectUnion$RepoRef$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/admin/ActionViewSubjectUnion$RepoRefSerializer : kotlinx/serialization/KSerializer {
-	public fun <init> ()V
-	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public fun deserialize-NZfioU4 (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/RepoRef;
-	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
-	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun serialize-D_Rr-tM (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/RepoRef;)V
-}
-
-public final class com/atproto/admin/ActionViewSubjectUnion$RepoStrongRef : com/atproto/admin/ActionViewSubjectUnion {
-	public static final field Companion Lcom/atproto/admin/ActionViewSubjectUnion$RepoStrongRef$Companion;
-	public static final synthetic fun box-impl (Lcom/atproto/repo/StrongRef;)Lcom/atproto/admin/ActionViewSubjectUnion$RepoStrongRef;
-	public static fun constructor-impl (Lcom/atproto/repo/StrongRef;)Lcom/atproto/repo/StrongRef;
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lcom/atproto/repo/StrongRef;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lcom/atproto/repo/StrongRef;Lcom/atproto/repo/StrongRef;)Z
-	public final fun getValue ()Lcom/atproto/repo/StrongRef;
-	public fun hashCode ()I
-	public static fun hashCode-impl (Lcom/atproto/repo/StrongRef;)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lcom/atproto/repo/StrongRef;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lcom/atproto/repo/StrongRef;
-}
-
-public final class com/atproto/admin/ActionViewSubjectUnion$RepoStrongRef$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/admin/ActionViewSubjectUnion$RepoStrongRefSerializer : kotlinx/serialization/KSerializer {
-	public fun <init> ()V
-	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public fun deserialize-PJtnurg (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/repo/StrongRef;
-	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
-	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun serialize-3Ph0ZR8 (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
-}
-
 public final class com/atproto/admin/BlobView {
 	public static final field Companion Lcom/atproto/admin/BlobView$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;JLkotlinx/datetime/Instant;Lcom/atproto/admin/BlobViewDetailsUnion;Lcom/atproto/admin/Moderation;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -5449,6 +5125,382 @@ public final class com/atproto/admin/DisableInviteCodesRequest$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/atproto/admin/EmitModerationEventRequest {
+	public static final field Companion Lcom/atproto/admin/EmitModerationEventRequest$Companion;
+	public synthetic fun <init> (Lcom/atproto/admin/EmitModerationEventRequestEventUnion;Lcom/atproto/admin/EmitModerationEventRequestSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lcom/atproto/admin/EmitModerationEventRequestEventUnion;Lcom/atproto/admin/EmitModerationEventRequestSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/atproto/admin/EmitModerationEventRequestEventUnion;
+	public final fun component2 ()Lcom/atproto/admin/EmitModerationEventRequestSubjectUnion;
+	public final fun component3 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component4-715Ygxc ()Ljava/lang/String;
+	public final fun copy-TCiwxGw (Lcom/atproto/admin/EmitModerationEventRequestEventUnion;Lcom/atproto/admin/EmitModerationEventRequestSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;)Lcom/atproto/admin/EmitModerationEventRequest;
+	public static synthetic fun copy-TCiwxGw$default (Lcom/atproto/admin/EmitModerationEventRequest;Lcom/atproto/admin/EmitModerationEventRequestEventUnion;Lcom/atproto/admin/EmitModerationEventRequestSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/EmitModerationEventRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
+	public final fun getEvent ()Lcom/atproto/admin/EmitModerationEventRequestEventUnion;
+	public final fun getSubject ()Lcom/atproto/admin/EmitModerationEventRequestSubjectUnion;
+	public final fun getSubjectBlobCids ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/admin/EmitModerationEventRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/admin/EmitModerationEventRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class com/atproto/admin/EmitModerationEventRequestEventUnion {
+	public static final field Companion Lcom/atproto/admin/EmitModerationEventRequestEventUnion$Companion;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$Acknowledge : com/atproto/admin/EmitModerationEventRequestEventUnion {
+	public static final field Companion Lcom/atproto/admin/EmitModerationEventRequestEventUnion$Acknowledge$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventAcknowledge;)Lcom/atproto/admin/EmitModerationEventRequestEventUnion$Acknowledge;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventAcknowledge;)Lcom/atproto/admin/ModEventAcknowledge;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventAcknowledge;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventAcknowledge;Lcom/atproto/admin/ModEventAcknowledge;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventAcknowledge;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventAcknowledge;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventAcknowledge;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventAcknowledge;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$Acknowledge$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$AcknowledgeSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-JXizm8I (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventAcknowledge;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-YmyRaX8 (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventAcknowledge;)V
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$Comment : com/atproto/admin/EmitModerationEventRequestEventUnion {
+	public static final field Companion Lcom/atproto/admin/EmitModerationEventRequestEventUnion$Comment$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventComment;)Lcom/atproto/admin/EmitModerationEventRequestEventUnion$Comment;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventComment;)Lcom/atproto/admin/ModEventComment;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventComment;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventComment;Lcom/atproto/admin/ModEventComment;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventComment;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventComment;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventComment;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventComment;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$Comment$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$CommentSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-C0P4wF4 (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventComment;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-n2TStuE (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventComment;)V
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$Email : com/atproto/admin/EmitModerationEventRequestEventUnion {
+	public static final field Companion Lcom/atproto/admin/EmitModerationEventRequestEventUnion$Email$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventEmail;)Lcom/atproto/admin/EmitModerationEventRequestEventUnion$Email;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventEmail;)Lcom/atproto/admin/ModEventEmail;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventEmail;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventEmail;Lcom/atproto/admin/ModEventEmail;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventEmail;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventEmail;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventEmail;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventEmail;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$Email$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$EmailSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-ofgh_ZE (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventEmail;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-IQY4NNA (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventEmail;)V
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$Escalate : com/atproto/admin/EmitModerationEventRequestEventUnion {
+	public static final field Companion Lcom/atproto/admin/EmitModerationEventRequestEventUnion$Escalate$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventEscalate;)Lcom/atproto/admin/EmitModerationEventRequestEventUnion$Escalate;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventEscalate;)Lcom/atproto/admin/ModEventEscalate;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventEscalate;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventEscalate;Lcom/atproto/admin/ModEventEscalate;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventEscalate;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventEscalate;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventEscalate;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventEscalate;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$Escalate$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$EscalateSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-uQ4eoQ4 (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventEscalate;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-D0C_lq0 (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventEscalate;)V
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$Label : com/atproto/admin/EmitModerationEventRequestEventUnion {
+	public static final field Companion Lcom/atproto/admin/EmitModerationEventRequestEventUnion$Label$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventLabel;)Lcom/atproto/admin/EmitModerationEventRequestEventUnion$Label;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventLabel;)Lcom/atproto/admin/ModEventLabel;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventLabel;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventLabel;Lcom/atproto/admin/ModEventLabel;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventLabel;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventLabel;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventLabel;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventLabel;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$Label$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$LabelSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-egTPViw (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventLabel;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-0GywBFA (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventLabel;)V
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$Mute : com/atproto/admin/EmitModerationEventRequestEventUnion {
+	public static final field Companion Lcom/atproto/admin/EmitModerationEventRequestEventUnion$Mute$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventMute;)Lcom/atproto/admin/EmitModerationEventRequestEventUnion$Mute;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventMute;)Lcom/atproto/admin/ModEventMute;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventMute;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventMute;Lcom/atproto/admin/ModEventMute;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventMute;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventMute;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventMute;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventMute;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$Mute$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$MuteSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-2ZlOlK4 (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventMute;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-GmmvteI (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventMute;)V
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$Report : com/atproto/admin/EmitModerationEventRequestEventUnion {
+	public static final field Companion Lcom/atproto/admin/EmitModerationEventRequestEventUnion$Report$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventReport;)Lcom/atproto/admin/EmitModerationEventRequestEventUnion$Report;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventReport;)Lcom/atproto/admin/ModEventReport;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventReport;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventReport;Lcom/atproto/admin/ModEventReport;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventReport;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventReport;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventReport;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventReport;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$Report$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$ReportSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-_kT_7Pw (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventReport;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize--mEVbK0 (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventReport;)V
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$ReverseTakedown : com/atproto/admin/EmitModerationEventRequestEventUnion {
+	public static final field Companion Lcom/atproto/admin/EmitModerationEventRequestEventUnion$ReverseTakedown$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventReverseTakedown;)Lcom/atproto/admin/EmitModerationEventRequestEventUnion$ReverseTakedown;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventReverseTakedown;)Lcom/atproto/admin/ModEventReverseTakedown;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventReverseTakedown;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventReverseTakedown;Lcom/atproto/admin/ModEventReverseTakedown;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventReverseTakedown;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventReverseTakedown;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventReverseTakedown;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventReverseTakedown;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$ReverseTakedown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$ReverseTakedownSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-aElrj2M (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventReverseTakedown;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-peoZ4lU (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventReverseTakedown;)V
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$Takedown : com/atproto/admin/EmitModerationEventRequestEventUnion {
+	public static final field Companion Lcom/atproto/admin/EmitModerationEventRequestEventUnion$Takedown$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventTakedown;)Lcom/atproto/admin/EmitModerationEventRequestEventUnion$Takedown;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventTakedown;)Lcom/atproto/admin/ModEventTakedown;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventTakedown;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventTakedown;Lcom/atproto/admin/ModEventTakedown;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventTakedown;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventTakedown;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventTakedown;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventTakedown;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$Takedown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$TakedownSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-haS-kxw (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventTakedown;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-4biHiXA (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventTakedown;)V
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$Unmute : com/atproto/admin/EmitModerationEventRequestEventUnion {
+	public static final field Companion Lcom/atproto/admin/EmitModerationEventRequestEventUnion$Unmute$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventUnmute;)Lcom/atproto/admin/EmitModerationEventRequestEventUnion$Unmute;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventUnmute;)Lcom/atproto/admin/ModEventUnmute;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventUnmute;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventUnmute;Lcom/atproto/admin/ModEventUnmute;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventUnmute;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventUnmute;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventUnmute;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventUnmute;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$Unmute$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestEventUnion$UnmuteSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-4VLzJGk (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventUnmute;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-m0JlH0s (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventUnmute;)V
+}
+
+public abstract interface class com/atproto/admin/EmitModerationEventRequestSubjectUnion {
+	public static final field Companion Lcom/atproto/admin/EmitModerationEventRequestSubjectUnion$Companion;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestSubjectUnion$AdminRepoRef : com/atproto/admin/EmitModerationEventRequestSubjectUnion {
+	public static final field Companion Lcom/atproto/admin/EmitModerationEventRequestSubjectUnion$AdminRepoRef$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/RepoRef;)Lcom/atproto/admin/EmitModerationEventRequestSubjectUnion$AdminRepoRef;
+	public static fun constructor-impl (Lcom/atproto/admin/RepoRef;)Lcom/atproto/admin/RepoRef;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/RepoRef;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/RepoRef;Lcom/atproto/admin/RepoRef;)Z
+	public final fun getValue ()Lcom/atproto/admin/RepoRef;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/RepoRef;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/RepoRef;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/RepoRef;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestSubjectUnion$AdminRepoRef$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestSubjectUnion$AdminRepoRefSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-6tgfeMc (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/RepoRef;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-lfcbUOs (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/RepoRef;)V
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestSubjectUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestSubjectUnion$RepoStrongRef : com/atproto/admin/EmitModerationEventRequestSubjectUnion {
+	public static final field Companion Lcom/atproto/admin/EmitModerationEventRequestSubjectUnion$RepoStrongRef$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/repo/StrongRef;)Lcom/atproto/admin/EmitModerationEventRequestSubjectUnion$RepoStrongRef;
+	public static fun constructor-impl (Lcom/atproto/repo/StrongRef;)Lcom/atproto/repo/StrongRef;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/repo/StrongRef;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/repo/StrongRef;Lcom/atproto/repo/StrongRef;)Z
+	public final fun getValue ()Lcom/atproto/repo/StrongRef;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/repo/StrongRef;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/repo/StrongRef;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/repo/StrongRef;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestSubjectUnion$RepoStrongRef$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/EmitModerationEventRequestSubjectUnion$RepoStrongRefSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-7Bon3cI (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/repo/StrongRef;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-RRPBFrk (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
+}
+
 public final class com/atproto/admin/EnableAccountInvitesRequest {
 	public static final field Companion Lcom/atproto/admin/EnableAccountInvitesRequest$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -5539,138 +5591,21 @@ public final class com/atproto/admin/GetInviteCodesSort : java/lang/Enum {
 	public static fun values ()[Lcom/atproto/admin/GetInviteCodesSort;
 }
 
-public final class com/atproto/admin/GetModerationActionQueryParams {
-	public static final field Companion Lcom/atproto/admin/GetModerationActionQueryParams$Companion;
+public final class com/atproto/admin/GetModerationEventQueryParams {
+	public static final field Companion Lcom/atproto/admin/GetModerationEventQueryParams$Companion;
 	public fun <init> (J)V
 	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun component1 ()J
-	public final fun copy (J)Lcom/atproto/admin/GetModerationActionQueryParams;
-	public static synthetic fun copy$default (Lcom/atproto/admin/GetModerationActionQueryParams;JILjava/lang/Object;)Lcom/atproto/admin/GetModerationActionQueryParams;
+	public final fun copy (J)Lcom/atproto/admin/GetModerationEventQueryParams;
+	public static synthetic fun copy$default (Lcom/atproto/admin/GetModerationEventQueryParams;JILjava/lang/Object;)Lcom/atproto/admin/GetModerationEventQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getId ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/GetModerationActionQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+	public static final synthetic fun write$Self (Lcom/atproto/admin/GetModerationEventQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
-public final class com/atproto/admin/GetModerationActionQueryParams$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/admin/GetModerationActionsQueryParams {
-	public static final field Companion Lcom/atproto/admin/GetModerationActionsQueryParams$Companion;
-	public fun <init> ()V
-	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Ljava/lang/Long;
-	public final fun component3 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lcom/atproto/admin/GetModerationActionsQueryParams;
-	public static synthetic fun copy$default (Lcom/atproto/admin/GetModerationActionsQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/GetModerationActionsQueryParams;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getCursor ()Ljava/lang/String;
-	public final fun getLimit ()Ljava/lang/Long;
-	public final fun getSubject ()Ljava/lang/String;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/GetModerationActionsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
-}
-
-public final class com/atproto/admin/GetModerationActionsQueryParams$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/admin/GetModerationActionsResponse {
-	public static final field Companion Lcom/atproto/admin/GetModerationActionsResponse$Companion;
-	public fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)V
-	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun copy (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)Lcom/atproto/admin/GetModerationActionsResponse;
-	public static synthetic fun copy$default (Lcom/atproto/admin/GetModerationActionsResponse;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lcom/atproto/admin/GetModerationActionsResponse;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getActions ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun getCursor ()Ljava/lang/String;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/GetModerationActionsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
-}
-
-public final class com/atproto/admin/GetModerationActionsResponse$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/admin/GetModerationReportQueryParams {
-	public static final field Companion Lcom/atproto/admin/GetModerationReportQueryParams$Companion;
-	public fun <init> (J)V
-	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component1 ()J
-	public final fun copy (J)Lcom/atproto/admin/GetModerationReportQueryParams;
-	public static synthetic fun copy$default (Lcom/atproto/admin/GetModerationReportQueryParams;JILjava/lang/Object;)Lcom/atproto/admin/GetModerationReportQueryParams;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getId ()J
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/GetModerationReportQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
-}
-
-public final class com/atproto/admin/GetModerationReportQueryParams$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/admin/GetModerationReportsQueryParams {
-	public static final field Companion Lcom/atproto/admin/GetModerationReportsQueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component3-68yuAGA ()Ljava/lang/String;
-	public final fun component4 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component5 ()Ljava/lang/Boolean;
-	public final fun component6 ()Ljava/lang/String;
-	public final fun component7 ()Ljava/lang/Long;
-	public final fun component8 ()Ljava/lang/String;
-	public final fun component9 ()Ljava/lang/Boolean;
-	public final fun copy-S9aSVL0 (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;)Lcom/atproto/admin/GetModerationReportsQueryParams;
-	public static synthetic fun copy-S9aSVL0$default (Lcom/atproto/admin/GetModerationReportsQueryParams;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Lcom/atproto/admin/GetModerationReportsQueryParams;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getActionType ()Ljava/lang/String;
-	public final fun getActionedBy-68yuAGA ()Ljava/lang/String;
-	public final fun getCursor ()Ljava/lang/String;
-	public final fun getIgnoreSubjects ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun getLimit ()Ljava/lang/Long;
-	public final fun getReporters ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun getResolved ()Ljava/lang/Boolean;
-	public final fun getReverse ()Ljava/lang/Boolean;
-	public final fun getSubject ()Ljava/lang/String;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/GetModerationReportsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
-}
-
-public final class com/atproto/admin/GetModerationReportsQueryParams$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/admin/GetModerationReportsResponse {
-	public static final field Companion Lcom/atproto/admin/GetModerationReportsResponse$Companion;
-	public fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)V
-	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun copy (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)Lcom/atproto/admin/GetModerationReportsResponse;
-	public static synthetic fun copy$default (Lcom/atproto/admin/GetModerationReportsResponse;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lcom/atproto/admin/GetModerationReportsResponse;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getCursor ()Ljava/lang/String;
-	public final fun getReports ()Lkotlinx/collections/immutable/ImmutableList;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/GetModerationReportsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
-}
-
-public final class com/atproto/admin/GetModerationReportsResponse$Companion {
+public final class com/atproto/admin/GetModerationEventQueryParams$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -5867,16 +5802,947 @@ public final class com/atproto/admin/ImageDetails$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/atproto/admin/ModEventAcknowledge {
+	public static final field Companion Lcom/atproto/admin/ModEventAcknowledge$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/admin/ModEventAcknowledge;
+	public static synthetic fun copy$default (Lcom/atproto/admin/ModEventAcknowledge;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/ModEventAcknowledge;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventAcknowledge;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/admin/ModEventAcknowledge$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventComment {
+	public static final field Companion Lcom/atproto/admin/ModEventComment$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Boolean;)Lcom/atproto/admin/ModEventComment;
+	public static synthetic fun copy$default (Lcom/atproto/admin/ModEventComment;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Lcom/atproto/admin/ModEventComment;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getSticky ()Ljava/lang/Boolean;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventComment;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/admin/ModEventComment$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventEmail {
+	public static final field Companion Lcom/atproto/admin/ModEventEmail$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/admin/ModEventEmail;
+	public static synthetic fun copy$default (Lcom/atproto/admin/ModEventEmail;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/ModEventEmail;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSubjectLine ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventEmail;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/admin/ModEventEmail$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventEscalate {
+	public static final field Companion Lcom/atproto/admin/ModEventEscalate$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/admin/ModEventEscalate;
+	public static synthetic fun copy$default (Lcom/atproto/admin/ModEventEscalate;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/ModEventEscalate;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventEscalate;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/admin/ModEventEscalate$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventLabel {
+	public static final field Companion Lcom/atproto/admin/ModEventLabel$Companion;
+	public fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component3 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;)Lcom/atproto/admin/ModEventLabel;
+	public static synthetic fun copy$default (Lcom/atproto/admin/ModEventLabel;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lcom/atproto/admin/ModEventLabel;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getCreateLabelVals ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getNegateLabelVals ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventLabel;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/admin/ModEventLabel$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventMute {
+	public static final field Companion Lcom/atproto/admin/ModEventMute$Companion;
+	public fun <init> (Ljava/lang/String;J)V
+	public synthetic fun <init> (Ljava/lang/String;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun copy (Ljava/lang/String;J)Lcom/atproto/admin/ModEventMute;
+	public static synthetic fun copy$default (Lcom/atproto/admin/ModEventMute;Ljava/lang/String;JILjava/lang/Object;)Lcom/atproto/admin/ModEventMute;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getDurationInHours ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventMute;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/admin/ModEventMute$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventReport {
+	public static final field Companion Lcom/atproto/admin/ModEventReport$Companion;
+	public fun <init> (Ljava/lang/String;Lcom/atproto/moderation/Token;)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/atproto/moderation/Token;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/atproto/moderation/Token;
+	public final fun copy (Ljava/lang/String;Lcom/atproto/moderation/Token;)Lcom/atproto/admin/ModEventReport;
+	public static synthetic fun copy$default (Lcom/atproto/admin/ModEventReport;Ljava/lang/String;Lcom/atproto/moderation/Token;ILjava/lang/Object;)Lcom/atproto/admin/ModEventReport;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getReportType ()Lcom/atproto/moderation/Token;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventReport;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/admin/ModEventReport$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventReverseTakedown {
+	public static final field Companion Lcom/atproto/admin/ModEventReverseTakedown$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/admin/ModEventReverseTakedown;
+	public static synthetic fun copy$default (Lcom/atproto/admin/ModEventReverseTakedown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/ModEventReverseTakedown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventReverseTakedown;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/admin/ModEventReverseTakedown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventTakedown {
+	public static final field Companion Lcom/atproto/admin/ModEventTakedown$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;)Lcom/atproto/admin/ModEventTakedown;
+	public static synthetic fun copy$default (Lcom/atproto/admin/ModEventTakedown;Ljava/lang/String;Ljava/lang/Long;ILjava/lang/Object;)Lcom/atproto/admin/ModEventTakedown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getDurationInHours ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventTakedown;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/admin/ModEventTakedown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventUnmute {
+	public static final field Companion Lcom/atproto/admin/ModEventUnmute$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/admin/ModEventUnmute;
+	public static synthetic fun copy$default (Lcom/atproto/admin/ModEventUnmute;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/ModEventUnmute;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventUnmute;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/admin/ModEventUnmute$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventView {
+	public static final field Companion Lcom/atproto/admin/ModEventView$Companion;
+	public synthetic fun <init> (JLcom/atproto/admin/ModEventViewEventUnion;Lcom/atproto/admin/ModEventViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLcom/atproto/admin/ModEventViewEventUnion;Lcom/atproto/admin/ModEventViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component2 ()Lcom/atproto/admin/ModEventViewEventUnion;
+	public final fun component3 ()Lcom/atproto/admin/ModEventViewSubjectUnion;
+	public final fun component4 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component5-715Ygxc ()Ljava/lang/String;
+	public final fun component6 ()Lkotlinx/datetime/Instant;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun copy-haJDZso (JLcom/atproto/admin/ModEventViewEventUnion;Lcom/atproto/admin/ModEventViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/admin/ModEventView;
+	public static synthetic fun copy-haJDZso$default (Lcom/atproto/admin/ModEventView;JLcom/atproto/admin/ModEventViewEventUnion;Lcom/atproto/admin/ModEventViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/ModEventView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
+	public final fun getCreatorHandle ()Ljava/lang/String;
+	public final fun getEvent ()Lcom/atproto/admin/ModEventViewEventUnion;
+	public final fun getId ()J
+	public final fun getSubject ()Lcom/atproto/admin/ModEventViewSubjectUnion;
+	public final fun getSubjectBlobCids ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getSubjectHandle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/admin/ModEventView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewDetail {
+	public static final field Companion Lcom/atproto/admin/ModEventViewDetail$Companion;
+	public synthetic fun <init> (JLcom/atproto/admin/ModEventViewDetailEventUnion;Lcom/atproto/admin/ModEventViewDetailSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component2 ()Lcom/atproto/admin/ModEventViewDetailEventUnion;
+	public final fun component3 ()Lcom/atproto/admin/ModEventViewDetailSubjectUnion;
+	public final fun component4 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component5-715Ygxc ()Ljava/lang/String;
+	public final fun component6 ()Lkotlinx/datetime/Instant;
+	public final fun copy-DI-R9KI (JLcom/atproto/admin/ModEventViewDetailEventUnion;Lcom/atproto/admin/ModEventViewDetailSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;)Lcom/atproto/admin/ModEventViewDetail;
+	public static synthetic fun copy-DI-R9KI$default (Lcom/atproto/admin/ModEventViewDetail;JLcom/atproto/admin/ModEventViewDetailEventUnion;Lcom/atproto/admin/ModEventViewDetailSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lcom/atproto/admin/ModEventViewDetail;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
+	public final fun getEvent ()Lcom/atproto/admin/ModEventViewDetailEventUnion;
+	public final fun getId ()J
+	public final fun getSubject ()Lcom/atproto/admin/ModEventViewDetailSubjectUnion;
+	public final fun getSubjectBlobs ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventViewDetail;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/admin/ModEventViewDetail$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class com/atproto/admin/ModEventViewDetailEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewDetailEventUnion$Companion;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventAcknowledge : com/atproto/admin/ModEventViewDetailEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventAcknowledge$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventAcknowledge;)Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventAcknowledge;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventAcknowledge;)Lcom/atproto/admin/ModEventAcknowledge;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventAcknowledge;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventAcknowledge;Lcom/atproto/admin/ModEventAcknowledge;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventAcknowledge;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventAcknowledge;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventAcknowledge;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventAcknowledge;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventAcknowledge$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventAcknowledgeSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-Ih-0UKY (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventAcknowledge;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-AMbBUro (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventAcknowledge;)V
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventComment : com/atproto/admin/ModEventViewDetailEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventComment$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventComment;)Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventComment;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventComment;)Lcom/atproto/admin/ModEventComment;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventComment;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventComment;Lcom/atproto/admin/ModEventComment;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventComment;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventComment;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventComment;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventComment;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventComment$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventCommentSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-lVLAPgM (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventComment;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-kcVc49A (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventComment;)V
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventEscalate : com/atproto/admin/ModEventViewDetailEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventEscalate$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventEscalate;)Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventEscalate;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventEscalate;)Lcom/atproto/admin/ModEventEscalate;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventEscalate;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventEscalate;Lcom/atproto/admin/ModEventEscalate;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventEscalate;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventEscalate;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventEscalate;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventEscalate;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventEscalate$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventEscalateSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-jOjPmwo (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventEscalate;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-eXFYaJI (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventEscalate;)V
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventLabel : com/atproto/admin/ModEventViewDetailEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventLabel$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventLabel;)Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventLabel;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventLabel;)Lcom/atproto/admin/ModEventLabel;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventLabel;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventLabel;Lcom/atproto/admin/ModEventLabel;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventLabel;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventLabel;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventLabel;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventLabel;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventLabel$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventLabelSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-nkJ3lS4 (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventLabel;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-S13VDAM (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventLabel;)V
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventMute : com/atproto/admin/ModEventViewDetailEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventMute$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventMute;)Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventMute;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventMute;)Lcom/atproto/admin/ModEventMute;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventMute;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventMute;Lcom/atproto/admin/ModEventMute;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventMute;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventMute;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventMute;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventMute;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventMute$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventMuteSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-dHyWxi8 (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventMute;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-FDOrzvU (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventMute;)V
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventReport : com/atproto/admin/ModEventViewDetailEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventReport$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventReport;)Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventReport;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventReport;)Lcom/atproto/admin/ModEventReport;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventReport;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventReport;Lcom/atproto/admin/ModEventReport;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventReport;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventReport;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventReport;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventReport;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventReport$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventReportSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-8JU0k_c (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventReport;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize--1N3NP0 (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventReport;)V
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventReverseTakedown : com/atproto/admin/ModEventViewDetailEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventReverseTakedown$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventReverseTakedown;)Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventReverseTakedown;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventReverseTakedown;)Lcom/atproto/admin/ModEventReverseTakedown;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventReverseTakedown;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventReverseTakedown;Lcom/atproto/admin/ModEventReverseTakedown;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventReverseTakedown;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventReverseTakedown;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventReverseTakedown;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventReverseTakedown;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventReverseTakedown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventReverseTakedownSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-z_VimzQ (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventReverseTakedown;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-G2TFneI (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventReverseTakedown;)V
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventTakedown : com/atproto/admin/ModEventViewDetailEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventTakedown$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventTakedown;)Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventTakedown;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventTakedown;)Lcom/atproto/admin/ModEventTakedown;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventTakedown;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventTakedown;Lcom/atproto/admin/ModEventTakedown;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventTakedown;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventTakedown;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventTakedown;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventTakedown;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventTakedown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventTakedownSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-5mFpMKw (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventTakedown;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-k-WCzwI (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventTakedown;)V
+}
+
+public abstract interface class com/atproto/admin/ModEventViewDetailSubjectUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewDetailSubjectUnion$Companion;
+}
+
+public final class com/atproto/admin/ModEventViewDetailSubjectUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewDetailSubjectUnion$RecordView : com/atproto/admin/ModEventViewDetailSubjectUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewDetailSubjectUnion$RecordView$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/RecordView;)Lcom/atproto/admin/ModEventViewDetailSubjectUnion$RecordView;
+	public static fun constructor-impl (Lcom/atproto/admin/RecordView;)Lcom/atproto/admin/RecordView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/RecordView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/RecordView;Lcom/atproto/admin/RecordView;)Z
+	public final fun getValue ()Lcom/atproto/admin/RecordView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/RecordView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/RecordView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/RecordView;
+}
+
+public final class com/atproto/admin/ModEventViewDetailSubjectUnion$RecordView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewDetailSubjectUnion$RecordViewNotFound : com/atproto/admin/ModEventViewDetailSubjectUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewDetailSubjectUnion$RecordViewNotFound$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/RecordViewNotFound;)Lcom/atproto/admin/ModEventViewDetailSubjectUnion$RecordViewNotFound;
+	public static fun constructor-impl (Lcom/atproto/admin/RecordViewNotFound;)Lcom/atproto/admin/RecordViewNotFound;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/RecordViewNotFound;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/RecordViewNotFound;Lcom/atproto/admin/RecordViewNotFound;)Z
+	public final fun getValue ()Lcom/atproto/admin/RecordViewNotFound;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/RecordViewNotFound;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/RecordViewNotFound;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/RecordViewNotFound;
+}
+
+public final class com/atproto/admin/ModEventViewDetailSubjectUnion$RecordViewNotFound$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewDetailSubjectUnion$RecordViewNotFoundSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-ummYF0w (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/RecordViewNotFound;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-r7zzUV4 (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/RecordViewNotFound;)V
+}
+
+public final class com/atproto/admin/ModEventViewDetailSubjectUnion$RecordViewSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-HOfQdqw (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/RecordView;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-Ot5ZWj4 (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/RecordView;)V
+}
+
+public final class com/atproto/admin/ModEventViewDetailSubjectUnion$RepoView : com/atproto/admin/ModEventViewDetailSubjectUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewDetailSubjectUnion$RepoView$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/RepoView;)Lcom/atproto/admin/ModEventViewDetailSubjectUnion$RepoView;
+	public static fun constructor-impl (Lcom/atproto/admin/RepoView;)Lcom/atproto/admin/RepoView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/RepoView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/RepoView;Lcom/atproto/admin/RepoView;)Z
+	public final fun getValue ()Lcom/atproto/admin/RepoView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/RepoView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/RepoView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/RepoView;
+}
+
+public final class com/atproto/admin/ModEventViewDetailSubjectUnion$RepoView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewDetailSubjectUnion$RepoViewNotFound : com/atproto/admin/ModEventViewDetailSubjectUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewDetailSubjectUnion$RepoViewNotFound$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/RepoViewNotFound;)Lcom/atproto/admin/ModEventViewDetailSubjectUnion$RepoViewNotFound;
+	public static fun constructor-impl (Lcom/atproto/admin/RepoViewNotFound;)Lcom/atproto/admin/RepoViewNotFound;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/RepoViewNotFound;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/RepoViewNotFound;Lcom/atproto/admin/RepoViewNotFound;)Z
+	public final fun getValue ()Lcom/atproto/admin/RepoViewNotFound;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/RepoViewNotFound;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/RepoViewNotFound;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/RepoViewNotFound;
+}
+
+public final class com/atproto/admin/ModEventViewDetailSubjectUnion$RepoViewNotFound$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewDetailSubjectUnion$RepoViewNotFoundSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-g0vNVAA (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/RepoViewNotFound;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-9gIr5u8 (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/RepoViewNotFound;)V
+}
+
+public final class com/atproto/admin/ModEventViewDetailSubjectUnion$RepoViewSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-8U20QwE (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/RepoView;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-q9XJXZw (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/RepoView;)V
+}
+
+public abstract interface class com/atproto/admin/ModEventViewEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewEventUnion$Companion;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventAcknowledge : com/atproto/admin/ModEventViewEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewEventUnion$ModEventAcknowledge$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventAcknowledge;)Lcom/atproto/admin/ModEventViewEventUnion$ModEventAcknowledge;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventAcknowledge;)Lcom/atproto/admin/ModEventAcknowledge;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventAcknowledge;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventAcknowledge;Lcom/atproto/admin/ModEventAcknowledge;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventAcknowledge;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventAcknowledge;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventAcknowledge;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventAcknowledge;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventAcknowledge$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventAcknowledgeSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-6D9CU-Q (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventAcknowledge;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-0Pct8-4 (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventAcknowledge;)V
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventComment : com/atproto/admin/ModEventViewEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewEventUnion$ModEventComment$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventComment;)Lcom/atproto/admin/ModEventViewEventUnion$ModEventComment;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventComment;)Lcom/atproto/admin/ModEventComment;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventComment;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventComment;Lcom/atproto/admin/ModEventComment;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventComment;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventComment;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventComment;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventComment;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventComment$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventCommentSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-yGGxAd8 (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventComment;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-i5HChto (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventComment;)V
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventEmail : com/atproto/admin/ModEventViewEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewEventUnion$ModEventEmail$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventEmail;)Lcom/atproto/admin/ModEventViewEventUnion$ModEventEmail;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventEmail;)Lcom/atproto/admin/ModEventEmail;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventEmail;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventEmail;Lcom/atproto/admin/ModEventEmail;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventEmail;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventEmail;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventEmail;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventEmail;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventEmail$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventEmailSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-B1DGpHw (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventEmail;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-bYd1JYc (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventEmail;)V
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventEscalate : com/atproto/admin/ModEventViewEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewEventUnion$ModEventEscalate$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventEscalate;)Lcom/atproto/admin/ModEventViewEventUnion$ModEventEscalate;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventEscalate;)Lcom/atproto/admin/ModEventEscalate;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventEscalate;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventEscalate;Lcom/atproto/admin/ModEventEscalate;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventEscalate;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventEscalate;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventEscalate;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventEscalate;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventEscalate$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventEscalateSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-EQjwcZc (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventEscalate;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-rkOfjrA (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventEscalate;)V
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventLabel : com/atproto/admin/ModEventViewEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewEventUnion$ModEventLabel$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventLabel;)Lcom/atproto/admin/ModEventViewEventUnion$ModEventLabel;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventLabel;)Lcom/atproto/admin/ModEventLabel;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventLabel;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventLabel;Lcom/atproto/admin/ModEventLabel;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventLabel;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventLabel;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventLabel;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventLabel;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventLabel$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventLabelSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-ZYLSezA (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventLabel;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-7d_RZVk (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventLabel;)V
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventMute : com/atproto/admin/ModEventViewEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewEventUnion$ModEventMute$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventMute;)Lcom/atproto/admin/ModEventViewEventUnion$ModEventMute;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventMute;)Lcom/atproto/admin/ModEventMute;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventMute;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventMute;Lcom/atproto/admin/ModEventMute;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventMute;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventMute;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventMute;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventMute;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventMute$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventMuteSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-WkMGqJA (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventMute;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-IxphHPY (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventMute;)V
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventReport : com/atproto/admin/ModEventViewEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewEventUnion$ModEventReport$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventReport;)Lcom/atproto/admin/ModEventViewEventUnion$ModEventReport;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventReport;)Lcom/atproto/admin/ModEventReport;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventReport;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventReport;Lcom/atproto/admin/ModEventReport;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventReport;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventReport;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventReport;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventReport;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventReport$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventReportSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-7-Z-KZA (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventReport;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-xL-IigQ (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventReport;)V
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventReverseTakedown : com/atproto/admin/ModEventViewEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewEventUnion$ModEventReverseTakedown$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventReverseTakedown;)Lcom/atproto/admin/ModEventViewEventUnion$ModEventReverseTakedown;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventReverseTakedown;)Lcom/atproto/admin/ModEventReverseTakedown;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventReverseTakedown;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventReverseTakedown;Lcom/atproto/admin/ModEventReverseTakedown;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventReverseTakedown;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventReverseTakedown;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventReverseTakedown;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventReverseTakedown;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventReverseTakedown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventReverseTakedownSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-4aXgHS4 (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventReverseTakedown;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-nwu8nTE (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventReverseTakedown;)V
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventTakedown : com/atproto/admin/ModEventViewEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewEventUnion$ModEventTakedown$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventTakedown;)Lcom/atproto/admin/ModEventViewEventUnion$ModEventTakedown;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventTakedown;)Lcom/atproto/admin/ModEventTakedown;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventTakedown;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventTakedown;Lcom/atproto/admin/ModEventTakedown;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventTakedown;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventTakedown;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventTakedown;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventTakedown;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventTakedown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventTakedownSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-R9yPZh0 (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventTakedown;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-RKZuspg (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventTakedown;)V
+}
+
+public abstract interface class com/atproto/admin/ModEventViewSubjectUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewSubjectUnion$Companion;
+}
+
+public final class com/atproto/admin/ModEventViewSubjectUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewSubjectUnion$RepoRef : com/atproto/admin/ModEventViewSubjectUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewSubjectUnion$RepoRef$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/RepoRef;)Lcom/atproto/admin/ModEventViewSubjectUnion$RepoRef;
+	public static fun constructor-impl (Lcom/atproto/admin/RepoRef;)Lcom/atproto/admin/RepoRef;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/RepoRef;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/RepoRef;Lcom/atproto/admin/RepoRef;)Z
+	public final fun getValue ()Lcom/atproto/admin/RepoRef;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/RepoRef;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/RepoRef;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/RepoRef;
+}
+
+public final class com/atproto/admin/ModEventViewSubjectUnion$RepoRef$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewSubjectUnion$RepoRefSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-drUI6hg (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/RepoRef;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-hosnLhM (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/RepoRef;)V
+}
+
+public final class com/atproto/admin/ModEventViewSubjectUnion$RepoStrongRef : com/atproto/admin/ModEventViewSubjectUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewSubjectUnion$RepoStrongRef$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/repo/StrongRef;)Lcom/atproto/admin/ModEventViewSubjectUnion$RepoStrongRef;
+	public static fun constructor-impl (Lcom/atproto/repo/StrongRef;)Lcom/atproto/repo/StrongRef;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/repo/StrongRef;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/repo/StrongRef;Lcom/atproto/repo/StrongRef;)Z
+	public final fun getValue ()Lcom/atproto/repo/StrongRef;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/repo/StrongRef;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/repo/StrongRef;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/repo/StrongRef;
+}
+
+public final class com/atproto/admin/ModEventViewSubjectUnion$RepoStrongRef$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewSubjectUnion$RepoStrongRefSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-rHZQ9a4 (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/repo/StrongRef;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-_PhA6FM (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
+}
+
 public final class com/atproto/admin/Moderation {
 	public static final field Companion Lcom/atproto/admin/Moderation$Companion;
 	public fun <init> ()V
-	public fun <init> (Lcom/atproto/admin/ActionViewCurrent;)V
-	public synthetic fun <init> (Lcom/atproto/admin/ActionViewCurrent;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Lcom/atproto/admin/ActionViewCurrent;
-	public final fun copy (Lcom/atproto/admin/ActionViewCurrent;)Lcom/atproto/admin/Moderation;
-	public static synthetic fun copy$default (Lcom/atproto/admin/Moderation;Lcom/atproto/admin/ActionViewCurrent;ILjava/lang/Object;)Lcom/atproto/admin/Moderation;
+	public fun <init> (Lcom/atproto/admin/SubjectStatusView;)V
+	public synthetic fun <init> (Lcom/atproto/admin/SubjectStatusView;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/atproto/admin/SubjectStatusView;
+	public final fun copy (Lcom/atproto/admin/SubjectStatusView;)Lcom/atproto/admin/Moderation;
+	public static synthetic fun copy$default (Lcom/atproto/admin/Moderation;Lcom/atproto/admin/SubjectStatusView;ILjava/lang/Object;)Lcom/atproto/admin/Moderation;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getCurrentAction ()Lcom/atproto/admin/ActionViewCurrent;
+	public final fun getSubjectStatus ()Lcom/atproto/admin/SubjectStatusView;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 	public static final synthetic fun write$Self (Lcom/atproto/admin/Moderation;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
@@ -5888,23 +6754,138 @@ public final class com/atproto/admin/Moderation$Companion {
 
 public final class com/atproto/admin/ModerationDetail {
 	public static final field Companion Lcom/atproto/admin/ModerationDetail$Companion;
-	public fun <init> (Lcom/atproto/admin/ActionViewCurrent;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;)V
-	public synthetic fun <init> (Lcom/atproto/admin/ActionViewCurrent;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Lcom/atproto/admin/ActionViewCurrent;
-	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component3 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun copy (Lcom/atproto/admin/ActionViewCurrent;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;)Lcom/atproto/admin/ModerationDetail;
-	public static synthetic fun copy$default (Lcom/atproto/admin/ModerationDetail;Lcom/atproto/admin/ActionViewCurrent;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lcom/atproto/admin/ModerationDetail;
+	public fun <init> ()V
+	public fun <init> (Lcom/atproto/admin/SubjectStatusView;)V
+	public synthetic fun <init> (Lcom/atproto/admin/SubjectStatusView;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/atproto/admin/SubjectStatusView;
+	public final fun copy (Lcom/atproto/admin/SubjectStatusView;)Lcom/atproto/admin/ModerationDetail;
+	public static synthetic fun copy$default (Lcom/atproto/admin/ModerationDetail;Lcom/atproto/admin/SubjectStatusView;ILjava/lang/Object;)Lcom/atproto/admin/ModerationDetail;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getActions ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun getCurrentAction ()Lcom/atproto/admin/ActionViewCurrent;
-	public final fun getReports ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getSubjectStatus ()Lcom/atproto/admin/SubjectStatusView;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 	public static final synthetic fun write$Self (Lcom/atproto/admin/ModerationDetail;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/ModerationDetail$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/QueryModerationEventsQueryParams {
+	public static final field Companion Lcom/atproto/admin/QueryModerationEventsQueryParams$Companion;
+	public synthetic fun <init> (Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component2-68yuAGA ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4-pvpWXas ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/Boolean;
+	public final fun component6 ()Ljava/lang/Long;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun copy-7ppQKMs (Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;)Lcom/atproto/admin/QueryModerationEventsQueryParams;
+	public static synthetic fun copy-7ppQKMs$default (Lcom/atproto/admin/QueryModerationEventsQueryParams;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/QueryModerationEventsQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedBy-68yuAGA ()Ljava/lang/String;
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getIncludeAllUserRecords ()Ljava/lang/Boolean;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getSortDirection ()Ljava/lang/String;
+	public final fun getSubject-pvpWXas ()Ljava/lang/String;
+	public final fun getTypes ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/admin/QueryModerationEventsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/admin/QueryModerationEventsQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/QueryModerationEventsResponse {
+	public static final field Companion Lcom/atproto/admin/QueryModerationEventsResponse$Companion;
+	public fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)Lcom/atproto/admin/QueryModerationEventsResponse;
+	public static synthetic fun copy$default (Lcom/atproto/admin/QueryModerationEventsResponse;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lcom/atproto/admin/QueryModerationEventsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getEvents ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/admin/QueryModerationEventsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/admin/QueryModerationEventsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/QueryModerationStatusesQueryParams {
+	public static final field Companion Lcom/atproto/admin/QueryModerationStatusesQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1-pvpWXas ()Ljava/lang/String;
+	public final fun component10-68yuAGA ()Ljava/lang/String;
+	public final fun component11 ()Ljava/lang/String;
+	public final fun component12 ()Ljava/lang/String;
+	public final fun component13 ()Ljava/lang/Boolean;
+	public final fun component14 ()Ljava/lang/Long;
+	public final fun component15 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lkotlinx/datetime/Instant;
+	public final fun component4 ()Lkotlinx/datetime/Instant;
+	public final fun component5 ()Lkotlinx/datetime/Instant;
+	public final fun component6 ()Lkotlinx/datetime/Instant;
+	public final fun component7 ()Ljava/lang/Boolean;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy-Or9JY_s (Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;)Lcom/atproto/admin/QueryModerationStatusesQueryParams;
+	public static synthetic fun copy-Or9JY_s$default (Lcom/atproto/admin/QueryModerationStatusesQueryParams;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/QueryModerationStatusesQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getIgnoreSubjects ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getIncludeMuted ()Ljava/lang/Boolean;
+	public final fun getLastReviewedBy-68yuAGA ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getReportedAfter ()Lkotlinx/datetime/Instant;
+	public final fun getReportedBefore ()Lkotlinx/datetime/Instant;
+	public final fun getReviewState ()Ljava/lang/String;
+	public final fun getReviewedAfter ()Lkotlinx/datetime/Instant;
+	public final fun getReviewedBefore ()Lkotlinx/datetime/Instant;
+	public final fun getSortDirection ()Ljava/lang/String;
+	public final fun getSortField ()Ljava/lang/String;
+	public final fun getSubject-pvpWXas ()Ljava/lang/String;
+	public final fun getTakendown ()Ljava/lang/Boolean;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/admin/QueryModerationStatusesQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/admin/QueryModerationStatusesQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/QueryModerationStatusesResponse {
+	public static final field Companion Lcom/atproto/admin/QueryModerationStatusesResponse$Companion;
+	public fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)Lcom/atproto/admin/QueryModerationStatusesResponse;
+	public static synthetic fun copy$default (Lcom/atproto/admin/QueryModerationStatusesResponse;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lcom/atproto/admin/QueryModerationStatusesResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getSubjectStatuses ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/admin/QueryModerationStatusesResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/admin/QueryModerationStatusesResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -6131,9 +7112,9 @@ public final class com/atproto/admin/ReportView {
 	public final fun copy-Y11WXlc (JLcom/atproto/moderation/Token;Ljava/lang/String;Ljava/lang/String;Lcom/atproto/admin/ReportViewSubjectUnion;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;)Lcom/atproto/admin/ReportView;
 	public static synthetic fun copy-Y11WXlc$default (Lcom/atproto/admin/ReportView;JLcom/atproto/moderation/Token;Ljava/lang/String;Ljava/lang/String;Lcom/atproto/admin/ReportViewSubjectUnion;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lcom/atproto/admin/ReportView;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
 	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
 	public final fun getId ()J
-	public final fun getReason ()Ljava/lang/String;
 	public final fun getReasonType ()Lcom/atproto/moderation/Token;
 	public final fun getReportedBy-715Ygxc ()Ljava/lang/String;
 	public final fun getResolvedByActionIds ()Lkotlinx/collections/immutable/ImmutableList;
@@ -6150,25 +7131,27 @@ public final class com/atproto/admin/ReportView$Companion {
 
 public final class com/atproto/admin/ReportViewDetail {
 	public static final field Companion Lcom/atproto/admin/ReportViewDetail$Companion;
-	public synthetic fun <init> (JLcom/atproto/moderation/Token;Ljava/lang/String;Lcom/atproto/admin/ReportViewDetailSubjectUnion;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JLcom/atproto/moderation/Token;Ljava/lang/String;Lcom/atproto/admin/ReportViewDetailSubjectUnion;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLcom/atproto/moderation/Token;Ljava/lang/String;Lcom/atproto/admin/ReportViewDetailSubjectUnion;Lcom/atproto/admin/SubjectStatusView;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLcom/atproto/moderation/Token;Ljava/lang/String;Lcom/atproto/admin/ReportViewDetailSubjectUnion;Lcom/atproto/admin/SubjectStatusView;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
 	public final fun component2 ()Lcom/atproto/moderation/Token;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Lcom/atproto/admin/ReportViewDetailSubjectUnion;
-	public final fun component5-715Ygxc ()Ljava/lang/String;
-	public final fun component6 ()Lkotlinx/datetime/Instant;
-	public final fun component7 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun copy-wtx5_wc (JLcom/atproto/moderation/Token;Ljava/lang/String;Lcom/atproto/admin/ReportViewDetailSubjectUnion;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;)Lcom/atproto/admin/ReportViewDetail;
-	public static synthetic fun copy-wtx5_wc$default (Lcom/atproto/admin/ReportViewDetail;JLcom/atproto/moderation/Token;Ljava/lang/String;Lcom/atproto/admin/ReportViewDetailSubjectUnion;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lcom/atproto/admin/ReportViewDetail;
+	public final fun component5 ()Lcom/atproto/admin/SubjectStatusView;
+	public final fun component6-715Ygxc ()Ljava/lang/String;
+	public final fun component7 ()Lkotlinx/datetime/Instant;
+	public final fun component8 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy-Y11WXlc (JLcom/atproto/moderation/Token;Ljava/lang/String;Lcom/atproto/admin/ReportViewDetailSubjectUnion;Lcom/atproto/admin/SubjectStatusView;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;)Lcom/atproto/admin/ReportViewDetail;
+	public static synthetic fun copy-Y11WXlc$default (Lcom/atproto/admin/ReportViewDetail;JLcom/atproto/moderation/Token;Ljava/lang/String;Lcom/atproto/admin/ReportViewDetailSubjectUnion;Lcom/atproto/admin/SubjectStatusView;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lcom/atproto/admin/ReportViewDetail;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
 	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
 	public final fun getId ()J
-	public final fun getReason ()Ljava/lang/String;
 	public final fun getReasonType ()Lcom/atproto/moderation/Token;
 	public final fun getReportedBy-715Ygxc ()Ljava/lang/String;
 	public final fun getResolvedByActions ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun getSubject ()Lcom/atproto/admin/ReportViewDetailSubjectUnion;
+	public final fun getSubjectStatus ()Lcom/atproto/admin/SubjectStatusView;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 	public static final synthetic fun write$Self (Lcom/atproto/admin/ReportViewDetail;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
@@ -6362,48 +7345,6 @@ public final class com/atproto/admin/ReportViewSubjectUnion$RepoStrongRefSeriali
 	public fun serialize-1VaBrOg (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
 }
 
-public final class com/atproto/admin/ResolveModerationReportsRequest {
-	public static final field Companion Lcom/atproto/admin/ResolveModerationReportsRequest$Companion;
-	public synthetic fun <init> (JLkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()J
-	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component3-715Ygxc ()Ljava/lang/String;
-	public final fun copy-I8cJs1E (JLkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;)Lcom/atproto/admin/ResolveModerationReportsRequest;
-	public static synthetic fun copy-I8cJs1E$default (Lcom/atproto/admin/ResolveModerationReportsRequest;JLkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/ResolveModerationReportsRequest;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getActionId ()J
-	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
-	public final fun getReportIds ()Lkotlinx/collections/immutable/ImmutableList;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ResolveModerationReportsRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
-}
-
-public final class com/atproto/admin/ResolveModerationReportsRequest$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/admin/ReverseModerationActionRequest {
-	public static final field Companion Lcom/atproto/admin/ReverseModerationActionRequest$Companion;
-	public synthetic fun <init> (JLjava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()J
-	public final fun component2 ()Ljava/lang/String;
-	public final fun component3-715Ygxc ()Ljava/lang/String;
-	public final fun copy-I8cJs1E (JLjava/lang/String;Ljava/lang/String;)Lcom/atproto/admin/ReverseModerationActionRequest;
-	public static synthetic fun copy-I8cJs1E$default (Lcom/atproto/admin/ReverseModerationActionRequest;JLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/ReverseModerationActionRequest;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
-	public final fun getId ()J
-	public final fun getReason ()Ljava/lang/String;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ReverseModerationActionRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
-}
-
-public final class com/atproto/admin/ReverseModerationActionRequest$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
 public final class com/atproto/admin/SearchReposQueryParams {
 	public static final field Companion Lcom/atproto/admin/SearchReposQueryParams$Companion;
 	public fun <init> ()V
@@ -6452,16 +7393,18 @@ public final class com/atproto/admin/SearchReposResponse$Companion {
 
 public final class com/atproto/admin/SendEmailRequest {
 	public static final field Companion Lcom/atproto/admin/SendEmailRequest$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun copy-3QELDOs (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/admin/SendEmailRequest;
-	public static synthetic fun copy-3QELDOs$default (Lcom/atproto/admin/SendEmailRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/SendEmailRequest;
+	public final fun component4-715Ygxc ()Ljava/lang/String;
+	public final fun copy-1V4t2sY (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/admin/SendEmailRequest;
+	public static synthetic fun copy-1V4t2sY$default (Lcom/atproto/admin/SendEmailRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/SendEmailRequest;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getContent ()Ljava/lang/String;
 	public final fun getRecipientDid-715Ygxc ()Ljava/lang/String;
+	public final fun getSenderDid-715Ygxc ()Ljava/lang/String;
 	public final fun getSubject ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -6509,45 +7452,61 @@ public final class com/atproto/admin/StatusAttr$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/admin/TakeModerationActionRequest {
-	public static final field Companion Lcom/atproto/admin/TakeModerationActionRequest$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Lcom/atproto/admin/TakeModerationActionRequestSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Lcom/atproto/admin/TakeModerationActionRequestSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Lcom/atproto/admin/TakeModerationActionRequestSubjectUnion;
+public final class com/atproto/admin/SubjectStatusView {
+	public static final field Companion Lcom/atproto/admin/SubjectStatusView$Companion;
+	public synthetic fun <init> (JLcom/atproto/admin/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lcom/atproto/admin/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLcom/atproto/admin/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lcom/atproto/admin/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component10-68yuAGA ()Ljava/lang/String;
+	public final fun component11 ()Lkotlinx/datetime/Instant;
+	public final fun component12 ()Lkotlinx/datetime/Instant;
+	public final fun component13 ()Ljava/lang/Boolean;
+	public final fun component14 ()Lkotlinx/datetime/Instant;
+	public final fun component2 ()Lcom/atproto/admin/SubjectStatusViewSubjectUnion;
 	public final fun component3 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component4 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component5 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component6 ()Ljava/lang/String;
-	public final fun component7 ()Ljava/lang/Long;
-	public final fun component8-715Ygxc ()Ljava/lang/String;
-	public final fun copy-6iM4qQI (Ljava/lang/String;Lcom/atproto/admin/TakeModerationActionRequestSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lcom/atproto/admin/TakeModerationActionRequest;
-	public static synthetic fun copy-6iM4qQI$default (Lcom/atproto/admin/TakeModerationActionRequest;Ljava/lang/String;Lcom/atproto/admin/TakeModerationActionRequestSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/TakeModerationActionRequest;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Lkotlinx/datetime/Instant;
+	public final fun component6 ()Lkotlinx/datetime/Instant;
+	public final fun component7 ()Lcom/atproto/admin/Token;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Lkotlinx/datetime/Instant;
+	public final fun copy-eqE9yDw (JLcom/atproto/admin/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lcom/atproto/admin/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;)Lcom/atproto/admin/SubjectStatusView;
+	public static synthetic fun copy-eqE9yDw$default (Lcom/atproto/admin/SubjectStatusView;JLcom/atproto/admin/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lcom/atproto/admin/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lcom/atproto/admin/SubjectStatusView;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAction ()Ljava/lang/String;
-	public final fun getCreateLabelVals ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
-	public final fun getDurationInHours ()Ljava/lang/Long;
-	public final fun getNegateLabelVals ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun getReason ()Ljava/lang/String;
-	public final fun getSubject ()Lcom/atproto/admin/TakeModerationActionRequestSubjectUnion;
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getId ()J
+	public final fun getLastReportedAt ()Lkotlinx/datetime/Instant;
+	public final fun getLastReviewedAt ()Lkotlinx/datetime/Instant;
+	public final fun getLastReviewedBy-68yuAGA ()Ljava/lang/String;
+	public final fun getMuteUntil ()Lkotlinx/datetime/Instant;
+	public final fun getReviewState ()Lcom/atproto/admin/Token;
+	public final fun getSubject ()Lcom/atproto/admin/SubjectStatusViewSubjectUnion;
 	public final fun getSubjectBlobCids ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getSubjectRepoHandle ()Ljava/lang/String;
+	public final fun getSuspendUntil ()Lkotlinx/datetime/Instant;
+	public final fun getTakendown ()Ljava/lang/Boolean;
+	public final fun getUpdatedAt ()Lkotlinx/datetime/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/TakeModerationActionRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+	public static final synthetic fun write$Self (Lcom/atproto/admin/SubjectStatusView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
-public final class com/atproto/admin/TakeModerationActionRequest$Companion {
+public final class com/atproto/admin/SubjectStatusView$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract interface class com/atproto/admin/TakeModerationActionRequestSubjectUnion {
-	public static final field Companion Lcom/atproto/admin/TakeModerationActionRequestSubjectUnion$Companion;
+public abstract interface class com/atproto/admin/SubjectStatusViewSubjectUnion {
+	public static final field Companion Lcom/atproto/admin/SubjectStatusViewSubjectUnion$Companion;
 }
 
-public final class com/atproto/admin/TakeModerationActionRequestSubjectUnion$AdminRepoRef : com/atproto/admin/TakeModerationActionRequestSubjectUnion {
-	public static final field Companion Lcom/atproto/admin/TakeModerationActionRequestSubjectUnion$AdminRepoRef$Companion;
-	public static final synthetic fun box-impl (Lcom/atproto/admin/RepoRef;)Lcom/atproto/admin/TakeModerationActionRequestSubjectUnion$AdminRepoRef;
+public final class com/atproto/admin/SubjectStatusViewSubjectUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/SubjectStatusViewSubjectUnion$RepoRef : com/atproto/admin/SubjectStatusViewSubjectUnion {
+	public static final field Companion Lcom/atproto/admin/SubjectStatusViewSubjectUnion$RepoRef$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/RepoRef;)Lcom/atproto/admin/SubjectStatusViewSubjectUnion$RepoRef;
 	public static fun constructor-impl (Lcom/atproto/admin/RepoRef;)Lcom/atproto/admin/RepoRef;
 	public fun equals (Ljava/lang/Object;)Z
 	public static fun equals-impl (Lcom/atproto/admin/RepoRef;Ljava/lang/Object;)Z
@@ -6560,26 +7519,22 @@ public final class com/atproto/admin/TakeModerationActionRequestSubjectUnion$Adm
 	public final synthetic fun unbox-impl ()Lcom/atproto/admin/RepoRef;
 }
 
-public final class com/atproto/admin/TakeModerationActionRequestSubjectUnion$AdminRepoRef$Companion {
+public final class com/atproto/admin/SubjectStatusViewSubjectUnion$RepoRef$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/admin/TakeModerationActionRequestSubjectUnion$AdminRepoRefSerializer : kotlinx/serialization/KSerializer {
+public final class com/atproto/admin/SubjectStatusViewSubjectUnion$RepoRefSerializer : kotlinx/serialization/KSerializer {
 	public fun <init> ()V
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public fun deserialize-sZ_u5UM (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/RepoRef;
+	public fun deserialize-VF1kBgQ (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/RepoRef;
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun serialize-rtHmdEs (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/RepoRef;)V
+	public fun serialize-hNCe99o (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/RepoRef;)V
 }
 
-public final class com/atproto/admin/TakeModerationActionRequestSubjectUnion$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/admin/TakeModerationActionRequestSubjectUnion$RepoStrongRef : com/atproto/admin/TakeModerationActionRequestSubjectUnion {
-	public static final field Companion Lcom/atproto/admin/TakeModerationActionRequestSubjectUnion$RepoStrongRef$Companion;
-	public static final synthetic fun box-impl (Lcom/atproto/repo/StrongRef;)Lcom/atproto/admin/TakeModerationActionRequestSubjectUnion$RepoStrongRef;
+public final class com/atproto/admin/SubjectStatusViewSubjectUnion$RepoStrongRef : com/atproto/admin/SubjectStatusViewSubjectUnion {
+	public static final field Companion Lcom/atproto/admin/SubjectStatusViewSubjectUnion$RepoStrongRef$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/repo/StrongRef;)Lcom/atproto/admin/SubjectStatusViewSubjectUnion$RepoStrongRef;
 	public static fun constructor-impl (Lcom/atproto/repo/StrongRef;)Lcom/atproto/repo/StrongRef;
 	public fun equals (Ljava/lang/Object;)Z
 	public static fun equals-impl (Lcom/atproto/repo/StrongRef;Ljava/lang/Object;)Z
@@ -6592,24 +7547,23 @@ public final class com/atproto/admin/TakeModerationActionRequestSubjectUnion$Rep
 	public final synthetic fun unbox-impl ()Lcom/atproto/repo/StrongRef;
 }
 
-public final class com/atproto/admin/TakeModerationActionRequestSubjectUnion$RepoStrongRef$Companion {
+public final class com/atproto/admin/SubjectStatusViewSubjectUnion$RepoStrongRef$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/admin/TakeModerationActionRequestSubjectUnion$RepoStrongRefSerializer : kotlinx/serialization/KSerializer {
+public final class com/atproto/admin/SubjectStatusViewSubjectUnion$RepoStrongRefSerializer : kotlinx/serialization/KSerializer {
 	public fun <init> ()V
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public fun deserialize-hxWAHis (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/repo/StrongRef;
+	public fun deserialize-tjJBWsQ (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/repo/StrongRef;
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun serialize-f-p3-9k (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
+	public fun serialize-DNgs8PI (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
 }
 
 public final class com/atproto/admin/Token : java/lang/Enum {
-	public static final field ACKNOWLEDGE Lcom/atproto/admin/Token;
-	public static final field ESCALATE Lcom/atproto/admin/Token;
-	public static final field FLAG Lcom/atproto/admin/Token;
-	public static final field TAKEDOWN Lcom/atproto/admin/Token;
+	public static final field REVIEW_CLOSED Lcom/atproto/admin/Token;
+	public static final field REVIEW_ESCALATED Lcom/atproto/admin/Token;
+	public static final field REVIEW_OPEN Lcom/atproto/admin/Token;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/admin/Token;
 	public static fun values ()[Lcom/atproto/admin/Token;
@@ -9149,6 +10103,45 @@ public final class com/atproto/sync/SubscribeReposTombstone$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/atproto/temp/FetchLabelsQueryParams {
+	public static final field Companion Lcom/atproto/temp/FetchLabelsQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;)Lcom/atproto/temp/FetchLabelsQueryParams;
+	public static synthetic fun copy$default (Lcom/atproto/temp/FetchLabelsQueryParams;Ljava/lang/Long;Ljava/lang/Long;ILjava/lang/Object;)Lcom/atproto/temp/FetchLabelsQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getSince ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/temp/FetchLabelsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/temp/FetchLabelsQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/temp/FetchLabelsResponse {
+	public static final field Companion Lcom/atproto/temp/FetchLabelsResponse$Companion;
+	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;)V
+	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;)Lcom/atproto/temp/FetchLabelsResponse;
+	public static synthetic fun copy$default (Lcom/atproto/temp/FetchLabelsResponse;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lcom/atproto/temp/FetchLabelsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLabels ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Lcom/atproto/temp/FetchLabelsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class com/atproto/temp/FetchLabelsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun applyWrites (Lcom/atproto/repo/ApplyWritesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun confirmEmail (Lcom/atproto/server/ConfirmEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9167,7 +10160,9 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun describeServer (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun disableAccountInvites (Lcom/atproto/admin/DisableAccountInvitesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun disableInviteCodes (Lcom/atproto/admin/DisableInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun emitModerationEvent (Lcom/atproto/admin/EmitModerationEventRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun enableAccountInvites (Lcom/atproto/admin/EnableAccountInvitesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun fetchLabels (Lcom/atproto/temp/FetchLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAccountInfo (Lcom/atproto/admin/GetAccountInfoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAccountInviteCodes (Lcom/atproto/server/GetAccountInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getActorFeeds (Lapp/bsky/feed/GetActorFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9192,10 +10187,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getListFeed (Lapp/bsky/feed/GetListFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getListMutes (Lapp/bsky/graph/GetListMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getLists (Lapp/bsky/graph/GetListsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun getModerationAction (Lcom/atproto/admin/GetModerationActionQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun getModerationActions (Lcom/atproto/admin/GetModerationActionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun getModerationReport (Lcom/atproto/admin/GetModerationReportQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun getModerationReports (Lcom/atproto/admin/GetModerationReportsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getModerationEvent (Lcom/atproto/admin/GetModerationEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getMutes (Lapp/bsky/graph/GetMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getPopular (Lapp/bsky/unspecced/GetPopularQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getPopularFeedGenerators (Lapp/bsky/unspecced/GetPopularFeedGeneratorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9229,6 +10221,8 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun putPreferences (Lapp/bsky/actor/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun putRecord (Lcom/atproto/repo/PutRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun queryLabels (Lcom/atproto/label/QueryLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun queryModerationEvents (Lcom/atproto/admin/QueryModerationEventsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun queryModerationStatuses (Lcom/atproto/admin/QueryModerationStatusesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun refreshSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun registerPush (Lapp/bsky/notification/RegisterPushRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun requestAccountDelete (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9239,8 +10233,6 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun reserveSigningKey (Lcom/atproto/server/ReserveSigningKeyRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun resetPassword (Lcom/atproto/server/ResetPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun resolveHandle (Lcom/atproto/identity/ResolveHandleQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun resolveModerationReports (Lcom/atproto/admin/ResolveModerationReportsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun reverseModerationAction (Lcom/atproto/admin/ReverseModerationActionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun revokeAppPassword (Lcom/atproto/server/RevokeAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchActors (Lapp/bsky/actor/SearchActorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchActorsSkeleton (Lapp/bsky/unspecced/SearchActorsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9251,7 +10243,6 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun sendEmail (Lcom/atproto/admin/SendEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun subscribeLabels (Lcom/atproto/label/SubscribeLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun subscribeRepos (Lcom/atproto/sync/SubscribeReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun takeModerationAction (Lcom/atproto/admin/TakeModerationActionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun unmuteActor (Lapp/bsky/graph/UnmuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun unmuteActorList (Lapp/bsky/graph/UnmuteActorListRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateAccountEmail (Lcom/atproto/admin/UpdateAccountEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9282,7 +10273,9 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun describeServer (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun disableAccountInvites (Lcom/atproto/admin/DisableAccountInvitesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun disableInviteCodes (Lcom/atproto/admin/DisableInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun emitModerationEvent (Lcom/atproto/admin/EmitModerationEventRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun enableAccountInvites (Lcom/atproto/admin/EnableAccountInvitesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun fetchLabels (Lcom/atproto/temp/FetchLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAccountInfo (Lcom/atproto/admin/GetAccountInfoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAccountInviteCodes (Lcom/atproto/server/GetAccountInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getActorFeeds (Lapp/bsky/feed/GetActorFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9307,10 +10300,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getListFeed (Lapp/bsky/feed/GetListFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getListMutes (Lapp/bsky/graph/GetListMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLists (Lapp/bsky/graph/GetListsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getModerationAction (Lcom/atproto/admin/GetModerationActionQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getModerationActions (Lcom/atproto/admin/GetModerationActionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getModerationReport (Lcom/atproto/admin/GetModerationReportQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getModerationReports (Lcom/atproto/admin/GetModerationReportsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getModerationEvent (Lcom/atproto/admin/GetModerationEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getMutes (Lapp/bsky/graph/GetMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getPopular (Lapp/bsky/unspecced/GetPopularQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getPopularFeedGenerators (Lapp/bsky/unspecced/GetPopularFeedGeneratorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9344,6 +10334,8 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun putPreferences (Lapp/bsky/actor/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putRecord (Lcom/atproto/repo/PutRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryLabels (Lcom/atproto/label/QueryLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun queryModerationEvents (Lcom/atproto/admin/QueryModerationEventsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun queryModerationStatuses (Lcom/atproto/admin/QueryModerationStatusesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun refreshSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun registerPush (Lapp/bsky/notification/RegisterPushRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun requestAccountDelete (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9354,8 +10346,6 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun reserveSigningKey (Lcom/atproto/server/ReserveSigningKeyRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun resetPassword (Lcom/atproto/server/ResetPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun resolveHandle (Lcom/atproto/identity/ResolveHandleQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun resolveModerationReports (Lcom/atproto/admin/ResolveModerationReportsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun reverseModerationAction (Lcom/atproto/admin/ReverseModerationActionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeAppPassword (Lcom/atproto/server/RevokeAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchActors (Lapp/bsky/actor/SearchActorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchActorsSkeleton (Lapp/bsky/unspecced/SearchActorsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9366,7 +10356,6 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun sendEmail (Lcom/atproto/admin/SendEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun subscribeLabels (Lcom/atproto/label/SubscribeLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun subscribeRepos (Lcom/atproto/sync/SubscribeReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun takeModerationAction (Lcom/atproto/admin/TakeModerationActionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun unmuteActor (Lapp/bsky/graph/UnmuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun unmuteActorList (Lapp/bsky/graph/UnmuteActorListRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateAccountEmail (Lcom/atproto/admin/UpdateAccountEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
