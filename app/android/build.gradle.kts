@@ -24,7 +24,6 @@ android {
 
   packaging {
     resources {
-      excludes += "META-INF/versions/9/previous-compilation-data.bin"
       excludes += "META-INF/AL2.0"
       excludes += "META-INF/LGPL2.1"
     }
