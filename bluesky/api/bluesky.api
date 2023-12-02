@@ -8,7 +8,6 @@ public final class app/bsky/actor/AdultContentPref {
 	public final fun getEnabled ()Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/AdultContentPref;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/AdultContentPref$Companion {
@@ -27,7 +26,6 @@ public final class app/bsky/actor/ContentLabelPref {
 	public final fun getVisibility ()Lapp/bsky/actor/Visibility;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/ContentLabelPref;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/ContentLabelPref$Companion {
@@ -55,7 +53,6 @@ public final class app/bsky/actor/FeedViewPref {
 	public final fun getHideReposts ()Ljava/lang/Boolean;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/FeedViewPref;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/FeedViewPref$Companion {
@@ -72,7 +69,6 @@ public final class app/bsky/actor/GetPreferencesResponse {
 	public final fun getPreferences ()Lapp/bsky/actor/PreferencesUnion;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/GetPreferencesResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/GetPreferencesResponse$Companion {
@@ -90,7 +86,6 @@ public final class app/bsky/actor/GetProfileQueryParams {
 	public final fun getActor-SnKB-3U ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/GetProfileQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/GetProfileQueryParams$Companion {
@@ -108,7 +103,6 @@ public final class app/bsky/actor/GetProfilesQueryParams {
 	public final fun getActors ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/GetProfilesQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/GetProfilesQueryParams$Companion {
@@ -125,7 +119,6 @@ public final class app/bsky/actor/GetProfilesResponse {
 	public final fun getProfiles ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/GetProfilesResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/GetProfilesResponse$Companion {
@@ -147,7 +140,6 @@ public final class app/bsky/actor/GetSuggestionsQueryParams {
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/GetSuggestionsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/GetSuggestionsQueryParams$Companion {
@@ -167,7 +159,6 @@ public final class app/bsky/actor/GetSuggestionsResponse {
 	public final fun getCursor ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/GetSuggestionsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/GetSuggestionsResponse$Companion {
@@ -186,7 +177,6 @@ public final class app/bsky/actor/PersonalDetailsPref {
 	public final fun getBirthDate ()Lkotlinx/datetime/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/PersonalDetailsPref;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/PersonalDetailsPref$Companion {
@@ -389,7 +379,6 @@ public final class app/bsky/actor/Profile {
 	public final fun getLabels ()Lapp/bsky/actor/ProfileLabelsUnion;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/Profile;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/Profile$Companion {
@@ -457,7 +446,6 @@ public final class app/bsky/actor/ProfileView {
 	public final fun getViewer ()Lapp/bsky/actor/ViewerState;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/ProfileView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/ProfileView$Companion {
@@ -485,7 +473,6 @@ public final class app/bsky/actor/ProfileViewBasic {
 	public final fun getViewer ()Lapp/bsky/actor/ViewerState;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/ProfileViewBasic;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/ProfileViewBasic$Companion {
@@ -525,7 +512,6 @@ public final class app/bsky/actor/ProfileViewDetailed {
 	public final fun getViewer ()Lapp/bsky/actor/ViewerState;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/ProfileViewDetailed;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/ProfileViewDetailed$Companion {
@@ -542,7 +528,6 @@ public final class app/bsky/actor/PutPreferencesRequest {
 	public final fun getPreferences ()Lapp/bsky/actor/PreferencesUnion;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/PutPreferencesRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/PutPreferencesRequest$Companion {
@@ -561,7 +546,6 @@ public final class app/bsky/actor/SavedFeedsPref {
 	public final fun getSaved ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/SavedFeedsPref;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/SavedFeedsPref$Companion {
@@ -587,7 +571,6 @@ public final class app/bsky/actor/SearchActorsQueryParams {
 	public final fun getTerm ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/SearchActorsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/SearchActorsQueryParams$Companion {
@@ -607,7 +590,6 @@ public final class app/bsky/actor/SearchActorsResponse {
 	public final fun getCursor ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/SearchActorsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/SearchActorsResponse$Companion {
@@ -631,7 +613,6 @@ public final class app/bsky/actor/SearchActorsTypeaheadQueryParams {
 	public final fun getTerm ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/SearchActorsTypeaheadQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/SearchActorsTypeaheadQueryParams$Companion {
@@ -648,7 +629,6 @@ public final class app/bsky/actor/SearchActorsTypeaheadResponse {
 	public final fun getActors ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/SearchActorsTypeaheadResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/SearchActorsTypeaheadResponse$Companion {
@@ -679,7 +659,6 @@ public final class app/bsky/actor/ThreadViewPref {
 	public final fun getSort ()Lapp/bsky/actor/Sort;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/ThreadViewPref;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/ThreadViewPref$Companion {
@@ -709,7 +688,6 @@ public final class app/bsky/actor/ViewerState {
 	public final fun getMutedByList ()Lapp/bsky/graph/ListViewBasic;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/actor/ViewerState;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/actor/ViewerState$Companion {
@@ -735,7 +713,6 @@ public final class app/bsky/embed/External {
 	public final fun getExternal ()Lapp/bsky/embed/ExternalExternal;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/embed/External;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/embed/External$Companion {
@@ -759,7 +736,6 @@ public final class app/bsky/embed/ExternalExternal {
 	public final fun getUri-v5vOzEc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/embed/ExternalExternal;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/embed/ExternalExternal$Companion {
@@ -776,7 +752,6 @@ public final class app/bsky/embed/ExternalView {
 	public final fun getExternal ()Lapp/bsky/embed/ExternalViewExternal;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/embed/ExternalView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/embed/ExternalView$Companion {
@@ -800,7 +775,6 @@ public final class app/bsky/embed/ExternalViewExternal {
 	public final fun getUri-v5vOzEc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/embed/ExternalViewExternal;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/embed/ExternalViewExternal$Companion {
@@ -817,7 +791,6 @@ public final class app/bsky/embed/Images {
 	public final fun getImages ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/embed/Images;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/embed/Images$Companion {
@@ -836,7 +809,6 @@ public final class app/bsky/embed/ImagesAspectRatio {
 	public final fun getWidth ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/embed/ImagesAspectRatio;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/embed/ImagesAspectRatio$Companion {
@@ -858,7 +830,6 @@ public final class app/bsky/embed/ImagesImage {
 	public final fun getImage ()Lsh/christian/ozone/api/model/Blob;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/embed/ImagesImage;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/embed/ImagesImage$Companion {
@@ -875,7 +846,6 @@ public final class app/bsky/embed/ImagesView {
 	public final fun getImages ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/embed/ImagesView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/embed/ImagesView$Companion {
@@ -899,7 +869,6 @@ public final class app/bsky/embed/ImagesViewImage {
 	public final fun getThumb ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/embed/ImagesViewImage;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/embed/ImagesViewImage$Companion {
@@ -916,7 +885,6 @@ public final class app/bsky/embed/Record {
 	public final fun getRecord ()Lcom/atproto/repo/StrongRef;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/embed/Record;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/embed/Record$Companion {
@@ -933,7 +901,6 @@ public final class app/bsky/embed/RecordView {
 	public final fun getRecord ()Lapp/bsky/embed/RecordViewRecordUnion;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/embed/RecordView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/embed/RecordView$Companion {
@@ -954,7 +921,6 @@ public final class app/bsky/embed/RecordViewBlocked {
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/embed/RecordViewBlocked;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/embed/RecordViewBlocked$Companion {
@@ -973,7 +939,6 @@ public final class app/bsky/embed/RecordViewNotFound {
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/embed/RecordViewNotFound;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/embed/RecordViewNotFound$Companion {
@@ -1003,7 +968,6 @@ public final class app/bsky/embed/RecordViewRecord {
 	public final fun getValue ()Lkotlinx/serialization/json/JsonElement;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/embed/RecordViewRecord;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/embed/RecordViewRecord$Companion {
@@ -1290,7 +1254,6 @@ public final class app/bsky/embed/RecordWithMedia {
 	public final fun getRecord ()Lapp/bsky/embed/Record;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/embed/RecordWithMedia;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/embed/RecordWithMedia$Companion {
@@ -1373,7 +1336,6 @@ public final class app/bsky/embed/RecordWithMediaView {
 	public final fun getRecord ()Lapp/bsky/embed/RecordView;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/embed/RecordWithMediaView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/embed/RecordWithMediaView$Companion {
@@ -1457,7 +1419,6 @@ public final class app/bsky/feed/BlockedAuthor {
 	public final fun getViewer ()Lapp/bsky/actor/ViewerState;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/BlockedAuthor;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/BlockedAuthor$Companion {
@@ -1478,7 +1439,6 @@ public final class app/bsky/feed/BlockedPost {
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/BlockedPost;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/BlockedPost$Companion {
@@ -1495,7 +1455,6 @@ public final class app/bsky/feed/DescribeFeedGeneratorFeed {
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/DescribeFeedGeneratorFeed;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/DescribeFeedGeneratorFeed$Companion {
@@ -1516,7 +1475,6 @@ public final class app/bsky/feed/DescribeFeedGeneratorLinks {
 	public final fun getTermsOfService ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/DescribeFeedGeneratorLinks;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/DescribeFeedGeneratorLinks$Companion {
@@ -1538,7 +1496,6 @@ public final class app/bsky/feed/DescribeFeedGeneratorResponse {
 	public final fun getLinks ()Lapp/bsky/feed/DescribeFeedGeneratorLinks;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/DescribeFeedGeneratorResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/DescribeFeedGeneratorResponse$Companion {
@@ -1560,7 +1517,6 @@ public final class app/bsky/feed/FeedViewPost {
 	public final fun getReply ()Lapp/bsky/feed/ReplyRef;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/FeedViewPost;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/FeedViewPost$Companion {
@@ -1626,7 +1582,6 @@ public final class app/bsky/feed/Generator {
 	public final fun getLabels ()Lapp/bsky/feed/GeneratorLabelsUnion;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/Generator;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/Generator$Companion {
@@ -1700,7 +1655,6 @@ public final class app/bsky/feed/GeneratorView {
 	public final fun getViewer ()Lapp/bsky/feed/GeneratorViewerState;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GeneratorView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GeneratorView$Companion {
@@ -1718,7 +1672,6 @@ public final class app/bsky/feed/GeneratorViewerState {
 	public final fun getLike-W3xQKsw ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GeneratorViewerState;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GeneratorViewerState$Companion {
@@ -1741,7 +1694,6 @@ public final class app/bsky/feed/GetActorFeedsQueryParams {
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetActorFeedsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetActorFeedsQueryParams$Companion {
@@ -1761,7 +1713,6 @@ public final class app/bsky/feed/GetActorFeedsResponse {
 	public final fun getFeeds ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetActorFeedsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetActorFeedsResponse$Companion {
@@ -1784,7 +1735,6 @@ public final class app/bsky/feed/GetActorLikesQueryParams {
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetActorLikesQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetActorLikesQueryParams$Companion {
@@ -1804,7 +1754,6 @@ public final class app/bsky/feed/GetActorLikesResponse {
 	public final fun getFeed ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetActorLikesResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetActorLikesResponse$Companion {
@@ -1838,7 +1787,6 @@ public final class app/bsky/feed/GetAuthorFeedQueryParams {
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetAuthorFeedQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetAuthorFeedQueryParams$Companion {
@@ -1858,7 +1806,6 @@ public final class app/bsky/feed/GetAuthorFeedResponse {
 	public final fun getFeed ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetAuthorFeedResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetAuthorFeedResponse$Companion {
@@ -1876,7 +1823,6 @@ public final class app/bsky/feed/GetFeedGeneratorQueryParams {
 	public final fun getFeed-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetFeedGeneratorQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetFeedGeneratorQueryParams$Companion {
@@ -1897,7 +1843,6 @@ public final class app/bsky/feed/GetFeedGeneratorResponse {
 	public final fun isOnline ()Z
 	public final fun isValid ()Z
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetFeedGeneratorResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetFeedGeneratorResponse$Companion {
@@ -1915,7 +1860,6 @@ public final class app/bsky/feed/GetFeedGeneratorsQueryParams {
 	public final fun getFeeds ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetFeedGeneratorsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetFeedGeneratorsQueryParams$Companion {
@@ -1932,7 +1876,6 @@ public final class app/bsky/feed/GetFeedGeneratorsResponse {
 	public final fun getFeeds ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetFeedGeneratorsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetFeedGeneratorsResponse$Companion {
@@ -1955,7 +1898,6 @@ public final class app/bsky/feed/GetFeedQueryParams {
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetFeedQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetFeedQueryParams$Companion {
@@ -1975,7 +1917,6 @@ public final class app/bsky/feed/GetFeedResponse {
 	public final fun getFeed ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetFeedResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetFeedResponse$Companion {
@@ -1998,7 +1939,6 @@ public final class app/bsky/feed/GetFeedSkeletonQueryParams {
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetFeedSkeletonQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetFeedSkeletonQueryParams$Companion {
@@ -2018,7 +1958,6 @@ public final class app/bsky/feed/GetFeedSkeletonResponse {
 	public final fun getFeed ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetFeedSkeletonResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetFeedSkeletonResponse$Companion {
@@ -2039,7 +1978,6 @@ public final class app/bsky/feed/GetLikesLike {
 	public final fun getIndexedAt ()Lkotlinx/datetime/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetLikesLike;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetLikesLike$Companion {
@@ -2064,7 +2002,6 @@ public final class app/bsky/feed/GetLikesQueryParams {
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetLikesQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetLikesQueryParams$Companion {
@@ -2088,7 +2025,6 @@ public final class app/bsky/feed/GetLikesResponse {
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetLikesResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetLikesResponse$Companion {
@@ -2111,7 +2047,6 @@ public final class app/bsky/feed/GetListFeedQueryParams {
 	public final fun getList-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetListFeedQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetListFeedQueryParams$Companion {
@@ -2131,7 +2066,6 @@ public final class app/bsky/feed/GetListFeedResponse {
 	public final fun getFeed ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetListFeedResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetListFeedResponse$Companion {
@@ -2154,7 +2088,6 @@ public final class app/bsky/feed/GetPostThreadQueryParams {
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetPostThreadQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetPostThreadQueryParams$Companion {
@@ -2171,7 +2104,6 @@ public final class app/bsky/feed/GetPostThreadResponse {
 	public final fun getThread ()Lapp/bsky/feed/GetPostThreadResponseThreadUnion;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetPostThreadResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetPostThreadResponse$Companion {
@@ -2281,7 +2213,6 @@ public final class app/bsky/feed/GetPostsQueryParams {
 	public final fun getUris ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetPostsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetPostsQueryParams$Companion {
@@ -2298,7 +2229,6 @@ public final class app/bsky/feed/GetPostsResponse {
 	public final fun getPosts ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetPostsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetPostsResponse$Companion {
@@ -2323,7 +2253,6 @@ public final class app/bsky/feed/GetRepostedByQueryParams {
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetRepostedByQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetRepostedByQueryParams$Companion {
@@ -2347,7 +2276,6 @@ public final class app/bsky/feed/GetRepostedByResponse {
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetRepostedByResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetRepostedByResponse$Companion {
@@ -2369,7 +2297,6 @@ public final class app/bsky/feed/GetSuggestedFeedsQueryParams {
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetSuggestedFeedsQueryParams$Companion {
@@ -2389,7 +2316,6 @@ public final class app/bsky/feed/GetSuggestedFeedsResponse {
 	public final fun getFeeds ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetSuggestedFeedsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetSuggestedFeedsResponse$Companion {
@@ -2413,7 +2339,6 @@ public final class app/bsky/feed/GetTimelineQueryParams {
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetTimelineQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetTimelineQueryParams$Companion {
@@ -2433,7 +2358,6 @@ public final class app/bsky/feed/GetTimelineResponse {
 	public final fun getFeed ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/GetTimelineResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/GetTimelineResponse$Companion {
@@ -2452,7 +2376,6 @@ public final class app/bsky/feed/Like {
 	public final fun getSubject ()Lcom/atproto/repo/StrongRef;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/Like;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/Like$Companion {
@@ -2471,7 +2394,6 @@ public final class app/bsky/feed/NotFoundPost {
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/NotFoundPost;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/NotFoundPost$Companion {
@@ -2505,7 +2427,6 @@ public final class app/bsky/feed/Post {
 	public final fun getText ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/Post;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/Post$Companion {
@@ -2646,7 +2567,6 @@ public final class app/bsky/feed/PostEntity {
 	public final fun getValue ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/PostEntity;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/PostEntity$Companion {
@@ -2701,7 +2621,6 @@ public final class app/bsky/feed/PostReplyRef {
 	public final fun getRoot ()Lcom/atproto/repo/StrongRef;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/PostReplyRef;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/PostReplyRef$Companion {
@@ -2720,7 +2639,6 @@ public final class app/bsky/feed/PostTextSlice {
 	public final fun getStart ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/PostTextSlice;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/PostTextSlice$Companion {
@@ -2760,7 +2678,6 @@ public final class app/bsky/feed/PostView {
 	public final fun getViewer ()Lapp/bsky/feed/ViewerState;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/PostView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/PostView$Companion {
@@ -2899,7 +2816,6 @@ public final class app/bsky/feed/ReasonRepost {
 	public final fun getIndexedAt ()Lkotlinx/datetime/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/ReasonRepost;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/ReasonRepost$Companion {
@@ -2918,7 +2834,6 @@ public final class app/bsky/feed/ReplyRef {
 	public final fun getRoot ()Lapp/bsky/feed/ReplyRefRootUnion;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/ReplyRef;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/ReplyRef$Companion {
@@ -3121,7 +3036,6 @@ public final class app/bsky/feed/Repost {
 	public final fun getSubject ()Lcom/atproto/repo/StrongRef;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/Repost;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/Repost$Companion {
@@ -3144,7 +3058,6 @@ public final class app/bsky/feed/SearchPostsQueryParams {
 	public final fun getQ ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/SearchPostsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/SearchPostsQueryParams$Companion {
@@ -3166,7 +3079,6 @@ public final class app/bsky/feed/SearchPostsResponse {
 	public final fun getPosts ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/SearchPostsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/SearchPostsResponse$Companion {
@@ -3186,7 +3098,6 @@ public final class app/bsky/feed/SkeletonFeedPost {
 	public final fun getReason ()Lapp/bsky/feed/SkeletonFeedPostReasonUnion;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/SkeletonFeedPost;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/SkeletonFeedPost$Companion {
@@ -3239,7 +3150,6 @@ public final class app/bsky/feed/SkeletonReasonRepost {
 	public final fun getRepost-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/SkeletonReasonRepost;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/SkeletonReasonRepost$Companion {
@@ -3261,7 +3171,6 @@ public final class app/bsky/feed/ThreadViewPost {
 	public final fun getReplies ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/ThreadViewPost;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/ThreadViewPost$Companion {
@@ -3467,7 +3376,6 @@ public final class app/bsky/feed/Threadgate {
 	public final fun getPost-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/Threadgate;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/Threadgate$Companion {
@@ -3581,7 +3489,6 @@ public final class app/bsky/feed/ThreadgateListRule {
 	public final fun getList-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/ThreadgateListRule;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/ThreadgateListRule$Companion {
@@ -3610,7 +3517,6 @@ public final class app/bsky/feed/ThreadgateView {
 	public final fun getUri-W3xQKsw ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/ThreadgateView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/ThreadgateView$Companion {
@@ -3632,7 +3538,6 @@ public final class app/bsky/feed/ViewerState {
 	public final fun getRepost-W3xQKsw ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/feed/ViewerState;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/feed/ViewerState$Companion {
@@ -3651,7 +3556,6 @@ public final class app/bsky/graph/Block {
 	public final fun getSubject-715Ygxc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/Block;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/Block$Companion {
@@ -3670,7 +3574,6 @@ public final class app/bsky/graph/Follow {
 	public final fun getSubject-715Ygxc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/Follow;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/Follow$Companion {
@@ -3692,7 +3595,6 @@ public final class app/bsky/graph/GetBlocksQueryParams {
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/GetBlocksQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/GetBlocksQueryParams$Companion {
@@ -3712,7 +3614,6 @@ public final class app/bsky/graph/GetBlocksResponse {
 	public final fun getCursor ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/GetBlocksResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/GetBlocksResponse$Companion {
@@ -3735,7 +3636,6 @@ public final class app/bsky/graph/GetFollowersQueryParams {
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/GetFollowersQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/GetFollowersQueryParams$Companion {
@@ -3757,7 +3657,6 @@ public final class app/bsky/graph/GetFollowersResponse {
 	public final fun getSubject ()Lapp/bsky/actor/ProfileView;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/GetFollowersResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/GetFollowersResponse$Companion {
@@ -3780,7 +3679,6 @@ public final class app/bsky/graph/GetFollowsQueryParams {
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/GetFollowsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/GetFollowsQueryParams$Companion {
@@ -3802,7 +3700,6 @@ public final class app/bsky/graph/GetFollowsResponse {
 	public final fun getSubject ()Lapp/bsky/actor/ProfileView;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/GetFollowsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/GetFollowsResponse$Companion {
@@ -3824,7 +3721,6 @@ public final class app/bsky/graph/GetListBlocksQueryParams {
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/GetListBlocksQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/GetListBlocksQueryParams$Companion {
@@ -3844,7 +3740,6 @@ public final class app/bsky/graph/GetListBlocksResponse {
 	public final fun getLists ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/GetListBlocksResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/GetListBlocksResponse$Companion {
@@ -3866,7 +3761,6 @@ public final class app/bsky/graph/GetListMutesQueryParams {
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/GetListMutesQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/GetListMutesQueryParams$Companion {
@@ -3886,7 +3780,6 @@ public final class app/bsky/graph/GetListMutesResponse {
 	public final fun getLists ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/GetListMutesResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/GetListMutesResponse$Companion {
@@ -3909,7 +3802,6 @@ public final class app/bsky/graph/GetListQueryParams {
 	public final fun getList-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/GetListQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/GetListQueryParams$Companion {
@@ -3931,7 +3823,6 @@ public final class app/bsky/graph/GetListResponse {
 	public final fun getList ()Lapp/bsky/graph/ListView;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/GetListResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/GetListResponse$Companion {
@@ -3954,7 +3845,6 @@ public final class app/bsky/graph/GetListsQueryParams {
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/GetListsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/GetListsQueryParams$Companion {
@@ -3974,7 +3864,6 @@ public final class app/bsky/graph/GetListsResponse {
 	public final fun getLists ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/GetListsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/GetListsResponse$Companion {
@@ -3996,7 +3885,6 @@ public final class app/bsky/graph/GetMutesQueryParams {
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/GetMutesQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/GetMutesQueryParams$Companion {
@@ -4016,7 +3904,6 @@ public final class app/bsky/graph/GetMutesResponse {
 	public final fun getMutes ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/GetMutesResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/GetMutesResponse$Companion {
@@ -4034,7 +3921,6 @@ public final class app/bsky/graph/GetSuggestedFollowsByActorQueryParams {
 	public final fun getActor-SnKB-3U ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/GetSuggestedFollowsByActorQueryParams$Companion {
@@ -4051,7 +3937,6 @@ public final class app/bsky/graph/GetSuggestedFollowsByActorResponse {
 	public final fun getSuggestions ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/GetSuggestedFollowsByActorResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/GetSuggestedFollowsByActorResponse$Companion {
@@ -4081,7 +3966,6 @@ public final class app/bsky/graph/List {
 	public final fun getPurpose ()Lapp/bsky/graph/Token;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/List;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/List$Companion {
@@ -4100,7 +3984,6 @@ public final class app/bsky/graph/ListItemView {
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/ListItemView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/ListItemView$Companion {
@@ -4172,7 +4055,6 @@ public final class app/bsky/graph/ListView {
 	public final fun getViewer ()Lapp/bsky/graph/ListViewerState;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/ListView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/ListView$Companion {
@@ -4202,7 +4084,6 @@ public final class app/bsky/graph/ListViewBasic {
 	public final fun getViewer ()Lapp/bsky/graph/ListViewerState;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/ListViewBasic;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/ListViewBasic$Companion {
@@ -4222,7 +4103,6 @@ public final class app/bsky/graph/ListViewerState {
 	public final fun getMuted ()Ljava/lang/Boolean;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/ListViewerState;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/ListViewerState$Companion {
@@ -4241,7 +4121,6 @@ public final class app/bsky/graph/Listblock {
 	public final fun getSubject-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/Listblock;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/Listblock$Companion {
@@ -4262,7 +4141,6 @@ public final class app/bsky/graph/Listitem {
 	public final fun getSubject-715Ygxc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/Listitem;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/Listitem$Companion {
@@ -4279,7 +4157,6 @@ public final class app/bsky/graph/MuteActorListRequest {
 	public final fun getList-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/MuteActorListRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/MuteActorListRequest$Companion {
@@ -4296,7 +4173,6 @@ public final class app/bsky/graph/MuteActorRequest {
 	public final fun getActor-SnKB-3U ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/MuteActorRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/MuteActorRequest$Companion {
@@ -4321,7 +4197,6 @@ public final class app/bsky/graph/UnmuteActorListRequest {
 	public final fun getList-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/UnmuteActorListRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/UnmuteActorListRequest$Companion {
@@ -4338,7 +4213,6 @@ public final class app/bsky/graph/UnmuteActorRequest {
 	public final fun getActor-SnKB-3U ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/graph/UnmuteActorRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/graph/UnmuteActorRequest$Companion {
@@ -4358,7 +4232,6 @@ public final class app/bsky/notification/GetUnreadCountQueryParams {
 	public final fun getSeenAt ()Lkotlinx/datetime/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/notification/GetUnreadCountQueryParams$Companion {
@@ -4375,7 +4248,6 @@ public final class app/bsky/notification/GetUnreadCountResponse {
 	public final fun getCount ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/notification/GetUnreadCountResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/notification/GetUnreadCountResponse$Companion {
@@ -4409,7 +4281,6 @@ public final class app/bsky/notification/ListNotificationsNotification {
 	public fun hashCode ()I
 	public final fun isRead ()Z
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/notification/ListNotificationsNotification;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/notification/ListNotificationsNotification$Companion {
@@ -4433,7 +4304,6 @@ public final class app/bsky/notification/ListNotificationsQueryParams {
 	public final fun getSeenAt ()Lkotlinx/datetime/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/notification/ListNotificationsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/notification/ListNotificationsQueryParams$Companion {
@@ -4465,7 +4335,6 @@ public final class app/bsky/notification/ListNotificationsResponse {
 	public final fun getNotifications ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/notification/ListNotificationsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/notification/ListNotificationsResponse$Companion {
@@ -4497,7 +4366,6 @@ public final class app/bsky/notification/RegisterPushRequest {
 	public final fun getToken ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/notification/RegisterPushRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/notification/RegisterPushRequest$Companion {
@@ -4514,7 +4382,6 @@ public final class app/bsky/notification/UpdateSeenRequest {
 	public final fun getSeenAt ()Lkotlinx/datetime/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/notification/UpdateSeenRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/notification/UpdateSeenRequest$Companion {
@@ -4533,7 +4400,6 @@ public final class app/bsky/richtext/Facet {
 	public final fun getIndex ()Lapp/bsky/richtext/FacetByteSlice;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/richtext/Facet;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/richtext/Facet$Companion {
@@ -4552,7 +4418,6 @@ public final class app/bsky/richtext/FacetByteSlice {
 	public final fun getByteStart ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/richtext/FacetByteSlice;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/richtext/FacetByteSlice$Companion {
@@ -4661,7 +4526,6 @@ public final class app/bsky/richtext/FacetLink {
 	public final fun getUri-v5vOzEc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/richtext/FacetLink;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/richtext/FacetLink$Companion {
@@ -4678,7 +4542,6 @@ public final class app/bsky/richtext/FacetMention {
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/richtext/FacetMention;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/richtext/FacetMention$Companion {
@@ -4695,7 +4558,6 @@ public final class app/bsky/richtext/FacetTag {
 	public final fun getTag ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/richtext/FacetTag;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/richtext/FacetTag$Companion {
@@ -4719,7 +4581,6 @@ public final class app/bsky/unspecced/GetPopularFeedGeneratorsQueryParams {
 	public final fun getQuery ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/unspecced/GetPopularFeedGeneratorsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/unspecced/GetPopularFeedGeneratorsQueryParams$Companion {
@@ -4739,7 +4600,6 @@ public final class app/bsky/unspecced/GetPopularFeedGeneratorsResponse {
 	public final fun getFeeds ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/unspecced/GetPopularFeedGeneratorsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/unspecced/GetPopularFeedGeneratorsResponse$Companion {
@@ -4763,7 +4623,6 @@ public final class app/bsky/unspecced/GetPopularQueryParams {
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/unspecced/GetPopularQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/unspecced/GetPopularQueryParams$Companion {
@@ -4783,7 +4642,6 @@ public final class app/bsky/unspecced/GetPopularResponse {
 	public final fun getFeed ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/unspecced/GetPopularResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/unspecced/GetPopularResponse$Companion {
@@ -4805,7 +4663,6 @@ public final class app/bsky/unspecced/GetTimelineSkeletonQueryParams {
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/unspecced/GetTimelineSkeletonQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/unspecced/GetTimelineSkeletonQueryParams$Companion {
@@ -4825,7 +4682,6 @@ public final class app/bsky/unspecced/GetTimelineSkeletonResponse {
 	public final fun getFeed ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/unspecced/GetTimelineSkeletonResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/unspecced/GetTimelineSkeletonResponse$Companion {
@@ -4850,7 +4706,6 @@ public final class app/bsky/unspecced/SearchActorsSkeletonQueryParams {
 	public final fun getTypeahead ()Ljava/lang/Boolean;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/unspecced/SearchActorsSkeletonQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/unspecced/SearchActorsSkeletonQueryParams$Companion {
@@ -4872,7 +4727,6 @@ public final class app/bsky/unspecced/SearchActorsSkeletonResponse {
 	public final fun getHitsTotal ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/unspecced/SearchActorsSkeletonResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/unspecced/SearchActorsSkeletonResponse$Companion {
@@ -4895,7 +4749,6 @@ public final class app/bsky/unspecced/SearchPostsSkeletonQueryParams {
 	public final fun getQ ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/unspecced/SearchPostsSkeletonQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/unspecced/SearchPostsSkeletonQueryParams$Companion {
@@ -4917,7 +4770,6 @@ public final class app/bsky/unspecced/SearchPostsSkeletonResponse {
 	public final fun getPosts ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/unspecced/SearchPostsSkeletonResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/unspecced/SearchPostsSkeletonResponse$Companion {
@@ -4934,7 +4786,6 @@ public final class app/bsky/unspecced/SkeletonSearchActor {
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/unspecced/SkeletonSearchActor;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/unspecced/SkeletonSearchActor$Companion {
@@ -4951,7 +4802,6 @@ public final class app/bsky/unspecced/SkeletonSearchPost {
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lapp/bsky/unspecced/SkeletonSearchPost;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class app/bsky/unspecced/SkeletonSearchPost$Companion {
@@ -4985,7 +4835,6 @@ public final class com/atproto/admin/AccountView {
 	public final fun getInvitesDisabled ()Ljava/lang/Boolean;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/AccountView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/AccountView$Companion {
@@ -5013,7 +4862,6 @@ public final class com/atproto/admin/BlobView {
 	public final fun getSize ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/BlobView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/BlobView$Companion {
@@ -5097,7 +4945,6 @@ public final class com/atproto/admin/DisableAccountInvitesRequest {
 	public final fun getNote ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/DisableAccountInvitesRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/DisableAccountInvitesRequest$Companion {
@@ -5118,7 +4965,6 @@ public final class com/atproto/admin/DisableInviteCodesRequest {
 	public final fun getCodes ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/DisableInviteCodesRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/DisableInviteCodesRequest$Companion {
@@ -5142,7 +4988,6 @@ public final class com/atproto/admin/EmitModerationEventRequest {
 	public final fun getSubjectBlobCids ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/EmitModerationEventRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/EmitModerationEventRequest$Companion {
@@ -5514,7 +5359,6 @@ public final class com/atproto/admin/EnableAccountInvitesRequest {
 	public final fun getNote ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/EnableAccountInvitesRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/EnableAccountInvitesRequest$Companion {
@@ -5532,7 +5376,6 @@ public final class com/atproto/admin/GetAccountInfoQueryParams {
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/GetAccountInfoQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/GetAccountInfoQueryParams$Companion {
@@ -5556,7 +5399,6 @@ public final class com/atproto/admin/GetInviteCodesQueryParams {
 	public final fun getSort ()Lcom/atproto/admin/GetInviteCodesSort;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/GetInviteCodesQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/GetInviteCodesQueryParams$Companion {
@@ -5576,7 +5418,6 @@ public final class com/atproto/admin/GetInviteCodesResponse {
 	public final fun getCursor ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/GetInviteCodesResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/GetInviteCodesResponse$Companion {
@@ -5602,7 +5443,6 @@ public final class com/atproto/admin/GetModerationEventQueryParams {
 	public final fun getId ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/GetModerationEventQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/GetModerationEventQueryParams$Companion {
@@ -5623,7 +5463,6 @@ public final class com/atproto/admin/GetRecordQueryParams {
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/GetRecordQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/GetRecordQueryParams$Companion {
@@ -5641,7 +5480,6 @@ public final class com/atproto/admin/GetRepoQueryParams {
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/GetRepoQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/GetRepoQueryParams$Companion {
@@ -5664,7 +5502,6 @@ public final class com/atproto/admin/GetSubjectStatusQueryParams {
 	public final fun getUri-W3xQKsw ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/GetSubjectStatusQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/GetSubjectStatusQueryParams$Companion {
@@ -5684,7 +5521,6 @@ public final class com/atproto/admin/GetSubjectStatusResponse {
 	public final fun getTakedown ()Lcom/atproto/admin/StatusAttr;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/GetSubjectStatusResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/GetSubjectStatusResponse$Companion {
@@ -5795,7 +5631,6 @@ public final class com/atproto/admin/ImageDetails {
 	public final fun getWidth ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ImageDetails;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/ImageDetails$Companion {
@@ -5814,7 +5649,6 @@ public final class com/atproto/admin/ModEventAcknowledge {
 	public final fun getComment ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventAcknowledge;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/ModEventAcknowledge$Companion {
@@ -5834,7 +5668,6 @@ public final class com/atproto/admin/ModEventComment {
 	public final fun getSticky ()Ljava/lang/Boolean;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventComment;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/ModEventComment$Companion {
@@ -5851,7 +5684,6 @@ public final class com/atproto/admin/ModEventEmail {
 	public final fun getSubjectLine ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventEmail;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/ModEventEmail$Companion {
@@ -5870,7 +5702,6 @@ public final class com/atproto/admin/ModEventEscalate {
 	public final fun getComment ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventEscalate;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/ModEventEscalate$Companion {
@@ -5892,7 +5723,6 @@ public final class com/atproto/admin/ModEventLabel {
 	public final fun getNegateLabelVals ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventLabel;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/ModEventLabel$Companion {
@@ -5912,7 +5742,6 @@ public final class com/atproto/admin/ModEventMute {
 	public final fun getDurationInHours ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventMute;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/ModEventMute$Companion {
@@ -5932,7 +5761,6 @@ public final class com/atproto/admin/ModEventReport {
 	public final fun getReportType ()Lcom/atproto/moderation/Token;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventReport;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/ModEventReport$Companion {
@@ -5951,7 +5779,6 @@ public final class com/atproto/admin/ModEventReverseTakedown {
 	public final fun getComment ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventReverseTakedown;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/ModEventReverseTakedown$Companion {
@@ -5972,7 +5799,6 @@ public final class com/atproto/admin/ModEventTakedown {
 	public final fun getDurationInHours ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventTakedown;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/ModEventTakedown$Companion {
@@ -5991,7 +5817,6 @@ public final class com/atproto/admin/ModEventUnmute {
 	public final fun getComment ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventUnmute;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/ModEventUnmute$Companion {
@@ -6023,7 +5848,6 @@ public final class com/atproto/admin/ModEventView {
 	public final fun getSubjectHandle ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/ModEventView$Companion {
@@ -6050,7 +5874,6 @@ public final class com/atproto/admin/ModEventViewDetail {
 	public final fun getSubjectBlobs ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ModEventViewDetail;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/ModEventViewDetail$Companion {
@@ -6745,7 +6568,6 @@ public final class com/atproto/admin/Moderation {
 	public final fun getSubjectStatus ()Lcom/atproto/admin/SubjectStatusView;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/Moderation;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/Moderation$Companion {
@@ -6764,7 +6586,6 @@ public final class com/atproto/admin/ModerationDetail {
 	public final fun getSubjectStatus ()Lcom/atproto/admin/SubjectStatusView;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ModerationDetail;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/ModerationDetail$Companion {
@@ -6795,7 +6616,6 @@ public final class com/atproto/admin/QueryModerationEventsQueryParams {
 	public final fun getTypes ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/QueryModerationEventsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/QueryModerationEventsQueryParams$Companion {
@@ -6815,7 +6635,6 @@ public final class com/atproto/admin/QueryModerationEventsResponse {
 	public final fun getEvents ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/QueryModerationEventsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/QueryModerationEventsResponse$Companion {
@@ -6862,7 +6681,6 @@ public final class com/atproto/admin/QueryModerationStatusesQueryParams {
 	public final fun getTakendown ()Ljava/lang/Boolean;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/QueryModerationStatusesQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/QueryModerationStatusesQueryParams$Companion {
@@ -6882,7 +6700,6 @@ public final class com/atproto/admin/QueryModerationStatusesResponse {
 	public final fun getSubjectStatuses ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/QueryModerationStatusesResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/QueryModerationStatusesResponse$Companion {
@@ -6911,7 +6728,6 @@ public final class com/atproto/admin/RecordView {
 	public final fun getValue ()Lkotlinx/serialization/json/JsonElement;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/RecordView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/RecordView$Companion {
@@ -6943,7 +6759,6 @@ public final class com/atproto/admin/RecordViewDetail {
 	public final fun getValue ()Lkotlinx/serialization/json/JsonElement;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/RecordViewDetail;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/RecordViewDetail$Companion {
@@ -6960,7 +6775,6 @@ public final class com/atproto/admin/RecordViewNotFound {
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/RecordViewNotFound;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/RecordViewNotFound$Companion {
@@ -6982,7 +6796,6 @@ public final class com/atproto/admin/RepoBlobRef {
 	public final fun getRecordUri-W3xQKsw ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/RepoBlobRef;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/RepoBlobRef$Companion {
@@ -6999,7 +6812,6 @@ public final class com/atproto/admin/RepoRef {
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/RepoRef;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/RepoRef$Companion {
@@ -7033,7 +6845,6 @@ public final class com/atproto/admin/RepoView {
 	public final fun getRelatedRecords ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/RepoView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/RepoView$Companion {
@@ -7073,7 +6884,6 @@ public final class com/atproto/admin/RepoViewDetail {
 	public final fun getRelatedRecords ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/RepoViewDetail;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/RepoViewDetail$Companion {
@@ -7090,7 +6900,6 @@ public final class com/atproto/admin/RepoViewNotFound {
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/RepoViewNotFound;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/RepoViewNotFound$Companion {
@@ -7122,7 +6931,6 @@ public final class com/atproto/admin/ReportView {
 	public final fun getSubjectRepoHandle ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ReportView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/ReportView$Companion {
@@ -7154,7 +6962,6 @@ public final class com/atproto/admin/ReportViewDetail {
 	public final fun getSubjectStatus ()Lcom/atproto/admin/SubjectStatusView;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/ReportViewDetail;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/ReportViewDetail$Companion {
@@ -7364,7 +7171,6 @@ public final class com/atproto/admin/SearchReposQueryParams {
 	public final fun getTerm ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/SearchReposQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/SearchReposQueryParams$Companion {
@@ -7384,7 +7190,6 @@ public final class com/atproto/admin/SearchReposResponse {
 	public final fun getRepos ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/SearchReposResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/SearchReposResponse$Companion {
@@ -7408,7 +7213,6 @@ public final class com/atproto/admin/SendEmailRequest {
 	public final fun getSubject ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/SendEmailRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/SendEmailRequest$Companion {
@@ -7425,7 +7229,6 @@ public final class com/atproto/admin/SendEmailResponse {
 	public final fun getSent ()Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/SendEmailResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/SendEmailResponse$Companion {
@@ -7445,7 +7248,6 @@ public final class com/atproto/admin/StatusAttr {
 	public final fun getRef ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/StatusAttr;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/StatusAttr$Companion {
@@ -7489,7 +7291,6 @@ public final class com/atproto/admin/SubjectStatusView {
 	public final fun getUpdatedAt ()Lkotlinx/datetime/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/SubjectStatusView;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/SubjectStatusView$Companion {
@@ -7581,7 +7382,6 @@ public final class com/atproto/admin/UpdateAccountEmailRequest {
 	public final fun getEmail ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/UpdateAccountEmailRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/UpdateAccountEmailRequest$Companion {
@@ -7600,7 +7400,6 @@ public final class com/atproto/admin/UpdateAccountHandleRequest {
 	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/UpdateAccountHandleRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/UpdateAccountHandleRequest$Companion {
@@ -7620,7 +7419,6 @@ public final class com/atproto/admin/UpdateSubjectStatusRequest {
 	public final fun getTakedown ()Lcom/atproto/admin/StatusAttr;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/UpdateSubjectStatusRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/UpdateSubjectStatusRequest$Companion {
@@ -7732,7 +7530,6 @@ public final class com/atproto/admin/UpdateSubjectStatusResponse {
 	public final fun getTakedown ()Lcom/atproto/admin/StatusAttr;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/UpdateSubjectStatusResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/UpdateSubjectStatusResponse$Companion {
@@ -7845,7 +7642,6 @@ public final class com/atproto/admin/VideoDetails {
 	public final fun getWidth ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/admin/VideoDetails;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/admin/VideoDetails$Companion {
@@ -7863,7 +7659,6 @@ public final class com/atproto/identity/ResolveHandleQueryParams {
 	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/identity/ResolveHandleQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/identity/ResolveHandleQueryParams$Companion {
@@ -7880,7 +7675,6 @@ public final class com/atproto/identity/ResolveHandleResponse {
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/identity/ResolveHandleResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/identity/ResolveHandleResponse$Companion {
@@ -7897,7 +7691,6 @@ public final class com/atproto/identity/UpdateHandleRequest {
 	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/identity/UpdateHandleRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/identity/UpdateHandleRequest$Companion {
@@ -7925,7 +7718,6 @@ public final class com/atproto/label/Label {
 	public final fun getVal ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/label/Label;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/label/Label$Companion {
@@ -7950,7 +7742,6 @@ public final class com/atproto/label/QueryLabelsQueryParams {
 	public final fun getUriPatterns ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/label/QueryLabelsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/label/QueryLabelsQueryParams$Companion {
@@ -7970,7 +7761,6 @@ public final class com/atproto/label/QueryLabelsResponse {
 	public final fun getLabels ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/label/QueryLabelsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/label/QueryLabelsResponse$Companion {
@@ -7987,7 +7777,6 @@ public final class com/atproto/label/SelfLabel {
 	public final fun getVal ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/label/SelfLabel;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/label/SelfLabel$Companion {
@@ -8004,7 +7793,6 @@ public final class com/atproto/label/SelfLabels {
 	public final fun getValues ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/label/SelfLabels;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/label/SelfLabels$Companion {
@@ -8024,7 +7812,6 @@ public final class com/atproto/label/SubscribeLabelsInfo {
 	public final fun getName ()Lcom/atproto/label/SubscribeLabelsName;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/label/SubscribeLabelsInfo;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/label/SubscribeLabelsInfo$Companion {
@@ -8043,7 +7830,6 @@ public final class com/atproto/label/SubscribeLabelsLabels {
 	public final fun getSeq ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/label/SubscribeLabelsLabels;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/label/SubscribeLabelsLabels$Companion {
@@ -8134,7 +7920,6 @@ public final class com/atproto/label/SubscribeLabelsQueryParams {
 	public final fun getCursor ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/label/SubscribeLabelsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/label/SubscribeLabelsQueryParams$Companion {
@@ -8156,7 +7941,6 @@ public final class com/atproto/moderation/CreateReportRequest {
 	public final fun getSubject ()Lcom/atproto/moderation/CreateReportRequestSubjectUnion;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/moderation/CreateReportRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/moderation/CreateReportRequest$Companion {
@@ -8248,7 +8032,6 @@ public final class com/atproto/moderation/CreateReportResponse {
 	public final fun getSubject ()Lcom/atproto/moderation/CreateReportResponseSubjectUnion;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/moderation/CreateReportResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/moderation/CreateReportResponse$Companion {
@@ -8346,7 +8129,6 @@ public final class com/atproto/repo/ApplyWritesCreate {
 	public final fun getValue ()Lkotlinx/serialization/json/JsonElement;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/repo/ApplyWritesCreate;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/repo/ApplyWritesCreate$Companion {
@@ -8365,7 +8147,6 @@ public final class com/atproto/repo/ApplyWritesDelete {
 	public final fun getRkey ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/repo/ApplyWritesDelete;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/repo/ApplyWritesDelete$Companion {
@@ -8389,7 +8170,6 @@ public final class com/atproto/repo/ApplyWritesRequest {
 	public final fun getWrites ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/repo/ApplyWritesRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/repo/ApplyWritesRequest$Companion {
@@ -8502,7 +8282,6 @@ public final class com/atproto/repo/ApplyWritesUpdate {
 	public final fun getValue ()Lkotlinx/serialization/json/JsonElement;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/repo/ApplyWritesUpdate;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/repo/ApplyWritesUpdate$Companion {
@@ -8530,7 +8309,6 @@ public final class com/atproto/repo/CreateRecordRequest {
 	public final fun getValidate ()Ljava/lang/Boolean;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/repo/CreateRecordRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/repo/CreateRecordRequest$Companion {
@@ -8549,7 +8327,6 @@ public final class com/atproto/repo/CreateRecordResponse {
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/repo/CreateRecordResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/repo/CreateRecordResponse$Companion {
@@ -8575,7 +8352,6 @@ public final class com/atproto/repo/DeleteRecordRequest {
 	public final fun getSwapRecord-OC6CE0s ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/repo/DeleteRecordRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/repo/DeleteRecordRequest$Companion {
@@ -8593,7 +8369,6 @@ public final class com/atproto/repo/DescribeRepoQueryParams {
 	public final fun getRepo-SnKB-3U ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/repo/DescribeRepoQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/repo/DescribeRepoQueryParams$Companion {
@@ -8618,7 +8393,6 @@ public final class com/atproto/repo/DescribeRepoResponse {
 	public final fun getHandleIsCorrect ()Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/repo/DescribeRepoResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/repo/DescribeRepoResponse$Companion {
@@ -8643,7 +8417,6 @@ public final class com/atproto/repo/GetRecordQueryParams {
 	public final fun getRkey ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/repo/GetRecordQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/repo/GetRecordQueryParams$Companion {
@@ -8665,7 +8438,6 @@ public final class com/atproto/repo/GetRecordResponse {
 	public final fun getValue ()Lkotlinx/serialization/json/JsonElement;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/repo/GetRecordResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/repo/GetRecordResponse$Companion {
@@ -8696,7 +8468,6 @@ public final class com/atproto/repo/ListRecordsQueryParams {
 	public final fun getRkeyStart ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/repo/ListRecordsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/repo/ListRecordsQueryParams$Companion {
@@ -8717,7 +8488,6 @@ public final class com/atproto/repo/ListRecordsRecord {
 	public final fun getValue ()Lkotlinx/serialization/json/JsonElement;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/repo/ListRecordsRecord;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/repo/ListRecordsRecord$Companion {
@@ -8737,7 +8507,6 @@ public final class com/atproto/repo/ListRecordsResponse {
 	public final fun getRecords ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/repo/ListRecordsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/repo/ListRecordsResponse$Companion {
@@ -8767,7 +8536,6 @@ public final class com/atproto/repo/PutRecordRequest {
 	public final fun getValidate ()Ljava/lang/Boolean;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/repo/PutRecordRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/repo/PutRecordRequest$Companion {
@@ -8786,7 +8554,6 @@ public final class com/atproto/repo/PutRecordResponse {
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/repo/PutRecordResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/repo/PutRecordResponse$Companion {
@@ -8805,7 +8572,6 @@ public final class com/atproto/repo/StrongRef {
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/repo/StrongRef;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/repo/StrongRef$Companion {
@@ -8822,7 +8588,6 @@ public final class com/atproto/repo/UploadBlobResponse {
 	public final fun getBlob ()Lsh/christian/ozone/api/model/Blob;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/repo/UploadBlobResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/repo/UploadBlobResponse$Companion {
@@ -8841,7 +8606,6 @@ public final class com/atproto/server/ConfirmEmailRequest {
 	public final fun getToken ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/ConfirmEmailRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/ConfirmEmailRequest$Companion {
@@ -8871,7 +8635,6 @@ public final class com/atproto/server/CreateAccountRequest {
 	public final fun getRecoveryKey ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/CreateAccountRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/CreateAccountRequest$Companion {
@@ -8897,7 +8660,6 @@ public final class com/atproto/server/CreateAccountResponse {
 	public final fun getRefreshJwt ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/CreateAccountResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/CreateAccountResponse$Companion {
@@ -8918,7 +8680,6 @@ public final class com/atproto/server/CreateAppPasswordAppPassword {
 	public final fun getPassword ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/CreateAppPasswordAppPassword;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/CreateAppPasswordAppPassword$Companion {
@@ -8935,7 +8696,6 @@ public final class com/atproto/server/CreateAppPasswordRequest {
 	public final fun getName ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/CreateAppPasswordRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/CreateAppPasswordRequest$Companion {
@@ -8955,7 +8715,6 @@ public final class com/atproto/server/CreateInviteCodeRequest {
 	public final fun getUseCount ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/CreateInviteCodeRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/CreateInviteCodeRequest$Companion {
@@ -8972,7 +8731,6 @@ public final class com/atproto/server/CreateInviteCodeResponse {
 	public final fun getCode ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/CreateInviteCodeResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/CreateInviteCodeResponse$Companion {
@@ -8991,7 +8749,6 @@ public final class com/atproto/server/CreateInviteCodesAccountCodes {
 	public final fun getCodes ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/CreateInviteCodesAccountCodes;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/CreateInviteCodesAccountCodes$Companion {
@@ -9013,7 +8770,6 @@ public final class com/atproto/server/CreateInviteCodesRequest {
 	public final fun getUseCount ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/CreateInviteCodesRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/CreateInviteCodesRequest$Companion {
@@ -9030,7 +8786,6 @@ public final class com/atproto/server/CreateInviteCodesResponse {
 	public final fun getCodes ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/CreateInviteCodesResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/CreateInviteCodesResponse$Companion {
@@ -9049,7 +8804,6 @@ public final class com/atproto/server/CreateSessionRequest {
 	public final fun getPassword ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/CreateSessionRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/CreateSessionRequest$Companion {
@@ -9079,7 +8833,6 @@ public final class com/atproto/server/CreateSessionResponse {
 	public final fun getRefreshJwt ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/CreateSessionResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/CreateSessionResponse$Companion {
@@ -9100,7 +8853,6 @@ public final class com/atproto/server/DeleteAccountRequest {
 	public final fun getToken ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/DeleteAccountRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/DeleteAccountRequest$Companion {
@@ -9121,7 +8873,6 @@ public final class com/atproto/server/DescribeServerLinks {
 	public final fun getTermsOfService ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/DescribeServerLinks;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/DescribeServerLinks$Companion {
@@ -9143,7 +8894,6 @@ public final class com/atproto/server/DescribeServerResponse {
 	public final fun getLinks ()Lcom/atproto/server/DescribeServerLinks;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/DescribeServerResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/DescribeServerResponse$Companion {
@@ -9165,7 +8915,6 @@ public final class com/atproto/server/GetAccountInviteCodesQueryParams {
 	public final fun getIncludeUsed ()Ljava/lang/Boolean;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/GetAccountInviteCodesQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/GetAccountInviteCodesQueryParams$Companion {
@@ -9182,7 +8931,6 @@ public final class com/atproto/server/GetAccountInviteCodesResponse {
 	public final fun getCodes ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/GetAccountInviteCodesResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/GetAccountInviteCodesResponse$Companion {
@@ -9208,7 +8956,6 @@ public final class com/atproto/server/GetSessionResponse {
 	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/GetSessionResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/GetSessionResponse$Companion {
@@ -9237,7 +8984,6 @@ public final class com/atproto/server/InviteCode {
 	public final fun getUses ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/InviteCode;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/InviteCode$Companion {
@@ -9256,7 +9002,6 @@ public final class com/atproto/server/InviteCodeUse {
 	public final fun getUsedBy-715Ygxc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/InviteCodeUse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/InviteCodeUse$Companion {
@@ -9275,7 +9020,6 @@ public final class com/atproto/server/ListAppPasswordsAppPassword {
 	public final fun getName ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/ListAppPasswordsAppPassword;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/ListAppPasswordsAppPassword$Companion {
@@ -9292,7 +9036,6 @@ public final class com/atproto/server/ListAppPasswordsResponse {
 	public final fun getPasswords ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/ListAppPasswordsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/ListAppPasswordsResponse$Companion {
@@ -9318,7 +9061,6 @@ public final class com/atproto/server/RefreshSessionResponse {
 	public final fun getRefreshJwt ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/RefreshSessionResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/RefreshSessionResponse$Companion {
@@ -9335,7 +9077,6 @@ public final class com/atproto/server/RequestEmailUpdateResponse {
 	public final fun getTokenRequired ()Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/RequestEmailUpdateResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/RequestEmailUpdateResponse$Companion {
@@ -9352,7 +9093,6 @@ public final class com/atproto/server/RequestPasswordResetRequest {
 	public final fun getEmail ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/RequestPasswordResetRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/RequestPasswordResetRequest$Companion {
@@ -9371,7 +9111,6 @@ public final class com/atproto/server/ReserveSigningKeyRequest {
 	public final fun getDid ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/ReserveSigningKeyRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/ReserveSigningKeyRequest$Companion {
@@ -9388,7 +9127,6 @@ public final class com/atproto/server/ReserveSigningKeyResponse {
 	public final fun getSigningKey ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/ReserveSigningKeyResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/ReserveSigningKeyResponse$Companion {
@@ -9407,7 +9145,6 @@ public final class com/atproto/server/ResetPasswordRequest {
 	public final fun getToken ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/ResetPasswordRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/ResetPasswordRequest$Companion {
@@ -9424,7 +9161,6 @@ public final class com/atproto/server/RevokeAppPasswordRequest {
 	public final fun getName ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/RevokeAppPasswordRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/RevokeAppPasswordRequest$Companion {
@@ -9444,7 +9180,6 @@ public final class com/atproto/server/UpdateEmailRequest {
 	public final fun getToken ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/server/UpdateEmailRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/server/UpdateEmailRequest$Companion {
@@ -9464,7 +9199,6 @@ public final class com/atproto/sync/GetBlobQueryParams {
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/GetBlobQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/GetBlobQueryParams$Companion {
@@ -9484,7 +9218,6 @@ public final class com/atproto/sync/GetBlocksQueryParams {
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/GetBlocksQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/GetBlocksQueryParams$Companion {
@@ -9502,7 +9235,6 @@ public final class com/atproto/sync/GetCheckoutQueryParams {
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/GetCheckoutQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/GetCheckoutQueryParams$Companion {
@@ -9520,7 +9252,6 @@ public final class com/atproto/sync/GetHeadQueryParams {
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/GetHeadQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/GetHeadQueryParams$Companion {
@@ -9537,7 +9268,6 @@ public final class com/atproto/sync/GetHeadResponse {
 	public final fun getRoot-OA0YjOw ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/GetHeadResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/GetHeadResponse$Companion {
@@ -9555,7 +9285,6 @@ public final class com/atproto/sync/GetLatestCommitQueryParams {
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/GetLatestCommitQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/GetLatestCommitQueryParams$Companion {
@@ -9574,7 +9303,6 @@ public final class com/atproto/sync/GetLatestCommitResponse {
 	public final fun getRev ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/GetLatestCommitResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/GetLatestCommitResponse$Companion {
@@ -9599,7 +9327,6 @@ public final class com/atproto/sync/GetRecordQueryParams {
 	public final fun getRkey ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/GetRecordQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/GetRecordQueryParams$Companion {
@@ -9620,7 +9347,6 @@ public final class com/atproto/sync/GetRepoQueryParams {
 	public final fun getSince ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/GetRepoQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/GetRepoQueryParams$Companion {
@@ -9645,7 +9371,6 @@ public final class com/atproto/sync/ListBlobsQueryParams {
 	public final fun getSince ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/ListBlobsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/ListBlobsQueryParams$Companion {
@@ -9665,7 +9390,6 @@ public final class com/atproto/sync/ListBlobsResponse {
 	public final fun getCursor ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/ListBlobsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/ListBlobsResponse$Companion {
@@ -9687,7 +9411,6 @@ public final class com/atproto/sync/ListReposQueryParams {
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/ListReposQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/ListReposQueryParams$Companion {
@@ -9708,7 +9431,6 @@ public final class com/atproto/sync/ListReposRepo {
 	public final fun getRev ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/ListReposRepo;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/ListReposRepo$Companion {
@@ -9728,7 +9450,6 @@ public final class com/atproto/sync/ListReposResponse {
 	public final fun getRepos ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/ListReposResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/ListReposResponse$Companion {
@@ -9745,7 +9466,6 @@ public final class com/atproto/sync/NotifyOfUpdateRequest {
 	public final fun getHostname ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/NotifyOfUpdateRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/NotifyOfUpdateRequest$Companion {
@@ -9762,7 +9482,6 @@ public final class com/atproto/sync/RequestCrawlRequest {
 	public final fun getHostname ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/RequestCrawlRequest;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/RequestCrawlRequest$Companion {
@@ -9811,7 +9530,6 @@ public final class com/atproto/sync/SubscribeReposCommit {
 	public final fun getTooBig ()Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/SubscribeReposCommit;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/SubscribeReposCommit$Companion {
@@ -9834,7 +9552,6 @@ public final class com/atproto/sync/SubscribeReposHandle {
 	public final fun getTime ()Lkotlinx/datetime/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/SubscribeReposHandle;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/SubscribeReposHandle$Companion {
@@ -9854,7 +9571,6 @@ public final class com/atproto/sync/SubscribeReposInfo {
 	public final fun getName ()Lcom/atproto/sync/SubscribeReposName;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/SubscribeReposInfo;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/SubscribeReposInfo$Companion {
@@ -10026,7 +9742,6 @@ public final class com/atproto/sync/SubscribeReposMigrate {
 	public final fun getTime ()Lkotlinx/datetime/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/SubscribeReposMigrate;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/SubscribeReposMigrate$Companion {
@@ -10053,7 +9768,6 @@ public final class com/atproto/sync/SubscribeReposQueryParams {
 	public final fun getCursor ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/SubscribeReposQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/SubscribeReposQueryParams$Companion {
@@ -10075,7 +9789,6 @@ public final class com/atproto/sync/SubscribeReposRepoOp {
 	public final fun getPath ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/SubscribeReposRepoOp;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/SubscribeReposRepoOp$Companion {
@@ -10096,7 +9809,6 @@ public final class com/atproto/sync/SubscribeReposTombstone {
 	public final fun getTime ()Lkotlinx/datetime/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/sync/SubscribeReposTombstone;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/sync/SubscribeReposTombstone$Companion {
@@ -10118,7 +9830,6 @@ public final class com/atproto/temp/FetchLabelsQueryParams {
 	public final fun getSince ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/temp/FetchLabelsQueryParams;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/temp/FetchLabelsQueryParams$Companion {
@@ -10135,7 +9846,6 @@ public final class com/atproto/temp/FetchLabelsResponse {
 	public final fun getLabels ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lcom/atproto/temp/FetchLabelsResponse;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class com/atproto/temp/FetchLabelsResponse$Companion {

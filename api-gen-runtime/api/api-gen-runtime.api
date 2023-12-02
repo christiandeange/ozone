@@ -170,7 +170,6 @@ public final class sh/christian/ozone/api/model/Blob$LegacyBlob : sh/christian/o
 	public final fun getMimeType ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lsh/christian/ozone/api/model/Blob$LegacyBlob;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class sh/christian/ozone/api/model/Blob$LegacyBlob$Companion {
@@ -191,7 +190,6 @@ public final class sh/christian/ozone/api/model/Blob$StandardBlob : sh/christian
 	public final fun getSize ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lsh/christian/ozone/api/model/Blob$StandardBlob;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class sh/christian/ozone/api/model/Blob$StandardBlob$Companion {
@@ -208,7 +206,6 @@ public final class sh/christian/ozone/api/model/BlobRef {
 	public final fun getLink ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lsh/christian/ozone/api/model/BlobRef;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class sh/christian/ozone/api/model/BlobRef$Companion {
@@ -231,7 +228,6 @@ public final class sh/christian/ozone/api/response/AtpErrorDescription {
 	public final fun getMessage ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Lsh/christian/ozone/api/response/AtpErrorDescription;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class sh/christian/ozone/api/response/AtpErrorDescription$Companion {
