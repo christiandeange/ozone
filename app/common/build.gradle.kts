@@ -8,8 +8,12 @@ plugins {
   id("com.google.devtools.ksp")
 }
 
-android {
-  namespace = "sh.christian.ozone.common"
+ozone {
+  androidLibrary {
+    namespace = "sh.christian.ozone.common"
+  }
+  js()
+  jvm()
 }
 
 kotlin {
@@ -53,8 +57,8 @@ kotlin {
         implementation(libs.zoomable)
       }
     }
-    val desktopMain by getting {
-      kotlin.srcDir("build/generated/ksp/desktop/desktopMain/kotlin")
+    val jvmMain by getting {
+      kotlin.srcDir("build/generated/ksp/jvm/jvmMain/kotlin")
       resources.srcDir("fonts")
 
       dependencies {
@@ -76,6 +80,6 @@ kotlin {
 
 dependencies {
   add("kspAndroid", libs.kotlininject.compiler)
-  add("kspDesktop", libs.kotlininject.compiler)
   add("kspJs", libs.kotlininject.compiler)
+  add("kspJvm", libs.kotlininject.compiler)
 }

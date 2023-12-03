@@ -1,22 +1,15 @@
 plugins {
-  kotlin("multiplatform")
-  id("ozone-base")
+  id("ozone-multiplatform")
   id("ozone-publish")
   kotlin("plugin.serialization")
 }
 
-kotlin {
-  jvm {
-    compilations.all {
-      kotlinOptions.jvmTarget = "11"
-    }
-  }
-  js(IR) {
-    browser()
-    nodejs()
-    binaries.executable()
-  }
+ozone {
+  js()
+  jvm()
+}
 
+kotlin {
   sourceSets {
     val commonMain by getting {
       dependencies {

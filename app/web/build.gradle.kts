@@ -1,17 +1,16 @@
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack
 
 plugins {
-  kotlin("multiplatform")
   kotlin("plugin.serialization")
+  id("ozone-multiplatform")
   id("ozone-compose")
 }
 
+ozone {
+  js()
+}
+
 kotlin {
-  js(IR) {
-    browser()
-    nodejs()
-    binaries.executable()
-  }
   sourceSets {
     val jsMain by getting {
       dependencies {

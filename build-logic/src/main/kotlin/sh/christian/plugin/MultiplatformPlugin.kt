@@ -2,8 +2,7 @@ package sh.christian.plugin
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import org.jetbrains.kotlin.gradle.dsl.kotlinExtension
+import org.gradle.kotlin.dsl.create
 
 @Suppress("unused")
 class MultiplatformPlugin : Plugin<Project> {
@@ -11,24 +10,5 @@ class MultiplatformPlugin : Plugin<Project> {
 }
 
 private fun Project.applyPlugin() {
-  plugins.apply("com.android.library")
-  plugins.apply("org.jetbrains.kotlin.multiplatform")
-  plugins.apply("ozone-base")
-  plugins.apply("ozone-android")
-
-  (project.kotlinExtension as KotlinMultiplatformExtension).apply {
-    androidTarget()
-
-    jvm("desktop") {
-      compilations.all {
-        kotlinOptions.jvmTarget = "11"
-      }
-    }
-
-    js(IR) {
-      browser()
-      nodejs()
-      binaries.executable()
-    }
-  }
+  extensions.create<OzoneExtension>("ozone", this)
 }

@@ -1,17 +1,16 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
-  kotlin("multiplatform")
   kotlin("plugin.serialization")
+  id("ozone-multiplatform")
   id("ozone-compose")
 }
 
+ozone {
+  jvm()
+}
+
 kotlin {
-  jvm {
-    compilations.all {
-      kotlinOptions.jvmTarget = "11"
-    }
-  }
   sourceSets {
     val jvmMain by getting {
       dependencies {

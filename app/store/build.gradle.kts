@@ -3,8 +3,12 @@ plugins {
   kotlin("plugin.serialization")
 }
 
-android {
-  namespace = "sh.christian.ozone.store"
+ozone {
+  androidLibrary {
+    namespace = "sh.christian.ozone.store"
+  }
+  js()
+  jvm()
 }
 
 kotlin {

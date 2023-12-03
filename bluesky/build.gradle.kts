@@ -2,24 +2,15 @@ import com.android.build.gradle.internal.tasks.factory.dependsOn
 import sh.christian.ozone.api.generator.ApiReturnType
 
 plugins {
-  kotlin("multiplatform")
-  id("ozone-base")
+  id("ozone-multiplatform")
   id("ozone-publish")
   id("sh.christian.ozone.generator")
   id("org.jetbrains.kotlinx.binary-compatibility-validator")
 }
 
-kotlin {
-  jvm {
-    compilations.all {
-      kotlinOptions.jvmTarget = "11"
-    }
-  }
-  js(IR) {
-    browser()
-    nodejs()
-    binaries.executable()
-  }
+ozone {
+  js()
+  jvm()
 }
 
 dependencies {
