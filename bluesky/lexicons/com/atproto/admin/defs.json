@@ -33,7 +33,8 @@
             "#modEventAcknowledge",
             "#modEventEscalate",
             "#modEventMute",
-            "#modEventEmail"
+            "#modEventEmail",
+            "#modEventResolveAppeal"
           ]
         },
         "subject": {
@@ -69,7 +70,9 @@
             "#modEventLabel",
             "#modEventAcknowledge",
             "#modEventEscalate",
-            "#modEventMute"
+            "#modEventMute",
+            "#modEventEmail",
+            "#modEventResolveAppeal"
           ]
         },
         "subject": {
@@ -167,8 +170,17 @@
           "type": "string",
           "format": "datetime"
         },
+        "lastAppealedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description": "Timestamp referencing when the author of the subject appealed a moderation action"
+        },
         "takendown": {
           "type": "boolean"
+        },
+        "appealed": {
+          "type": "boolean",
+          "description": "True indicates that the a previously taken moderator action was appealed against, by the author of the content. False indicates last appeal was resolved by moderators."
         },
         "suspendUntil": {
           "type": "string",
@@ -284,6 +296,7 @@
         "did": { "type": "string", "format": "did" },
         "handle": { "type": "string", "format": "handle" },
         "email": { "type": "string" },
+        "relatedRecords": { "type": "array", "items": { "type": "unknown" } },
         "indexedAt": { "type": "string", "format": "datetime" },
         "invitedBy": {
           "type": "ref",
@@ -469,6 +482,16 @@
         }
       }
     },
+    "modEventResolveAppeal": {
+      "type": "object",
+      "description": "Resolve appeal on a subject",
+      "properties": {
+        "comment": {
+          "type": "string",
+          "description": "Describe resolution."
+        }
+      }
+    },
     "modEventComment": {
       "type": "object",
       "description": "Add a comment to a subject",
@@ -557,7 +580,43 @@
         "subjectLine": {
           "type": "string",
           "description": "The subject line of the email sent to the user."
+        },
+        "comment": {
+          "type": "string",
+          "description": "Additional comment about the outgoing comm."
         }
+      }
+    },
+    "communicationTemplateView": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "contentMarkdown",
+        "disabled",
+        "lastUpdatedBy",
+        "createdAt",
+        "updatedAt"
+      ],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string", "description": "Name of the template." },
+        "subject": {
+          "type": "string",
+          "description": "Content of the template, can contain markdown and variable placeholders."
+        },
+        "contentMarkdown": {
+          "type": "string",
+          "description": "Subject of the message, used in emails."
+        },
+        "disabled": { "type": "boolean" },
+        "lastUpdatedBy": {
+          "type": "string",
+          "format": "did",
+          "description": "DID of the user who last updated the template."
+        },
+        "createdAt": { "type": "string", "format": "datetime" },
+        "updatedAt": { "type": "string", "format": "datetime" }
       }
     }
   }

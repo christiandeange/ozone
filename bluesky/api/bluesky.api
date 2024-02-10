@@ -165,6 +165,22 @@ public final class app/bsky/actor/GetSuggestionsResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/actor/InterestsPref {
+	public static final field Companion Lapp/bsky/actor/InterestsPref$Companion;
+	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;)V
+	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/actor/InterestsPref;
+	public static synthetic fun copy$default (Lapp/bsky/actor/InterestsPref;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/actor/InterestsPref;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getTags ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/InterestsPref$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/actor/PersonalDetailsPref {
 	public static final field Companion Lapp/bsky/actor/PersonalDetailsPref$Companion;
 	public fun <init> ()V
@@ -273,6 +289,34 @@ public final class app/bsky/actor/PreferencesUnion$FeedViewPrefSerializer : kotl
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-R98AQEE (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/FeedViewPref;)V
+}
+
+public final class app/bsky/actor/PreferencesUnion$InterestsPref : app/bsky/actor/PreferencesUnion {
+	public static final field Companion Lapp/bsky/actor/PreferencesUnion$InterestsPref$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/actor/InterestsPref;)Lapp/bsky/actor/PreferencesUnion$InterestsPref;
+	public static fun constructor-impl (Lapp/bsky/actor/InterestsPref;)Lapp/bsky/actor/InterestsPref;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/actor/InterestsPref;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/actor/InterestsPref;Lapp/bsky/actor/InterestsPref;)Z
+	public final fun getValue ()Lapp/bsky/actor/InterestsPref;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/actor/InterestsPref;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/actor/InterestsPref;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/actor/InterestsPref;
+}
+
+public final class app/bsky/actor/PreferencesUnion$InterestsPref$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/PreferencesUnion$InterestsPrefSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-e1tyJcU (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/actor/InterestsPref;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-85GA0fw (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/InterestsPref;)V
 }
 
 public final class app/bsky/actor/PreferencesUnion$PersonalDetailsPref : app/bsky/actor/PreferencesUnion {
@@ -1761,6 +1805,7 @@ public final class app/bsky/feed/GetActorLikesResponse$Companion {
 }
 
 public final class app/bsky/feed/GetAuthorFeedFilter : java/lang/Enum {
+	public static final field POSTS_AND_AUTHOR_THREADS Lapp/bsky/feed/GetAuthorFeedFilter;
 	public static final field POSTS_NO_REPLIES Lapp/bsky/feed/GetAuthorFeedFilter;
 	public static final field POSTS_WITH_MEDIA Lapp/bsky/feed/GetAuthorFeedFilter;
 	public static final field POSTS_WITH_REPLIES Lapp/bsky/feed/GetAuthorFeedFilter;
@@ -3910,6 +3955,109 @@ public final class app/bsky/graph/GetMutesResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/graph/GetRelationshipsQueryParams {
+	public static final field Companion Lapp/bsky/graph/GetRelationshipsQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1-SnKB-3U ()Ljava/lang/String;
+	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy-Nc9yNGA (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/graph/GetRelationshipsQueryParams;
+	public static synthetic fun copy-Nc9yNGA$default (Lapp/bsky/graph/GetRelationshipsQueryParams;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/graph/GetRelationshipsQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActor-SnKB-3U ()Ljava/lang/String;
+	public final fun getOthers ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/graph/GetRelationshipsQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/graph/GetRelationshipsResponse {
+	public static final field Companion Lapp/bsky/graph/GetRelationshipsResponse$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-68yuAGA ()Ljava/lang/String;
+	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy-zGeKB5I (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/graph/GetRelationshipsResponse;
+	public static synthetic fun copy-zGeKB5I$default (Lapp/bsky/graph/GetRelationshipsResponse;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/graph/GetRelationshipsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActor-68yuAGA ()Ljava/lang/String;
+	public final fun getRelationships ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/graph/GetRelationshipsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/graph/GetRelationshipsResponseRelationshipUnion {
+	public static final field Companion Lapp/bsky/graph/GetRelationshipsResponseRelationshipUnion$Companion;
+}
+
+public final class app/bsky/graph/GetRelationshipsResponseRelationshipUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/graph/GetRelationshipsResponseRelationshipUnion$NotFoundActor : app/bsky/graph/GetRelationshipsResponseRelationshipUnion {
+	public static final field Companion Lapp/bsky/graph/GetRelationshipsResponseRelationshipUnion$NotFoundActor$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/graph/NotFoundActor;)Lapp/bsky/graph/GetRelationshipsResponseRelationshipUnion$NotFoundActor;
+	public static fun constructor-impl (Lapp/bsky/graph/NotFoundActor;)Lapp/bsky/graph/NotFoundActor;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/graph/NotFoundActor;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/graph/NotFoundActor;Lapp/bsky/graph/NotFoundActor;)Z
+	public final fun getValue ()Lapp/bsky/graph/NotFoundActor;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/graph/NotFoundActor;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/graph/NotFoundActor;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/graph/NotFoundActor;
+}
+
+public final class app/bsky/graph/GetRelationshipsResponseRelationshipUnion$NotFoundActor$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/graph/GetRelationshipsResponseRelationshipUnion$NotFoundActorSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-94XJU54 (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/graph/NotFoundActor;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-91Hp-RA (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/graph/NotFoundActor;)V
+}
+
+public final class app/bsky/graph/GetRelationshipsResponseRelationshipUnion$Relationship : app/bsky/graph/GetRelationshipsResponseRelationshipUnion {
+	public static final field Companion Lapp/bsky/graph/GetRelationshipsResponseRelationshipUnion$Relationship$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/graph/Relationship;)Lapp/bsky/graph/GetRelationshipsResponseRelationshipUnion$Relationship;
+	public static fun constructor-impl (Lapp/bsky/graph/Relationship;)Lapp/bsky/graph/Relationship;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/graph/Relationship;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/graph/Relationship;Lapp/bsky/graph/Relationship;)Z
+	public final fun getValue ()Lapp/bsky/graph/Relationship;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/graph/Relationship;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/graph/Relationship;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/graph/Relationship;
+}
+
+public final class app/bsky/graph/GetRelationshipsResponseRelationshipUnion$Relationship$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/graph/GetRelationshipsResponseRelationshipUnion$RelationshipSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-6USKE6w (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/graph/Relationship;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-MKbw4lM (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/graph/Relationship;)V
+}
+
 public final class app/bsky/graph/GetSuggestedFollowsByActorQueryParams {
 	public static final field Companion Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -4179,6 +4327,45 @@ public final class app/bsky/graph/MuteActorRequest$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/graph/NotFoundActor {
+	public static final field Companion Lapp/bsky/graph/NotFoundActor$Companion;
+	public synthetic fun <init> (Ljava/lang/String;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-SnKB-3U ()Ljava/lang/String;
+	public final fun component2 ()Z
+	public final fun copy-Nc9yNGA (Ljava/lang/String;Z)Lapp/bsky/graph/NotFoundActor;
+	public static synthetic fun copy-Nc9yNGA$default (Lapp/bsky/graph/NotFoundActor;Ljava/lang/String;ZILjava/lang/Object;)Lapp/bsky/graph/NotFoundActor;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActor-SnKB-3U ()Ljava/lang/String;
+	public final fun getNotFound ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/graph/NotFoundActor$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/graph/Relationship {
+	public static final field Companion Lapp/bsky/graph/Relationship$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2-W3xQKsw ()Ljava/lang/String;
+	public final fun component3-W3xQKsw ()Ljava/lang/String;
+	public final fun copy-VKay7XA (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/graph/Relationship;
+	public static synthetic fun copy-VKay7XA$default (Lapp/bsky/graph/Relationship;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/Relationship;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getFollowedBy-W3xQKsw ()Ljava/lang/String;
+	public final fun getFollowing-W3xQKsw ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/graph/Relationship$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/graph/Token : java/lang/Enum {
 	public static final field CURATELIST Lapp/bsky/graph/Token;
 	public static final field MODLIST Lapp/bsky/graph/Token;
@@ -4324,15 +4511,17 @@ public final class app/bsky/notification/ListNotificationsReason : java/lang/Enu
 
 public final class app/bsky/notification/ListNotificationsResponse {
 	public static final field Companion Lapp/bsky/notification/ListNotificationsResponse$Companion;
-	public fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)V
-	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun copy (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/notification/ListNotificationsResponse;
-	public static synthetic fun copy$default (Lapp/bsky/notification/ListNotificationsResponse;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/notification/ListNotificationsResponse;
+	public final fun component3 ()Lkotlinx/datetime/Instant;
+	public final fun copy (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;)Lapp/bsky/notification/ListNotificationsResponse;
+	public static synthetic fun copy$default (Lapp/bsky/notification/ListNotificationsResponse;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lapp/bsky/notification/ListNotificationsResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getNotifications ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getSeenAt ()Lkotlinx/datetime/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -4606,85 +4795,47 @@ public final class app/bsky/unspecced/GetPopularFeedGeneratorsResponse$Companion
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/unspecced/GetPopularQueryParams {
-	public static final field Companion Lapp/bsky/unspecced/GetPopularQueryParams$Companion;
-	public fun <init> ()V
-	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component1 ()Ljava/lang/Boolean;
-	public final fun component2 ()Ljava/lang/Long;
-	public final fun component3 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/unspecced/GetPopularQueryParams;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetPopularQueryParams;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetPopularQueryParams;
+public final class app/bsky/unspecced/GetTaggedSuggestionsResponse {
+	public static final field Companion Lapp/bsky/unspecced/GetTaggedSuggestionsResponse$Companion;
+	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;)V
+	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/unspecced/GetTaggedSuggestionsResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetTaggedSuggestionsResponse;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/unspecced/GetTaggedSuggestionsResponse;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getCursor ()Ljava/lang/String;
-	public final fun getIncludeNsfw ()Ljava/lang/Boolean;
-	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getSuggestions ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class app/bsky/unspecced/GetPopularQueryParams$Companion {
+public final class app/bsky/unspecced/GetTaggedSuggestionsResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/unspecced/GetPopularResponse {
-	public static final field Companion Lapp/bsky/unspecced/GetPopularResponse$Companion;
-	public fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)V
-	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+public final class app/bsky/unspecced/GetTaggedSuggestionsSubjectType : java/lang/Enum {
+	public static final field ACTOR Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;
+	public static final field FEED Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;
+	public static fun values ()[Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;
+}
+
+public final class app/bsky/unspecced/GetTaggedSuggestionsSuggestion {
+	public static final field Companion Lapp/bsky/unspecced/GetTaggedSuggestionsSuggestion$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun copy (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/unspecced/GetPopularResponse;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetPopularResponse;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/unspecced/GetPopularResponse;
+	public final fun component2 ()Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;
+	public final fun component3-v5vOzEc ()Ljava/lang/String;
+	public final fun copy-DXbHf-I (Ljava/lang/String;Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;Ljava/lang/String;)Lapp/bsky/unspecced/GetTaggedSuggestionsSuggestion;
+	public static synthetic fun copy-DXbHf-I$default (Lapp/bsky/unspecced/GetTaggedSuggestionsSuggestion;Ljava/lang/String;Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetTaggedSuggestionsSuggestion;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getCursor ()Ljava/lang/String;
-	public final fun getFeed ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getSubject-v5vOzEc ()Ljava/lang/String;
+	public final fun getSubjectType ()Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;
+	public final fun getTag ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class app/bsky/unspecced/GetPopularResponse$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class app/bsky/unspecced/GetTimelineSkeletonQueryParams {
-	public static final field Companion Lapp/bsky/unspecced/GetTimelineSkeletonQueryParams$Companion;
-	public fun <init> ()V
-	public fun <init> (Ljava/lang/Long;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component1 ()Ljava/lang/Long;
-	public final fun component2 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/unspecced/GetTimelineSkeletonQueryParams;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetTimelineSkeletonQueryParams;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetTimelineSkeletonQueryParams;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getCursor ()Ljava/lang/String;
-	public final fun getLimit ()Ljava/lang/Long;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/unspecced/GetTimelineSkeletonQueryParams$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class app/bsky/unspecced/GetTimelineSkeletonResponse {
-	public static final field Companion Lapp/bsky/unspecced/GetTimelineSkeletonResponse$Companion;
-	public fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)V
-	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun copy (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/unspecced/GetTimelineSkeletonResponse;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetTimelineSkeletonResponse;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/unspecced/GetTimelineSkeletonResponse;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getCursor ()Ljava/lang/String;
-	public final fun getFeed ()Lkotlinx/collections/immutable/ImmutableList;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/unspecced/GetTimelineSkeletonResponse$Companion {
+public final class app/bsky/unspecced/GetTaggedSuggestionsSuggestion$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -4810,19 +4961,20 @@ public final class app/bsky/unspecced/SkeletonSearchPost$Companion {
 
 public final class com/atproto/admin/AccountView {
 	public static final field Companion Lcom/atproto/admin/AccountView$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component10 ()Ljava/lang/String;
 	public final fun component2-hDwCUG8 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun component4 ()Lkotlinx/datetime/Instant;
-	public final fun component5 ()Lcom/atproto/server/InviteCode;
-	public final fun component6 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component7 ()Ljava/lang/Boolean;
-	public final fun component8 ()Lkotlinx/datetime/Instant;
-	public final fun component9 ()Ljava/lang/String;
-	public final fun copy-A84qRCI (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/lang/String;)Lcom/atproto/admin/AccountView;
-	public static synthetic fun copy-A84qRCI$default (Lcom/atproto/admin/AccountView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/AccountView;
+	public final fun component4 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component5 ()Lkotlinx/datetime/Instant;
+	public final fun component6 ()Lcom/atproto/server/InviteCode;
+	public final fun component7 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component8 ()Ljava/lang/Boolean;
+	public final fun component9 ()Lkotlinx/datetime/Instant;
+	public final fun copy-jYMobb0 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/lang/String;)Lcom/atproto/admin/AccountView;
+	public static synthetic fun copy-jYMobb0$default (Lcom/atproto/admin/AccountView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;Lcom/atproto/server/InviteCode;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/AccountView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getEmail ()Ljava/lang/String;
@@ -4833,6 +4985,7 @@ public final class com/atproto/admin/AccountView {
 	public final fun getInvitedBy ()Lcom/atproto/server/InviteCode;
 	public final fun getInvites ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun getInvitesDisabled ()Ljava/lang/Boolean;
+	public final fun getRelatedRecords ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -4930,6 +5083,92 @@ public final class com/atproto/admin/BlobViewDetailsUnion$VideoDetailsSerializer
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-F1YDUPI (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/VideoDetails;)V
+}
+
+public final class com/atproto/admin/CommunicationTemplateView {
+	public static final field Companion Lcom/atproto/admin/CommunicationTemplateView$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Z
+	public final fun component6-715Ygxc ()Ljava/lang/String;
+	public final fun component7 ()Lkotlinx/datetime/Instant;
+	public final fun component8 ()Lkotlinx/datetime/Instant;
+	public final fun copy-Y11WXlc (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;)Lcom/atproto/admin/CommunicationTemplateView;
+	public static synthetic fun copy-Y11WXlc$default (Lcom/atproto/admin/CommunicationTemplateView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lcom/atproto/admin/CommunicationTemplateView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContentMarkdown ()Ljava/lang/String;
+	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getDisabled ()Z
+	public final fun getId ()Ljava/lang/String;
+	public final fun getLastUpdatedBy-715Ygxc ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getSubject ()Ljava/lang/String;
+	public final fun getUpdatedAt ()Lkotlinx/datetime/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/admin/CommunicationTemplateView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/CreateCommunicationTemplateRequest {
+	public static final field Companion Lcom/atproto/admin/CreateCommunicationTemplateRequest$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4-68yuAGA ()Ljava/lang/String;
+	public final fun copy-JeTGFFg (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/admin/CreateCommunicationTemplateRequest;
+	public static synthetic fun copy-JeTGFFg$default (Lcom/atproto/admin/CreateCommunicationTemplateRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/CreateCommunicationTemplateRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContentMarkdown ()Ljava/lang/String;
+	public final fun getCreatedBy-68yuAGA ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getSubject ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/admin/CreateCommunicationTemplateRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/DeleteAccountRequest {
+	public static final field Companion Lcom/atproto/admin/DeleteAccountRequest$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun copy-Kn78ayM (Ljava/lang/String;)Lcom/atproto/admin/DeleteAccountRequest;
+	public static synthetic fun copy-Kn78ayM$default (Lcom/atproto/admin/DeleteAccountRequest;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/DeleteAccountRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/admin/DeleteAccountRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/DeleteCommunicationTemplateRequest {
+	public static final field Companion Lcom/atproto/admin/DeleteCommunicationTemplateRequest$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/admin/DeleteCommunicationTemplateRequest;
+	public static synthetic fun copy$default (Lcom/atproto/admin/DeleteCommunicationTemplateRequest;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/DeleteCommunicationTemplateRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/admin/DeleteCommunicationTemplateRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/atproto/admin/DisableAccountInvitesRequest {
@@ -5382,6 +5621,39 @@ public final class com/atproto/admin/GetAccountInfoQueryParams$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/atproto/admin/GetAccountInfosQueryParams {
+	public static final field Companion Lcom/atproto/admin/GetAccountInfosQueryParams$Companion;
+	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;)Lcom/atproto/admin/GetAccountInfosQueryParams;
+	public static synthetic fun copy$default (Lcom/atproto/admin/GetAccountInfosQueryParams;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lcom/atproto/admin/GetAccountInfosQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDids ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/admin/GetAccountInfosQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/GetAccountInfosResponse {
+	public static final field Companion Lcom/atproto/admin/GetAccountInfosResponse$Companion;
+	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;)V
+	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;)Lcom/atproto/admin/GetAccountInfosResponse;
+	public static synthetic fun copy$default (Lcom/atproto/admin/GetAccountInfosResponse;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lcom/atproto/admin/GetAccountInfosResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getInfos ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/admin/GetAccountInfosResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/atproto/admin/GetInviteCodesQueryParams {
 	public static final field Companion Lcom/atproto/admin/GetInviteCodesQueryParams$Companion;
 	public fun <init> ()V
@@ -5637,6 +5909,22 @@ public final class com/atproto/admin/ImageDetails$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/atproto/admin/ListCommunicationTemplatesResponse {
+	public static final field Companion Lcom/atproto/admin/ListCommunicationTemplatesResponse$Companion;
+	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;)V
+	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;)Lcom/atproto/admin/ListCommunicationTemplatesResponse;
+	public static synthetic fun copy$default (Lcom/atproto/admin/ListCommunicationTemplatesResponse;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lcom/atproto/admin/ListCommunicationTemplatesResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCommunicationTemplates ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/admin/ListCommunicationTemplatesResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/atproto/admin/ModEventAcknowledge {
 	public static final field Companion Lcom/atproto/admin/ModEventAcknowledge$Companion;
 	public fun <init> ()V
@@ -5676,11 +5964,14 @@ public final class com/atproto/admin/ModEventComment$Companion {
 
 public final class com/atproto/admin/ModEventEmail {
 	public static final field Companion Lcom/atproto/admin/ModEventEmail$Companion;
-	public fun <init> (Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;)Lcom/atproto/admin/ModEventEmail;
-	public static synthetic fun copy$default (Lcom/atproto/admin/ModEventEmail;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/ModEventEmail;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/admin/ModEventEmail;
+	public static synthetic fun copy$default (Lcom/atproto/admin/ModEventEmail;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/ModEventEmail;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
 	public final fun getSubjectLine ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -5764,6 +6055,24 @@ public final class com/atproto/admin/ModEventReport {
 }
 
 public final class com/atproto/admin/ModEventReport$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventResolveAppeal {
+	public static final field Companion Lcom/atproto/admin/ModEventResolveAppeal$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/admin/ModEventResolveAppeal;
+	public static synthetic fun copy$default (Lcom/atproto/admin/ModEventResolveAppeal;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/ModEventResolveAppeal;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/admin/ModEventResolveAppeal$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -5944,6 +6253,34 @@ public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventCommen
 	public fun serialize-kcVc49A (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventComment;)V
 }
 
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventEmail : com/atproto/admin/ModEventViewDetailEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventEmail$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventEmail;)Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventEmail;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventEmail;)Lcom/atproto/admin/ModEventEmail;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventEmail;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventEmail;Lcom/atproto/admin/ModEventEmail;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventEmail;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventEmail;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventEmail;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventEmail;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventEmail$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventEmailSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-vtqh1bo (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventEmail;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-foDCNLQ (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventEmail;)V
+}
+
 public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventEscalate : com/atproto/admin/ModEventViewDetailEventUnion {
 	public static final field Companion Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventEscalate$Companion;
 	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventEscalate;)Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventEscalate;
@@ -6054,6 +6391,34 @@ public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventReport
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize--1N3NP0 (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventReport;)V
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventResolveAppeal : com/atproto/admin/ModEventViewDetailEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventResolveAppeal$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventResolveAppeal;)Lcom/atproto/admin/ModEventViewDetailEventUnion$ModEventResolveAppeal;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventResolveAppeal;)Lcom/atproto/admin/ModEventResolveAppeal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventResolveAppeal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventResolveAppeal;Lcom/atproto/admin/ModEventResolveAppeal;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventResolveAppeal;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventResolveAppeal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventResolveAppeal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventResolveAppeal;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventResolveAppeal$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventResolveAppealSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-nAZaQE0 (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventResolveAppeal;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-wl1kzMo (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventResolveAppeal;)V
 }
 
 public final class com/atproto/admin/ModEventViewDetailEventUnion$ModEventReverseTakedown : com/atproto/admin/ModEventViewDetailEventUnion {
@@ -6436,6 +6801,34 @@ public final class com/atproto/admin/ModEventViewEventUnion$ModEventReportSerial
 	public fun serialize-xL-IigQ (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventReport;)V
 }
 
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventResolveAppeal : com/atproto/admin/ModEventViewEventUnion {
+	public static final field Companion Lcom/atproto/admin/ModEventViewEventUnion$ModEventResolveAppeal$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventResolveAppeal;)Lcom/atproto/admin/ModEventViewEventUnion$ModEventResolveAppeal;
+	public static fun constructor-impl (Lcom/atproto/admin/ModEventResolveAppeal;)Lcom/atproto/admin/ModEventResolveAppeal;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/ModEventResolveAppeal;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/ModEventResolveAppeal;Lcom/atproto/admin/ModEventResolveAppeal;)Z
+	public final fun getValue ()Lcom/atproto/admin/ModEventResolveAppeal;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/ModEventResolveAppeal;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/ModEventResolveAppeal;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/ModEventResolveAppeal;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventResolveAppeal$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/ModEventViewEventUnion$ModEventResolveAppealSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-jb_f93I (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/ModEventResolveAppeal;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-sHPlmIU (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/ModEventResolveAppeal;)V
+}
+
 public final class com/atproto/admin/ModEventViewEventUnion$ModEventReverseTakedown : com/atproto/admin/ModEventViewEventUnion {
 	public static final field Companion Lcom/atproto/admin/ModEventViewEventUnion$ModEventReverseTakedown$Companion;
 	public static final synthetic fun box-impl (Lcom/atproto/admin/ModEventReverseTakedown;)Lcom/atproto/admin/ModEventViewEventUnion$ModEventReverseTakedown;
@@ -6594,23 +6987,37 @@ public final class com/atproto/admin/ModerationDetail$Companion {
 
 public final class com/atproto/admin/QueryModerationEventsQueryParams {
 	public static final field Companion Lcom/atproto/admin/QueryModerationEventsQueryParams$Companion;
-	public synthetic fun <init> (Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component10 ()Ljava/lang/String;
+	public final fun component11 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component12 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component13 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component14 ()Ljava/lang/String;
 	public final fun component2-68yuAGA ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun component4-pvpWXas ()Ljava/lang/String;
-	public final fun component5 ()Ljava/lang/Boolean;
-	public final fun component6 ()Ljava/lang/Long;
-	public final fun component7 ()Ljava/lang/String;
-	public final fun copy-7ppQKMs (Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;)Lcom/atproto/admin/QueryModerationEventsQueryParams;
-	public static synthetic fun copy-7ppQKMs$default (Lcom/atproto/admin/QueryModerationEventsQueryParams;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/QueryModerationEventsQueryParams;
+	public final fun component4 ()Lkotlinx/datetime/Instant;
+	public final fun component5 ()Lkotlinx/datetime/Instant;
+	public final fun component6-pvpWXas ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/Boolean;
+	public final fun component8 ()Ljava/lang/Long;
+	public final fun component9 ()Ljava/lang/Boolean;
+	public final fun copy-nlQhSm0 (Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;)Lcom/atproto/admin/QueryModerationEventsQueryParams;
+	public static synthetic fun copy-nlQhSm0$default (Lcom/atproto/admin/QueryModerationEventsQueryParams;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/QueryModerationEventsQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAddedLabels ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getCreatedAfter ()Lkotlinx/datetime/Instant;
+	public final fun getCreatedBefore ()Lkotlinx/datetime/Instant;
 	public final fun getCreatedBy-68yuAGA ()Ljava/lang/String;
 	public final fun getCursor ()Ljava/lang/String;
+	public final fun getHasComment ()Ljava/lang/Boolean;
 	public final fun getIncludeAllUserRecords ()Ljava/lang/Boolean;
 	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getRemovedLabels ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getReportTypes ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun getSortDirection ()Ljava/lang/String;
 	public final fun getSubject-pvpWXas ()Ljava/lang/String;
 	public final fun getTypes ()Lkotlinx/collections/immutable/ImmutableList;
@@ -6643,16 +7050,17 @@ public final class com/atproto/admin/QueryModerationEventsResponse$Companion {
 
 public final class com/atproto/admin/QueryModerationStatusesQueryParams {
 	public static final field Companion Lcom/atproto/admin/QueryModerationStatusesQueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun component1-pvpWXas ()Ljava/lang/String;
 	public final fun component10-68yuAGA ()Ljava/lang/String;
 	public final fun component11 ()Ljava/lang/String;
 	public final fun component12 ()Ljava/lang/String;
 	public final fun component13 ()Ljava/lang/Boolean;
-	public final fun component14 ()Ljava/lang/Long;
-	public final fun component15 ()Ljava/lang/String;
+	public final fun component14 ()Ljava/lang/Boolean;
+	public final fun component15 ()Ljava/lang/Long;
+	public final fun component16 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Lkotlinx/datetime/Instant;
 	public final fun component4 ()Lkotlinx/datetime/Instant;
@@ -6661,9 +7069,10 @@ public final class com/atproto/admin/QueryModerationStatusesQueryParams {
 	public final fun component7 ()Ljava/lang/Boolean;
 	public final fun component8 ()Ljava/lang/String;
 	public final fun component9 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun copy-Or9JY_s (Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;)Lcom/atproto/admin/QueryModerationStatusesQueryParams;
-	public static synthetic fun copy-Or9JY_s$default (Lcom/atproto/admin/QueryModerationStatusesQueryParams;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/QueryModerationStatusesQueryParams;
+	public final fun copy-3cfnoHo (Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;)Lcom/atproto/admin/QueryModerationStatusesQueryParams;
+	public static synthetic fun copy-3cfnoHo$default (Lcom/atproto/admin/QueryModerationStatusesQueryParams;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/QueryModerationStatusesQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAppealed ()Ljava/lang/Boolean;
 	public final fun getComment ()Ljava/lang/String;
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getIgnoreSubjects ()Lkotlinx/collections/immutable/ImmutableList;
@@ -7198,15 +7607,17 @@ public final class com/atproto/admin/SearchReposResponse$Companion {
 
 public final class com/atproto/admin/SendEmailRequest {
 	public static final field Companion Lcom/atproto/admin/SendEmailRequest$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4-715Ygxc ()Ljava/lang/String;
-	public final fun copy-1V4t2sY (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/admin/SendEmailRequest;
-	public static synthetic fun copy-1V4t2sY$default (Lcom/atproto/admin/SendEmailRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/SendEmailRequest;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy-a0-ruzc (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/admin/SendEmailRequest;
+	public static synthetic fun copy-a0-ruzc$default (Lcom/atproto/admin/SendEmailRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/SendEmailRequest;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
 	public final fun getContent ()Ljava/lang/String;
 	public final fun getRecipientDid-715Ygxc ()Ljava/lang/String;
 	public final fun getSenderDid-715Ygxc ()Ljava/lang/String;
@@ -7256,14 +7667,16 @@ public final class com/atproto/admin/StatusAttr$Companion {
 
 public final class com/atproto/admin/SubjectStatusView {
 	public static final field Companion Lcom/atproto/admin/SubjectStatusView$Companion;
-	public synthetic fun <init> (JLcom/atproto/admin/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lcom/atproto/admin/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JLcom/atproto/admin/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lcom/atproto/admin/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLcom/atproto/admin/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lcom/atproto/admin/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLcom/atproto/admin/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lcom/atproto/admin/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
 	public final fun component10-68yuAGA ()Ljava/lang/String;
 	public final fun component11 ()Lkotlinx/datetime/Instant;
 	public final fun component12 ()Lkotlinx/datetime/Instant;
-	public final fun component13 ()Ljava/lang/Boolean;
-	public final fun component14 ()Lkotlinx/datetime/Instant;
+	public final fun component13 ()Lkotlinx/datetime/Instant;
+	public final fun component14 ()Ljava/lang/Boolean;
+	public final fun component15 ()Ljava/lang/Boolean;
+	public final fun component16 ()Lkotlinx/datetime/Instant;
 	public final fun component2 ()Lcom/atproto/admin/SubjectStatusViewSubjectUnion;
 	public final fun component3 ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun component4 ()Ljava/lang/String;
@@ -7272,12 +7685,14 @@ public final class com/atproto/admin/SubjectStatusView {
 	public final fun component7 ()Lcom/atproto/admin/Token;
 	public final fun component8 ()Ljava/lang/String;
 	public final fun component9 ()Lkotlinx/datetime/Instant;
-	public final fun copy-eqE9yDw (JLcom/atproto/admin/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lcom/atproto/admin/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;)Lcom/atproto/admin/SubjectStatusView;
-	public static synthetic fun copy-eqE9yDw$default (Lcom/atproto/admin/SubjectStatusView;JLcom/atproto/admin/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lcom/atproto/admin/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lcom/atproto/admin/SubjectStatusView;
+	public final fun copy-xNr3OQk (JLcom/atproto/admin/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lcom/atproto/admin/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;)Lcom/atproto/admin/SubjectStatusView;
+	public static synthetic fun copy-xNr3OQk$default (Lcom/atproto/admin/SubjectStatusView;JLcom/atproto/admin/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lcom/atproto/admin/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lcom/atproto/admin/SubjectStatusView;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAppealed ()Ljava/lang/Boolean;
 	public final fun getComment ()Ljava/lang/String;
 	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
 	public final fun getId ()J
+	public final fun getLastAppealedAt ()Lkotlinx/datetime/Instant;
 	public final fun getLastReportedAt ()Lkotlinx/datetime/Instant;
 	public final fun getLastReviewedAt ()Lkotlinx/datetime/Instant;
 	public final fun getLastReviewedBy-68yuAGA ()Ljava/lang/String;
@@ -7403,6 +7818,33 @@ public final class com/atproto/admin/UpdateAccountHandleRequest {
 }
 
 public final class com/atproto/admin/UpdateAccountHandleRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/UpdateCommunicationTemplateRequest {
+	public static final field Companion Lcom/atproto/admin/UpdateCommunicationTemplateRequest$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5-68yuAGA ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/Boolean;
+	public final fun copy-8U8DbxA (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)Lcom/atproto/admin/UpdateCommunicationTemplateRequest;
+	public static synthetic fun copy-8U8DbxA$default (Lcom/atproto/admin/UpdateCommunicationTemplateRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Lcom/atproto/admin/UpdateCommunicationTemplateRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContentMarkdown ()Ljava/lang/String;
+	public final fun getDisabled ()Ljava/lang/Boolean;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getSubject ()Ljava/lang/String;
+	public final fun getUpdatedBy-68yuAGA ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/admin/UpdateCommunicationTemplateRequest$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -8103,6 +8545,7 @@ public final class com/atproto/moderation/CreateReportResponseSubjectUnion$RepoS
 }
 
 public final class com/atproto/moderation/Token : java/lang/Enum {
+	public static final field REASON_APPEAL Lcom/atproto/moderation/Token;
 	public static final field REASON_MISLEADING Lcom/atproto/moderation/Token;
 	public static final field REASON_OTHER Lcom/atproto/moderation/Token;
 	public static final field REASON_RUDE Lcom/atproto/moderation/Token;
@@ -8614,17 +9057,19 @@ public final class com/atproto/server/ConfirmEmailRequest$Companion {
 
 public final class com/atproto/server/CreateAccountRequest {
 	public static final field Companion Lcom/atproto/server/CreateAccountRequest$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2-hDwCUG8 ()Ljava/lang/String;
 	public final fun component3-68yuAGA ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
 	public final fun component5 ()Ljava/lang/String;
 	public final fun component6 ()Ljava/lang/String;
-	public final fun component7 ()Lkotlinx/serialization/json/JsonElement;
-	public final fun copy-gsCEa_4 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;)Lcom/atproto/server/CreateAccountRequest;
-	public static synthetic fun copy-gsCEa_4$default (Lcom/atproto/server/CreateAccountRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;ILjava/lang/Object;)Lcom/atproto/server/CreateAccountRequest;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Lkotlinx/serialization/json/JsonElement;
+	public final fun copy-XOr22M4 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;)Lcom/atproto/server/CreateAccountRequest;
+	public static synthetic fun copy-XOr22M4$default (Lcom/atproto/server/CreateAccountRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;ILjava/lang/Object;)Lcom/atproto/server/CreateAccountRequest;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDid-68yuAGA ()Ljava/lang/String;
 	public final fun getEmail ()Ljava/lang/String;
@@ -8633,6 +9078,8 @@ public final class com/atproto/server/CreateAccountRequest {
 	public final fun getPassword ()Ljava/lang/String;
 	public final fun getPlcOp ()Lkotlinx/serialization/json/JsonElement;
 	public final fun getRecoveryKey ()Ljava/lang/String;
+	public final fun getVerificationCode ()Ljava/lang/String;
+	public final fun getVerificationPhone ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -8881,17 +9328,19 @@ public final class com/atproto/server/DescribeServerLinks$Companion {
 
 public final class com/atproto/server/DescribeServerResponse {
 	public static final field Companion Lcom/atproto/server/DescribeServerResponse$Companion;
-	public fun <init> (Ljava/lang/Boolean;Lkotlinx/collections/immutable/ImmutableList;Lcom/atproto/server/DescribeServerLinks;)V
-	public synthetic fun <init> (Ljava/lang/Boolean;Lkotlinx/collections/immutable/ImmutableList;Lcom/atproto/server/DescribeServerLinks;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/collections/immutable/ImmutableList;Lcom/atproto/server/DescribeServerLinks;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/collections/immutable/ImmutableList;Lcom/atproto/server/DescribeServerLinks;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Boolean;
-	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component3 ()Lcom/atproto/server/DescribeServerLinks;
-	public final fun copy (Ljava/lang/Boolean;Lkotlinx/collections/immutable/ImmutableList;Lcom/atproto/server/DescribeServerLinks;)Lcom/atproto/server/DescribeServerResponse;
-	public static synthetic fun copy$default (Lcom/atproto/server/DescribeServerResponse;Ljava/lang/Boolean;Lkotlinx/collections/immutable/ImmutableList;Lcom/atproto/server/DescribeServerLinks;ILjava/lang/Object;)Lcom/atproto/server/DescribeServerResponse;
+	public final fun component2 ()Ljava/lang/Boolean;
+	public final fun component3 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component4 ()Lcom/atproto/server/DescribeServerLinks;
+	public final fun copy (Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/collections/immutable/ImmutableList;Lcom/atproto/server/DescribeServerLinks;)Lcom/atproto/server/DescribeServerResponse;
+	public static synthetic fun copy$default (Lcom/atproto/server/DescribeServerResponse;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/collections/immutable/ImmutableList;Lcom/atproto/server/DescribeServerLinks;ILjava/lang/Object;)Lcom/atproto/server/DescribeServerResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAvailableUserDomains ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun getInviteCodeRequired ()Ljava/lang/Boolean;
 	public final fun getLinks ()Lcom/atproto/server/DescribeServerLinks;
+	public final fun getPhoneVerificationRequired ()Ljava/lang/Boolean;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -9815,6 +10264,27 @@ public final class com/atproto/sync/SubscribeReposTombstone$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/atproto/temp/CheckSignupQueueResponse {
+	public static final field Companion Lcom/atproto/temp/CheckSignupQueueResponse$Companion;
+	public fun <init> (ZLjava/lang/Long;Ljava/lang/Long;)V
+	public synthetic fun <init> (ZLjava/lang/Long;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun copy (ZLjava/lang/Long;Ljava/lang/Long;)Lcom/atproto/temp/CheckSignupQueueResponse;
+	public static synthetic fun copy$default (Lcom/atproto/temp/CheckSignupQueueResponse;ZLjava/lang/Long;Ljava/lang/Long;ILjava/lang/Object;)Lcom/atproto/temp/CheckSignupQueueResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActivated ()Z
+	public final fun getEstimatedTimeMs ()Ljava/lang/Long;
+	public final fun getPlaceInQueue ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/temp/CheckSignupQueueResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/atproto/temp/FetchLabelsQueryParams {
 	public static final field Companion Lcom/atproto/temp/FetchLabelsQueryParams$Companion;
 	public fun <init> ()V
@@ -9852,17 +10322,113 @@ public final class com/atproto/temp/FetchLabelsResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/atproto/temp/ImportRepoQueryParams {
+	public static final field Companion Lcom/atproto/temp/ImportRepoQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun copy-Kn78ayM (Ljava/lang/String;)Lcom/atproto/temp/ImportRepoQueryParams;
+	public static synthetic fun copy-Kn78ayM$default (Lcom/atproto/temp/ImportRepoQueryParams;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/temp/ImportRepoQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/temp/ImportRepoQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/temp/PushBlobQueryParams {
+	public static final field Companion Lcom/atproto/temp/PushBlobQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun copy-Kn78ayM (Ljava/lang/String;)Lcom/atproto/temp/PushBlobQueryParams;
+	public static synthetic fun copy-Kn78ayM$default (Lcom/atproto/temp/PushBlobQueryParams;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/temp/PushBlobQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/temp/PushBlobQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/temp/RequestPhoneVerificationRequest {
+	public static final field Companion Lcom/atproto/temp/RequestPhoneVerificationRequest$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/temp/RequestPhoneVerificationRequest;
+	public static synthetic fun copy$default (Lcom/atproto/temp/RequestPhoneVerificationRequest;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/temp/RequestPhoneVerificationRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPhoneNumber ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/temp/RequestPhoneVerificationRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/temp/TransferAccountRequest {
+	public static final field Companion Lcom/atproto/temp/TransferAccountRequest$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-hDwCUG8 ()Ljava/lang/String;
+	public final fun component2-715Ygxc ()Ljava/lang/String;
+	public final fun component3 ()Lkotlinx/serialization/json/JsonElement;
+	public final fun copy-RvAwYxo (Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;)Lcom/atproto/temp/TransferAccountRequest;
+	public static synthetic fun copy-RvAwYxo$default (Lcom/atproto/temp/TransferAccountRequest;Ljava/lang/String;Ljava/lang/String;Lkotlinx/serialization/json/JsonElement;ILjava/lang/Object;)Lcom/atproto/temp/TransferAccountRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
+	public final fun getPlcOp ()Lkotlinx/serialization/json/JsonElement;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/temp/TransferAccountRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/temp/TransferAccountResponse {
+	public static final field Companion Lcom/atproto/temp/TransferAccountResponse$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3-hDwCUG8 ()Ljava/lang/String;
+	public final fun component4-715Ygxc ()Ljava/lang/String;
+	public final fun copy-H2Dy2f4 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/temp/TransferAccountResponse;
+	public static synthetic fun copy-H2Dy2f4$default (Lcom/atproto/temp/TransferAccountResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/temp/TransferAccountResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccessJwt ()Ljava/lang/String;
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
+	public final fun getRefreshJwt ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/temp/TransferAccountResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun applyWrites (Lcom/atproto/repo/ApplyWritesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun checkSignupQueue (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun confirmEmail (Lcom/atproto/server/ConfirmEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createAccount (Lcom/atproto/server/CreateAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createAppPassword (Lcom/atproto/server/CreateAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun createCommunicationTemplate (Lcom/atproto/admin/CreateCommunicationTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createInviteCode (Lcom/atproto/server/CreateInviteCodeRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createInviteCodes (Lcom/atproto/server/CreateInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createRecord (Lcom/atproto/repo/CreateRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createReport (Lcom/atproto/moderation/CreateReportRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createSession (Lcom/atproto/server/CreateSessionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deleteAccount (Lcom/atproto/admin/DeleteAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteAccount (Lcom/atproto/server/DeleteAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deleteCommunicationTemplate (Lcom/atproto/admin/DeleteCommunicationTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteRecord (Lcom/atproto/repo/DeleteRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun describeFeedGenerator (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9874,6 +10440,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun enableAccountInvites (Lcom/atproto/admin/EnableAccountInvitesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun fetchLabels (Lcom/atproto/temp/FetchLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAccountInfo (Lcom/atproto/admin/GetAccountInfoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getAccountInfos (Lcom/atproto/admin/GetAccountInfosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAccountInviteCodes (Lcom/atproto/server/GetAccountInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getActorFeeds (Lapp/bsky/feed/GetActorFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getActorLikes (Lapp/bsky/feed/GetActorLikesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9899,7 +10466,6 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getLists (Lapp/bsky/graph/GetListsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getModerationEvent (Lcom/atproto/admin/GetModerationEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getMutes (Lapp/bsky/graph/GetMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun getPopular (Lapp/bsky/unspecced/GetPopularQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getPopularFeedGenerators (Lapp/bsky/unspecced/GetPopularFeedGeneratorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getPostThread (Lapp/bsky/feed/GetPostThreadQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getPosts (Lapp/bsky/feed/GetPostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9909,6 +10475,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getRecord (Lcom/atproto/admin/GetRecordQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getRecord (Lcom/atproto/repo/GetRecordQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getRecord (Lcom/atproto/sync/GetRecordQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getRelationships (Lapp/bsky/graph/GetRelationshipsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getRepo (Lcom/atproto/admin/GetRepoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getRepo (Lcom/atproto/sync/GetRepoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getRepostedBy (Lapp/bsky/feed/GetRepostedByQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9917,17 +10484,20 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSuggestedFollowsByActor (Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSuggestions (Lapp/bsky/actor/GetSuggestionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getTaggedSuggestions (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getTimeline (Lapp/bsky/feed/GetTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun getTimelineSkeleton (Lapp/bsky/unspecced/GetTimelineSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun importRepo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listBlobs (Lcom/atproto/sync/ListBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun listCommunicationTemplates (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listNotifications (Lapp/bsky/notification/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listRecords (Lcom/atproto/repo/ListRecordsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listRepos (Lcom/atproto/sync/ListReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun muteActor (Lapp/bsky/graph/MuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun muteActorList (Lapp/bsky/graph/MuteActorListRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun notifyOfUpdate (Lcom/atproto/sync/NotifyOfUpdateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun pushBlob ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun putPreferences (Lapp/bsky/actor/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun putRecord (Lcom/atproto/repo/PutRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun queryLabels (Lcom/atproto/label/QueryLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9940,6 +10510,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun requestEmailConfirmation (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun requestEmailUpdate (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun requestPasswordReset (Lcom/atproto/server/RequestPasswordResetRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun requestPhoneVerification (Lcom/atproto/temp/RequestPhoneVerificationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun reserveSigningKey (Lcom/atproto/server/ReserveSigningKeyRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun resetPassword (Lcom/atproto/server/ResetPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun resolveHandle (Lcom/atproto/identity/ResolveHandleQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9953,10 +10524,12 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun sendEmail (Lcom/atproto/admin/SendEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun subscribeLabels (Lcom/atproto/label/SubscribeLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun subscribeRepos (Lcom/atproto/sync/SubscribeReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun transferAccount (Lcom/atproto/temp/TransferAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun unmuteActor (Lapp/bsky/graph/UnmuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun unmuteActorList (Lapp/bsky/graph/UnmuteActorListRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateAccountEmail (Lcom/atproto/admin/UpdateAccountEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateAccountHandle (Lcom/atproto/admin/UpdateAccountHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun updateCommunicationTemplate (Lcom/atproto/admin/UpdateCommunicationTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateSeen (Lapp/bsky/notification/UpdateSeenRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9967,15 +10540,19 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/BlueskyApi {
 	public fun <init> (Lio/ktor/client/HttpClient;)V
 	public fun applyWrites (Lcom/atproto/repo/ApplyWritesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun checkSignupQueue (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun confirmEmail (Lcom/atproto/server/ConfirmEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createAccount (Lcom/atproto/server/CreateAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createAppPassword (Lcom/atproto/server/CreateAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun createCommunicationTemplate (Lcom/atproto/admin/CreateCommunicationTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createInviteCode (Lcom/atproto/server/CreateInviteCodeRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createInviteCodes (Lcom/atproto/server/CreateInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createRecord (Lcom/atproto/repo/CreateRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createReport (Lcom/atproto/moderation/CreateReportRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createSession (Lcom/atproto/server/CreateSessionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteAccount (Lcom/atproto/admin/DeleteAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteAccount (Lcom/atproto/server/DeleteAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteCommunicationTemplate (Lcom/atproto/admin/DeleteCommunicationTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteRecord (Lcom/atproto/repo/DeleteRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun describeFeedGenerator (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9987,6 +10564,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun enableAccountInvites (Lcom/atproto/admin/EnableAccountInvitesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun fetchLabels (Lcom/atproto/temp/FetchLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAccountInfo (Lcom/atproto/admin/GetAccountInfoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAccountInfos (Lcom/atproto/admin/GetAccountInfosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAccountInviteCodes (Lcom/atproto/server/GetAccountInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getActorFeeds (Lapp/bsky/feed/GetActorFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getActorLikes (Lapp/bsky/feed/GetActorLikesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -10012,7 +10590,6 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getLists (Lapp/bsky/graph/GetListsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getModerationEvent (Lcom/atproto/admin/GetModerationEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getMutes (Lapp/bsky/graph/GetMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getPopular (Lapp/bsky/unspecced/GetPopularQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getPopularFeedGenerators (Lapp/bsky/unspecced/GetPopularFeedGeneratorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getPostThread (Lapp/bsky/feed/GetPostThreadQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getPosts (Lapp/bsky/feed/GetPostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -10022,6 +10599,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getRecord (Lcom/atproto/admin/GetRecordQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getRecord (Lcom/atproto/repo/GetRecordQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getRecord (Lcom/atproto/sync/GetRecordQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getRelationships (Lapp/bsky/graph/GetRelationshipsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getRepo (Lcom/atproto/admin/GetRepoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getRepo (Lcom/atproto/sync/GetRepoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getRepostedBy (Lapp/bsky/feed/GetRepostedByQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -10030,17 +10608,20 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestedFollowsByActor (Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestions (Lapp/bsky/actor/GetSuggestionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getTaggedSuggestions (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getTimeline (Lapp/bsky/feed/GetTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getTimelineSkeleton (Lapp/bsky/unspecced/GetTimelineSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun importRepo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listBlobs (Lcom/atproto/sync/ListBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listCommunicationTemplates (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listNotifications (Lapp/bsky/notification/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listRecords (Lcom/atproto/repo/ListRecordsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listRepos (Lcom/atproto/sync/ListReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun muteActor (Lapp/bsky/graph/MuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun muteActorList (Lapp/bsky/graph/MuteActorListRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun notifyOfUpdate (Lcom/atproto/sync/NotifyOfUpdateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun pushBlob ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putPreferences (Lapp/bsky/actor/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putRecord (Lcom/atproto/repo/PutRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryLabels (Lcom/atproto/label/QueryLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -10053,6 +10634,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun requestEmailConfirmation (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun requestEmailUpdate (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun requestPasswordReset (Lcom/atproto/server/RequestPasswordResetRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun requestPhoneVerification (Lcom/atproto/temp/RequestPhoneVerificationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun reserveSigningKey (Lcom/atproto/server/ReserveSigningKeyRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun resetPassword (Lcom/atproto/server/ResetPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun resolveHandle (Lcom/atproto/identity/ResolveHandleQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -10066,10 +10648,12 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun sendEmail (Lcom/atproto/admin/SendEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun subscribeLabels (Lcom/atproto/label/SubscribeLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun subscribeRepos (Lcom/atproto/sync/SubscribeReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun transferAccount (Lcom/atproto/temp/TransferAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun unmuteActor (Lapp/bsky/graph/UnmuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun unmuteActorList (Lapp/bsky/graph/UnmuteActorListRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateAccountEmail (Lcom/atproto/admin/UpdateAccountEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateAccountHandle (Lcom/atproto/admin/UpdateAccountHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateCommunicationTemplate (Lcom/atproto/admin/UpdateCommunicationTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateSeen (Lapp/bsky/notification/UpdateSeenRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
