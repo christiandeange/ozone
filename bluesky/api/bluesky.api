@@ -61,12 +61,12 @@ public final class app/bsky/actor/FeedViewPref$Companion {
 
 public final class app/bsky/actor/GetPreferencesResponse {
 	public static final field Companion Lapp/bsky/actor/GetPreferencesResponse$Companion;
-	public fun <init> (Lapp/bsky/actor/PreferencesUnion;)V
-	public final fun component1 ()Lapp/bsky/actor/PreferencesUnion;
-	public final fun copy (Lapp/bsky/actor/PreferencesUnion;)Lapp/bsky/actor/GetPreferencesResponse;
-	public static synthetic fun copy$default (Lapp/bsky/actor/GetPreferencesResponse;Lapp/bsky/actor/PreferencesUnion;ILjava/lang/Object;)Lapp/bsky/actor/GetPreferencesResponse;
+	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;)V
+	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/actor/GetPreferencesResponse;
+	public static synthetic fun copy$default (Lapp/bsky/actor/GetPreferencesResponse;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/actor/GetPreferencesResponse;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getPreferences ()Lapp/bsky/actor/PreferencesUnion;
+	public final fun getPreferences ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -564,12 +564,12 @@ public final class app/bsky/actor/ProfileViewDetailed$Companion {
 
 public final class app/bsky/actor/PutPreferencesRequest {
 	public static final field Companion Lapp/bsky/actor/PutPreferencesRequest$Companion;
-	public fun <init> (Lapp/bsky/actor/PreferencesUnion;)V
-	public final fun component1 ()Lapp/bsky/actor/PreferencesUnion;
-	public final fun copy (Lapp/bsky/actor/PreferencesUnion;)Lapp/bsky/actor/PutPreferencesRequest;
-	public static synthetic fun copy$default (Lapp/bsky/actor/PutPreferencesRequest;Lapp/bsky/actor/PreferencesUnion;ILjava/lang/Object;)Lapp/bsky/actor/PutPreferencesRequest;
+	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;)V
+	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/actor/PutPreferencesRequest;
+	public static synthetic fun copy$default (Lapp/bsky/actor/PutPreferencesRequest;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/actor/PutPreferencesRequest;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getPreferences ()Lapp/bsky/actor/PreferencesUnion;
+	public final fun getPreferences ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }

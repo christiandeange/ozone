@@ -288,7 +288,13 @@ fun LexiconSingleReference.typeName(
       if (objectRef == "main") "" else objectRef.capitalized() +
           if (isUnionType) "Union" else ""
 
-  return ClassName(packageName, className)
+  val referenceClassName = ClassName(packageName, className)
+
+  return if (lexiconRefType is LexiconArray) {
+    TypeNames.ReadOnlyList.parameterizedBy(referenceClassName)
+  } else {
+    referenceClassName
+  }
 }
 
 fun String.parseLexiconRef(source: LexiconDocument): Pair<String, String> {
