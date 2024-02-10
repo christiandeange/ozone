@@ -9,6 +9,7 @@ import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.PropertySpec
+import com.squareup.kotlinpoet.STRING
 import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
 import com.squareup.kotlinpoet.UNIT
@@ -119,7 +120,9 @@ class LexiconApiGenerator(
       typeName = when (encoding) {
         "*/*" -> BYTE_ARRAY
         "application/vnd.ipld.car" -> BYTE_ARRAY
-        else -> ClassName(context.authority, "${context.classPrefix}$suffix")
+        "text/plain" -> STRING
+        "application/json" -> ClassName(context.authority, "${context.classPrefix}$suffix")
+        else -> error("Unknown encoding: $encoding")
       },
       description = description,
       encoding = encoding,
