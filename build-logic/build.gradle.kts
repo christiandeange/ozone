@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
   `java-gradle-plugin`
@@ -13,15 +11,6 @@ dependencies {
 
   compileOnly(libs.agp)
   compileOnly(kotlin("gradle-plugin"))
-}
-
-tasks.withType<JavaCompile>().configureEach { options.release.set(11) }
-tasks.withType<KotlinCompile>().configureEach { kotlinOptions.jvmTarget = "11" }
-
-kotlin {
-  jvmToolchain {
-    languageVersion.set(JavaLanguageVersion.of("11"))
-  }
 }
 
 gradlePlugin {
