@@ -12,6 +12,12 @@ plugins {
 setProperty("POM_NAME", "AT Protocol for Kotlin Generator")
 setProperty("POM_DESCRIPTION", "Gradle Plugin to generate AT Protocol classes.")
 
+kotlin {
+  jvmToolchain {
+    languageVersion.set(JavaLanguageVersion.of("11"))
+  }
+}
+
 dependencies {
   api(kotlin("gradle-plugin"))
   api(kotlin("serialization"))
