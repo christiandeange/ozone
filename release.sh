@@ -20,7 +20,10 @@ if [[ -n "$(git status --porcelain)" ]]; then
   exit 1
 fi
 
-sed -i '' "s/-SNAPSHOT//g" gradle.properties
+properties_files="$(find . -name gradle.properties)"
+for file in $properties_files; do
+  sed -i '' "s/-SNAPSHOT//g" "$file"
+done
 
 NEXT_RELEASE="$(awk -F= '/POM_VERSION/ { print $2 }' < gradle.properties)"
 CURRENT_RELEASE="$(awk -F\" '/sh.christian.ozone:bluesky/ { print $4 }' < gradle/libs.versions.toml)"
@@ -28,13 +31,15 @@ sed -i '' "s/$CURRENT_RELEASE/$NEXT_RELEASE/g" gradle/libs.versions.toml
 sed -i '' "s/$CURRENT_RELEASE/$NEXT_RELEASE/g" README.md
 
 git add README.md
-git add gradle.properties
+git add $properties_files
 git add gradle/libs.versions.toml
 
 git commit -m "Releasing v$NEXT_RELEASE"
 git tag "v$NEXT_RELEASE" --force
 
-sed -i '' "s/$NEXT_RELEASE/$NEXT_SNAPSHOT_VERSION-SNAPSHOT/g" gradle.properties
+for file in $properties_files; do
+  sed -i '' "s/$NEXT_RELEASE/$NEXT_SNAPSHOT_VERSION-SNAPSHOT/g" "$file"
+done
 
-git add gradle.properties
+git add $properties_files
 git commit -m "Prepare next development cycle."
