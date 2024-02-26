@@ -168,7 +168,13 @@ class LexiconDataClassesGenerator(
       return typeName(environment, context, "", primitive)
     }
 
-    val className = ClassName(context.authority, context.classPrefix + propertyName.capitalized())
+    val simpleClassName = if (propertyName.isNotEmpty()) {
+      context.classPrefix + propertyName.capitalized()
+    } else {
+      context.classPrefix + context.definitionName.capitalized()
+    }
+
+    val className = ClassName(context.authority, simpleClassName)
     primitive.knownValues.forEach { enum ->
       context.addEnum(className, enum)
     }
