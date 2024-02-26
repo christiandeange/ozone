@@ -729,7 +729,6 @@ public final class app/bsky/actor/SearchActorsQueryParams {
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getLimit ()Ljava/lang/Long;
 	public final fun getQ ()Ljava/lang/String;
-	public final fun getTerm ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -771,7 +770,6 @@ public final class app/bsky/actor/SearchActorsTypeaheadQueryParams {
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getLimit ()Ljava/lang/Long;
 	public final fun getQ ()Ljava/lang/String;
-	public final fun getTerm ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -2580,7 +2578,6 @@ public final class app/bsky/feed/Post {
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
 	public final fun getEmbed ()Lapp/bsky/feed/PostEmbedUnion;
-	public final fun getEntities ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun getFacets ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun getLabels ()Lapp/bsky/feed/PostLabelsUnion;
 	public final fun getLangs ()Lkotlinx/collections/immutable/ImmutableList;
@@ -2715,22 +2712,6 @@ public final class app/bsky/feed/PostEmbedUnion$RecordWithMediaSerializer : kotl
 	public fun serialize-mabN7vo (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/RecordWithMedia;)V
 }
 
-public final class app/bsky/feed/PostEntity {
-	public static final field Companion Lapp/bsky/feed/PostEntity$Companion;
-	public fun <init> (Lapp/bsky/feed/PostTextSlice;Ljava/lang/String;Ljava/lang/String;)V
-	public final fun component1 ()Lapp/bsky/feed/PostTextSlice;
-	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Ljava/lang/String;
-	public final fun copy (Lapp/bsky/feed/PostTextSlice;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/feed/PostEntity;
-	public static synthetic fun copy$default (Lapp/bsky/feed/PostEntity;Lapp/bsky/feed/PostTextSlice;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/PostEntity;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getIndex ()Lapp/bsky/feed/PostTextSlice;
-	public final fun getType ()Ljava/lang/String;
-	public final fun getValue ()Ljava/lang/String;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
 public final class app/bsky/feed/PostEntity$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
@@ -2787,20 +2768,6 @@ public final class app/bsky/feed/PostReplyRef {
 
 public final class app/bsky/feed/PostReplyRef$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class app/bsky/feed/PostTextSlice {
-	public static final field Companion Lapp/bsky/feed/PostTextSlice$Companion;
-	public fun <init> (JJ)V
-	public final fun component1 ()J
-	public final fun component2 ()J
-	public final fun copy (JJ)Lapp/bsky/feed/PostTextSlice;
-	public static synthetic fun copy$default (Lapp/bsky/feed/PostTextSlice;JJILjava/lang/Object;)Lapp/bsky/feed/PostTextSlice;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getEnd ()J
-	public final fun getStart ()J
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/feed/PostTextSlice$Companion {
@@ -7751,7 +7718,6 @@ public final class com/atproto/admin/SearchReposQueryParams {
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getLimit ()Ljava/lang/Long;
 	public final fun getQ ()Ljava/lang/String;
-	public final fun getTerm ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -9241,8 +9207,6 @@ public final class com/atproto/repo/ListRecordsQueryParams {
 	public final fun getLimit ()Ljava/lang/Long;
 	public final fun getRepo-SnKB-3U ()Ljava/lang/String;
 	public final fun getReverse ()Ljava/lang/Boolean;
-	public final fun getRkeyEnd ()Ljava/lang/String;
-	public final fun getRkeyStart ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -10387,8 +10351,6 @@ public final class com/atproto/sync/SubscribeReposCommit {
 	public final fun getBlocks ()[B
 	public final fun getCommit ()[B
 	public final fun getOps ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun getPrev ()[B
-	public final fun getRebase ()Z
 	public final fun getRepo-715Ygxc ()Ljava/lang/String;
 	public final fun getRev ()Ljava/lang/String;
 	public final fun getSeq ()J
@@ -10831,7 +10793,6 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun disableInviteCodes (Lcom/atproto/admin/DisableInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun emitModerationEvent (Lcom/atproto/admin/EmitModerationEventRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun enableAccountInvites (Lcom/atproto/admin/EnableAccountInvitesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun fetchLabels (Lcom/atproto/temp/FetchLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAccountInfo (Lcom/atproto/admin/GetAccountInfoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAccountInfos (Lcom/atproto/admin/GetAccountInfosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAccountInviteCodes (Lcom/atproto/server/GetAccountInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -10841,14 +10802,12 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getBlob (Lcom/atproto/sync/GetBlobQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getBlocks (Lapp/bsky/graph/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getBlocks (Lcom/atproto/sync/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun getCheckout (Lcom/atproto/sync/GetCheckoutQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFeed (Lapp/bsky/feed/GetFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFeedGenerator (Lapp/bsky/feed/GetFeedGeneratorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFeedGenerators (Lapp/bsky/feed/GetFeedGeneratorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFeedSkeleton (Lapp/bsky/feed/GetFeedSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFollowers (Lapp/bsky/graph/GetFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFollows (Lapp/bsky/graph/GetFollowsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun getHead (Lcom/atproto/sync/GetHeadQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getInviteCodes (Lcom/atproto/admin/GetInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getLatestCommit (Lcom/atproto/sync/GetLatestCommitQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getLikes (Lapp/bsky/feed/GetLikesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -10963,7 +10922,6 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun disableInviteCodes (Lcom/atproto/admin/DisableInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun emitModerationEvent (Lcom/atproto/admin/EmitModerationEventRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun enableAccountInvites (Lcom/atproto/admin/EnableAccountInvitesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun fetchLabels (Lcom/atproto/temp/FetchLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAccountInfo (Lcom/atproto/admin/GetAccountInfoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAccountInfos (Lcom/atproto/admin/GetAccountInfosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAccountInviteCodes (Lcom/atproto/server/GetAccountInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -10973,14 +10931,12 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getBlob (Lcom/atproto/sync/GetBlobQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlocks (Lapp/bsky/graph/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlocks (Lcom/atproto/sync/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getCheckout (Lcom/atproto/sync/GetCheckoutQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFeed (Lapp/bsky/feed/GetFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFeedGenerator (Lapp/bsky/feed/GetFeedGeneratorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFeedGenerators (Lapp/bsky/feed/GetFeedGeneratorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFeedSkeleton (Lapp/bsky/feed/GetFeedSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFollowers (Lapp/bsky/graph/GetFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFollows (Lapp/bsky/graph/GetFollowsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getHead (Lcom/atproto/sync/GetHeadQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getInviteCodes (Lcom/atproto/admin/GetInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLatestCommit (Lcom/atproto/sync/GetLatestCommitQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLikes (Lapp/bsky/feed/GetLikesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;

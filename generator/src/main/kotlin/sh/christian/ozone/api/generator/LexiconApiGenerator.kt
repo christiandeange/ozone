@@ -21,6 +21,7 @@ import sh.christian.ozone.api.generator.TypeNames.AtpResponse
 import sh.christian.ozone.api.generator.TypeNames.Flow
 import sh.christian.ozone.api.generator.TypeNames.Result
 import sh.christian.ozone.api.generator.builder.GeneratorContext
+import sh.christian.ozone.api.generator.builder.addDescription
 import sh.christian.ozone.api.lexicon.LexiconArray
 import sh.christian.ozone.api.lexicon.LexiconBlob
 import sh.christian.ozone.api.lexicon.LexiconDocument
@@ -154,20 +155,17 @@ class LexiconApiGenerator(
           is Subscription -> Flow.parameterizedBy(returnType.wrap(outputType.typeName))
         }
 
-        description?.let { description ->
-          addKdoc(description)
-        }
-
         if (inputType != null) {
           addParameter(
             ParameterSpec.builder(name, inputType.typeName)
-              .apply { inputType.description?.let { addKdoc(it) } }
+              .addDescription(inputType.description)
               .build()
           )
         }
 
         returns(outputType)
       }
+      .addDescription(description)
       .apply(block)
       .build()
   }

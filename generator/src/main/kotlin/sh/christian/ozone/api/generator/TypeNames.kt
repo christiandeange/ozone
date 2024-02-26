@@ -10,6 +10,7 @@ object TypeNames {
   val Blob by classOfPackage("sh.christian.ozone.api.model")
   val ByteString by classOfPackage("kotlinx.serialization.cbor")
   val Cid by classOfPackage("sh.christian.ozone.api")
+  val Deprecated by classOfPackage("kotlin")
   val Did by classOfPackage("sh.christian.ozone.api")
   val Flow by classOfPackage("kotlinx.coroutines.flow")
   val Handle by classOfPackage("sh.christian.ozone.api")

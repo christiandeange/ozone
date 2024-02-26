@@ -1,9 +1,11 @@
 package sh.christian.ozone.api.generator.builder
 
+import com.squareup.kotlinpoet.Annotatable
 import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.BYTE_ARRAY
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.CodeBlock
+import com.squareup.kotlinpoet.Documentable
 import com.squareup.kotlinpoet.Dynamic
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier
@@ -60,6 +62,7 @@ fun createDataClass(
   return TypeSpec.classBuilder(className)
     .addModifiers(KModifier.DATA)
     .addAnnotation(TypeNames.Serializable)
+    .addDescription(description)
     .primaryConstructor(
       FunSpec.constructorBuilder()
         .addParameters(
@@ -75,9 +78,7 @@ fun createDataClass(
                 if (property.nullable) {
                   defaultValue(property.defaultValue())
                 }
-                if (property.description != null) {
-                  addKdoc(property.description)
-                }
+                addDescription(property.description)
                 if (property.type.hasClassName(BYTE_ARRAY)) {
                   addAnnotation(AnnotationSpec.builder(TypeNames.ByteString).build())
                 }
@@ -101,10 +102,6 @@ fun createDataClass(
       }
     )
     .apply {
-      if (description != null) {
-        addKdoc(description)
-      }
-
       val allRequirements = properties.associateWith { it.requirements }.filterValues { it.isNotEmpty() }
       if (allRequirements.isNotEmpty()) {
         addInitializerBlock(
@@ -214,11 +211,7 @@ fun createObjectClass(
 ): TypeSpec {
   return TypeSpec.objectBuilder(className)
     .addAnnotation(TypeNames.Serializable)
-    .apply {
-      if (description != null) {
-        addKdoc(description)
-      }
-    }
+    .addDescription(description)
     .build()
 }
 
@@ -383,6 +376,21 @@ fun String.toSnakeCase(): String {
 
 fun String.toEnumCase(): String {
   return CAMEL_CASE_REGEX.replace(this) { "_${it.value}" }.uppercase().replace('-', '_')
+}
+
+internal fun <T> T.addDescription(description: String?): T
+    where T : Annotatable.Builder<T>,
+          T : Documentable.Builder<T> = apply {
+  if (description != null) {
+    if (description.startsWith("deprecated", ignoreCase = true)) {
+      addAnnotation(
+        AnnotationSpec.builder(TypeNames.Deprecated)
+          .addMember("%S", description)
+          .build())
+    } else {
+      addKdoc(description)
+    }
+  }
 }
 
 private fun TypeName.hasClassName(className: ClassName): Boolean = when (this) {
