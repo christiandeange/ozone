@@ -9,6 +9,7 @@ import kotlinx.serialization.json.JsonContentPolymorphicSerializer
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.jsonObject
 
+@SerialName("blob")
 @Serializable(with = BlobSerializer::class)
 sealed interface Blob {
 
