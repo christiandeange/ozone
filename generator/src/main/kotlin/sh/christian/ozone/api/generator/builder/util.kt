@@ -224,7 +224,7 @@ fun createEnumClass(
     .apply {
       values.forEach { value ->
         addEnumConstant(
-          name = value.substringAfterLast('#').trimStart { !it.isJavaIdentifierStart() }.toEnumCase(),
+          name = value.substringAfterLast('#').toEnumCase(),
           typeSpec = TypeSpec.anonymousClassBuilder()
             .addAnnotation(
               AnnotationSpec.builder(TypeNames.SerialName)
@@ -370,12 +370,13 @@ fun typeName(
 
 private val CAMEL_CASE_REGEX = "(?<=[a-zA-Z])[A-Z]".toRegex()
 
-fun String.toSnakeCase(): String {
-  return CAMEL_CASE_REGEX.replace(this) { "_${it.value}" }.lowercase()
-}
-
 fun String.toEnumCase(): String {
-  return CAMEL_CASE_REGEX.replace(this) { "_${it.value}" }.uppercase().replace('-', '_')
+  val sanitized = this
+    .trimStart { !it.isJavaIdentifierStart() }
+    .map { if (!it.isJavaIdentifierPart()) "_" else it }
+    .joinToString("")
+
+  return CAMEL_CASE_REGEX.replace(sanitized) { "_${it.value}" }.uppercase().replace('-', '_')
 }
 
 internal fun <T> T.addDescription(description: String?): T
