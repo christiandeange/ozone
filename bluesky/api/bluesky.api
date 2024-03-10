@@ -16,13 +16,16 @@ public final class app/bsky/actor/AdultContentPref$Companion {
 
 public final class app/bsky/actor/ContentLabelPref {
 	public static final field Companion Lapp/bsky/actor/ContentLabelPref$Companion;
-	public fun <init> (Ljava/lang/String;Lapp/bsky/actor/Visibility;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Lapp/bsky/actor/Visibility;
-	public final fun copy (Ljava/lang/String;Lapp/bsky/actor/Visibility;)Lapp/bsky/actor/ContentLabelPref;
-	public static synthetic fun copy$default (Lapp/bsky/actor/ContentLabelPref;Ljava/lang/String;Lapp/bsky/actor/Visibility;ILjava/lang/Object;)Lapp/bsky/actor/ContentLabelPref;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/Visibility;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/Visibility;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-68yuAGA ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lapp/bsky/actor/Visibility;
+	public final fun copy-xWGbuFE (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/Visibility;)Lapp/bsky/actor/ContentLabelPref;
+	public static synthetic fun copy-xWGbuFE$default (Lapp/bsky/actor/ContentLabelPref;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/Visibility;ILjava/lang/Object;)Lapp/bsky/actor/ContentLabelPref;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getLabel ()Ljava/lang/String;
+	public final fun getLabelerDid-68yuAGA ()Ljava/lang/String;
 	public final fun getVisibility ()Lapp/bsky/actor/Visibility;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -194,6 +197,38 @@ public final class app/bsky/actor/InterestsPref {
 }
 
 public final class app/bsky/actor/InterestsPref$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/ModPrefItem {
+	public static final field Companion Lapp/bsky/actor/ModPrefItem$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun copy-Kn78ayM (Ljava/lang/String;)Lapp/bsky/actor/ModPrefItem;
+	public static synthetic fun copy-Kn78ayM$default (Lapp/bsky/actor/ModPrefItem;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/actor/ModPrefItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/ModPrefItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/ModsPref {
+	public static final field Companion Lapp/bsky/actor/ModsPref$Companion;
+	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;)V
+	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/actor/ModsPref;
+	public static synthetic fun copy$default (Lapp/bsky/actor/ModsPref;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/actor/ModsPref;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMods ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/ModsPref$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -543,6 +578,28 @@ public final class app/bsky/actor/Profile$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/actor/ProfileAssociated {
+	public static final field Companion Lapp/bsky/actor/ProfileAssociated$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;)Lapp/bsky/actor/ProfileAssociated;
+	public static synthetic fun copy$default (Lapp/bsky/actor/ProfileAssociated;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/actor/ProfileAssociated;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFeedgens ()Ljava/lang/Long;
+	public final fun getLabeler ()Ljava/lang/Boolean;
+	public final fun getLists ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/ProfileAssociated$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public abstract interface class app/bsky/actor/ProfileLabelsUnion {
 	public static final field Companion Lapp/bsky/actor/ProfileLabelsUnion$Companion;
 }
@@ -639,12 +696,13 @@ public final class app/bsky/actor/ProfileViewBasic$Companion {
 
 public final class app/bsky/actor/ProfileViewDetailed {
 	public static final field Companion Lapp/bsky/actor/ProfileViewDetailed$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
-	public final fun component10 ()Lkotlinx/datetime/Instant;
-	public final fun component11 ()Lapp/bsky/actor/ViewerState;
-	public final fun component12 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component10 ()Lapp/bsky/actor/ProfileAssociated;
+	public final fun component11 ()Lkotlinx/datetime/Instant;
+	public final fun component12 ()Lapp/bsky/actor/ViewerState;
+	public final fun component13 ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun component2-hDwCUG8 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
@@ -653,9 +711,10 @@ public final class app/bsky/actor/ProfileViewDetailed {
 	public final fun component7 ()Ljava/lang/Long;
 	public final fun component8 ()Ljava/lang/Long;
 	public final fun component9 ()Ljava/lang/Long;
-	public final fun copy-R9Hcdks (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/actor/ProfileViewDetailed;
-	public static synthetic fun copy-R9Hcdks$default (Lapp/bsky/actor/ProfileViewDetailed;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/actor/ProfileViewDetailed;
+	public final fun copy-uiU8ByI (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/actor/ProfileViewDetailed;
+	public static synthetic fun copy-uiU8ByI$default (Lapp/bsky/actor/ProfileViewDetailed;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/actor/ProfileViewDetailed;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAssociated ()Lapp/bsky/actor/ProfileAssociated;
 	public final fun getAvatar ()Ljava/lang/String;
 	public final fun getBanner ()Ljava/lang/String;
 	public final fun getDescription ()Ljava/lang/String;
@@ -855,6 +914,7 @@ public final class app/bsky/actor/ViewerState$Companion {
 
 public final class app/bsky/actor/Visibility : java/lang/Enum {
 	public static final field HIDE Lapp/bsky/actor/Visibility;
+	public static final field IGNORE Lapp/bsky/actor/Visibility;
 	public static final field SHOW Lapp/bsky/actor/Visibility;
 	public static final field WARN Lapp/bsky/actor/Visibility;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
@@ -1315,6 +1375,34 @@ public final class app/bsky/embed/RecordViewRecordUnion$GraphListViewSerializer 
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-2XDCowQ (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/graph/ListView;)V
+}
+
+public final class app/bsky/embed/RecordViewRecordUnion$LabelerLabelerView : app/bsky/embed/RecordViewRecordUnion {
+	public static final field Companion Lapp/bsky/embed/RecordViewRecordUnion$LabelerLabelerView$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/labeler/LabelerView;)Lapp/bsky/embed/RecordViewRecordUnion$LabelerLabelerView;
+	public static fun constructor-impl (Lapp/bsky/labeler/LabelerView;)Lapp/bsky/labeler/LabelerView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/labeler/LabelerView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/labeler/LabelerView;Lapp/bsky/labeler/LabelerView;)Z
+	public final fun getValue ()Lapp/bsky/labeler/LabelerView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/labeler/LabelerView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/labeler/LabelerView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/labeler/LabelerView;
+}
+
+public final class app/bsky/embed/RecordViewRecordUnion$LabelerLabelerView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/RecordViewRecordUnion$LabelerLabelerViewSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-QquVKSE (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/labeler/LabelerView;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-5UVkbz0 (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/labeler/LabelerView;)V
 }
 
 public final class app/bsky/embed/RecordViewRecordUnion$ViewBlocked : app/bsky/embed/RecordViewRecordUnion {
@@ -4490,6 +4578,259 @@ public final class app/bsky/graph/UnmuteActorRequest$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/labeler/GetServicesQueryParams {
+	public static final field Companion Lapp/bsky/labeler/GetServicesQueryParams$Companion;
+	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component2 ()Ljava/lang/Boolean;
+	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;)Lapp/bsky/labeler/GetServicesQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/labeler/GetServicesQueryParams;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/labeler/GetServicesQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDetailed ()Ljava/lang/Boolean;
+	public final fun getDids ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/labeler/GetServicesQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/labeler/GetServicesResponse {
+	public static final field Companion Lapp/bsky/labeler/GetServicesResponse$Companion;
+	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;)V
+	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/labeler/GetServicesResponse;
+	public static synthetic fun copy$default (Lapp/bsky/labeler/GetServicesResponse;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/labeler/GetServicesResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getViews ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/labeler/GetServicesResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/labeler/GetServicesResponseViewUnion {
+	public static final field Companion Lapp/bsky/labeler/GetServicesResponseViewUnion$Companion;
+}
+
+public final class app/bsky/labeler/GetServicesResponseViewUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/labeler/GetServicesResponseViewUnion$LabelerView : app/bsky/labeler/GetServicesResponseViewUnion {
+	public static final field Companion Lapp/bsky/labeler/GetServicesResponseViewUnion$LabelerView$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/labeler/LabelerView;)Lapp/bsky/labeler/GetServicesResponseViewUnion$LabelerView;
+	public static fun constructor-impl (Lapp/bsky/labeler/LabelerView;)Lapp/bsky/labeler/LabelerView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/labeler/LabelerView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/labeler/LabelerView;Lapp/bsky/labeler/LabelerView;)Z
+	public final fun getValue ()Lapp/bsky/labeler/LabelerView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/labeler/LabelerView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/labeler/LabelerView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/labeler/LabelerView;
+}
+
+public final class app/bsky/labeler/GetServicesResponseViewUnion$LabelerView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/labeler/GetServicesResponseViewUnion$LabelerViewDetailed : app/bsky/labeler/GetServicesResponseViewUnion {
+	public static final field Companion Lapp/bsky/labeler/GetServicesResponseViewUnion$LabelerViewDetailed$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/labeler/LabelerViewDetailed;)Lapp/bsky/labeler/GetServicesResponseViewUnion$LabelerViewDetailed;
+	public static fun constructor-impl (Lapp/bsky/labeler/LabelerViewDetailed;)Lapp/bsky/labeler/LabelerViewDetailed;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/labeler/LabelerViewDetailed;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/labeler/LabelerViewDetailed;Lapp/bsky/labeler/LabelerViewDetailed;)Z
+	public final fun getValue ()Lapp/bsky/labeler/LabelerViewDetailed;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/labeler/LabelerViewDetailed;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/labeler/LabelerViewDetailed;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/labeler/LabelerViewDetailed;
+}
+
+public final class app/bsky/labeler/GetServicesResponseViewUnion$LabelerViewDetailed$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/labeler/GetServicesResponseViewUnion$LabelerViewDetailedSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-yYhhLsI (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/labeler/LabelerViewDetailed;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-r1ey_Ds (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/labeler/LabelerViewDetailed;)V
+}
+
+public final class app/bsky/labeler/GetServicesResponseViewUnion$LabelerViewSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-ot008to (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/labeler/LabelerView;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-MBrbhqU (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/labeler/LabelerView;)V
+}
+
+public final class app/bsky/labeler/LabelerPolicies {
+	public static final field Companion Lapp/bsky/labeler/LabelerPolicies$Companion;
+	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;)V
+	public synthetic fun <init> (Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/labeler/LabelerPolicies;
+	public static synthetic fun copy$default (Lapp/bsky/labeler/LabelerPolicies;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/labeler/LabelerPolicies;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLabelValueDefinitions ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getLabelValues ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/labeler/LabelerPolicies$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/labeler/LabelerView {
+	public static final field Companion Lapp/bsky/labeler/LabelerView$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileView;Ljava/lang/Long;Lapp/bsky/labeler/LabelerViewerState;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileView;Ljava/lang/Long;Lapp/bsky/labeler/LabelerViewerState;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2-OA0YjOw ()Ljava/lang/String;
+	public final fun component3 ()Lapp/bsky/actor/ProfileView;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun component5 ()Lapp/bsky/labeler/LabelerViewerState;
+	public final fun component6 ()Lkotlinx/datetime/Instant;
+	public final fun component7 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy-T8C3Zvo (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileView;Ljava/lang/Long;Lapp/bsky/labeler/LabelerViewerState;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/labeler/LabelerView;
+	public static synthetic fun copy-T8C3Zvo$default (Lapp/bsky/labeler/LabelerView;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileView;Ljava/lang/Long;Lapp/bsky/labeler/LabelerViewerState;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/labeler/LabelerView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCid-OA0YjOw ()Ljava/lang/String;
+	public final fun getCreator ()Lapp/bsky/actor/ProfileView;
+	public final fun getIndexedAt ()Lkotlinx/datetime/Instant;
+	public final fun getLabels ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getLikeCount ()Ljava/lang/Long;
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public final fun getViewer ()Lapp/bsky/labeler/LabelerViewerState;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/labeler/LabelerView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/labeler/LabelerViewDetailed {
+	public static final field Companion Lapp/bsky/labeler/LabelerViewDetailed$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileView;Lapp/bsky/labeler/LabelerPolicies;Ljava/lang/Long;Lapp/bsky/labeler/LabelerViewerState;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileView;Lapp/bsky/labeler/LabelerPolicies;Ljava/lang/Long;Lapp/bsky/labeler/LabelerViewerState;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2-OA0YjOw ()Ljava/lang/String;
+	public final fun component3 ()Lapp/bsky/actor/ProfileView;
+	public final fun component4 ()Lapp/bsky/labeler/LabelerPolicies;
+	public final fun component5 ()Ljava/lang/Long;
+	public final fun component6 ()Lapp/bsky/labeler/LabelerViewerState;
+	public final fun component7 ()Lkotlinx/datetime/Instant;
+	public final fun component8 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy-oX2Hg-Q (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileView;Lapp/bsky/labeler/LabelerPolicies;Ljava/lang/Long;Lapp/bsky/labeler/LabelerViewerState;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/labeler/LabelerViewDetailed;
+	public static synthetic fun copy-oX2Hg-Q$default (Lapp/bsky/labeler/LabelerViewDetailed;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileView;Lapp/bsky/labeler/LabelerPolicies;Ljava/lang/Long;Lapp/bsky/labeler/LabelerViewerState;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/labeler/LabelerViewDetailed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCid-OA0YjOw ()Ljava/lang/String;
+	public final fun getCreator ()Lapp/bsky/actor/ProfileView;
+	public final fun getIndexedAt ()Lkotlinx/datetime/Instant;
+	public final fun getLabels ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getLikeCount ()Ljava/lang/Long;
+	public final fun getPolicies ()Lapp/bsky/labeler/LabelerPolicies;
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public final fun getViewer ()Lapp/bsky/labeler/LabelerViewerState;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/labeler/LabelerViewDetailed$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/labeler/LabelerViewerState {
+	public static final field Companion Lapp/bsky/labeler/LabelerViewerState$Companion;
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-W3xQKsw ()Ljava/lang/String;
+	public final fun copy-s_JSDxM (Ljava/lang/String;)Lapp/bsky/labeler/LabelerViewerState;
+	public static synthetic fun copy-s_JSDxM$default (Lapp/bsky/labeler/LabelerViewerState;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/labeler/LabelerViewerState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLike-W3xQKsw ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/labeler/LabelerViewerState$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/labeler/Service {
+	public static final field Companion Lapp/bsky/labeler/Service$Companion;
+	public fun <init> (Lapp/bsky/labeler/LabelerPolicies;Lapp/bsky/labeler/ServiceLabelsUnion;Lkotlinx/datetime/Instant;)V
+	public synthetic fun <init> (Lapp/bsky/labeler/LabelerPolicies;Lapp/bsky/labeler/ServiceLabelsUnion;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lapp/bsky/labeler/LabelerPolicies;
+	public final fun component2 ()Lapp/bsky/labeler/ServiceLabelsUnion;
+	public final fun component3 ()Lkotlinx/datetime/Instant;
+	public final fun copy (Lapp/bsky/labeler/LabelerPolicies;Lapp/bsky/labeler/ServiceLabelsUnion;Lkotlinx/datetime/Instant;)Lapp/bsky/labeler/Service;
+	public static synthetic fun copy$default (Lapp/bsky/labeler/Service;Lapp/bsky/labeler/LabelerPolicies;Lapp/bsky/labeler/ServiceLabelsUnion;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lapp/bsky/labeler/Service;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getLabels ()Lapp/bsky/labeler/ServiceLabelsUnion;
+	public final fun getPolicies ()Lapp/bsky/labeler/LabelerPolicies;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/labeler/Service$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/labeler/ServiceLabelsUnion {
+	public static final field Companion Lapp/bsky/labeler/ServiceLabelsUnion$Companion;
+}
+
+public final class app/bsky/labeler/ServiceLabelsUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/labeler/ServiceLabelsUnion$SelfLabels : app/bsky/labeler/ServiceLabelsUnion {
+	public static final field Companion Lapp/bsky/labeler/ServiceLabelsUnion$SelfLabels$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/label/SelfLabels;)Lapp/bsky/labeler/ServiceLabelsUnion$SelfLabels;
+	public static fun constructor-impl (Lcom/atproto/label/SelfLabels;)Lcom/atproto/label/SelfLabels;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/label/SelfLabels;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/label/SelfLabels;Lcom/atproto/label/SelfLabels;)Z
+	public final fun getValue ()Lcom/atproto/label/SelfLabels;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/label/SelfLabels;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/label/SelfLabels;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/label/SelfLabels;
+}
+
+public final class app/bsky/labeler/ServiceLabelsUnion$SelfLabels$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/labeler/ServiceLabelsUnion$SelfLabelsSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-q72Nfh0 (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/label/SelfLabels;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-YFA7UbA (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/label/SelfLabels;)V
+}
+
 public final class app/bsky/notification/GetUnreadCountQueryParams {
 	public static final field Companion Lapp/bsky/notification/GetUnreadCountQueryParams$Companion;
 	public fun <init> ()V
@@ -6076,14 +6417,16 @@ public final class com/atproto/admin/ModEventComment$Companion {
 
 public final class com/atproto/admin/ModEventEmail {
 	public static final field Companion Lcom/atproto/admin/ModEventEmail$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/admin/ModEventEmail;
-	public static synthetic fun copy$default (Lcom/atproto/admin/ModEventEmail;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/ModEventEmail;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/admin/ModEventEmail;
+	public static synthetic fun copy$default (Lcom/atproto/admin/ModEventEmail;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/ModEventEmail;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getComment ()Ljava/lang/String;
+	public final fun getContent ()Ljava/lang/String;
 	public final fun getSubjectLine ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -7921,6 +8264,7 @@ public final class com/atproto/admin/SubjectStatusViewSubjectUnion$RepoStrongRef
 public final class com/atproto/admin/Token : java/lang/Enum {
 	public static final field REVIEW_CLOSED Lcom/atproto/admin/Token;
 	public static final field REVIEW_ESCALATED Lcom/atproto/admin/Token;
+	public static final field REVIEW_NONE Lcom/atproto/admin/Token;
 	public static final field REVIEW_OPEN Lcom/atproto/admin/Token;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/admin/Token;
@@ -8381,30 +8725,104 @@ public final class com/atproto/identity/UpdateHandleRequest$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/atproto/label/Blurs : java/lang/Enum {
+	public static final field CONTENT Lcom/atproto/label/Blurs;
+	public static final field MEDIA Lcom/atproto/label/Blurs;
+	public static final field NONE Lcom/atproto/label/Blurs;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/label/Blurs;
+	public static fun values ()[Lcom/atproto/label/Blurs;
+}
+
 public final class com/atproto/label/Label {
 	public static final field Companion Lcom/atproto/label/Label$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1-715Ygxc ()Ljava/lang/String;
-	public final fun component2-v5vOzEc ()Ljava/lang/String;
-	public final fun component3-OC6CE0s ()Ljava/lang/String;
-	public final fun component4 ()Ljava/lang/String;
-	public final fun component5 ()Ljava/lang/Boolean;
-	public final fun component6 ()Lkotlinx/datetime/Instant;
-	public final fun copy-1x7GDGA (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;)Lcom/atproto/label/Label;
-	public static synthetic fun copy-1x7GDGA$default (Lcom/atproto/label/Label;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lcom/atproto/label/Label;
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;[BILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;[BLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun component2-715Ygxc ()Ljava/lang/String;
+	public final fun component3-v5vOzEc ()Ljava/lang/String;
+	public final fun component4-OC6CE0s ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/Boolean;
+	public final fun component7 ()Lkotlinx/datetime/Instant;
+	public final fun component8 ()Lkotlinx/datetime/Instant;
+	public final fun component9 ()[B
+	public final fun copy-wAq3ItU (Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;[B)Lcom/atproto/label/Label;
+	public static synthetic fun copy-wAq3ItU$default (Lcom/atproto/label/Label;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;[BILjava/lang/Object;)Lcom/atproto/label/Label;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCid-OC6CE0s ()Ljava/lang/String;
 	public final fun getCts ()Lkotlinx/datetime/Instant;
+	public final fun getExp ()Lkotlinx/datetime/Instant;
 	public final fun getNeg ()Ljava/lang/Boolean;
+	public final fun getSig ()[B
 	public final fun getSrc-715Ygxc ()Ljava/lang/String;
 	public final fun getUri-v5vOzEc ()Ljava/lang/String;
 	public final fun getVal ()Ljava/lang/String;
+	public final fun getVer ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/label/Label$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/label/LabelValue : java/lang/Enum {
+	public static final field DMCA_VIOLATION Lcom/atproto/label/LabelValue;
+	public static final field DOXXING Lcom/atproto/label/LabelValue;
+	public static final field GORE Lcom/atproto/label/LabelValue;
+	public static final field HIDE Lcom/atproto/label/LabelValue;
+	public static final field NO_PROMOTE Lcom/atproto/label/LabelValue;
+	public static final field NO_UNAUTHENTICATED Lcom/atproto/label/LabelValue;
+	public static final field NSFL Lcom/atproto/label/LabelValue;
+	public static final field NUDITY Lcom/atproto/label/LabelValue;
+	public static final field PORN Lcom/atproto/label/LabelValue;
+	public static final field SEXUAL Lcom/atproto/label/LabelValue;
+	public static final field WARN Lcom/atproto/label/LabelValue;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/label/LabelValue;
+	public static fun values ()[Lcom/atproto/label/LabelValue;
+}
+
+public final class com/atproto/label/LabelValueDefinition {
+	public static final field Companion Lcom/atproto/label/LabelValueDefinition$Companion;
+	public fun <init> (Ljava/lang/String;Lcom/atproto/label/Severity;Lcom/atproto/label/Blurs;Lkotlinx/collections/immutable/ImmutableList;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lcom/atproto/label/Severity;
+	public final fun component3 ()Lcom/atproto/label/Blurs;
+	public final fun component4 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Ljava/lang/String;Lcom/atproto/label/Severity;Lcom/atproto/label/Blurs;Lkotlinx/collections/immutable/ImmutableList;)Lcom/atproto/label/LabelValueDefinition;
+	public static synthetic fun copy$default (Lcom/atproto/label/LabelValueDefinition;Ljava/lang/String;Lcom/atproto/label/Severity;Lcom/atproto/label/Blurs;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lcom/atproto/label/LabelValueDefinition;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBlurs ()Lcom/atproto/label/Blurs;
+	public final fun getIdentifier ()Ljava/lang/String;
+	public final fun getLocales ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getSeverity ()Lcom/atproto/label/Severity;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/LabelValueDefinition$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/label/LabelValueDefinitionStrings {
+	public static final field Companion Lcom/atproto/label/LabelValueDefinitionStrings$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-ji_wBX8 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy-pNGRZPM (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/label/LabelValueDefinitionStrings;
+	public static synthetic fun copy-pNGRZPM$default (Lcom/atproto/label/LabelValueDefinitionStrings;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/label/LabelValueDefinitionStrings;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getLang-ji_wBX8 ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/LabelValueDefinitionStrings$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -8481,6 +8899,15 @@ public final class com/atproto/label/SelfLabels {
 
 public final class com/atproto/label/SelfLabels$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/label/Severity : java/lang/Enum {
+	public static final field ALERT Lcom/atproto/label/Severity;
+	public static final field INFORM Lcom/atproto/label/Severity;
+	public static final field NONE Lcom/atproto/label/Severity;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/label/Severity;
+	public static fun values ()[Lcom/atproto/label/Severity;
 }
 
 public final class com/atproto/label/SubscribeLabelsInfo {
@@ -10833,6 +11260,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getRepo (Lcom/atproto/sync/GetRepoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getRepostedBy (Lapp/bsky/feed/GetRepostedByQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getServiceAuth (Lcom/atproto/server/GetServiceAuthQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getServices (Lapp/bsky/labeler/GetServicesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSubjectStatus (Lcom/atproto/admin/GetSubjectStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -10962,6 +11390,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getRepo (Lcom/atproto/sync/GetRepoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getRepostedBy (Lapp/bsky/feed/GetRepostedByQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getServiceAuth (Lcom/atproto/server/GetServiceAuthQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getServices (Lapp/bsky/labeler/GetServicesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSubjectStatus (Lcom/atproto/admin/GetSubjectStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
