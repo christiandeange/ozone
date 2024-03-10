@@ -224,7 +224,7 @@ fun createEnumClass(
     .apply {
       values.forEach { value ->
         addEnumConstant(
-          name = value.substringAfterLast('#').toEnumCase(),
+          name = value.substringAfterLast('#').trimStart { !it.isJavaIdentifierStart() }.toEnumCase(),
           typeSpec = TypeSpec.anonymousClassBuilder()
             .addAnnotation(
               AnnotationSpec.builder(TypeNames.SerialName)
