@@ -9,7 +9,6 @@ import kotlinx.serialization.json.JsonContentPolymorphicSerializer
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.jsonObject
 
-@SerialName("blob")
 @Serializable(with = BlobSerializer::class)
 sealed interface Blob {
 
@@ -19,13 +18,21 @@ sealed interface Blob {
     @ByteString val ref: BlobRef,
     val mimeType: String,
     val size: Long,
-  ) : Blob
+  ) : Blob {
+		@SerialName("\$type")
+		@EncodeDefault
+		val type = "blob"
+  }
 
   @Serializable
   data class LegacyBlob(
     val cid: String,
     val mimeType: String,
-  ) : Blob
+  ) : Blob {
+		@SerialName("\$type")
+		@EncodeDefault
+		val type = "blob"
+  }
 }
 
 @Serializable
