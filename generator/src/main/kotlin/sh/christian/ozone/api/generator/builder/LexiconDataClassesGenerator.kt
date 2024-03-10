@@ -383,6 +383,12 @@ private fun List<String>.commonPrefix(): String = when (size) {
     }
     sample
   }
+}.let { prefix ->
+  if (prefix in this) {
+    prefix.substringBefore('#') + '#'
+  } else {
+    prefix
+  }
 }
 
 private fun List<String>.commonSuffix(): String = when (size) {
