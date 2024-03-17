@@ -10,6 +10,11 @@ import kotlinx.serialization.json.JsonContentPolymorphicSerializer
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.jsonObject
 
+/**
+ * References to ["blobs"](https://atproto.com/specs/data-model#blob-type) (arbitrary files) have a consistent format
+ * in atproto, and can be detected and processed without access to any specific Lexicon. That is, it is possible to
+ * parse nodes and extract any blob references without knowing the schema.
+ */
 @SerialName("blob")
 @Serializable(with = BlobSerializer::class)
 sealed interface Blob {
