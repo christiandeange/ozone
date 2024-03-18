@@ -80,13 +80,13 @@ public final class app/bsky/actor/GetPreferencesResponse$Companion {
 
 public final class app/bsky/actor/GetProfileQueryParams {
 	public static final field Companion Lapp/bsky/actor/GetProfileQueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;)V
 	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
-	public final fun copy-UcP-KeA (Ljava/lang/String;)Lapp/bsky/actor/GetProfileQueryParams;
-	public static synthetic fun copy-UcP-KeA$default (Lapp/bsky/actor/GetProfileQueryParams;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/actor/GetProfileQueryParams;
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
+	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;)Lapp/bsky/actor/GetProfileQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/actor/GetProfileQueryParams;Lsh/christian/ozone/api/AtIdentifier;ILjava/lang/Object;)Lapp/bsky/actor/GetProfileQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getActor-SnKB-3U ()Ljava/lang/String;
+	public final fun getActor ()Lsh/christian/ozone/api/AtIdentifier;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -1929,16 +1929,16 @@ public final class app/bsky/feed/GeneratorViewerState$Companion {
 
 public final class app/bsky/feed/GetActorFeedsQueryParams {
 	public static final field Companion Lapp/bsky/feed/GetActorFeedsQueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun copy-rGgSvHc (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/feed/GetActorFeedsQueryParams;
-	public static synthetic fun copy-rGgSvHc$default (Lapp/bsky/feed/GetActorFeedsQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/GetActorFeedsQueryParams;
+	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/feed/GetActorFeedsQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/feed/GetActorFeedsQueryParams;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/GetActorFeedsQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getActor-SnKB-3U ()Ljava/lang/String;
+	public final fun getActor ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
@@ -1970,16 +1970,16 @@ public final class app/bsky/feed/GetActorFeedsResponse$Companion {
 
 public final class app/bsky/feed/GetActorLikesQueryParams {
 	public static final field Companion Lapp/bsky/feed/GetActorLikesQueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun copy-rGgSvHc (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/feed/GetActorLikesQueryParams;
-	public static synthetic fun copy-rGgSvHc$default (Lapp/bsky/feed/GetActorLikesQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/GetActorLikesQueryParams;
+	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/feed/GetActorLikesQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/feed/GetActorLikesQueryParams;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/GetActorLikesQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getActor-SnKB-3U ()Ljava/lang/String;
+	public final fun getActor ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
@@ -2021,17 +2021,17 @@ public final class app/bsky/feed/GetAuthorFeedFilter : java/lang/Enum {
 
 public final class app/bsky/feed/GetAuthorFeedQueryParams {
 	public static final field Companion Lapp/bsky/feed/GetAuthorFeedQueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/feed/GetAuthorFeedFilter;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/feed/GetAuthorFeedFilter;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/feed/GetAuthorFeedFilter;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/feed/GetAuthorFeedFilter;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Lapp/bsky/feed/GetAuthorFeedFilter;
-	public final fun copy-JJorAm0 (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/feed/GetAuthorFeedFilter;)Lapp/bsky/feed/GetAuthorFeedQueryParams;
-	public static synthetic fun copy-JJorAm0$default (Lapp/bsky/feed/GetAuthorFeedQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/feed/GetAuthorFeedFilter;ILjava/lang/Object;)Lapp/bsky/feed/GetAuthorFeedQueryParams;
+	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/feed/GetAuthorFeedFilter;)Lapp/bsky/feed/GetAuthorFeedQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/feed/GetAuthorFeedQueryParams;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/feed/GetAuthorFeedFilter;ILjava/lang/Object;)Lapp/bsky/feed/GetAuthorFeedQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getActor-SnKB-3U ()Ljava/lang/String;
+	public final fun getActor ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getFilter ()Lapp/bsky/feed/GetAuthorFeedFilter;
 	public final fun getLimit ()Ljava/lang/Long;
@@ -3841,16 +3841,16 @@ public final class app/bsky/graph/GetBlocksResponse$Companion {
 
 public final class app/bsky/graph/GetFollowersQueryParams {
 	public static final field Companion Lapp/bsky/graph/GetFollowersQueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun copy-rGgSvHc (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/graph/GetFollowersQueryParams;
-	public static synthetic fun copy-rGgSvHc$default (Lapp/bsky/graph/GetFollowersQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/GetFollowersQueryParams;
+	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/graph/GetFollowersQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/graph/GetFollowersQueryParams;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/GetFollowersQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getActor-SnKB-3U ()Ljava/lang/String;
+	public final fun getActor ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
@@ -3884,16 +3884,16 @@ public final class app/bsky/graph/GetFollowersResponse$Companion {
 
 public final class app/bsky/graph/GetFollowsQueryParams {
 	public static final field Companion Lapp/bsky/graph/GetFollowsQueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun copy-rGgSvHc (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/graph/GetFollowsQueryParams;
-	public static synthetic fun copy-rGgSvHc$default (Lapp/bsky/graph/GetFollowsQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/GetFollowsQueryParams;
+	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/graph/GetFollowsQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/graph/GetFollowsQueryParams;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/GetFollowsQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getActor-SnKB-3U ()Ljava/lang/String;
+	public final fun getActor ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
@@ -4050,16 +4050,16 @@ public final class app/bsky/graph/GetListResponse$Companion {
 
 public final class app/bsky/graph/GetListsQueryParams {
 	public static final field Companion Lapp/bsky/graph/GetListsQueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun copy-rGgSvHc (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/graph/GetListsQueryParams;
-	public static synthetic fun copy-rGgSvHc$default (Lapp/bsky/graph/GetListsQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/GetListsQueryParams;
+	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/graph/GetListsQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/graph/GetListsQueryParams;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/GetListsQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getActor-SnKB-3U ()Ljava/lang/String;
+	public final fun getActor ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getLimit ()Ljava/lang/Long;
 	public fun hashCode ()I
@@ -4131,15 +4131,15 @@ public final class app/bsky/graph/GetMutesResponse$Companion {
 
 public final class app/bsky/graph/GetRelationshipsQueryParams {
 	public static final field Companion Lapp/bsky/graph/GetRelationshipsQueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;Lkotlinx/collections/immutable/ImmutableList;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun copy-Nc9yNGA (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/graph/GetRelationshipsQueryParams;
-	public static synthetic fun copy-Nc9yNGA$default (Lapp/bsky/graph/GetRelationshipsQueryParams;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/graph/GetRelationshipsQueryParams;
+	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/graph/GetRelationshipsQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/graph/GetRelationshipsQueryParams;Lsh/christian/ozone/api/AtIdentifier;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/graph/GetRelationshipsQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getActor-SnKB-3U ()Ljava/lang/String;
+	public final fun getActor ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun getOthers ()Lkotlinx/collections/immutable/ImmutableList;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -4234,13 +4234,13 @@ public final class app/bsky/graph/GetRelationshipsResponseRelationshipUnion$Rela
 
 public final class app/bsky/graph/GetSuggestedFollowsByActorQueryParams {
 	public static final field Companion Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;)V
 	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
-	public final fun copy-UcP-KeA (Ljava/lang/String;)Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;
-	public static synthetic fun copy-UcP-KeA$default (Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
+	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;)Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;Lsh/christian/ozone/api/AtIdentifier;ILjava/lang/Object;)Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getActor-SnKB-3U ()Ljava/lang/String;
+	public final fun getActor ()Lsh/christian/ozone/api/AtIdentifier;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -4491,12 +4491,12 @@ public final class app/bsky/graph/MuteActorListRequest$Companion {
 
 public final class app/bsky/graph/MuteActorRequest {
 	public static final field Companion Lapp/bsky/graph/MuteActorRequest$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
-	public final fun copy-UcP-KeA (Ljava/lang/String;)Lapp/bsky/graph/MuteActorRequest;
-	public static synthetic fun copy-UcP-KeA$default (Lapp/bsky/graph/MuteActorRequest;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/MuteActorRequest;
+	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;)V
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
+	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;)Lapp/bsky/graph/MuteActorRequest;
+	public static synthetic fun copy$default (Lapp/bsky/graph/MuteActorRequest;Lsh/christian/ozone/api/AtIdentifier;ILjava/lang/Object;)Lapp/bsky/graph/MuteActorRequest;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getActor-SnKB-3U ()Ljava/lang/String;
+	public final fun getActor ()Lsh/christian/ozone/api/AtIdentifier;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -4507,13 +4507,13 @@ public final class app/bsky/graph/MuteActorRequest$Companion {
 
 public final class app/bsky/graph/NotFoundActor {
 	public static final field Companion Lapp/bsky/graph/NotFoundActor$Companion;
-	public synthetic fun <init> (Ljava/lang/String;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
+	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;Z)V
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2 ()Z
-	public final fun copy-Nc9yNGA (Ljava/lang/String;Z)Lapp/bsky/graph/NotFoundActor;
-	public static synthetic fun copy-Nc9yNGA$default (Lapp/bsky/graph/NotFoundActor;Ljava/lang/String;ZILjava/lang/Object;)Lapp/bsky/graph/NotFoundActor;
+	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;Z)Lapp/bsky/graph/NotFoundActor;
+	public static synthetic fun copy$default (Lapp/bsky/graph/NotFoundActor;Lsh/christian/ozone/api/AtIdentifier;ZILjava/lang/Object;)Lapp/bsky/graph/NotFoundActor;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getActor-SnKB-3U ()Ljava/lang/String;
+	public final fun getActor ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun getNotFound ()Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -4570,12 +4570,12 @@ public final class app/bsky/graph/UnmuteActorListRequest$Companion {
 
 public final class app/bsky/graph/UnmuteActorRequest {
 	public static final field Companion Lapp/bsky/graph/UnmuteActorRequest$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
-	public final fun copy-UcP-KeA (Ljava/lang/String;)Lapp/bsky/graph/UnmuteActorRequest;
-	public static synthetic fun copy-UcP-KeA$default (Lapp/bsky/graph/UnmuteActorRequest;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/UnmuteActorRequest;
+	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;)V
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
+	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;)Lapp/bsky/graph/UnmuteActorRequest;
+	public static synthetic fun copy$default (Lapp/bsky/graph/UnmuteActorRequest;Lsh/christian/ozone/api/AtIdentifier;ILjava/lang/Object;)Lapp/bsky/graph/UnmuteActorRequest;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getActor-SnKB-3U ()Ljava/lang/String;
+	public final fun getActor ()Lsh/christian/ozone/api/AtIdentifier;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -5831,13 +5831,13 @@ public final class com/atproto/admin/StatusAttr$Companion {
 
 public final class com/atproto/admin/UpdateAccountEmailRequest {
 	public static final field Companion Lcom/atproto/admin/UpdateAccountEmailRequest$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
+	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;)V
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun copy-Nc9yNGA (Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/admin/UpdateAccountEmailRequest;
-	public static synthetic fun copy-Nc9yNGA$default (Lcom/atproto/admin/UpdateAccountEmailRequest;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/UpdateAccountEmailRequest;
+	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;)Lcom/atproto/admin/UpdateAccountEmailRequest;
+	public static synthetic fun copy$default (Lcom/atproto/admin/UpdateAccountEmailRequest;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/UpdateAccountEmailRequest;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAccount-SnKB-3U ()Ljava/lang/String;
+	public final fun getAccount ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun getEmail ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -6792,16 +6792,16 @@ public final class com/atproto/repo/ApplyWritesDelete$Companion {
 
 public final class com/atproto/repo/ApplyWritesRequest {
 	public static final field Companion Lcom/atproto/repo/ApplyWritesRequest$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Boolean;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Boolean;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2 ()Ljava/lang/Boolean;
 	public final fun component3 ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun component4-OC6CE0s ()Ljava/lang/String;
-	public final fun copy-yUQ6MQY (Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;)Lcom/atproto/repo/ApplyWritesRequest;
-	public static synthetic fun copy-yUQ6MQY$default (Lcom/atproto/repo/ApplyWritesRequest;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/ApplyWritesRequest;
+	public final fun copy-0g_Aqoc (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Boolean;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;)Lcom/atproto/repo/ApplyWritesRequest;
+	public static synthetic fun copy-0g_Aqoc$default (Lcom/atproto/repo/ApplyWritesRequest;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Boolean;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/ApplyWritesRequest;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getRepo-SnKB-3U ()Ljava/lang/String;
+	public final fun getRepo ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun getSwapCommit-OC6CE0s ()Ljava/lang/String;
 	public final fun getValidate ()Ljava/lang/Boolean;
 	public final fun getWrites ()Lkotlinx/collections/immutable/ImmutableList;
@@ -6927,20 +6927,20 @@ public final class com/atproto/repo/ApplyWritesUpdate$Companion {
 
 public final class com/atproto/repo/CreateRecordRequest {
 	public static final field Companion Lcom/atproto/repo/CreateRecordRequest$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2-Ley70Jo ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/Boolean;
 	public final fun component5 ()Lkotlinx/serialization/json/JsonElement;
 	public final fun component6-OC6CE0s ()Ljava/lang/String;
-	public final fun copy-mQK7nYY (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;)Lcom/atproto/repo/CreateRecordRequest;
-	public static synthetic fun copy-mQK7nYY$default (Lcom/atproto/repo/CreateRecordRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/CreateRecordRequest;
+	public final fun copy-gdHo1nY (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;)Lcom/atproto/repo/CreateRecordRequest;
+	public static synthetic fun copy-gdHo1nY$default (Lcom/atproto/repo/CreateRecordRequest;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/CreateRecordRequest;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
 	public final fun getRecord ()Lkotlinx/serialization/json/JsonElement;
-	public final fun getRepo-SnKB-3U ()Ljava/lang/String;
+	public final fun getRepo ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun getRkey ()Ljava/lang/String;
 	public final fun getSwapCommit-OC6CE0s ()Ljava/lang/String;
 	public final fun getValidate ()Ljava/lang/Boolean;
@@ -6972,18 +6972,18 @@ public final class com/atproto/repo/CreateRecordResponse$Companion {
 
 public final class com/atproto/repo/DeleteRecordRequest {
 	public static final field Companion Lcom/atproto/repo/DeleteRecordRequest$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2-Ley70Jo ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4-OC6CE0s ()Ljava/lang/String;
 	public final fun component5-OC6CE0s ()Ljava/lang/String;
-	public final fun copy-9EGLBMw (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/repo/DeleteRecordRequest;
-	public static synthetic fun copy-9EGLBMw$default (Lcom/atproto/repo/DeleteRecordRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/DeleteRecordRequest;
+	public final fun copy-OEqNLMo (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/repo/DeleteRecordRequest;
+	public static synthetic fun copy-OEqNLMo$default (Lcom/atproto/repo/DeleteRecordRequest;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/DeleteRecordRequest;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
-	public final fun getRepo-SnKB-3U ()Ljava/lang/String;
+	public final fun getRepo ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun getRkey ()Ljava/lang/String;
 	public final fun getSwapCommit-OC6CE0s ()Ljava/lang/String;
 	public final fun getSwapRecord-OC6CE0s ()Ljava/lang/String;
@@ -6997,13 +6997,13 @@ public final class com/atproto/repo/DeleteRecordRequest$Companion {
 
 public final class com/atproto/repo/DescribeRepoQueryParams {
 	public static final field Companion Lcom/atproto/repo/DescribeRepoQueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;)V
 	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
-	public final fun copy-UcP-KeA (Ljava/lang/String;)Lcom/atproto/repo/DescribeRepoQueryParams;
-	public static synthetic fun copy-UcP-KeA$default (Lcom/atproto/repo/DescribeRepoQueryParams;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/DescribeRepoQueryParams;
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
+	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;)Lcom/atproto/repo/DescribeRepoQueryParams;
+	public static synthetic fun copy$default (Lcom/atproto/repo/DescribeRepoQueryParams;Lsh/christian/ozone/api/AtIdentifier;ILjava/lang/Object;)Lcom/atproto/repo/DescribeRepoQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getRepo-SnKB-3U ()Ljava/lang/String;
+	public final fun getRepo ()Lsh/christian/ozone/api/AtIdentifier;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -7038,19 +7038,19 @@ public final class com/atproto/repo/DescribeRepoResponse$Companion {
 
 public final class com/atproto/repo/GetRecordQueryParams {
 	public static final field Companion Lcom/atproto/repo/GetRecordQueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2-Ley70Jo ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4-OC6CE0s ()Ljava/lang/String;
-	public final fun copy-pHrNROM (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/repo/GetRecordQueryParams;
-	public static synthetic fun copy-pHrNROM$default (Lcom/atproto/repo/GetRecordQueryParams;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/GetRecordQueryParams;
+	public final fun copy--amocy0 (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/repo/GetRecordQueryParams;
+	public static synthetic fun copy--amocy0$default (Lcom/atproto/repo/GetRecordQueryParams;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/GetRecordQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCid-OC6CE0s ()Ljava/lang/String;
 	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
-	public final fun getRepo-SnKB-3U ()Ljava/lang/String;
+	public final fun getRepo ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun getRkey ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -7141,23 +7141,23 @@ public final class com/atproto/repo/ListMissingBlobsResponse$Companion {
 
 public final class com/atproto/repo/ListRecordsQueryParams {
 	public static final field Companion Lcom/atproto/repo/ListRecordsQueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2-Ley70Jo ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/Long;
 	public final fun component4 ()Ljava/lang/String;
 	public final fun component5 ()Ljava/lang/String;
 	public final fun component6 ()Ljava/lang/String;
 	public final fun component7 ()Ljava/lang/Boolean;
-	public final fun copy-SR0OlfQ (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)Lcom/atproto/repo/ListRecordsQueryParams;
-	public static synthetic fun copy-SR0OlfQ$default (Lcom/atproto/repo/ListRecordsQueryParams;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Lcom/atproto/repo/ListRecordsQueryParams;
+	public final fun copy-qxEQenE (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)Lcom/atproto/repo/ListRecordsQueryParams;
+	public static synthetic fun copy-qxEQenE$default (Lcom/atproto/repo/ListRecordsQueryParams;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Lcom/atproto/repo/ListRecordsQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getLimit ()Ljava/lang/Long;
-	public final fun getRepo-SnKB-3U ()Ljava/lang/String;
+	public final fun getRepo ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun getReverse ()Ljava/lang/Boolean;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -7208,21 +7208,21 @@ public final class com/atproto/repo/ListRecordsResponse$Companion {
 
 public final class com/atproto/repo/PutRecordRequest {
 	public static final field Companion Lcom/atproto/repo/PutRecordRequest$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1-SnKB-3U ()Ljava/lang/String;
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2-Ley70Jo ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/Boolean;
 	public final fun component5 ()Lkotlinx/serialization/json/JsonElement;
 	public final fun component6-OC6CE0s ()Ljava/lang/String;
 	public final fun component7-OC6CE0s ()Ljava/lang/String;
-	public final fun copy-PRxM1cI (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/repo/PutRecordRequest;
-	public static synthetic fun copy-PRxM1cI$default (Lcom/atproto/repo/PutRecordRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/PutRecordRequest;
+	public final fun copy-Et0lU_Y (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/repo/PutRecordRequest;
+	public static synthetic fun copy-Et0lU_Y$default (Lcom/atproto/repo/PutRecordRequest;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lkotlinx/serialization/json/JsonElement;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/PutRecordRequest;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
 	public final fun getRecord ()Lkotlinx/serialization/json/JsonElement;
-	public final fun getRepo-SnKB-3U ()Ljava/lang/String;
+	public final fun getRepo ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun getRkey ()Ljava/lang/String;
 	public final fun getSwapCommit-OC6CE0s ()Ljava/lang/String;
 	public final fun getSwapRecord-OC6CE0s ()Ljava/lang/String;

@@ -1,16 +1,5 @@
-public final class sh/christian/ozone/api/AtIdentifier {
+public abstract interface class sh/christian/ozone/api/AtIdentifier {
 	public static final field Companion Lsh/christian/ozone/api/AtIdentifier$Companion;
-	public static final synthetic fun box-impl (Ljava/lang/String;)Lsh/christian/ozone/api/AtIdentifier;
-	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
-	public final fun getAtIdentifier ()Ljava/lang/String;
-	public fun hashCode ()I
-	public static fun hashCode-impl (Ljava/lang/String;)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Ljava/lang/String;
 }
 
 public final class sh/christian/ozone/api/AtIdentifier$Companion {
@@ -55,7 +44,7 @@ public final class sh/christian/ozone/api/Cid$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class sh/christian/ozone/api/Did {
+public final class sh/christian/ozone/api/Did : sh/christian/ozone/api/AtIdentifier {
 	public static final field Companion Lsh/christian/ozone/api/Did$Companion;
 	public static final synthetic fun box-impl (Ljava/lang/String;)Lsh/christian/ozone/api/Did;
 	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
@@ -74,7 +63,7 @@ public final class sh/christian/ozone/api/Did$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class sh/christian/ozone/api/Handle {
+public final class sh/christian/ozone/api/Handle : sh/christian/ozone/api/AtIdentifier {
 	public static final field Companion Lsh/christian/ozone/api/Handle$Companion;
 	public static final synthetic fun box-impl (Ljava/lang/String;)Lsh/christian/ozone/api/Handle;
 	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
@@ -212,10 +201,6 @@ public final class sh/christian/ozone/api/model/BlobRef {
 
 public final class sh/christian/ozone/api/model/BlobRef$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class sh/christian/ozone/api/model/BlobSerializer : kotlinx/serialization/json/JsonContentPolymorphicSerializer {
-	public fun <init> ()V
 }
 
 public final class sh/christian/ozone/api/response/AtpErrorDescription {
@@ -393,6 +378,14 @@ public final class sh/christian/ozone/api/response/StatusCode$XrpcNotSupported :
 	public fun equals (Ljava/lang/Object;)Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
+}
+
+public final class sh/christian/ozone/api/runtime/AtIdentifierSerializer : kotlinx/serialization/json/JsonContentPolymorphicSerializer {
+	public static final field INSTANCE Lsh/christian/ozone/api/runtime/AtIdentifierSerializer;
+}
+
+public final class sh/christian/ozone/api/runtime/BlobSerializer : kotlinx/serialization/json/JsonContentPolymorphicSerializer {
+	public static final field INSTANCE Lsh/christian/ozone/api/runtime/BlobSerializer;
 }
 
 public final class sh/christian/ozone/api/runtime/ImmutableListSerializer : kotlinx/serialization/KSerializer {

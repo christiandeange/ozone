@@ -16,7 +16,7 @@ class ImmutableListSerializer<T>(
 ) : KSerializer<ImmutableList<T>> {
   private val listSerializer = ListSerializer(dataSerializer)
 
-  override val descriptor: SerialDescriptor = ImmutableListDescriptor<T>(dataSerializer.descriptor)
+  override val descriptor: SerialDescriptor = ImmutableListDescriptor(dataSerializer.descriptor)
 
   override fun serialize(
     encoder: Encoder,
@@ -29,7 +29,7 @@ class ImmutableListSerializer<T>(
     return listSerializer.deserialize(decoder).toImmutableList()
   }
 
-  private class ImmutableListDescriptor<T>(
+  private class ImmutableListDescriptor(
     private val elementDescriptor: SerialDescriptor,
   ) : SerialDescriptor by listSerialDescriptor(elementDescriptor) {
     override val serialName: String = "kotlinx.collections.immutable.ImmutableList"

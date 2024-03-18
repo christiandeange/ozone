@@ -11,6 +11,7 @@ import kotlinx.collections.immutable.ImmutableList
 import kotlinx.serialization.Serializable
 import sh.christian.ozone.api.AtUri
 import sh.christian.ozone.api.Cid
+import sh.christian.ozone.api.model.ReadOnlyList
 import sh.christian.ozone.api.runtime.ImmutableListSerializer
 import sh.christian.ozone.model.Notification.Content.Followed
 import sh.christian.ozone.model.Notification.Content.Liked
@@ -22,8 +23,7 @@ import sh.christian.ozone.notifications.NotificationsRepository.Companion.getPos
 
 @Serializable
 data class Notifications(
-  @Serializable(ImmutableListSerializer::class)
-  val list: ImmutableList<Notification>,
+  val list: ReadOnlyList<Notification>,
   val cursor: String?,
 )
 

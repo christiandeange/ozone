@@ -179,7 +179,7 @@ class ComposePostWorkflow(
     }
 
     val request = CreateRecordRequest(
-      repo = AtIdentifier(post.authorDid.did),
+      repo = post.authorDid,
       collection = Nsid("app.bsky.feed.post"),
       record = Post.serializer().serialize(
         Post(

@@ -3,11 +3,10 @@ package sh.christian.ozone.model
 import app.bsky.actor.ProfileView
 import app.bsky.actor.ProfileViewBasic
 import app.bsky.actor.ProfileViewDetailed
-import kotlinx.collections.immutable.ImmutableList
 import kotlinx.serialization.Serializable
 import sh.christian.ozone.api.Did
 import sh.christian.ozone.api.Handle
-import sh.christian.ozone.api.runtime.ImmutableListSerializer
+import sh.christian.ozone.api.model.ReadOnlyList
 import sh.christian.ozone.util.mapImmutable
 
 @Serializable
@@ -19,7 +18,7 @@ sealed interface Profile {
   val mutedByMe: Boolean
   val followingMe: Boolean
   val followedByMe: Boolean
-  val labels: ImmutableList<Label>
+  val labels: ReadOnlyList<Label>
 }
 
 @Serializable
@@ -31,8 +30,7 @@ data class LiteProfile(
   override val mutedByMe: Boolean,
   override val followingMe: Boolean,
   override val followedByMe: Boolean,
-  @Serializable(ImmutableListSerializer::class)
-  override val labels: ImmutableList<Label>,
+  override val labels: ReadOnlyList<Label>,
 ) : Profile
 
 @Serializable
@@ -50,8 +48,7 @@ data class FullProfile(
   override val mutedByMe: Boolean,
   override val followingMe: Boolean,
   override val followedByMe: Boolean,
-  @Serializable(ImmutableListSerializer::class)
-  override val labels: ImmutableList<Label>,
+  override val labels: ReadOnlyList<Label>,
 ) : Profile
 
 fun ProfileViewDetailed.toProfile(): FullProfile {

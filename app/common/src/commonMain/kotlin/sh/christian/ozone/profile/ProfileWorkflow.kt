@@ -263,8 +263,8 @@ class ProfileWorkflow(
     cursor: String?,
   ): Worker<AtpResponse<Timeline>> = NetworkWorker {
     val identifier = when (user) {
-      is UserDid -> AtIdentifier(user.did.did)
-      is UserHandle -> AtIdentifier(user.handle.handle)
+      is UserDid -> user.did
+      is UserHandle -> user.handle
     }
     apiProvider.api.getAuthorFeed(
       GetAuthorFeedQueryParams(

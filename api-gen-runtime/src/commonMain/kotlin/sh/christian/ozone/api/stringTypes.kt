@@ -1,6 +1,7 @@
 package sh.christian.ozone.api
 
 import kotlinx.serialization.Serializable
+import sh.christian.ozone.api.runtime.AtIdentifierSerializer
 import kotlin.jvm.JvmInline
 
 /**
@@ -36,7 +37,7 @@ value class AtUri(
 @JvmInline
 value class Did(
   val did: String,
-) {
+): AtIdentifier {
   override fun toString(): String = did
 }
 
@@ -50,7 +51,7 @@ value class Did(
 @JvmInline
 value class Handle(
   val handle: String,
-) {
+): AtIdentifier {
   override fun toString(): String = handle
 }
 
@@ -59,13 +60,8 @@ value class Handle(
  * an AtIdentifier is a handle or a DID because a DID always starts with `did:`, and the colon character (`:`) is not
  * an allowed in handles.
  */
-@Serializable
-@JvmInline
-value class AtIdentifier(
-  val atIdentifier: String,
-) {
-  override fun toString(): String = atIdentifier
-}
+@Serializable(with = AtIdentifierSerializer::class)
+sealed interface AtIdentifier
 
 /**
  * [Namespaced Identifiers](https://atproto.com/specs/nsid) (NSIDs) are used to reference Lexicon schemas for records,
