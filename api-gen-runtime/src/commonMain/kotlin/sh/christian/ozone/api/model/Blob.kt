@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalSerializationApi::class)
+
 package sh.christian.ozone.api.model
 
 import kotlinx.serialization.EncodeDefault
@@ -16,7 +18,6 @@ import sh.christian.ozone.api.runtime.BlobSerializer
 @Serializable(with = BlobSerializer::class)
 sealed interface Blob {
 
-  @OptIn(ExperimentalSerializationApi::class)
   @Serializable
   data class StandardBlob(
     @ByteString val ref: BlobRef,
