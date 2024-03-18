@@ -168,6 +168,7 @@ public final class sh/christian/ozone/api/model/Blob$LegacyBlob : sh/christian/o
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCid ()Ljava/lang/String;
 	public final fun getMimeType ()Ljava/lang/String;
+	public final fun getType ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -188,6 +189,7 @@ public final class sh/christian/ozone/api/model/Blob$StandardBlob : sh/christian
 	public final fun getMimeType ()Ljava/lang/String;
 	public final fun getRef ()Lsh/christian/ozone/api/model/BlobRef;
 	public final fun getSize ()J
+	public final fun getType ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }

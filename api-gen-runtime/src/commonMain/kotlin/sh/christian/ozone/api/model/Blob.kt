@@ -1,6 +1,7 @@
 package sh.christian.ozone.api.model
 
 import kotlinx.serialization.DeserializationStrategy
+import kotlinx.serialization.EncodeDefault
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -19,13 +20,21 @@ sealed interface Blob {
     @ByteString val ref: BlobRef,
     val mimeType: String,
     val size: Long,
-  ) : Blob
+  ) : Blob {
+		@SerialName("\$type")
+		@EncodeDefault
+		val type = "blob"
+  }
 
   @Serializable
   data class LegacyBlob(
     val cid: String,
     val mimeType: String,
-  ) : Blob
+  ) : Blob {
+		@SerialName("\$type")
+		@EncodeDefault
+		val type = "blob"
+  }
 }
 
 @Serializable
