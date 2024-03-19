@@ -7,6 +7,7 @@ import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.cbor.ByteString
+import sh.christian.ozone.api.Cid
 import sh.christian.ozone.api.runtime.BlobSerializer
 
 /**
@@ -43,5 +44,5 @@ sealed interface Blob {
 @Serializable
 data class BlobRef(
   @SerialName("\$link")
-  val link: String,
+  val link: Cid,
 )
