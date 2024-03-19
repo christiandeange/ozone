@@ -1,4 +1,4 @@
-import com.android.build.gradle.internal.tasks.factory.dependsOn
+import org.jetbrains.dokka.gradle.AbstractDokkaTask
 import sh.christian.ozone.api.generator.ApiReturnType
 
 plugins {
@@ -25,5 +25,9 @@ lexicons {
   }
 }
 
-tasks.apiDump.dependsOn(tasks.assemble)
-tasks.apiCheck.dependsOn(tasks.assemble)
+tasks.apiDump.configure { dependsOn(tasks.assemble) }
+tasks.apiCheck.configure { dependsOn(tasks.assemble) }
+
+tasks.withType<AbstractDokkaTask>().configureEach {
+  dependsOn(tasks.generateLexicons)
+}
