@@ -1,5 +1,8 @@
 package sh.christian.ozone.api.response
 
+/**
+ * Represents a status code returned by an HTTP operation.
+ */
 sealed class StatusCode(val code: Int) {
   /**
    * The request has failed.

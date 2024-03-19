@@ -1,11 +1,21 @@
 package sh.christian.ozone.api.response
 
+/**
+ * A sealed type representing the result of performing an XRPC operation.
+ */
 sealed interface AtpResponse<T> {
+
+  /**
+   * A successful XRPC operation that returned a valid response.
+   */
   data class Success<T>(
     val response: T,
     val headers: Map<String, String>,
   ) : AtpResponse<T>
 
+  /**
+   * A failed XRPC operation that may have returned a valid response, valid error description, or neither.
+   */
   data class Failure<T>(
     val statusCode: StatusCode,
     val response: T?,
