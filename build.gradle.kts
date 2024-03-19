@@ -1,7 +1,11 @@
+import org.jetbrains.dokka.gradle.DokkaCollectorTask
+import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
   val agp = libs.versions.agp
   val compose = libs.versions.compose
+  val dokka = libs.versions.dokka
   val kotlin = libs.versions.kotlin
   val ksp = libs.versions.ksp
   val mavenPublish = libs.versions.maven.publish
@@ -16,6 +20,7 @@ plugins {
   id("com.google.devtools.ksp") version ksp apply false
   id("com.vanniktech.maven.publish") version mavenPublish apply false
   id("org.jetbrains.compose") version compose apply false
+  id("org.jetbrains.dokka") version dokka apply true
   id("org.jetbrains.kotlinx.binary-compatibility-validator") version kotlinxAbi apply false
 }
 
@@ -32,4 +37,12 @@ allprojects {
         .using(project(":api-gen-runtime-internal"))
     }
   }
+}
+
+tasks.withType<DokkaMultiModuleTask>().configureEach {
+  outputDirectory.set(file("$rootDir/docs"))
+}
+
+tasks.withType<DokkaCollectorTask>().configureEach {
+  outputDirectory.set(file("$rootDir/docs"))
 }

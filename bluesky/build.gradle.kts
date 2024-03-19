@@ -2,6 +2,7 @@ import com.android.build.gradle.internal.tasks.factory.dependsOn
 import sh.christian.ozone.api.generator.ApiReturnType
 
 plugins {
+  id("ozone-dokka")
   id("ozone-multiplatform")
   id("ozone-publish")
   id("sh.christian.ozone.generator")
