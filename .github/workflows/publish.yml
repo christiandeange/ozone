@@ -1,39 +1,39 @@
-name : Publish
+name: Publish
 
-on :
-  push :
-    tags :
+on:
+  push:
+    tags:
       - 'v*.*.*'
 
-jobs :
-  publish-release :
-    runs-on : ubuntu-latest
-    if : github.repository == 'christiandeange/ozone'
-    timeout-minutes : 15
+jobs:
+  publish-release:
+    runs-on: ubuntu-latest
+    if: github.repository == 'christiandeange/ozone'
+    timeout-minutes: 15
 
-    steps :
-      - uses : actions/checkout@v3
-      - uses : gradle/wrapper-validation-action@v1
-      - uses : actions/setup-java@v3
-        with :
-          distribution : 'temurin'
-          java-version : '17'
-          check-latest : true
+    steps:
+      - uses: actions/checkout@v3
+      - uses: gradle/wrapper-validation-action@v1
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          check-latest: true
 
-      - name : Publish Release
-        env :
-          SONATYPE_NEXUS_USERNAME : ${{ secrets.SONATYPE_NEXUS_USERNAME }}
-          SONATYPE_NEXUS_PASSWORD : ${{ secrets.SONATYPE_NEXUS_PASSWORD }}
-          ARTIFACT_SIGNING_PRIVATE_KEY : ${{ secrets.ARTIFACT_SIGNING_PRIVATE_KEY }}
-          ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD : ${{ secrets.ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD }}
-        run : |
+      - name: Publish Release
+        env:
+          SONATYPE_NEXUS_USERNAME: ${{ secrets.SONATYPE_NEXUS_USERNAME }}
+          SONATYPE_NEXUS_PASSWORD: ${{ secrets.SONATYPE_NEXUS_PASSWORD }}
+          ARTIFACT_SIGNING_PRIVATE_KEY: ${{ secrets.ARTIFACT_SIGNING_PRIVATE_KEY }}
+          ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD }}
+        run: |
           ORG_GRADLE_PROJECT_mavenCentralUsername="$SONATYPE_NEXUS_USERNAME" \
           ORG_GRADLE_PROJECT_mavenCentralPassword="$SONATYPE_NEXUS_PASSWORD" \
           ORG_GRADLE_PROJECT_signingInMemoryKey="$ARTIFACT_SIGNING_PRIVATE_KEY" \
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword="$ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD" \
           ./gradlew clean publish :generator:publish dokkaHtmlCollector --no-daemon --stacktrace
 
-  deploy-docs :
+  deploy-docs:
     runs-on: ubuntu-latest
     if: github.repository == 'christiandeange/ozone'
     needs:
@@ -49,20 +49,20 @@ jobs :
       id-token: write
 
     steps:
-      - uses : actions/checkout@v3
-      - uses : gradle/wrapper-validation-action@v1
-      - uses : actions/setup-java@v3
+      - uses: actions/checkout@v3
+      - uses: gradle/wrapper-validation-action@v1
+      - uses: actions/setup-java@v3
         with:
-          distribution : 'temurin'
-          java-version : '17'
-          check-latest : true
-      - uses : actions/configure-pages@v4
+          distribution: 'temurin'
+          java-version: '17'
+          check-latest: true
+      - uses: actions/configure-pages@v4
 
-      - name : Upload artifact
-        uses : actions/upload-pages-artifact@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path : './docs'
+          path: './docs'
 
-      - name : Deploy to GitHub Pages
-        id : deployment
-        uses : actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
