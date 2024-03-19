@@ -38,7 +38,18 @@ value class AtUri(
 value class Did(
   val did: String,
 ): AtIdentifier {
+
+  init {
+    require(Regex.matches(did)) {
+      "'$did' is not a valid DID."
+    }
+  }
+
   override fun toString(): String = did
+
+  companion object {
+    val Regex = Regex("^did:[a-z]+:[a-zA-Z0-9._:%-]*[a-zA-Z0-9._-]$")
+  }
 }
 
 /**
@@ -52,7 +63,18 @@ value class Did(
 value class Handle(
   val handle: String,
 ): AtIdentifier {
+
+  init {
+    require(Regex.matches(handle)) {
+      "'$handle' is not a valid handle."
+    }
+  }
+
   override fun toString(): String = handle
+
+  companion object {
+    val Regex = Regex("^([a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?$")
+  }
 }
 
 /**
@@ -74,7 +96,26 @@ sealed interface AtIdentifier
 value class Nsid(
   val nsid: String,
 ) {
+  init {
+    require(Regex.matches(nsid)) {
+      "'$nsid' is not a valid namespace identifier."
+    }
+  }
+
+  val domainAuthority: String
+    get() = nsid.substringBeforeLast('.')
+
+  val name: String
+    get() = nsid.substringAfterLast('.')
+
   override fun toString(): String = nsid
+
+  companion object {
+    val Regex = Regex(
+      "^[a-zA-Z]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\\.[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+" +
+          "(\\.[a-zA-Z]([a-zA-Z]{0,61}[a-zA-Z])?)$"
+    )
+  }
 }
 
 /**
