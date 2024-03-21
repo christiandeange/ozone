@@ -10,7 +10,7 @@ on:
 
 jobs:
 
-  test:
+  check-bluesky:
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -22,22 +22,79 @@ jobs:
           java-version: '17'
           check-latest: true
 
-      - name: Assemble & Test
-        run: ./gradlew clean assemble test check --no-daemon --stacktrace
+      - name: Check Bluesky
+        run: ./gradlew clean :bluesky:check --no-daemon --stacktrace
 
-      - name: Upload Test Results
-        uses: actions/upload-artifact@v2
-        if: ${{ failure() }}
+  assemble-android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
         with:
-          name: test-results
-          path: ./**/build/reports/tests/
+          distribution: 'temurin'
+          java-version: '17'
+          check-latest: true
+
+      - name: Assemble Android
+        run: ./gradlew clean :app:android:assemble --no-daemon --stacktrace
+
+  assemble-ios:
+    runs-on: macos-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          check-latest: true
+
+      - name: Assemble iOS
+        run: ./gradlew clean :app:ios:iosSimulatorArm64MainKlibrary --no-daemon --stacktrace
+
+  assemble-js:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          check-latest: true
+
+      - name: Assemble JS
+        run: ./gradlew clean :app:web:assemble --no-daemon --stacktrace
+
+  assemble-jvm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          check-latest: true
+
+      - name: Assemble JVM
+        run: ./gradlew clean :app:desktop:assemble --no-daemon --stacktrace
 
   publish-snapshot:
     runs-on: ubuntu-latest
     if: github.repository == 'christiandeange/ozone' && github.ref == 'refs/heads/main'
     timeout-minutes: 15
     needs:
-      - test
+      - check-bluesky
+      - assemble-android
+      - assemble-ios
+      - assemble-js
+      - assemble-jvm
 
     steps:
       - uses: actions/checkout@v3
