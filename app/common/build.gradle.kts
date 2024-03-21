@@ -35,6 +35,7 @@ kotlin {
 
         // Uncomment to fetch all icons.
         // implementation(libs.androidx.icons.extended)
+        implementation(libs.codepoints.deluxe)
         implementation(libs.kamel)
         implementation(libs.kotlininject)
         implementation(libs.kotlinx.atomicfu)

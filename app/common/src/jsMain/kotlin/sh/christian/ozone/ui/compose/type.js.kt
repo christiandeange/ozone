@@ -31,11 +31,3 @@ actual suspend fun appFont(): FontFamily {
     }
   )
 }
-
-actual fun String.codepoints(): List<Int> {
-  return map { it.code }
-}
-
-actual fun String.codePointsCount(): Int {
-  return length
-}

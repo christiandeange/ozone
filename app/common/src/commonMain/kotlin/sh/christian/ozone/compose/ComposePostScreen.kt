@@ -42,6 +42,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import de.cketti.codepoints.codePointCount
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 import sh.christian.ozone.api.Did
@@ -53,7 +54,6 @@ import sh.christian.ozone.model.TimelinePostLink
 import sh.christian.ozone.timeline.components.PostReplyLine
 import sh.christian.ozone.timeline.components.formatTextPost
 import sh.christian.ozone.ui.compose.AvatarImage
-import sh.christian.ozone.ui.compose.codePointsCount
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.compose.rememberSystemInsets
 import sh.christian.ozone.ui.workflow.ViewRendering
@@ -164,7 +164,7 @@ class ComposePostScreen(
             horizontalArrangement = spacedBy(16.dp, Alignment.End),
             verticalAlignment = Alignment.CenterVertically,
           ) {
-            val postByteCount = postText.text.codePointsCount()
+            val postByteCount = postText.text.codePointCount(0, postText.text.length)
             val unboundedProgress = postByteCount / postTextLimit.toFloat()
 
             Text(

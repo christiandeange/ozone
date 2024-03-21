@@ -33,7 +33,3 @@ suspend fun initTypography() {
 expect suspend fun heroFont(): FontFamily
 
 expect suspend fun appFont(): FontFamily
-
-expect fun String.codepoints(): List<Int>
-
-expect fun String.codePointsCount(): Int
