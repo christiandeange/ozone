@@ -12,6 +12,7 @@ plugins {
 ozone {
   js()
   jvm()
+  ios()
 }
 
 dependencies {

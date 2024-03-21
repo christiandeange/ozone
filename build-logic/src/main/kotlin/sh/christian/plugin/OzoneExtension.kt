@@ -13,6 +13,10 @@ abstract class OzoneExtension(
   init {
     project.plugins.apply("org.jetbrains.kotlin.multiplatform")
     project.plugins.apply("ozone-base")
+
+    kotlin {
+      applyDefaultHierarchyTemplate()
+    }
   }
 
   fun androidLibrary(configure: LibraryExtension.() -> Unit = {}) {
@@ -48,6 +52,21 @@ abstract class OzoneExtension(
       jvm {
         compilations.all {
           kotlinOptions.jvmTarget = "11"
+        }
+      }
+    }
+  }
+
+  fun ios() {
+    kotlin {
+      listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64(),
+      ).forEach {
+        it.binaries.framework {
+          baseName = project.name
+          isStatic = true
         }
       }
     }

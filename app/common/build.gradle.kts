@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
 import org.jetbrains.kotlin.gradle.plugin.sources.android.findAndroidSourceSet
 
 plugins {
@@ -14,6 +15,7 @@ ozone {
   }
   js()
   jvm()
+  ios()
 }
 
 kotlin {
@@ -24,6 +26,8 @@ kotlin {
 
   sourceSets {
     val commonMain by getting {
+      kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
+
       dependencies {
         api(compose.foundation)
         api(compose.material3)
@@ -58,8 +62,14 @@ kotlin {
         implementation(libs.zoomable)
       }
     }
+    val iosMain by getting {
+      resources.srcDir("fonts")
+
+      dependencies {
+        implementation(libs.ktor.darwin)
+      }
+    }
     val jvmMain by getting {
-      kotlin.srcDir("build/generated/ksp/jvm/jvmMain/kotlin")
       resources.srcDir("fonts")
 
       dependencies {
@@ -69,7 +79,6 @@ kotlin {
       }
     }
     val jsMain by getting {
-      kotlin.srcDir("build/generated/ksp/js/jsMain/kotlin")
       resources.srcDir("fonts")
 
       dependencies {
@@ -80,7 +89,11 @@ kotlin {
 }
 
 dependencies {
-  add("kspAndroid", libs.kotlininject.compiler)
-  add("kspJs", libs.kotlininject.compiler)
-  add("kspJvm", libs.kotlininject.compiler)
+  add("kspCommonMainMetadata", libs.kotlininject.compiler)
+}
+
+tasks.withType<KotlinCompile<*>>().configureEach {
+  if (name != "kspCommonMainKotlinMetadata") {
+    dependsOn("kspCommonMainKotlinMetadata")
+  }
 }

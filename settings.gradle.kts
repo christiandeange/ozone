@@ -26,6 +26,7 @@ rootProject.name = "ozone"
 include(":app:android")
 include(":app:common")
 include(":app:desktop")
+include(":app:ios")
 include(":app:store")
 include(":app:web")
 

@@ -8,6 +8,7 @@ plugins {
 ozone {
   js()
   jvm()
+  ios()
 }
 
 kotlin {
