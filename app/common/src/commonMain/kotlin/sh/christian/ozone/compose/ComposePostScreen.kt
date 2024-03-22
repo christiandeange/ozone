@@ -178,7 +178,7 @@ class ComposePostScreen(
 
             CircularProgressIndicator(
               modifier = Modifier.height(24.dp),
-              progress = progress,
+              progress = { progress },
               strokeWidth = lerpDp(
                 start = 8.dp,
                 stop = 24.dp,

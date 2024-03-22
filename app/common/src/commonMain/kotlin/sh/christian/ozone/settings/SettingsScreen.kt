@@ -14,7 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ExitToApp
+import androidx.compose.material.icons.automirrored.filled.ExitToApp
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -56,7 +56,7 @@ class SettingsScreen(
     ) { contentPadding ->
       Column(Modifier.padding(contentPadding).fillMaxSize()) {
         SettingsRow(
-          icon = rememberVectorPainter(Icons.Default.ExitToApp).stable,
+          icon = rememberVectorPainter(Icons.AutoMirrored.Filled.ExitToApp).stable,
           text = "Sign Out",
           onClick = onSignOut,
         )

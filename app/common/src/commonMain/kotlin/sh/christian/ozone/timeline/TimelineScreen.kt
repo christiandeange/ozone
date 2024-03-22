@@ -20,9 +20,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Button
 import androidx.compose.material3.CenterAlignedTopAppBar
-import androidx.compose.material3.Divider
 import androidx.compose.material3.FabPosition
 import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -151,7 +151,7 @@ class TimelineScreen(
         ) {
           items(items = timeline) { post ->
             key(post) {
-              Divider(thickness = Dp.Hairline)
+              HorizontalDivider(thickness = Dp.Hairline)
 
               TimelinePostItem(
                 now = now,
@@ -165,7 +165,7 @@ class TimelineScreen(
           }
 
           item {
-            Divider(thickness = Dp.Hairline)
+            HorizontalDivider(thickness = Dp.Hairline)
           }
         }
 

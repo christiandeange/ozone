@@ -6,7 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -65,7 +65,7 @@ fun ThreadPostItem(
 
     Column {
       if (post.hasInteractions()) {
-        Divider(thickness = 1.dp)
+        HorizontalDivider(thickness = 1.dp)
 
         Box(modifier = Modifier.padding(start = 80.dp)) {
           PostStatistics(
@@ -75,7 +75,7 @@ fun ThreadPostItem(
         }
       }
 
-      Divider(thickness = 1.dp)
+      HorizontalDivider(thickness = 1.dp)
 
       Box(modifier = Modifier.padding(start = 80.dp, top = 8.dp, bottom = 8.dp)) {
         PostActions(
@@ -89,7 +89,7 @@ fun ThreadPostItem(
         )
       }
 
-      Divider(thickness = 1.dp)
+      HorizontalDivider(thickness = 1.dp)
     }
   }
 }
