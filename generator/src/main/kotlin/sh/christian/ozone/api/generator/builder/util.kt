@@ -383,7 +383,7 @@ internal fun <T> T.addDescription(description: String?): T
     where T : Annotatable.Builder<T>,
           T : Documentable.Builder<T> = apply {
   if (description != null) {
-    if (description.startsWith("deprecated", ignoreCase = true)) {
+    if (description.isDeprecated()) {
       addAnnotation(
         AnnotationSpec.builder(TypeNames.Deprecated)
           .addMember("%S", description)
@@ -394,23 +394,29 @@ internal fun <T> T.addDescription(description: String?): T
   }
 }
 
-private fun TypeName.hasClassName(className: ClassName): Boolean = when (this) {
-  is ClassName -> this.canonicalName == className.canonicalName
-  is Dynamic -> false
-  is LambdaTypeName -> {
-    (receiver?.hasClassName(className) != false) ||
-        returnType.hasClassName(className) ||
-        parameters.any { parameter -> parameter.type.hasClassName(className) }
+internal fun String?.isDeprecated(): Boolean = this != null && startsWith("deprecated", ignoreCase = true)
+
+private fun TypeName.hasClassName(className: ClassName): Boolean = className in classNames()
+
+private fun TypeName.classNames(): Sequence<ClassName> = sequence {
+  when (this@classNames) {
+    is ClassName -> yield(this@classNames)
+    is Dynamic -> Unit
+    is LambdaTypeName -> {
+      receiver?.let { yieldAll(it.classNames()) }
+      yieldAll(returnType.classNames())
+      yieldAll(parameters.flatMap { it.type.classNames() })
+    }
+    is ParameterizedTypeName -> {
+      yieldAll(rawType.classNames())
+      yieldAll(typeArguments.flatMap { it.classNames() })
+    }
+    is TypeVariableName -> {
+      yieldAll(bounds.flatMap { it.classNames() })
+    }
+    is WildcardTypeName -> {
+      yieldAll(inTypes.flatMap { it.classNames() })
+      yieldAll(outTypes.flatMap { it.classNames() })
+    }
   }
-  is ParameterizedTypeName -> {
-    rawType.hasClassName(className) ||
-        typeArguments.any { argument -> argument.hasClassName(className) }
-  }
-  is TypeVariableName -> {
-    bounds.any { bound -> bound.hasClassName(className) }
-  }
-  is WildcardTypeName -> {
-    inTypes.any { inType -> inType.hasClassName(className) } ||
-        outTypes.any { outType -> outType.hasClassName(className) }
-  }
-}
+}.distinct()

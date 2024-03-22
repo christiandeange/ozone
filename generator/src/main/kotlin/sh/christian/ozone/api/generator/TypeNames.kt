@@ -23,6 +23,7 @@ object TypeNames {
   val Result by classOfPackage("kotlin")
   val SerialName by classOfPackage("kotlinx.serialization")
   val Serializable by classOfPackage("kotlinx.serialization")
+  val Suppress by classOfPackage("kotlin")
   val Timestamp by classOfPackage("sh.christian.ozone.api.model")
   val Uri by classOfPackage("sh.christian.ozone.api")
 }
