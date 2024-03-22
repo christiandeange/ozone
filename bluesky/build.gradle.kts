@@ -26,9 +26,7 @@ lexicons {
   }
 }
 
-tasks.apiDump.configure { dependsOn(tasks.assemble) }
-tasks.apiCheck.configure { dependsOn(tasks.assemble) }
-
-tasks.withType<AbstractDokkaTask>().configureEach {
-  dependsOn(tasks.generateLexicons)
-}
+val generateLexicons = tasks.generateLexicons
+tasks.apiDump.configure { dependsOn(generateLexicons) }
+tasks.apiCheck.configure { dependsOn(generateLexicons) }
+tasks.withType<AbstractDokkaTask>().configureEach { dependsOn(generateLexicons) }

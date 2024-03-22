@@ -149,8 +149,8 @@ class LoginWorkflow(
         ServerInfo(
           inviteCodeRequired = response.inviteCodeRequired ?: false,
           availableUserDomains = response.availableUserDomains,
-          privacyPolicy = response.links?.privacyPolicy,
-          termsOfService = response.links?.termsOfService,
+          privacyPolicy = response.links?.privacyPolicy?.uri,
+          termsOfService = response.links?.termsOfService?.uri,
         )
       }
     }

@@ -638,20 +638,22 @@ public final class app/bsky/actor/ProfileLabelsUnion$SelfLabelsSerializer : kotl
 
 public final class app/bsky/actor/ProfileView {
 	public static final field Companion Lapp/bsky/actor/ProfileView$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component2-hDwCUG8 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
-	public final fun component5 ()Ljava/lang/String;
-	public final fun component6 ()Lkotlinx/datetime/Instant;
-	public final fun component7 ()Lapp/bsky/actor/ViewerState;
-	public final fun component8 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun copy-kn8txC8 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/actor/ProfileView;
-	public static synthetic fun copy-kn8txC8$default (Lapp/bsky/actor/ProfileView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/actor/ProfileView;
+	public final fun component5-pvpWXas ()Ljava/lang/String;
+	public final fun component6 ()Lapp/bsky/actor/ProfileAssociated;
+	public final fun component7 ()Lkotlinx/datetime/Instant;
+	public final fun component8 ()Lapp/bsky/actor/ViewerState;
+	public final fun component9 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy-msADQq0 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/actor/ProfileView;
+	public static synthetic fun copy-msADQq0$default (Lapp/bsky/actor/ProfileView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/actor/ProfileView;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAvatar ()Ljava/lang/String;
+	public final fun getAssociated ()Lapp/bsky/actor/ProfileAssociated;
+	public final fun getAvatar-pvpWXas ()Ljava/lang/String;
 	public final fun getDescription ()Ljava/lang/String;
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getDisplayName ()Ljava/lang/String;
@@ -669,18 +671,20 @@ public final class app/bsky/actor/ProfileView$Companion {
 
 public final class app/bsky/actor/ProfileViewBasic {
 	public static final field Companion Lapp/bsky/actor/ProfileViewBasic$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component2-hDwCUG8 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun component4 ()Ljava/lang/String;
-	public final fun component5 ()Lapp/bsky/actor/ViewerState;
-	public final fun component6 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun copy-k5iTd9g (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/actor/ProfileViewBasic;
-	public static synthetic fun copy-k5iTd9g$default (Lapp/bsky/actor/ProfileViewBasic;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/actor/ProfileViewBasic;
+	public final fun component4-pvpWXas ()Ljava/lang/String;
+	public final fun component5 ()Lapp/bsky/actor/ProfileAssociated;
+	public final fun component6 ()Lapp/bsky/actor/ViewerState;
+	public final fun component7 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy-B0Sq4do (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/actor/ProfileViewBasic;
+	public static synthetic fun copy-B0Sq4do$default (Lapp/bsky/actor/ProfileViewBasic;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/actor/ProfileViewBasic;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAvatar ()Ljava/lang/String;
+	public final fun getAssociated ()Lapp/bsky/actor/ProfileAssociated;
+	public final fun getAvatar-pvpWXas ()Ljava/lang/String;
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getDisplayName ()Ljava/lang/String;
 	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
@@ -706,17 +710,17 @@ public final class app/bsky/actor/ProfileViewDetailed {
 	public final fun component2-hDwCUG8 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
-	public final fun component5 ()Ljava/lang/String;
-	public final fun component6 ()Ljava/lang/String;
+	public final fun component5-pvpWXas ()Ljava/lang/String;
+	public final fun component6-pvpWXas ()Ljava/lang/String;
 	public final fun component7 ()Ljava/lang/Long;
 	public final fun component8 ()Ljava/lang/Long;
 	public final fun component9 ()Ljava/lang/Long;
-	public final fun copy-uiU8ByI (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/actor/ProfileViewDetailed;
-	public static synthetic fun copy-uiU8ByI$default (Lapp/bsky/actor/ProfileViewDetailed;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/actor/ProfileViewDetailed;
+	public final fun copy-f65P7wk (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/actor/ProfileViewDetailed;
+	public static synthetic fun copy-f65P7wk$default (Lapp/bsky/actor/ProfileViewDetailed;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/actor/ProfileViewDetailed;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAssociated ()Lapp/bsky/actor/ProfileAssociated;
-	public final fun getAvatar ()Ljava/lang/String;
-	public final fun getBanner ()Ljava/lang/String;
+	public final fun getAvatar-pvpWXas ()Ljava/lang/String;
+	public final fun getBanner-pvpWXas ()Ljava/lang/String;
 	public final fun getDescription ()Ljava/lang/String;
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getDisplayName ()Ljava/lang/String;
@@ -984,12 +988,12 @@ public final class app/bsky/embed/ExternalViewExternal {
 	public final fun component1-v5vOzEc ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun component4 ()Ljava/lang/String;
-	public final fun copy-U4PCevw (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/embed/ExternalViewExternal;
-	public static synthetic fun copy-U4PCevw$default (Lapp/bsky/embed/ExternalViewExternal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/embed/ExternalViewExternal;
+	public final fun component4-pvpWXas ()Ljava/lang/String;
+	public final fun copy-tdl-1AM (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/embed/ExternalViewExternal;
+	public static synthetic fun copy-tdl-1AM$default (Lapp/bsky/embed/ExternalViewExternal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/embed/ExternalViewExternal;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDescription ()Ljava/lang/String;
-	public final fun getThumb ()Ljava/lang/String;
+	public final fun getThumb-pvpWXas ()Ljava/lang/String;
 	public final fun getTitle ()Ljava/lang/String;
 	public final fun getUri-v5vOzEc ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -1073,19 +1077,19 @@ public final class app/bsky/embed/ImagesView$Companion {
 
 public final class app/bsky/embed/ImagesViewImage {
 	public static final field Companion Lapp/bsky/embed/ImagesViewImage$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Ljava/lang/String;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-v5vOzEc ()Ljava/lang/String;
+	public final fun component2-v5vOzEc ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Lapp/bsky/embed/ImagesAspectRatio;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;)Lapp/bsky/embed/ImagesViewImage;
-	public static synthetic fun copy$default (Lapp/bsky/embed/ImagesViewImage;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;ILjava/lang/Object;)Lapp/bsky/embed/ImagesViewImage;
+	public final fun copy-fa1GFIo (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;)Lapp/bsky/embed/ImagesViewImage;
+	public static synthetic fun copy-fa1GFIo$default (Lapp/bsky/embed/ImagesViewImage;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;ILjava/lang/Object;)Lapp/bsky/embed/ImagesViewImage;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAlt ()Ljava/lang/String;
 	public final fun getAspectRatio ()Lapp/bsky/embed/ImagesAspectRatio;
-	public final fun getFullsize ()Ljava/lang/String;
-	public final fun getThumb ()Ljava/lang/String;
+	public final fun getFullsize-v5vOzEc ()Ljava/lang/String;
+	public final fun getThumb-v5vOzEc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -1885,12 +1889,12 @@ public final class app/bsky/feed/GeneratorView {
 	public final fun component5 ()Ljava/lang/String;
 	public final fun component6 ()Ljava/lang/String;
 	public final fun component7 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component8 ()Ljava/lang/String;
+	public final fun component8-pvpWXas ()Ljava/lang/String;
 	public final fun component9 ()Ljava/lang/Long;
-	public final fun copy-h7U1lyk (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileView;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/feed/GeneratorViewerState;Lkotlinx/datetime/Instant;)Lapp/bsky/feed/GeneratorView;
-	public static synthetic fun copy-h7U1lyk$default (Lapp/bsky/feed/GeneratorView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileView;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/feed/GeneratorViewerState;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lapp/bsky/feed/GeneratorView;
+	public final fun copy-YbpJy2U (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileView;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/feed/GeneratorViewerState;Lkotlinx/datetime/Instant;)Lapp/bsky/feed/GeneratorView;
+	public static synthetic fun copy-YbpJy2U$default (Lapp/bsky/feed/GeneratorView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileView;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/feed/GeneratorViewerState;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lapp/bsky/feed/GeneratorView;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAvatar ()Ljava/lang/String;
+	public final fun getAvatar-pvpWXas ()Ljava/lang/String;
 	public final fun getCid-OA0YjOw ()Ljava/lang/String;
 	public final fun getCreator ()Lapp/bsky/actor/ProfileView;
 	public final fun getDescription ()Ljava/lang/String;
@@ -4361,12 +4365,12 @@ public final class app/bsky/graph/ListView {
 	public final fun component5 ()Lapp/bsky/graph/Token;
 	public final fun component6 ()Ljava/lang/String;
 	public final fun component7 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component8 ()Ljava/lang/String;
+	public final fun component8-pvpWXas ()Ljava/lang/String;
 	public final fun component9 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun copy--3547Zg (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileView;Ljava/lang/String;Lapp/bsky/graph/Token;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/graph/ListViewerState;Lkotlinx/datetime/Instant;)Lapp/bsky/graph/ListView;
-	public static synthetic fun copy--3547Zg$default (Lapp/bsky/graph/ListView;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileView;Ljava/lang/String;Lapp/bsky/graph/Token;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/graph/ListViewerState;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lapp/bsky/graph/ListView;
+	public final fun copy-fVXVhhQ (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileView;Ljava/lang/String;Lapp/bsky/graph/Token;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/graph/ListViewerState;Lkotlinx/datetime/Instant;)Lapp/bsky/graph/ListView;
+	public static synthetic fun copy-fVXVhhQ$default (Lapp/bsky/graph/ListView;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileView;Ljava/lang/String;Lapp/bsky/graph/Token;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/graph/ListViewerState;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lapp/bsky/graph/ListView;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAvatar ()Ljava/lang/String;
+	public final fun getAvatar-pvpWXas ()Ljava/lang/String;
 	public final fun getCid-OA0YjOw ()Ljava/lang/String;
 	public final fun getCreator ()Lapp/bsky/actor/ProfileView;
 	public final fun getDescription ()Ljava/lang/String;
@@ -4393,14 +4397,14 @@ public final class app/bsky/graph/ListViewBasic {
 	public final fun component2-OA0YjOw ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Lapp/bsky/graph/Token;
-	public final fun component5 ()Ljava/lang/String;
+	public final fun component5-pvpWXas ()Ljava/lang/String;
 	public final fun component6 ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun component7 ()Lapp/bsky/graph/ListViewerState;
 	public final fun component8 ()Lkotlinx/datetime/Instant;
-	public final fun copy-oX2Hg-Q (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/graph/Token;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/graph/ListViewerState;Lkotlinx/datetime/Instant;)Lapp/bsky/graph/ListViewBasic;
-	public static synthetic fun copy-oX2Hg-Q$default (Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/graph/Token;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/graph/ListViewerState;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lapp/bsky/graph/ListViewBasic;
+	public final fun copy-AaSSnm0 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/graph/Token;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/graph/ListViewerState;Lkotlinx/datetime/Instant;)Lapp/bsky/graph/ListViewBasic;
+	public static synthetic fun copy-AaSSnm0$default (Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/graph/Token;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/graph/ListViewerState;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lapp/bsky/graph/ListViewBasic;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAvatar ()Ljava/lang/String;
+	public final fun getAvatar-pvpWXas ()Ljava/lang/String;
 	public final fun getCid-OA0YjOw ()Ljava/lang/String;
 	public final fun getIndexedAt ()Lkotlinx/datetime/Instant;
 	public final fun getLabels ()Lkotlinx/collections/immutable/ImmutableList;
@@ -7626,16 +7630,15 @@ public final class com/atproto/server/DescribeServerContact$Companion {
 
 public final class com/atproto/server/DescribeServerLinks {
 	public static final field Companion Lcom/atproto/server/DescribeServerLinks$Companion;
-	public fun <init> ()V
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/server/DescribeServerLinks;
-	public static synthetic fun copy$default (Lcom/atproto/server/DescribeServerLinks;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/server/DescribeServerLinks;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-pvpWXas ()Ljava/lang/String;
+	public final fun component2-pvpWXas ()Ljava/lang/String;
+	public final fun copy-zK85k38 (Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/server/DescribeServerLinks;
+	public static synthetic fun copy-zK85k38$default (Lcom/atproto/server/DescribeServerLinks;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/server/DescribeServerLinks;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getPrivacyPolicy ()Ljava/lang/String;
-	public final fun getTermsOfService ()Ljava/lang/String;
+	public final fun getPrivacyPolicy-pvpWXas ()Ljava/lang/String;
+	public final fun getTermsOfService-pvpWXas ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -8125,7 +8128,6 @@ public final class com/atproto/sync/GetRecordQueryParams {
 	public static synthetic fun copy-QTueNNE$default (Lcom/atproto/sync/GetRecordQueryParams;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/sync/GetRecordQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
-	public final fun getCommit-OC6CE0s ()Ljava/lang/String;
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getRkey ()Ljava/lang/String;
 	public fun hashCode ()I

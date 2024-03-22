@@ -98,8 +98,8 @@ private fun ImagesView.toImagesFeature(): ImagesFeature {
   return ImagesFeature(
     images = images.mapImmutable {
       EmbedImage(
-        thumb = it.thumb,
-        fullsize = it.fullsize,
+        thumb = it.thumb.uri,
+        fullsize = it.fullsize.uri,
         alt = it.alt,
       )
     }
@@ -111,7 +111,7 @@ private fun ExternalView.toExternalFeature(): ExternalFeature {
     uri = external.uri,
     title = external.title,
     description = external.description,
-    thumb = external.thumb,
+    thumb = external.thumb?.uri,
   )
 }
 
