@@ -8,8 +8,9 @@ ozone
 The Ozone project for the [AT Protocol](https://atproto.com/) consists of 3 components:
 
 1. A Gradle plugin to compile AT Protocol schemas into usable Kotlin classes.
-2. Compiled bindings for the [Bluesky Social](https://bsky.app) service.
-3. An example Android/Desktop client for Bluesky Social that uses those generated bindings.
+2. Multiplatform APIs for the AT Protocol spec that can be used with any compatible service, including [Bluesky Social](https://bsky.app).
+   - Supports Android, JVM, JavaScript, and iOS.
+3. Example client apps that demonstrate usage of those APIs.
 
 > **Warning**
 >
@@ -21,21 +22,9 @@ The Ozone project for the [AT Protocol](https://atproto.com/) consists of 3 comp
 
 O<sub>3</sub> exists at all levels in the [ATmosphere](https://bsky.app/profile/shreyanjain.net/post/3k26nw6kwnh2e).
 
-### Bluesky Social Client Apps
-
-#### Usage
-
-```shell
-# Desktop app
-./gradlew :app:desktop:run
-
-# Android app
-./gradlew :app:android:installDebug
-```
+No relation to the moderation tools also named [Ozone](https://github.com/bluesky-social/ozone).
 
 ### Bluesky Social Bindings
-
-#### Usage
 
 ```kotlin
 // build.gradle[.kts]
@@ -46,8 +35,6 @@ dependencies {
 ```
 
 ### Gradle Plugin
-
-#### Usage
 
 ```kotlin
 // build.gradle[.kts]
