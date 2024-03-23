@@ -13,8 +13,8 @@ concurrency:
 
 jobs:
   deploy-docs:
-    runs-on: ubuntu-latest
-    if: github.repository == 'christiandeange/ozone'
+    runs-on: macos-latest
+    timeout-minutes: 15
 
     environment:
       name: github-pages

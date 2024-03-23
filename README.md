@@ -34,6 +34,8 @@ dependencies {
 }
 ```
 
+Docs are available at [ozone.christian.sh](https://ozone.christian.sh).
+
 ### Gradle Plugin
 
 ```kotlin

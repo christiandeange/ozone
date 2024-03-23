@@ -1,4 +1,5 @@
 import org.jetbrains.dokka.gradle.AbstractDokkaTask
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import sh.christian.ozone.api.generator.ApiReturnType
 
 plugins {
@@ -29,4 +30,7 @@ lexicons {
 val generateLexicons = tasks.generateLexicons
 tasks.apiDump.configure { dependsOn(generateLexicons) }
 tasks.apiCheck.configure { dependsOn(generateLexicons) }
-tasks.withType<AbstractDokkaTask>().configureEach { dependsOn(generateLexicons) }
+
+tasks.withType<AbstractDokkaTask>().configureEach {
+  dependsOn(tasks.withType<KotlinCompile>())
+}
