@@ -9,7 +9,7 @@ jobs:
   publish-release:
     runs-on: macos-latest
     if: github.repository == 'christiandeange/ozone'
-    timeout-minutes: 15
+    timeout-minutes: 30
 
     steps:
       - uses: actions/checkout@v3
@@ -33,39 +33,8 @@ jobs:
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword="$ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD" \
           ./gradlew clean publish :generator:publish --no-daemon --stacktrace
 
-  deploy-docs:
-    runs-on: ubuntu-latest
-    if: github.repository == 'christiandeange/ozone'
+  deploy-release-docs:
+    uses: ./.github/workflows/deploy_docs.yml
+    secrets: inherit
     needs:
       - publish-release
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: gradle/wrapper-validation-action@v1
-      - uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-          check-latest: true
-      - uses: actions/configure-pages@v4
-
-      - name: Build API Reference
-        run: ./gradlew dokkaHtmlCollector
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './docs'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
