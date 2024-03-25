@@ -17,11 +17,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
-import sh.christian.ozone.di.AppComponent
-import sh.christian.ozone.di.create
+import sh.christian.ozone.app.AppWorkflow
+import sh.christian.ozone.app.initWorkflow
 import sh.christian.ozone.store.storage
 import sh.christian.ozone.ui.AppTheme
 import sh.christian.ozone.ui.workflow.WorkflowRendering
@@ -32,14 +30,7 @@ import java.awt.event.ComponentListener
 fun main() = runBlocking {
   val storage = storage()
   val appPlacement = DesktopAppPlacement(storage)
-  val component = AppComponent::class.create(storage)
-  val workflow = component.appWorkflow
-
-  component.supervisors.forEach {
-    with(it) {
-      launch(SupervisorJob()) { start() }
-    }
-  }
+  val workflow: AppWorkflow = initWorkflow(this, storage)
 
   application {
     val windowState = rememberWindowState(
