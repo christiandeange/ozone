@@ -1,6 +1,7 @@
 package sh.christian.ozone
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection.Companion.Next
 import androidx.compose.ui.focus.FocusDirection.Companion.Previous
@@ -25,6 +26,8 @@ import sh.christian.ozone.store.storage
 import sh.christian.ozone.ui.AppTheme
 import sh.christian.ozone.ui.workflow.WorkflowRendering
 import java.awt.Dimension
+import java.awt.event.ComponentEvent
+import java.awt.event.ComponentListener
 
 fun main() = runBlocking {
   val storage = storage()
@@ -53,7 +56,24 @@ fun main() = runBlocking {
       onCloseRequest = ::exitApplication,
     ) {
       val minDimension = with(LocalDensity.current) { 200.dp.roundToPx() }
-      window.minimumSize = Dimension(minDimension, minDimension)
+
+      DisposableEffect(Unit) {
+        val componentListener = object : ComponentListener {
+          override fun componentResized(e: ComponentEvent) = Unit
+          override fun componentHidden(e: ComponentEvent) = Unit
+          override fun componentMoved(e: ComponentEvent) = Unit
+          override fun componentShown(e: ComponentEvent) {
+            window.minimumSize = Dimension(minDimension, minDimension)
+          }
+        }
+
+        window.addComponentListener(componentListener)
+
+        onDispose {
+          window.removeComponentListener(componentListener)
+        }
+      }
+
       window.rootPane.apply {
         putClientProperty("apple.awt.fullWindowContent", true)
         putClientProperty("apple.awt.transparentTitleBar", true)
