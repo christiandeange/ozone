@@ -5,18 +5,17 @@ import androidx.compose.ui.window.ComposeUIViewController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import sh.christian.ozone.api.OzoneDispatchers.IO
 import sh.christian.ozone.app.AppWorkflow
 import sh.christian.ozone.di.AppComponent
 import sh.christian.ozone.di.create
 import sh.christian.ozone.store.storage
 import sh.christian.ozone.ui.AppTheme
-import sh.christian.ozone.ui.compose.initTypography
 import sh.christian.ozone.ui.workflow.WorkflowRendering
 
 lateinit var workflow: AppWorkflow
 
+@Suppress("unused") // Called from iOS application code.
 fun initialize() {
   val storage = storage()
   val component = AppComponent::class.create(storage)
@@ -28,13 +27,9 @@ fun initialize() {
       scope.launch(SupervisorJob()) { start() }
     }
   }
-
-  runBlocking {
-    // Ensure that this is set up before we actually use it in the theme.
-    initTypography()
-  }
 }
 
+@Suppress("unused", "FunctionName") // Called from iOS application code.
 fun MainViewController() = ComposeUIViewController {
   Box {
     AppTheme {

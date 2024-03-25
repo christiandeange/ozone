@@ -15,7 +15,7 @@ kotlin {
         implementation(project(":app:store"))
       }
 
-      resources.srcDir("../common/fonts")
+      resources.srcDir("../common/src/commonMain/composeResources")
     }
   }
 }

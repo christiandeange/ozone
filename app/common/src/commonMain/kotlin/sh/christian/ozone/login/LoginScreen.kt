@@ -115,7 +115,7 @@ class LoginScreen(
       title = {
         Text(
           text = "Welcome to Ozone.",
-          style = MaterialTheme.typography.titleLarge.copy(fontFamily = heroFont),
+          style = MaterialTheme.typography.titleLarge.copy(fontFamily = heroFont()),
         )
       },
       actions = {

@@ -23,7 +23,6 @@ import sh.christian.ozone.di.AppComponent
 import sh.christian.ozone.di.create
 import sh.christian.ozone.store.storage
 import sh.christian.ozone.ui.AppTheme
-import sh.christian.ozone.ui.compose.initTypography
 import sh.christian.ozone.ui.workflow.WorkflowRendering
 import java.awt.Dimension
 
@@ -37,11 +36,6 @@ fun main() = runBlocking {
     with(it) {
       launch(SupervisorJob()) { start() }
     }
-  }
-
-  runBlocking {
-    // Ensure that this is set up before we actually use it in the theme.
-    initTypography()
   }
 
   application {

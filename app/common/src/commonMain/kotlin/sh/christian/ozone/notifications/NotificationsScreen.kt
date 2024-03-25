@@ -66,7 +66,7 @@ class NotificationsScreen(
           title = {
             Text(
               text = "Notifications",
-              style = MaterialTheme.typography.titleLarge.copy(fontFamily = heroFont),
+              style = MaterialTheme.typography.titleLarge.copy(fontFamily = heroFont()),
             )
           },
         )

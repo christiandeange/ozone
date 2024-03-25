@@ -23,8 +23,6 @@ kotlin {
         implementation(npm("process", "0.11.10"))
         implementation(npm("url", "0.11.0"))
       }
-
-      resources.srcDir("../common/fonts")
     }
   }
 }

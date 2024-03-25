@@ -20,7 +20,6 @@ import sh.christian.ozone.di.AppComponent
 import sh.christian.ozone.di.create
 import sh.christian.ozone.store.storage
 import sh.christian.ozone.ui.AppTheme
-import sh.christian.ozone.ui.compose.initTypography
 import sh.christian.ozone.ui.workflow.WorkflowRendering
 
 suspend fun main() {
@@ -35,9 +34,6 @@ suspend fun main() {
       }
     }
   }
-
-  // Ensure that this is set up before we actually use it in the theme.
-  initTypography()
 
   onWasmReady {
     CanvasBasedWindow {

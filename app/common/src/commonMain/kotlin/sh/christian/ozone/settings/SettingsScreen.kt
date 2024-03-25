@@ -48,7 +48,7 @@ class SettingsScreen(
           title = {
             Text(
               text = "Settings",
-              style = MaterialTheme.typography.titleLarge.copy(fontFamily = heroFont),
+              style = MaterialTheme.typography.titleLarge.copy(fontFamily = heroFont()),
             )
           },
         )

@@ -82,7 +82,7 @@ fun AppTheme(content: @Composable () -> Unit) {
       DarkColors
     }
 
-    val typography = AppTypography(appFont)
+    val typography = AppTypography(appFont())
 
     MaterialTheme(
       typography = typography.copy(

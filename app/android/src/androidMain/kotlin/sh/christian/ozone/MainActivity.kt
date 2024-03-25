@@ -9,13 +9,10 @@ import androidx.lifecycle.lifecycleScope
 import dev.marcellogalhardo.retained.activity.retain
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import sh.christian.ozone.di.AppComponent
 import sh.christian.ozone.di.create
 import sh.christian.ozone.store.storage
 import sh.christian.ozone.ui.AppTheme
-import sh.christian.ozone.ui.compose.fontsAssetManager
-import sh.christian.ozone.ui.compose.initTypography
 import sh.christian.ozone.ui.workflow.WorkflowRendering
 
 class MainActivity : AppCompatActivity() {
@@ -33,12 +30,6 @@ class MainActivity : AppCompatActivity() {
       with(supervisor) {
         lifecycleScope.launch(SupervisorJob()) { start() }
       }
-    }
-
-    runBlocking {
-      // Ensure that this is set up before we actually use it in the theme.
-      fontsAssetManager = assets
-      initTypography()
     }
 
     setContent {

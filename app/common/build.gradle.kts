@@ -40,6 +40,7 @@ kotlin {
         // Uncomment to fetch all icons.
         // implementation(libs.androidx.icons.extended)
         implementation(libs.codepoints.deluxe)
+        implementation(compose.components.resources)
         implementation(libs.kamel)
         implementation(libs.kotlininject)
         implementation(libs.kotlinx.atomicfu)
@@ -53,9 +54,6 @@ kotlin {
       }
     }
     val androidMain by getting {
-      @OptIn(ExperimentalKotlinGradlePluginApi::class)
-      findAndroidSourceSet(this)!!.assets.srcDir("fonts")
-
       dependencies {
         implementation(libs.androidx.activity.compose)
         implementation(libs.ktor.cio)
@@ -63,15 +61,11 @@ kotlin {
       }
     }
     val iosMain by getting {
-      resources.srcDir("fonts")
-
       dependencies {
         implementation(libs.ktor.darwin)
       }
     }
     val jvmMain by getting {
-      resources.srcDir("fonts")
-
       dependencies {
         implementation(libs.apache.commons)
         implementation(libs.ktor.cio)
@@ -79,8 +73,6 @@ kotlin {
       }
     }
     val jsMain by getting {
-      resources.srcDir("fonts")
-
       dependencies {
         implementation(libs.ktor.js)
       }
