@@ -6,7 +6,7 @@ import io.ktor.client.plugins.logging.DEFAULT
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
-import io.ktor.http.Url
+import io.ktor.http.takeFrom
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -45,10 +45,7 @@ class ApiProvider(
     }
 
     install(DefaultRequest) {
-      val hostUrl = Url(apiHost.value)
-      url.protocol = hostUrl.protocol
-      url.host = hostUrl.host
-      url.port = hostUrl.port
+      url.takeFrom(apiHost.value)
     }
 
     expectSuccess = false
