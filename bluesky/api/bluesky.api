@@ -8870,6 +8870,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 }
 
 public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/BlueskyApi {
+	public fun <init> ()V
 	public fun <init> (Lio/ktor/client/HttpClient;)V
 	public fun activateAccount (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun applyWrites (Lcom/atproto/repo/ApplyWritesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;

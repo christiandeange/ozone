@@ -3,6 +3,8 @@ package sh.christian.ozone.api.generator
 import com.squareup.kotlinpoet.MemberName
 import kotlin.properties.ReadOnlyProperty
 
+val defaultHttpClient by memberOfPackage("sh.christian.ozone.api.xrpc")
+
 val persistentListOf by memberOfPackage("kotlinx.collections.immutable")
 
 val procedure by extensionMemberOfPackage("sh.christian.ozone.api.xrpc")

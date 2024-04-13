@@ -6,6 +6,10 @@ public final class sh/christian/ozone/api/xrpc/XrpcConfigurationKt {
 	public static final fun withXrpcConfiguration (Lio/ktor/client/HttpClient;)Lio/ktor/client/HttpClient;
 }
 
+public final class sh/christian/ozone/api/xrpc/XrpcConfiguration_jvmKt {
+	public static final fun getDefaultHttpClient ()Lio/ktor/client/HttpClient;
+}
+
 public final class sh/christian/ozone/api/xrpc/XrpcRequestKt {
 	public static final fun procedure (Lio/ktor/client/HttpClient;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun query (Lio/ktor/client/HttpClient;Ljava/lang/String;Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;

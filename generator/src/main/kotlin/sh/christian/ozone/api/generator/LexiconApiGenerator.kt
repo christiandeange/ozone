@@ -208,6 +208,11 @@ class LexiconApiGenerator(
           )
           .build()
       )
+      .addFunction(
+        FunSpec.constructorBuilder()
+          .callThisConstructor(CodeBlock.of("%M", defaultHttpClient))
+          .build()
+      )
       .addProperty(
         PropertySpec
           .builder("client", TypeNames.HttpClient)
