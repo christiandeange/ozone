@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import sh.christian.ozone.api.response.AtpResponse
 
-abstract class NetworkWorker<T> : Worker<AtpResponse<T>> {
+abstract class NetworkWorker<T : Any> : Worker<AtpResponse<T>> {
   override fun run(): Flow<AtpResponse<T>> = flow {
     emit(execute())
   }.flowOn(OzoneDispatchers.IO)
@@ -14,7 +14,7 @@ abstract class NetworkWorker<T> : Worker<AtpResponse<T>> {
   abstract suspend fun execute(): AtpResponse<T>
 
   companion object {
-    operator fun <T> invoke(
+    operator fun <T : Any> invoke(
       block: suspend () -> AtpResponse<T>,
     ): NetworkWorker<T> = object : NetworkWorker<T>() {
       override suspend fun execute(): AtpResponse<T> = block()

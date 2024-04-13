@@ -3,25 +3,25 @@ package sh.christian.ozone.api.response
 /**
  * A sealed type representing the result of performing an XRPC operation.
  */
-sealed interface AtpResponse<T> {
+sealed class AtpResponse<T : Any> {
 
   /**
    * A successful XRPC operation that returned a valid response.
    */
-  data class Success<T>(
+  data class Success<T : Any>(
     val response: T,
     val headers: Map<String, String>,
-  ) : AtpResponse<T>
+  ) : AtpResponse<T>()
 
   /**
    * A failed XRPC operation that may have returned a valid response, valid error description, or neither.
    */
-  data class Failure<T>(
+  data class Failure<T : Any>(
     val statusCode: StatusCode,
     val response: T?,
     val error: AtpErrorDescription?,
     val headers: Map<String, String>,
-  ) : AtpResponse<T>
+  ) : AtpResponse<T>()
 
   fun maybeResponse(): T? = when (this) {
     is Success -> response
@@ -39,7 +39,7 @@ sealed interface AtpResponse<T> {
     }
   }
 
-  fun <R> map(transform: (T) -> R): AtpResponse<R> = when (this) {
+  fun <R : Any> map(transform: (T) -> R): AtpResponse<R> = when (this) {
     is Success -> Success(transform(response), headers)
     is Failure -> Failure(statusCode, response?.let(transform), error, headers)
   }

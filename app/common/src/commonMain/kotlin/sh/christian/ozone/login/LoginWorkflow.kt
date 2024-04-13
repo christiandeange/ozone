@@ -143,7 +143,7 @@ class LoginWorkflow(
     )
   }
 
-  private fun serverInfo(): NetworkWorker<ServerInfo?> {
+  private fun serverInfo(): NetworkWorker<ServerInfo> {
     return NetworkWorker {
       apiProvider.api.describeServer().map { response ->
         ServerInfo(

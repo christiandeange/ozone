@@ -239,16 +239,10 @@ public final class sh/christian/ozone/api/response/AtpException : java/lang/Exce
 	public final fun getStatusCode ()Lsh/christian/ozone/api/response/StatusCode;
 }
 
-public abstract interface class sh/christian/ozone/api/response/AtpResponse {
-	public abstract fun map (Lkotlin/jvm/functions/Function1;)Lsh/christian/ozone/api/response/AtpResponse;
-	public abstract fun maybeResponse ()Ljava/lang/Object;
-	public abstract fun requireResponse ()Ljava/lang/Object;
-}
-
-public final class sh/christian/ozone/api/response/AtpResponse$DefaultImpls {
-	public static fun map (Lsh/christian/ozone/api/response/AtpResponse;Lkotlin/jvm/functions/Function1;)Lsh/christian/ozone/api/response/AtpResponse;
-	public static fun maybeResponse (Lsh/christian/ozone/api/response/AtpResponse;)Ljava/lang/Object;
-	public static fun requireResponse (Lsh/christian/ozone/api/response/AtpResponse;)Ljava/lang/Object;
+public abstract class sh/christian/ozone/api/response/AtpResponse {
+	public final fun map (Lkotlin/jvm/functions/Function1;)Lsh/christian/ozone/api/response/AtpResponse;
+	public final fun maybeResponse ()Ljava/lang/Object;
+	public final fun requireResponse ()Ljava/lang/Object;
 }
 
 public final class sh/christian/ozone/api/response/AtpResponse$Failure : sh/christian/ozone/api/response/AtpResponse {
@@ -265,9 +259,6 @@ public final class sh/christian/ozone/api/response/AtpResponse$Failure : sh/chri
 	public final fun getResponse ()Ljava/lang/Object;
 	public final fun getStatusCode ()Lsh/christian/ozone/api/response/StatusCode;
 	public fun hashCode ()I
-	public fun map (Lkotlin/jvm/functions/Function1;)Lsh/christian/ozone/api/response/AtpResponse;
-	public fun maybeResponse ()Ljava/lang/Object;
-	public fun requireResponse ()Ljava/lang/Object;
 	public fun toString ()Ljava/lang/String;
 }
 
@@ -281,9 +272,6 @@ public final class sh/christian/ozone/api/response/AtpResponse$Success : sh/chri
 	public final fun getHeaders ()Ljava/util/Map;
 	public final fun getResponse ()Ljava/lang/Object;
 	public fun hashCode ()I
-	public fun map (Lkotlin/jvm/functions/Function1;)Lsh/christian/ozone/api/response/AtpResponse;
-	public fun maybeResponse ()Ljava/lang/Object;
-	public fun requireResponse ()Ljava/lang/Object;
 	public fun toString ()Ljava/lang/String;
 }
 
