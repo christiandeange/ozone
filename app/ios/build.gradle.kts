@@ -4,7 +4,7 @@ plugins {
 }
 
 ozone {
-  ios()
+  ios("OzoneIos")
 }
 
 kotlin {

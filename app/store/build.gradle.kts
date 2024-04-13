@@ -9,7 +9,7 @@ ozone {
   }
   js()
   jvm()
-  ios()
+  ios("OzoneStore")
 }
 
 kotlin {

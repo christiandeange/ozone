@@ -6,15 +6,19 @@ plugins {
   val agp = libs.versions.agp
   val compose = libs.versions.compose
   val dokka = libs.versions.dokka
+  val kmmbridge = libs.versions.kmmbridge
   val kotlin = libs.versions.kotlin
   val ksp = libs.versions.ksp
   val mavenPublish = libs.versions.maven.publish
   val kotlinxAbi = libs.versions.kotlinx.abi.plugin
+  val skie = libs.versions.skie
 
   kotlin("jvm") version kotlin apply false
   kotlin("multiplatform") version kotlin apply false
   kotlin("plugin.serialization") version kotlin apply false
   kotlin("android") version kotlin apply false
+  id("co.touchlab.kmmbridge") version kmmbridge apply false
+  id("co.touchlab.skie") version skie apply false
   id("com.android.application") version agp apply false
   id("com.android.library") version agp apply false
   id("com.google.devtools.ksp") version ksp apply false

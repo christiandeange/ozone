@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A6F18C762BAA793F00F88D20"
-               BuildableName = "ozone.app"
+               BuildableName = "Ozone.app"
                BlueprintName = "ozone"
                ReferencedContainer = "container:ozone.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A6F18C762BAA793F00F88D20"
-            BuildableName = "ozone.app"
+            BuildableName = "Ozone.app"
             BlueprintName = "ozone"
             ReferencedContainer = "container:ozone.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A6F18C762BAA793F00F88D20"
-            BuildableName = "ozone.app"
+            BuildableName = "Ozone.app"
             BlueprintName = "ozone"
             ReferencedContainer = "container:ozone.xcodeproj">
          </BuildableReference>

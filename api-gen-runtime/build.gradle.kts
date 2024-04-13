@@ -8,7 +8,7 @@ plugins {
 ozone {
   js()
   jvm()
-  ios()
+  ios("BlueskyAPIRuntime")
 }
 
 kotlin {

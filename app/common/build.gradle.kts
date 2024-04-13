@@ -15,7 +15,7 @@ ozone {
   }
   js()
   jvm()
-  ios()
+  ios("OzoneCommon")
 }
 
 kotlin {

@@ -4,8 +4,10 @@ import com.android.build.gradle.AppExtension
 import com.android.build.gradle.LibraryExtension
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.get
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.kotlinExtension
+import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
 
 abstract class OzoneExtension(
   private val project: Project,
@@ -57,7 +59,12 @@ abstract class OzoneExtension(
     }
   }
 
-  fun ios() {
+  fun ios(
+    name: String,
+    configure: Framework.() -> Unit = {},
+  ) {
+    project.plugins.apply("co.touchlab.skie")
+
     kotlin {
       listOf(
         iosX64(),
@@ -65,8 +72,9 @@ abstract class OzoneExtension(
         iosSimulatorArm64(),
       ).forEach {
         it.binaries.framework {
-          baseName = project.name
+          baseName = name
           isStatic = true
+          configure()
         }
       }
     }
