@@ -16,7 +16,6 @@
 .DS_Store
 /.build/
 xcuserdata/
-Package.swift
 
 ### Project ###
 /docs

@@ -30,7 +30,15 @@ CURRENT_RELEASE="$(awk -F\" '/sh.christian.ozone:bluesky/ { print $4 }' < gradle
 sed -i '' "s/$CURRENT_RELEASE/$NEXT_RELEASE/g" gradle/libs.versions.toml
 sed -i '' "s/$CURRENT_RELEASE/$NEXT_RELEASE/g" README.md
 
+./gradlew clean :bluesky:zipXCFramework
+
+CHECKSUM="$(swift package compute-checksum bluesky/build/faktory/zip/frameworkarchive.zip)"
+cp templates/Package.swift .
+sed -i '' "s/{version}/$NEXT_RELEASE/g" Package.swift
+sed -i '' "s/{checksum}/$CHECKSUM/g" Package.swift
+
 git add README.md
+git add Package.swift
 git add $properties_files
 git add gradle/libs.versions.toml
 
@@ -41,5 +49,8 @@ for file in $properties_files; do
   sed -i '' "s/$NEXT_RELEASE/$NEXT_SNAPSHOT_VERSION-SNAPSHOT/g" "$file"
 done
 
+git checkout HEAD~1 -- Package.swift
+
+git add Package.swift
 git add $properties_files
 git commit -m "Prepare next development cycle."
