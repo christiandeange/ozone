@@ -39,6 +39,8 @@ fun GeneratorContext.primitiveDefaultValue(
           LexiconStringFormat.NSID -> CodeBlock.of("%T(%S)", TypeNames.Nsid, default)
           LexiconStringFormat.CID -> CodeBlock.of("%T(%S)", TypeNames.Cid, default)
           LexiconStringFormat.LANGUAGE -> CodeBlock.of("%T(%S)", TypeNames.Language, default)
+          LexiconStringFormat.TID -> CodeBlock.of("%T(%S)", TypeNames.Tid, default)
+          LexiconStringFormat.RECORD_KEY -> CodeBlock.of("%T(%S)", TypeNames.RKey, default)
           null -> CodeBlock.of("%S", default)
         }
       }
@@ -68,6 +70,8 @@ fun GeneratorContext.primitiveTypeName(
         LexiconStringFormat.NSID -> TypeNames.Nsid
         LexiconStringFormat.CID -> TypeNames.Cid
         LexiconStringFormat.LANGUAGE -> TypeNames.Language
+        LexiconStringFormat.TID -> TypeNames.Tid
+        LexiconStringFormat.RECORD_KEY -> TypeNames.RKey
         null -> STRING
       }
     }

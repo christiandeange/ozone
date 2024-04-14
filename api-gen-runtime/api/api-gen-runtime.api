@@ -125,6 +125,44 @@ public final class sh/christian/ozone/api/Nsid$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class sh/christian/ozone/api/RKey {
+	public static final field Companion Lsh/christian/ozone/api/RKey$Companion;
+	public static final synthetic fun box-impl (Ljava/lang/String;)Lsh/christian/ozone/api/RKey;
+	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public final fun getRkey ()Ljava/lang/String;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/lang/String;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/lang/String;
+}
+
+public final class sh/christian/ozone/api/RKey$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class sh/christian/ozone/api/Tid {
+	public static final field Companion Lsh/christian/ozone/api/Tid$Companion;
+	public static final synthetic fun box-impl (Ljava/lang/String;)Lsh/christian/ozone/api/Tid;
+	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public final fun getTid ()Ljava/lang/String;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/lang/String;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/lang/String;
+}
+
+public final class sh/christian/ozone/api/Tid$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class sh/christian/ozone/api/Uri {
 	public static final field Companion Lsh/christian/ozone/api/Uri$Companion;
 	public static final synthetic fun box-impl (Ljava/lang/String;)Lsh/christian/ozone/api/Uri;

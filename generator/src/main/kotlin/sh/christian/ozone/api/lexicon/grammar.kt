@@ -42,6 +42,8 @@ enum class LexiconStringFormat {
   @Json(name = "nsid") NSID,
   @Json(name = "cid") CID,
   @Json(name = "language") LANGUAGE,
+  @Json(name = "tid") TID,
+  @Json(name = "record-key") RECORD_KEY,
 }
 
 @JsonClass(generateAdapter = true)

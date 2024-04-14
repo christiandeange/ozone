@@ -145,3 +145,29 @@ value class Language(
 ) {
   override fun toString(): String = tag
 }
+
+/**
+ * [Timestamp identifiers](https://atproto.com/specs/record-key#record-key-type-tid) (sometimes shortened to tid) are
+ * the most common record naming scheme. The name is derived from the creation time of the record. Implementations
+ * should not rely on global uniqueness of TIDs, and should not trust TID timestamps as record creation timestamps.
+ */
+@Serializable
+@JvmInline
+value class Tid(
+  val tid: String,
+) {
+  override fun toString(): String = tid
+}
+
+/**
+ * A [Record Key](https://atproto.com/specs/record-key) (sometimes shortened to rkey) is used to name and reference an
+ * individual record within the same collection of an atproto repository. It ends up as a segment in [AtUri]s, and in
+ * the repo MST path. Record Keys are "user-controlled data" and may be arbitrarily selected by hostile accounts.
+ */
+@Serializable
+@JvmInline
+value class RKey(
+  val rkey: String,
+) {
+  override fun toString(): String = rkey
+}
