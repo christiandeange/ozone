@@ -1,4 +1,4 @@
-![Maven Central](https://img.shields.io/maven-central/v/sh.christian.ozone/bluesky?versionPrefix=0.0.8) ![CI](https://github.com/christiandeange/ozone/actions/workflows/ci.yml/badge.svg)
+![Maven Central](https://img.shields.io/maven-central/v/sh.christian.ozone/bluesky?versionPrefix=0.0.9) ![CI](https://github.com/christiandeange/ozone/actions/workflows/ci.yml/badge.svg)
 
 ozone
 =====
@@ -30,7 +30,7 @@ No relation to the moderation tools also named [Ozone](https://github.com/bluesk
 // build.gradle[.kts]
 
 dependencies {
-  api("sh.christian.ozone:bluesky:0.0.8")
+  api("sh.christian.ozone:bluesky:0.0.9")
 }
 ```
 
@@ -42,7 +42,7 @@ Docs are available at [ozone.christian.sh](https://ozone.christian.sh).
 // build.gradle[.kts]
 
 plugins {
-  id("sh.christian.ozone.generator") version "0.0.8"
+  id("sh.christian.ozone.generator") version "0.0.9"
 }
 
 dependencies {
