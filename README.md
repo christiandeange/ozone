@@ -26,6 +26,10 @@ No relation to the moderation tools also named [Ozone](https://github.com/bluesk
 
 ### Bluesky Social Bindings
 
+Documentation is available at [ozone.christian.sh](https://ozone.christian.sh).
+
+#### Java / Kotlin
+
 ```kotlin
 // build.gradle[.kts]
 
@@ -34,9 +38,13 @@ dependencies {
 }
 ```
 
-Docs are available at [ozone.christian.sh](https://ozone.christian.sh).
+#### Swift / Objective-C
+
+In Xcode, select **File > Add Packages** and enter https://github.com/christiandeange/BlueskyAPI
 
 ### Gradle Plugin
+
+In addition to shipping the lexicons that define the official Bluesky API, this project also includes a Gradle Plugin that allows you to bring your own lexicon definitions and generate any set of AT Protocol bindings from them.
 
 ```kotlin
 // build.gradle[.kts]
