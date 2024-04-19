@@ -76,7 +76,7 @@ fun GeneratorContext.primitiveTypeName(
       }
     }
   }
-  is LexiconUnknown -> TypeNames.JsonElement
+  is LexiconUnknown -> TypeNames.JsonContent
 }
 
 fun LexiconString.isEnumValues(): Boolean {

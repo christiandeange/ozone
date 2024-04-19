@@ -15,7 +15,7 @@ object TypeNames {
   val Flow by classOfPackage("kotlinx.coroutines.flow")
   val Handle by classOfPackage("sh.christian.ozone.api")
   val HttpClient by classOfPackage("io.ktor.client")
-  val JsonElement by classOfPackage("kotlinx.serialization.json")
+  val JsonContent by classOfPackage("sh.christian.ozone.api.model")
   val KSerializer by classOfPackage("kotlinx.serialization")
   val Language by classOfPackage("sh.christian.ozone.api")
   val Nsid by classOfPackage("sh.christian.ozone.api")
