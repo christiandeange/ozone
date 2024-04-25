@@ -387,7 +387,8 @@ internal fun <T> T.addDescription(description: String?): T
       addAnnotation(
         AnnotationSpec.builder(TypeNames.Deprecated)
           .addMember("%S", description)
-          .build())
+          .build()
+      )
     } else {
       addKdoc(description)
     }

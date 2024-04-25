@@ -1,5 +1,6 @@
 package sh.christian.ozone.api.generator
 
+import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.FileSpec
 import org.gradle.configurationcache.extensions.capitalized
@@ -37,6 +38,11 @@ class LexiconClassFileCreator(
           context.types().forEach { addType(it) }
           context.typeAliases().forEach { addTypeAlias(it) }
         }
+        .addAnnotation(
+          AnnotationSpec.builder(TypeNames.Suppress)
+            .addMember("%S", "DEPRECATION")
+            .build()
+        )
         .build()
 
       if (codeFile.members.isNotEmpty()) {

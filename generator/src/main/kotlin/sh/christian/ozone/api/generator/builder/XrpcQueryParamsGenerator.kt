@@ -89,9 +89,6 @@ class XrpcQueryParamsGenerator(
           .add("return buildList {\n")
           .withIndent {
             properties.forEach { property ->
-              if (property.description.isDeprecated()) {
-                addStatement("@%T(%S)", TypeNames.Suppress, "DEPRECATION")
-              }
               if (property.isCollection()) {
                 add("%L.forEach {\n", property.name)
                 withIndent {
