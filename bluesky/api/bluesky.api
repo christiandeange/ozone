@@ -524,6 +524,34 @@ public final class app/bsky/actor/PreferencesUnion$SavedFeedsPrefSerializer : ko
 	public fun serialize-VojszPc (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/SavedFeedsPref;)V
 }
 
+public final class app/bsky/actor/PreferencesUnion$SavedFeedsPrefV2 : app/bsky/actor/PreferencesUnion {
+	public static final field Companion Lapp/bsky/actor/PreferencesUnion$SavedFeedsPrefV2$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/actor/SavedFeedsPrefV2;)Lapp/bsky/actor/PreferencesUnion$SavedFeedsPrefV2;
+	public static fun constructor-impl (Lapp/bsky/actor/SavedFeedsPrefV2;)Lapp/bsky/actor/SavedFeedsPrefV2;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/actor/SavedFeedsPrefV2;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/actor/SavedFeedsPrefV2;Lapp/bsky/actor/SavedFeedsPrefV2;)Z
+	public final fun getValue ()Lapp/bsky/actor/SavedFeedsPrefV2;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/actor/SavedFeedsPrefV2;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/actor/SavedFeedsPrefV2;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/actor/SavedFeedsPrefV2;
+}
+
+public final class app/bsky/actor/PreferencesUnion$SavedFeedsPrefV2$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/PreferencesUnion$SavedFeedsPrefV2Serializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-sEsFQoI (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/actor/SavedFeedsPrefV2;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-RGYDBD8 (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/SavedFeedsPrefV2;)V
+}
+
 public final class app/bsky/actor/PreferencesUnion$ThreadViewPref : app/bsky/actor/PreferencesUnion {
 	public static final field Companion Lapp/bsky/actor/PreferencesUnion$ThreadViewPref$Companion;
 	public static final synthetic fun box-impl (Lapp/bsky/actor/ThreadViewPref;)Lapp/bsky/actor/PreferencesUnion$ThreadViewPref;
@@ -755,6 +783,28 @@ public final class app/bsky/actor/PutPreferencesRequest$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/actor/SavedFeed {
+	public static final field Companion Lapp/bsky/actor/SavedFeed$Companion;
+	public fun <init> (Ljava/lang/String;Lapp/bsky/actor/Type;Ljava/lang/String;Z)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lapp/bsky/actor/Type;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Z
+	public final fun copy (Ljava/lang/String;Lapp/bsky/actor/Type;Ljava/lang/String;Z)Lapp/bsky/actor/SavedFeed;
+	public static synthetic fun copy$default (Lapp/bsky/actor/SavedFeed;Ljava/lang/String;Lapp/bsky/actor/Type;Ljava/lang/String;ZILjava/lang/Object;)Lapp/bsky/actor/SavedFeed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()Ljava/lang/String;
+	public final fun getPinned ()Z
+	public final fun getType ()Lapp/bsky/actor/Type;
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/SavedFeed$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/actor/SavedFeedsPref {
 	public static final field Companion Lapp/bsky/actor/SavedFeedsPref$Companion;
 	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Long;)V
@@ -773,6 +823,22 @@ public final class app/bsky/actor/SavedFeedsPref {
 }
 
 public final class app/bsky/actor/SavedFeedsPref$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/SavedFeedsPrefV2 {
+	public static final field Companion Lapp/bsky/actor/SavedFeedsPrefV2$Companion;
+	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;)V
+	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/actor/SavedFeedsPrefV2;
+	public static synthetic fun copy$default (Lapp/bsky/actor/SavedFeedsPrefV2;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/actor/SavedFeedsPrefV2;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItems ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/SavedFeedsPrefV2$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -821,19 +887,18 @@ public final class app/bsky/actor/SearchActorsResponse$Companion {
 
 public final class app/bsky/actor/SearchActorsTypeaheadQueryParams {
 	public static final field Companion Lapp/bsky/actor/SearchActorsTypeaheadQueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3-68yuAGA ()Ljava/lang/String;
-	public final fun component4 ()Ljava/lang/Long;
-	public final fun copy-6lKguXw (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;)Lapp/bsky/actor/SearchActorsTypeaheadQueryParams;
-	public static synthetic fun copy-6lKguXw$default (Lapp/bsky/actor/SearchActorsTypeaheadQueryParams;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ILjava/lang/Object;)Lapp/bsky/actor/SearchActorsTypeaheadQueryParams;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;)Lapp/bsky/actor/SearchActorsTypeaheadQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/actor/SearchActorsTypeaheadQueryParams;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ILjava/lang/Object;)Lapp/bsky/actor/SearchActorsTypeaheadQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getLimit ()Ljava/lang/Long;
 	public final fun getQ ()Ljava/lang/String;
-	public final fun getViewer-68yuAGA ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -886,6 +951,15 @@ public final class app/bsky/actor/ThreadViewPref {
 
 public final class app/bsky/actor/ThreadViewPref$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/Type : java/lang/Enum {
+	public static final field FEED Lapp/bsky/actor/Type;
+	public static final field LIST Lapp/bsky/actor/Type;
+	public static final field TIMELINE Lapp/bsky/actor/Type;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/actor/Type;
+	public static fun values ()[Lapp/bsky/actor/Type;
 }
 
 public final class app/bsky/actor/ViewerState {
@@ -5331,6 +5405,47 @@ public final class app/bsky/unspecced/GetPopularFeedGeneratorsResponse$Companion
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/unspecced/GetSuggestionsSkeletonQueryParams {
+	public static final field Companion Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1-68yuAGA ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy-xWGbuFE (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;
+	public static synthetic fun copy-xWGbuFE$default (Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getViewer-68yuAGA ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetSuggestionsSkeletonQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetSuggestionsSkeletonResponse {
+	public static final field Companion Lapp/bsky/unspecced/GetSuggestionsSkeletonResponse$Companion;
+	public fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/unspecced/GetSuggestionsSkeletonResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetSuggestionsSkeletonResponse;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestionsSkeletonResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActors ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getCursor ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetSuggestionsSkeletonResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/unspecced/GetTaggedSuggestionsResponse {
 	public static final field Companion Lapp/bsky/unspecced/GetTaggedSuggestionsResponse$Companion;
 	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;)V
@@ -7658,12 +7773,15 @@ public final class com/atproto/server/CreateInviteCodesResponse$Companion {
 
 public final class com/atproto/server/CreateSessionRequest {
 	public static final field Companion Lcom/atproto/server/CreateSessionRequest$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/server/CreateSessionRequest;
-	public static synthetic fun copy$default (Lcom/atproto/server/CreateSessionRequest;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/server/CreateSessionRequest;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/server/CreateSessionRequest;
+	public static synthetic fun copy$default (Lcom/atproto/server/CreateSessionRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/server/CreateSessionRequest;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAuthFactorToken ()Ljava/lang/String;
 	public final fun getIdentifier ()Ljava/lang/String;
 	public final fun getPassword ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -7676,8 +7794,8 @@ public final class com/atproto/server/CreateSessionRequest$Companion {
 
 public final class com/atproto/server/CreateSessionResponse {
 	public static final field Companion Lcom/atproto/server/CreateSessionResponse$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3-hDwCUG8 ()Ljava/lang/String;
@@ -7685,13 +7803,15 @@ public final class com/atproto/server/CreateSessionResponse {
 	public final fun component5 ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun component6 ()Ljava/lang/String;
 	public final fun component7 ()Ljava/lang/Boolean;
-	public final fun copy-WoPUJvw (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Ljava/lang/Boolean;)Lcom/atproto/server/CreateSessionResponse;
-	public static synthetic fun copy-WoPUJvw$default (Lcom/atproto/server/CreateSessionResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Lcom/atproto/server/CreateSessionResponse;
+	public final fun component8 ()Ljava/lang/Boolean;
+	public final fun copy--Gv3-Ko (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;)Lcom/atproto/server/CreateSessionResponse;
+	public static synthetic fun copy--Gv3-Ko$default (Lcom/atproto/server/CreateSessionResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;ILjava/lang/Object;)Lcom/atproto/server/CreateSessionResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAccessJwt ()Ljava/lang/String;
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getDidDoc ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun getEmail ()Ljava/lang/String;
+	public final fun getEmailAuthFactor ()Ljava/lang/Boolean;
 	public final fun getEmailConfirmed ()Ljava/lang/Boolean;
 	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
 	public final fun getRefreshJwt ()Ljava/lang/String;
@@ -7877,19 +7997,21 @@ public final class com/atproto/server/GetServiceAuthResponse$Companion {
 
 public final class com/atproto/server/GetSessionResponse {
 	public static final field Companion Lcom/atproto/server/GetSessionResponse$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-hDwCUG8 ()Ljava/lang/String;
 	public final fun component2-715Ygxc ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/Boolean;
-	public final fun component5 ()Lsh/christian/ozone/api/model/JsonContent;
-	public final fun copy-_vzPYJs (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;)Lcom/atproto/server/GetSessionResponse;
-	public static synthetic fun copy-_vzPYJs$default (Lcom/atproto/server/GetSessionResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;ILjava/lang/Object;)Lcom/atproto/server/GetSessionResponse;
+	public final fun component5 ()Ljava/lang/Boolean;
+	public final fun component6 ()Lsh/christian/ozone/api/model/JsonContent;
+	public final fun copy-qAj6Nj0 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;)Lcom/atproto/server/GetSessionResponse;
+	public static synthetic fun copy-qAj6Nj0$default (Lcom/atproto/server/GetSessionResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;ILjava/lang/Object;)Lcom/atproto/server/GetSessionResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getDidDoc ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun getEmail ()Ljava/lang/String;
+	public final fun getEmailAuthFactor ()Ljava/lang/Boolean;
 	public final fun getEmailConfirmed ()Ljava/lang/Boolean;
 	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -8106,14 +8228,16 @@ public final class com/atproto/server/RevokeAppPasswordRequest$Companion {
 
 public final class com/atproto/server/UpdateEmailRequest {
 	public static final field Companion Lcom/atproto/server/UpdateEmailRequest$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/server/UpdateEmailRequest;
-	public static synthetic fun copy$default (Lcom/atproto/server/UpdateEmailRequest;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/server/UpdateEmailRequest;
+	public final fun component2 ()Ljava/lang/Boolean;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;)Lcom/atproto/server/UpdateEmailRequest;
+	public static synthetic fun copy$default (Lcom/atproto/server/UpdateEmailRequest;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/server/UpdateEmailRequest;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getEmail ()Ljava/lang/String;
+	public final fun getEmailAuthFactor ()Ljava/lang/Boolean;
 	public final fun getToken ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -8944,6 +9068,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSuggestedFollowsByActor (Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSuggestions (Lapp/bsky/actor/GetSuggestionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getSuggestionsSkeleton (Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getTaggedSuggestions (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getTimeline (Lapp/bsky/feed/GetTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9076,6 +9201,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestedFollowsByActor (Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestions (Lapp/bsky/actor/GetSuggestionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getSuggestionsSkeleton (Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getTaggedSuggestions (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getTimeline (Lapp/bsky/feed/GetTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
