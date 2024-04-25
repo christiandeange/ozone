@@ -27,7 +27,7 @@ androidx-icons-extended = { module = "androidx.compose.material:material-icons-e
 retainedactivity = { module = "dev.marcellogalhardo:retained-activity", version = "1.0.1" }
 
 codepoints-deluxe = { module = "de.cketti.unicode:kotlin-codepoints-deluxe", version = "0.7.0" }
-kamel = { module = "media.kamel:kamel-image", version = "0.8.2" }
+kamel = { module = "media.kamel:kamel-image", version = "0.9.4" }
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatform-settings" }
 multiplatform-settings-serialization = { module = "com.russhwolf:multiplatform-settings-serialization", version.ref = "multiplatform-settings" }
 zoomable = { module = "me.saket.telephoto:zoomable", version = "0.6.2" }
