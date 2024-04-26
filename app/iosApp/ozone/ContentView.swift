@@ -1,5 +1,5 @@
 import SwiftUI
-import ios
+import OzoneIos
 
 struct ContentView: View {
     var body: some View {
@@ -9,7 +9,7 @@ struct ContentView: View {
 
 struct ComposeViewControllerToSwiftUI: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
-        return ios.MainViewControllerKt.MainViewController()
+        return OzoneIos.MainViewControllerKt.MainViewController()
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {

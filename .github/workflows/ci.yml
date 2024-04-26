@@ -52,7 +52,13 @@ jobs:
           check-latest: true
 
       - name: Assemble iOS
-        run: ./gradlew clean :app:ios:iosSimulatorArm64MainKlibrary --no-daemon --stacktrace
+        uses: mxcl/xcodebuild@v2
+        with:
+          platform: iOS
+          action: build
+          scheme: ozone
+          configuration: debug
+          working-directory: app/iosApp/
 
   assemble-js:
     runs-on: ubuntu-latest

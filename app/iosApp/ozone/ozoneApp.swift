@@ -1,10 +1,10 @@
 import SwiftUI
-import ios
+import OzoneIos
 
 @main
 struct ozoneApp: App {
     init() {
-        ios.MainViewControllerKt.initialize()
+        OzoneIos.MainViewControllerKt.initialize()
     }
 
     var body: some Scene {
