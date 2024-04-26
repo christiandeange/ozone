@@ -2,8 +2,9 @@ package sh.christian.ozone.api.xrpc
 
 import kotlinx.serialization.DeserializationStrategy
 import kotlinx.serialization.ExperimentalSerializationApi
-import kotlinx.serialization.KSerializer
+import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.cbor.Cbor
+import kotlinx.serialization.serializer
 import sh.christian.ozone.api.cbor.ByteArrayInput
 import sh.christian.ozone.api.cbor.CborDecoder
 import sh.christian.ozone.api.cbor.CborReader
@@ -14,17 +15,23 @@ data class XrpcSubscriptionResponse(
   val bytes: ByteArray,
 ) {
   @ExperimentalSerializationApi
-  inline fun <reified T : Any> body(): T = body(T::class)
+  inline fun <reified T : Any> body(
+    noinline subscriptionSerializerProvider: SubscriptionSerializerProvider<T>,
+  ): T = body(T::class, subscriptionSerializerProvider)
 
+  @OptIn(InternalSerializationApi::class)
   @ExperimentalSerializationApi
-  fun <T : Any> body(kClass: KClass<T>): T {
+  fun <T : Any> body(
+    kClass: KClass<T>,
+    subscriptionSerializerProvider: SubscriptionSerializerProvider<T>,
+  ): T {
     val frame = decodeFromByteArray(XrpcSubscriptionFrame.serializer(), bytes)
 
     val payloadPosition = bytes.drop(1).indexOfFirst { it.toInt().isCborMapStart() } + 1
     val payloadBytes = bytes.drop(payloadPosition).toByteArray()
 
     if (frame.op == 1 && frame.t != null) {
-      val serializer = getSerializer(kClass, frame)
+      val serializer = subscriptionSerializerProvider(kClass, frame.t) ?: kClass.serializer()
       return decodeFromByteArray(serializer, payloadBytes)
     } else {
       val maybeError = runCatching { decodeFromByteArray(AtpErrorDescription.serializer(), payloadBytes) }.getOrNull()
@@ -61,8 +68,3 @@ data class XrpcSubscriptionResponse(
 }
 
 internal fun Int.isCborMapStart(): Boolean = (this and 0b11100000) == 0b10100000
-
-internal expect fun <T : Any> getSerializer(
-  kClass: KClass<T>,
-  frame: XrpcSubscriptionFrame,
-): KSerializer<out T>

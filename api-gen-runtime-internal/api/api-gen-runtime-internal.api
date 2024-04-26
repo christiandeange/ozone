@@ -25,7 +25,7 @@ public final class sh/christian/ozone/api/xrpc/XrpcSubscriptionParseException : 
 
 public final class sh/christian/ozone/api/xrpc/XrpcSubscriptionResponse {
 	public fun <init> ([B)V
-	public final fun body (Lkotlin/reflect/KClass;)Ljava/lang/Object;
+	public final fun body (Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 	public final fun component1 ()[B
 	public final fun copy ([B)Lsh/christian/ozone/api/xrpc/XrpcSubscriptionResponse;
 	public static synthetic fun copy$default (Lsh/christian/ozone/api/xrpc/XrpcSubscriptionResponse;[BILjava/lang/Object;)Lsh/christian/ozone/api/xrpc/XrpcSubscriptionResponse;

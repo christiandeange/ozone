@@ -9259,6 +9259,10 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun uploadBlob ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
+public final class sh/christian/ozone/api/xrpc/FindSubscriptionSerializerKt {
+	public static final fun findSubscriptionSerializer (Lkotlin/reflect/KClass;Ljava/lang/String;)Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/communication/CreateTemplateRequest {
 	public static final field Companion Ltools/ozone/communication/CreateTemplateRequest$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V

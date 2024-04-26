@@ -16,6 +16,7 @@ kotlin {
       dependencies {
         implementation(project(":app:common"))
         implementation(compose.desktop.currentOs)
+        implementation(kotlin("reflect"))
       }
     }
   }

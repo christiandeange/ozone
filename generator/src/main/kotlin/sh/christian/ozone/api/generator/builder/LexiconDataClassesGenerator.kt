@@ -239,7 +239,7 @@ class LexiconDataClassesGenerator(
     xrpcBody: LexiconXrpcBody,
   ) {
     xrpcBody.schema?.let { schema ->
-      generateTypes(context, className, schema)
+      generateTypes(context, className, schema, addRelationships = false)
     }
   }
 
@@ -249,7 +249,7 @@ class LexiconDataClassesGenerator(
     xrpcSubscriptionMessage: LexiconXrpcSubscriptionMessage,
   ) {
     xrpcSubscriptionMessage.schema?.let { schema ->
-      generateTypes(context, className, schema)
+      generateTypes(context, className, schema, addRelationships = true)
     }
   }
 
@@ -257,6 +257,7 @@ class LexiconDataClassesGenerator(
     context: GeneratorContext,
     className: String,
     schema: LexiconXrpcSchemaDefinition,
+    addRelationships: Boolean,
   ) {
     when (schema) {
       is LexiconXrpcSchemaDefinition.Object -> {
@@ -276,7 +277,8 @@ class LexiconDataClassesGenerator(
                       generateTypes(
                         context,
                         className + propertyName.removeSuffix("s").capitalized(),
-                        property.array.items.reference
+                        property.array.items.reference,
+                        addRelationships,
                       )
                     }
                   }
@@ -295,7 +297,8 @@ class LexiconDataClassesGenerator(
                   generateTypes(
                     context,
                     className + propertyName.removeSuffix("s").capitalized(),
-                    property.reference
+                    property.reference,
+                    addRelationships,
                   )
                 }
               }
@@ -307,7 +310,7 @@ class LexiconDataClassesGenerator(
         when (schema.reference) {
           is LexiconSingleReference -> Unit
           is LexiconUnionReference -> {
-            generateTypes(context, className, schema.reference)
+            generateTypes(context, className, schema.reference, addRelationships)
           }
         }
       }
@@ -318,6 +321,7 @@ class LexiconDataClassesGenerator(
     context: GeneratorContext,
     className: String,
     unionReference: LexiconUnionReference,
+    addRelationships: Boolean = false,
   ): TypeName {
     val classSimpleName = context.classPrefix +
         context.definitionName.capitalized() +
@@ -353,9 +357,10 @@ class LexiconDataClassesGenerator(
       val (lexiconId, objectRef) = reference.ref.parseLexiconRef(context.document)
       val serialName = "$lexiconId#$objectRef".removeSuffix("#main")
 
+      val childClassName = name.nestedClass(uniqueName)
       sealedInterface.addTypes(
         createValueClass(
-          className = name.nestedClass(uniqueName),
+          className = childClassName,
           innerType = typeName,
           serialName = serialName,
           additionalConfiguration = {
@@ -363,6 +368,10 @@ class LexiconDataClassesGenerator(
           }
         ),
       )
+
+      if (addRelationships) {
+        context.addSealedRelationship(name, childClassName, serialName)
+      }
     }
 
     context.addType(sealedInterface.build())

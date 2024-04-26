@@ -273,7 +273,11 @@ class LexiconApiGenerator(
                 }
 
                 unindent()
-                add(").%M()", transformingMethodName)
+                when (apiCall) {
+                  is Query -> add(").%M()", transformingMethodName)
+                  is Procedure -> add(").%M()", transformingMethodName)
+                  is Subscription -> add(").%M(::%M)", transformingMethodName, findSubscriptionSerializer)
+                }
 
                 if (!configuration.suspending) {
                   add("\n")

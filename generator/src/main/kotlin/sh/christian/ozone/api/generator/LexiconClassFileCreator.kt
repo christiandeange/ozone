@@ -2,10 +2,17 @@ package sh.christian.ozone.api.generator
 
 import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.ClassName
+import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.FileSpec
+import com.squareup.kotlinpoet.FunSpec
+import com.squareup.kotlinpoet.KModifier
+import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
+import com.squareup.kotlinpoet.TypeVariableName
+import com.squareup.kotlinpoet.withIndent
 import org.gradle.configurationcache.extensions.capitalized
 import sh.christian.ozone.api.generator.builder.GeneratorContext
 import sh.christian.ozone.api.generator.builder.LexiconDataClassesGenerator
+import sh.christian.ozone.api.generator.builder.SealedRelationship
 import sh.christian.ozone.api.generator.builder.TypesGenerator
 import sh.christian.ozone.api.generator.builder.XrpcBodyGenerator
 import sh.christian.ozone.api.generator.builder.XrpcQueryParamsGenerator
@@ -20,6 +27,8 @@ class LexiconClassFileCreator(
     XrpcQueryParamsGenerator(environment),
     XrpcBodyGenerator(environment),
   )
+
+  private val sealedRelationships = mutableListOf<SealedRelationship>()
 
   fun createClassForLexicon(document: LexiconDocument) {
     val enums = mutableMapOf<ClassName, MutableSet<String>>()
@@ -37,6 +46,8 @@ class LexiconClassFileCreator(
           }
           context.types().forEach { addType(it) }
           context.typeAliases().forEach { addTypeAlias(it) }
+
+          sealedRelationships += context.sealedRelationships()
         }
         .addAnnotation(
           AnnotationSpec.builder(TypeNames.Suppress)
@@ -62,5 +73,58 @@ class LexiconClassFileCreator(
     if (enumFile.members.isNotEmpty()) {
       enumFile.writeTo(environment.outputDirectory)
     }
+  }
+
+  fun generateSealedRelationshipMapping() {
+    val relationships = sealedRelationships.groupBy { it.sealedInterface }
+
+    FileSpec.builder(findSubscriptionSerializer.packageName, findSubscriptionSerializer.simpleName)
+      .addFunction(
+        FunSpec.builder(findSubscriptionSerializer)
+          .addAnnotation(
+            AnnotationSpec.builder(TypeNames.Suppress)
+              .addMember("%S", "UNCHECKED_CAST")
+              .build()
+          )
+          .addTypeVariable(TypeVariableName("T", Any::class))
+          .addParameter("parentType", TypeNames.KClass.parameterizedBy(TypeVariableName("T")))
+          .addParameter("serialName", String::class)
+          .returns(
+            TypeNames.KSerializer
+              .parameterizedBy(TypeVariableName("T", variance = KModifier.OUT))
+              .copy(nullable = true)
+          )
+          .addCode(
+            CodeBlock.builder()
+              .add("return when(parentType) {\n")
+              .withIndent {
+                relationships.forEach { (parent, children) ->
+                  add("%T::class -> when {\n", parent)
+                  withIndent {
+                    children.forEach { child ->
+                      addStatement(
+                        "%S.endsWith(serialName) ->\n%T.serializer()",
+                        child.childClassSerialName,
+                        child.childClass,
+                      )
+                    }
+                    addStatement("else -> null")
+                  }
+                  addStatement("}")
+                }
+                addStatement("else -> null")
+              }
+              .add(
+                "} as %T",
+                TypeNames.KSerializer
+                  .parameterizedBy(TypeVariableName("T", variance = KModifier.OUT))
+                  .copy(nullable = true),
+              )
+              .build()
+          )
+          .build()
+      )
+      .build()
+      .writeTo(environment.outputDirectory)
   }
 }

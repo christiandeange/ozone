@@ -103,15 +103,23 @@ suspend inline fun <reified T : Any> HttpResponse.toAtpResponse(): AtpResponse<T
   }
 }
 
-inline fun <reified T : Any> Flow<XrpcSubscriptionResponse>.toAtpModel(): Flow<T> =
-  toAtpResult<T>().map { it.getOrThrow() }
+inline fun <reified T : Any> Flow<XrpcSubscriptionResponse>.toAtpModel(
+  noinline subscriptionSerializerProvider: SubscriptionSerializerProvider<T>,
+): Flow<T> {
+  return toAtpResult<T>(subscriptionSerializerProvider).map { it.getOrThrow() }
+}
 
 @OptIn(ExperimentalSerializationApi::class)
-inline fun <reified T : Any> Flow<XrpcSubscriptionResponse>.toAtpResult(): Flow<Result<T>> =
-  map { response -> runCatching { response.body<T>() } }
+inline fun <reified T : Any> Flow<XrpcSubscriptionResponse>.toAtpResult(
+  noinline subscriptionSerializerProvider: SubscriptionSerializerProvider<T>,
+): Flow<Result<T>> {
+  return map { response -> runCatching { response.body(subscriptionSerializerProvider) } }
+}
 
-inline fun <reified T : Any> Flow<XrpcSubscriptionResponse>.toAtpResponse(): Flow<AtpResponse<T>> =
-  toAtpResult<T>().map {
+inline fun <reified T : Any> Flow<XrpcSubscriptionResponse>.toAtpResponse(
+  noinline subscriptionSerializerProvider: SubscriptionSerializerProvider<T>,
+): Flow<AtpResponse<T>> {
+  return toAtpResult<T>(subscriptionSerializerProvider).map {
     it.fold(
       onSuccess = { body ->
         AtpResponse.Success(
@@ -129,3 +137,4 @@ inline fun <reified T : Any> Flow<XrpcSubscriptionResponse>.toAtpResponse(): Flo
       }
     )
   }
+}

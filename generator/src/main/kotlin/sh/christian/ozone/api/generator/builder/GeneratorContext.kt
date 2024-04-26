@@ -24,6 +24,7 @@ private constructor(
   private val enums = mutableMapOf<ClassName, MutableSet<String>>()
   private val types = mutableMapOf<ClassName, TypeSpec>()
   private val typeAliases = mutableMapOf<ClassName, TypeAliasSpec>()
+  private val sealedRelationships = mutableListOf<SealedRelationship>()
 
   fun addEnum(
     className: ClassName,
@@ -44,6 +45,18 @@ private constructor(
     typeAliases += typeAliasLocation to typeAliasSpec
   }
 
+  fun addSealedRelationship(
+    sealedInterface: ClassName,
+    childClass: ClassName,
+    childClassSerialName: String,
+  ) {
+    sealedRelationships += SealedRelationship(
+      sealedInterface = sealedInterface,
+      childClass = childClass,
+      childClassSerialName = childClassSerialName,
+    )
+  }
+
   fun enums(): Map<ClassName, Set<String>> {
     return enums.mapValues { it.value.toSet() }
   }
@@ -51,4 +64,6 @@ private constructor(
   fun types(): Set<TypeSpec> = types.values.toSet()
 
   fun typeAliases(): Set<TypeAliasSpec> = typeAliases.values.toSet()
+
+  fun sealedRelationships(): List<SealedRelationship> = sealedRelationships.toList()
 }

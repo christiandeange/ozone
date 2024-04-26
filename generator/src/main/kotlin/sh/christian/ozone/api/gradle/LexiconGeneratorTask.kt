@@ -55,6 +55,7 @@ abstract class LexiconGeneratorTask : DefaultTask() {
       }
     }
 
+    lexiconClassFileCreator.generateSealedRelationshipMapping()
     lexiconApiGenerator.generateApis()
   }
 }

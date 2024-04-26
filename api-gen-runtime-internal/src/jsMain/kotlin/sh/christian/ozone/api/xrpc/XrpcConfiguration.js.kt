@@ -7,7 +7,8 @@ import io.ktor.http.takeFrom
 
 actual val defaultHttpClient: HttpClient = HttpClient(Js) {
   install(DefaultRequest) {
-    url.takeFrom("https://bsky.social")
+    url.takeFrom(BSKY_SOCIAL)
   }
-}
 
+  install(WebsocketRedirectPlugin)
+}
