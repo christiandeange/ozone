@@ -14,6 +14,15 @@ public final class app/bsky/actor/AdultContentPref$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/actor/AllowIncoming : java/lang/Enum {
+	public static final field ALL Lapp/bsky/actor/AllowIncoming;
+	public static final field FOLLOWING Lapp/bsky/actor/AllowIncoming;
+	public static final field NONE Lapp/bsky/actor/AllowIncoming;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/actor/AllowIncoming;
+	public static fun values ()[Lapp/bsky/actor/AllowIncoming;
+}
+
 public final class app/bsky/actor/ContentLabelPref {
 	public static final field Companion Lapp/bsky/actor/ContentLabelPref$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/Visibility;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -609,14 +618,16 @@ public final class app/bsky/actor/Profile$Companion {
 public final class app/bsky/actor/ProfileAssociated {
 	public static final field Companion Lapp/bsky/actor/ProfileAssociated$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;)V
-	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Long;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3 ()Ljava/lang/Boolean;
-	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;)Lapp/bsky/actor/ProfileAssociated;
-	public static synthetic fun copy$default (Lapp/bsky/actor/ProfileAssociated;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/actor/ProfileAssociated;
+	public final fun component4 ()Lapp/bsky/actor/ProfileAssociatedChat;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;)Lapp/bsky/actor/ProfileAssociated;
+	public static synthetic fun copy$default (Lapp/bsky/actor/ProfileAssociated;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;ILjava/lang/Object;)Lapp/bsky/actor/ProfileAssociated;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChat ()Lapp/bsky/actor/ProfileAssociatedChat;
 	public final fun getFeedgens ()Ljava/lang/Long;
 	public final fun getLabeler ()Ljava/lang/Boolean;
 	public final fun getLists ()Ljava/lang/Long;
@@ -625,6 +636,22 @@ public final class app/bsky/actor/ProfileAssociated {
 }
 
 public final class app/bsky/actor/ProfileAssociated$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/ProfileAssociatedChat {
+	public static final field Companion Lapp/bsky/actor/ProfileAssociatedChat$Companion;
+	public fun <init> (Lapp/bsky/actor/AllowIncoming;)V
+	public final fun component1 ()Lapp/bsky/actor/AllowIncoming;
+	public final fun copy (Lapp/bsky/actor/AllowIncoming;)Lapp/bsky/actor/ProfileAssociatedChat;
+	public static synthetic fun copy$default (Lapp/bsky/actor/ProfileAssociatedChat;Lapp/bsky/actor/AllowIncoming;ILjava/lang/Object;)Lapp/bsky/actor/ProfileAssociatedChat;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAllowIncoming ()Lapp/bsky/actor/AllowIncoming;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/ProfileAssociatedChat$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -3155,12 +3182,15 @@ public final class app/bsky/feed/ReasonRepost$Companion {
 
 public final class app/bsky/feed/ReplyRef {
 	public static final field Companion Lapp/bsky/feed/ReplyRef$Companion;
-	public fun <init> (Lapp/bsky/feed/ReplyRefRootUnion;Lapp/bsky/feed/ReplyRefParentUnion;)V
+	public fun <init> (Lapp/bsky/feed/ReplyRefRootUnion;Lapp/bsky/feed/ReplyRefParentUnion;Lapp/bsky/actor/ProfileViewBasic;)V
+	public synthetic fun <init> (Lapp/bsky/feed/ReplyRefRootUnion;Lapp/bsky/feed/ReplyRefParentUnion;Lapp/bsky/actor/ProfileViewBasic;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lapp/bsky/feed/ReplyRefRootUnion;
 	public final fun component2 ()Lapp/bsky/feed/ReplyRefParentUnion;
-	public final fun copy (Lapp/bsky/feed/ReplyRefRootUnion;Lapp/bsky/feed/ReplyRefParentUnion;)Lapp/bsky/feed/ReplyRef;
-	public static synthetic fun copy$default (Lapp/bsky/feed/ReplyRef;Lapp/bsky/feed/ReplyRefRootUnion;Lapp/bsky/feed/ReplyRefParentUnion;ILjava/lang/Object;)Lapp/bsky/feed/ReplyRef;
+	public final fun component3 ()Lapp/bsky/actor/ProfileViewBasic;
+	public final fun copy (Lapp/bsky/feed/ReplyRefRootUnion;Lapp/bsky/feed/ReplyRefParentUnion;Lapp/bsky/actor/ProfileViewBasic;)Lapp/bsky/feed/ReplyRef;
+	public static synthetic fun copy$default (Lapp/bsky/feed/ReplyRef;Lapp/bsky/feed/ReplyRefRootUnion;Lapp/bsky/feed/ReplyRefParentUnion;Lapp/bsky/actor/ProfileViewBasic;ILjava/lang/Object;)Lapp/bsky/feed/ReplyRef;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getGrandparentAuthor ()Lapp/bsky/actor/ProfileViewBasic;
 	public final fun getParent ()Lapp/bsky/feed/ReplyRefParentUnion;
 	public final fun getRoot ()Lapp/bsky/feed/ReplyRefRootUnion;
 	public fun hashCode ()I
@@ -5637,6 +5667,1312 @@ public final class app/bsky/unspecced/SkeletonSearchPost {
 }
 
 public final class app/bsky/unspecced/SkeletonSearchPost$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/actor/Declaration {
+	public static final field Companion Lchat/bsky/actor/Declaration$Companion;
+	public fun <init> (Lchat/bsky/actor/DeclarationAllowIncoming;)V
+	public final fun component1 ()Lchat/bsky/actor/DeclarationAllowIncoming;
+	public final fun copy (Lchat/bsky/actor/DeclarationAllowIncoming;)Lchat/bsky/actor/Declaration;
+	public static synthetic fun copy$default (Lchat/bsky/actor/Declaration;Lchat/bsky/actor/DeclarationAllowIncoming;ILjava/lang/Object;)Lchat/bsky/actor/Declaration;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAllowIncoming ()Lchat/bsky/actor/DeclarationAllowIncoming;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/actor/Declaration$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/actor/DeclarationAllowIncoming : java/lang/Enum {
+	public static final field ALL Lchat/bsky/actor/DeclarationAllowIncoming;
+	public static final field FOLLOWING Lchat/bsky/actor/DeclarationAllowIncoming;
+	public static final field NONE Lchat/bsky/actor/DeclarationAllowIncoming;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lchat/bsky/actor/DeclarationAllowIncoming;
+	public static fun values ()[Lchat/bsky/actor/DeclarationAllowIncoming;
+}
+
+public final class chat/bsky/actor/DeleteAccountResponse {
+	public static final field INSTANCE Lchat/bsky/actor/DeleteAccountResponse;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/actor/ProfileViewBasic {
+	public static final field Companion Lchat/bsky/actor/ProfileViewBasic$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2-hDwCUG8 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4-pvpWXas ()Ljava/lang/String;
+	public final fun component5 ()Lapp/bsky/actor/ProfileAssociated;
+	public final fun component6 ()Lapp/bsky/actor/ViewerState;
+	public final fun component7 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component8 ()Ljava/lang/Boolean;
+	public final fun copy-LV3VAhw (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;)Lchat/bsky/actor/ProfileViewBasic;
+	public static synthetic fun copy-LV3VAhw$default (Lchat/bsky/actor/ProfileViewBasic;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Boolean;ILjava/lang/Object;)Lchat/bsky/actor/ProfileViewBasic;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAssociated ()Lapp/bsky/actor/ProfileAssociated;
+	public final fun getAvatar-pvpWXas ()Ljava/lang/String;
+	public final fun getChatDisabled ()Ljava/lang/Boolean;
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
+	public final fun getLabels ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getViewer ()Lapp/bsky/actor/ViewerState;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/actor/ProfileViewBasic$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/ConvoView {
+	public static final field Companion Lchat/bsky/convo/ConvoView$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/ConvoViewLastMessageUnion;ZJ)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/ConvoViewLastMessageUnion;ZJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component4 ()Lchat/bsky/convo/ConvoViewLastMessageUnion;
+	public final fun component5 ()Z
+	public final fun component6 ()J
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/ConvoViewLastMessageUnion;ZJ)Lchat/bsky/convo/ConvoView;
+	public static synthetic fun copy$default (Lchat/bsky/convo/ConvoView;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/ConvoViewLastMessageUnion;ZJILjava/lang/Object;)Lchat/bsky/convo/ConvoView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()Ljava/lang/String;
+	public final fun getLastMessage ()Lchat/bsky/convo/ConvoViewLastMessageUnion;
+	public final fun getMembers ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getMuted ()Z
+	public final fun getRev ()Ljava/lang/String;
+	public final fun getUnreadCount ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/ConvoView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class chat/bsky/convo/ConvoViewLastMessageUnion {
+	public static final field Companion Lchat/bsky/convo/ConvoViewLastMessageUnion$Companion;
+}
+
+public final class chat/bsky/convo/ConvoViewLastMessageUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/ConvoViewLastMessageUnion$DeletedMessageView : chat/bsky/convo/ConvoViewLastMessageUnion {
+	public static final field Companion Lchat/bsky/convo/ConvoViewLastMessageUnion$DeletedMessageView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/DeletedMessageView;)Lchat/bsky/convo/ConvoViewLastMessageUnion$DeletedMessageView;
+	public static fun constructor-impl (Lchat/bsky/convo/DeletedMessageView;)Lchat/bsky/convo/DeletedMessageView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/DeletedMessageView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/DeletedMessageView;Lchat/bsky/convo/DeletedMessageView;)Z
+	public final fun getValue ()Lchat/bsky/convo/DeletedMessageView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/DeletedMessageView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/DeletedMessageView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/DeletedMessageView;
+}
+
+public final class chat/bsky/convo/ConvoViewLastMessageUnion$DeletedMessageView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/ConvoViewLastMessageUnion$DeletedMessageViewSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-5e7wYSc (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/DeletedMessageView;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-7Taxlf8 (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/DeletedMessageView;)V
+}
+
+public final class chat/bsky/convo/ConvoViewLastMessageUnion$MessageView : chat/bsky/convo/ConvoViewLastMessageUnion {
+	public static final field Companion Lchat/bsky/convo/ConvoViewLastMessageUnion$MessageView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/MessageView;)Lchat/bsky/convo/ConvoViewLastMessageUnion$MessageView;
+	public static fun constructor-impl (Lchat/bsky/convo/MessageView;)Lchat/bsky/convo/MessageView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/MessageView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/MessageView;Lchat/bsky/convo/MessageView;)Z
+	public final fun getValue ()Lchat/bsky/convo/MessageView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/MessageView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/MessageView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/MessageView;
+}
+
+public final class chat/bsky/convo/ConvoViewLastMessageUnion$MessageView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/ConvoViewLastMessageUnion$MessageViewSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-qqDaPtI (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/MessageView;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-7XBEc50 (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/MessageView;)V
+}
+
+public final class chat/bsky/convo/DeleteMessageForSelfRequest {
+	public static final field Companion Lchat/bsky/convo/DeleteMessageForSelfRequest$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/convo/DeleteMessageForSelfRequest;
+	public static synthetic fun copy$default (Lchat/bsky/convo/DeleteMessageForSelfRequest;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/DeleteMessageForSelfRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getMessageId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/DeleteMessageForSelfRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/DeletedMessageView {
+	public static final field Companion Lchat/bsky/convo/DeletedMessageView$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/MessageViewSender;Lkotlinx/datetime/Instant;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lchat/bsky/convo/MessageViewSender;
+	public final fun component4 ()Lkotlinx/datetime/Instant;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/MessageViewSender;Lkotlinx/datetime/Instant;)Lchat/bsky/convo/DeletedMessageView;
+	public static synthetic fun copy$default (Lchat/bsky/convo/DeletedMessageView;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/MessageViewSender;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lchat/bsky/convo/DeletedMessageView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public final fun getSender ()Lchat/bsky/convo/MessageViewSender;
+	public final fun getSentAt ()Lkotlinx/datetime/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/DeletedMessageView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/GetConvoForMembersQueryParams {
+	public static final field Companion Lchat/bsky/convo/GetConvoForMembersQueryParams$Companion;
+	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;)Lchat/bsky/convo/GetConvoForMembersQueryParams;
+	public static synthetic fun copy$default (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lchat/bsky/convo/GetConvoForMembersQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMembers ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/GetConvoForMembersQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/GetConvoForMembersResponse {
+	public static final field Companion Lchat/bsky/convo/GetConvoForMembersResponse$Companion;
+	public fun <init> (Lchat/bsky/convo/ConvoView;)V
+	public final fun component1 ()Lchat/bsky/convo/ConvoView;
+	public final fun copy (Lchat/bsky/convo/ConvoView;)Lchat/bsky/convo/GetConvoForMembersResponse;
+	public static synthetic fun copy$default (Lchat/bsky/convo/GetConvoForMembersResponse;Lchat/bsky/convo/ConvoView;ILjava/lang/Object;)Lchat/bsky/convo/GetConvoForMembersResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvo ()Lchat/bsky/convo/ConvoView;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/GetConvoForMembersResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/GetConvoQueryParams {
+	public static final field Companion Lchat/bsky/convo/GetConvoQueryParams$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/convo/GetConvoQueryParams;
+	public static synthetic fun copy$default (Lchat/bsky/convo/GetConvoQueryParams;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/GetConvoQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/GetConvoQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/GetConvoResponse {
+	public static final field Companion Lchat/bsky/convo/GetConvoResponse$Companion;
+	public fun <init> (Lchat/bsky/convo/ConvoView;)V
+	public final fun component1 ()Lchat/bsky/convo/ConvoView;
+	public final fun copy (Lchat/bsky/convo/ConvoView;)Lchat/bsky/convo/GetConvoResponse;
+	public static synthetic fun copy$default (Lchat/bsky/convo/GetConvoResponse;Lchat/bsky/convo/ConvoView;ILjava/lang/Object;)Lchat/bsky/convo/GetConvoResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvo ()Lchat/bsky/convo/ConvoView;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/GetConvoResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/GetLogQueryParams {
+	public static final field Companion Lchat/bsky/convo/GetLogQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/convo/GetLogQueryParams;
+	public static synthetic fun copy$default (Lchat/bsky/convo/GetLogQueryParams;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/GetLogQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/GetLogQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/GetLogResponse {
+	public static final field Companion Lchat/bsky/convo/GetLogResponse$Companion;
+	public fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)Lchat/bsky/convo/GetLogResponse;
+	public static synthetic fun copy$default (Lchat/bsky/convo/GetLogResponse;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lchat/bsky/convo/GetLogResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLogs ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/GetLogResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class chat/bsky/convo/GetLogResponseLogUnion {
+	public static final field Companion Lchat/bsky/convo/GetLogResponseLogUnion$Companion;
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$BeginConvo : chat/bsky/convo/GetLogResponseLogUnion {
+	public static final field Companion Lchat/bsky/convo/GetLogResponseLogUnion$BeginConvo$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/LogBeginConvo;)Lchat/bsky/convo/GetLogResponseLogUnion$BeginConvo;
+	public static fun constructor-impl (Lchat/bsky/convo/LogBeginConvo;)Lchat/bsky/convo/LogBeginConvo;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/LogBeginConvo;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/LogBeginConvo;Lchat/bsky/convo/LogBeginConvo;)Z
+	public final fun getValue ()Lchat/bsky/convo/LogBeginConvo;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/LogBeginConvo;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/LogBeginConvo;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/LogBeginConvo;
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$BeginConvo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$BeginConvoSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-7lqo7Lw (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/LogBeginConvo;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-DmVWQBU (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/LogBeginConvo;)V
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$CreateMessage : chat/bsky/convo/GetLogResponseLogUnion {
+	public static final field Companion Lchat/bsky/convo/GetLogResponseLogUnion$CreateMessage$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/LogCreateMessage;)Lchat/bsky/convo/GetLogResponseLogUnion$CreateMessage;
+	public static fun constructor-impl (Lchat/bsky/convo/LogCreateMessage;)Lchat/bsky/convo/LogCreateMessage;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/LogCreateMessage;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/LogCreateMessage;Lchat/bsky/convo/LogCreateMessage;)Z
+	public final fun getValue ()Lchat/bsky/convo/LogCreateMessage;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/LogCreateMessage;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/LogCreateMessage;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/LogCreateMessage;
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$CreateMessage$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$CreateMessageSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-3XBqd4Q (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/LogCreateMessage;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-jOpeiy4 (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/LogCreateMessage;)V
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$DeleteMessage : chat/bsky/convo/GetLogResponseLogUnion {
+	public static final field Companion Lchat/bsky/convo/GetLogResponseLogUnion$DeleteMessage$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/LogDeleteMessage;)Lchat/bsky/convo/GetLogResponseLogUnion$DeleteMessage;
+	public static fun constructor-impl (Lchat/bsky/convo/LogDeleteMessage;)Lchat/bsky/convo/LogDeleteMessage;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/LogDeleteMessage;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/LogDeleteMessage;Lchat/bsky/convo/LogDeleteMessage;)Z
+	public final fun getValue ()Lchat/bsky/convo/LogDeleteMessage;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/LogDeleteMessage;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/LogDeleteMessage;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/LogDeleteMessage;
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$DeleteMessage$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$DeleteMessageSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-NwHOGxI (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/LogDeleteMessage;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-0X6b5gU (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/LogDeleteMessage;)V
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$LeaveConvo : chat/bsky/convo/GetLogResponseLogUnion {
+	public static final field Companion Lchat/bsky/convo/GetLogResponseLogUnion$LeaveConvo$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/LogLeaveConvo;)Lchat/bsky/convo/GetLogResponseLogUnion$LeaveConvo;
+	public static fun constructor-impl (Lchat/bsky/convo/LogLeaveConvo;)Lchat/bsky/convo/LogLeaveConvo;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/LogLeaveConvo;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/LogLeaveConvo;Lchat/bsky/convo/LogLeaveConvo;)Z
+	public final fun getValue ()Lchat/bsky/convo/LogLeaveConvo;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/LogLeaveConvo;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/LogLeaveConvo;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/LogLeaveConvo;
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$LeaveConvo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$LeaveConvoSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-v3MOTUI (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/LogLeaveConvo;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-a4RNPPI (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/LogLeaveConvo;)V
+}
+
+public final class chat/bsky/convo/GetMessagesQueryParams {
+	public static final field Companion Lchat/bsky/convo/GetMessagesQueryParams$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lchat/bsky/convo/GetMessagesQueryParams;
+	public static synthetic fun copy$default (Lchat/bsky/convo/GetMessagesQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/GetMessagesQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/GetMessagesQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/GetMessagesResponse {
+	public static final field Companion Lchat/bsky/convo/GetMessagesResponse$Companion;
+	public fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)Lchat/bsky/convo/GetMessagesResponse;
+	public static synthetic fun copy$default (Lchat/bsky/convo/GetMessagesResponse;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lchat/bsky/convo/GetMessagesResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getMessages ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/GetMessagesResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class chat/bsky/convo/GetMessagesResponseMessageUnion {
+	public static final field Companion Lchat/bsky/convo/GetMessagesResponseMessageUnion$Companion;
+}
+
+public final class chat/bsky/convo/GetMessagesResponseMessageUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/GetMessagesResponseMessageUnion$DeletedMessageView : chat/bsky/convo/GetMessagesResponseMessageUnion {
+	public static final field Companion Lchat/bsky/convo/GetMessagesResponseMessageUnion$DeletedMessageView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/DeletedMessageView;)Lchat/bsky/convo/GetMessagesResponseMessageUnion$DeletedMessageView;
+	public static fun constructor-impl (Lchat/bsky/convo/DeletedMessageView;)Lchat/bsky/convo/DeletedMessageView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/DeletedMessageView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/DeletedMessageView;Lchat/bsky/convo/DeletedMessageView;)Z
+	public final fun getValue ()Lchat/bsky/convo/DeletedMessageView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/DeletedMessageView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/DeletedMessageView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/DeletedMessageView;
+}
+
+public final class chat/bsky/convo/GetMessagesResponseMessageUnion$DeletedMessageView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/GetMessagesResponseMessageUnion$DeletedMessageViewSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-TMEegQ8 (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/DeletedMessageView;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-lyW_hw0 (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/DeletedMessageView;)V
+}
+
+public final class chat/bsky/convo/GetMessagesResponseMessageUnion$MessageView : chat/bsky/convo/GetMessagesResponseMessageUnion {
+	public static final field Companion Lchat/bsky/convo/GetMessagesResponseMessageUnion$MessageView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/MessageView;)Lchat/bsky/convo/GetMessagesResponseMessageUnion$MessageView;
+	public static fun constructor-impl (Lchat/bsky/convo/MessageView;)Lchat/bsky/convo/MessageView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/MessageView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/MessageView;Lchat/bsky/convo/MessageView;)Z
+	public final fun getValue ()Lchat/bsky/convo/MessageView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/MessageView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/MessageView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/MessageView;
+}
+
+public final class chat/bsky/convo/GetMessagesResponseMessageUnion$MessageView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/GetMessagesResponseMessageUnion$MessageViewSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-bt2ly24 (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/MessageView;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-LKgA6c0 (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/MessageView;)V
+}
+
+public final class chat/bsky/convo/LeaveConvoRequest {
+	public static final field Companion Lchat/bsky/convo/LeaveConvoRequest$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/convo/LeaveConvoRequest;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LeaveConvoRequest;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/LeaveConvoRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/LeaveConvoRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/LeaveConvoResponse {
+	public static final field Companion Lchat/bsky/convo/LeaveConvoResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/convo/LeaveConvoResponse;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LeaveConvoResponse;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/LeaveConvoResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/LeaveConvoResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/ListConvosQueryParams {
+	public static final field Companion Lchat/bsky/convo/ListConvosQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/String;)Lchat/bsky/convo/ListConvosQueryParams;
+	public static synthetic fun copy$default (Lchat/bsky/convo/ListConvosQueryParams;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/ListConvosQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/ListConvosQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/ListConvosResponse {
+	public static final field Companion Lchat/bsky/convo/ListConvosResponse$Companion;
+	public fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)Lchat/bsky/convo/ListConvosResponse;
+	public static synthetic fun copy$default (Lchat/bsky/convo/ListConvosResponse;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lchat/bsky/convo/ListConvosResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvos ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getCursor ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/ListConvosResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/LogBeginConvo {
+	public static final field Companion Lchat/bsky/convo/LogBeginConvo$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/convo/LogBeginConvo;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogBeginConvo;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/LogBeginConvo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/LogBeginConvo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/LogCreateMessage {
+	public static final field Companion Lchat/bsky/convo/LogCreateMessage$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/LogCreateMessageMessageUnion;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lchat/bsky/convo/LogCreateMessageMessageUnion;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/LogCreateMessageMessageUnion;)Lchat/bsky/convo/LogCreateMessage;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogCreateMessage;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/LogCreateMessageMessageUnion;ILjava/lang/Object;)Lchat/bsky/convo/LogCreateMessage;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getMessage ()Lchat/bsky/convo/LogCreateMessageMessageUnion;
+	public final fun getRev ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/LogCreateMessage$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class chat/bsky/convo/LogCreateMessageMessageUnion {
+	public static final field Companion Lchat/bsky/convo/LogCreateMessageMessageUnion$Companion;
+}
+
+public final class chat/bsky/convo/LogCreateMessageMessageUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/LogCreateMessageMessageUnion$DeletedMessageView : chat/bsky/convo/LogCreateMessageMessageUnion {
+	public static final field Companion Lchat/bsky/convo/LogCreateMessageMessageUnion$DeletedMessageView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/DeletedMessageView;)Lchat/bsky/convo/LogCreateMessageMessageUnion$DeletedMessageView;
+	public static fun constructor-impl (Lchat/bsky/convo/DeletedMessageView;)Lchat/bsky/convo/DeletedMessageView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/DeletedMessageView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/DeletedMessageView;Lchat/bsky/convo/DeletedMessageView;)Z
+	public final fun getValue ()Lchat/bsky/convo/DeletedMessageView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/DeletedMessageView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/DeletedMessageView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/DeletedMessageView;
+}
+
+public final class chat/bsky/convo/LogCreateMessageMessageUnion$DeletedMessageView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/LogCreateMessageMessageUnion$DeletedMessageViewSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-Pdij-ms (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/DeletedMessageView;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-Z5lC4so (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/DeletedMessageView;)V
+}
+
+public final class chat/bsky/convo/LogCreateMessageMessageUnion$MessageView : chat/bsky/convo/LogCreateMessageMessageUnion {
+	public static final field Companion Lchat/bsky/convo/LogCreateMessageMessageUnion$MessageView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/MessageView;)Lchat/bsky/convo/LogCreateMessageMessageUnion$MessageView;
+	public static fun constructor-impl (Lchat/bsky/convo/MessageView;)Lchat/bsky/convo/MessageView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/MessageView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/MessageView;Lchat/bsky/convo/MessageView;)Z
+	public final fun getValue ()Lchat/bsky/convo/MessageView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/MessageView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/MessageView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/MessageView;
+}
+
+public final class chat/bsky/convo/LogCreateMessageMessageUnion$MessageView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/LogCreateMessageMessageUnion$MessageViewSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-A5_31wQ (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/MessageView;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-y3ZJT8E (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/MessageView;)V
+}
+
+public final class chat/bsky/convo/LogDeleteMessage {
+	public static final field Companion Lchat/bsky/convo/LogDeleteMessage$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/LogDeleteMessageMessageUnion;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lchat/bsky/convo/LogDeleteMessageMessageUnion;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/LogDeleteMessageMessageUnion;)Lchat/bsky/convo/LogDeleteMessage;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogDeleteMessage;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/LogDeleteMessageMessageUnion;ILjava/lang/Object;)Lchat/bsky/convo/LogDeleteMessage;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getMessage ()Lchat/bsky/convo/LogDeleteMessageMessageUnion;
+	public final fun getRev ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/LogDeleteMessage$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class chat/bsky/convo/LogDeleteMessageMessageUnion {
+	public static final field Companion Lchat/bsky/convo/LogDeleteMessageMessageUnion$Companion;
+}
+
+public final class chat/bsky/convo/LogDeleteMessageMessageUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/LogDeleteMessageMessageUnion$DeletedMessageView : chat/bsky/convo/LogDeleteMessageMessageUnion {
+	public static final field Companion Lchat/bsky/convo/LogDeleteMessageMessageUnion$DeletedMessageView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/DeletedMessageView;)Lchat/bsky/convo/LogDeleteMessageMessageUnion$DeletedMessageView;
+	public static fun constructor-impl (Lchat/bsky/convo/DeletedMessageView;)Lchat/bsky/convo/DeletedMessageView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/DeletedMessageView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/DeletedMessageView;Lchat/bsky/convo/DeletedMessageView;)Z
+	public final fun getValue ()Lchat/bsky/convo/DeletedMessageView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/DeletedMessageView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/DeletedMessageView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/DeletedMessageView;
+}
+
+public final class chat/bsky/convo/LogDeleteMessageMessageUnion$DeletedMessageView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/LogDeleteMessageMessageUnion$DeletedMessageViewSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-jzgpbJM (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/DeletedMessageView;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-JcWWVBg (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/DeletedMessageView;)V
+}
+
+public final class chat/bsky/convo/LogDeleteMessageMessageUnion$MessageView : chat/bsky/convo/LogDeleteMessageMessageUnion {
+	public static final field Companion Lchat/bsky/convo/LogDeleteMessageMessageUnion$MessageView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/MessageView;)Lchat/bsky/convo/LogDeleteMessageMessageUnion$MessageView;
+	public static fun constructor-impl (Lchat/bsky/convo/MessageView;)Lchat/bsky/convo/MessageView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/MessageView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/MessageView;Lchat/bsky/convo/MessageView;)Z
+	public final fun getValue ()Lchat/bsky/convo/MessageView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/MessageView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/MessageView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/MessageView;
+}
+
+public final class chat/bsky/convo/LogDeleteMessageMessageUnion$MessageView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/LogDeleteMessageMessageUnion$MessageViewSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-YktC6sk (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/MessageView;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-e8w8bCU (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/MessageView;)V
+}
+
+public final class chat/bsky/convo/LogLeaveConvo {
+	public static final field Companion Lchat/bsky/convo/LogLeaveConvo$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/convo/LogLeaveConvo;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogLeaveConvo;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/LogLeaveConvo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/LogLeaveConvo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/Message {
+	public static final field Companion Lchat/bsky/convo/Message$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/MessageEmbedUnion;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/MessageEmbedUnion;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component4 ()Lchat/bsky/convo/MessageEmbedUnion;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/MessageEmbedUnion;)Lchat/bsky/convo/Message;
+	public static synthetic fun copy$default (Lchat/bsky/convo/Message;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/MessageEmbedUnion;ILjava/lang/Object;)Lchat/bsky/convo/Message;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEmbed ()Lchat/bsky/convo/MessageEmbedUnion;
+	public final fun getFacets ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getText ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/Message$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class chat/bsky/convo/MessageEmbedUnion {
+	public static final field Companion Lchat/bsky/convo/MessageEmbedUnion$Companion;
+}
+
+public final class chat/bsky/convo/MessageEmbedUnion$AppBskyEmbedRecord : chat/bsky/convo/MessageEmbedUnion {
+	public static final field Companion Lchat/bsky/convo/MessageEmbedUnion$AppBskyEmbedRecord$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/Record;)Lchat/bsky/convo/MessageEmbedUnion$AppBskyEmbedRecord;
+	public static fun constructor-impl (Lapp/bsky/embed/Record;)Lapp/bsky/embed/Record;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/Record;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/Record;Lapp/bsky/embed/Record;)Z
+	public final fun getValue ()Lapp/bsky/embed/Record;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/Record;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/Record;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/Record;
+}
+
+public final class chat/bsky/convo/MessageEmbedUnion$AppBskyEmbedRecord$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/MessageEmbedUnion$AppBskyEmbedRecordSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-AD4kGjU (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/embed/Record;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-2VXp28k (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/Record;)V
+}
+
+public final class chat/bsky/convo/MessageEmbedUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/MessageRef {
+	public static final field Companion Lchat/bsky/convo/MessageRef$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy-vy2gcmM (Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/convo/MessageRef;
+	public static synthetic fun copy-vy2gcmM$default (Lchat/bsky/convo/MessageRef;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/MessageRef;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getMessageId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/MessageRef$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/MessageView {
+	public static final field Companion Lchat/bsky/convo/MessageView$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/MessageViewEmbedUnion;Lchat/bsky/convo/MessageViewSender;Lkotlinx/datetime/Instant;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/MessageViewEmbedUnion;Lchat/bsky/convo/MessageViewSender;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component5 ()Lchat/bsky/convo/MessageViewEmbedUnion;
+	public final fun component6 ()Lchat/bsky/convo/MessageViewSender;
+	public final fun component7 ()Lkotlinx/datetime/Instant;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/MessageViewEmbedUnion;Lchat/bsky/convo/MessageViewSender;Lkotlinx/datetime/Instant;)Lchat/bsky/convo/MessageView;
+	public static synthetic fun copy$default (Lchat/bsky/convo/MessageView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/MessageViewEmbedUnion;Lchat/bsky/convo/MessageViewSender;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lchat/bsky/convo/MessageView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEmbed ()Lchat/bsky/convo/MessageViewEmbedUnion;
+	public final fun getFacets ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public final fun getSender ()Lchat/bsky/convo/MessageViewSender;
+	public final fun getSentAt ()Lkotlinx/datetime/Instant;
+	public final fun getText ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/MessageView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class chat/bsky/convo/MessageViewEmbedUnion {
+	public static final field Companion Lchat/bsky/convo/MessageViewEmbedUnion$Companion;
+}
+
+public final class chat/bsky/convo/MessageViewEmbedUnion$AppBskyEmbedRecord : chat/bsky/convo/MessageViewEmbedUnion {
+	public static final field Companion Lchat/bsky/convo/MessageViewEmbedUnion$AppBskyEmbedRecord$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/Record;)Lchat/bsky/convo/MessageViewEmbedUnion$AppBskyEmbedRecord;
+	public static fun constructor-impl (Lapp/bsky/embed/Record;)Lapp/bsky/embed/Record;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/Record;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/Record;Lapp/bsky/embed/Record;)Z
+	public final fun getValue ()Lapp/bsky/embed/Record;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/Record;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/Record;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/Record;
+}
+
+public final class chat/bsky/convo/MessageViewEmbedUnion$AppBskyEmbedRecord$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/MessageViewEmbedUnion$AppBskyEmbedRecordSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-jgXBPBU (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/embed/Record;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-BvJzZBc (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/Record;)V
+}
+
+public final class chat/bsky/convo/MessageViewEmbedUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/MessageViewSender {
+	public static final field Companion Lchat/bsky/convo/MessageViewSender$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun copy-Kn78ayM (Ljava/lang/String;)Lchat/bsky/convo/MessageViewSender;
+	public static synthetic fun copy-Kn78ayM$default (Lchat/bsky/convo/MessageViewSender;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/MessageViewSender;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/MessageViewSender$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/MuteConvoRequest {
+	public static final field Companion Lchat/bsky/convo/MuteConvoRequest$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/convo/MuteConvoRequest;
+	public static synthetic fun copy$default (Lchat/bsky/convo/MuteConvoRequest;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/MuteConvoRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/MuteConvoRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/MuteConvoResponse {
+	public static final field Companion Lchat/bsky/convo/MuteConvoResponse$Companion;
+	public fun <init> (Lchat/bsky/convo/ConvoView;)V
+	public final fun component1 ()Lchat/bsky/convo/ConvoView;
+	public final fun copy (Lchat/bsky/convo/ConvoView;)Lchat/bsky/convo/MuteConvoResponse;
+	public static synthetic fun copy$default (Lchat/bsky/convo/MuteConvoResponse;Lchat/bsky/convo/ConvoView;ILjava/lang/Object;)Lchat/bsky/convo/MuteConvoResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvo ()Lchat/bsky/convo/ConvoView;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/MuteConvoResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/SendMessageBatchBatchItem {
+	public static final field Companion Lchat/bsky/convo/SendMessageBatchBatchItem$Companion;
+	public fun <init> (Ljava/lang/String;Lchat/bsky/convo/Message;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lchat/bsky/convo/Message;
+	public final fun copy (Ljava/lang/String;Lchat/bsky/convo/Message;)Lchat/bsky/convo/SendMessageBatchBatchItem;
+	public static synthetic fun copy$default (Lchat/bsky/convo/SendMessageBatchBatchItem;Ljava/lang/String;Lchat/bsky/convo/Message;ILjava/lang/Object;)Lchat/bsky/convo/SendMessageBatchBatchItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getMessage ()Lchat/bsky/convo/Message;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/SendMessageBatchBatchItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/SendMessageBatchRequest {
+	public static final field Companion Lchat/bsky/convo/SendMessageBatchRequest$Companion;
+	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;)V
+	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;)Lchat/bsky/convo/SendMessageBatchRequest;
+	public static synthetic fun copy$default (Lchat/bsky/convo/SendMessageBatchRequest;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lchat/bsky/convo/SendMessageBatchRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItems ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/SendMessageBatchRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/SendMessageBatchResponse {
+	public static final field Companion Lchat/bsky/convo/SendMessageBatchResponse$Companion;
+	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;)V
+	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;)Lchat/bsky/convo/SendMessageBatchResponse;
+	public static synthetic fun copy$default (Lchat/bsky/convo/SendMessageBatchResponse;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lchat/bsky/convo/SendMessageBatchResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItems ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/SendMessageBatchResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/SendMessageRequest {
+	public static final field Companion Lchat/bsky/convo/SendMessageRequest$Companion;
+	public fun <init> (Ljava/lang/String;Lchat/bsky/convo/Message;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lchat/bsky/convo/Message;
+	public final fun copy (Ljava/lang/String;Lchat/bsky/convo/Message;)Lchat/bsky/convo/SendMessageRequest;
+	public static synthetic fun copy$default (Lchat/bsky/convo/SendMessageRequest;Ljava/lang/String;Lchat/bsky/convo/Message;ILjava/lang/Object;)Lchat/bsky/convo/SendMessageRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getMessage ()Lchat/bsky/convo/Message;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/SendMessageRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/UnmuteConvoRequest {
+	public static final field Companion Lchat/bsky/convo/UnmuteConvoRequest$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/convo/UnmuteConvoRequest;
+	public static synthetic fun copy$default (Lchat/bsky/convo/UnmuteConvoRequest;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/UnmuteConvoRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/UnmuteConvoRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/UnmuteConvoResponse {
+	public static final field Companion Lchat/bsky/convo/UnmuteConvoResponse$Companion;
+	public fun <init> (Lchat/bsky/convo/ConvoView;)V
+	public final fun component1 ()Lchat/bsky/convo/ConvoView;
+	public final fun copy (Lchat/bsky/convo/ConvoView;)Lchat/bsky/convo/UnmuteConvoResponse;
+	public static synthetic fun copy$default (Lchat/bsky/convo/UnmuteConvoResponse;Lchat/bsky/convo/ConvoView;ILjava/lang/Object;)Lchat/bsky/convo/UnmuteConvoResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvo ()Lchat/bsky/convo/ConvoView;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/UnmuteConvoResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/UpdateReadRequest {
+	public static final field Companion Lchat/bsky/convo/UpdateReadRequest$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/convo/UpdateReadRequest;
+	public static synthetic fun copy$default (Lchat/bsky/convo/UpdateReadRequest;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/UpdateReadRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getMessageId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/UpdateReadRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/UpdateReadResponse {
+	public static final field Companion Lchat/bsky/convo/UpdateReadResponse$Companion;
+	public fun <init> (Lchat/bsky/convo/ConvoView;)V
+	public final fun component1 ()Lchat/bsky/convo/ConvoView;
+	public final fun copy (Lchat/bsky/convo/ConvoView;)Lchat/bsky/convo/UpdateReadResponse;
+	public static synthetic fun copy$default (Lchat/bsky/convo/UpdateReadResponse;Lchat/bsky/convo/ConvoView;ILjava/lang/Object;)Lchat/bsky/convo/UpdateReadResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvo ()Lchat/bsky/convo/ConvoView;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/UpdateReadResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/GetActorMetadataMetadata {
+	public static final field Companion Lchat/bsky/moderation/GetActorMetadataMetadata$Companion;
+	public fun <init> (JJJJ)V
+	public final fun component1 ()J
+	public final fun component2 ()J
+	public final fun component3 ()J
+	public final fun component4 ()J
+	public final fun copy (JJJJ)Lchat/bsky/moderation/GetActorMetadataMetadata;
+	public static synthetic fun copy$default (Lchat/bsky/moderation/GetActorMetadataMetadata;JJJJILjava/lang/Object;)Lchat/bsky/moderation/GetActorMetadataMetadata;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvos ()J
+	public final fun getConvosStarted ()J
+	public final fun getMessagesReceived ()J
+	public final fun getMessagesSent ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/GetActorMetadataMetadata$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/GetActorMetadataQueryParams {
+	public static final field Companion Lchat/bsky/moderation/GetActorMetadataQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun copy-Kn78ayM (Ljava/lang/String;)Lchat/bsky/moderation/GetActorMetadataQueryParams;
+	public static synthetic fun copy-Kn78ayM$default (Lchat/bsky/moderation/GetActorMetadataQueryParams;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/moderation/GetActorMetadataQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActor-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/GetActorMetadataQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/GetActorMetadataResponse {
+	public static final field Companion Lchat/bsky/moderation/GetActorMetadataResponse$Companion;
+	public fun <init> (Lchat/bsky/moderation/GetActorMetadataMetadata;Lchat/bsky/moderation/GetActorMetadataMetadata;Lchat/bsky/moderation/GetActorMetadataMetadata;)V
+	public final fun component1 ()Lchat/bsky/moderation/GetActorMetadataMetadata;
+	public final fun component2 ()Lchat/bsky/moderation/GetActorMetadataMetadata;
+	public final fun component3 ()Lchat/bsky/moderation/GetActorMetadataMetadata;
+	public final fun copy (Lchat/bsky/moderation/GetActorMetadataMetadata;Lchat/bsky/moderation/GetActorMetadataMetadata;Lchat/bsky/moderation/GetActorMetadataMetadata;)Lchat/bsky/moderation/GetActorMetadataResponse;
+	public static synthetic fun copy$default (Lchat/bsky/moderation/GetActorMetadataResponse;Lchat/bsky/moderation/GetActorMetadataMetadata;Lchat/bsky/moderation/GetActorMetadataMetadata;Lchat/bsky/moderation/GetActorMetadataMetadata;ILjava/lang/Object;)Lchat/bsky/moderation/GetActorMetadataResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAll ()Lchat/bsky/moderation/GetActorMetadataMetadata;
+	public final fun getDay ()Lchat/bsky/moderation/GetActorMetadataMetadata;
+	public final fun getMonth ()Lchat/bsky/moderation/GetActorMetadataMetadata;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/GetActorMetadataResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/GetMessageContextQueryParams {
+	public static final field Companion Lchat/bsky/moderation/GetMessageContextQueryParams$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;)Lchat/bsky/moderation/GetMessageContextQueryParams;
+	public static synthetic fun copy$default (Lchat/bsky/moderation/GetMessageContextQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;ILjava/lang/Object;)Lchat/bsky/moderation/GetMessageContextQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAfter ()Ljava/lang/Long;
+	public final fun getBefore ()Ljava/lang/Long;
+	public final fun getMessageId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/GetMessageContextQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/GetMessageContextResponse {
+	public static final field Companion Lchat/bsky/moderation/GetMessageContextResponse$Companion;
+	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;)V
+	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;)Lchat/bsky/moderation/GetMessageContextResponse;
+	public static synthetic fun copy$default (Lchat/bsky/moderation/GetMessageContextResponse;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lchat/bsky/moderation/GetMessageContextResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMessages ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/GetMessageContextResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class chat/bsky/moderation/GetMessageContextResponseMessageUnion {
+	public static final field Companion Lchat/bsky/moderation/GetMessageContextResponseMessageUnion$Companion;
+}
+
+public final class chat/bsky/moderation/GetMessageContextResponseMessageUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/GetMessageContextResponseMessageUnion$DeletedMessageView : chat/bsky/moderation/GetMessageContextResponseMessageUnion {
+	public static final field Companion Lchat/bsky/moderation/GetMessageContextResponseMessageUnion$DeletedMessageView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/DeletedMessageView;)Lchat/bsky/moderation/GetMessageContextResponseMessageUnion$DeletedMessageView;
+	public static fun constructor-impl (Lchat/bsky/convo/DeletedMessageView;)Lchat/bsky/convo/DeletedMessageView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/DeletedMessageView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/DeletedMessageView;Lchat/bsky/convo/DeletedMessageView;)Z
+	public final fun getValue ()Lchat/bsky/convo/DeletedMessageView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/DeletedMessageView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/DeletedMessageView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/DeletedMessageView;
+}
+
+public final class chat/bsky/moderation/GetMessageContextResponseMessageUnion$DeletedMessageView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/GetMessageContextResponseMessageUnion$DeletedMessageViewSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-pEmnDVU (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/DeletedMessageView;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-6wr32dU (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/DeletedMessageView;)V
+}
+
+public final class chat/bsky/moderation/GetMessageContextResponseMessageUnion$MessageView : chat/bsky/moderation/GetMessageContextResponseMessageUnion {
+	public static final field Companion Lchat/bsky/moderation/GetMessageContextResponseMessageUnion$MessageView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/MessageView;)Lchat/bsky/moderation/GetMessageContextResponseMessageUnion$MessageView;
+	public static fun constructor-impl (Lchat/bsky/convo/MessageView;)Lchat/bsky/convo/MessageView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/MessageView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/MessageView;Lchat/bsky/convo/MessageView;)Z
+	public final fun getValue ()Lchat/bsky/convo/MessageView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/MessageView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/MessageView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/MessageView;
+}
+
+public final class chat/bsky/moderation/GetMessageContextResponseMessageUnion$MessageView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/GetMessageContextResponseMessageUnion$MessageViewSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-PpSJSgo (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/MessageView;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-airglSE (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/MessageView;)V
+}
+
+public final class chat/bsky/moderation/UpdateActorAccessRequest {
+	public static final field Companion Lchat/bsky/moderation/UpdateActorAccessRequest$Companion;
+	public synthetic fun <init> (Ljava/lang/String;ZLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;ZLjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Z
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy-3QELDOs (Ljava/lang/String;ZLjava/lang/String;)Lchat/bsky/moderation/UpdateActorAccessRequest;
+	public static synthetic fun copy-3QELDOs$default (Lchat/bsky/moderation/UpdateActorAccessRequest;Ljava/lang/String;ZLjava/lang/String;ILjava/lang/Object;)Lchat/bsky/moderation/UpdateActorAccessRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActor-715Ygxc ()Ljava/lang/String;
+	public final fun getAllowAccess ()Z
+	public final fun getRef ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/UpdateActorAccessRequest$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -9012,6 +10348,8 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun deactivateAccount (Lcom/atproto/server/DeactivateAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteAccount (Lcom/atproto/admin/DeleteAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteAccount (Lcom/atproto/server/DeleteAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deleteAccount (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deleteMessageForSelf (Lchat/bsky/convo/DeleteMessageForSelfRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteRecord (Lcom/atproto/repo/DeleteRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteTemplate (Ltools/ozone/communication/DeleteTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9022,15 +10360,19 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun disableInviteCodes (Lcom/atproto/admin/DisableInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun emitEvent (Ltools/ozone/moderation/EmitEventRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun enableAccountInvites (Lcom/atproto/admin/EnableAccountInvitesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun exportAccountData (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAccountInfo (Lcom/atproto/admin/GetAccountInfoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAccountInfos (Lcom/atproto/admin/GetAccountInfosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAccountInviteCodes (Lcom/atproto/server/GetAccountInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getActorFeeds (Lapp/bsky/feed/GetActorFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getActorLikes (Lapp/bsky/feed/GetActorLikesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getActorMetadata (Lchat/bsky/moderation/GetActorMetadataQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAuthorFeed (Lapp/bsky/feed/GetAuthorFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getBlob (Lcom/atproto/sync/GetBlobQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getBlocks (Lapp/bsky/graph/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getBlocks (Lcom/atproto/sync/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFeed (Lapp/bsky/feed/GetFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFeedGenerator (Lapp/bsky/feed/GetFeedGeneratorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9046,6 +10388,9 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getListFeed (Lapp/bsky/feed/GetListFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getListMutes (Lapp/bsky/graph/GetListMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getLists (Lapp/bsky/graph/GetListsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getLog (Lchat/bsky/convo/GetLogQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getMessageContext (Lchat/bsky/moderation/GetMessageContextQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getMessages (Lchat/bsky/convo/GetMessagesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getMutes (Lapp/bsky/graph/GetMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getPopularFeedGenerators (Lapp/bsky/unspecced/GetPopularFeedGeneratorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getPostThread (Lapp/bsky/feed/GetPostThreadQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9072,9 +10417,11 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getTaggedSuggestions (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getTimeline (Lapp/bsky/feed/GetTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun importRepo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun importRepo (Lkotlin/Unit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun leaveConvo (Lchat/bsky/convo/LeaveConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listBlobs (Lcom/atproto/sync/ListBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun listConvos (Lchat/bsky/convo/ListConvosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listMissingBlobs (Lcom/atproto/repo/ListMissingBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listNotifications (Lapp/bsky/notification/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listRecords (Lcom/atproto/repo/ListRecordsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9082,6 +10429,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun listTemplates (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun muteActor (Lapp/bsky/graph/MuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun muteActorList (Lapp/bsky/graph/MuteActorListRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun muteConvo (Lchat/bsky/convo/MuteConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun notifyOfUpdate (Lcom/atproto/sync/NotifyOfUpdateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun putPreferences (Lapp/bsky/actor/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun putRecord (Lcom/atproto/repo/PutRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9109,21 +10457,26 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun searchRepos (Ltools/ozone/moderation/SearchReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun sendEmail (Lcom/atproto/admin/SendEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun sendInteractions (Lapp/bsky/feed/SendInteractionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun sendMessage (Lchat/bsky/convo/SendMessageRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun sendMessageBatch (Lchat/bsky/convo/SendMessageBatchRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun signPlcOperation (Lcom/atproto/identity/SignPlcOperationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun submitPlcOperation (Lcom/atproto/identity/SubmitPlcOperationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun subscribeLabels (Lcom/atproto/label/SubscribeLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun subscribeRepos (Lcom/atproto/sync/SubscribeReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun unmuteActor (Lapp/bsky/graph/UnmuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun unmuteActorList (Lapp/bsky/graph/UnmuteActorListRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun unmuteConvo (Lchat/bsky/convo/UnmuteConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateAccountEmail (Lcom/atproto/admin/UpdateAccountEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateAccountHandle (Lcom/atproto/admin/UpdateAccountHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateAccountPassword (Lcom/atproto/admin/UpdateAccountPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun updateActorAccess (Lchat/bsky/moderation/UpdateActorAccessRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun updateRead (Lchat/bsky/convo/UpdateReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateSeen (Lapp/bsky/notification/UpdateSeenRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateSubjectStatus (Lcom/atproto/admin/UpdateSubjectStatusRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateTemplate (Ltools/ozone/communication/UpdateTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun uploadBlob ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun uploadBlob (Lkotlin/Unit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/BlueskyApi {
@@ -9145,6 +10498,8 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun deactivateAccount (Lcom/atproto/server/DeactivateAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteAccount (Lcom/atproto/admin/DeleteAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteAccount (Lcom/atproto/server/DeleteAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteAccount (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteMessageForSelf (Lchat/bsky/convo/DeleteMessageForSelfRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteRecord (Lcom/atproto/repo/DeleteRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteTemplate (Ltools/ozone/communication/DeleteTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9155,15 +10510,19 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun disableInviteCodes (Lcom/atproto/admin/DisableInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun emitEvent (Ltools/ozone/moderation/EmitEventRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun enableAccountInvites (Lcom/atproto/admin/EnableAccountInvitesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun exportAccountData (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAccountInfo (Lcom/atproto/admin/GetAccountInfoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAccountInfos (Lcom/atproto/admin/GetAccountInfosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAccountInviteCodes (Lcom/atproto/server/GetAccountInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getActorFeeds (Lapp/bsky/feed/GetActorFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getActorLikes (Lapp/bsky/feed/GetActorLikesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getActorMetadata (Lchat/bsky/moderation/GetActorMetadataQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAuthorFeed (Lapp/bsky/feed/GetAuthorFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlob (Lcom/atproto/sync/GetBlobQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlocks (Lapp/bsky/graph/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlocks (Lcom/atproto/sync/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFeed (Lapp/bsky/feed/GetFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFeedGenerator (Lapp/bsky/feed/GetFeedGeneratorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9179,6 +10538,9 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getListFeed (Lapp/bsky/feed/GetListFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getListMutes (Lapp/bsky/graph/GetListMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLists (Lapp/bsky/graph/GetListsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getLog (Lchat/bsky/convo/GetLogQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getMessageContext (Lchat/bsky/moderation/GetMessageContextQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getMessages (Lchat/bsky/convo/GetMessagesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getMutes (Lapp/bsky/graph/GetMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getPopularFeedGenerators (Lapp/bsky/unspecced/GetPopularFeedGeneratorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getPostThread (Lapp/bsky/feed/GetPostThreadQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9205,9 +10567,11 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getTaggedSuggestions (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getTimeline (Lapp/bsky/feed/GetTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun importRepo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun importRepo (Lkotlin/Unit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun leaveConvo (Lchat/bsky/convo/LeaveConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listBlobs (Lcom/atproto/sync/ListBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listConvos (Lchat/bsky/convo/ListConvosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listMissingBlobs (Lcom/atproto/repo/ListMissingBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listNotifications (Lapp/bsky/notification/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listRecords (Lcom/atproto/repo/ListRecordsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9215,6 +10579,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun listTemplates (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun muteActor (Lapp/bsky/graph/MuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun muteActorList (Lapp/bsky/graph/MuteActorListRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun muteConvo (Lchat/bsky/convo/MuteConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun notifyOfUpdate (Lcom/atproto/sync/NotifyOfUpdateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putPreferences (Lapp/bsky/actor/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putRecord (Lcom/atproto/repo/PutRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -9242,21 +10607,26 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun searchRepos (Ltools/ozone/moderation/SearchReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun sendEmail (Lcom/atproto/admin/SendEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun sendInteractions (Lapp/bsky/feed/SendInteractionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun sendMessage (Lchat/bsky/convo/SendMessageRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun sendMessageBatch (Lchat/bsky/convo/SendMessageBatchRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun signPlcOperation (Lcom/atproto/identity/SignPlcOperationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun submitPlcOperation (Lcom/atproto/identity/SubmitPlcOperationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun subscribeLabels (Lcom/atproto/label/SubscribeLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun subscribeRepos (Lcom/atproto/sync/SubscribeReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun unmuteActor (Lapp/bsky/graph/UnmuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun unmuteActorList (Lapp/bsky/graph/UnmuteActorListRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun unmuteConvo (Lchat/bsky/convo/UnmuteConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateAccountEmail (Lcom/atproto/admin/UpdateAccountEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateAccountHandle (Lcom/atproto/admin/UpdateAccountHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateAccountPassword (Lcom/atproto/admin/UpdateAccountPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateActorAccess (Lchat/bsky/moderation/UpdateActorAccessRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateRead (Lchat/bsky/convo/UpdateReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateSeen (Lapp/bsky/notification/UpdateSeenRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateSubjectStatus (Lcom/atproto/admin/UpdateSubjectStatusRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateTemplate (Ltools/ozone/communication/UpdateTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun uploadBlob ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun uploadBlob (Lkotlin/Unit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class sh/christian/ozone/api/xrpc/FindSubscriptionSerializerKt {
@@ -9657,6 +11027,34 @@ public final class tools/ozone/moderation/EmitEventRequestEventUnion$Mute$Compan
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$MuteReporter : tools/ozone/moderation/EmitEventRequestEventUnion {
+	public static final field Companion Ltools/ozone/moderation/EmitEventRequestEventUnion$MuteReporter$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/ModEventMuteReporter;)Ltools/ozone/moderation/EmitEventRequestEventUnion$MuteReporter;
+	public static fun constructor-impl (Ltools/ozone/moderation/ModEventMuteReporter;)Ltools/ozone/moderation/ModEventMuteReporter;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/ModEventMuteReporter;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/ModEventMuteReporter;Ltools/ozone/moderation/ModEventMuteReporter;)Z
+	public final fun getValue ()Ltools/ozone/moderation/ModEventMuteReporter;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/ModEventMuteReporter;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/ModEventMuteReporter;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/ModEventMuteReporter;
+}
+
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$MuteReporter$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$MuteReporterSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-te9cgIQ (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/moderation/ModEventMuteReporter;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-56TLC98 (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/ModEventMuteReporter;)V
+}
+
 public final class tools/ozone/moderation/EmitEventRequestEventUnion$MuteSerializer : kotlinx/serialization/KSerializer {
 	public fun <init> ()V
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
@@ -9795,6 +11193,34 @@ public final class tools/ozone/moderation/EmitEventRequestEventUnion$Unmute : to
 
 public final class tools/ozone/moderation/EmitEventRequestEventUnion$Unmute$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$UnmuteReporter : tools/ozone/moderation/EmitEventRequestEventUnion {
+	public static final field Companion Ltools/ozone/moderation/EmitEventRequestEventUnion$UnmuteReporter$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/ModEventUnmuteReporter;)Ltools/ozone/moderation/EmitEventRequestEventUnion$UnmuteReporter;
+	public static fun constructor-impl (Ltools/ozone/moderation/ModEventUnmuteReporter;)Ltools/ozone/moderation/ModEventUnmuteReporter;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/ModEventUnmuteReporter;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/ModEventUnmuteReporter;Ltools/ozone/moderation/ModEventUnmuteReporter;)Z
+	public final fun getValue ()Ltools/ozone/moderation/ModEventUnmuteReporter;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/ModEventUnmuteReporter;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/ModEventUnmuteReporter;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/ModEventUnmuteReporter;
+}
+
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$UnmuteReporter$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$UnmuteReporterSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-Mt--f9g (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/moderation/ModEventUnmuteReporter;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-eUVipLk (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/ModEventUnmuteReporter;)V
 }
 
 public final class tools/ozone/moderation/EmitEventRequestEventUnion$UnmuteSerializer : kotlinx/serialization/KSerializer {
@@ -10076,18 +11502,39 @@ public final class tools/ozone/moderation/ModEventMute$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/ModEventMuteReporter {
+	public static final field Companion Ltools/ozone/moderation/ModEventMuteReporter$Companion;
+	public fun <init> (Ljava/lang/String;J)V
+	public synthetic fun <init> (Ljava/lang/String;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun copy (Ljava/lang/String;J)Ltools/ozone/moderation/ModEventMuteReporter;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/ModEventMuteReporter;Ljava/lang/String;JILjava/lang/Object;)Ltools/ozone/moderation/ModEventMuteReporter;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getDurationInHours ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ModEventMuteReporter$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/moderation/ModEventReport {
 	public static final field Companion Ltools/ozone/moderation/ModEventReport$Companion;
-	public fun <init> (Ljava/lang/String;Lcom/atproto/moderation/Token;)V
-	public synthetic fun <init> (Ljava/lang/String;Lcom/atproto/moderation/Token;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/Boolean;Lcom/atproto/moderation/Token;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Boolean;Lcom/atproto/moderation/Token;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Lcom/atproto/moderation/Token;
-	public final fun copy (Ljava/lang/String;Lcom/atproto/moderation/Token;)Ltools/ozone/moderation/ModEventReport;
-	public static synthetic fun copy$default (Ltools/ozone/moderation/ModEventReport;Ljava/lang/String;Lcom/atproto/moderation/Token;ILjava/lang/Object;)Ltools/ozone/moderation/ModEventReport;
+	public final fun component2 ()Ljava/lang/Boolean;
+	public final fun component3 ()Lcom/atproto/moderation/Token;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Boolean;Lcom/atproto/moderation/Token;)Ltools/ozone/moderation/ModEventReport;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/ModEventReport;Ljava/lang/String;Ljava/lang/Boolean;Lcom/atproto/moderation/Token;ILjava/lang/Object;)Ltools/ozone/moderation/ModEventReport;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getComment ()Ljava/lang/String;
 	public final fun getReportType ()Lcom/atproto/moderation/Token;
 	public fun hashCode ()I
+	public final fun isReporterMuted ()Ljava/lang/Boolean;
 	public fun toString ()Ljava/lang/String;
 }
 
@@ -10187,6 +11634,24 @@ public final class tools/ozone/moderation/ModEventUnmute {
 }
 
 public final class tools/ozone/moderation/ModEventUnmute$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ModEventUnmuteReporter {
+	public static final field Companion Ltools/ozone/moderation/ModEventUnmuteReporter$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/moderation/ModEventUnmuteReporter;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/ModEventUnmuteReporter;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/ModEventUnmuteReporter;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ModEventUnmuteReporter$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -10442,6 +11907,34 @@ public final class tools/ozone/moderation/ModEventViewDetailEventUnion$ModEventM
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$ModEventMuteReporter : tools/ozone/moderation/ModEventViewDetailEventUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewDetailEventUnion$ModEventMuteReporter$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/ModEventMuteReporter;)Ltools/ozone/moderation/ModEventViewDetailEventUnion$ModEventMuteReporter;
+	public static fun constructor-impl (Ltools/ozone/moderation/ModEventMuteReporter;)Ltools/ozone/moderation/ModEventMuteReporter;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/ModEventMuteReporter;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/ModEventMuteReporter;Ltools/ozone/moderation/ModEventMuteReporter;)Z
+	public final fun getValue ()Ltools/ozone/moderation/ModEventMuteReporter;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/ModEventMuteReporter;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/ModEventMuteReporter;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/ModEventMuteReporter;
+}
+
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$ModEventMuteReporter$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$ModEventMuteReporterSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-yotq1v4 (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/moderation/ModEventMuteReporter;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-IS2m3M8 (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/ModEventMuteReporter;)V
+}
+
 public final class tools/ozone/moderation/ModEventViewDetailEventUnion$ModEventMuteSerializer : kotlinx/serialization/KSerializer {
 	public fun <init> ()V
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
@@ -10561,6 +12054,62 @@ public final class tools/ozone/moderation/ModEventViewDetailEventUnion$ModEventT
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-SJt8iGg (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/ModEventTakedown;)V
+}
+
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$ModEventUnmute : tools/ozone/moderation/ModEventViewDetailEventUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewDetailEventUnion$ModEventUnmute$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/ModEventUnmute;)Ltools/ozone/moderation/ModEventViewDetailEventUnion$ModEventUnmute;
+	public static fun constructor-impl (Ltools/ozone/moderation/ModEventUnmute;)Ltools/ozone/moderation/ModEventUnmute;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/ModEventUnmute;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/ModEventUnmute;Ltools/ozone/moderation/ModEventUnmute;)Z
+	public final fun getValue ()Ltools/ozone/moderation/ModEventUnmute;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/ModEventUnmute;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/ModEventUnmute;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/ModEventUnmute;
+}
+
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$ModEventUnmute$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$ModEventUnmuteReporter : tools/ozone/moderation/ModEventViewDetailEventUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewDetailEventUnion$ModEventUnmuteReporter$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/ModEventUnmuteReporter;)Ltools/ozone/moderation/ModEventViewDetailEventUnion$ModEventUnmuteReporter;
+	public static fun constructor-impl (Ltools/ozone/moderation/ModEventUnmuteReporter;)Ltools/ozone/moderation/ModEventUnmuteReporter;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/ModEventUnmuteReporter;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/ModEventUnmuteReporter;Ltools/ozone/moderation/ModEventUnmuteReporter;)Z
+	public final fun getValue ()Ltools/ozone/moderation/ModEventUnmuteReporter;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/ModEventUnmuteReporter;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/ModEventUnmuteReporter;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/ModEventUnmuteReporter;
+}
+
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$ModEventUnmuteReporter$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$ModEventUnmuteReporterSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-c3fH2Ks (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/moderation/ModEventUnmuteReporter;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-_Ge7-Lg (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/ModEventUnmuteReporter;)V
+}
+
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$ModEventUnmuteSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-wgD61Uk (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/moderation/ModEventUnmute;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-gn9duRQ (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/ModEventUnmute;)V
 }
 
 public abstract interface class tools/ozone/moderation/ModEventViewDetailSubjectUnion {
@@ -10878,6 +12427,34 @@ public final class tools/ozone/moderation/ModEventViewEventUnion$ModEventMute$Co
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/ModEventViewEventUnion$ModEventMuteReporter : tools/ozone/moderation/ModEventViewEventUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewEventUnion$ModEventMuteReporter$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/ModEventMuteReporter;)Ltools/ozone/moderation/ModEventViewEventUnion$ModEventMuteReporter;
+	public static fun constructor-impl (Ltools/ozone/moderation/ModEventMuteReporter;)Ltools/ozone/moderation/ModEventMuteReporter;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/ModEventMuteReporter;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/ModEventMuteReporter;Ltools/ozone/moderation/ModEventMuteReporter;)Z
+	public final fun getValue ()Ltools/ozone/moderation/ModEventMuteReporter;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/ModEventMuteReporter;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/ModEventMuteReporter;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/ModEventMuteReporter;
+}
+
+public final class tools/ozone/moderation/ModEventViewEventUnion$ModEventMuteReporter$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ModEventViewEventUnion$ModEventMuteReporterSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-unxBMbY (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/moderation/ModEventMuteReporter;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-9xAI_pI (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/ModEventMuteReporter;)V
+}
+
 public final class tools/ozone/moderation/ModEventViewEventUnion$ModEventMuteSerializer : kotlinx/serialization/KSerializer {
 	public fun <init> ()V
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
@@ -10999,13 +12576,101 @@ public final class tools/ozone/moderation/ModEventViewEventUnion$ModEventTakedow
 	public fun serialize-HR8gHqA (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/ModEventTakedown;)V
 }
 
+public final class tools/ozone/moderation/ModEventViewEventUnion$ModEventUnmute : tools/ozone/moderation/ModEventViewEventUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewEventUnion$ModEventUnmute$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/ModEventUnmute;)Ltools/ozone/moderation/ModEventViewEventUnion$ModEventUnmute;
+	public static fun constructor-impl (Ltools/ozone/moderation/ModEventUnmute;)Ltools/ozone/moderation/ModEventUnmute;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/ModEventUnmute;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/ModEventUnmute;Ltools/ozone/moderation/ModEventUnmute;)Z
+	public final fun getValue ()Ltools/ozone/moderation/ModEventUnmute;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/ModEventUnmute;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/ModEventUnmute;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/ModEventUnmute;
+}
+
+public final class tools/ozone/moderation/ModEventViewEventUnion$ModEventUnmute$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ModEventViewEventUnion$ModEventUnmuteReporter : tools/ozone/moderation/ModEventViewEventUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewEventUnion$ModEventUnmuteReporter$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/ModEventUnmuteReporter;)Ltools/ozone/moderation/ModEventViewEventUnion$ModEventUnmuteReporter;
+	public static fun constructor-impl (Ltools/ozone/moderation/ModEventUnmuteReporter;)Ltools/ozone/moderation/ModEventUnmuteReporter;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/ModEventUnmuteReporter;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/ModEventUnmuteReporter;Ltools/ozone/moderation/ModEventUnmuteReporter;)Z
+	public final fun getValue ()Ltools/ozone/moderation/ModEventUnmuteReporter;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/ModEventUnmuteReporter;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/ModEventUnmuteReporter;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/ModEventUnmuteReporter;
+}
+
+public final class tools/ozone/moderation/ModEventViewEventUnion$ModEventUnmuteReporter$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ModEventViewEventUnion$ModEventUnmuteReporterSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-9H2YhgA (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/moderation/ModEventUnmuteReporter;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-duayzos (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/ModEventUnmuteReporter;)V
+}
+
+public final class tools/ozone/moderation/ModEventViewEventUnion$ModEventUnmuteSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-51ElXUE (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/moderation/ModEventUnmute;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-U56rTiQ (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/ModEventUnmute;)V
+}
+
 public abstract interface class tools/ozone/moderation/ModEventViewSubjectUnion {
 	public static final field Companion Ltools/ozone/moderation/ModEventViewSubjectUnion$Companion;
 }
 
-public final class tools/ozone/moderation/ModEventViewSubjectUnion$AdminRepoRef : tools/ozone/moderation/ModEventViewSubjectUnion {
-	public static final field Companion Ltools/ozone/moderation/ModEventViewSubjectUnion$AdminRepoRef$Companion;
-	public static final synthetic fun box-impl (Lcom/atproto/admin/RepoRef;)Ltools/ozone/moderation/ModEventViewSubjectUnion$AdminRepoRef;
+public final class tools/ozone/moderation/ModEventViewSubjectUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ModEventViewSubjectUnion$HatBskyConvoMessageRef : tools/ozone/moderation/ModEventViewSubjectUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewSubjectUnion$HatBskyConvoMessageRef$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/MessageRef;)Ltools/ozone/moderation/ModEventViewSubjectUnion$HatBskyConvoMessageRef;
+	public static fun constructor-impl (Lchat/bsky/convo/MessageRef;)Lchat/bsky/convo/MessageRef;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/MessageRef;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/MessageRef;Lchat/bsky/convo/MessageRef;)Z
+	public final fun getValue ()Lchat/bsky/convo/MessageRef;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/MessageRef;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/MessageRef;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/MessageRef;
+}
+
+public final class tools/ozone/moderation/ModEventViewSubjectUnion$HatBskyConvoMessageRef$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ModEventViewSubjectUnion$HatBskyConvoMessageRefSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-Lyx_OAs (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/MessageRef;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-uJj8Q6w (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/MessageRef;)V
+}
+
+public final class tools/ozone/moderation/ModEventViewSubjectUnion$OmAtprotoAdminRepoRef : tools/ozone/moderation/ModEventViewSubjectUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewSubjectUnion$OmAtprotoAdminRepoRef$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/RepoRef;)Ltools/ozone/moderation/ModEventViewSubjectUnion$OmAtprotoAdminRepoRef;
 	public static fun constructor-impl (Lcom/atproto/admin/RepoRef;)Lcom/atproto/admin/RepoRef;
 	public fun equals (Ljava/lang/Object;)Z
 	public static fun equals-impl (Lcom/atproto/admin/RepoRef;Ljava/lang/Object;)Z
@@ -11018,26 +12683,22 @@ public final class tools/ozone/moderation/ModEventViewSubjectUnion$AdminRepoRef 
 	public final synthetic fun unbox-impl ()Lcom/atproto/admin/RepoRef;
 }
 
-public final class tools/ozone/moderation/ModEventViewSubjectUnion$AdminRepoRef$Companion {
+public final class tools/ozone/moderation/ModEventViewSubjectUnion$OmAtprotoAdminRepoRef$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class tools/ozone/moderation/ModEventViewSubjectUnion$AdminRepoRefSerializer : kotlinx/serialization/KSerializer {
+public final class tools/ozone/moderation/ModEventViewSubjectUnion$OmAtprotoAdminRepoRefSerializer : kotlinx/serialization/KSerializer {
 	public fun <init> ()V
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public fun deserialize-QR_ZNRY (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/RepoRef;
+	public fun deserialize-FJfF_hU (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/RepoRef;
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun serialize-PQAd2Xc (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/RepoRef;)V
+	public fun serialize-usNVKsY (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/RepoRef;)V
 }
 
-public final class tools/ozone/moderation/ModEventViewSubjectUnion$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class tools/ozone/moderation/ModEventViewSubjectUnion$RepoStrongRef : tools/ozone/moderation/ModEventViewSubjectUnion {
-	public static final field Companion Ltools/ozone/moderation/ModEventViewSubjectUnion$RepoStrongRef$Companion;
-	public static final synthetic fun box-impl (Lcom/atproto/repo/StrongRef;)Ltools/ozone/moderation/ModEventViewSubjectUnion$RepoStrongRef;
+public final class tools/ozone/moderation/ModEventViewSubjectUnion$OmAtprotoRepoStrongRef : tools/ozone/moderation/ModEventViewSubjectUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewSubjectUnion$OmAtprotoRepoStrongRef$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/repo/StrongRef;)Ltools/ozone/moderation/ModEventViewSubjectUnion$OmAtprotoRepoStrongRef;
 	public static fun constructor-impl (Lcom/atproto/repo/StrongRef;)Lcom/atproto/repo/StrongRef;
 	public fun equals (Ljava/lang/Object;)Z
 	public static fun equals-impl (Lcom/atproto/repo/StrongRef;Ljava/lang/Object;)Z
@@ -11050,17 +12711,17 @@ public final class tools/ozone/moderation/ModEventViewSubjectUnion$RepoStrongRef
 	public final synthetic fun unbox-impl ()Lcom/atproto/repo/StrongRef;
 }
 
-public final class tools/ozone/moderation/ModEventViewSubjectUnion$RepoStrongRef$Companion {
+public final class tools/ozone/moderation/ModEventViewSubjectUnion$OmAtprotoRepoStrongRef$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class tools/ozone/moderation/ModEventViewSubjectUnion$RepoStrongRefSerializer : kotlinx/serialization/KSerializer {
+public final class tools/ozone/moderation/ModEventViewSubjectUnion$OmAtprotoRepoStrongRefSerializer : kotlinx/serialization/KSerializer {
 	public fun <init> ()V
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public fun deserialize-RVDhY3M (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/repo/StrongRef;
+	public fun deserialize-pULThgk (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/repo/StrongRef;
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun serialize-1l3R67k (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
+	public fun serialize-29zLO1c (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
 }
 
 public final class tools/ozone/moderation/Moderation {
@@ -11168,29 +12829,30 @@ public final class tools/ozone/moderation/QueryEventsResponse$Companion {
 
 public final class tools/ozone/moderation/QueryStatusesQueryParams {
 	public static final field Companion Ltools/ozone/moderation/QueryStatusesQueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun component1-pvpWXas ()Ljava/lang/String;
-	public final fun component10-68yuAGA ()Ljava/lang/String;
-	public final fun component11 ()Ljava/lang/String;
+	public final fun component10 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component11-68yuAGA ()Ljava/lang/String;
 	public final fun component12 ()Ljava/lang/String;
-	public final fun component13 ()Ljava/lang/Boolean;
+	public final fun component13 ()Ljava/lang/String;
 	public final fun component14 ()Ljava/lang/Boolean;
-	public final fun component15 ()Ljava/lang/Long;
-	public final fun component16 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component15 ()Ljava/lang/Boolean;
+	public final fun component16 ()Ljava/lang/Long;
 	public final fun component17 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component18 ()Ljava/lang/String;
+	public final fun component18 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component19 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Lkotlinx/datetime/Instant;
 	public final fun component4 ()Lkotlinx/datetime/Instant;
 	public final fun component5 ()Lkotlinx/datetime/Instant;
 	public final fun component6 ()Lkotlinx/datetime/Instant;
 	public final fun component7 ()Ljava/lang/Boolean;
-	public final fun component8 ()Ljava/lang/String;
-	public final fun component9 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun copy-yfww3yU (Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;)Ltools/ozone/moderation/QueryStatusesQueryParams;
-	public static synthetic fun copy-yfww3yU$default (Ltools/ozone/moderation/QueryStatusesQueryParams;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/QueryStatusesQueryParams;
+	public final fun component8 ()Ljava/lang/Boolean;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy-PBETZ-w (Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;)Ltools/ozone/moderation/QueryStatusesQueryParams;
+	public static synthetic fun copy-PBETZ-w$default (Ltools/ozone/moderation/QueryStatusesQueryParams;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/QueryStatusesQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAppealed ()Ljava/lang/Boolean;
 	public final fun getComment ()Ljava/lang/String;
@@ -11200,6 +12862,7 @@ public final class tools/ozone/moderation/QueryStatusesQueryParams {
 	public final fun getIncludeMuted ()Ljava/lang/Boolean;
 	public final fun getLastReviewedBy-68yuAGA ()Ljava/lang/String;
 	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getOnlyMuted ()Ljava/lang/Boolean;
 	public final fun getReportedAfter ()Lkotlinx/datetime/Instant;
 	public final fun getReportedBefore ()Lkotlinx/datetime/Instant;
 	public final fun getReviewState ()Ljava/lang/String;
@@ -11445,17 +13108,18 @@ public final class tools/ozone/moderation/SearchReposResponse$Companion {
 
 public final class tools/ozone/moderation/SubjectStatusView {
 	public static final field Companion Ltools/ozone/moderation/SubjectStatusView$Companion;
-	public synthetic fun <init> (JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
-	public final fun component10-68yuAGA ()Ljava/lang/String;
-	public final fun component11 ()Lkotlinx/datetime/Instant;
+	public final fun component10 ()Lkotlinx/datetime/Instant;
+	public final fun component11-68yuAGA ()Ljava/lang/String;
 	public final fun component12 ()Lkotlinx/datetime/Instant;
 	public final fun component13 ()Lkotlinx/datetime/Instant;
-	public final fun component14 ()Ljava/lang/Boolean;
+	public final fun component14 ()Lkotlinx/datetime/Instant;
 	public final fun component15 ()Ljava/lang/Boolean;
-	public final fun component16 ()Lkotlinx/datetime/Instant;
-	public final fun component17 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component16 ()Ljava/lang/Boolean;
+	public final fun component17 ()Lkotlinx/datetime/Instant;
+	public final fun component18 ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun component2 ()Ltools/ozone/moderation/SubjectStatusViewSubjectUnion;
 	public final fun component3 ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun component4 ()Ljava/lang/String;
@@ -11464,8 +13128,8 @@ public final class tools/ozone/moderation/SubjectStatusView {
 	public final fun component7 ()Ltools/ozone/moderation/Token;
 	public final fun component8 ()Ljava/lang/String;
 	public final fun component9 ()Lkotlinx/datetime/Instant;
-	public final fun copy-6LYUF38 (JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;)Ltools/ozone/moderation/SubjectStatusView;
-	public static synthetic fun copy-6LYUF38$default (Ltools/ozone/moderation/SubjectStatusView;JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Ltools/ozone/moderation/SubjectStatusView;
+	public final fun copy-3PfqsPE (JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;)Ltools/ozone/moderation/SubjectStatusView;
+	public static synthetic fun copy-3PfqsPE$default (Ltools/ozone/moderation/SubjectStatusView;JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Ltools/ozone/moderation/SubjectStatusView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAppealed ()Ljava/lang/Boolean;
 	public final fun getComment ()Ljava/lang/String;
@@ -11475,6 +13139,7 @@ public final class tools/ozone/moderation/SubjectStatusView {
 	public final fun getLastReportedAt ()Lkotlinx/datetime/Instant;
 	public final fun getLastReviewedAt ()Lkotlinx/datetime/Instant;
 	public final fun getLastReviewedBy-68yuAGA ()Ljava/lang/String;
+	public final fun getMuteReportingUntil ()Lkotlinx/datetime/Instant;
 	public final fun getMuteUntil ()Lkotlinx/datetime/Instant;
 	public final fun getReviewState ()Ltools/ozone/moderation/Token;
 	public final fun getSubject ()Ltools/ozone/moderation/SubjectStatusViewSubjectUnion;

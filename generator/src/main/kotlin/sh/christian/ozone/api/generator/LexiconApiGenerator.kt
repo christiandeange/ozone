@@ -118,12 +118,17 @@ class LexiconApiGenerator(
 
   private fun LexiconXrpcBody.type(context: GeneratorContext, suffix: String): ApiType {
     return ApiType(
-      typeName = when (encoding) {
-        "*/*" -> BYTE_ARRAY
-        "application/vnd.ipld.car" -> BYTE_ARRAY
-        "text/plain" -> STRING
-        "application/json" -> ClassName(context.authority, "${context.classPrefix}$suffix")
-        else -> error("Unknown encoding: $encoding")
+      typeName = if (schema != null) {
+        when (encoding) {
+          "*/*",
+          "application/vnd.ipld.car" -> BYTE_ARRAY
+          "text/plain" -> STRING
+          "application/json",
+          "application/jsonl" -> ClassName(context.authority, "${context.classPrefix}$suffix")
+          else -> error("Unknown encoding: $encoding")
+        }
+      } else {
+        UNIT
       },
       description = description,
       encoding = encoding,
