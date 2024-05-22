@@ -6469,36 +6469,34 @@ public final class chat/bsky/convo/LogLeaveConvo$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class chat/bsky/convo/Message {
-	public static final field Companion Lchat/bsky/convo/Message$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/MessageEmbedUnion;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/MessageEmbedUnion;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+public final class chat/bsky/convo/MessageInput {
+	public static final field Companion Lchat/bsky/convo/MessageInput$Companion;
+	public fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/MessageInputEmbedUnion;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/MessageInputEmbedUnion;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component4 ()Lchat/bsky/convo/MessageEmbedUnion;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/MessageEmbedUnion;)Lchat/bsky/convo/Message;
-	public static synthetic fun copy$default (Lchat/bsky/convo/Message;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/MessageEmbedUnion;ILjava/lang/Object;)Lchat/bsky/convo/Message;
+	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component3 ()Lchat/bsky/convo/MessageInputEmbedUnion;
+	public final fun copy (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/MessageInputEmbedUnion;)Lchat/bsky/convo/MessageInput;
+	public static synthetic fun copy$default (Lchat/bsky/convo/MessageInput;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lchat/bsky/convo/MessageInputEmbedUnion;ILjava/lang/Object;)Lchat/bsky/convo/MessageInput;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getEmbed ()Lchat/bsky/convo/MessageEmbedUnion;
+	public final fun getEmbed ()Lchat/bsky/convo/MessageInputEmbedUnion;
 	public final fun getFacets ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun getId ()Ljava/lang/String;
 	public final fun getText ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class chat/bsky/convo/Message$Companion {
+public final class chat/bsky/convo/MessageInput$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract interface class chat/bsky/convo/MessageEmbedUnion {
-	public static final field Companion Lchat/bsky/convo/MessageEmbedUnion$Companion;
+public abstract interface class chat/bsky/convo/MessageInputEmbedUnion {
+	public static final field Companion Lchat/bsky/convo/MessageInputEmbedUnion$Companion;
 }
 
-public final class chat/bsky/convo/MessageEmbedUnion$AppBskyEmbedRecord : chat/bsky/convo/MessageEmbedUnion {
-	public static final field Companion Lchat/bsky/convo/MessageEmbedUnion$AppBskyEmbedRecord$Companion;
-	public static final synthetic fun box-impl (Lapp/bsky/embed/Record;)Lchat/bsky/convo/MessageEmbedUnion$AppBskyEmbedRecord;
+public final class chat/bsky/convo/MessageInputEmbedUnion$AppBskyEmbedRecord : chat/bsky/convo/MessageInputEmbedUnion {
+	public static final field Companion Lchat/bsky/convo/MessageInputEmbedUnion$AppBskyEmbedRecord$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/Record;)Lchat/bsky/convo/MessageInputEmbedUnion$AppBskyEmbedRecord;
 	public static fun constructor-impl (Lapp/bsky/embed/Record;)Lapp/bsky/embed/Record;
 	public fun equals (Ljava/lang/Object;)Z
 	public static fun equals-impl (Lapp/bsky/embed/Record;Ljava/lang/Object;)Z
@@ -6511,31 +6509,33 @@ public final class chat/bsky/convo/MessageEmbedUnion$AppBskyEmbedRecord : chat/b
 	public final synthetic fun unbox-impl ()Lapp/bsky/embed/Record;
 }
 
-public final class chat/bsky/convo/MessageEmbedUnion$AppBskyEmbedRecord$Companion {
+public final class chat/bsky/convo/MessageInputEmbedUnion$AppBskyEmbedRecord$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class chat/bsky/convo/MessageEmbedUnion$AppBskyEmbedRecordSerializer : kotlinx/serialization/KSerializer {
+public final class chat/bsky/convo/MessageInputEmbedUnion$AppBskyEmbedRecordSerializer : kotlinx/serialization/KSerializer {
 	public fun <init> ()V
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public fun deserialize-AD4kGjU (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/embed/Record;
+	public fun deserialize-17mAUBY (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/embed/Record;
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun serialize-2VXp28k (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/Record;)V
+	public fun serialize-Zl15jqU (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/Record;)V
 }
 
-public final class chat/bsky/convo/MessageEmbedUnion$Companion {
+public final class chat/bsky/convo/MessageInputEmbedUnion$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class chat/bsky/convo/MessageRef {
 	public static final field Companion Lchat/bsky/convo/MessageRef$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun copy-vy2gcmM (Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/convo/MessageRef;
-	public static synthetic fun copy-vy2gcmM$default (Lchat/bsky/convo/MessageRef;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/MessageRef;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy-3QELDOs (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/convo/MessageRef;
+	public static synthetic fun copy-3QELDOs$default (Lchat/bsky/convo/MessageRef;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/MessageRef;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getMessageId ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -6661,14 +6661,14 @@ public final class chat/bsky/convo/MuteConvoResponse$Companion {
 
 public final class chat/bsky/convo/SendMessageBatchBatchItem {
 	public static final field Companion Lchat/bsky/convo/SendMessageBatchBatchItem$Companion;
-	public fun <init> (Ljava/lang/String;Lchat/bsky/convo/Message;)V
+	public fun <init> (Ljava/lang/String;Lchat/bsky/convo/MessageInput;)V
 	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Lchat/bsky/convo/Message;
-	public final fun copy (Ljava/lang/String;Lchat/bsky/convo/Message;)Lchat/bsky/convo/SendMessageBatchBatchItem;
-	public static synthetic fun copy$default (Lchat/bsky/convo/SendMessageBatchBatchItem;Ljava/lang/String;Lchat/bsky/convo/Message;ILjava/lang/Object;)Lchat/bsky/convo/SendMessageBatchBatchItem;
+	public final fun component2 ()Lchat/bsky/convo/MessageInput;
+	public final fun copy (Ljava/lang/String;Lchat/bsky/convo/MessageInput;)Lchat/bsky/convo/SendMessageBatchBatchItem;
+	public static synthetic fun copy$default (Lchat/bsky/convo/SendMessageBatchBatchItem;Ljava/lang/String;Lchat/bsky/convo/MessageInput;ILjava/lang/Object;)Lchat/bsky/convo/SendMessageBatchBatchItem;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getConvoId ()Ljava/lang/String;
-	public final fun getMessage ()Lchat/bsky/convo/Message;
+	public final fun getMessage ()Lchat/bsky/convo/MessageInput;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -6711,14 +6711,14 @@ public final class chat/bsky/convo/SendMessageBatchResponse$Companion {
 
 public final class chat/bsky/convo/SendMessageRequest {
 	public static final field Companion Lchat/bsky/convo/SendMessageRequest$Companion;
-	public fun <init> (Ljava/lang/String;Lchat/bsky/convo/Message;)V
+	public fun <init> (Ljava/lang/String;Lchat/bsky/convo/MessageInput;)V
 	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Lchat/bsky/convo/Message;
-	public final fun copy (Ljava/lang/String;Lchat/bsky/convo/Message;)Lchat/bsky/convo/SendMessageRequest;
-	public static synthetic fun copy$default (Lchat/bsky/convo/SendMessageRequest;Ljava/lang/String;Lchat/bsky/convo/Message;ILjava/lang/Object;)Lchat/bsky/convo/SendMessageRequest;
+	public final fun component2 ()Lchat/bsky/convo/MessageInput;
+	public final fun copy (Ljava/lang/String;Lchat/bsky/convo/MessageInput;)Lchat/bsky/convo/SendMessageRequest;
+	public static synthetic fun copy$default (Lchat/bsky/convo/SendMessageRequest;Ljava/lang/String;Lchat/bsky/convo/MessageInput;ILjava/lang/Object;)Lchat/bsky/convo/SendMessageRequest;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getConvoId ()Ljava/lang/String;
-	public final fun getMessage ()Lchat/bsky/convo/Message;
+	public final fun getMessage ()Lchat/bsky/convo/MessageInput;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -6855,17 +6855,19 @@ public final class chat/bsky/moderation/GetActorMetadataResponse$Companion {
 
 public final class chat/bsky/moderation/GetMessageContextQueryParams {
 	public static final field Companion Lchat/bsky/moderation/GetMessageContextQueryParams$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Ljava/lang/Long;
+	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/Long;
-	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;)Lchat/bsky/moderation/GetMessageContextQueryParams;
-	public static synthetic fun copy$default (Lchat/bsky/moderation/GetMessageContextQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;ILjava/lang/Object;)Lchat/bsky/moderation/GetMessageContextQueryParams;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;)Lchat/bsky/moderation/GetMessageContextQueryParams;
+	public static synthetic fun copy$default (Lchat/bsky/moderation/GetMessageContextQueryParams;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;ILjava/lang/Object;)Lchat/bsky/moderation/GetMessageContextQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAfter ()Ljava/lang/Long;
 	public final fun getBefore ()Ljava/lang/Long;
+	public final fun getConvoId ()Ljava/lang/String;
 	public final fun getMessageId ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
