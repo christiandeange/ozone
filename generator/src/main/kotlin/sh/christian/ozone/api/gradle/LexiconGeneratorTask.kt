@@ -16,6 +16,13 @@ import sh.christian.ozone.api.generator.ApiConfiguration
 import sh.christian.ozone.api.generator.LexiconApiGenerator
 import sh.christian.ozone.api.generator.LexiconClassFileCreator
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
+import java.nio.file.FileSystems
+import java.nio.file.Files
+import java.nio.file.Path
+import java.util.stream.Collectors
+import kotlin.io.path.extension
+import kotlin.io.path.isRegularFile
+import kotlin.io.path.readText
 
 @CacheableTask
 abstract class LexiconGeneratorTask : DefaultTask() {
@@ -38,7 +45,9 @@ abstract class LexiconGeneratorTask : DefaultTask() {
     outputDir.mkdirs()
 
     val processingEnvironment = LexiconProcessingEnvironment(
-      allLexiconSchemaJsons = schemasClasspath.map { it.readText() },
+      allLexiconSchemaJsons = schemasClasspath.flatMap { inputFile ->
+        inputFile.toPath().findJsonFiles()
+      },
       outputDirectory = outputDir,
     )
 
@@ -57,5 +66,32 @@ abstract class LexiconGeneratorTask : DefaultTask() {
 
     lexiconClassFileCreator.generateSealedRelationshipMapping()
     lexiconApiGenerator.generateApis()
+  }
+
+  private fun Path.findJsonFiles(): List<String> {
+    return when (extension) {
+      "json" -> {
+        logger.info("Including lexicon schema: $this")
+        listOf(readText())
+      }
+
+      "jar" -> {
+        // Unzip jar and resolve all json files
+        logger.info("Including lexicon schemas from: $this")
+        FileSystems.newFileSystem(this, null as ClassLoader?).use { jar ->
+          jar.rootDirectories.flatMap { root ->
+            Files.walk(root)
+              .filter { it.isRegularFile() }
+              .collect(Collectors.toList())
+              .flatMap { it.findJsonFiles() }
+          }
+        }
+      }
+
+      else -> {
+        logger.info("Ignoring non-json file: $this")
+        emptyList()
+      }
+    }
   }
 }

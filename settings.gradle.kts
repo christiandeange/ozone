@@ -34,6 +34,7 @@ include(":app:web")
 include(":api-gen-runtime")
 include(":api-gen-runtime-internal")
 include(":bluesky")
+include(":lexicons")
 
 includeBuild("build-logic")
 includeBuild("generator")

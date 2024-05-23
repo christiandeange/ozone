@@ -31,7 +31,7 @@ kmmbridge {
 }
 
 dependencies {
-  lexicons(fileTree("lexicons") { include("**/*.json") })
+  lexicons(project(":lexicons"))
 }
 
 lexicons {
