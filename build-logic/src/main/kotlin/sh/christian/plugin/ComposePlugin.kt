@@ -13,6 +13,7 @@ class ComposePlugin : Plugin<Project> {
 
 private fun Project.applyPlugin() {
   plugins.apply("org.jetbrains.compose")
+  plugins.apply("org.jetbrains.kotlin.plugin.compose")
 
   project.kotlinExtension.apply {
     sourceSets.all {

@@ -1,21 +1,22 @@
 [versions]
-agp = "8.1.4"
+agp = "8.4.1"
 buildconfig = "4.1.2"
-compose = "1.6.1"
+compose = "1.6.11"
 dokka = "1.9.20"
-kmmbridge = "0.5.2"
-kotlin = "1.9.21"
-kotlinx-abi-plugin = "0.13.2"
-kotlinx-datetime = "0.5.0"
-kotlininject = "0.6.3"
-ksp = "1.9.21-1.0.15"
-ktor = "2.3.6"
-maven-publish = "0.25.3"
-moshi = "1.15.0"
+kmmbridge = "0.5.5"
+kotlin = "2.0.0"
+kotlinx-abi-plugin = "0.14.0"
+kotlinx-datetime = "0.6.0"
+kotlincompose = "2.0.0"
+kotlininject = "0.7.1"
+ksp = "2.0.0-1.0.22"
+ktor = "2.3.11"
+maven-publish = "0.27.0"
+moshi = "1.15.1"
 multiplatform-settings = "1.1.1"
-serialization = "1.6.2"
-skie = "0.6.2"
-workflow = "1.12.1-beta04"
+serialization = "1.7.0"
+skie = "0.8.2"
+workflow = "1.12.1-beta09"
 
 [libraries]
 agp = { module = "com.android.tools.build:gradle", version.ref = "agp" }
@@ -38,17 +39,17 @@ slf4j-simple = { module = "org.slf4j:slf4j-simple", version = "2.0.9" }
 kotlininject = { module = "me.tatarka.inject:kotlin-inject-runtime", version.ref = "kotlininject" }
 kotlininject-compiler = { module = "me.tatarka.inject:kotlin-inject-compiler-ksp", version.ref = "kotlininject" }
 
-kotlinpoet = { module = "com.squareup:kotlinpoet", version = "1.14.2" }
+kotlinpoet = { module = "com.squareup:kotlinpoet", version = "1.17.0" }
 moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
 moshi-adapters = { module = "com.squareup.moshi:moshi-adapters", version.ref = "moshi" }
 moshi-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }
-okio = { module = "com.squareup.okio:okio", version = "3.6.0" }
+okio = { module = "com.squareup.okio:okio", version = "3.9.0" }
 
 kotlinx-abi = { module = "org.jetbrains.kotlinx:binary-compatibility-validator", version.ref = "kotlinx-abi-plugin" }
-kotlinx-atomicfu = { module = "org.jetbrains.kotlinx:atomicfu", version = "0.22.0" }
-kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version = "1.7.3" }
+kotlinx-atomicfu = { module = "org.jetbrains.kotlinx:atomicfu", version = "0.24.0" }
+kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version = "1.8.1" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
-kotlinx-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version = "0.3.5" }
+kotlinx-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version = "0.3.7" }
 kotlinx-serialization-cbor = { module = "org.jetbrains.kotlinx:kotlinx-serialization-cbor", version.ref = "serialization" }
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "serialization" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }

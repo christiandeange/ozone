@@ -28,11 +28,3 @@ kotlin {
     }
   }
 }
-
-tasks.withType<KotlinWebpack>().configureEach {
-  devServer?.port = 3000
-}
-
-compose.experimental {
-  web.application {}
-}

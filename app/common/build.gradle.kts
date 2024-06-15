@@ -1,6 +1,4 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
-import org.jetbrains.kotlin.gradle.plugin.sources.android.findAndroidSourceSet
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
 plugins {
   kotlin("plugin.serialization")
@@ -84,7 +82,7 @@ dependencies {
   add("kspCommonMainMetadata", libs.kotlininject.compiler)
 }
 
-tasks.withType<KotlinCompile<*>>().configureEach {
+tasks.withType<KotlinCompilationTask<*>>().configureEach {
   if (name != "kspCommonMainKotlinMetadata") {
     dependsOn("kspCommonMainKotlinMetadata")
   }

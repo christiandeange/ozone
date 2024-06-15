@@ -14,7 +14,6 @@ class BasePlugin : Plugin<Project> {
 }
 
 private fun Project.applyPlugin() {
-  tasks.withType<JavaCompile>().configureEach { options.release.set(11) }
   tasks.withType<KotlinCompile>().configureEach { kotlinOptions.jvmTarget = "11" }
 
   project.kotlinExtension.jvmToolchain {

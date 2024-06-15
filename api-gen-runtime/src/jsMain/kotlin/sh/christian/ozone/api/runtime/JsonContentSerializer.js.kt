@@ -15,16 +15,16 @@ import kotlinx.serialization.json.JsonUnquotedLiteral
 import sh.christian.ozone.api.model.JsonContent
 
 actual object JsonContentSerializer : KSerializer<JsonContent> {
-  override val descriptor: SerialDescriptor =
+  actual override val descriptor: SerialDescriptor =
     PrimitiveSerialDescriptor("JsonContent", PrimitiveKind.STRING)
 
-  override fun deserialize(decoder: Decoder): JsonContent {
+  actual override fun deserialize(decoder: Decoder): JsonContent {
     decoder as JsonDecoder
     return JsonContent(decoder.decodeJsonElement().toString())
   }
 
   @OptIn(ExperimentalSerializationApi::class)
-  override fun serialize(encoder: Encoder, value: JsonContent) {
+  actual override fun serialize(encoder: Encoder, value: JsonContent) {
     encoder as JsonEncoder
     encoder.encodeJsonElement(JsonUnquotedLiteral(value.value))
   }
