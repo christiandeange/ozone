@@ -7,12 +7,11 @@ import app.bsky.notification.ListNotificationsReason.MENTION
 import app.bsky.notification.ListNotificationsReason.QUOTE
 import app.bsky.notification.ListNotificationsReason.REPLY
 import app.bsky.notification.ListNotificationsReason.REPOST
-import kotlinx.collections.immutable.ImmutableList
+import app.bsky.notification.ListNotificationsReason.UNKNOWN
 import kotlinx.serialization.Serializable
 import sh.christian.ozone.api.AtUri
 import sh.christian.ozone.api.Cid
 import sh.christian.ozone.api.model.ReadOnlyList
-import sh.christian.ozone.api.runtime.ImmutableListSerializer
 import sh.christian.ozone.model.Notification.Content.Followed
 import sh.christian.ozone.model.Notification.Content.Liked
 import sh.christian.ozone.model.Notification.Content.Mentioned
@@ -47,7 +46,7 @@ data class Notification(
       val post: TimelinePost,
     ) : Content
 
-    object Followed : Content
+    data object Followed : Content
 
     data class Mentioned(
       val post: TimelinePost,
@@ -63,6 +62,7 @@ data class Notification(
   }
 
   enum class Reason {
+    UNKNOWN,
     LIKE,
     REPOST,
     FOLLOW,
@@ -74,13 +74,14 @@ data class Notification(
 
 fun ListNotificationsNotification.toNotification(
   postsByUri: Map<AtUri, TimelinePost>,
-): Notification {
+): Notification? {
   val notificationPost by lazy {
     val postUri = getPostUri()!!
     postsByUri[postUri]
   }
 
   val (notificationReason, content) = when (reason) {
+    UNKNOWN -> return null
     LIKE -> Notification.Reason.LIKE to notificationPost?.let(::Liked)
     REPOST -> Notification.Reason.REPOST to notificationPost?.let(::Reposted)
     FOLLOW -> Notification.Reason.FOLLOW to Followed

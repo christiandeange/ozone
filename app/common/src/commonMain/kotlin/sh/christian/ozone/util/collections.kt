@@ -7,6 +7,10 @@ inline fun <T, R> Iterable<T>.mapImmutable(transform: (T) -> R): ImmutableList<R
   return map { transform(it) }.toImmutableList()
 }
 
+inline fun <T, R> Iterable<T>.mapNotNullImmutable(transform: (T) -> R?): ImmutableList<R> {
+  return mapNotNull { transform(it) }.toImmutableList()
+}
+
 inline fun <T, R> Iterable<T>.flatMapImmutable(transform: (T) -> Iterable<R>): ImmutableList<R> {
   return flatMap { transform(it) }.toImmutableList()
 }

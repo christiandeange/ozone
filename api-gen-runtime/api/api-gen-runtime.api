@@ -182,6 +182,10 @@ public final class sh/christian/ozone/api/Uri$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public abstract interface class sh/christian/ozone/api/model/AtpEnum {
+	public abstract fun getValue ()Ljava/lang/String;
+}
+
 public abstract interface class sh/christian/ozone/api/model/Blob {
 	public static final field Companion Lsh/christian/ozone/api/model/Blob$Companion;
 }
@@ -441,6 +445,15 @@ public final class sh/christian/ozone/api/runtime/AtIdentifierSerializer : kotli
 
 public final class sh/christian/ozone/api/runtime/BlobSerializer : kotlinx/serialization/json/JsonContentPolymorphicSerializer {
 	public static final field INSTANCE Lsh/christian/ozone/api/runtime/BlobSerializer;
+}
+
+public final class sh/christian/ozone/api/runtime/DefaultEnumKSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> (Ljava/lang/String;[Ljava/lang/Enum;Ljava/lang/Enum;)V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Enum;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Enum;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class sh/christian/ozone/api/runtime/ImmutableListSerializer : kotlinx/serialization/KSerializer {

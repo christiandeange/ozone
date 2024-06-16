@@ -65,7 +65,7 @@ class LexiconClassFileCreator(
     val enumFile = FileSpec.builder(context.authority, context.procedureName + "Token")
       .apply {
         enums.forEach { (className, enumNames) ->
-          addType(createEnumClass(className, enumNames))
+          addTypes(createEnumClass(className, enumNames))
         }
       }
       .build()

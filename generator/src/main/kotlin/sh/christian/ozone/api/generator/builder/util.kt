@@ -24,6 +24,7 @@ import com.squareup.kotlinpoet.buildCodeBlock
 import org.gradle.configurationcache.extensions.capitalized
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.TypeNames
+import sh.christian.ozone.api.generator.defaultEnumSerializer
 import sh.christian.ozone.api.generator.valueClassSerializer
 import sh.christian.ozone.api.lexicon.LexiconArray
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
@@ -219,24 +220,61 @@ fun createEnumClass(
   className: ClassName,
   values: Collection<String>,
   additionalConfiguration: TypeSpec.Builder.() -> Unit = {},
-): TypeSpec {
-  return TypeSpec.enumBuilder(className)
+): List<TypeSpec> {
+  val serializerClassName = className.peerClass(className.simpleName + "Serializer")
+  val serializerTypeSpec = TypeSpec.classBuilder(serializerClassName)
+    .addSuperinterface(
+      TypeNames.KSerializer.parameterizedBy(className),
+      CodeBlock.of("%M(%T.UNKNOWN)".trimIndent(), defaultEnumSerializer, className)
+    )
+    .build()
+
+  val enumClassTypeSpec = TypeSpec.enumBuilder(className)
+    .addAnnotation(
+      AnnotationSpec.builder(TypeNames.Serializable)
+        .addMember("with = %T::class", serializerClassName)
+        .build()
+    )
+    .addSuperinterface(TypeNames.AtpEnum)
+    .primaryConstructor(
+      FunSpec.constructorBuilder()
+        .addParameter(
+          ParameterSpec
+            .builder("value", STRING)
+            .build()
+        )
+        .build()
+    )
+    .addProperty(
+      PropertySpec
+        .builder("value", STRING)
+        .addModifiers(KModifier.OVERRIDE)
+        .initializer("value")
+        .build()
+    )
     .apply {
+      if ("unknown" !in values) {
+        addEnumConstant(
+          name = "UNKNOWN",
+          typeSpec = TypeSpec.anonymousClassBuilder()
+            .addSuperclassConstructorParameter("%S", "unknown")
+            .build(),
+        )
+      }
+
       values.forEach { value ->
         addEnumConstant(
           name = value.substringAfterLast('#').toEnumCase(),
           typeSpec = TypeSpec.anonymousClassBuilder()
-            .addAnnotation(
-              AnnotationSpec.builder(TypeNames.SerialName)
-                .addMember("%S", value)
-                .build()
-            )
+            .addSuperclassConstructorParameter("%S", value)
             .build(),
         )
       }
     }
     .apply(additionalConfiguration)
     .build()
+
+  return listOf(serializerTypeSpec, enumClassTypeSpec)
 }
 
 fun LexiconSingleReference.typeName(

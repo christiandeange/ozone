@@ -36,7 +36,7 @@ import sh.christian.ozone.model.Notifications
 import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.model.toNotification
 import sh.christian.ozone.model.toPost
-import sh.christian.ozone.util.mapImmutable
+import sh.christian.ozone.util.mapNotNullImmutable
 import kotlin.time.Duration.Companion.minutes
 
 @Inject
@@ -113,7 +113,7 @@ class NotificationsRepository(
         val posts = fetchPosts(response.response).associateBy { it.uri }
 
         val newNotifications = Notifications(
-          list = response.response.notifications.mapImmutable { it.toNotification(posts) },
+          list = response.response.notifications.mapNotNullImmutable { it.toNotification(posts) },
           cursor = response.response.cursor,
         )
 
@@ -158,6 +158,7 @@ class NotificationsRepository(
     private val EMPTY_VALUE = Notifications(persistentListOf(), null)
 
     fun ListNotificationsNotification.getPostUri(): AtUri? = when (reason) {
+      ListNotificationsReason.UNKNOWN -> null
       ListNotificationsReason.LIKE -> reasonSubject
       ListNotificationsReason.REPOST -> reasonSubject
       ListNotificationsReason.MENTION -> uri

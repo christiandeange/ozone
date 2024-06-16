@@ -14,13 +14,29 @@ public final class app/bsky/actor/AdultContentPref$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/actor/AllowIncoming : java/lang/Enum {
+public final class app/bsky/actor/AllowIncoming : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
 	public static final field ALL Lapp/bsky/actor/AllowIncoming;
+	public static final field Companion Lapp/bsky/actor/AllowIncoming$Companion;
 	public static final field FOLLOWING Lapp/bsky/actor/AllowIncoming;
 	public static final field NONE Lapp/bsky/actor/AllowIncoming;
+	public static final field UNKNOWN Lapp/bsky/actor/AllowIncoming;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/actor/AllowIncoming;
 	public static fun values ()[Lapp/bsky/actor/AllowIncoming;
+}
+
+public final class app/bsky/actor/AllowIncoming$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/AllowIncomingSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/actor/AllowIncoming;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/AllowIncoming;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/actor/ContentLabelPref {
@@ -259,12 +275,28 @@ public final class app/bsky/actor/MutedWord$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/actor/MutedWordTarget : java/lang/Enum {
+public final class app/bsky/actor/MutedWordTarget : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
 	public static final field CONTENT Lapp/bsky/actor/MutedWordTarget;
+	public static final field Companion Lapp/bsky/actor/MutedWordTarget$Companion;
 	public static final field TAG Lapp/bsky/actor/MutedWordTarget;
+	public static final field UNKNOWN Lapp/bsky/actor/MutedWordTarget;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/actor/MutedWordTarget;
 	public static fun values ()[Lapp/bsky/actor/MutedWordTarget;
+}
+
+public final class app/bsky/actor/MutedWordTarget$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/MutedWordTargetSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/actor/MutedWordTarget;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/MutedWordTarget;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/actor/MutedWordsPref {
@@ -950,14 +982,30 @@ public final class app/bsky/actor/SearchActorsTypeaheadResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/actor/Sort : java/lang/Enum {
+public final class app/bsky/actor/Sort : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/actor/Sort$Companion;
 	public static final field MOST_LIKES Lapp/bsky/actor/Sort;
 	public static final field NEWEST Lapp/bsky/actor/Sort;
 	public static final field OLDEST Lapp/bsky/actor/Sort;
 	public static final field RANDOM Lapp/bsky/actor/Sort;
+	public static final field UNKNOWN Lapp/bsky/actor/Sort;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/actor/Sort;
 	public static fun values ()[Lapp/bsky/actor/Sort;
+}
+
+public final class app/bsky/actor/Sort$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/SortSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/actor/Sort;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/Sort;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/actor/ThreadViewPref {
@@ -980,13 +1028,29 @@ public final class app/bsky/actor/ThreadViewPref$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/actor/Type : java/lang/Enum {
+public final class app/bsky/actor/Type : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/actor/Type$Companion;
 	public static final field FEED Lapp/bsky/actor/Type;
 	public static final field LIST Lapp/bsky/actor/Type;
 	public static final field TIMELINE Lapp/bsky/actor/Type;
+	public static final field UNKNOWN Lapp/bsky/actor/Type;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/actor/Type;
 	public static fun values ()[Lapp/bsky/actor/Type;
+}
+
+public final class app/bsky/actor/Type$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/TypeSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/actor/Type;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/Type;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/actor/ViewerState {
@@ -1018,14 +1082,30 @@ public final class app/bsky/actor/ViewerState$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/actor/Visibility : java/lang/Enum {
+public final class app/bsky/actor/Visibility : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/actor/Visibility$Companion;
 	public static final field HIDE Lapp/bsky/actor/Visibility;
 	public static final field IGNORE Lapp/bsky/actor/Visibility;
 	public static final field SHOW Lapp/bsky/actor/Visibility;
+	public static final field UNKNOWN Lapp/bsky/actor/Visibility;
 	public static final field WARN Lapp/bsky/actor/Visibility;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/actor/Visibility;
 	public static fun values ()[Lapp/bsky/actor/Visibility;
+}
+
+public final class app/bsky/actor/Visibility$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/VisibilitySerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/actor/Visibility;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/Visibility;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/embed/External {
@@ -2127,14 +2207,30 @@ public final class app/bsky/feed/GetActorLikesResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/feed/GetAuthorFeedFilter : java/lang/Enum {
+public final class app/bsky/feed/GetAuthorFeedFilter : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/feed/GetAuthorFeedFilter$Companion;
 	public static final field POSTS_AND_AUTHOR_THREADS Lapp/bsky/feed/GetAuthorFeedFilter;
 	public static final field POSTS_NO_REPLIES Lapp/bsky/feed/GetAuthorFeedFilter;
 	public static final field POSTS_WITH_MEDIA Lapp/bsky/feed/GetAuthorFeedFilter;
 	public static final field POSTS_WITH_REPLIES Lapp/bsky/feed/GetAuthorFeedFilter;
+	public static final field UNKNOWN Lapp/bsky/feed/GetAuthorFeedFilter;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/feed/GetAuthorFeedFilter;
 	public static fun values ()[Lapp/bsky/feed/GetAuthorFeedFilter;
+}
+
+public final class app/bsky/feed/GetAuthorFeedFilter$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/feed/GetAuthorFeedFilterSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/feed/GetAuthorFeedFilter;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/feed/GetAuthorFeedFilter;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/feed/GetAuthorFeedQueryParams {
@@ -3464,12 +3560,28 @@ public final class app/bsky/feed/SearchPostsResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/feed/SearchPostsSort : java/lang/Enum {
+public final class app/bsky/feed/SearchPostsSort : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/feed/SearchPostsSort$Companion;
 	public static final field LATEST Lapp/bsky/feed/SearchPostsSort;
 	public static final field TOP Lapp/bsky/feed/SearchPostsSort;
+	public static final field UNKNOWN Lapp/bsky/feed/SearchPostsSort;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/feed/SearchPostsSort;
 	public static fun values ()[Lapp/bsky/feed/SearchPostsSort;
+}
+
+public final class app/bsky/feed/SearchPostsSort$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/feed/SearchPostsSortSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/feed/SearchPostsSort;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/feed/SearchPostsSort;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/feed/SendInteractionsRequest {
@@ -3933,11 +4045,12 @@ public final class app/bsky/feed/ThreadgateView$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/feed/Token : java/lang/Enum {
+public final class app/bsky/feed/Token : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
 	public static final field CLICKTHROUGH_AUTHOR Lapp/bsky/feed/Token;
 	public static final field CLICKTHROUGH_EMBED Lapp/bsky/feed/Token;
 	public static final field CLICKTHROUGH_ITEM Lapp/bsky/feed/Token;
 	public static final field CLICKTHROUGH_REPOSTER Lapp/bsky/feed/Token;
+	public static final field Companion Lapp/bsky/feed/Token$Companion;
 	public static final field INTERACTION_LIKE Lapp/bsky/feed/Token;
 	public static final field INTERACTION_QUOTE Lapp/bsky/feed/Token;
 	public static final field INTERACTION_REPLY Lapp/bsky/feed/Token;
@@ -3946,9 +4059,24 @@ public final class app/bsky/feed/Token : java/lang/Enum {
 	public static final field INTERACTION_SHARE Lapp/bsky/feed/Token;
 	public static final field REQUEST_LESS Lapp/bsky/feed/Token;
 	public static final field REQUEST_MORE Lapp/bsky/feed/Token;
+	public static final field UNKNOWN Lapp/bsky/feed/Token;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/feed/Token;
 	public static fun values ()[Lapp/bsky/feed/Token;
+}
+
+public final class app/bsky/feed/Token$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/feed/TokenSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/feed/Token;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/feed/Token;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/feed/ViewerState {
@@ -4753,12 +4881,28 @@ public final class app/bsky/graph/Relationship$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/graph/Token : java/lang/Enum {
+public final class app/bsky/graph/Token : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
 	public static final field CURATELIST Lapp/bsky/graph/Token;
+	public static final field Companion Lapp/bsky/graph/Token$Companion;
 	public static final field MODLIST Lapp/bsky/graph/Token;
+	public static final field UNKNOWN Lapp/bsky/graph/Token;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/graph/Token;
 	public static fun values ()[Lapp/bsky/graph/Token;
+}
+
+public final class app/bsky/graph/Token$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/graph/TokenSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/graph/Token;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/graph/Token;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/graph/UnmuteActorListRequest {
@@ -5137,16 +5281,32 @@ public final class app/bsky/notification/ListNotificationsQueryParams$Companion 
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/notification/ListNotificationsReason : java/lang/Enum {
+public final class app/bsky/notification/ListNotificationsReason : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/notification/ListNotificationsReason$Companion;
 	public static final field FOLLOW Lapp/bsky/notification/ListNotificationsReason;
 	public static final field LIKE Lapp/bsky/notification/ListNotificationsReason;
 	public static final field MENTION Lapp/bsky/notification/ListNotificationsReason;
 	public static final field QUOTE Lapp/bsky/notification/ListNotificationsReason;
 	public static final field REPLY Lapp/bsky/notification/ListNotificationsReason;
 	public static final field REPOST Lapp/bsky/notification/ListNotificationsReason;
+	public static final field UNKNOWN Lapp/bsky/notification/ListNotificationsReason;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/notification/ListNotificationsReason;
 	public static fun values ()[Lapp/bsky/notification/ListNotificationsReason;
+}
+
+public final class app/bsky/notification/ListNotificationsReason$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/ListNotificationsReasonSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/notification/ListNotificationsReason;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/notification/ListNotificationsReason;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/notification/ListNotificationsResponse {
@@ -5170,13 +5330,29 @@ public final class app/bsky/notification/ListNotificationsResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/notification/RegisterPushPlatform : java/lang/Enum {
+public final class app/bsky/notification/RegisterPushPlatform : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
 	public static final field ANDROID Lapp/bsky/notification/RegisterPushPlatform;
+	public static final field Companion Lapp/bsky/notification/RegisterPushPlatform$Companion;
 	public static final field IOS Lapp/bsky/notification/RegisterPushPlatform;
+	public static final field UNKNOWN Lapp/bsky/notification/RegisterPushPlatform;
 	public static final field WEB Lapp/bsky/notification/RegisterPushPlatform;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/notification/RegisterPushPlatform;
 	public static fun values ()[Lapp/bsky/notification/RegisterPushPlatform;
+}
+
+public final class app/bsky/notification/RegisterPushPlatform$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/RegisterPushPlatformSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/notification/RegisterPushPlatform;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/notification/RegisterPushPlatform;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/notification/RegisterPushRequest {
@@ -5492,12 +5668,28 @@ public final class app/bsky/unspecced/GetTaggedSuggestionsResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/unspecced/GetTaggedSuggestionsSubjectType : java/lang/Enum {
+public final class app/bsky/unspecced/GetTaggedSuggestionsSubjectType : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
 	public static final field ACTOR Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;
+	public static final field Companion Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType$Companion;
 	public static final field FEED Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;
+	public static final field UNKNOWN Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;
 	public static fun values ()[Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;
+}
+
+public final class app/bsky/unspecced/GetTaggedSuggestionsSubjectType$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetTaggedSuggestionsSubjectTypeSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/unspecced/GetTaggedSuggestionsSuggestion {
@@ -5630,12 +5822,28 @@ public final class app/bsky/unspecced/SearchPostsSkeletonResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/unspecced/SearchPostsSkeletonSort : java/lang/Enum {
+public final class app/bsky/unspecced/SearchPostsSkeletonSort : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/unspecced/SearchPostsSkeletonSort$Companion;
 	public static final field LATEST Lapp/bsky/unspecced/SearchPostsSkeletonSort;
 	public static final field TOP Lapp/bsky/unspecced/SearchPostsSkeletonSort;
+	public static final field UNKNOWN Lapp/bsky/unspecced/SearchPostsSkeletonSort;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/unspecced/SearchPostsSkeletonSort;
 	public static fun values ()[Lapp/bsky/unspecced/SearchPostsSkeletonSort;
+}
+
+public final class app/bsky/unspecced/SearchPostsSkeletonSort$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/SearchPostsSkeletonSortSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/unspecced/SearchPostsSkeletonSort;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/unspecced/SearchPostsSkeletonSort;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/unspecced/SkeletonSearchActor {
@@ -5686,13 +5894,29 @@ public final class chat/bsky/actor/Declaration$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class chat/bsky/actor/DeclarationAllowIncoming : java/lang/Enum {
+public final class chat/bsky/actor/DeclarationAllowIncoming : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
 	public static final field ALL Lchat/bsky/actor/DeclarationAllowIncoming;
+	public static final field Companion Lchat/bsky/actor/DeclarationAllowIncoming$Companion;
 	public static final field FOLLOWING Lchat/bsky/actor/DeclarationAllowIncoming;
 	public static final field NONE Lchat/bsky/actor/DeclarationAllowIncoming;
+	public static final field UNKNOWN Lchat/bsky/actor/DeclarationAllowIncoming;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lchat/bsky/actor/DeclarationAllowIncoming;
 	public static fun values ()[Lchat/bsky/actor/DeclarationAllowIncoming;
+}
+
+public final class chat/bsky/actor/DeclarationAllowIncoming$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/actor/DeclarationAllowIncomingSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/actor/DeclarationAllowIncoming;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/actor/DeclarationAllowIncoming;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class chat/bsky/actor/DeleteAccountResponse {
@@ -7179,12 +7403,28 @@ public final class com/atproto/admin/GetInviteCodesResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/admin/GetInviteCodesSort : java/lang/Enum {
+public final class com/atproto/admin/GetInviteCodesSort : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lcom/atproto/admin/GetInviteCodesSort$Companion;
 	public static final field RECENT Lcom/atproto/admin/GetInviteCodesSort;
+	public static final field UNKNOWN Lcom/atproto/admin/GetInviteCodesSort;
 	public static final field USAGE Lcom/atproto/admin/GetInviteCodesSort;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/admin/GetInviteCodesSort;
 	public static fun values ()[Lcom/atproto/admin/GetInviteCodesSort;
+}
+
+public final class com/atproto/admin/GetInviteCodesSort$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/GetInviteCodesSortSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/admin/GetInviteCodesSort;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/admin/GetInviteCodesSort;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class com/atproto/admin/GetSubjectStatusQueryParams {
@@ -7824,22 +8064,54 @@ public final class com/atproto/identity/UpdateHandleRequest$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/label/Blurs : java/lang/Enum {
+public final class com/atproto/label/Blurs : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
 	public static final field CONTENT Lcom/atproto/label/Blurs;
+	public static final field Companion Lcom/atproto/label/Blurs$Companion;
 	public static final field MEDIA Lcom/atproto/label/Blurs;
 	public static final field NONE Lcom/atproto/label/Blurs;
+	public static final field UNKNOWN Lcom/atproto/label/Blurs;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/label/Blurs;
 	public static fun values ()[Lcom/atproto/label/Blurs;
 }
 
-public final class com/atproto/label/DefaultSetting : java/lang/Enum {
+public final class com/atproto/label/Blurs$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/label/BlursSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/label/Blurs;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/label/Blurs;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class com/atproto/label/DefaultSetting : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lcom/atproto/label/DefaultSetting$Companion;
 	public static final field HIDE Lcom/atproto/label/DefaultSetting;
 	public static final field IGNORE Lcom/atproto/label/DefaultSetting;
+	public static final field UNKNOWN Lcom/atproto/label/DefaultSetting;
 	public static final field WARN Lcom/atproto/label/DefaultSetting;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/label/DefaultSetting;
 	public static fun values ()[Lcom/atproto/label/DefaultSetting;
+}
+
+public final class com/atproto/label/DefaultSetting$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/label/DefaultSettingSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/label/DefaultSetting;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/label/DefaultSetting;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class com/atproto/label/Label {
@@ -7875,7 +8147,8 @@ public final class com/atproto/label/Label$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/label/LabelValue : java/lang/Enum {
+public final class com/atproto/label/LabelValue : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lcom/atproto/label/LabelValue$Companion;
 	public static final field DMCA_VIOLATION Lcom/atproto/label/LabelValue;
 	public static final field DOXXING Lcom/atproto/label/LabelValue;
 	public static final field GORE Lcom/atproto/label/LabelValue;
@@ -7886,10 +8159,16 @@ public final class com/atproto/label/LabelValue : java/lang/Enum {
 	public static final field NUDITY Lcom/atproto/label/LabelValue;
 	public static final field PORN Lcom/atproto/label/LabelValue;
 	public static final field SEXUAL Lcom/atproto/label/LabelValue;
+	public static final field UNKNOWN Lcom/atproto/label/LabelValue;
 	public static final field WARN Lcom/atproto/label/LabelValue;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/label/LabelValue;
 	public static fun values ()[Lcom/atproto/label/LabelValue;
+}
+
+public final class com/atproto/label/LabelValue$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/atproto/label/LabelValueDefinition {
@@ -7937,6 +8216,15 @@ public final class com/atproto/label/LabelValueDefinitionStrings {
 
 public final class com/atproto/label/LabelValueDefinitionStrings$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/label/LabelValueSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/label/LabelValue;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/label/LabelValue;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class com/atproto/label/QueryLabelsQueryParams {
@@ -8014,13 +8302,29 @@ public final class com/atproto/label/SelfLabels$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/label/Severity : java/lang/Enum {
+public final class com/atproto/label/Severity : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
 	public static final field ALERT Lcom/atproto/label/Severity;
+	public static final field Companion Lcom/atproto/label/Severity$Companion;
 	public static final field INFORM Lcom/atproto/label/Severity;
 	public static final field NONE Lcom/atproto/label/Severity;
+	public static final field UNKNOWN Lcom/atproto/label/Severity;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/label/Severity;
 	public static fun values ()[Lcom/atproto/label/Severity;
+}
+
+public final class com/atproto/label/Severity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/label/SeveritySerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/label/Severity;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/label/Severity;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class com/atproto/label/SubscribeLabelsInfo {
@@ -8124,11 +8428,27 @@ public final class com/atproto/label/SubscribeLabelsMessageUnion$LabelsSerialize
 	public fun serialize-gfcx7Io (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/label/SubscribeLabelsLabels;)V
 }
 
-public final class com/atproto/label/SubscribeLabelsName : java/lang/Enum {
+public final class com/atproto/label/SubscribeLabelsName : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lcom/atproto/label/SubscribeLabelsName$Companion;
 	public static final field OUTDATED_CURSOR Lcom/atproto/label/SubscribeLabelsName;
+	public static final field UNKNOWN Lcom/atproto/label/SubscribeLabelsName;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/label/SubscribeLabelsName;
 	public static fun values ()[Lcom/atproto/label/SubscribeLabelsName;
+}
+
+public final class com/atproto/label/SubscribeLabelsName$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/label/SubscribeLabelsNameSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/label/SubscribeLabelsName;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/label/SubscribeLabelsName;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class com/atproto/label/SubscribeLabelsQueryParams {
@@ -8326,7 +8646,8 @@ public final class com/atproto/moderation/CreateReportResponseSubjectUnion$RepoS
 	public fun serialize-yTMDtwI (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
 }
 
-public final class com/atproto/moderation/Token : java/lang/Enum {
+public final class com/atproto/moderation/Token : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lcom/atproto/moderation/Token$Companion;
 	public static final field REASON_APPEAL Lcom/atproto/moderation/Token;
 	public static final field REASON_MISLEADING Lcom/atproto/moderation/Token;
 	public static final field REASON_OTHER Lcom/atproto/moderation/Token;
@@ -8334,9 +8655,24 @@ public final class com/atproto/moderation/Token : java/lang/Enum {
 	public static final field REASON_SEXUAL Lcom/atproto/moderation/Token;
 	public static final field REASON_SPAM Lcom/atproto/moderation/Token;
 	public static final field REASON_VIOLATION Lcom/atproto/moderation/Token;
+	public static final field UNKNOWN Lcom/atproto/moderation/Token;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/moderation/Token;
 	public static fun values ()[Lcom/atproto/moderation/Token;
+}
+
+public final class com/atproto/moderation/Token$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/moderation/TokenSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/moderation/Token;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/moderation/Token;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class com/atproto/repo/ApplyWritesCreate {
@@ -9886,13 +10222,29 @@ public final class com/atproto/sync/RequestCrawlRequest$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/sync/SubscribeReposAction : java/lang/Enum {
+public final class com/atproto/sync/SubscribeReposAction : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
 	public static final field CREATE Lcom/atproto/sync/SubscribeReposAction;
+	public static final field Companion Lcom/atproto/sync/SubscribeReposAction$Companion;
 	public static final field DELETE Lcom/atproto/sync/SubscribeReposAction;
+	public static final field UNKNOWN Lcom/atproto/sync/SubscribeReposAction;
 	public static final field UPDATE Lcom/atproto/sync/SubscribeReposAction;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/sync/SubscribeReposAction;
 	public static fun values ()[Lcom/atproto/sync/SubscribeReposAction;
+}
+
+public final class com/atproto/sync/SubscribeReposAction$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/sync/SubscribeReposActionSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/sync/SubscribeReposAction;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/sync/SubscribeReposAction;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class com/atproto/sync/SubscribeReposCommit {
@@ -10192,11 +10544,27 @@ public final class com/atproto/sync/SubscribeReposMigrate$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/sync/SubscribeReposName : java/lang/Enum {
+public final class com/atproto/sync/SubscribeReposName : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lcom/atproto/sync/SubscribeReposName$Companion;
 	public static final field OUTDATED_CURSOR Lcom/atproto/sync/SubscribeReposName;
+	public static final field UNKNOWN Lcom/atproto/sync/SubscribeReposName;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/sync/SubscribeReposName;
 	public static fun values ()[Lcom/atproto/sync/SubscribeReposName;
+}
+
+public final class com/atproto/sync/SubscribeReposName$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/sync/SubscribeReposNameSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/sync/SubscribeReposName;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/sync/SubscribeReposName;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class com/atproto/sync/SubscribeReposQueryParams {
@@ -13223,14 +13591,30 @@ public final class tools/ozone/moderation/SubjectStatusViewSubjectUnion$RepoStro
 	public fun serialize-tvYlcjQ (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
 }
 
-public final class tools/ozone/moderation/Token : java/lang/Enum {
+public final class tools/ozone/moderation/Token : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/moderation/Token$Companion;
 	public static final field REVIEW_CLOSED Ltools/ozone/moderation/Token;
 	public static final field REVIEW_ESCALATED Ltools/ozone/moderation/Token;
 	public static final field REVIEW_NONE Ltools/ozone/moderation/Token;
 	public static final field REVIEW_OPEN Ltools/ozone/moderation/Token;
+	public static final field UNKNOWN Ltools/ozone/moderation/Token;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Ltools/ozone/moderation/Token;
 	public static fun values ()[Ltools/ozone/moderation/Token;
+}
+
+public final class tools/ozone/moderation/Token$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/TokenSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/moderation/Token;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/Token;)V
 }
 
 public final class tools/ozone/moderation/VideoDetails {

@@ -6,6 +6,7 @@ import kotlin.properties.ReadOnlyProperty
 object TypeNames {
   val AtIdentifier by classOfPackage("sh.christian.ozone.api")
   val AtUri by classOfPackage("sh.christian.ozone.api")
+  val AtpEnum by classOfPackage("sh.christian.ozone.api.model")
   val AtpResponse by classOfPackage("sh.christian.ozone.api.response")
   val Blob by classOfPackage("sh.christian.ozone.api.model")
   val ByteString by classOfPackage("kotlinx.serialization.cbor")

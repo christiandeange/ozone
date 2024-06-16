@@ -3,6 +3,8 @@ package sh.christian.ozone.api.generator
 import com.squareup.kotlinpoet.MemberName
 import kotlin.properties.ReadOnlyProperty
 
+val defaultEnumSerializer by memberOfPackage("sh.christian.ozone.api.runtime")
+
 val defaultHttpClient by memberOfPackage("sh.christian.ozone.api.xrpc")
 
 val findSubscriptionSerializer by memberOfPackage("sh.christian.ozone.api.xrpc")
