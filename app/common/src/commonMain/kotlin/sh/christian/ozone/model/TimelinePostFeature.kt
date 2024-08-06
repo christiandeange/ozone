@@ -156,5 +156,11 @@ private fun RecordViewRecordUnion.toEmbedPost(): EmbedPost {
         uri = value.uri,
       )
     }
+    is RecordViewRecordUnion.GraphStarterPackViewBasic -> {
+      // TODO support starter pack views.
+      InvisibleEmbedPost(
+        uri = value.uri,
+      )
+    }
   }
 }

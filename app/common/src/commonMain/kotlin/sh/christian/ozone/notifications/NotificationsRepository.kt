@@ -165,6 +165,7 @@ class NotificationsRepository(
       ListNotificationsReason.REPLY -> uri
       ListNotificationsReason.QUOTE -> uri
       ListNotificationsReason.FOLLOW -> null
+      ListNotificationsReason.STARTERPACK_JOINED -> null
     }
   }
 }

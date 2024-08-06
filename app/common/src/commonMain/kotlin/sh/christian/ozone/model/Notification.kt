@@ -1,18 +1,14 @@
 package sh.christian.ozone.model
 
 import app.bsky.notification.ListNotificationsNotification
-import app.bsky.notification.ListNotificationsReason.FOLLOW
-import app.bsky.notification.ListNotificationsReason.LIKE
-import app.bsky.notification.ListNotificationsReason.MENTION
-import app.bsky.notification.ListNotificationsReason.QUOTE
-import app.bsky.notification.ListNotificationsReason.REPLY
-import app.bsky.notification.ListNotificationsReason.REPOST
-import app.bsky.notification.ListNotificationsReason.UNKNOWN
+import app.bsky.notification.ListNotificationsReason
+import app.bsky.notification.ListNotificationsReason.*
 import kotlinx.serialization.Serializable
 import sh.christian.ozone.api.AtUri
 import sh.christian.ozone.api.Cid
 import sh.christian.ozone.api.model.ReadOnlyList
 import sh.christian.ozone.model.Notification.Content.Followed
+import sh.christian.ozone.model.Notification.Content.JoinedStarterPack
 import sh.christian.ozone.model.Notification.Content.Liked
 import sh.christian.ozone.model.Notification.Content.Mentioned
 import sh.christian.ozone.model.Notification.Content.Quoted
@@ -59,6 +55,8 @@ data class Notification(
     data class Quoted(
       val post: TimelinePost,
     ) : Content
+
+    data object JoinedStarterPack : Content
   }
 
   enum class Reason {
@@ -69,6 +67,7 @@ data class Notification(
     MENTION,
     REPLY,
     QUOTE,
+    JOINED_STARTERPACK,
   }
 }
 
@@ -88,6 +87,7 @@ fun ListNotificationsNotification.toNotification(
     MENTION -> Notification.Reason.MENTION to notificationPost?.let(::Mentioned)
     REPLY -> Notification.Reason.REPLY to notificationPost?.let(::RepliedTo)
     QUOTE -> Notification.Reason.QUOTE to notificationPost?.let(::Quoted)
+    STARTERPACK_JOINED -> Notification.Reason.JOINED_STARTERPACK to JoinedStarterPack
   }
 
   return Notification(

@@ -27,6 +27,7 @@ import sh.christian.ozone.compose.PostReplyInfo
 import sh.christian.ozone.model.Moment
 import sh.christian.ozone.model.Notification
 import sh.christian.ozone.notifications.type.FollowRow
+import sh.christian.ozone.notifications.type.JoinedStarterPackRow
 import sh.christian.ozone.notifications.type.LikeRow
 import sh.christian.ozone.notifications.type.MentionRow
 import sh.christian.ozone.notifications.type.QuoteRow
@@ -102,6 +103,7 @@ class NotificationsScreen(
                   is Notification.Content.Quoted -> QuoteRow(context, content)
                   is Notification.Content.RepliedTo -> ReplyRow(context, content)
                   is Notification.Content.Reposted -> RepostRow(context, notification, content)
+                  is Notification.Content.JoinedStarterPack -> JoinedStarterPackRow(context, notification)
                   null -> Unit
                 }
               }
