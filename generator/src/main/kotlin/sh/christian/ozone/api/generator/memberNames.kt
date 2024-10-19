@@ -5,6 +5,8 @@ import kotlin.properties.ReadOnlyProperty
 
 val defaultEnumSerializer by memberOfPackage("sh.christian.ozone.api.runtime")
 
+val stringEnumSerializer by memberOfPackage("sh.christian.ozone.api.runtime")
+
 val defaultHttpClient by memberOfPackage("sh.christian.ozone.api.xrpc")
 
 val findSubscriptionSerializer by memberOfPackage("sh.christian.ozone.api.xrpc")

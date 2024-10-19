@@ -27,7 +27,7 @@ fun GeneratorContext.primitiveDefaultValue(
     primitive.default?.let { default ->
       if (primitive.isEnumValues()) {
         val enumClassName = ClassName(authority, classPrefix + propertyName.capitalized())
-        CodeBlock.of("%T.%N", enumClassName, default.substringAfterLast('#').toEnumCase())
+        CodeBlock.of("%T.%N", enumClassName, default.substringAfterLast('#').toPascalCase())
       } else {
         when (primitive.format) {
           LexiconStringFormat.DATETIME -> CodeBlock.of("%T(%S)", TypeNames.Timestamp, default)

@@ -25,6 +25,7 @@ import org.gradle.configurationcache.extensions.capitalized
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.TypeNames
 import sh.christian.ozone.api.generator.defaultEnumSerializer
+import sh.christian.ozone.api.generator.stringEnumSerializer
 import sh.christian.ozone.api.generator.valueClassSerializer
 import sh.christian.ozone.api.lexicon.LexiconArray
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
@@ -214,6 +215,106 @@ fun createObjectClass(
     .addAnnotation(TypeNames.Serializable)
     .addDescription(description)
     .build()
+}
+
+fun createOpenEnumClass(
+  className: ClassName,
+  values: Collection<String>,
+): List<TypeSpec> {
+  
+  val serializerClassName = className.peerClass(className.simpleName + "Serializer")
+  val serializerTypeSpec = TypeSpec.classBuilder(serializerClassName)
+    .addSuperinterface(
+      TypeNames.KSerializer.parameterizedBy(className),
+      CodeBlock.of("%M(%T::safeValueOf)".trimIndent(), stringEnumSerializer, className)
+    )
+    .build()
+  
+  val formattedNames = values.associateWith { value ->
+    value.substringAfterLast('#').toPascalCase()
+  }
+  
+  val sealedClass = TypeSpec.classBuilder(className)
+    .addModifiers(KModifier.SEALED)
+    .addAnnotation(
+      AnnotationSpec.builder(TypeNames.Serializable)
+        .addMember("with = %T::class", serializerClassName)
+        .build()
+    )
+    .primaryConstructor(
+      FunSpec.constructorBuilder()
+        .addParameter("value", STRING)
+        .build()
+    )
+    .addProperty(
+      PropertySpec.builder("value", STRING, KModifier.OVERRIDE)
+        .initializer("value")
+        .build()
+    )
+    .addSuperinterface(TypeNames.AtpEnum)
+  
+  val safeValueOfControlFlow = CodeBlock.builder()
+    .beginControlFlow("return when (value)")
+  
+  
+  formattedNames.forEach { (value, formatted) ->
+    safeValueOfControlFlow.addStatement("%S -> %L", value, formatted)
+    sealedClass.addType(
+      TypeSpec.objectBuilder(formatted)
+        .addModifiers(KModifier.DATA)
+        .superclass(className)
+        .addSuperclassConstructorParameter("%S", value)
+        .build()
+    )
+  }
+  
+  // avoid conflicting names by appending _ to the unknown name
+  val safeUnknownEntryName = "Unknown".let {
+    if (it in formattedNames.values) "_$it" else it
+  }
+  
+  sealedClass.addType(
+    TypeSpec.classBuilder(safeUnknownEntryName)
+      .addModifiers(KModifier.DATA)
+      .primaryConstructor(
+        FunSpec.constructorBuilder()
+          .addParameter(
+            ParameterSpec
+              .builder("rawValue", STRING)
+              .build()
+          )
+          .build()
+      )
+      .addProperty(
+        PropertySpec.builder("rawValue", STRING)
+          .initializer("rawValue")
+          .build()
+      )
+      .superclass(className)
+      .addSuperclassConstructorParameter("""rawValue""")
+      .build()
+  )
+  
+  sealedClass.addType(
+    TypeSpec.companionObjectBuilder()
+      .addFunction(
+        FunSpec.builder("safeValueOf")
+          .addParameter(
+            ParameterSpec.builder("value", STRING).build()
+          )
+          .returns(className)
+          .addCode(
+            safeValueOfControlFlow
+              .addStatement("else -> $safeUnknownEntryName(value)", className)
+              .endControlFlow()
+              .build()
+          )
+          .build()
+      )
+      .build()
+  )
+  
+  return listOf(serializerTypeSpec, sealedClass.build())
 }
 
 fun createEnumClass(
@@ -416,6 +517,12 @@ fun String.toEnumCase(): String {
 
   return CAMEL_CASE_REGEX.replace(sanitized) { "_${it.value}" }.uppercase().replace('-', '_')
 }
+
+fun String.toPascalCase() = toEnumCase()
+  .split('_')
+  .joinToString("") { s ->
+    s.lowercase().replaceFirstChar { it.uppercase() }
+  }
 
 internal fun <T> T.addDescription(description: String?): T
     where T : Annotatable.Builder<T>,

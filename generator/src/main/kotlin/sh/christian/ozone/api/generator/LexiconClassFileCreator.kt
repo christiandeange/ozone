@@ -16,7 +16,7 @@ import sh.christian.ozone.api.generator.builder.SealedRelationship
 import sh.christian.ozone.api.generator.builder.TypesGenerator
 import sh.christian.ozone.api.generator.builder.XrpcBodyGenerator
 import sh.christian.ozone.api.generator.builder.XrpcQueryParamsGenerator
-import sh.christian.ozone.api.generator.builder.createEnumClass
+import sh.christian.ozone.api.generator.builder.createOpenEnumClass
 import sh.christian.ozone.api.lexicon.LexiconDocument
 
 class LexiconClassFileCreator(
@@ -65,7 +65,7 @@ class LexiconClassFileCreator(
     val enumFile = FileSpec.builder(context.authority, context.procedureName + "Token")
       .apply {
         enums.forEach { (className, enumNames) ->
-          addTypes(createEnumClass(className, enumNames))
+          createOpenEnumClass(className, enumNames).forEach { addType(it) }
         }
       }
       .build()
