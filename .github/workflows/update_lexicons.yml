@@ -8,7 +8,7 @@ on:
 jobs:
   update-lexicons:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
 
     permissions:
       contents: write
@@ -21,13 +21,13 @@ jobs:
           java-version: '17'
           check-latest: true
 
-      - name: Clone atproto repository
+      - name: Clone ATProto Repository
         uses: actions/checkout@v3
         with:
           repository: bluesky-social/atproto
           path: tmp-atproto
 
-      - name: Overwrite lexicons
+      - name: Overwrite Lexicons
         run: |
           rm -rf lexicons/schemas
           cp -R tmp-atproto/lexicons lexicons/schemas
@@ -46,9 +46,21 @@ jobs:
         if: steps.changed-files.outputs.files_changed == 'true'
         run: ./gradlew clean apiDump :app:desktop:assemble --no-daemon --stacktrace
 
-#      - name: Commit changes
-#        uses: stefanzweifel/git-auto-commit-action@v4
-#        if: steps.changed-files.outputs.files_changed == 'true'
-#        with:
-#          commit_message: Update lexicons from atproto
-#          file_pattern: '*.api lexicons/schemas/**'
+      - uses: actions-ecosystem/action-get-latest-tag@v1
+        if: steps.changed-files.outputs.files_changed == 'true'
+        id: get-latest-tag
+
+      - uses: actions-ecosystem/action-bump-semver@v1
+        if: steps.changed-files.outputs.files_changed == 'true'
+        id: bump-semver
+        with:
+          current_version: ${{ steps.get-latest-tag.outputs.tag }}
+          level: patch
+
+      - name: Commit Changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        if: steps.changed-files.outputs.files_changed == 'true'
+        with:
+          commit_message: Update lexicons from atproto
+          tagging_message: ${{ steps.bump-semver.outputs.new_version }}
+          file_pattern: '*.api lexicons/schemas/**'
