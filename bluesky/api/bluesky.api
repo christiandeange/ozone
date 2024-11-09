@@ -12176,7 +12176,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getUploadLimits (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getValues (Ltools/ozone/set/GetValuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun importRepo (Lkotlin/Unit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun importRepo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun leaveConvo (Lchat/bsky/convo/LeaveConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listBlobs (Lcom/atproto/sync/ListBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -12243,8 +12243,8 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun updateSeen (Lapp/bsky/notification/UpdateSeenRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateSubjectStatus (Lcom/atproto/admin/UpdateSubjectStatusRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateTemplate (Ltools/ozone/communication/UpdateTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun uploadBlob (Lkotlin/Unit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun uploadVideo (Lkotlin/Unit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun uploadBlob ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun uploadVideo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun upsertOption (Ltools/ozone/setting/UpsertOptionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun upsertSet (Ltools/ozone/set/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
@@ -12353,7 +12353,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getUploadLimits (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getValues (Ltools/ozone/set/GetValuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun importRepo (Lkotlin/Unit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun importRepo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun leaveConvo (Lchat/bsky/convo/LeaveConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listBlobs (Lcom/atproto/sync/ListBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -12420,8 +12420,8 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun updateSeen (Lapp/bsky/notification/UpdateSeenRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateSubjectStatus (Lcom/atproto/admin/UpdateSubjectStatusRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateTemplate (Ltools/ozone/communication/UpdateTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun uploadBlob (Lkotlin/Unit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun uploadVideo (Lkotlin/Unit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun uploadBlob ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun uploadVideo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun upsertOption (Ltools/ozone/setting/UpsertOptionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun upsertSet (Ltools/ozone/set/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
