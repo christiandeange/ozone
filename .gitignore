@@ -21,3 +21,6 @@ Package.swift
 ### Project ###
 /docs
 /.kotlin/
+
+### CI ###
+tmp-atproto/
