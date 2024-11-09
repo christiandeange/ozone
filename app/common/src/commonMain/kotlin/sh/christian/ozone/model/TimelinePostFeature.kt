@@ -69,7 +69,7 @@ sealed interface EmbedPost {
   ) : EmbedPost
 }
 
-fun PostViewEmbedUnion.toFeature(): TimelinePostFeature {
+fun PostViewEmbedUnion.toFeature(): TimelinePostFeature? {
   return when (this) {
     is PostViewEmbedUnion.ImagesView -> {
       value.toImagesFeature()
@@ -88,9 +88,12 @@ fun PostViewEmbedUnion.toFeature(): TimelinePostFeature {
         media = when (val media = value.media) {
           is RecordWithMediaViewMediaUnion.ExternalView -> media.value.toExternalFeature()
           is RecordWithMediaViewMediaUnion.ImagesView -> media.value.toImagesFeature()
+          is RecordWithMediaViewMediaUnion.VideoView -> return null
         },
       )
     }
+    // TODO properly support video views.
+    is PostViewEmbedUnion.VideoView -> null
   }
 }
 
@@ -158,6 +161,12 @@ private fun RecordViewRecordUnion.toEmbedPost(): EmbedPost {
     }
     is RecordViewRecordUnion.GraphStarterPackViewBasic -> {
       // TODO support starter pack views.
+      InvisibleEmbedPost(
+        uri = value.uri,
+      )
+    }
+    is RecordViewRecordUnion.ViewDetached -> {
+      // TODO support detached views.
       InvisibleEmbedPost(
         uri = value.uri,
       )

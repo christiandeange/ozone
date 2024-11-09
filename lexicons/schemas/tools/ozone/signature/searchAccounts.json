@@ -1,42 +1,46 @@
 {
   "lexicon": 1,
-  "id": "app.bsky.feed.getActorLikes",
+  "id": "tools.ozone.signature.searchAccounts",
   "defs": {
     "main": {
       "type": "query",
-      "description": "Get a list of posts liked by an actor. Requires auth, actor must be the requesting account.",
+      "description": "Search for accounts that match one or more threat signature values.",
       "parameters": {
         "type": "params",
-        "required": ["actor"],
+        "required": ["values"],
         "properties": {
-          "actor": { "type": "string", "format": "at-identifier" },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "cursor": { "type": "string" },
           "limit": {
             "type": "integer",
             "minimum": 1,
             "maximum": 100,
             "default": 50
-          },
-          "cursor": { "type": "string" }
+          }
         }
       },
       "output": {
         "encoding": "application/json",
         "schema": {
           "type": "object",
-          "required": ["feed"],
+          "required": ["accounts"],
           "properties": {
             "cursor": { "type": "string" },
-            "feed": {
+            "accounts": {
               "type": "array",
               "items": {
                 "type": "ref",
-                "ref": "app.bsky.feed.defs#feedViewPost"
+                "ref": "com.atproto.admin.defs#accountView"
               }
             }
           }
         }
-      },
-      "errors": [{ "name": "BlockedActor" }, { "name": "BlockedByActor" }]
+      }
     }
   }
 }

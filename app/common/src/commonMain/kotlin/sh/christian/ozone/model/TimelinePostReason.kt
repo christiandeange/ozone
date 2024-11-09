@@ -1,6 +1,7 @@
 package sh.christian.ozone.model
 
 import app.bsky.feed.FeedViewPostReasonUnion
+import sh.christian.ozone.model.TimelinePostReason.TimelinePostPin
 import sh.christian.ozone.model.TimelinePostReason.TimelinePostRepost
 
 sealed interface TimelinePostReason {
@@ -8,6 +9,8 @@ sealed interface TimelinePostReason {
     val repostAuthor: Profile,
     val indexedAt: Moment,
   ) : TimelinePostReason
+
+  data object TimelinePostPin : TimelinePostReason
 }
 
 fun FeedViewPostReasonUnion.toReason(): TimelinePostReason {
@@ -17,6 +20,9 @@ fun FeedViewPostReasonUnion.toReason(): TimelinePostReason {
         repostAuthor = value.by.toProfile(),
         indexedAt = Moment(value.indexedAt),
       )
+    }
+    is FeedViewPostReasonUnion.ReasonPin -> {
+      TimelinePostPin
     }
   }
 }

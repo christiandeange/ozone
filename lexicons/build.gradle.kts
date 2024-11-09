@@ -4,5 +4,8 @@ plugins {
 }
 
 tasks.jar.configure {
-  from(fileTree("schemas") { include("**/*.json") })
+  from(fileTree("schemas") {
+    include("**/*.json")
+    exclude("**/unspecced/**")
+  })
 }
