@@ -14,10 +14,10 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -97,7 +97,7 @@ private fun PostAction(
     modifier = Modifier
       .clickable(
         interactionSource = remember { MutableInteractionSource() },
-        indication = rememberRipple(bounded = false),
+        indication = ripple(bounded = false),
         onClick = onClick,
       )
       .padding(vertical = 4.dp),

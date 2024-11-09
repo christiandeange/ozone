@@ -5,7 +5,6 @@ import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
 plugins {
   val agp = libs.versions.agp
   val compose = libs.versions.compose
-  val kotlinCompose = libs.versions.kotlincompose
   val dokka = libs.versions.dokka
   val kmmbridge = libs.versions.kmmbridge
   val kotlin = libs.versions.kotlin
@@ -16,6 +15,7 @@ plugins {
 
   kotlin("jvm") version kotlin apply false
   kotlin("multiplatform") version kotlin apply false
+  kotlin("plugin.compose") version kotlin apply false
   kotlin("plugin.serialization") version kotlin apply false
   kotlin("android") version kotlin apply false
   id("co.touchlab.kmmbridge") version kmmbridge apply false
@@ -26,7 +26,6 @@ plugins {
   id("com.vanniktech.maven.publish") version mavenPublish apply false
   id("org.jetbrains.compose") version compose apply false
   id("org.jetbrains.dokka") version dokka apply true
-  id("org.jetbrains.kotlin.plugin.compose") version kotlinCompose apply false
   id("org.jetbrains.kotlinx.binary-compatibility-validator") version kotlinxAbi apply false
 }
 

@@ -15,7 +15,7 @@ private fun Project.applyPlugin() {
   plugins.apply("ozone-base")
 
   extensions.getByName<CommonExtension<*, *, *, *, *, *>>("android").apply {
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
       minSdk = 30
