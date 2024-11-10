@@ -9,6 +9,4 @@ actual val defaultHttpClient: HttpClient = HttpClient(Js) {
   install(DefaultRequest) {
     url.takeFrom(BSKY_SOCIAL)
   }
-
-  install(WebsocketRedirectPlugin)
 }

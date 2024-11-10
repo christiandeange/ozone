@@ -8,7 +8,6 @@ import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.websocket.WebSockets
 import io.ktor.http.URLProtocol
 import io.ktor.http.Url
-import io.ktor.http.takeFrom
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
@@ -19,7 +18,9 @@ internal object WebsocketRedirectPlugin : ClientPlugin<Unit>
 by createClientPlugin("WebsocketRedirect", {
   on(SendingRequest) { request, _ ->
     if (request.url.protocol == URLProtocol.WS || request.url.protocol == URLProtocol.WSS) {
-      request.url.host = BSKY_NETWORK.host
+      if (request.url.host == BSKY_SOCIAL.host) {
+        request.url.host = BSKY_NETWORK.host
+      }
     }
   }
 })
@@ -37,4 +38,5 @@ fun HttpClient.withXrpcConfiguration(): HttpClient = config {
   }
 
   install(WebSockets)
+  install(WebsocketRedirectPlugin)
 }
