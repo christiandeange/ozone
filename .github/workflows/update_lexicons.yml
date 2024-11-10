@@ -62,19 +62,9 @@ jobs:
         if: steps.changed-files.outputs.files_changed == 'true'
         run: ./scripts/bump_version.sh ${{ steps.bump-semver.outputs.new_version }}
 
-      - name: Dry Run - Get Changed Files
-        uses: tj-actions/verify-changed-files@v20
-        id: all-changed-files
-
-      - name: Dry Run - List Changed Files
-        env:
-          ALL_CHANGED_FILES: ${{ steps.all-changed-files.outputs.changed_files }}
-        run: |
-          echo "Changed files: $ALL_CHANGED_FILES"
-
-#      - name: Commit Changes
-#        uses: stefanzweifel/git-auto-commit-action@v4
-#        if: steps.changed-files.outputs.files_changed == 'true'
-#        with:
-#          commit_message: [${{ steps.bump-semver.outputs.new_version }}] Update lexicons from atproto
-#          tagging_message: ${{ steps.bump-semver.outputs.new_version }}
+      - name: Commit Changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        if: steps.changed-files.outputs.files_changed == 'true'
+        with:
+          commit_message: "[${{ steps.bump-semver.outputs.new_version }}] Update lexicons from atproto"
+          tagging_message: "${{ steps.bump-semver.outputs.new_version }}"
