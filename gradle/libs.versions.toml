@@ -38,7 +38,7 @@ slf4j-simple = { module = "org.slf4j:slf4j-simple", version = "2.0.16" }
 kotlininject = { module = "me.tatarka.inject:kotlin-inject-runtime", version.ref = "kotlininject" }
 kotlininject-compiler = { module = "me.tatarka.inject:kotlin-inject-compiler-ksp", version.ref = "kotlininject" }
 
-kotlinpoet = { module = "com.squareup:kotlinpoet", version = "1.18.1" }
+kotlinpoet = { module = "com.squareup:kotlinpoet", version = "2.0.0" }
 moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
 moshi-adapters = { module = "com.squareup.moshi:moshi-adapters", version.ref = "moshi" }
 moshi-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }

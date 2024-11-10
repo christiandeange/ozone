@@ -224,7 +224,7 @@ fun createOpenEnumClass(
   val serializerTypeSpec = TypeSpec.classBuilder(serializerClassName)
     .addSuperinterface(
       TypeNames.KSerializer.parameterizedBy(className),
-      CodeBlock.of("%M(%T::safeValueOf)".trimIndent(), stringEnumSerializer, className)
+      CodeBlock.of("♢%M(%T::safeValueOf)".trimIndent(), stringEnumSerializer, className)
     )
     .build()
 
@@ -471,7 +471,8 @@ internal fun <T> T.addDescription(description: String?): T
           .build()
       )
     } else {
-      addKdoc(description)
+      // Inform kotlinpoet that any space character can be safely wrapped onto a new line
+      addKdoc(description.replace(" ", "♢"))
     }
   }
 }
