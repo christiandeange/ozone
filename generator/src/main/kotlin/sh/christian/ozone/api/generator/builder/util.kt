@@ -239,6 +239,7 @@ fun createOpenEnumClass(
         .addMember("with = %T::class", serializerClassName)
         .build()
     )
+    .superclass(TypeNames.AtpEnum)
     .primaryConstructor(
       FunSpec.constructorBuilder()
         .addParameter("value", STRING)
@@ -249,7 +250,6 @@ fun createOpenEnumClass(
         .initializer("value")
         .build()
     )
-    .addSuperinterface(TypeNames.AtpEnum)
 
   val safeValueOfControlFlow = CodeBlock.builder()
     .beginControlFlow("return when (value)")
