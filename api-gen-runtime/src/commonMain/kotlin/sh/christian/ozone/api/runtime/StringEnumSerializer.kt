@@ -8,22 +8,21 @@ import kotlinx.serialization.encoding.Encoder
 import sh.christian.ozone.api.model.AtpEnum
 
 inline fun <reified T : AtpEnum> stringEnumSerializer(
-	noinline safeValueOf: (String) -> T
+	noinline safeValueOf: (String) -> T,
 ): KSerializer<T> {
 	return StringEnumSerializer(T::class.simpleName!!, safeValueOf)
 }
 
-open class StringEnumSerializer<T : AtpEnum>(
-	val serialName: String,
-	val safeValueOf: (String) -> T
+class StringEnumSerializer<T : AtpEnum>(
+	serialName: String,
+	private val safeValueOf: (String) -> T,
 ) : KSerializer<T> {
 	
-	override val descriptor: SerialDescriptor
-		get() = buildClassSerialDescriptor(serialName)
+	override val descriptor: SerialDescriptor = buildClassSerialDescriptor(serialName)
 	
 	override fun deserialize(decoder: Decoder): T {
-		val raw = decoder.decodeString()
-		return safeValueOf(raw)
+		val rawValue = decoder.decodeString()
+		return safeValueOf(rawValue)
 	}
 	
 	override fun serialize(encoder: Encoder, value: T) {

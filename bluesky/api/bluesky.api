@@ -1,16 +1,37 @@
-public final class app/bsky/actor/ActorTarget : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
-	public static final field ALL Lapp/bsky/actor/ActorTarget;
+public abstract class app/bsky/actor/ActorTarget : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lapp/bsky/actor/ActorTarget$Companion;
-	public static final field EXCLUDE_FOLLOWING Lapp/bsky/actor/ActorTarget;
-	public static final field UNKNOWN Lapp/bsky/actor/ActorTarget;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/actor/ActorTarget;
-	public static fun values ()[Lapp/bsky/actor/ActorTarget;
+}
+
+public final class app/bsky/actor/ActorTarget$All : app/bsky/actor/ActorTarget {
+	public static final field INSTANCE Lapp/bsky/actor/ActorTarget$All;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/actor/ActorTarget$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/actor/ActorTarget;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/ActorTarget$ExcludeFollowing : app/bsky/actor/ActorTarget {
+	public static final field INSTANCE Lapp/bsky/actor/ActorTarget$ExcludeFollowing;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/ActorTarget$Unknown : app/bsky/actor/ActorTarget {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/actor/ActorTarget$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/actor/ActorTarget$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/actor/ActorTarget$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/actor/ActorTargetSerializer : kotlinx/serialization/KSerializer {
@@ -38,20 +59,47 @@ public final class app/bsky/actor/AdultContentPref$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/actor/AllowIncoming : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
-	public static final field ALL Lapp/bsky/actor/AllowIncoming;
+public abstract class app/bsky/actor/AllowIncoming : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lapp/bsky/actor/AllowIncoming$Companion;
-	public static final field FOLLOWING Lapp/bsky/actor/AllowIncoming;
-	public static final field NONE Lapp/bsky/actor/AllowIncoming;
-	public static final field UNKNOWN Lapp/bsky/actor/AllowIncoming;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/actor/AllowIncoming;
-	public static fun values ()[Lapp/bsky/actor/AllowIncoming;
+}
+
+public final class app/bsky/actor/AllowIncoming$All : app/bsky/actor/AllowIncoming {
+	public static final field INSTANCE Lapp/bsky/actor/AllowIncoming$All;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/actor/AllowIncoming$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/actor/AllowIncoming;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/AllowIncoming$Following : app/bsky/actor/AllowIncoming {
+	public static final field INSTANCE Lapp/bsky/actor/AllowIncoming$Following;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/AllowIncoming$None : app/bsky/actor/AllowIncoming {
+	public static final field INSTANCE Lapp/bsky/actor/AllowIncoming$None;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/AllowIncoming$Unknown : app/bsky/actor/AllowIncoming {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/actor/AllowIncoming$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/actor/AllowIncoming$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/actor/AllowIncoming$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/actor/AllowIncomingSerializer : kotlinx/serialization/KSerializer {
@@ -362,19 +410,40 @@ public final class app/bsky/actor/MutedWord$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/actor/MutedWordTarget : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
-	public static final field CONTENT Lapp/bsky/actor/MutedWordTarget;
+public abstract class app/bsky/actor/MutedWordTarget : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lapp/bsky/actor/MutedWordTarget$Companion;
-	public static final field TAG Lapp/bsky/actor/MutedWordTarget;
-	public static final field UNKNOWN Lapp/bsky/actor/MutedWordTarget;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/actor/MutedWordTarget;
-	public static fun values ()[Lapp/bsky/actor/MutedWordTarget;
 }
 
 public final class app/bsky/actor/MutedWordTarget$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/actor/MutedWordTarget;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/MutedWordTarget$Content : app/bsky/actor/MutedWordTarget {
+	public static final field INSTANCE Lapp/bsky/actor/MutedWordTarget$Content;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/MutedWordTarget$Tag : app/bsky/actor/MutedWordTarget {
+	public static final field INSTANCE Lapp/bsky/actor/MutedWordTarget$Tag;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/MutedWordTarget$Unknown : app/bsky/actor/MutedWordTarget {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/actor/MutedWordTarget$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/actor/MutedWordTarget$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/actor/MutedWordTarget$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/actor/MutedWordTargetSerializer : kotlinx/serialization/KSerializer {
@@ -1166,21 +1235,54 @@ public final class app/bsky/actor/SearchActorsTypeaheadResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/actor/Sort : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class app/bsky/actor/Sort : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lapp/bsky/actor/Sort$Companion;
-	public static final field MOST_LIKES Lapp/bsky/actor/Sort;
-	public static final field NEWEST Lapp/bsky/actor/Sort;
-	public static final field OLDEST Lapp/bsky/actor/Sort;
-	public static final field RANDOM Lapp/bsky/actor/Sort;
-	public static final field UNKNOWN Lapp/bsky/actor/Sort;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/actor/Sort;
-	public static fun values ()[Lapp/bsky/actor/Sort;
 }
 
 public final class app/bsky/actor/Sort$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/actor/Sort;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/Sort$MostLikes : app/bsky/actor/Sort {
+	public static final field INSTANCE Lapp/bsky/actor/Sort$MostLikes;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/Sort$Newest : app/bsky/actor/Sort {
+	public static final field INSTANCE Lapp/bsky/actor/Sort$Newest;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/Sort$Oldest : app/bsky/actor/Sort {
+	public static final field INSTANCE Lapp/bsky/actor/Sort$Oldest;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/Sort$Random : app/bsky/actor/Sort {
+	public static final field INSTANCE Lapp/bsky/actor/Sort$Random;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/Sort$Unknown : app/bsky/actor/Sort {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/actor/Sort$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/actor/Sort$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/actor/Sort$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/actor/SortSerializer : kotlinx/serialization/KSerializer {
@@ -1212,20 +1314,47 @@ public final class app/bsky/actor/ThreadViewPref$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/actor/Type : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class app/bsky/actor/Type : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lapp/bsky/actor/Type$Companion;
-	public static final field FEED Lapp/bsky/actor/Type;
-	public static final field LIST Lapp/bsky/actor/Type;
-	public static final field TIMELINE Lapp/bsky/actor/Type;
-	public static final field UNKNOWN Lapp/bsky/actor/Type;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/actor/Type;
-	public static fun values ()[Lapp/bsky/actor/Type;
 }
 
 public final class app/bsky/actor/Type$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/actor/Type;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/Type$Feed : app/bsky/actor/Type {
+	public static final field INSTANCE Lapp/bsky/actor/Type$Feed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/Type$List : app/bsky/actor/Type {
+	public static final field INSTANCE Lapp/bsky/actor/Type$List;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/Type$Timeline : app/bsky/actor/Type {
+	public static final field INSTANCE Lapp/bsky/actor/Type$Timeline;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/Type$Unknown : app/bsky/actor/Type {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/actor/Type$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/actor/Type$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/actor/Type$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/actor/TypeSerializer : kotlinx/serialization/KSerializer {
@@ -1268,21 +1397,54 @@ public final class app/bsky/actor/ViewerState$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/actor/Visibility : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class app/bsky/actor/Visibility : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lapp/bsky/actor/Visibility$Companion;
-	public static final field HIDE Lapp/bsky/actor/Visibility;
-	public static final field IGNORE Lapp/bsky/actor/Visibility;
-	public static final field SHOW Lapp/bsky/actor/Visibility;
-	public static final field UNKNOWN Lapp/bsky/actor/Visibility;
-	public static final field WARN Lapp/bsky/actor/Visibility;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/actor/Visibility;
-	public static fun values ()[Lapp/bsky/actor/Visibility;
 }
 
 public final class app/bsky/actor/Visibility$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/actor/Visibility;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/Visibility$Hide : app/bsky/actor/Visibility {
+	public static final field INSTANCE Lapp/bsky/actor/Visibility$Hide;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/Visibility$Ignore : app/bsky/actor/Visibility {
+	public static final field INSTANCE Lapp/bsky/actor/Visibility$Ignore;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/Visibility$Show : app/bsky/actor/Visibility {
+	public static final field INSTANCE Lapp/bsky/actor/Visibility$Show;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/Visibility$Unknown : app/bsky/actor/Visibility {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/actor/Visibility$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/actor/Visibility$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/actor/Visibility$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/Visibility$Warn : app/bsky/actor/Visibility {
+	public static final field INSTANCE Lapp/bsky/actor/Visibility$Warn;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/actor/VisibilitySerializer : kotlinx/serialization/KSerializer {
@@ -2647,21 +2809,54 @@ public final class app/bsky/feed/GetActorLikesResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/feed/GetAuthorFeedFilter : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class app/bsky/feed/GetAuthorFeedFilter : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lapp/bsky/feed/GetAuthorFeedFilter$Companion;
-	public static final field POSTS_AND_AUTHOR_THREADS Lapp/bsky/feed/GetAuthorFeedFilter;
-	public static final field POSTS_NO_REPLIES Lapp/bsky/feed/GetAuthorFeedFilter;
-	public static final field POSTS_WITH_MEDIA Lapp/bsky/feed/GetAuthorFeedFilter;
-	public static final field POSTS_WITH_REPLIES Lapp/bsky/feed/GetAuthorFeedFilter;
-	public static final field UNKNOWN Lapp/bsky/feed/GetAuthorFeedFilter;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/feed/GetAuthorFeedFilter;
-	public static fun values ()[Lapp/bsky/feed/GetAuthorFeedFilter;
 }
 
 public final class app/bsky/feed/GetAuthorFeedFilter$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/feed/GetAuthorFeedFilter;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/feed/GetAuthorFeedFilter$PostsAndAuthorThreads : app/bsky/feed/GetAuthorFeedFilter {
+	public static final field INSTANCE Lapp/bsky/feed/GetAuthorFeedFilter$PostsAndAuthorThreads;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/GetAuthorFeedFilter$PostsNoReplies : app/bsky/feed/GetAuthorFeedFilter {
+	public static final field INSTANCE Lapp/bsky/feed/GetAuthorFeedFilter$PostsNoReplies;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/GetAuthorFeedFilter$PostsWithMedia : app/bsky/feed/GetAuthorFeedFilter {
+	public static final field INSTANCE Lapp/bsky/feed/GetAuthorFeedFilter$PostsWithMedia;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/GetAuthorFeedFilter$PostsWithReplies : app/bsky/feed/GetAuthorFeedFilter {
+	public static final field INSTANCE Lapp/bsky/feed/GetAuthorFeedFilter$PostsWithReplies;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/GetAuthorFeedFilter$Unknown : app/bsky/feed/GetAuthorFeedFilter {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/feed/GetAuthorFeedFilter$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/feed/GetAuthorFeedFilter$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/GetAuthorFeedFilter$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/feed/GetAuthorFeedFilterSerializer : kotlinx/serialization/KSerializer {
@@ -4179,19 +4374,40 @@ public final class app/bsky/feed/SearchPostsResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/feed/SearchPostsSort : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class app/bsky/feed/SearchPostsSort : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lapp/bsky/feed/SearchPostsSort$Companion;
-	public static final field LATEST Lapp/bsky/feed/SearchPostsSort;
-	public static final field TOP Lapp/bsky/feed/SearchPostsSort;
-	public static final field UNKNOWN Lapp/bsky/feed/SearchPostsSort;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/feed/SearchPostsSort;
-	public static fun values ()[Lapp/bsky/feed/SearchPostsSort;
 }
 
 public final class app/bsky/feed/SearchPostsSort$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/feed/SearchPostsSort;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/feed/SearchPostsSort$Latest : app/bsky/feed/SearchPostsSort {
+	public static final field INSTANCE Lapp/bsky/feed/SearchPostsSort$Latest;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsSort$Top : app/bsky/feed/SearchPostsSort {
+	public static final field INSTANCE Lapp/bsky/feed/SearchPostsSort$Top;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsSort$Unknown : app/bsky/feed/SearchPostsSort {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/feed/SearchPostsSort$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/feed/SearchPostsSort$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/SearchPostsSort$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/feed/SearchPostsSortSerializer : kotlinx/serialization/KSerializer {
@@ -4699,29 +4915,110 @@ public final class app/bsky/feed/ThreadgateView$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/feed/Token : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
-	public static final field CLICKTHROUGH_AUTHOR Lapp/bsky/feed/Token;
-	public static final field CLICKTHROUGH_EMBED Lapp/bsky/feed/Token;
-	public static final field CLICKTHROUGH_ITEM Lapp/bsky/feed/Token;
-	public static final field CLICKTHROUGH_REPOSTER Lapp/bsky/feed/Token;
+public abstract class app/bsky/feed/Token : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lapp/bsky/feed/Token$Companion;
-	public static final field INTERACTION_LIKE Lapp/bsky/feed/Token;
-	public static final field INTERACTION_QUOTE Lapp/bsky/feed/Token;
-	public static final field INTERACTION_REPLY Lapp/bsky/feed/Token;
-	public static final field INTERACTION_REPOST Lapp/bsky/feed/Token;
-	public static final field INTERACTION_SEEN Lapp/bsky/feed/Token;
-	public static final field INTERACTION_SHARE Lapp/bsky/feed/Token;
-	public static final field REQUEST_LESS Lapp/bsky/feed/Token;
-	public static final field REQUEST_MORE Lapp/bsky/feed/Token;
-	public static final field UNKNOWN Lapp/bsky/feed/Token;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/feed/Token;
-	public static fun values ()[Lapp/bsky/feed/Token;
+}
+
+public final class app/bsky/feed/Token$ClickthroughAuthor : app/bsky/feed/Token {
+	public static final field INSTANCE Lapp/bsky/feed/Token$ClickthroughAuthor;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/Token$ClickthroughEmbed : app/bsky/feed/Token {
+	public static final field INSTANCE Lapp/bsky/feed/Token$ClickthroughEmbed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/Token$ClickthroughItem : app/bsky/feed/Token {
+	public static final field INSTANCE Lapp/bsky/feed/Token$ClickthroughItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/Token$ClickthroughReposter : app/bsky/feed/Token {
+	public static final field INSTANCE Lapp/bsky/feed/Token$ClickthroughReposter;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/feed/Token$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/feed/Token;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/feed/Token$InteractionLike : app/bsky/feed/Token {
+	public static final field INSTANCE Lapp/bsky/feed/Token$InteractionLike;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/Token$InteractionQuote : app/bsky/feed/Token {
+	public static final field INSTANCE Lapp/bsky/feed/Token$InteractionQuote;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/Token$InteractionReply : app/bsky/feed/Token {
+	public static final field INSTANCE Lapp/bsky/feed/Token$InteractionReply;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/Token$InteractionRepost : app/bsky/feed/Token {
+	public static final field INSTANCE Lapp/bsky/feed/Token$InteractionRepost;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/Token$InteractionSeen : app/bsky/feed/Token {
+	public static final field INSTANCE Lapp/bsky/feed/Token$InteractionSeen;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/Token$InteractionShare : app/bsky/feed/Token {
+	public static final field INSTANCE Lapp/bsky/feed/Token$InteractionShare;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/Token$RequestLess : app/bsky/feed/Token {
+	public static final field INSTANCE Lapp/bsky/feed/Token$RequestLess;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/Token$RequestMore : app/bsky/feed/Token {
+	public static final field INSTANCE Lapp/bsky/feed/Token$RequestMore;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/Token$Unknown : app/bsky/feed/Token {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/feed/Token$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/feed/Token$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/Token$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/feed/TokenSerializer : kotlinx/serialization/KSerializer {
@@ -5827,20 +6124,47 @@ public final class app/bsky/graph/StarterpackFeedItem$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/graph/Token : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
-	public static final field CURATELIST Lapp/bsky/graph/Token;
+public abstract class app/bsky/graph/Token : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lapp/bsky/graph/Token$Companion;
-	public static final field MODLIST Lapp/bsky/graph/Token;
-	public static final field REFERENCELIST Lapp/bsky/graph/Token;
-	public static final field UNKNOWN Lapp/bsky/graph/Token;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/graph/Token;
-	public static fun values ()[Lapp/bsky/graph/Token;
 }
 
 public final class app/bsky/graph/Token$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/graph/Token;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/graph/Token$Curatelist : app/bsky/graph/Token {
+	public static final field INSTANCE Lapp/bsky/graph/Token$Curatelist;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/graph/Token$Modlist : app/bsky/graph/Token {
+	public static final field INSTANCE Lapp/bsky/graph/Token$Modlist;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/graph/Token$Referencelist : app/bsky/graph/Token {
+	public static final field INSTANCE Lapp/bsky/graph/Token$Referencelist;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/graph/Token$Unknown : app/bsky/graph/Token {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/graph/Token$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/graph/Token$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/Token$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/graph/TokenSerializer : kotlinx/serialization/KSerializer {
@@ -6248,24 +6572,75 @@ public final class app/bsky/notification/ListNotificationsQueryParams$Companion 
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/notification/ListNotificationsReason : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class app/bsky/notification/ListNotificationsReason : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lapp/bsky/notification/ListNotificationsReason$Companion;
-	public static final field FOLLOW Lapp/bsky/notification/ListNotificationsReason;
-	public static final field LIKE Lapp/bsky/notification/ListNotificationsReason;
-	public static final field MENTION Lapp/bsky/notification/ListNotificationsReason;
-	public static final field QUOTE Lapp/bsky/notification/ListNotificationsReason;
-	public static final field REPLY Lapp/bsky/notification/ListNotificationsReason;
-	public static final field REPOST Lapp/bsky/notification/ListNotificationsReason;
-	public static final field STARTERPACK_JOINED Lapp/bsky/notification/ListNotificationsReason;
-	public static final field UNKNOWN Lapp/bsky/notification/ListNotificationsReason;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/notification/ListNotificationsReason;
-	public static fun values ()[Lapp/bsky/notification/ListNotificationsReason;
 }
 
 public final class app/bsky/notification/ListNotificationsReason$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/notification/ListNotificationsReason;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/ListNotificationsReason$Follow : app/bsky/notification/ListNotificationsReason {
+	public static final field INSTANCE Lapp/bsky/notification/ListNotificationsReason$Follow;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/ListNotificationsReason$Like : app/bsky/notification/ListNotificationsReason {
+	public static final field INSTANCE Lapp/bsky/notification/ListNotificationsReason$Like;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/ListNotificationsReason$Mention : app/bsky/notification/ListNotificationsReason {
+	public static final field INSTANCE Lapp/bsky/notification/ListNotificationsReason$Mention;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/ListNotificationsReason$Quote : app/bsky/notification/ListNotificationsReason {
+	public static final field INSTANCE Lapp/bsky/notification/ListNotificationsReason$Quote;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/ListNotificationsReason$Reply : app/bsky/notification/ListNotificationsReason {
+	public static final field INSTANCE Lapp/bsky/notification/ListNotificationsReason$Reply;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/ListNotificationsReason$Repost : app/bsky/notification/ListNotificationsReason {
+	public static final field INSTANCE Lapp/bsky/notification/ListNotificationsReason$Repost;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/ListNotificationsReason$StarterpackJoined : app/bsky/notification/ListNotificationsReason {
+	public static final field INSTANCE Lapp/bsky/notification/ListNotificationsReason$StarterpackJoined;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/ListNotificationsReason$Unknown : app/bsky/notification/ListNotificationsReason {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/notification/ListNotificationsReason$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/notification/ListNotificationsReason$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/ListNotificationsReason$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/notification/ListNotificationsReasonSerializer : kotlinx/serialization/KSerializer {
@@ -6316,20 +6691,47 @@ public final class app/bsky/notification/PutPreferencesRequest$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/notification/RegisterPushPlatform : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
-	public static final field ANDROID Lapp/bsky/notification/RegisterPushPlatform;
+public abstract class app/bsky/notification/RegisterPushPlatform : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lapp/bsky/notification/RegisterPushPlatform$Companion;
-	public static final field IOS Lapp/bsky/notification/RegisterPushPlatform;
-	public static final field UNKNOWN Lapp/bsky/notification/RegisterPushPlatform;
-	public static final field WEB Lapp/bsky/notification/RegisterPushPlatform;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/notification/RegisterPushPlatform;
-	public static fun values ()[Lapp/bsky/notification/RegisterPushPlatform;
+}
+
+public final class app/bsky/notification/RegisterPushPlatform$Android : app/bsky/notification/RegisterPushPlatform {
+	public static final field INSTANCE Lapp/bsky/notification/RegisterPushPlatform$Android;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/notification/RegisterPushPlatform$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/notification/RegisterPushPlatform;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/RegisterPushPlatform$Ios : app/bsky/notification/RegisterPushPlatform {
+	public static final field INSTANCE Lapp/bsky/notification/RegisterPushPlatform$Ios;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/RegisterPushPlatform$Unknown : app/bsky/notification/RegisterPushPlatform {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/notification/RegisterPushPlatform$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/notification/RegisterPushPlatform$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/RegisterPushPlatform$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/RegisterPushPlatform$Web : app/bsky/notification/RegisterPushPlatform {
+	public static final field INSTANCE Lapp/bsky/notification/RegisterPushPlatform$Web;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/notification/RegisterPushPlatformSerializer : kotlinx/serialization/KSerializer {
@@ -6642,19 +7044,40 @@ public final class app/bsky/video/JobStatus$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/video/State : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class app/bsky/video/State : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lapp/bsky/video/State$Companion;
-	public static final field J_O_B_S_T_A_T_E_C_O_M_P_L_E_T_E_D Lapp/bsky/video/State;
-	public static final field J_O_B_S_T_A_T_E_F_A_I_L_E_D Lapp/bsky/video/State;
-	public static final field UNKNOWN Lapp/bsky/video/State;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/video/State;
-	public static fun values ()[Lapp/bsky/video/State;
 }
 
 public final class app/bsky/video/State$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/video/State;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/video/State$JOBSTATECOMPLETED : app/bsky/video/State {
+	public static final field INSTANCE Lapp/bsky/video/State$JOBSTATECOMPLETED;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/video/State$JOBSTATEFAILED : app/bsky/video/State {
+	public static final field INSTANCE Lapp/bsky/video/State$JOBSTATEFAILED;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/video/State$Unknown : app/bsky/video/State {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/video/State$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/video/State$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/video/State$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/video/StateSerializer : kotlinx/serialization/KSerializer {
@@ -6698,20 +7121,47 @@ public final class chat/bsky/actor/Declaration$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class chat/bsky/actor/DeclarationAllowIncoming : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
-	public static final field ALL Lchat/bsky/actor/DeclarationAllowIncoming;
+public abstract class chat/bsky/actor/DeclarationAllowIncoming : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lchat/bsky/actor/DeclarationAllowIncoming$Companion;
-	public static final field FOLLOWING Lchat/bsky/actor/DeclarationAllowIncoming;
-	public static final field NONE Lchat/bsky/actor/DeclarationAllowIncoming;
-	public static final field UNKNOWN Lchat/bsky/actor/DeclarationAllowIncoming;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lchat/bsky/actor/DeclarationAllowIncoming;
-	public static fun values ()[Lchat/bsky/actor/DeclarationAllowIncoming;
+}
+
+public final class chat/bsky/actor/DeclarationAllowIncoming$All : chat/bsky/actor/DeclarationAllowIncoming {
+	public static final field INSTANCE Lchat/bsky/actor/DeclarationAllowIncoming$All;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class chat/bsky/actor/DeclarationAllowIncoming$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lchat/bsky/actor/DeclarationAllowIncoming;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/actor/DeclarationAllowIncoming$Following : chat/bsky/actor/DeclarationAllowIncoming {
+	public static final field INSTANCE Lchat/bsky/actor/DeclarationAllowIncoming$Following;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/actor/DeclarationAllowIncoming$None : chat/bsky/actor/DeclarationAllowIncoming {
+	public static final field INSTANCE Lchat/bsky/actor/DeclarationAllowIncoming$None;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/actor/DeclarationAllowIncoming$Unknown : chat/bsky/actor/DeclarationAllowIncoming {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/actor/DeclarationAllowIncoming$Unknown;
+	public static synthetic fun copy$default (Lchat/bsky/actor/DeclarationAllowIncoming$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/actor/DeclarationAllowIncoming$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class chat/bsky/actor/DeclarationAllowIncomingSerializer : kotlinx/serialization/KSerializer {
@@ -8213,19 +8663,40 @@ public final class com/atproto/admin/GetInviteCodesResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/admin/GetInviteCodesSort : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class com/atproto/admin/GetInviteCodesSort : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lcom/atproto/admin/GetInviteCodesSort$Companion;
-	public static final field RECENT Lcom/atproto/admin/GetInviteCodesSort;
-	public static final field UNKNOWN Lcom/atproto/admin/GetInviteCodesSort;
-	public static final field USAGE Lcom/atproto/admin/GetInviteCodesSort;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/admin/GetInviteCodesSort;
-	public static fun values ()[Lcom/atproto/admin/GetInviteCodesSort;
 }
 
 public final class com/atproto/admin/GetInviteCodesSort$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/admin/GetInviteCodesSort;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/admin/GetInviteCodesSort$Recent : com/atproto/admin/GetInviteCodesSort {
+	public static final field INSTANCE Lcom/atproto/admin/GetInviteCodesSort$Recent;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/admin/GetInviteCodesSort$Unknown : com/atproto/admin/GetInviteCodesSort {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/admin/GetInviteCodesSort$Unknown;
+	public static synthetic fun copy$default (Lcom/atproto/admin/GetInviteCodesSort$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/GetInviteCodesSort$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/admin/GetInviteCodesSort$Usage : com/atproto/admin/GetInviteCodesSort {
+	public static final field INSTANCE Lcom/atproto/admin/GetInviteCodesSort$Usage;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/admin/GetInviteCodesSortSerializer : kotlinx/serialization/KSerializer {
@@ -8938,20 +9409,47 @@ public final class com/atproto/identity/UpdateHandleRequest$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/label/Blurs : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
-	public static final field CONTENT Lcom/atproto/label/Blurs;
+public abstract class com/atproto/label/Blurs : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lcom/atproto/label/Blurs$Companion;
-	public static final field MEDIA Lcom/atproto/label/Blurs;
-	public static final field NONE Lcom/atproto/label/Blurs;
-	public static final field UNKNOWN Lcom/atproto/label/Blurs;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/label/Blurs;
-	public static fun values ()[Lcom/atproto/label/Blurs;
 }
 
 public final class com/atproto/label/Blurs$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/label/Blurs;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/label/Blurs$Content : com/atproto/label/Blurs {
+	public static final field INSTANCE Lcom/atproto/label/Blurs$Content;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/Blurs$Media : com/atproto/label/Blurs {
+	public static final field INSTANCE Lcom/atproto/label/Blurs$Media;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/Blurs$None : com/atproto/label/Blurs {
+	public static final field INSTANCE Lcom/atproto/label/Blurs$None;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/Blurs$Unknown : com/atproto/label/Blurs {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/label/Blurs$Unknown;
+	public static synthetic fun copy$default (Lcom/atproto/label/Blurs$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/label/Blurs$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/label/BlursSerializer : kotlinx/serialization/KSerializer {
@@ -8963,20 +9461,47 @@ public final class com/atproto/label/BlursSerializer : kotlinx/serialization/KSe
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
-public final class com/atproto/label/DefaultSetting : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class com/atproto/label/DefaultSetting : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lcom/atproto/label/DefaultSetting$Companion;
-	public static final field HIDE Lcom/atproto/label/DefaultSetting;
-	public static final field IGNORE Lcom/atproto/label/DefaultSetting;
-	public static final field UNKNOWN Lcom/atproto/label/DefaultSetting;
-	public static final field WARN Lcom/atproto/label/DefaultSetting;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/label/DefaultSetting;
-	public static fun values ()[Lcom/atproto/label/DefaultSetting;
 }
 
 public final class com/atproto/label/DefaultSetting$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/label/DefaultSetting;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/label/DefaultSetting$Hide : com/atproto/label/DefaultSetting {
+	public static final field INSTANCE Lcom/atproto/label/DefaultSetting$Hide;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/DefaultSetting$Ignore : com/atproto/label/DefaultSetting {
+	public static final field INSTANCE Lcom/atproto/label/DefaultSetting$Ignore;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/DefaultSetting$Unknown : com/atproto/label/DefaultSetting {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/label/DefaultSetting$Unknown;
+	public static synthetic fun copy$default (Lcom/atproto/label/DefaultSetting$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/label/DefaultSetting$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/DefaultSetting$Warn : com/atproto/label/DefaultSetting {
+	public static final field INSTANCE Lcom/atproto/label/DefaultSetting$Warn;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/label/DefaultSettingSerializer : kotlinx/serialization/KSerializer {
@@ -9021,28 +9546,103 @@ public final class com/atproto/label/Label$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/label/LabelValue : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class com/atproto/label/LabelValue : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lcom/atproto/label/LabelValue$Companion;
-	public static final field DMCA_VIOLATION Lcom/atproto/label/LabelValue;
-	public static final field DOXXING Lcom/atproto/label/LabelValue;
-	public static final field GORE Lcom/atproto/label/LabelValue;
-	public static final field HIDE Lcom/atproto/label/LabelValue;
-	public static final field NO_PROMOTE Lcom/atproto/label/LabelValue;
-	public static final field NO_UNAUTHENTICATED Lcom/atproto/label/LabelValue;
-	public static final field NSFL Lcom/atproto/label/LabelValue;
-	public static final field NUDITY Lcom/atproto/label/LabelValue;
-	public static final field PORN Lcom/atproto/label/LabelValue;
-	public static final field SEXUAL Lcom/atproto/label/LabelValue;
-	public static final field UNKNOWN Lcom/atproto/label/LabelValue;
-	public static final field WARN Lcom/atproto/label/LabelValue;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/label/LabelValue;
-	public static fun values ()[Lcom/atproto/label/LabelValue;
 }
 
 public final class com/atproto/label/LabelValue$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/label/LabelValue;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/label/LabelValue$DmcaViolation : com/atproto/label/LabelValue {
+	public static final field INSTANCE Lcom/atproto/label/LabelValue$DmcaViolation;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/LabelValue$Doxxing : com/atproto/label/LabelValue {
+	public static final field INSTANCE Lcom/atproto/label/LabelValue$Doxxing;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/LabelValue$Gore : com/atproto/label/LabelValue {
+	public static final field INSTANCE Lcom/atproto/label/LabelValue$Gore;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/LabelValue$Hide : com/atproto/label/LabelValue {
+	public static final field INSTANCE Lcom/atproto/label/LabelValue$Hide;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/LabelValue$NoPromote : com/atproto/label/LabelValue {
+	public static final field INSTANCE Lcom/atproto/label/LabelValue$NoPromote;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/LabelValue$NoUnauthenticated : com/atproto/label/LabelValue {
+	public static final field INSTANCE Lcom/atproto/label/LabelValue$NoUnauthenticated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/LabelValue$Nsfl : com/atproto/label/LabelValue {
+	public static final field INSTANCE Lcom/atproto/label/LabelValue$Nsfl;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/LabelValue$Nudity : com/atproto/label/LabelValue {
+	public static final field INSTANCE Lcom/atproto/label/LabelValue$Nudity;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/LabelValue$Porn : com/atproto/label/LabelValue {
+	public static final field INSTANCE Lcom/atproto/label/LabelValue$Porn;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/LabelValue$Sexual : com/atproto/label/LabelValue {
+	public static final field INSTANCE Lcom/atproto/label/LabelValue$Sexual;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/LabelValue$Unknown : com/atproto/label/LabelValue {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/label/LabelValue$Unknown;
+	public static synthetic fun copy$default (Lcom/atproto/label/LabelValue$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/label/LabelValue$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/LabelValue$Warn : com/atproto/label/LabelValue {
+	public static final field INSTANCE Lcom/atproto/label/LabelValue$Warn;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/label/LabelValueDefinition {
@@ -9176,20 +9776,47 @@ public final class com/atproto/label/SelfLabels$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/label/Severity : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
-	public static final field ALERT Lcom/atproto/label/Severity;
+public abstract class com/atproto/label/Severity : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lcom/atproto/label/Severity$Companion;
-	public static final field INFORM Lcom/atproto/label/Severity;
-	public static final field NONE Lcom/atproto/label/Severity;
-	public static final field UNKNOWN Lcom/atproto/label/Severity;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/label/Severity;
-	public static fun values ()[Lcom/atproto/label/Severity;
+}
+
+public final class com/atproto/label/Severity$Alert : com/atproto/label/Severity {
+	public static final field INSTANCE Lcom/atproto/label/Severity$Alert;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/label/Severity$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/label/Severity;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/label/Severity$Inform : com/atproto/label/Severity {
+	public static final field INSTANCE Lcom/atproto/label/Severity$Inform;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/Severity$None : com/atproto/label/Severity {
+	public static final field INSTANCE Lcom/atproto/label/Severity$None;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/Severity$Unknown : com/atproto/label/Severity {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/label/Severity$Unknown;
+	public static synthetic fun copy$default (Lcom/atproto/label/Severity$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/label/Severity$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/label/SeveritySerializer : kotlinx/serialization/KSerializer {
@@ -9302,18 +9929,33 @@ public final class com/atproto/label/SubscribeLabelsMessageUnion$LabelsSerialize
 	public fun serialize-gfcx7Io (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/label/SubscribeLabelsLabels;)V
 }
 
-public final class com/atproto/label/SubscribeLabelsName : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class com/atproto/label/SubscribeLabelsName : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lcom/atproto/label/SubscribeLabelsName$Companion;
-	public static final field OUTDATED_CURSOR Lcom/atproto/label/SubscribeLabelsName;
-	public static final field UNKNOWN Lcom/atproto/label/SubscribeLabelsName;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/label/SubscribeLabelsName;
-	public static fun values ()[Lcom/atproto/label/SubscribeLabelsName;
 }
 
 public final class com/atproto/label/SubscribeLabelsName$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/label/SubscribeLabelsName;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/label/SubscribeLabelsName$OutdatedCursor : com/atproto/label/SubscribeLabelsName {
+	public static final field INSTANCE Lcom/atproto/label/SubscribeLabelsName$OutdatedCursor;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/label/SubscribeLabelsName$Unknown : com/atproto/label/SubscribeLabelsName {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/label/SubscribeLabelsName$Unknown;
+	public static synthetic fun copy$default (Lcom/atproto/label/SubscribeLabelsName$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/label/SubscribeLabelsName$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/label/SubscribeLabelsNameSerializer : kotlinx/serialization/KSerializer {
@@ -9520,24 +10162,75 @@ public final class com/atproto/moderation/CreateReportResponseSubjectUnion$RepoS
 	public fun serialize-yTMDtwI (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
 }
 
-public final class com/atproto/moderation/Token : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class com/atproto/moderation/Token : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lcom/atproto/moderation/Token$Companion;
-	public static final field REASON_APPEAL Lcom/atproto/moderation/Token;
-	public static final field REASON_MISLEADING Lcom/atproto/moderation/Token;
-	public static final field REASON_OTHER Lcom/atproto/moderation/Token;
-	public static final field REASON_RUDE Lcom/atproto/moderation/Token;
-	public static final field REASON_SEXUAL Lcom/atproto/moderation/Token;
-	public static final field REASON_SPAM Lcom/atproto/moderation/Token;
-	public static final field REASON_VIOLATION Lcom/atproto/moderation/Token;
-	public static final field UNKNOWN Lcom/atproto/moderation/Token;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/moderation/Token;
-	public static fun values ()[Lcom/atproto/moderation/Token;
 }
 
 public final class com/atproto/moderation/Token$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/moderation/Token;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/moderation/Token$ReasonAppeal : com/atproto/moderation/Token {
+	public static final field INSTANCE Lcom/atproto/moderation/Token$ReasonAppeal;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/moderation/Token$ReasonMisleading : com/atproto/moderation/Token {
+	public static final field INSTANCE Lcom/atproto/moderation/Token$ReasonMisleading;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/moderation/Token$ReasonOther : com/atproto/moderation/Token {
+	public static final field INSTANCE Lcom/atproto/moderation/Token$ReasonOther;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/moderation/Token$ReasonRude : com/atproto/moderation/Token {
+	public static final field INSTANCE Lcom/atproto/moderation/Token$ReasonRude;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/moderation/Token$ReasonSexual : com/atproto/moderation/Token {
+	public static final field INSTANCE Lcom/atproto/moderation/Token$ReasonSexual;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/moderation/Token$ReasonSpam : com/atproto/moderation/Token {
+	public static final field INSTANCE Lcom/atproto/moderation/Token$ReasonSpam;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/moderation/Token$ReasonViolation : com/atproto/moderation/Token {
+	public static final field INSTANCE Lcom/atproto/moderation/Token$ReasonViolation;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/moderation/Token$Unknown : com/atproto/moderation/Token {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/moderation/Token$Unknown;
+	public static synthetic fun copy$default (Lcom/atproto/moderation/Token$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/moderation/Token$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/moderation/TokenSerializer : kotlinx/serialization/KSerializer {
@@ -9882,18 +10575,40 @@ public final class com/atproto/repo/ApplyWritesUpdateResult$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/repo/ApplyWritesValidationStatus : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class com/atproto/repo/ApplyWritesValidationStatus : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lcom/atproto/repo/ApplyWritesValidationStatus$Companion;
-	public static final field UNKNOWN Lcom/atproto/repo/ApplyWritesValidationStatus;
-	public static final field VALID Lcom/atproto/repo/ApplyWritesValidationStatus;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/repo/ApplyWritesValidationStatus;
-	public static fun values ()[Lcom/atproto/repo/ApplyWritesValidationStatus;
 }
 
 public final class com/atproto/repo/ApplyWritesValidationStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/repo/ApplyWritesValidationStatus;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/repo/ApplyWritesValidationStatus$Unknown : com/atproto/repo/ApplyWritesValidationStatus {
+	public static final field INSTANCE Lcom/atproto/repo/ApplyWritesValidationStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/repo/ApplyWritesValidationStatus$Valid : com/atproto/repo/ApplyWritesValidationStatus {
+	public static final field INSTANCE Lcom/atproto/repo/ApplyWritesValidationStatus$Valid;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/repo/ApplyWritesValidationStatus$_Unknown : com/atproto/repo/ApplyWritesValidationStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/repo/ApplyWritesValidationStatus$_Unknown;
+	public static synthetic fun copy$default (Lcom/atproto/repo/ApplyWritesValidationStatus$_Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/ApplyWritesValidationStatus$_Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/repo/ApplyWritesValidationStatusSerializer : kotlinx/serialization/KSerializer {
@@ -9973,18 +10688,40 @@ public final class com/atproto/repo/CreateRecordResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/repo/CreateRecordValidationStatus : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class com/atproto/repo/CreateRecordValidationStatus : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lcom/atproto/repo/CreateRecordValidationStatus$Companion;
-	public static final field UNKNOWN Lcom/atproto/repo/CreateRecordValidationStatus;
-	public static final field VALID Lcom/atproto/repo/CreateRecordValidationStatus;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/repo/CreateRecordValidationStatus;
-	public static fun values ()[Lcom/atproto/repo/CreateRecordValidationStatus;
 }
 
 public final class com/atproto/repo/CreateRecordValidationStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/repo/CreateRecordValidationStatus;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/repo/CreateRecordValidationStatus$Unknown : com/atproto/repo/CreateRecordValidationStatus {
+	public static final field INSTANCE Lcom/atproto/repo/CreateRecordValidationStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/repo/CreateRecordValidationStatus$Valid : com/atproto/repo/CreateRecordValidationStatus {
+	public static final field INSTANCE Lcom/atproto/repo/CreateRecordValidationStatus$Valid;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/repo/CreateRecordValidationStatus$_Unknown : com/atproto/repo/CreateRecordValidationStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/repo/CreateRecordValidationStatus$_Unknown;
+	public static synthetic fun copy$default (Lcom/atproto/repo/CreateRecordValidationStatus$_Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/CreateRecordValidationStatus$_Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/repo/CreateRecordValidationStatusSerializer : kotlinx/serialization/KSerializer {
@@ -10302,18 +11039,40 @@ public final class com/atproto/repo/PutRecordResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/repo/PutRecordValidationStatus : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class com/atproto/repo/PutRecordValidationStatus : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lcom/atproto/repo/PutRecordValidationStatus$Companion;
-	public static final field UNKNOWN Lcom/atproto/repo/PutRecordValidationStatus;
-	public static final field VALID Lcom/atproto/repo/PutRecordValidationStatus;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/repo/PutRecordValidationStatus;
-	public static fun values ()[Lcom/atproto/repo/PutRecordValidationStatus;
 }
 
 public final class com/atproto/repo/PutRecordValidationStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/repo/PutRecordValidationStatus;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/repo/PutRecordValidationStatus$Unknown : com/atproto/repo/PutRecordValidationStatus {
+	public static final field INSTANCE Lcom/atproto/repo/PutRecordValidationStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/repo/PutRecordValidationStatus$Valid : com/atproto/repo/PutRecordValidationStatus {
+	public static final field INSTANCE Lcom/atproto/repo/PutRecordValidationStatus$Valid;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/repo/PutRecordValidationStatus$_Unknown : com/atproto/repo/PutRecordValidationStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/repo/PutRecordValidationStatus$_Unknown;
+	public static synthetic fun copy$default (Lcom/atproto/repo/PutRecordValidationStatus$_Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/PutRecordValidationStatus$_Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/repo/PutRecordValidationStatusSerializer : kotlinx/serialization/KSerializer {
@@ -10655,20 +11414,47 @@ public final class com/atproto/server/CreateSessionResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/server/CreateSessionStatus : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class com/atproto/server/CreateSessionStatus : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lcom/atproto/server/CreateSessionStatus$Companion;
-	public static final field DEACTIVATED Lcom/atproto/server/CreateSessionStatus;
-	public static final field SUSPENDED Lcom/atproto/server/CreateSessionStatus;
-	public static final field TAKENDOWN Lcom/atproto/server/CreateSessionStatus;
-	public static final field UNKNOWN Lcom/atproto/server/CreateSessionStatus;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/server/CreateSessionStatus;
-	public static fun values ()[Lcom/atproto/server/CreateSessionStatus;
 }
 
 public final class com/atproto/server/CreateSessionStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/server/CreateSessionStatus;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/server/CreateSessionStatus$Deactivated : com/atproto/server/CreateSessionStatus {
+	public static final field INSTANCE Lcom/atproto/server/CreateSessionStatus$Deactivated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/server/CreateSessionStatus$Suspended : com/atproto/server/CreateSessionStatus {
+	public static final field INSTANCE Lcom/atproto/server/CreateSessionStatus$Suspended;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/server/CreateSessionStatus$Takendown : com/atproto/server/CreateSessionStatus {
+	public static final field INSTANCE Lcom/atproto/server/CreateSessionStatus$Takendown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/server/CreateSessionStatus$Unknown : com/atproto/server/CreateSessionStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/server/CreateSessionStatus$Unknown;
+	public static synthetic fun copy$default (Lcom/atproto/server/CreateSessionStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/server/CreateSessionStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/server/CreateSessionStatusSerializer : kotlinx/serialization/KSerializer {
@@ -10888,20 +11674,47 @@ public final class com/atproto/server/GetSessionResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/server/GetSessionStatus : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class com/atproto/server/GetSessionStatus : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lcom/atproto/server/GetSessionStatus$Companion;
-	public static final field DEACTIVATED Lcom/atproto/server/GetSessionStatus;
-	public static final field SUSPENDED Lcom/atproto/server/GetSessionStatus;
-	public static final field TAKENDOWN Lcom/atproto/server/GetSessionStatus;
-	public static final field UNKNOWN Lcom/atproto/server/GetSessionStatus;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/server/GetSessionStatus;
-	public static fun values ()[Lcom/atproto/server/GetSessionStatus;
 }
 
 public final class com/atproto/server/GetSessionStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/server/GetSessionStatus;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/server/GetSessionStatus$Deactivated : com/atproto/server/GetSessionStatus {
+	public static final field INSTANCE Lcom/atproto/server/GetSessionStatus$Deactivated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/server/GetSessionStatus$Suspended : com/atproto/server/GetSessionStatus {
+	public static final field INSTANCE Lcom/atproto/server/GetSessionStatus$Suspended;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/server/GetSessionStatus$Takendown : com/atproto/server/GetSessionStatus {
+	public static final field INSTANCE Lcom/atproto/server/GetSessionStatus$Takendown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/server/GetSessionStatus$Unknown : com/atproto/server/GetSessionStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/server/GetSessionStatus$Unknown;
+	public static synthetic fun copy$default (Lcom/atproto/server/GetSessionStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/server/GetSessionStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/server/GetSessionStatusSerializer : kotlinx/serialization/KSerializer {
@@ -11025,20 +11838,47 @@ public final class com/atproto/server/RefreshSessionResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/server/RefreshSessionStatus : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class com/atproto/server/RefreshSessionStatus : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lcom/atproto/server/RefreshSessionStatus$Companion;
-	public static final field DEACTIVATED Lcom/atproto/server/RefreshSessionStatus;
-	public static final field SUSPENDED Lcom/atproto/server/RefreshSessionStatus;
-	public static final field TAKENDOWN Lcom/atproto/server/RefreshSessionStatus;
-	public static final field UNKNOWN Lcom/atproto/server/RefreshSessionStatus;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/server/RefreshSessionStatus;
-	public static fun values ()[Lcom/atproto/server/RefreshSessionStatus;
 }
 
 public final class com/atproto/server/RefreshSessionStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/server/RefreshSessionStatus;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/server/RefreshSessionStatus$Deactivated : com/atproto/server/RefreshSessionStatus {
+	public static final field INSTANCE Lcom/atproto/server/RefreshSessionStatus$Deactivated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/server/RefreshSessionStatus$Suspended : com/atproto/server/RefreshSessionStatus {
+	public static final field INSTANCE Lcom/atproto/server/RefreshSessionStatus$Suspended;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/server/RefreshSessionStatus$Takendown : com/atproto/server/RefreshSessionStatus {
+	public static final field INSTANCE Lcom/atproto/server/RefreshSessionStatus$Takendown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/server/RefreshSessionStatus$Unknown : com/atproto/server/RefreshSessionStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/server/RefreshSessionStatus$Unknown;
+	public static synthetic fun copy$default (Lcom/atproto/server/RefreshSessionStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/server/RefreshSessionStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/server/RefreshSessionStatusSerializer : kotlinx/serialization/KSerializer {
@@ -11376,20 +12216,47 @@ public final class com/atproto/sync/GetRepoStatusResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/sync/GetRepoStatusStatus : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class com/atproto/sync/GetRepoStatusStatus : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lcom/atproto/sync/GetRepoStatusStatus$Companion;
-	public static final field DEACTIVATED Lcom/atproto/sync/GetRepoStatusStatus;
-	public static final field SUSPENDED Lcom/atproto/sync/GetRepoStatusStatus;
-	public static final field TAKENDOWN Lcom/atproto/sync/GetRepoStatusStatus;
-	public static final field UNKNOWN Lcom/atproto/sync/GetRepoStatusStatus;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/sync/GetRepoStatusStatus;
-	public static fun values ()[Lcom/atproto/sync/GetRepoStatusStatus;
 }
 
 public final class com/atproto/sync/GetRepoStatusStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/sync/GetRepoStatusStatus;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/sync/GetRepoStatusStatus$Deactivated : com/atproto/sync/GetRepoStatusStatus {
+	public static final field INSTANCE Lcom/atproto/sync/GetRepoStatusStatus$Deactivated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/GetRepoStatusStatus$Suspended : com/atproto/sync/GetRepoStatusStatus {
+	public static final field INSTANCE Lcom/atproto/sync/GetRepoStatusStatus$Suspended;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/GetRepoStatusStatus$Takendown : com/atproto/sync/GetRepoStatusStatus {
+	public static final field INSTANCE Lcom/atproto/sync/GetRepoStatusStatus$Takendown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/GetRepoStatusStatus$Unknown : com/atproto/sync/GetRepoStatusStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/sync/GetRepoStatusStatus$Unknown;
+	public static synthetic fun copy$default (Lcom/atproto/sync/GetRepoStatusStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/sync/GetRepoStatusStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/sync/GetRepoStatusStatusSerializer : kotlinx/serialization/KSerializer {
@@ -11509,20 +12376,47 @@ public final class com/atproto/sync/ListReposResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/sync/ListReposStatus : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class com/atproto/sync/ListReposStatus : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lcom/atproto/sync/ListReposStatus$Companion;
-	public static final field DEACTIVATED Lcom/atproto/sync/ListReposStatus;
-	public static final field SUSPENDED Lcom/atproto/sync/ListReposStatus;
-	public static final field TAKENDOWN Lcom/atproto/sync/ListReposStatus;
-	public static final field UNKNOWN Lcom/atproto/sync/ListReposStatus;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/sync/ListReposStatus;
-	public static fun values ()[Lcom/atproto/sync/ListReposStatus;
 }
 
 public final class com/atproto/sync/ListReposStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/sync/ListReposStatus;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/sync/ListReposStatus$Deactivated : com/atproto/sync/ListReposStatus {
+	public static final field INSTANCE Lcom/atproto/sync/ListReposStatus$Deactivated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/ListReposStatus$Suspended : com/atproto/sync/ListReposStatus {
+	public static final field INSTANCE Lcom/atproto/sync/ListReposStatus$Suspended;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/ListReposStatus$Takendown : com/atproto/sync/ListReposStatus {
+	public static final field INSTANCE Lcom/atproto/sync/ListReposStatus$Takendown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/ListReposStatus$Unknown : com/atproto/sync/ListReposStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/sync/ListReposStatus$Unknown;
+	public static synthetic fun copy$default (Lcom/atproto/sync/ListReposStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/sync/ListReposStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/sync/ListReposStatusSerializer : kotlinx/serialization/KSerializer {
@@ -11591,20 +12485,47 @@ public final class com/atproto/sync/SubscribeReposAccount$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/sync/SubscribeReposAction : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
-	public static final field CREATE Lcom/atproto/sync/SubscribeReposAction;
+public abstract class com/atproto/sync/SubscribeReposAction : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lcom/atproto/sync/SubscribeReposAction$Companion;
-	public static final field DELETE Lcom/atproto/sync/SubscribeReposAction;
-	public static final field UNKNOWN Lcom/atproto/sync/SubscribeReposAction;
-	public static final field UPDATE Lcom/atproto/sync/SubscribeReposAction;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/sync/SubscribeReposAction;
-	public static fun values ()[Lcom/atproto/sync/SubscribeReposAction;
 }
 
 public final class com/atproto/sync/SubscribeReposAction$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/sync/SubscribeReposAction;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/sync/SubscribeReposAction$Create : com/atproto/sync/SubscribeReposAction {
+	public static final field INSTANCE Lcom/atproto/sync/SubscribeReposAction$Create;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/SubscribeReposAction$Delete : com/atproto/sync/SubscribeReposAction {
+	public static final field INSTANCE Lcom/atproto/sync/SubscribeReposAction$Delete;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/SubscribeReposAction$Unknown : com/atproto/sync/SubscribeReposAction {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/sync/SubscribeReposAction$Unknown;
+	public static synthetic fun copy$default (Lcom/atproto/sync/SubscribeReposAction$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/sync/SubscribeReposAction$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/SubscribeReposAction$Update : com/atproto/sync/SubscribeReposAction {
+	public static final field INSTANCE Lcom/atproto/sync/SubscribeReposAction$Update;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/sync/SubscribeReposActionSerializer : kotlinx/serialization/KSerializer {
@@ -11907,18 +12828,33 @@ public final class com/atproto/sync/SubscribeReposMigrate$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/sync/SubscribeReposName : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class com/atproto/sync/SubscribeReposName : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lcom/atproto/sync/SubscribeReposName$Companion;
-	public static final field OUTDATED_CURSOR Lcom/atproto/sync/SubscribeReposName;
-	public static final field UNKNOWN Lcom/atproto/sync/SubscribeReposName;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/sync/SubscribeReposName;
-	public static fun values ()[Lcom/atproto/sync/SubscribeReposName;
 }
 
 public final class com/atproto/sync/SubscribeReposName$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/sync/SubscribeReposName;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/sync/SubscribeReposName$OutdatedCursor : com/atproto/sync/SubscribeReposName {
+	public static final field INSTANCE Lcom/atproto/sync/SubscribeReposName$OutdatedCursor;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/SubscribeReposName$Unknown : com/atproto/sync/SubscribeReposName {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/sync/SubscribeReposName$Unknown;
+	public static synthetic fun copy$default (Lcom/atproto/sync/SubscribeReposName$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/sync/SubscribeReposName$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/sync/SubscribeReposNameSerializer : kotlinx/serialization/KSerializer {
@@ -11970,21 +12906,54 @@ public final class com/atproto/sync/SubscribeReposRepoOp$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/sync/SubscribeReposStatus : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class com/atproto/sync/SubscribeReposStatus : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lcom/atproto/sync/SubscribeReposStatus$Companion;
-	public static final field DEACTIVATED Lcom/atproto/sync/SubscribeReposStatus;
-	public static final field DELETED Lcom/atproto/sync/SubscribeReposStatus;
-	public static final field SUSPENDED Lcom/atproto/sync/SubscribeReposStatus;
-	public static final field TAKENDOWN Lcom/atproto/sync/SubscribeReposStatus;
-	public static final field UNKNOWN Lcom/atproto/sync/SubscribeReposStatus;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/atproto/sync/SubscribeReposStatus;
-	public static fun values ()[Lcom/atproto/sync/SubscribeReposStatus;
 }
 
 public final class com/atproto/sync/SubscribeReposStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/sync/SubscribeReposStatus;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/sync/SubscribeReposStatus$Deactivated : com/atproto/sync/SubscribeReposStatus {
+	public static final field INSTANCE Lcom/atproto/sync/SubscribeReposStatus$Deactivated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/SubscribeReposStatus$Deleted : com/atproto/sync/SubscribeReposStatus {
+	public static final field INSTANCE Lcom/atproto/sync/SubscribeReposStatus$Deleted;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/SubscribeReposStatus$Suspended : com/atproto/sync/SubscribeReposStatus {
+	public static final field INSTANCE Lcom/atproto/sync/SubscribeReposStatus$Suspended;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/SubscribeReposStatus$Takendown : com/atproto/sync/SubscribeReposStatus {
+	public static final field INSTANCE Lcom/atproto/sync/SubscribeReposStatus$Takendown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/SubscribeReposStatus$Unknown : com/atproto/sync/SubscribeReposStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/sync/SubscribeReposStatus$Unknown;
+	public static synthetic fun copy$default (Lcom/atproto/sync/SubscribeReposStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/sync/SubscribeReposStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class com/atproto/sync/SubscribeReposStatusSerializer : kotlinx/serialization/KSerializer {
@@ -15170,20 +16139,47 @@ public final class tools/ozone/moderation/ModerationDetail$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class tools/ozone/moderation/Op : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
-	public static final field CREATE Ltools/ozone/moderation/Op;
+public abstract class tools/ozone/moderation/Op : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Ltools/ozone/moderation/Op$Companion;
-	public static final field DELETE Ltools/ozone/moderation/Op;
-	public static final field UNKNOWN Ltools/ozone/moderation/Op;
-	public static final field UPDATE Ltools/ozone/moderation/Op;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Ltools/ozone/moderation/Op;
-	public static fun values ()[Ltools/ozone/moderation/Op;
 }
 
 public final class tools/ozone/moderation/Op$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/moderation/Op;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/Op$Create : tools/ozone/moderation/Op {
+	public static final field INSTANCE Ltools/ozone/moderation/Op$Create;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/Op$Delete : tools/ozone/moderation/Op {
+	public static final field INSTANCE Ltools/ozone/moderation/Op$Delete;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/Op$Unknown : tools/ozone/moderation/Op {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/moderation/Op$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/Op$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/Op$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/Op$Update : tools/ozone/moderation/Op {
+	public static final field INSTANCE Ltools/ozone/moderation/Op$Update;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class tools/ozone/moderation/OpSerializer : kotlinx/serialization/KSerializer {
@@ -15266,19 +16262,40 @@ public final class tools/ozone/moderation/QueryEventsResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class tools/ozone/moderation/QueryEventsSubjectType : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
-	public static final field ACCOUNT Ltools/ozone/moderation/QueryEventsSubjectType;
+public abstract class tools/ozone/moderation/QueryEventsSubjectType : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Ltools/ozone/moderation/QueryEventsSubjectType$Companion;
-	public static final field RECORD Ltools/ozone/moderation/QueryEventsSubjectType;
-	public static final field UNKNOWN Ltools/ozone/moderation/QueryEventsSubjectType;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Ltools/ozone/moderation/QueryEventsSubjectType;
-	public static fun values ()[Ltools/ozone/moderation/QueryEventsSubjectType;
+}
+
+public final class tools/ozone/moderation/QueryEventsSubjectType$Account : tools/ozone/moderation/QueryEventsSubjectType {
+	public static final field INSTANCE Ltools/ozone/moderation/QueryEventsSubjectType$Account;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class tools/ozone/moderation/QueryEventsSubjectType$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/moderation/QueryEventsSubjectType;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/QueryEventsSubjectType$Record : tools/ozone/moderation/QueryEventsSubjectType {
+	public static final field INSTANCE Ltools/ozone/moderation/QueryEventsSubjectType$Record;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/QueryEventsSubjectType$Unknown : tools/ozone/moderation/QueryEventsSubjectType {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/moderation/QueryEventsSubjectType$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/QueryEventsSubjectType$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/QueryEventsSubjectType$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class tools/ozone/moderation/QueryEventsSubjectTypeSerializer : kotlinx/serialization/KSerializer {
@@ -15379,19 +16396,40 @@ public final class tools/ozone/moderation/QueryStatusesResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class tools/ozone/moderation/QueryStatusesSubjectType : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
-	public static final field ACCOUNT Ltools/ozone/moderation/QueryStatusesSubjectType;
+public abstract class tools/ozone/moderation/QueryStatusesSubjectType : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Ltools/ozone/moderation/QueryStatusesSubjectType$Companion;
-	public static final field RECORD Ltools/ozone/moderation/QueryStatusesSubjectType;
-	public static final field UNKNOWN Ltools/ozone/moderation/QueryStatusesSubjectType;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Ltools/ozone/moderation/QueryStatusesSubjectType;
-	public static fun values ()[Ltools/ozone/moderation/QueryStatusesSubjectType;
+}
+
+public final class tools/ozone/moderation/QueryStatusesSubjectType$Account : tools/ozone/moderation/QueryStatusesSubjectType {
+	public static final field INSTANCE Ltools/ozone/moderation/QueryStatusesSubjectType$Account;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class tools/ozone/moderation/QueryStatusesSubjectType$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/moderation/QueryStatusesSubjectType;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/QueryStatusesSubjectType$Record : tools/ozone/moderation/QueryStatusesSubjectType {
+	public static final field INSTANCE Ltools/ozone/moderation/QueryStatusesSubjectType$Record;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/QueryStatusesSubjectType$Unknown : tools/ozone/moderation/QueryStatusesSubjectType {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/moderation/QueryStatusesSubjectType$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/QueryStatusesSubjectType$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/QueryStatusesSubjectType$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class tools/ozone/moderation/QueryStatusesSubjectTypeSerializer : kotlinx/serialization/KSerializer {
@@ -15663,22 +16701,68 @@ public final class tools/ozone/moderation/SearchReposResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class tools/ozone/moderation/Status : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class tools/ozone/moderation/Status : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Ltools/ozone/moderation/Status$Companion;
-	public static final field DEACTIVATED Ltools/ozone/moderation/Status;
-	public static final field DELETED Ltools/ozone/moderation/Status;
-	public static final field SUSPENDED Ltools/ozone/moderation/Status;
-	public static final field TAKENDOWN Ltools/ozone/moderation/Status;
-	public static final field TOMBSTONED Ltools/ozone/moderation/Status;
-	public static final field UNKNOWN Ltools/ozone/moderation/Status;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Ltools/ozone/moderation/Status;
-	public static fun values ()[Ltools/ozone/moderation/Status;
 }
 
 public final class tools/ozone/moderation/Status$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/moderation/Status;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/Status$Deactivated : tools/ozone/moderation/Status {
+	public static final field INSTANCE Ltools/ozone/moderation/Status$Deactivated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/Status$Deleted : tools/ozone/moderation/Status {
+	public static final field INSTANCE Ltools/ozone/moderation/Status$Deleted;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/Status$Suspended : tools/ozone/moderation/Status {
+	public static final field INSTANCE Ltools/ozone/moderation/Status$Suspended;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/Status$Takendown : tools/ozone/moderation/Status {
+	public static final field INSTANCE Ltools/ozone/moderation/Status$Takendown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/Status$Tombstoned : tools/ozone/moderation/Status {
+	public static final field INSTANCE Ltools/ozone/moderation/Status$Tombstoned;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/Status$Unknown : tools/ozone/moderation/Status {
+	public static final field INSTANCE Ltools/ozone/moderation/Status$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/Status$_Unknown : tools/ozone/moderation/Status {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/moderation/Status$_Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/Status$_Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/Status$_Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class tools/ozone/moderation/StatusSerializer : kotlinx/serialization/KSerializer {
@@ -15871,21 +16955,54 @@ public final class tools/ozone/moderation/SubjectStatusViewSubjectUnion$RepoStro
 	public fun serialize-tvYlcjQ (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
 }
 
-public final class tools/ozone/moderation/Token : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class tools/ozone/moderation/Token : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Ltools/ozone/moderation/Token$Companion;
-	public static final field REVIEW_CLOSED Ltools/ozone/moderation/Token;
-	public static final field REVIEW_ESCALATED Ltools/ozone/moderation/Token;
-	public static final field REVIEW_NONE Ltools/ozone/moderation/Token;
-	public static final field REVIEW_OPEN Ltools/ozone/moderation/Token;
-	public static final field UNKNOWN Ltools/ozone/moderation/Token;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Ltools/ozone/moderation/Token;
-	public static fun values ()[Ltools/ozone/moderation/Token;
 }
 
 public final class tools/ozone/moderation/Token$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/moderation/Token;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/Token$ReviewClosed : tools/ozone/moderation/Token {
+	public static final field INSTANCE Ltools/ozone/moderation/Token$ReviewClosed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/Token$ReviewEscalated : tools/ozone/moderation/Token {
+	public static final field INSTANCE Ltools/ozone/moderation/Token$ReviewEscalated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/Token$ReviewNone : tools/ozone/moderation/Token {
+	public static final field INSTANCE Ltools/ozone/moderation/Token$ReviewNone;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/Token$ReviewOpen : tools/ozone/moderation/Token {
+	public static final field INSTANCE Ltools/ozone/moderation/Token$ReviewOpen;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/Token$Unknown : tools/ozone/moderation/Token {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/moderation/Token$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/Token$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/Token$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class tools/ozone/moderation/TokenSerializer : kotlinx/serialization/KSerializer {
@@ -16214,19 +17331,40 @@ public final class tools/ozone/setting/ListOptionsResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class tools/ozone/setting/ListOptionsScope : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class tools/ozone/setting/ListOptionsScope : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Ltools/ozone/setting/ListOptionsScope$Companion;
-	public static final field INSTANCE Ltools/ozone/setting/ListOptionsScope;
-	public static final field PERSONAL Ltools/ozone/setting/ListOptionsScope;
-	public static final field UNKNOWN Ltools/ozone/setting/ListOptionsScope;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Ltools/ozone/setting/ListOptionsScope;
-	public static fun values ()[Ltools/ozone/setting/ListOptionsScope;
 }
 
 public final class tools/ozone/setting/ListOptionsScope$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/setting/ListOptionsScope;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/setting/ListOptionsScope$Instance : tools/ozone/setting/ListOptionsScope {
+	public static final field INSTANCE Ltools/ozone/setting/ListOptionsScope$Instance;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/setting/ListOptionsScope$Personal : tools/ozone/setting/ListOptionsScope {
+	public static final field INSTANCE Ltools/ozone/setting/ListOptionsScope$Personal;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/setting/ListOptionsScope$Unknown : tools/ozone/setting/ListOptionsScope {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/setting/ListOptionsScope$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/setting/ListOptionsScope$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/setting/ListOptionsScope$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class tools/ozone/setting/ListOptionsScopeSerializer : kotlinx/serialization/KSerializer {
@@ -16296,19 +17434,40 @@ public final class tools/ozone/setting/RemoveOptionsResponse {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class tools/ozone/setting/RemoveOptionsScope : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class tools/ozone/setting/RemoveOptionsScope : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Ltools/ozone/setting/RemoveOptionsScope$Companion;
-	public static final field INSTANCE Ltools/ozone/setting/RemoveOptionsScope;
-	public static final field PERSONAL Ltools/ozone/setting/RemoveOptionsScope;
-	public static final field UNKNOWN Ltools/ozone/setting/RemoveOptionsScope;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Ltools/ozone/setting/RemoveOptionsScope;
-	public static fun values ()[Ltools/ozone/setting/RemoveOptionsScope;
 }
 
 public final class tools/ozone/setting/RemoveOptionsScope$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/setting/RemoveOptionsScope;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/setting/RemoveOptionsScope$Instance : tools/ozone/setting/RemoveOptionsScope {
+	public static final field INSTANCE Ltools/ozone/setting/RemoveOptionsScope$Instance;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/setting/RemoveOptionsScope$Personal : tools/ozone/setting/RemoveOptionsScope {
+	public static final field INSTANCE Ltools/ozone/setting/RemoveOptionsScope$Personal;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/setting/RemoveOptionsScope$Unknown : tools/ozone/setting/RemoveOptionsScope {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/setting/RemoveOptionsScope$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/setting/RemoveOptionsScope$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/setting/RemoveOptionsScope$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class tools/ozone/setting/RemoveOptionsScopeSerializer : kotlinx/serialization/KSerializer {
@@ -16320,19 +17479,40 @@ public final class tools/ozone/setting/RemoveOptionsScopeSerializer : kotlinx/se
 	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/setting/RemoveOptionsScope;)V
 }
 
-public final class tools/ozone/setting/Scope : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class tools/ozone/setting/Scope : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Ltools/ozone/setting/Scope$Companion;
-	public static final field INSTANCE Ltools/ozone/setting/Scope;
-	public static final field PERSONAL Ltools/ozone/setting/Scope;
-	public static final field UNKNOWN Ltools/ozone/setting/Scope;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Ltools/ozone/setting/Scope;
-	public static fun values ()[Ltools/ozone/setting/Scope;
 }
 
 public final class tools/ozone/setting/Scope$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/setting/Scope;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/setting/Scope$Instance : tools/ozone/setting/Scope {
+	public static final field INSTANCE Ltools/ozone/setting/Scope$Instance;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/setting/Scope$Personal : tools/ozone/setting/Scope {
+	public static final field INSTANCE Ltools/ozone/setting/Scope$Personal;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/setting/Scope$Unknown : tools/ozone/setting/Scope {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/setting/Scope$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/setting/Scope$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/setting/Scope$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class tools/ozone/setting/ScopeSerializer : kotlinx/serialization/KSerializer {
@@ -16385,19 +17565,40 @@ public final class tools/ozone/setting/UpsertOptionResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class tools/ozone/setting/UpsertOptionScope : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class tools/ozone/setting/UpsertOptionScope : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Ltools/ozone/setting/UpsertOptionScope$Companion;
-	public static final field INSTANCE Ltools/ozone/setting/UpsertOptionScope;
-	public static final field PERSONAL Ltools/ozone/setting/UpsertOptionScope;
-	public static final field UNKNOWN Ltools/ozone/setting/UpsertOptionScope;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Ltools/ozone/setting/UpsertOptionScope;
-	public static fun values ()[Ltools/ozone/setting/UpsertOptionScope;
 }
 
 public final class tools/ozone/setting/UpsertOptionScope$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/setting/UpsertOptionScope;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/setting/UpsertOptionScope$Instance : tools/ozone/setting/UpsertOptionScope {
+	public static final field INSTANCE Ltools/ozone/setting/UpsertOptionScope$Instance;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/setting/UpsertOptionScope$Personal : tools/ozone/setting/UpsertOptionScope {
+	public static final field INSTANCE Ltools/ozone/setting/UpsertOptionScope$Personal;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/setting/UpsertOptionScope$Unknown : tools/ozone/setting/UpsertOptionScope {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/setting/UpsertOptionScope$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/setting/UpsertOptionScope$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/setting/UpsertOptionScope$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class tools/ozone/setting/UpsertOptionScopeSerializer : kotlinx/serialization/KSerializer {
@@ -16664,20 +17865,47 @@ public final class tools/ozone/team/Member$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class tools/ozone/team/Token : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+public abstract class tools/ozone/team/Token : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Ltools/ozone/team/Token$Companion;
-	public static final field ROLE_ADMIN Ltools/ozone/team/Token;
-	public static final field ROLE_MODERATOR Ltools/ozone/team/Token;
-	public static final field ROLE_TRIAGE Ltools/ozone/team/Token;
-	public static final field UNKNOWN Ltools/ozone/team/Token;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getValue ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Ltools/ozone/team/Token;
-	public static fun values ()[Ltools/ozone/team/Token;
 }
 
 public final class tools/ozone/team/Token$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/team/Token;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/team/Token$RoleAdmin : tools/ozone/team/Token {
+	public static final field INSTANCE Ltools/ozone/team/Token$RoleAdmin;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/team/Token$RoleModerator : tools/ozone/team/Token {
+	public static final field INSTANCE Ltools/ozone/team/Token$RoleModerator;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/team/Token$RoleTriage : tools/ozone/team/Token {
+	public static final field INSTANCE Ltools/ozone/team/Token$RoleTriage;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/team/Token$Unknown : tools/ozone/team/Token {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/team/Token$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/team/Token$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/team/Token$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class tools/ozone/team/TokenSerializer : kotlinx/serialization/KSerializer {

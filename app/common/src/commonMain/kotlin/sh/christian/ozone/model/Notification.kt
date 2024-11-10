@@ -80,14 +80,14 @@ fun ListNotificationsNotification.toNotification(
   }
 
   val (notificationReason, content) = when (reason) {
-    UNKNOWN -> return null
-    LIKE -> Notification.Reason.LIKE to notificationPost?.let(::Liked)
-    REPOST -> Notification.Reason.REPOST to notificationPost?.let(::Reposted)
-    FOLLOW -> Notification.Reason.FOLLOW to Followed
-    MENTION -> Notification.Reason.MENTION to notificationPost?.let(::Mentioned)
-    REPLY -> Notification.Reason.REPLY to notificationPost?.let(::RepliedTo)
-    QUOTE -> Notification.Reason.QUOTE to notificationPost?.let(::Quoted)
-    STARTERPACK_JOINED -> Notification.Reason.JOINED_STARTERPACK to JoinedStarterPack
+    is Unknown -> return null
+    is Like -> Notification.Reason.LIKE to notificationPost?.let(::Liked)
+    is Repost -> Notification.Reason.REPOST to notificationPost?.let(::Reposted)
+    is Follow -> Notification.Reason.FOLLOW to Followed
+    is Mention -> Notification.Reason.MENTION to notificationPost?.let(::Mentioned)
+    is Reply -> Notification.Reason.REPLY to notificationPost?.let(::RepliedTo)
+    is Quote -> Notification.Reason.QUOTE to notificationPost?.let(::Quoted)
+    is StarterpackJoined -> Notification.Reason.JOINED_STARTERPACK to JoinedStarterPack
   }
 
   return Notification(

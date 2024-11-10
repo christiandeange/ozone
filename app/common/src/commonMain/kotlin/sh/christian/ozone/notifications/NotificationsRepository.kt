@@ -158,14 +158,14 @@ class NotificationsRepository(
     private val EMPTY_VALUE = Notifications(persistentListOf(), null)
 
     fun ListNotificationsNotification.getPostUri(): AtUri? = when (reason) {
-      ListNotificationsReason.UNKNOWN -> null
-      ListNotificationsReason.LIKE -> reasonSubject
-      ListNotificationsReason.REPOST -> reasonSubject
-      ListNotificationsReason.MENTION -> uri
-      ListNotificationsReason.REPLY -> uri
-      ListNotificationsReason.QUOTE -> uri
-      ListNotificationsReason.FOLLOW -> null
-      ListNotificationsReason.STARTERPACK_JOINED -> null
+      is ListNotificationsReason.Unknown -> null
+      is ListNotificationsReason.Like -> reasonSubject
+      is ListNotificationsReason.Repost -> reasonSubject
+      is ListNotificationsReason.Mention -> uri
+      is ListNotificationsReason.Reply -> uri
+      is ListNotificationsReason.Quote -> uri
+      is ListNotificationsReason.Follow -> null
+      is ListNotificationsReason.StarterpackJoined -> null
     }
   }
 }

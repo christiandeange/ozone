@@ -447,15 +447,6 @@ public final class sh/christian/ozone/api/runtime/BlobSerializer : kotlinx/seria
 	public static final field INSTANCE Lsh/christian/ozone/api/runtime/BlobSerializer;
 }
 
-public final class sh/christian/ozone/api/runtime/DefaultEnumKSerializer : kotlinx/serialization/KSerializer {
-	public fun <init> (Ljava/lang/String;[Ljava/lang/Enum;Ljava/lang/Enum;)V
-	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Enum;
-	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
-	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Enum;)V
-	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-}
-
 public final class sh/christian/ozone/api/runtime/ImmutableListSerializer : kotlinx/serialization/KSerializer {
 	public fun <init> (Lkotlinx/serialization/KSerializer;)V
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
@@ -481,5 +472,14 @@ public final class sh/christian/ozone/api/runtime/LenientInstantIso8601Serialize
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lkotlinx/datetime/Instant;)V
+}
+
+public final class sh/christian/ozone/api/runtime/StringEnumSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lsh/christian/ozone/api/model/AtpEnum;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lsh/christian/ozone/api/model/AtpEnum;)V
 }
 

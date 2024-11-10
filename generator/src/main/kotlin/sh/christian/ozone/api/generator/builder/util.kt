@@ -24,7 +24,6 @@ import com.squareup.kotlinpoet.buildCodeBlock
 import org.gradle.configurationcache.extensions.capitalized
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.TypeNames
-import sh.christian.ozone.api.generator.defaultEnumSerializer
 import sh.christian.ozone.api.generator.stringEnumSerializer
 import sh.christian.ozone.api.generator.valueClassSerializer
 import sh.christian.ozone.api.lexicon.LexiconArray
@@ -221,7 +220,6 @@ fun createOpenEnumClass(
   className: ClassName,
   values: Collection<String>,
 ): List<TypeSpec> {
-  
   val serializerClassName = className.peerClass(className.simpleName + "Serializer")
   val serializerTypeSpec = TypeSpec.classBuilder(serializerClassName)
     .addSuperinterface(
@@ -229,11 +227,11 @@ fun createOpenEnumClass(
       CodeBlock.of("%M(%T::safeValueOf)".trimIndent(), stringEnumSerializer, className)
     )
     .build()
-  
+
   val formattedNames = values.associateWith { value ->
     value.substringAfterLast('#').toPascalCase()
   }
-  
+
   val sealedClass = TypeSpec.classBuilder(className)
     .addModifiers(KModifier.SEALED)
     .addAnnotation(
@@ -252,11 +250,10 @@ fun createOpenEnumClass(
         .build()
     )
     .addSuperinterface(TypeNames.AtpEnum)
-  
+
   val safeValueOfControlFlow = CodeBlock.builder()
     .beginControlFlow("return when (value)")
-  
-  
+
   formattedNames.forEach { (value, formatted) ->
     safeValueOfControlFlow.addStatement("%S -> %L", value, formatted)
     sealedClass.addType(
@@ -267,12 +264,12 @@ fun createOpenEnumClass(
         .build()
     )
   }
-  
-  // avoid conflicting names by appending _ to the unknown name
+
+  // Avoid conflicting names by appending _ to the unknown name
   val safeUnknownEntryName = "Unknown".let {
     if (it in formattedNames.values) "_$it" else it
   }
-  
+
   sealedClass.addType(
     TypeSpec.classBuilder(safeUnknownEntryName)
       .addModifiers(KModifier.DATA)
@@ -294,7 +291,7 @@ fun createOpenEnumClass(
       .addSuperclassConstructorParameter("""rawValue""")
       .build()
   )
-  
+
   sealedClass.addType(
     TypeSpec.companionObjectBuilder()
       .addFunction(
@@ -313,69 +310,8 @@ fun createOpenEnumClass(
       )
       .build()
   )
-  
+
   return listOf(serializerTypeSpec, sealedClass.build())
-}
-
-fun createEnumClass(
-  className: ClassName,
-  values: Collection<String>,
-  additionalConfiguration: TypeSpec.Builder.() -> Unit = {},
-): List<TypeSpec> {
-  val serializerClassName = className.peerClass(className.simpleName + "Serializer")
-  val serializerTypeSpec = TypeSpec.classBuilder(serializerClassName)
-    .addSuperinterface(
-      TypeNames.KSerializer.parameterizedBy(className),
-      CodeBlock.of("%M(%T.UNKNOWN)".trimIndent(), defaultEnumSerializer, className)
-    )
-    .build()
-
-  val enumClassTypeSpec = TypeSpec.enumBuilder(className)
-    .addAnnotation(
-      AnnotationSpec.builder(TypeNames.Serializable)
-        .addMember("with = %T::class", serializerClassName)
-        .build()
-    )
-    .addSuperinterface(TypeNames.AtpEnum)
-    .primaryConstructor(
-      FunSpec.constructorBuilder()
-        .addParameter(
-          ParameterSpec
-            .builder("value", STRING)
-            .build()
-        )
-        .build()
-    )
-    .addProperty(
-      PropertySpec
-        .builder("value", STRING)
-        .addModifiers(KModifier.OVERRIDE)
-        .initializer("value")
-        .build()
-    )
-    .apply {
-      if ("unknown" !in values) {
-        addEnumConstant(
-          name = "UNKNOWN",
-          typeSpec = TypeSpec.anonymousClassBuilder()
-            .addSuperclassConstructorParameter("%S", "unknown")
-            .build(),
-        )
-      }
-
-      values.forEach { value ->
-        addEnumConstant(
-          name = value.substringAfterLast('#').toEnumCase(),
-          typeSpec = TypeSpec.anonymousClassBuilder()
-            .addSuperclassConstructorParameter("%S", value)
-            .build(),
-        )
-      }
-    }
-    .apply(additionalConfiguration)
-    .build()
-
-  return listOf(serializerTypeSpec, enumClassTypeSpec)
 }
 
 fun LexiconSingleReference.typeName(
