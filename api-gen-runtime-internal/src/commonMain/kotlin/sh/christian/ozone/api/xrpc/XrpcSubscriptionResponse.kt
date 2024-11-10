@@ -1,13 +1,9 @@
 package sh.christian.ozone.api.xrpc
 
-import kotlinx.serialization.DeserializationStrategy
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.cbor.Cbor
 import kotlinx.serialization.serializer
-import sh.christian.ozone.api.cbor.ByteArrayInput
-import sh.christian.ozone.api.cbor.CborDecoder
-import sh.christian.ozone.api.cbor.CborReader
 import sh.christian.ozone.api.response.AtpErrorDescription
 import kotlin.reflect.KClass
 
@@ -25,25 +21,21 @@ data class XrpcSubscriptionResponse(
     kClass: KClass<T>,
     subscriptionSerializerProvider: SubscriptionSerializerProvider<T>,
   ): T {
-    val frame = decodeFromByteArray(XrpcSubscriptionFrame.serializer(), bytes)
+    val frame = cbor.decodeFromByteArray(XrpcSubscriptionFrame.serializer(), bytes)
 
     val payloadPosition = bytes.drop(1).indexOfFirst { it.toInt().isCborMapStart() } + 1
     val payloadBytes = bytes.drop(payloadPosition).toByteArray()
 
     if (frame.op == 1 && frame.t != null) {
       val serializer = subscriptionSerializerProvider(kClass, frame.t) ?: kClass.serializer()
-      return decodeFromByteArray(serializer, payloadBytes)
+      return cbor.decodeFromByteArray(serializer, payloadBytes)
     } else {
-      val maybeError = runCatching { decodeFromByteArray(AtpErrorDescription.serializer(), payloadBytes) }.getOrNull()
-      throw XrpcSubscriptionParseException(maybeError)
-    }
-  }
+      val maybeErrorDescription: AtpErrorDescription? =
+        runCatching { cbor.decodeFromByteArray(AtpErrorDescription.serializer(), payloadBytes) }
+          .getOrNull()
 
-  @ExperimentalSerializationApi
-  private fun <T> decodeFromByteArray(deserializer: DeserializationStrategy<T>, bytes: ByteArray): T {
-    val stream = ByteArrayInput(bytes)
-    val reader = CborReader(cbor, CborDecoder(stream))
-    return reader.decodeSerializableValue(deserializer)
+      throw XrpcSubscriptionParseException(maybeErrorDescription)
+    }
   }
 
   override fun equals(other: Any?): Boolean {
@@ -63,7 +55,10 @@ data class XrpcSubscriptionResponse(
 
   private companion object {
     @ExperimentalSerializationApi
-    val cbor = Cbor { ignoreUnknownKeys = true }
+    val cbor = Cbor {
+      ignoreUnknownKeys = true
+      alwaysUseByteString = true
+    }
   }
 }
 
