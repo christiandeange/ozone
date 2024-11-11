@@ -21,16 +21,19 @@ private constructor(
   val procedureName: String = document.id.substringAfterLast('.').removePrefix("defs")
   val classPrefix: String = prefixOverride ?: procedureName.capitalized()
 
-  private val enums = mutableMapOf<ClassName, MutableSet<String>>()
+  private val enums = mutableMapOf<EnumClass, MutableSet<EnumEntry>>()
   private val types = mutableMapOf<ClassName, TypeSpec>()
   private val typeAliases = mutableMapOf<ClassName, TypeAliasSpec>()
   private val sealedRelationships = mutableListOf<SealedRelationship>()
 
   fun addEnum(
     className: ClassName,
+    classDescription: String? = null,
     enumName: String,
+    enumDescription: String? = null,
   ) {
-    enums.getOrPut(className) { mutableSetOf() } += enumName
+    enums.getOrPut(EnumClass(className, classDescription)) { mutableSetOf() } +=
+      EnumEntry(enumName, enumDescription)
   }
 
   fun addType(typeSpec: TypeSpec) {
@@ -57,7 +60,7 @@ private constructor(
     )
   }
 
-  fun enums(): Map<ClassName, Set<String>> {
+  fun enums(): Map<EnumClass, Set<EnumEntry>> {
     return enums.mapValues { it.value.toSet() }
   }
 

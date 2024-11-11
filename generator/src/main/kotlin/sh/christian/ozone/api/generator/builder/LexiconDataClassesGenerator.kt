@@ -176,7 +176,7 @@ class LexiconDataClassesGenerator(
 
     val className = ClassName(context.authority, simpleClassName)
     primitive.knownValues.forEach { enum ->
-      context.addEnum(className, enum)
+      context.addEnum(className, primitive.description, enum, null)
     }
     return className
   }
@@ -194,7 +194,7 @@ class LexiconDataClassesGenerator(
   ) {
     val className = ClassName(context.authority, context.classPrefix + "Token")
     val enumName = context.document.id + "#" + context.definitionName
-    context.addEnum(className, enumName)
+    context.addEnum(className, null, enumName, token.description)
   }
 
   private fun generateTypes(

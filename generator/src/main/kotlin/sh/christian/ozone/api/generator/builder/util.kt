@@ -217,20 +217,17 @@ fun createObjectClass(
 }
 
 fun createOpenEnumClass(
-  className: ClassName,
-  values: Collection<String>,
+  enumClass: EnumClass,
+  entries: Collection<EnumEntry>,
 ): List<TypeSpec> {
+  val className = enumClass.className
   val serializerClassName = className.peerClass(className.simpleName + "Serializer")
   val serializerTypeSpec = TypeSpec.classBuilder(serializerClassName)
     .addSuperinterface(
       TypeNames.KSerializer.parameterizedBy(className),
-      CodeBlock.of("♢%M(%T::safeValueOf)".trimIndent(), stringEnumSerializer, className)
+      CodeBlock.of("%M(%T::safeValueOf)".trimIndent(), stringEnumSerializer, className)
     )
     .build()
-
-  val formattedNames = values.associateWith { value ->
-    value.substringAfterLast('#').toPascalCase()
-  }
 
   val sealedClass = TypeSpec.classBuilder(className)
     .addModifiers(KModifier.SEALED)
@@ -239,6 +236,7 @@ fun createOpenEnumClass(
         .addMember("with = %T::class", serializerClassName)
         .build()
     )
+    .addDescription(enumClass.description)
     .superclass(TypeNames.AtpEnum)
     .primaryConstructor(
       FunSpec.constructorBuilder()
@@ -254,20 +252,23 @@ fun createOpenEnumClass(
   val safeValueOfControlFlow = CodeBlock.builder()
     .beginControlFlow("return when (value)")
 
-  formattedNames.forEach { (value, formatted) ->
-    safeValueOfControlFlow.addStatement("%S -> %L", value, formatted)
+  entries.forEach { entry ->
+    val entryClassName = entry.name.substringAfterLast('#').toPascalCase()
+
+    safeValueOfControlFlow.addStatement("%S -> %L", entry.name, entryClassName)
     sealedClass.addType(
-      TypeSpec.objectBuilder(formatted)
+      TypeSpec.objectBuilder(entryClassName)
         .addModifiers(KModifier.DATA)
+        .addDescription(entry.description)
         .superclass(className)
-        .addSuperclassConstructorParameter("%S", value)
+        .addSuperclassConstructorParameter("%S", entry.name)
         .build()
     )
   }
 
   // Avoid conflicting names by appending _ to the unknown name
   val safeUnknownEntryName = "Unknown".let {
-    if (it in formattedNames.values) "_$it" else it
+    if (it in sealedClass.typeSpecs.map { type -> type.name }) "_$it" else it
   }
 
   sealedClass.addType(

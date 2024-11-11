@@ -10,6 +10,8 @@ import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.TypeVariableName
 import com.squareup.kotlinpoet.withIndent
 import org.gradle.configurationcache.extensions.capitalized
+import sh.christian.ozone.api.generator.builder.EnumClass
+import sh.christian.ozone.api.generator.builder.EnumEntry
 import sh.christian.ozone.api.generator.builder.GeneratorContext
 import sh.christian.ozone.api.generator.builder.LexiconDataClassesGenerator
 import sh.christian.ozone.api.generator.builder.SealedRelationship
@@ -31,7 +33,7 @@ class LexiconClassFileCreator(
   private val sealedRelationships = mutableListOf<SealedRelationship>()
 
   fun createClassForLexicon(document: LexiconDocument) {
-    val enums = mutableMapOf<ClassName, MutableSet<String>>()
+    val enums = mutableMapOf<EnumClass, MutableSet<EnumEntry>>()
 
     document.defs.forEach { (defKey, defValue) ->
       val definitionName = if (defKey == "main") "" else defKey
