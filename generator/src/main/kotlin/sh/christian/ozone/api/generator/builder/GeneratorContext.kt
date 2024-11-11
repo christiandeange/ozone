@@ -3,7 +3,6 @@ package sh.christian.ozone.api.generator.builder
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.TypeAliasSpec
 import com.squareup.kotlinpoet.TypeSpec
-import org.gradle.configurationcache.extensions.capitalized
 import sh.christian.ozone.api.lexicon.LexiconDocument
 
 class GeneratorContext

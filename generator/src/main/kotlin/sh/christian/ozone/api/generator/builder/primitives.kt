@@ -6,7 +6,6 @@ import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.DOUBLE
 import com.squareup.kotlinpoet.LONG
 import com.squareup.kotlinpoet.STRING
-import org.gradle.configurationcache.extensions.capitalized
 import sh.christian.ozone.api.generator.TypeNames
 import sh.christian.ozone.api.lexicon.LexiconBoolean
 import sh.christian.ozone.api.lexicon.LexiconFloat

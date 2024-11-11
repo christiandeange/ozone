@@ -5,7 +5,6 @@ import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
-import org.gradle.configurationcache.extensions.capitalized
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.TypeNames
 import sh.christian.ozone.api.lexicon.LexiconArray
@@ -39,8 +38,8 @@ class LexiconDataClassesGenerator(
   ) {
     when (userType) {
       is LexiconArray -> generateTypes(context, userType)
-      is LexiconBlob -> generateTypes(context, userType)
-      is LexiconIpldType -> generateTypes(context, userType)
+      is LexiconBlob -> return
+      is LexiconIpldType -> return
       is LexiconObject -> generateTypes(context, userType)
       is LexiconPrimitive -> generateTypes(context, userType)
       is LexiconRecord -> generateTypes(context, userType)
@@ -66,20 +65,6 @@ class LexiconDataClassesGenerator(
         }
       }
     }
-  }
-
-  private fun generateTypes(
-    context: GeneratorContext,
-    blob: LexiconBlob,
-  ) {
-    return
-  }
-
-  private fun generateTypes(
-    context: GeneratorContext,
-    ipldType: LexiconIpldType,
-  ) {
-    return
   }
 
   private fun generateTypes(
@@ -209,7 +194,7 @@ class LexiconDataClassesGenerator(
     context: GeneratorContext,
     xrpcQuery: LexiconXrpcQuery,
   ) {
-    xrpcQuery.parameters?.let { generateTypes(context, "Params", it) }
+    xrpcQuery.parameters?.let { generateTypes(context, it) }
     xrpcQuery.output?.let { generateTypes(context, "Response", it) }
   }
 
@@ -217,12 +202,11 @@ class LexiconDataClassesGenerator(
     context: GeneratorContext,
     xrpcSubscription: LexiconXrpcSubscription,
   ) {
-    xrpcSubscription.message?.let { generateTypes(context, "Message", it) }
+    xrpcSubscription.message?.let { generateTypes(context, it) }
   }
 
   private fun generateTypes(
     context: GeneratorContext,
-    className: String,
     xrpcBody: LexiconXrpcParameters,
   ) {
     xrpcBody.properties.forEach { (name, property) ->
@@ -245,11 +229,10 @@ class LexiconDataClassesGenerator(
 
   private fun generateTypes(
     context: GeneratorContext,
-    className: String,
     xrpcSubscriptionMessage: LexiconXrpcSubscriptionMessage,
   ) {
     xrpcSubscriptionMessage.schema?.let { schema ->
-      generateTypes(context, className, schema, addRelationships = true)
+      generateTypes(context, "Message", schema, addRelationships = true)
     }
   }
 

@@ -1,7 +1,6 @@
 package sh.christian.ozone.api.generator
 
 import com.squareup.kotlinpoet.AnnotationSpec
-import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec
@@ -9,7 +8,6 @@ import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.TypeVariableName
 import com.squareup.kotlinpoet.withIndent
-import org.gradle.configurationcache.extensions.capitalized
 import sh.christian.ozone.api.generator.builder.EnumClass
 import sh.christian.ozone.api.generator.builder.EnumEntry
 import sh.christian.ozone.api.generator.builder.GeneratorContext
@@ -18,6 +16,7 @@ import sh.christian.ozone.api.generator.builder.SealedRelationship
 import sh.christian.ozone.api.generator.builder.TypesGenerator
 import sh.christian.ozone.api.generator.builder.XrpcBodyGenerator
 import sh.christian.ozone.api.generator.builder.XrpcQueryParamsGenerator
+import sh.christian.ozone.api.generator.builder.capitalized
 import sh.christian.ozone.api.generator.builder.createOpenEnumClass
 import sh.christian.ozone.api.lexicon.LexiconDocument
 

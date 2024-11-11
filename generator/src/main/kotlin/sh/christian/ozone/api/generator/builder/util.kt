@@ -21,7 +21,6 @@ import com.squareup.kotlinpoet.TypeSpec
 import com.squareup.kotlinpoet.TypeVariableName
 import com.squareup.kotlinpoet.WildcardTypeName
 import com.squareup.kotlinpoet.buildCodeBlock
-import org.gradle.configurationcache.extensions.capitalized
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.TypeNames
 import sh.christian.ozone.api.generator.stringEnumSerializer
@@ -479,6 +478,8 @@ internal fun <T> T.addDescription(description: String?): T
 }
 
 internal fun String?.isDeprecated(): Boolean = this != null && startsWith("deprecated", ignoreCase = true)
+
+internal fun String.capitalized(): String = replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
 
 private fun TypeName.hasClassName(className: ClassName): Boolean = className in classNames()
 
