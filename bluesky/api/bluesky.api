@@ -6957,6 +6957,379 @@ public final class app/bsky/richtext/FacetTag$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/unspecced/GetConfigResponse {
+	public static final field Companion Lapp/bsky/unspecced/GetConfigResponse$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/lang/Boolean;)Lapp/bsky/unspecced/GetConfigResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetConfigResponse;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/unspecced/GetConfigResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCheckEmailConfirmed ()Ljava/lang/Boolean;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetConfigResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetPopularFeedGeneratorsQueryParams {
+	public static final field Companion Lapp/bsky/unspecced/GetPopularFeedGeneratorsQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/unspecced/GetPopularFeedGeneratorsQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetPopularFeedGeneratorsQueryParams;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetPopularFeedGeneratorsQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getQuery ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetPopularFeedGeneratorsQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetPopularFeedGeneratorsResponse {
+	public static final field Companion Lapp/bsky/unspecced/GetPopularFeedGeneratorsResponse$Companion;
+	public fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/unspecced/GetPopularFeedGeneratorsResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetPopularFeedGeneratorsResponse;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/unspecced/GetPopularFeedGeneratorsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getFeeds ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetPopularFeedGeneratorsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetSuggestionsSkeletonQueryParams {
+	public static final field Companion Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1-68yuAGA ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4-68yuAGA ()Ljava/lang/String;
+	public final fun copy-AgQzNKE (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;
+	public static synthetic fun copy-AgQzNKE$default (Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getRelativeToDid-68yuAGA ()Ljava/lang/String;
+	public final fun getViewer-68yuAGA ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetSuggestionsSkeletonQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetSuggestionsSkeletonResponse {
+	public static final field Companion Lapp/bsky/unspecced/GetSuggestionsSkeletonResponse$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component3-68yuAGA ()Ljava/lang/String;
+	public final fun copy-ieLxZXs (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;)Lapp/bsky/unspecced/GetSuggestionsSkeletonResponse;
+	public static synthetic fun copy-ieLxZXs$default (Lapp/bsky/unspecced/GetSuggestionsSkeletonResponse;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestionsSkeletonResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActors ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getRelativeToDid-68yuAGA ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetSuggestionsSkeletonResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetTaggedSuggestionsResponse {
+	public static final field Companion Lapp/bsky/unspecced/GetTaggedSuggestionsResponse$Companion;
+	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;)V
+	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/unspecced/GetTaggedSuggestionsResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetTaggedSuggestionsResponse;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/unspecced/GetTaggedSuggestionsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSuggestions ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetTaggedSuggestionsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class app/bsky/unspecced/GetTaggedSuggestionsSubjectType : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetTaggedSuggestionsSubjectType$Actor : app/bsky/unspecced/GetTaggedSuggestionsSubjectType {
+	public static final field INSTANCE Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType$Actor;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetTaggedSuggestionsSubjectType$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetTaggedSuggestionsSubjectType$Feed : app/bsky/unspecced/GetTaggedSuggestionsSubjectType {
+	public static final field INSTANCE Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType$Feed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetTaggedSuggestionsSubjectType$Unknown : app/bsky/unspecced/GetTaggedSuggestionsSubjectType {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetTaggedSuggestionsSubjectTypeSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class app/bsky/unspecced/GetTaggedSuggestionsSuggestion {
+	public static final field Companion Lapp/bsky/unspecced/GetTaggedSuggestionsSuggestion$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;
+	public final fun component3-v5vOzEc ()Ljava/lang/String;
+	public final fun copy-DXbHf-I (Ljava/lang/String;Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;Ljava/lang/String;)Lapp/bsky/unspecced/GetTaggedSuggestionsSuggestion;
+	public static synthetic fun copy-DXbHf-I$default (Lapp/bsky/unspecced/GetTaggedSuggestionsSuggestion;Ljava/lang/String;Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetTaggedSuggestionsSuggestion;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSubject-v5vOzEc ()Ljava/lang/String;
+	public final fun getSubjectType ()Lapp/bsky/unspecced/GetTaggedSuggestionsSubjectType;
+	public final fun getTag ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetTaggedSuggestionsSuggestion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/SearchActorsSkeletonQueryParams {
+	public static final field Companion Lapp/bsky/unspecced/SearchActorsSkeletonQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2-68yuAGA ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/Boolean;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy-xO1nE0k (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/unspecced/SearchActorsSkeletonQueryParams;
+	public static synthetic fun copy-xO1nE0k$default (Lapp/bsky/unspecced/SearchActorsSkeletonQueryParams;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/SearchActorsSkeletonQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getQ ()Ljava/lang/String;
+	public final fun getTypeahead ()Ljava/lang/Boolean;
+	public final fun getViewer-68yuAGA ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/SearchActorsSkeletonQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/SearchActorsSkeletonResponse {
+	public static final field Companion Lapp/bsky/unspecced/SearchActorsSkeletonResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/unspecced/SearchActorsSkeletonResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/SearchActorsSkeletonResponse;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/unspecced/SearchActorsSkeletonResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActors ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getHitsTotal ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/SearchActorsSkeletonResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/SearchPostsSkeletonQueryParams {
+	public static final field Companion Lapp/bsky/unspecced/SearchPostsSkeletonQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/unspecced/SearchPostsSkeletonSort;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/AtIdentifier;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/unspecced/SearchPostsSkeletonSort;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/AtIdentifier;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component11-68yuAGA ()Ljava/lang/String;
+	public final fun component12 ()Ljava/lang/Long;
+	public final fun component13 ()Ljava/lang/String;
+	public final fun component2 ()Lapp/bsky/unspecced/SearchPostsSkeletonSort;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Lsh/christian/ozone/api/AtIdentifier;
+	public final fun component6 ()Lsh/christian/ozone/api/AtIdentifier;
+	public final fun component7-eY7w7-0 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9-pvpWXas ()Ljava/lang/String;
+	public final fun copy-BtWL2y8 (Ljava/lang/String;Lapp/bsky/unspecced/SearchPostsSkeletonSort;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/AtIdentifier;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/unspecced/SearchPostsSkeletonQueryParams;
+	public static synthetic fun copy-BtWL2y8$default (Lapp/bsky/unspecced/SearchPostsSkeletonQueryParams;Ljava/lang/String;Lapp/bsky/unspecced/SearchPostsSkeletonSort;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/AtIdentifier;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/SearchPostsSkeletonQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAuthor ()Lsh/christian/ozone/api/AtIdentifier;
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getDomain ()Ljava/lang/String;
+	public final fun getLang-eY7w7-0 ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getMentions ()Lsh/christian/ozone/api/AtIdentifier;
+	public final fun getQ ()Ljava/lang/String;
+	public final fun getSince ()Ljava/lang/String;
+	public final fun getSort ()Lapp/bsky/unspecced/SearchPostsSkeletonSort;
+	public final fun getTag ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getUntil ()Ljava/lang/String;
+	public final fun getUrl-pvpWXas ()Ljava/lang/String;
+	public final fun getViewer-68yuAGA ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/SearchPostsSkeletonQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/SearchPostsSkeletonResponse {
+	public static final field Companion Lapp/bsky/unspecced/SearchPostsSkeletonResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/unspecced/SearchPostsSkeletonResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/SearchPostsSkeletonResponse;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/unspecced/SearchPostsSkeletonResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getHitsTotal ()Ljava/lang/Long;
+	public final fun getPosts ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/SearchPostsSkeletonResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class app/bsky/unspecced/SearchPostsSkeletonSort : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/unspecced/SearchPostsSkeletonSort$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/SearchPostsSkeletonSort$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/unspecced/SearchPostsSkeletonSort;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/SearchPostsSkeletonSort$Latest : app/bsky/unspecced/SearchPostsSkeletonSort {
+	public static final field INSTANCE Lapp/bsky/unspecced/SearchPostsSkeletonSort$Latest;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/SearchPostsSkeletonSort$Top : app/bsky/unspecced/SearchPostsSkeletonSort {
+	public static final field INSTANCE Lapp/bsky/unspecced/SearchPostsSkeletonSort$Top;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/SearchPostsSkeletonSort$Unknown : app/bsky/unspecced/SearchPostsSkeletonSort {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/unspecced/SearchPostsSkeletonSort$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/SearchPostsSkeletonSort$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/SearchPostsSkeletonSort$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/SearchPostsSkeletonSortSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/unspecced/SearchPostsSkeletonSort;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/unspecced/SearchPostsSkeletonSort;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class app/bsky/unspecced/SkeletonSearchActor {
+	public static final field Companion Lapp/bsky/unspecced/SkeletonSearchActor$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun copy-Kn78ayM (Ljava/lang/String;)Lapp/bsky/unspecced/SkeletonSearchActor;
+	public static synthetic fun copy-Kn78ayM$default (Lapp/bsky/unspecced/SkeletonSearchActor;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/SkeletonSearchActor;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/SkeletonSearchActor$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/SkeletonSearchPost {
+	public static final field Companion Lapp/bsky/unspecced/SkeletonSearchPost$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun copy-g66Z2H8 (Ljava/lang/String;)Lapp/bsky/unspecced/SkeletonSearchPost;
+	public static synthetic fun copy-g66Z2H8$default (Lapp/bsky/unspecced/SkeletonSearchPost;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/SkeletonSearchPost;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/SkeletonSearchPost$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/video/GetJobStatusQueryParams {
 	public static final field Companion Lapp/bsky/video/GetJobStatusQueryParams$Companion;
 	public fun <init> (Ljava/lang/String;)V
@@ -13397,6 +13770,26 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 
 public final class sh/christian/ozone/api/xrpc/FindSubscriptionSerializerKt {
 	public static final fun findSubscriptionSerializer (Lkotlin/reflect/KClass;Ljava/lang/String;)Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class sh/christian/ozone/unspecced/UnspeccedBlueskyApi {
+	public abstract fun getConfig (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getPopularFeedGenerators (Lapp/bsky/unspecced/GetPopularFeedGeneratorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getSuggestionsSkeleton (Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getTaggedSuggestions (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun searchActorsSkeleton (Lapp/bsky/unspecced/SearchActorsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun searchPostsSkeleton (Lapp/bsky/unspecced/SearchPostsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class sh/christian/ozone/unspecced/XrpcUnspeccedBlueskyApi : sh/christian/ozone/unspecced/UnspeccedBlueskyApi {
+	public fun <init> ()V
+	public fun <init> (Lio/ktor/client/HttpClient;)V
+	public fun getConfig (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getPopularFeedGenerators (Lapp/bsky/unspecced/GetPopularFeedGeneratorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getSuggestionsSkeleton (Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getTaggedSuggestions (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchActorsSkeleton (Lapp/bsky/unspecced/SearchActorsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchPostsSkeleton (Lapp/bsky/unspecced/SearchPostsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class tools/ozone/communication/CreateTemplateRequest {

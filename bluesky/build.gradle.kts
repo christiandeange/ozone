@@ -36,8 +36,17 @@ dependencies {
 
 lexicons {
   generateApi("BlueskyApi") {
+    packageName.set("sh.christian.ozone")
     withKtorImplementation("XrpcBlueskyApi")
     returnType.set(ApiReturnType.Response)
+    exclude("""app\.bsky\.unspecced\..*""")
+  }
+
+  generateApi("UnspeccedBlueskyApi") {
+    packageName.set("sh.christian.ozone.unspecced")
+    withKtorImplementation("XrpcUnspeccedBlueskyApi")
+    returnType.set(ApiReturnType.Response)
+    include("""app\.bsky\.unspecced\..*""")
   }
 }
 

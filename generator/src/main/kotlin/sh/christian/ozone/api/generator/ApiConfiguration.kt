@@ -8,4 +8,6 @@ data class ApiConfiguration(
   val implementationName: String?,
   val suspending: Boolean,
   val returnType: ApiReturnType,
+  val includeMethods: List<Regex>,
+  val excludeMethods: List<Regex>,
 ) : Serializable

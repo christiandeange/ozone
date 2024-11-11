@@ -178,7 +178,7 @@ class LexiconApiGenerator(
   ) {
     val interfaceType = TypeSpec.interfaceBuilder(interfaceName)
       .apply {
-        apiCalls.sortedBy { it.name }.forEach { apiCall ->
+        matchingApiCalls(configuration).forEach { apiCall ->
           addFunction(apiCall.toFunctionSpec(configuration.returnType) {
             if (configuration.suspending) {
               addModifiers(KModifier.SUSPEND)
@@ -223,69 +223,71 @@ class LexiconApiGenerator(
           .build()
       )
       .apply {
-        apiCalls.sortedBy { it.name }.forEach { apiCall ->
+        matchingApiCalls(configuration).forEach { apiCall ->
           addFunction(apiCall.toFunctionSpec(configuration.returnType) {
             if (configuration.suspending) {
               addModifiers(KModifier.SUSPEND)
             }
 
             val code = buildCodeBlock {
-                val methodName = when (apiCall) {
-                  is Query -> query
-                  is Procedure -> procedure
-                  is Subscription -> subscription
-                }
-                val path = "/xrpc/${apiCall.id}"
-                val transformingMethodName = when (configuration.returnType) {
-                  ApiReturnType.Raw -> toAtpModel
-                  ApiReturnType.Result -> toAtpResult
-                  ApiReturnType.Response -> toAtpResponse
-                }
+              val methodName = when (apiCall) {
+                is Query -> query
+                is Procedure -> procedure
+                is Subscription -> subscription
+              }
+              val path = "/xrpc/${apiCall.id}"
+              val transformingMethodName = when (configuration.returnType) {
+                ApiReturnType.Raw -> toAtpModel
+                ApiReturnType.Result -> toAtpResult
+                ApiReturnType.Response -> toAtpResponse
+              }
 
-                // Workaround to prevent expression methods from being generated.
-                add("%L", "")
+              // Workaround to prevent expression methods from being generated.
+              add("%L", "")
 
-                if (configuration.suspending) {
-                  add("return client.%M(\n", methodName)
-                } else {
-                  beginControlFlow("return %M {", runBlocking)
-                  add("client.%M(\n", methodName)
-                }
+              if (configuration.suspending) {
+                add("return client.%M(\n", methodName)
+              } else {
+                beginControlFlow("return %M {", runBlocking)
+                add("client.%M(\n", methodName)
+              }
 
-                indent()
-                add("path = %S,\n", path)
+              indent()
+              add("path = %S,\n", path)
 
-                when (apiCall) {
-                  is Query -> {
-                    if (apiCall.propertiesType != null) {
-                      add("queryParams = params.asList(),\n")
-                    }
-                  }
-                  is Procedure -> {
-                    if (apiCall.inputType != null) {
-                      add("body = request,\n")
-                      add("encoding = %S,\n", apiCall.inputType.encoding)
-                    }
-                  }
-                  is Subscription -> {
-                    if (apiCall.propertiesType != null) {
-                      add("queryParams = params.asList(),\n")
-                    }
+              when (apiCall) {
+                is Query -> {
+                  if (apiCall.propertiesType != null) {
+                    add("queryParams = params.asList(),\n")
                   }
                 }
 
-                unindent()
-                when (apiCall) {
-                  is Query -> add(").%M()", transformingMethodName)
-                  is Procedure -> add(").%M()", transformingMethodName)
-                  is Subscription -> add(").%M(::%M)", transformingMethodName, findSubscriptionSerializer)
+                is Procedure -> {
+                  if (apiCall.inputType != null) {
+                    add("body = request,\n")
+                    add("encoding = %S,\n", apiCall.inputType.encoding)
+                  }
                 }
 
-                if (!configuration.suspending) {
-                  add("\n")
-                  endControlFlow()
+                is Subscription -> {
+                  if (apiCall.propertiesType != null) {
+                    add("queryParams = params.asList(),\n")
+                  }
                 }
               }
+
+              unindent()
+              when (apiCall) {
+                is Query -> add(").%M()", transformingMethodName)
+                is Procedure -> add(").%M()", transformingMethodName)
+                is Subscription -> add(").%M(::%M)", transformingMethodName, findSubscriptionSerializer)
+              }
+
+              if (!configuration.suspending) {
+                add("\n")
+                endControlFlow()
+              }
+            }
 
             addModifiers(KModifier.OVERRIDE)
             addCode(code)
@@ -303,6 +305,13 @@ class LexiconApiGenerator(
     ApiReturnType.Raw -> typeName
     ApiReturnType.Result -> Result.parameterizedBy(typeName)
     ApiReturnType.Response -> AtpResponse.parameterizedBy(typeName)
+  }
+
+  private fun matchingApiCalls(configuration: ApiConfiguration): List<ApiCall> {
+    return apiCalls
+      .filter { api -> configuration.includeMethods.any { regex -> api.id.matches(regex) } }
+      .filterNot { api -> configuration.excludeMethods.any { regex -> api.id.matches(regex) } }
+      .sortedBy { it.name }
   }
 
   private sealed interface ApiCall {

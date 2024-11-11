@@ -7,6 +7,7 @@ import org.gradle.api.provider.ListProperty
 import org.gradle.api.provider.Property
 import org.gradle.kotlin.dsl.listProperty
 import org.gradle.kotlin.dsl.property
+import org.intellij.lang.annotations.Language
 import sh.christian.ozone.api.generator.ApiConfiguration
 import sh.christian.ozone.api.generator.ApiReturnType
 import sh.christian.ozone.api.generator.ApiReturnType.Raw
@@ -54,6 +55,20 @@ abstract class LexiconGeneratorExtension
     val returnType: Property<ApiReturnType> =
       objects.property<ApiReturnType>().convention(Raw)
 
+    private val includeMethods: ListProperty<Regex> =
+      objects.listProperty<Regex>().convention(listOf(".*".toRegex()))
+
+    private val excludeMethods: ListProperty<Regex> =
+      objects.listProperty<Regex>().convention(emptyList())
+
+    fun include(@Language("RegExp") pattern: String) {
+      includeMethods.add(pattern.toRegex())
+    }
+
+    fun exclude(@Language("RegExp") pattern: String) {
+      excludeMethods.add(pattern.toRegex())
+    }
+
     fun withKtorImplementation(name: String) {
       implementationName.set(name)
     }
@@ -65,6 +80,8 @@ abstract class LexiconGeneratorExtension
         implementationName = implementationName.readFinalizedValueOrNull(),
         suspending = suspending.readFinalizedValue(),
         returnType = returnType.readFinalizedValue(),
+        includeMethods = includeMethods.readFinalizedValue(),
+        excludeMethods = excludeMethods.readFinalizedValue(),
       )
     }
   }
@@ -78,4 +95,9 @@ private fun <T> Property<T>.readFinalizedValue(): T {
 private fun <T> Property<T>.readFinalizedValueOrNull(): T? {
   finalizeValue()
   return orNull
+}
+
+private fun <T> ListProperty<T>.readFinalizedValue(): List<T> {
+  finalizeValue()
+  return get()
 }
