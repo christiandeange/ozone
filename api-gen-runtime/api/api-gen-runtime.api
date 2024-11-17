@@ -449,6 +449,10 @@ public final class sh/christian/ozone/api/runtime/BlobSerializer : kotlinx/seria
 	public static final field INSTANCE Lsh/christian/ozone/api/runtime/BlobSerializer;
 }
 
+public final class sh/christian/ozone/api/runtime/BlueskyJsonKt {
+	public static final fun getBlueskyJson ()Lkotlinx/serialization/json/Json;
+}
+
 public final class sh/christian/ozone/api/runtime/ImmutableListSerializer : kotlinx/serialization/KSerializer {
 	public fun <init> (Lkotlinx/serialization/KSerializer;)V
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;

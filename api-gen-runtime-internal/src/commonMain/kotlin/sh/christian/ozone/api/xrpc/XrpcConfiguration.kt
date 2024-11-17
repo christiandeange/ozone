@@ -9,7 +9,7 @@ import io.ktor.client.plugins.websocket.WebSockets
 import io.ktor.http.URLProtocol
 import io.ktor.http.Url
 import io.ktor.serialization.kotlinx.json.json
-import kotlinx.serialization.json.Json
+import sh.christian.ozone.api.runtime.BlueskyJson
 
 internal val BSKY_SOCIAL = Url("https://bsky.social")
 internal val BSKY_NETWORK = Url("https://bsky.network")
@@ -28,13 +28,8 @@ by createClientPlugin("WebsocketRedirect", {
 expect val defaultHttpClient: HttpClient
 
 fun HttpClient.withXrpcConfiguration(): HttpClient = config {
-  val jsonEnvironment = Json {
-    ignoreUnknownKeys = true
-    classDiscriminator = "${'$'}type"
-  }
-
   install(ContentNegotiation) {
-    json(jsonEnvironment)
+    json(BlueskyJson)
   }
 
   install(WebSockets)
