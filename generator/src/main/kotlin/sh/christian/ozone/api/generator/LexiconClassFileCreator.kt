@@ -77,6 +77,8 @@ class LexiconClassFileCreator(
   }
 
   fun generateSealedRelationshipMapping() {
+    if (sealedRelationships.isEmpty()) return
+
     val relationships = sealedRelationships.groupBy { it.sealedInterface }
 
     FileSpec.builder(findSubscriptionSerializer.packageName, findSubscriptionSerializer.simpleName)
