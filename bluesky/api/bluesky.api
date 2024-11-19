@@ -6011,6 +6011,47 @@ public final class app/bsky/graph/Relationship$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/graph/SearchStarterPacksQueryParams {
+	public static final field Companion Lapp/bsky/graph/SearchStarterPacksQueryParams$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/graph/SearchStarterPacksQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/graph/SearchStarterPacksQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/SearchStarterPacksQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getQ ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/graph/SearchStarterPacksQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/graph/SearchStarterPacksResponse {
+	public static final field Companion Lapp/bsky/graph/SearchStarterPacksResponse$Companion;
+	public fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/graph/SearchStarterPacksResponse;
+	public static synthetic fun copy$default (Lapp/bsky/graph/SearchStarterPacksResponse;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/graph/SearchStarterPacksResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getStarterPacks ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/graph/SearchStarterPacksResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/graph/StarterPackView {
 	public static final field Companion Lapp/bsky/graph/StarterPackView$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/actor/ProfileViewBasic;Lapp/bsky/graph/ListViewBasic;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -7298,6 +7339,51 @@ public final class app/bsky/unspecced/SearchPostsSkeletonSortSerializer : kotlin
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
+public final class app/bsky/unspecced/SearchStarterPacksSkeletonQueryParams {
+	public static final field Companion Lapp/bsky/unspecced/SearchStarterPacksSkeletonQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2-68yuAGA ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy-5Pp1PTQ (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/unspecced/SearchStarterPacksSkeletonQueryParams;
+	public static synthetic fun copy-5Pp1PTQ$default (Lapp/bsky/unspecced/SearchStarterPacksSkeletonQueryParams;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/SearchStarterPacksSkeletonQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getQ ()Ljava/lang/String;
+	public final fun getViewer-68yuAGA ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/SearchStarterPacksSkeletonQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/SearchStarterPacksSkeletonResponse {
+	public static final field Companion Lapp/bsky/unspecced/SearchStarterPacksSkeletonResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/unspecced/SearchStarterPacksSkeletonResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/SearchStarterPacksSkeletonResponse;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/unspecced/SearchStarterPacksSkeletonResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getHitsTotal ()Ljava/lang/Long;
+	public final fun getStarterPacks ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/SearchStarterPacksSkeletonResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/unspecced/SkeletonSearchActor {
 	public static final field Companion Lapp/bsky/unspecced/SkeletonSearchActor$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -7327,6 +7413,22 @@ public final class app/bsky/unspecced/SkeletonSearchPost {
 }
 
 public final class app/bsky/unspecced/SkeletonSearchPost$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/SkeletonSearchStarterPack {
+	public static final field Companion Lapp/bsky/unspecced/SkeletonSearchStarterPack$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun copy-g66Z2H8 (Ljava/lang/String;)Lapp/bsky/unspecced/SkeletonSearchStarterPack;
+	public static synthetic fun copy-g66Z2H8$default (Lapp/bsky/unspecced/SkeletonSearchStarterPack;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/SkeletonSearchStarterPack;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/SkeletonSearchStarterPack$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -13562,6 +13664,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun searchActorsTypeahead (Lapp/bsky/actor/SearchActorsTypeaheadQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchPosts (Lapp/bsky/feed/SearchPostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchRepos (Ltools/ozone/moderation/SearchReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun searchStarterPacks (Lapp/bsky/graph/SearchStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun sendEmail (Lcom/atproto/admin/SendEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun sendInteractions (Lapp/bsky/feed/SendInteractionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun sendMessage (Lchat/bsky/convo/SendMessageRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -13739,6 +13842,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun searchActorsTypeahead (Lapp/bsky/actor/SearchActorsTypeaheadQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchPosts (Lapp/bsky/feed/SearchPostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchRepos (Ltools/ozone/moderation/SearchReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchStarterPacks (Lapp/bsky/graph/SearchStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun sendEmail (Lcom/atproto/admin/SendEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun sendInteractions (Lapp/bsky/feed/SendInteractionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun sendMessage (Lchat/bsky/convo/SendMessageRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -13779,6 +13883,7 @@ public abstract interface class sh/christian/ozone/unspecced/UnspeccedBlueskyApi
 	public abstract fun getTaggedSuggestions (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchActorsSkeleton (Lapp/bsky/unspecced/SearchActorsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchPostsSkeleton (Lapp/bsky/unspecced/SearchPostsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun searchStarterPacksSkeleton (Lapp/bsky/unspecced/SearchStarterPacksSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class sh/christian/ozone/unspecced/XrpcUnspeccedBlueskyApi : sh/christian/ozone/unspecced/UnspeccedBlueskyApi {
@@ -13790,6 +13895,7 @@ public final class sh/christian/ozone/unspecced/XrpcUnspeccedBlueskyApi : sh/chr
 	public fun getTaggedSuggestions (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchActorsSkeleton (Lapp/bsky/unspecced/SearchActorsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchPostsSkeleton (Lapp/bsky/unspecced/SearchPostsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchStarterPacksSkeleton (Lapp/bsky/unspecced/SearchStarterPacksSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class tools/ozone/communication/CreateTemplateRequest {
