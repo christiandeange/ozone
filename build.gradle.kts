@@ -40,6 +40,9 @@ allprojects {
 
       substitute(module("$group:api-gen-runtime-internal:$version"))
         .using(project(":api-gen-runtime-internal"))
+
+      substitute(module("$group:bluesky:$version"))
+        .using(project(":bluesky"))
     }
   }
 }

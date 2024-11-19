@@ -1,0 +1,182 @@
+{
+  "lexicon": 1,
+  "id": "app.bsky.jetstream.subscribe",
+  "defs": {
+    "main": {
+      "type": "subscription",
+      "description": "Consume lightweight, friendly JSON converted from an ATProto `com.atproto.sync.subscribeRepos` stream.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "wantedCollections": {
+            "type": "array",
+            "maxLength": 100,
+            "items": {
+              "type": "string",
+              "format": "nsid"
+            },
+            "description": "Which records you receive on your stream (default empty = all collections)."
+          },
+          "wantedDids": {
+            "type": "array",
+            "maxLength": 10000,
+            "items": {
+              "type": "string",
+              "format": "did"
+            },
+            "description": "Which records you receive on your stream (default empty = all repos)."
+          },
+          "maxMessageSizeBytes": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0,
+            "description": "The maximum size of a payload that this client would like to receive."
+          },
+          "cursor": {
+            "type": "integer",
+            "description": "A unix microseconds timestamp cursor to begin playback from."
+          },
+          "compress": {
+            "type": "boolean",
+            "default": false,
+            "description": "Set to true to enable zstd compression."
+          },
+          "requireHello": {
+            "type": "boolean",
+            "default": false,
+            "description": "Set to true to pause replay/live-tail until the server receives a SubscribeOptionsUpdate."
+          }
+        }
+      },
+      "message": {
+        "schema": {
+          "type": "ref",
+          "ref": "#event"
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "required": ["did", "time_us", "kind"],
+      "nullable": ["commit", "identity", "account"],
+      "properties": {
+        "did": {
+          "type": "string",
+          "format": "did"
+        },
+        "time_us": {
+          "type": "integer"
+        },
+        "kind": {
+          "type": "string",
+          "knownValues": ["commit", "identity", "account"]
+        },
+        "commit": {
+          "type": "ref",
+          "ref": "#commit"
+        },
+        "identity": {
+          "type": "ref",
+          "ref": "#identity"
+        },
+        "account": {
+          "type": "ref",
+          "ref": "#account"
+        }
+      }
+    },
+    "commit": {
+      "type": "object",
+      "required": ["rev", "operation", "collection", "rkey"],
+      "nullable": ["record"],
+      "properties": {
+        "rev": { "type": "string" },
+        "operation": {
+          "type": "string",
+          "knownValues": ["create", "update", "delete"]
+        },
+        "collection": {
+          "type": "string",
+          "format": "nsid"
+        },
+        "rkey": {
+          "type": "string",
+          "format": "record-key"
+        },
+        "record": { "type": "unknown" },
+        "cid": {
+          "type": "string",
+          "format": "cid"
+        }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "required": ["did", "handle", "seq", "time"],
+      "properties": {
+        "did": {
+          "type": "string",
+          "format": "did"
+        },
+        "handle": {
+          "type": "string",
+          "format": "handle"
+        },
+        "seq": { "type": "integer" },
+        "time": { "type": "string" }
+      }
+    },
+    "account": {
+      "type": "object",
+      "required": ["active", "did", "seq", "time"],
+      "properties": {
+        "active": { "type": "boolean" },
+        "did": {
+          "type": "string",
+          "format": "did"
+        },
+        "seq": { "type": "integer" },
+        "time": { "type": "string" }
+      }
+    },
+    "sourcedMessage": {
+      "type": "object",
+      "description": "Send messages back to Jetstream over the websocket.",
+      "required": ["type", "payload"],
+      "properties": {
+        "type": { "type": "string" },
+        "payload": { "type": "unknown" }
+      }
+    },
+    "optionsUpdate": {
+      "type": "object",
+      "description": "Update subscription filter after connecting to the socket.",
+      "properties": {
+        "wantedCollections": {
+          "type": "array",
+          "maxLength": 100,
+          "items": {
+            "type": "string",
+            "format": "nsid"
+          },
+          "description": "Which records you receive on your stream (default empty = all collections)."
+        },
+        "wantedDids": {
+          "type": "array",
+          "maxLength": 10000,
+          "items": {
+            "type": "string",
+            "format": "did"
+          },
+          "description": "Which records you receive on your stream (default empty = all repos)."
+        },
+        "maxMessageSizeBytes": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0,
+          "description": "The maximum size of a payload that this client would like to receive."
+        }
+      }
+    }
+  }
+}
