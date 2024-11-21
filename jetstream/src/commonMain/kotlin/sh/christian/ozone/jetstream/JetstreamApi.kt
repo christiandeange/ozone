@@ -23,8 +23,8 @@ import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import kotlinx.serialization.encodeToString
-import sh.christian.ozone.api.model.JsonContent
-import sh.christian.ozone.api.runtime.BlueskyJson
+import sh.christian.ozone.BlueskyJson
+import sh.christian.ozone.api.model.JsonContent.Companion.encodeAsJsonContent
 import sh.christian.ozone.api.xrpc.defaultHttpClient
 
 /**
@@ -128,7 +128,7 @@ class JetstreamApi(httpClient: HttpClient) : JetstreamInterface {
       sourcedMessages.emit(
         SubscribeSourcedMessage(
           type = "options_update",
-          payload = JsonContent.encodeFrom(message),
+          payload = BlueskyJson.encodeAsJsonContent(message),
         )
       )
     }

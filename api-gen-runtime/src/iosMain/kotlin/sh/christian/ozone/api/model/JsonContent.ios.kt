@@ -4,20 +4,38 @@ package sh.christian.ozone.api.model
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
-import sh.christian.ozone.api.runtime.BlueskyJson
+import kotlinx.serialization.json.Json
 import sh.christian.ozone.api.runtime.JsonContentSerializer
 
 @Serializable(with = JsonContentSerializer::class)
 actual data class JsonContent(
   val value: String,
+  val format: Json,
 ) {
   actual inline fun <reified T : Any> decodeAs(): T {
-    return BlueskyJson.decodeFromString(value)
+    return format.decodeFromString(value)
+  }
+
+  override fun equals(other: Any?): Boolean {
+    if (this === other) return true
+    if (other == null || this::class != other::class) return false
+
+    other as JsonContent
+
+    return value == other.value
+  }
+
+  override fun hashCode(): Int {
+    return value.hashCode()
+  }
+
+  override fun toString(): String {
+    return "JsonContent('$value')"
   }
 
   actual companion object {
-    actual inline fun <reified T : Any> encodeFrom(value: T): JsonContent {
-      return JsonContent(BlueskyJson.encodeToString(value))
+    actual inline fun <reified T : Any> Json.encodeAsJsonContent(value: T): JsonContent {
+      return JsonContent(encodeToString(value), this)
     }
   }
 }

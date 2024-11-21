@@ -254,11 +254,13 @@ public final class sh/christian/ozone/api/model/BlobRef$Companion {
 
 public final class sh/christian/ozone/api/model/JsonContent {
 	public static final field Companion Lsh/christian/ozone/api/model/JsonContent$Companion;
-	public fun <init> (Lkotlinx/serialization/json/JsonElement;)V
+	public fun <init> (Lkotlinx/serialization/json/JsonElement;Lkotlinx/serialization/json/Json;)V
 	public final fun component1 ()Lkotlinx/serialization/json/JsonElement;
-	public final fun copy (Lkotlinx/serialization/json/JsonElement;)Lsh/christian/ozone/api/model/JsonContent;
-	public static synthetic fun copy$default (Lsh/christian/ozone/api/model/JsonContent;Lkotlinx/serialization/json/JsonElement;ILjava/lang/Object;)Lsh/christian/ozone/api/model/JsonContent;
+	public final fun component2 ()Lkotlinx/serialization/json/Json;
+	public final fun copy (Lkotlinx/serialization/json/JsonElement;Lkotlinx/serialization/json/Json;)Lsh/christian/ozone/api/model/JsonContent;
+	public static synthetic fun copy$default (Lsh/christian/ozone/api/model/JsonContent;Lkotlinx/serialization/json/JsonElement;Lkotlinx/serialization/json/Json;ILjava/lang/Object;)Lsh/christian/ozone/api/model/JsonContent;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFormat ()Lkotlinx/serialization/json/Json;
 	public final fun getValue ()Lkotlinx/serialization/json/JsonElement;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -449,8 +451,8 @@ public final class sh/christian/ozone/api/runtime/BlobSerializer : kotlinx/seria
 	public static final field INSTANCE Lsh/christian/ozone/api/runtime/BlobSerializer;
 }
 
-public final class sh/christian/ozone/api/runtime/BlueskyJsonKt {
-	public static final fun getBlueskyJson ()Lkotlinx/serialization/json/Json;
+public final class sh/christian/ozone/api/runtime/BuildXrpcJsonConfigurationKt {
+	public static final fun buildXrpcJsonConfiguration (Lkotlinx/serialization/modules/SerializersModule;)Lkotlinx/serialization/json/Json;
 }
 
 public final class sh/christian/ozone/api/runtime/ImmutableListSerializer : kotlinx/serialization/KSerializer {

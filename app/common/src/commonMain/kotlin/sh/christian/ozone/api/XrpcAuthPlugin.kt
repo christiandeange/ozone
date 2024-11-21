@@ -16,6 +16,7 @@ import io.ktor.http.HttpStatusCode.Companion.BadRequest
 import io.ktor.util.AttributeKey
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.serialization.json.Json
+import sh.christian.ozone.BlueskyJson
 import sh.christian.ozone.api.response.AtpErrorDescription
 
 /**
@@ -27,7 +28,7 @@ internal class XrpcAuthPlugin(
   private val authTokens: MutableStateFlow<Tokens?>,
 ) {
   class Config(
-    var json: Json = Json { ignoreUnknownKeys = true },
+    var json: Json = BlueskyJson,
     var authTokens: MutableStateFlow<Tokens?> = MutableStateFlow(null),
   )
 

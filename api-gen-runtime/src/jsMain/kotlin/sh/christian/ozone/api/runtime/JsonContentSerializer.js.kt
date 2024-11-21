@@ -20,7 +20,7 @@ actual object JsonContentSerializer : KSerializer<JsonContent> {
 
   actual override fun deserialize(decoder: Decoder): JsonContent {
     decoder as JsonDecoder
-    return JsonContent(decoder.decodeJsonElement().toString())
+    return JsonContent(decoder.decodeJsonElement().toString(), decoder.json)
   }
 
   @OptIn(ExperimentalSerializationApi::class)

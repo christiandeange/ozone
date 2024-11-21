@@ -1,6 +1,7 @@
 package sh.christian.ozone.api.model
 
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 import sh.christian.ozone.api.runtime.JsonContentSerializer
 
 /**
@@ -20,6 +21,6 @@ expect class JsonContent {
     /**
      * Encode the value as a [JsonContent] object.
      */
-    inline fun <reified T : Any> encodeFrom(value: T): JsonContent
+    inline fun <reified T : Any> Json.encodeAsJsonContent(value: T): JsonContent
   }
 }

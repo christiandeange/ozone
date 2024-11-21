@@ -24,7 +24,7 @@ kotlin {
   sourceSets {
     val commonMain by getting {
       dependencies {
-        implementation(libs.ktor.logging)
+        implementation(libs.bluesky)
       }
     }
     val jvmMain by getting {
