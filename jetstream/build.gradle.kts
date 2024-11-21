@@ -24,7 +24,7 @@ kotlin {
   sourceSets {
     val commonMain by getting {
       dependencies {
-        implementation(libs.bluesky)
+        api(libs.bluesky)
       }
     }
     val jvmMain by getting {

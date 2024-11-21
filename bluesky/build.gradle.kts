@@ -35,6 +35,12 @@ dependencies {
 }
 
 lexicons {
+  namespace.set("sh.christian.ozone.api.xrpc")
+
+  defaults {
+    generateUnknownsForSealedTypes.set(false)
+  }
+
   generateApi("BlueskyApi") {
     packageName.set("sh.christian.ozone")
     withKtorImplementation("XrpcBlueskyApi")

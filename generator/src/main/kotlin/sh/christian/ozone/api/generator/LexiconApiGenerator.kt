@@ -6,6 +6,7 @@ import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier
+import com.squareup.kotlinpoet.MemberName
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.PropertySpec
@@ -219,7 +220,16 @@ class LexiconApiGenerator(
         PropertySpec
           .builder("client", TypeNames.HttpClient)
           .addModifiers(KModifier.PRIVATE)
-          .initializer(CodeBlock.of("httpClient.%M()", withXrpcConfiguration))
+          .initializer(
+            buildCodeBlock {
+              if (environment.defaults.generateUnknownsForSealedTypes) {
+                val moduleMemberName = MemberName(configuration.namespace, "XrpcSerializersModule")
+                add("httpClient.%M(%M)", withXrpcConfiguration, moduleMemberName)
+              } else {
+                add("httpClient.%M()", withXrpcConfiguration)
+              }
+            }
+          )
           .build()
       )
       .apply {

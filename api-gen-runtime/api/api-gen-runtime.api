@@ -453,6 +453,7 @@ public final class sh/christian/ozone/api/runtime/BlobSerializer : kotlinx/seria
 
 public final class sh/christian/ozone/api/runtime/BuildXrpcJsonConfigurationKt {
 	public static final fun buildXrpcJsonConfiguration (Lkotlinx/serialization/modules/SerializersModule;)Lkotlinx/serialization/json/Json;
+	public static synthetic fun buildXrpcJsonConfiguration$default (Lkotlinx/serialization/modules/SerializersModule;ILjava/lang/Object;)Lkotlinx/serialization/json/Json;
 }
 
 public final class sh/christian/ozone/api/runtime/ImmutableListSerializer : kotlinx/serialization/KSerializer {

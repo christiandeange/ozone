@@ -6,7 +6,7 @@ import kotlinx.serialization.modules.SerializersModule
 /**
  * JSON configuration for serializing and deserializing lexicon objects with the given module.
  */
-fun buildXrpcJsonConfiguration(module: SerializersModule): Json = Json {
+fun buildXrpcJsonConfiguration(module: SerializersModule = Json.serializersModule): Json = Json {
   ignoreUnknownKeys = true
   classDiscriminator = "${'$'}type"
   serializersModule = module

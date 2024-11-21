@@ -1,12 +1,17 @@
 package sh.christian.ozone.api.generator
 
 import com.squareup.kotlinpoet.AnnotationSpec
+import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier
+import com.squareup.kotlinpoet.MemberName
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
+import com.squareup.kotlinpoet.PropertySpec
+import com.squareup.kotlinpoet.TypeSpec.Kind.INTERFACE
 import com.squareup.kotlinpoet.TypeVariableName
+import com.squareup.kotlinpoet.buildCodeBlock
 import com.squareup.kotlinpoet.withIndent
 import sh.christian.ozone.api.generator.builder.EnumClass
 import sh.christian.ozone.api.generator.builder.EnumEntry
@@ -31,6 +36,8 @@ class LexiconClassFileCreator(
 
   private val sealedRelationships = mutableListOf<SealedRelationship>()
 
+  private val unionTypes = mutableListOf<ClassName>()
+
   fun createClassForLexicon(document: LexiconDocument) {
     val enums = mutableMapOf<EnumClass, MutableSet<EnumEntry>>()
 
@@ -49,6 +56,14 @@ class LexiconClassFileCreator(
           context.typeAliases().forEach { addTypeAlias(it) }
 
           sealedRelationships += context.sealedRelationships()
+
+          if (environment.defaults.generateUnknownsForSealedTypes) {
+            unionTypes += context.types().filter { type ->
+              type.kind == INTERFACE &&
+                  type.name!!.endsWith("Union") &&
+                  type.typeSpecs.any { it.name == "Unknown" }
+            }.map { ClassName(context.authority, it.name!!) }
+          }
         }
         .addAnnotation(
           AnnotationSpec.builder(TypeNames.Suppress)
@@ -124,6 +139,31 @@ class LexiconClassFileCreator(
                   .copy(nullable = true),
               )
               .build()
+          )
+          .build()
+      )
+      .build()
+      .writeTo(environment.outputDirectory)
+  }
+
+  fun generateSerializerModule(namespace: String) {
+    if (unionTypes.isEmpty()) return
+
+    val xrpcSerializersModuleMemberName = MemberName(namespace, "XrpcSerializersModule")
+
+    FileSpec.builder(xrpcSerializersModuleMemberName)
+      .addProperty(
+        PropertySpec.builder(xrpcSerializersModuleMemberName.simpleName, TypeNames.SerializersModule)
+          .initializer(
+            buildCodeBlock {
+              beginControlFlow("SerializersModule {")
+              unionTypes.forEach { unionType ->
+                beginControlFlow("%M(%T::class) {", polymorphic, unionType)
+                addStatement("defaultDeserializer { %T.Unknown.serializer() }", unionType)
+                endControlFlow()
+              }
+              endControlFlow()
+            }
           )
           .build()
       )

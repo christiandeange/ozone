@@ -145,45 +145,53 @@ fun createDataClass(
 
 fun createValueClass(
   className: ClassName,
-  serialName: String,
+  serialName: String?,
   innerType: TypeName,
   additionalConfiguration: TypeSpec.Builder.() -> Unit = {},
 ): List<TypeSpec> {
   val serializerClassName = className.peerClass(className.simpleName + "Serializer")
-  val serializerTypeSpec = TypeSpec.classBuilder(serializerClassName)
-    .addSuperinterface(
-      TypeNames.KSerializer.parameterizedBy(className),
-      CodeBlock.of(
-        """
-        %M(
-        ⇥serialName = %S,⇤
-        ⇥constructor = ::%T,⇤
-        ⇥valueProvider = %T::value,⇤
-        ⇥valueSerializerProvider = { %T.serializer() },⇤
+  val serializerTypeSpec = serialName?.let {
+    TypeSpec.classBuilder(serializerClassName)
+      .addSuperinterface(
+        TypeNames.KSerializer.parameterizedBy(className),
+        CodeBlock.of(
+          """
+          %M(
+          ⇥serialName = %S,⇤
+          ⇥constructor = ::%T,⇤
+          ⇥valueProvider = %T::value,⇤
+          ⇥valueSerializerProvider = { %T.serializer() },⇤
+          )
+          """.trimIndent(),
+          valueClassSerializer,
+          serialName,
+          className,
+          className,
+          innerType,
         )
-        """.trimIndent(),
-        valueClassSerializer,
-        serialName,
-        className,
-        className,
-        innerType,
       )
-    )
-    .build()
+      .build()
+  }
 
   val valueClassTypeSpec = TypeSpec.classBuilder(className)
-    .addAnnotation(
-      AnnotationSpec.builder(TypeNames.Serializable)
-        .addMember("with = %T::class", serializerClassName)
-        .build()
-    )
     .addModifiers(KModifier.VALUE)
     .addAnnotation(JvmInline::class)
-    .addAnnotation(
-      AnnotationSpec.builder(TypeNames.SerialName)
-        .addMember("%S", serialName)
-        .build()
-    )
+    .apply {
+      if (serialName == null) {
+        addAnnotation(TypeNames.Serializable)
+      } else {
+        addAnnotation(
+          AnnotationSpec.builder(TypeNames.Serializable)
+            .addMember("with = %T::class", serializerClassName)
+            .build()
+        )
+        addAnnotation(
+          AnnotationSpec.builder(TypeNames.SerialName)
+            .addMember("%S", serialName)
+            .build()
+        )
+      }
+    }
     .primaryConstructor(
       FunSpec.constructorBuilder()
         .addParameter(
@@ -202,7 +210,7 @@ fun createValueClass(
     .apply(additionalConfiguration)
     .build()
 
-  return listOf(serializerTypeSpec, valueClassTypeSpec)
+  return listOfNotNull(serializerTypeSpec, valueClassTypeSpec)
 }
 
 fun createObjectClass(

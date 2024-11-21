@@ -11,6 +11,7 @@ import org.intellij.lang.annotations.Language
 import sh.christian.ozone.api.generator.ApiConfiguration
 import sh.christian.ozone.api.generator.ApiReturnType
 import sh.christian.ozone.api.generator.ApiReturnType.Raw
+import sh.christian.ozone.api.generator.DefaultsConfiguration
 import javax.inject.Inject
 
 abstract class LexiconGeneratorExtension
@@ -21,12 +22,21 @@ abstract class LexiconGeneratorExtension
   internal val apiConfigurations: ListProperty<ApiConfiguration> =
     objects.listProperty<ApiConfiguration>().convention(emptyList())
 
+  val namespace: Property<String> =
+    objects.property<String>().convention("sh.christian.ozone")
+
+  internal val defaults = GeneratorDefaults(objects)
+
   val outputDirectory: DirectoryProperty =
     objects.directoryProperty().convention(
       projectLayout.buildDirectory
         .map { it.dir("generated") }
         .map { it.dir("lexicons") }
     )
+
+  fun defaults(configure: GeneratorDefaults.() -> Unit) {
+    defaults.configure()
+  }
 
   fun generateApi(
     name: String,
@@ -35,8 +45,21 @@ abstract class LexiconGeneratorExtension
     apiConfigurations.add(
       ApiGeneratorExtension(name, objects)
         .apply(configure)
-        .apiConfiguration
+        .buildApiConfiguration(namespace.readFinalizedValue())
     )
+  }
+
+  class GeneratorDefaults internal constructor(
+    objects: ObjectFactory,
+  ) {
+    val generateUnknownsForSealedTypes: Property<Boolean> =
+      objects.property<Boolean>().convention(false)
+
+    internal fun buildDefaultsConfiguration(): DefaultsConfiguration {
+      return DefaultsConfiguration(
+        generateUnknownsForSealedTypes = generateUnknownsForSealedTypes.readFinalizedValue(),
+      )
+    }
   }
 
   class ApiGeneratorExtension internal constructor(
@@ -73,8 +96,9 @@ abstract class LexiconGeneratorExtension
       implementationName.set(name)
     }
 
-    internal val apiConfiguration by lazy {
-      ApiConfiguration(
+    internal fun buildApiConfiguration(namespace: String): ApiConfiguration {
+      return ApiConfiguration(
+        namespace = namespace,
         packageName = packageName.readFinalizedValue(),
         interfaceName = name,
         implementationName = implementationName.readFinalizedValueOrNull(),

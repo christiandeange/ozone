@@ -10,6 +10,7 @@ import java.io.File
 
 class LexiconProcessingEnvironment(
   allLexiconSchemaJsons: List<String>,
+  val defaults: DefaultsConfiguration,
   val outputDirectory: File,
 ) : Iterable<String> {
   private val schemasById: Map<String, String>

@@ -3,6 +3,7 @@ package sh.christian.ozone.api.generator
 import java.io.Serializable
 
 data class ApiConfiguration(
+  val namespace: String,
   val packageName: String,
   val interfaceName: String,
   val implementationName: String?,

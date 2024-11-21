@@ -26,6 +26,7 @@ object TypeNames {
   val RKey by classOfPackage("sh.christian.ozone.api")
   val SerialName by classOfPackage("kotlinx.serialization")
   val Serializable by classOfPackage("kotlinx.serialization")
+  val SerializersModule by classOfPackage("kotlinx.serialization.modules")
   val Suppress by classOfPackage("kotlin")
   val Tid by classOfPackage("sh.christian.ozone.api")
   val Timestamp by classOfPackage("sh.christian.ozone.api.model")

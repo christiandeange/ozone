@@ -9,6 +9,8 @@ val findSubscriptionSerializer by memberOfPackage("sh.christian.ozone.api.xrpc")
 
 val persistentListOf by memberOfPackage("kotlinx.collections.immutable")
 
+val polymorphic by extensionMemberOfPackage("kotlinx.serialization.modules")
+
 val procedure by extensionMemberOfPackage("sh.christian.ozone.api.xrpc")
 
 val query by extensionMemberOfPackage("sh.christian.ozone.api.xrpc")

@@ -357,6 +357,19 @@ class LexiconDataClassesGenerator(
       }
     }
 
+    if (environment.defaults.generateUnknownsForSealedTypes) {
+      sealedInterface.addTypes(
+        createValueClass(
+          className = name.nestedClass("Unknown"),
+          innerType = TypeNames.JsonContent,
+          serialName = null,
+          additionalConfiguration = {
+            addSuperinterface(name)
+          }
+        ),
+      )
+    }
+
     context.addType(sealedInterface.build())
 
     return name
