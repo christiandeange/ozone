@@ -13444,6 +13444,27 @@ public final class com/atproto/sync/SubscribeReposTombstone$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/atproto/temp/AddReservedHandleRequest {
+	public static final field Companion Lcom/atproto/temp/AddReservedHandleRequest$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/temp/AddReservedHandleRequest;
+	public static synthetic fun copy$default (Lcom/atproto/temp/AddReservedHandleRequest;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/temp/AddReservedHandleRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHandle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/temp/AddReservedHandleRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/temp/AddReservedHandleResponse {
+	public static final field INSTANCE Lcom/atproto/temp/AddReservedHandleResponse;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/atproto/temp/CheckSignupQueueResponse {
 	public static final field Companion Lcom/atproto/temp/CheckSignupQueueResponse$Companion;
 	public fun <init> (ZLjava/lang/Long;Ljava/lang/Long;)V
@@ -13521,6 +13542,7 @@ public final class com/atproto/temp/RequestPhoneVerificationRequest$Companion {
 public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun activateAccount (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun addMember (Ltools/ozone/team/AddMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun addReservedHandle (Lcom/atproto/temp/AddReservedHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun addValues (Ltools/ozone/set/AddValuesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun applyWrites (Lcom/atproto/repo/ApplyWritesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun checkAccountStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -13703,6 +13725,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun <init> (Lio/ktor/client/HttpClient;)V
 	public fun activateAccount (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun addMember (Ltools/ozone/team/AddMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun addReservedHandle (Lcom/atproto/temp/AddReservedHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun addValues (Ltools/ozone/set/AddValuesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun applyWrites (Lcom/atproto/repo/ApplyWritesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun checkAccountStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
