@@ -7,6 +7,7 @@ import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 import sh.christian.ozone.model.ThreadPost.BlockedPost
 import sh.christian.ozone.model.ThreadPost.NotFoundPost
+import sh.christian.ozone.model.ThreadPost.UnknownPost
 import sh.christian.ozone.model.ThreadPost.ViewablePost
 import sh.christian.ozone.util.mapImmutable
 
@@ -25,6 +26,8 @@ sealed interface ThreadPost {
   object NotFoundPost : ThreadPost
 
   object BlockedPost : ThreadPost
+
+  object UnknownPost : ThreadPost
 }
 
 fun ThreadViewPost.toThread(): Thread {
@@ -35,6 +38,7 @@ fun ThreadViewPost.toThread(): Thread {
         is ThreadViewPostParentUnion.BlockedPost -> null
         is ThreadViewPostParentUnion.NotFoundPost -> null
         is ThreadViewPostParentUnion.ThreadViewPost -> parentPost.value.parent
+        is ThreadViewPostParentUnion.Unknown -> null
       }
     }
       .map { it.toThreadPost() }
@@ -52,6 +56,7 @@ fun ThreadViewPostParentUnion.toThreadPost(): ThreadPost = when (this) {
   )
   is ThreadViewPostParentUnion.NotFoundPost -> NotFoundPost
   is ThreadViewPostParentUnion.BlockedPost -> BlockedPost
+  is ThreadViewPostParentUnion.Unknown -> UnknownPost
 }
 
 fun ThreadViewPostReplieUnion.toThreadPost(): ThreadPost = when (this) {
@@ -61,4 +66,5 @@ fun ThreadViewPostReplieUnion.toThreadPost(): ThreadPost = when (this) {
   )
   is ThreadViewPostReplieUnion.NotFoundPost -> NotFoundPost
   is ThreadViewPostReplieUnion.BlockedPost -> BlockedPost
+  is ThreadViewPostReplieUnion.Unknown -> UnknownPost
 }

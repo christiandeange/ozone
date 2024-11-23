@@ -13,7 +13,7 @@ sealed interface TimelinePostReason {
   data object TimelinePostPin : TimelinePostReason
 }
 
-fun FeedViewPostReasonUnion.toReason(): TimelinePostReason {
+fun FeedViewPostReasonUnion.toReasonOrNull(): TimelinePostReason? {
   return when (this) {
     is FeedViewPostReasonUnion.ReasonRepost -> {
       TimelinePostRepost(
@@ -23,6 +23,9 @@ fun FeedViewPostReasonUnion.toReason(): TimelinePostReason {
     }
     is FeedViewPostReasonUnion.ReasonPin -> {
       TimelinePostPin
+    }
+    is FeedViewPostReasonUnion.Unknown -> {
+      null
     }
   }
 }

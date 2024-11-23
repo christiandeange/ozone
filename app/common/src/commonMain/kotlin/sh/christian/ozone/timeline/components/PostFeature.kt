@@ -14,6 +14,7 @@ import sh.christian.ozone.timeline.components.feature.BlockedPostPost
 import sh.christian.ozone.timeline.components.feature.InvisiblePostPost
 import sh.christian.ozone.timeline.components.feature.PostExternal
 import sh.christian.ozone.timeline.components.feature.PostImages
+import sh.christian.ozone.timeline.components.feature.UnknownPostPost
 import sh.christian.ozone.timeline.components.feature.VisiblePostPost
 import sh.christian.ozone.ui.compose.OpenImageAction
 
@@ -38,6 +39,7 @@ internal fun PostFeature(
       }
       is EmbedPost.InvisibleEmbedPost -> InvisiblePostPost(onClick = {})
       is EmbedPost.BlockedEmbedPost -> BlockedPostPost(onClick = {})
+      is EmbedPost.UnknownEmbedPost -> UnknownPostPost(onClick = {})
     }
     is MediaPostFeature -> {
       when (val embedMedia = feature.media) {
@@ -54,6 +56,7 @@ internal fun PostFeature(
         }
         is EmbedPost.InvisibleEmbedPost -> InvisiblePostPost(onClick = {})
         is EmbedPost.BlockedEmbedPost -> BlockedPostPost(onClick = {})
+        is EmbedPost.UnknownEmbedPost -> UnknownPostPost(onClick = {})
       }
     }
     null -> Unit

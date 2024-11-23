@@ -9,6 +9,7 @@ import sh.christian.ozone.api.AtUri
 import sh.christian.ozone.api.Cid
 import sh.christian.ozone.util.deserialize
 import sh.christian.ozone.util.mapImmutable
+import sh.christian.ozone.util.mapNotNullImmutable
 
 @Immutable
 data class TimelinePost(
@@ -34,7 +35,7 @@ data class TimelinePost(
 fun FeedViewPost.toPost(): TimelinePost {
   return post.toPost(
     reply = reply?.toReply(),
-    reason = reason?.toReason(),
+    reason = reason?.toReasonOrNull(),
   )
 }
 
@@ -57,7 +58,7 @@ fun PostView.toPost(
     cid = cid,
     author = author.toProfile(),
     text = postRecord.text,
-    textLinks = postRecord.facets.mapImmutable { it.toLink() },
+    textLinks = postRecord.facets.mapNotNullImmutable { it.toLinkOrNull() },
     createdAt = Moment(postRecord.createdAt),
     feature = embed?.toFeature(),
     replyCount = replyCount ?: 0,

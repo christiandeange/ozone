@@ -856,6 +856,25 @@ public final class app/bsky/actor/PreferencesUnion$ThreadViewPrefSerializer : ko
 	public fun serialize-US-LDEE (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/ThreadViewPref;)V
 }
 
+public final class app/bsky/actor/PreferencesUnion$Unknown : app/bsky/actor/PreferencesUnion {
+	public static final field Companion Lapp/bsky/actor/PreferencesUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/actor/PreferencesUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/actor/PreferencesUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/actor/Profile {
 	public static final field Companion Lapp/bsky/actor/Profile$Companion;
 	public fun <init> ()V
@@ -964,6 +983,25 @@ public final class app/bsky/actor/ProfileLabelsUnion$SelfLabelsSerializer : kotl
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-WDzF5YE (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/label/SelfLabels;)V
+}
+
+public final class app/bsky/actor/ProfileLabelsUnion$Unknown : app/bsky/actor/ProfileLabelsUnion {
+	public static final field Companion Lapp/bsky/actor/ProfileLabelsUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/actor/ProfileLabelsUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/actor/ProfileLabelsUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class app/bsky/actor/ProfileView {
@@ -1873,6 +1911,25 @@ public final class app/bsky/embed/RecordViewRecordEmbedUnion$RecordWithMediaView
 	public fun serialize-qIve0YM (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/RecordWithMediaView;)V
 }
 
+public final class app/bsky/embed/RecordViewRecordEmbedUnion$Unknown : app/bsky/embed/RecordViewRecordEmbedUnion {
+	public static final field Companion Lapp/bsky/embed/RecordViewRecordEmbedUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/embed/RecordViewRecordEmbedUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/embed/RecordViewRecordEmbedUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/embed/RecordViewRecordEmbedUnion$VideoView : app/bsky/embed/RecordViewRecordEmbedUnion {
 	public static final field Companion Lapp/bsky/embed/RecordViewRecordEmbedUnion$VideoView$Companion;
 	public static final synthetic fun box-impl (Lapp/bsky/embed/VideoView;)Lapp/bsky/embed/RecordViewRecordEmbedUnion$VideoView;
@@ -2019,6 +2076,25 @@ public final class app/bsky/embed/RecordViewRecordUnion$LabelerLabelerViewSerial
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-5UVkbz0 (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/labeler/LabelerView;)V
+}
+
+public final class app/bsky/embed/RecordViewRecordUnion$Unknown : app/bsky/embed/RecordViewRecordUnion {
+	public static final field Companion Lapp/bsky/embed/RecordViewRecordUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/embed/RecordViewRecordUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/embed/RecordViewRecordUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class app/bsky/embed/RecordViewRecordUnion$ViewBlocked : app/bsky/embed/RecordViewRecordUnion {
@@ -2215,6 +2291,25 @@ public final class app/bsky/embed/RecordWithMediaMediaUnion$ImagesSerializer : k
 	public fun serialize-bpt4rAs (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/Images;)V
 }
 
+public final class app/bsky/embed/RecordWithMediaMediaUnion$Unknown : app/bsky/embed/RecordWithMediaMediaUnion {
+	public static final field Companion Lapp/bsky/embed/RecordWithMediaMediaUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/embed/RecordWithMediaMediaUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/embed/RecordWithMediaMediaUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/embed/RecordWithMediaMediaUnion$Video : app/bsky/embed/RecordWithMediaMediaUnion {
 	public static final field Companion Lapp/bsky/embed/RecordWithMediaMediaUnion$Video$Companion;
 	public static final synthetic fun box-impl (Lapp/bsky/embed/Video;)Lapp/bsky/embed/RecordWithMediaMediaUnion$Video;
@@ -2323,6 +2418,25 @@ public final class app/bsky/embed/RecordWithMediaViewMediaUnion$ImagesViewSerial
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-Q-3rp7w (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/ImagesView;)V
+}
+
+public final class app/bsky/embed/RecordWithMediaViewMediaUnion$Unknown : app/bsky/embed/RecordWithMediaViewMediaUnion {
+	public static final field Companion Lapp/bsky/embed/RecordWithMediaViewMediaUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/embed/RecordWithMediaViewMediaUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/embed/RecordWithMediaViewMediaUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class app/bsky/embed/RecordWithMediaViewMediaUnion$VideoView : app/bsky/embed/RecordWithMediaViewMediaUnion {
@@ -2602,6 +2716,25 @@ public final class app/bsky/feed/FeedViewPostReasonUnion$ReasonRepostSerializer 
 	public fun serialize-He1qAs0 (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/feed/ReasonRepost;)V
 }
 
+public final class app/bsky/feed/FeedViewPostReasonUnion$Unknown : app/bsky/feed/FeedViewPostReasonUnion {
+	public static final field Companion Lapp/bsky/feed/FeedViewPostReasonUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/feed/FeedViewPostReasonUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/feed/FeedViewPostReasonUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/feed/Generator {
 	public static final field Companion Lapp/bsky/feed/Generator$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lsh/christian/ozone/api/model/Blob;Ljava/lang/Boolean;Lapp/bsky/feed/GeneratorLabelsUnion;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -2667,6 +2800,25 @@ public final class app/bsky/feed/GeneratorLabelsUnion$SelfLabelsSerializer : kot
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-cfRAlUU (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/label/SelfLabels;)V
+}
+
+public final class app/bsky/feed/GeneratorLabelsUnion$Unknown : app/bsky/feed/GeneratorLabelsUnion {
+	public static final field Companion Lapp/bsky/feed/GeneratorLabelsUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/feed/GeneratorLabelsUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/feed/GeneratorLabelsUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class app/bsky/feed/GeneratorView {
@@ -3306,6 +3458,25 @@ public final class app/bsky/feed/GetPostThreadResponseThreadUnion$ThreadViewPost
 	public fun serialize-4kr3cDM (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/feed/ThreadViewPost;)V
 }
 
+public final class app/bsky/feed/GetPostThreadResponseThreadUnion$Unknown : app/bsky/feed/GetPostThreadResponseThreadUnion {
+	public static final field Companion Lapp/bsky/feed/GetPostThreadResponseThreadUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/feed/GetPostThreadResponseThreadUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/feed/GetPostThreadResponseThreadUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/feed/GetPostsQueryParams {
 	public static final field Companion Lapp/bsky/feed/GetPostsQueryParams$Companion;
 	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;)V
@@ -3724,6 +3895,25 @@ public final class app/bsky/feed/PostEmbedUnion$RecordWithMediaSerializer : kotl
 	public fun serialize-mabN7vo (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/RecordWithMedia;)V
 }
 
+public final class app/bsky/feed/PostEmbedUnion$Unknown : app/bsky/feed/PostEmbedUnion {
+	public static final field Companion Lapp/bsky/feed/PostEmbedUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/feed/PostEmbedUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/feed/PostEmbedUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/feed/PostEmbedUnion$Video : app/bsky/feed/PostEmbedUnion {
 	public static final field Companion Lapp/bsky/feed/PostEmbedUnion$Video$Companion;
 	public static final synthetic fun box-impl (Lapp/bsky/embed/Video;)Lapp/bsky/feed/PostEmbedUnion$Video;
@@ -3790,6 +3980,25 @@ public final class app/bsky/feed/PostLabelsUnion$SelfLabelsSerializer : kotlinx/
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-nAiytY0 (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/label/SelfLabels;)V
+}
+
+public final class app/bsky/feed/PostLabelsUnion$Unknown : app/bsky/feed/PostLabelsUnion {
+	public static final field Companion Lapp/bsky/feed/PostLabelsUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/feed/PostLabelsUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/feed/PostLabelsUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class app/bsky/feed/PostReplyRef {
@@ -3975,6 +4184,25 @@ public final class app/bsky/feed/PostViewEmbedUnion$RecordWithMediaViewSerialize
 	public fun serialize-zYapUKM (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/RecordWithMediaView;)V
 }
 
+public final class app/bsky/feed/PostViewEmbedUnion$Unknown : app/bsky/feed/PostViewEmbedUnion {
+	public static final field Companion Lapp/bsky/feed/PostViewEmbedUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/feed/PostViewEmbedUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/feed/PostViewEmbedUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/feed/PostViewEmbedUnion$VideoView : app/bsky/feed/PostViewEmbedUnion {
 	public static final field Companion Lapp/bsky/feed/PostViewEmbedUnion$VideoView$Companion;
 	public static final synthetic fun box-impl (Lapp/bsky/embed/VideoView;)Lapp/bsky/feed/PostViewEmbedUnion$VideoView;
@@ -4065,6 +4293,25 @@ public final class app/bsky/feed/PostgateEmbeddingRuleUnion$DisableRuleSerialize
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-39U58zo (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/feed/PostgateDisableRule;)V
+}
+
+public final class app/bsky/feed/PostgateEmbeddingRuleUnion$Unknown : app/bsky/feed/PostgateEmbeddingRuleUnion {
+	public static final field Companion Lapp/bsky/feed/PostgateEmbeddingRuleUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/feed/PostgateEmbeddingRuleUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/feed/PostgateEmbeddingRuleUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class app/bsky/feed/ReasonPin {
@@ -4203,6 +4450,25 @@ public final class app/bsky/feed/ReplyRefParentUnion$PostViewSerializer : kotlin
 	public fun serialize-TFk5fwc (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/feed/PostView;)V
 }
 
+public final class app/bsky/feed/ReplyRefParentUnion$Unknown : app/bsky/feed/ReplyRefParentUnion {
+	public static final field Companion Lapp/bsky/feed/ReplyRefParentUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/feed/ReplyRefParentUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/feed/ReplyRefParentUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public abstract interface class app/bsky/feed/ReplyRefRootUnion {
 	public static final field Companion Lapp/bsky/feed/ReplyRefRootUnion$Companion;
 }
@@ -4293,6 +4559,25 @@ public final class app/bsky/feed/ReplyRefRootUnion$PostViewSerializer : kotlinx/
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-I-pAlEI (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/feed/PostView;)V
+}
+
+public final class app/bsky/feed/ReplyRefRootUnion$Unknown : app/bsky/feed/ReplyRefRootUnion {
+	public static final field Companion Lapp/bsky/feed/ReplyRefRootUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/feed/ReplyRefRootUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/feed/ReplyRefRootUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class app/bsky/feed/Repost {
@@ -4525,6 +4810,25 @@ public final class app/bsky/feed/SkeletonFeedPostReasonUnion$SkeletonReasonRepos
 	public fun serialize-nC2L4n0 (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/feed/SkeletonReasonRepost;)V
 }
 
+public final class app/bsky/feed/SkeletonFeedPostReasonUnion$Unknown : app/bsky/feed/SkeletonFeedPostReasonUnion {
+	public static final field Companion Lapp/bsky/feed/SkeletonFeedPostReasonUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/feed/SkeletonFeedPostReasonUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/feed/SkeletonFeedPostReasonUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/feed/SkeletonReasonPin {
 	public static final field INSTANCE Lapp/bsky/feed/SkeletonReasonPin;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
@@ -4659,6 +4963,25 @@ public final class app/bsky/feed/ThreadViewPostParentUnion$ThreadViewPostSeriali
 	public fun serialize-Fg11WA0 (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/feed/ThreadViewPost;)V
 }
 
+public final class app/bsky/feed/ThreadViewPostParentUnion$Unknown : app/bsky/feed/ThreadViewPostParentUnion {
+	public static final field Companion Lapp/bsky/feed/ThreadViewPostParentUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/feed/ThreadViewPostParentUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/feed/ThreadViewPostParentUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public abstract interface class app/bsky/feed/ThreadViewPostReplieUnion {
 	public static final field Companion Lapp/bsky/feed/ThreadViewPostReplieUnion$Companion;
 }
@@ -4749,6 +5072,25 @@ public final class app/bsky/feed/ThreadViewPostReplieUnion$ThreadViewPostSeriali
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-TZcIvWE (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/feed/ThreadViewPost;)V
+}
+
+public final class app/bsky/feed/ThreadViewPostReplieUnion$Unknown : app/bsky/feed/ThreadViewPostReplieUnion {
+	public static final field Companion Lapp/bsky/feed/ThreadViewPostReplieUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/feed/ThreadViewPostReplieUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/feed/ThreadViewPostReplieUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class app/bsky/feed/Threadgate {
@@ -4864,6 +5206,25 @@ public final class app/bsky/feed/ThreadgateAllowUnion$MentionRuleSerializer : ko
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-gYQi9BY (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/feed/ThreadgateMentionRule;)V
+}
+
+public final class app/bsky/feed/ThreadgateAllowUnion$Unknown : app/bsky/feed/ThreadgateAllowUnion {
+	public static final field Companion Lapp/bsky/feed/ThreadgateAllowUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/feed/ThreadgateAllowUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/feed/ThreadgateAllowUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class app/bsky/feed/ThreadgateFollowingRule {
@@ -5610,6 +5971,25 @@ public final class app/bsky/graph/GetRelationshipsResponseRelationshipUnion$Rela
 	public fun serialize-MKbw4lM (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/graph/Relationship;)V
 }
 
+public final class app/bsky/graph/GetRelationshipsResponseRelationshipUnion$Unknown : app/bsky/graph/GetRelationshipsResponseRelationshipUnion {
+	public static final field Companion Lapp/bsky/graph/GetRelationshipsResponseRelationshipUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/graph/GetRelationshipsResponseRelationshipUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/graph/GetRelationshipsResponseRelationshipUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/graph/GetStarterPackQueryParams {
 	public static final field Companion Lapp/bsky/graph/GetStarterPackQueryParams$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -5793,6 +6173,25 @@ public final class app/bsky/graph/ListLabelsUnion$SelfLabelsSerializer : kotlinx
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-6p4Mg2s (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/label/SelfLabels;)V
+}
+
+public final class app/bsky/graph/ListLabelsUnion$Unknown : app/bsky/graph/ListLabelsUnion {
+	public static final field Companion Lapp/bsky/graph/ListLabelsUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/graph/ListLabelsUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/graph/ListLabelsUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class app/bsky/graph/ListView {
@@ -6365,6 +6764,25 @@ public final class app/bsky/labeler/GetServicesResponseViewUnion$LabelerViewSeri
 	public fun serialize-MBrbhqU (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/labeler/LabelerView;)V
 }
 
+public final class app/bsky/labeler/GetServicesResponseViewUnion$Unknown : app/bsky/labeler/GetServicesResponseViewUnion {
+	public static final field Companion Lapp/bsky/labeler/GetServicesResponseViewUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/labeler/GetServicesResponseViewUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/labeler/GetServicesResponseViewUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/labeler/LabelerPolicies {
 	public static final field Companion Lapp/bsky/labeler/LabelerPolicies$Companion;
 	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;)V
@@ -6516,6 +6934,25 @@ public final class app/bsky/labeler/ServiceLabelsUnion$SelfLabelsSerializer : ko
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-YFA7UbA (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/label/SelfLabels;)V
+}
+
+public final class app/bsky/labeler/ServiceLabelsUnion$Unknown : app/bsky/labeler/ServiceLabelsUnion {
+	public static final field Companion Lapp/bsky/labeler/ServiceLabelsUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/labeler/ServiceLabelsUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/labeler/ServiceLabelsUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class app/bsky/notification/GetUnreadCountQueryParams {
@@ -6948,6 +7385,25 @@ public final class app/bsky/richtext/FacetFeatureUnion$TagSerializer : kotlinx/s
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-PEjDNVg (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/richtext/FacetTag;)V
+}
+
+public final class app/bsky/richtext/FacetFeatureUnion$Unknown : app/bsky/richtext/FacetFeatureUnion {
+	public static final field Companion Lapp/bsky/richtext/FacetFeatureUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/richtext/FacetFeatureUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/richtext/FacetFeatureUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class app/bsky/richtext/FacetLink {
@@ -7777,6 +8233,25 @@ public final class chat/bsky/convo/ConvoViewLastMessageUnion$MessageViewSerializ
 	public fun serialize-7XBEc50 (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/MessageView;)V
 }
 
+public final class chat/bsky/convo/ConvoViewLastMessageUnion$Unknown : chat/bsky/convo/ConvoViewLastMessageUnion {
+	public static final field Companion Lchat/bsky/convo/ConvoViewLastMessageUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lchat/bsky/convo/ConvoViewLastMessageUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class chat/bsky/convo/ConvoViewLastMessageUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class chat/bsky/convo/DeleteMessageForSelfRequest {
 	public static final field Companion Lchat/bsky/convo/DeleteMessageForSelfRequest$Companion;
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
@@ -8041,6 +8516,25 @@ public final class chat/bsky/convo/GetLogResponseLogUnion$LeaveConvoSerializer :
 	public fun serialize-a4RNPPI (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/LogLeaveConvo;)V
 }
 
+public final class chat/bsky/convo/GetLogResponseLogUnion$Unknown : chat/bsky/convo/GetLogResponseLogUnion {
+	public static final field Companion Lchat/bsky/convo/GetLogResponseLogUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lchat/bsky/convo/GetLogResponseLogUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class chat/bsky/convo/GetMessagesQueryParams {
 	public static final field Companion Lchat/bsky/convo/GetMessagesQueryParams$Companion;
 	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)V
@@ -8144,6 +8638,25 @@ public final class chat/bsky/convo/GetMessagesResponseMessageUnion$MessageViewSe
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-LKgA6c0 (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/MessageView;)V
+}
+
+public final class chat/bsky/convo/GetMessagesResponseMessageUnion$Unknown : chat/bsky/convo/GetMessagesResponseMessageUnion {
+	public static final field Companion Lchat/bsky/convo/GetMessagesResponseMessageUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lchat/bsky/convo/GetMessagesResponseMessageUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class chat/bsky/convo/GetMessagesResponseMessageUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class chat/bsky/convo/LeaveConvoRequest {
@@ -8322,6 +8835,25 @@ public final class chat/bsky/convo/LogCreateMessageMessageUnion$MessageViewSeria
 	public fun serialize-y3ZJT8E (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/MessageView;)V
 }
 
+public final class chat/bsky/convo/LogCreateMessageMessageUnion$Unknown : chat/bsky/convo/LogCreateMessageMessageUnion {
+	public static final field Companion Lchat/bsky/convo/LogCreateMessageMessageUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lchat/bsky/convo/LogCreateMessageMessageUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class chat/bsky/convo/LogCreateMessageMessageUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class chat/bsky/convo/LogDeleteMessage {
 	public static final field Companion Lchat/bsky/convo/LogDeleteMessage$Companion;
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/LogDeleteMessageMessageUnion;)V
@@ -8406,6 +8938,25 @@ public final class chat/bsky/convo/LogDeleteMessageMessageUnion$MessageViewSeria
 	public fun serialize-e8w8bCU (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/MessageView;)V
 }
 
+public final class chat/bsky/convo/LogDeleteMessageMessageUnion$Unknown : chat/bsky/convo/LogDeleteMessageMessageUnion {
+	public static final field Companion Lchat/bsky/convo/LogDeleteMessageMessageUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lchat/bsky/convo/LogDeleteMessageMessageUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class chat/bsky/convo/LogDeleteMessageMessageUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class chat/bsky/convo/LogLeaveConvo {
 	public static final field Companion Lchat/bsky/convo/LogLeaveConvo$Companion;
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
@@ -8481,6 +9032,25 @@ public final class chat/bsky/convo/MessageInputEmbedUnion$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class chat/bsky/convo/MessageInputEmbedUnion$Unknown : chat/bsky/convo/MessageInputEmbedUnion {
+	public static final field Companion Lchat/bsky/convo/MessageInputEmbedUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lchat/bsky/convo/MessageInputEmbedUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class chat/bsky/convo/MessageInputEmbedUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class chat/bsky/convo/MessageRef {
 	public static final field Companion Lchat/bsky/convo/MessageRef$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -8535,6 +9105,25 @@ public abstract interface class chat/bsky/convo/MessageViewEmbedUnion {
 }
 
 public final class chat/bsky/convo/MessageViewEmbedUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/MessageViewEmbedUnion$Unknown : chat/bsky/convo/MessageViewEmbedUnion {
+	public static final field Companion Lchat/bsky/convo/MessageViewEmbedUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lchat/bsky/convo/MessageViewEmbedUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class chat/bsky/convo/MessageViewEmbedUnion$Unknown$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -8910,6 +9499,25 @@ public final class chat/bsky/moderation/GetMessageContextResponseMessageUnion$Me
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-airglSE (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/MessageView;)V
+}
+
+public final class chat/bsky/moderation/GetMessageContextResponseMessageUnion$Unknown : chat/bsky/moderation/GetMessageContextResponseMessageUnion {
+	public static final field Companion Lchat/bsky/moderation/GetMessageContextResponseMessageUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lchat/bsky/moderation/GetMessageContextResponseMessageUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class chat/bsky/moderation/GetMessageContextResponseMessageUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class chat/bsky/moderation/UpdateActorAccessRequest {
@@ -9318,6 +9926,25 @@ public final class com/atproto/admin/GetSubjectStatusResponseSubjectUnion$RepoSt
 	public fun serialize-2MttQXk (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
 }
 
+public final class com/atproto/admin/GetSubjectStatusResponseSubjectUnion$Unknown : com/atproto/admin/GetSubjectStatusResponseSubjectUnion {
+	public static final field Companion Lcom/atproto/admin/GetSubjectStatusResponseSubjectUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lcom/atproto/admin/GetSubjectStatusResponseSubjectUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class com/atproto/admin/GetSubjectStatusResponseSubjectUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/atproto/admin/RepoBlobRef {
 	public static final field Companion Lcom/atproto/admin/RepoBlobRef$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -9642,6 +10269,25 @@ public final class com/atproto/admin/UpdateSubjectStatusRequestSubjectUnion$Repo
 	public fun serialize-ujnOe4M (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
 }
 
+public final class com/atproto/admin/UpdateSubjectStatusRequestSubjectUnion$Unknown : com/atproto/admin/UpdateSubjectStatusRequestSubjectUnion {
+	public static final field Companion Lcom/atproto/admin/UpdateSubjectStatusRequestSubjectUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lcom/atproto/admin/UpdateSubjectStatusRequestSubjectUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class com/atproto/admin/UpdateSubjectStatusRequestSubjectUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/atproto/admin/UpdateSubjectStatusResponse {
 	public static final field Companion Lcom/atproto/admin/UpdateSubjectStatusResponse$Companion;
 	public fun <init> (Lcom/atproto/admin/UpdateSubjectStatusResponseSubjectUnion;Lcom/atproto/admin/StatusAttr;)V
@@ -9751,6 +10397,25 @@ public final class com/atproto/admin/UpdateSubjectStatusResponseSubjectUnion$Rep
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-Xo_BbxU (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
+}
+
+public final class com/atproto/admin/UpdateSubjectStatusResponseSubjectUnion$Unknown : com/atproto/admin/UpdateSubjectStatusResponseSubjectUnion {
+	public static final field Companion Lcom/atproto/admin/UpdateSubjectStatusResponseSubjectUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lcom/atproto/admin/UpdateSubjectStatusResponseSubjectUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class com/atproto/admin/UpdateSubjectStatusResponseSubjectUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/atproto/identity/GetRecommendedDidCredentialsResponse {
@@ -10404,6 +11069,25 @@ public final class com/atproto/label/SubscribeLabelsMessageUnion$LabelsSerialize
 	public fun serialize-gfcx7Io (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/label/SubscribeLabelsLabels;)V
 }
 
+public final class com/atproto/label/SubscribeLabelsMessageUnion$Unknown : com/atproto/label/SubscribeLabelsMessageUnion {
+	public static final field Companion Lcom/atproto/label/SubscribeLabelsMessageUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lcom/atproto/label/SubscribeLabelsMessageUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class com/atproto/label/SubscribeLabelsMessageUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public abstract class com/atproto/label/SubscribeLabelsName : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lcom/atproto/label/SubscribeLabelsName$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -10546,6 +11230,25 @@ public final class com/atproto/moderation/CreateReportRequestSubjectUnion$RepoSt
 	public fun serialize-UxiC7Vg (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
 }
 
+public final class com/atproto/moderation/CreateReportRequestSubjectUnion$Unknown : com/atproto/moderation/CreateReportRequestSubjectUnion {
+	public static final field Companion Lcom/atproto/moderation/CreateReportRequestSubjectUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lcom/atproto/moderation/CreateReportRequestSubjectUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class com/atproto/moderation/CreateReportRequestSubjectUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/atproto/moderation/CreateReportResponse {
 	public static final field Companion Lcom/atproto/moderation/CreateReportResponse$Companion;
 	public synthetic fun <init> (JLcom/atproto/moderation/Token;Ljava/lang/String;Lcom/atproto/moderation/CreateReportResponseSubjectUnion;Ljava/lang/String;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -10635,6 +11338,25 @@ public final class com/atproto/moderation/CreateReportResponseSubjectUnion$RepoS
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-yTMDtwI (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
+}
+
+public final class com/atproto/moderation/CreateReportResponseSubjectUnion$Unknown : com/atproto/moderation/CreateReportResponseSubjectUnion {
+	public static final field Companion Lcom/atproto/moderation/CreateReportResponseSubjectUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lcom/atproto/moderation/CreateReportResponseSubjectUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class com/atproto/moderation/CreateReportResponseSubjectUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public abstract class com/atproto/moderation/Token : sh/christian/ozone/api/model/AtpEnum {
@@ -10869,6 +11591,25 @@ public final class com/atproto/repo/ApplyWritesRequestWriteUnion$DeleteSerialize
 	public fun serialize-tgMKQ3o (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/ApplyWritesDelete;)V
 }
 
+public final class com/atproto/repo/ApplyWritesRequestWriteUnion$Unknown : com/atproto/repo/ApplyWritesRequestWriteUnion {
+	public static final field Companion Lcom/atproto/repo/ApplyWritesRequestWriteUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lcom/atproto/repo/ApplyWritesRequestWriteUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class com/atproto/repo/ApplyWritesRequestWriteUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/atproto/repo/ApplyWritesRequestWriteUnion$Update : com/atproto/repo/ApplyWritesRequestWriteUnion {
 	public static final field Companion Lcom/atproto/repo/ApplyWritesRequestWriteUnion$Update$Companion;
 	public static final synthetic fun box-impl (Lcom/atproto/repo/ApplyWritesUpdate;)Lcom/atproto/repo/ApplyWritesRequestWriteUnion$Update;
@@ -10979,6 +11720,25 @@ public final class com/atproto/repo/ApplyWritesResponseResultUnion$DeleteResultS
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-9Tr7jIc (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/ApplyWritesDeleteResult;)V
+}
+
+public final class com/atproto/repo/ApplyWritesResponseResultUnion$Unknown : com/atproto/repo/ApplyWritesResponseResultUnion {
+	public static final field Companion Lcom/atproto/repo/ApplyWritesResponseResultUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lcom/atproto/repo/ApplyWritesResponseResultUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class com/atproto/repo/ApplyWritesResponseResultUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/atproto/repo/ApplyWritesResponseResultUnion$UpdateResult : com/atproto/repo/ApplyWritesResponseResultUnion {
@@ -13299,6 +14059,25 @@ public final class com/atproto/sync/SubscribeReposMessageUnion$TombstoneSerializ
 	public fun serialize-cUF7WiE (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/sync/SubscribeReposTombstone;)V
 }
 
+public final class com/atproto/sync/SubscribeReposMessageUnion$Unknown : com/atproto/sync/SubscribeReposMessageUnion {
+	public static final field Companion Lcom/atproto/sync/SubscribeReposMessageUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lcom/atproto/sync/SubscribeReposMessageUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class com/atproto/sync/SubscribeReposMessageUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/atproto/sync/SubscribeReposMigrate$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
@@ -13903,6 +14682,10 @@ public final class sh/christian/ozone/api/xrpc/FindSubscriptionSerializerKt {
 	public static final fun findSubscriptionSerializer (Lkotlin/reflect/KClass;Ljava/lang/String;)Lkotlinx/serialization/KSerializer;
 }
 
+public final class sh/christian/ozone/api/xrpc/XrpcSerializersModuleKt {
+	public static final fun getXrpcSerializersModule ()Lkotlinx/serialization/modules/SerializersModule;
+}
+
 public abstract interface class sh/christian/ozone/unspecced/UnspeccedBlueskyApi {
 	public abstract fun getConfig (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getPopularFeedGenerators (Lapp/bsky/unspecced/GetPopularFeedGeneratorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -14155,6 +14938,25 @@ public final class tools/ozone/moderation/BlobViewDetailsUnion$ImageDetailsSeria
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-Vf-s0lg (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/ImageDetails;)V
+}
+
+public final class tools/ozone/moderation/BlobViewDetailsUnion$Unknown : tools/ozone/moderation/BlobViewDetailsUnion {
+	public static final field Companion Ltools/ozone/moderation/BlobViewDetailsUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/moderation/BlobViewDetailsUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/moderation/BlobViewDetailsUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class tools/ozone/moderation/BlobViewDetailsUnion$VideoDetails : tools/ozone/moderation/BlobViewDetailsUnion {
@@ -14692,6 +15494,25 @@ public final class tools/ozone/moderation/EmitEventRequestEventUnion$RecordEvent
 	public fun serialize-jR1eAW0 (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/RecordEvent;)V
 }
 
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$Unknown : tools/ozone/moderation/EmitEventRequestEventUnion {
+	public static final field Companion Ltools/ozone/moderation/EmitEventRequestEventUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/moderation/EmitEventRequestEventUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public abstract interface class tools/ozone/moderation/EmitEventRequestSubjectUnion {
 	public static final field Companion Ltools/ozone/moderation/EmitEventRequestSubjectUnion$Companion;
 }
@@ -14754,6 +15575,25 @@ public final class tools/ozone/moderation/EmitEventRequestSubjectUnion$RepoStron
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-kLLOL8w (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
+}
+
+public final class tools/ozone/moderation/EmitEventRequestSubjectUnion$Unknown : tools/ozone/moderation/EmitEventRequestSubjectUnion {
+	public static final field Companion Ltools/ozone/moderation/EmitEventRequestSubjectUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/moderation/EmitEventRequestSubjectUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/moderation/EmitEventRequestSubjectUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class tools/ozone/moderation/GetEventQueryParams {
@@ -14890,6 +15730,25 @@ public final class tools/ozone/moderation/GetRecordsResponseRecordUnion$NotFound
 	public fun serialize-1O5TIpU (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/RecordViewNotFound;)V
 }
 
+public final class tools/ozone/moderation/GetRecordsResponseRecordUnion$Unknown : tools/ozone/moderation/GetRecordsResponseRecordUnion {
+	public static final field Companion Ltools/ozone/moderation/GetRecordsResponseRecordUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/moderation/GetRecordsResponseRecordUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/moderation/GetRecordsResponseRecordUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/moderation/GetRepoQueryParams {
 	public static final field Companion Ltools/ozone/moderation/GetRepoQueryParams$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -15002,6 +15861,25 @@ public final class tools/ozone/moderation/GetReposResponseRepoUnion$NotFoundSeri
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-JRcYMtY (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/RepoViewNotFound;)V
+}
+
+public final class tools/ozone/moderation/GetReposResponseRepoUnion$Unknown : tools/ozone/moderation/GetReposResponseRepoUnion {
+	public static final field Companion Ltools/ozone/moderation/GetReposResponseRepoUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/moderation/GetReposResponseRepoUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/moderation/GetReposResponseRepoUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class tools/ozone/moderation/IdentityEvent {
@@ -15906,6 +16784,25 @@ public final class tools/ozone/moderation/ModEventViewDetailEventUnion$RecordEve
 	public fun serialize--1G5-vM (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/RecordEvent;)V
 }
 
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$Unknown : tools/ozone/moderation/ModEventViewDetailEventUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewDetailEventUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/moderation/ModEventViewDetailEventUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public abstract interface class tools/ozone/moderation/ModEventViewDetailSubjectUnion {
 	public static final field Companion Ltools/ozone/moderation/ModEventViewDetailSubjectUnion$Companion;
 }
@@ -16024,6 +16921,25 @@ public final class tools/ozone/moderation/ModEventViewDetailSubjectUnion$RepoVie
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-FWgINZo (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/RepoView;)V
+}
+
+public final class tools/ozone/moderation/ModEventViewDetailSubjectUnion$Unknown : tools/ozone/moderation/ModEventViewDetailSubjectUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewDetailSubjectUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/moderation/ModEventViewDetailSubjectUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/moderation/ModEventViewDetailSubjectUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public abstract interface class tools/ozone/moderation/ModEventViewEventUnion {
@@ -16538,6 +17454,25 @@ public final class tools/ozone/moderation/ModEventViewEventUnion$RecordEventSeri
 	public fun serialize-r4TJwAU (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/RecordEvent;)V
 }
 
+public final class tools/ozone/moderation/ModEventViewEventUnion$Unknown : tools/ozone/moderation/ModEventViewEventUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewEventUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/moderation/ModEventViewEventUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/moderation/ModEventViewEventUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public abstract interface class tools/ozone/moderation/ModEventViewSubjectUnion {
 	public static final field Companion Ltools/ozone/moderation/ModEventViewSubjectUnion$Companion;
 }
@@ -16628,6 +17563,25 @@ public final class tools/ozone/moderation/ModEventViewSubjectUnion$OmAtprotoRepo
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-29zLO1c (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
+}
+
+public final class tools/ozone/moderation/ModEventViewSubjectUnion$Unknown : tools/ozone/moderation/ModEventViewSubjectUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewSubjectUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/moderation/ModEventViewSubjectUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/moderation/ModEventViewSubjectUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class tools/ozone/moderation/Moderation {
@@ -17418,6 +18372,25 @@ public final class tools/ozone/moderation/SubjectStatusViewHostingUnion$RecordHo
 	public fun serialize-3zON00A (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/RecordHosting;)V
 }
 
+public final class tools/ozone/moderation/SubjectStatusViewHostingUnion$Unknown : tools/ozone/moderation/SubjectStatusViewHostingUnion {
+	public static final field Companion Ltools/ozone/moderation/SubjectStatusViewHostingUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/moderation/SubjectStatusViewHostingUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/moderation/SubjectStatusViewHostingUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public abstract interface class tools/ozone/moderation/SubjectStatusViewSubjectUnion {
 	public static final field Companion Ltools/ozone/moderation/SubjectStatusViewSubjectUnion$Companion;
 }
@@ -17480,6 +18453,25 @@ public final class tools/ozone/moderation/SubjectStatusViewSubjectUnion$RepoStro
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-tvYlcjQ (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/repo/StrongRef;)V
+}
+
+public final class tools/ozone/moderation/SubjectStatusViewSubjectUnion$Unknown : tools/ozone/moderation/SubjectStatusViewSubjectUnion {
+	public static final field Companion Ltools/ozone/moderation/SubjectStatusViewSubjectUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/moderation/SubjectStatusViewSubjectUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/moderation/SubjectStatusViewSubjectUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public abstract class tools/ozone/moderation/Token : sh/christian/ozone/api/model/AtpEnum {

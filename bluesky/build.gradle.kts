@@ -38,7 +38,7 @@ lexicons {
   namespace.set("sh.christian.ozone.api.xrpc")
 
   defaults {
-    generateUnknownsForSealedTypes.set(false)
+    generateUnknownsForSealedTypes.set(true)
     generateUnknownsForEnums.set(true)
   }
 

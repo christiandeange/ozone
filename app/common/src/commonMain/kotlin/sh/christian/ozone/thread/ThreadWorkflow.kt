@@ -4,6 +4,7 @@ import app.bsky.feed.GetPostThreadQueryParams
 import app.bsky.feed.GetPostThreadResponseThreadUnion.BlockedPost
 import app.bsky.feed.GetPostThreadResponseThreadUnion.NotFoundPost
 import app.bsky.feed.GetPostThreadResponseThreadUnion.ThreadViewPost
+import app.bsky.feed.GetPostThreadResponseThreadUnion.Unknown
 import com.squareup.workflow1.Snapshot
 import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.action
@@ -92,7 +93,8 @@ class ThreadWorkflow(
                   )
 
                   is NotFoundPost,
-                  is BlockedPost -> ShowingError(
+                  is BlockedPost,
+                  is Unknown -> ShowingError(
                     previousState = state,
                     props = ErrorProps("Oops.", "Could not load thread.", false),
                   )

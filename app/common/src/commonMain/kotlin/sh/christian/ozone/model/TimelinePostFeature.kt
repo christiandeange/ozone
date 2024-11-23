@@ -12,6 +12,7 @@ import sh.christian.ozone.api.Cid
 import sh.christian.ozone.api.Uri
 import sh.christian.ozone.model.EmbedPost.BlockedEmbedPost
 import sh.christian.ozone.model.EmbedPost.InvisibleEmbedPost
+import sh.christian.ozone.model.EmbedPost.UnknownEmbedPost
 import sh.christian.ozone.model.EmbedPost.VisibleEmbedPost
 import sh.christian.ozone.model.TimelinePostFeature.ExternalFeature
 import sh.christian.ozone.model.TimelinePostFeature.ImagesFeature
@@ -67,6 +68,8 @@ sealed interface EmbedPost {
   data class BlockedEmbedPost(
     val uri: AtUri,
   ) : EmbedPost
+
+  data object UnknownEmbedPost : EmbedPost
 }
 
 fun PostViewEmbedUnion.toFeature(): TimelinePostFeature? {
@@ -89,11 +92,13 @@ fun PostViewEmbedUnion.toFeature(): TimelinePostFeature? {
           is RecordWithMediaViewMediaUnion.ExternalView -> media.value.toExternalFeature()
           is RecordWithMediaViewMediaUnion.ImagesView -> media.value.toImagesFeature()
           is RecordWithMediaViewMediaUnion.VideoView -> return null
+          is RecordWithMediaViewMediaUnion.Unknown -> return null
         },
       )
     }
     // TODO properly support video views.
     is PostViewEmbedUnion.VideoView -> null
+    is PostViewEmbedUnion.Unknown -> null
   }
 }
 
@@ -170,6 +175,9 @@ private fun RecordViewRecordUnion.toEmbedPost(): EmbedPost {
       InvisibleEmbedPost(
         uri = value.uri,
       )
+    }
+    is RecordViewRecordUnion.Unknown -> {
+      UnknownEmbedPost
     }
   }
 }

@@ -52,6 +52,7 @@ import sh.christian.ozone.timeline.components.ThreadPostItem
 import sh.christian.ozone.timeline.components.TimelinePostItem
 import sh.christian.ozone.timeline.components.feature.BlockedPostPost
 import sh.christian.ozone.timeline.components.feature.InvisiblePostPost
+import sh.christian.ozone.timeline.components.feature.UnknownPostPost
 import sh.christian.ozone.timeline.components.hasInteractions
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.OpenImageAction
@@ -253,6 +254,11 @@ private fun SmallThreadPostItem(
         BlockedPostPost(onClick = null)
       }
     }
+    is ThreadPost.UnknownPost -> {
+      ForbiddenPostItem {
+        UnknownPostPost(onClick = null)
+      }
+    }
   }
 }
 
@@ -282,7 +288,8 @@ private fun ThreadPost.withInterestingReplies(ops: Collection<Profile>): List<Th
     when (this@withInterestingReplies) {
       is ViewablePost -> add(post.author.did)
       is ThreadPost.NotFoundPost,
-      is ThreadPost.BlockedPost -> Unit
+      is ThreadPost.BlockedPost,
+      is ThreadPost.UnknownPost -> Unit
     }
   }
 
@@ -294,7 +301,8 @@ private fun ThreadPost.withInterestingReplies(ops: Collection<Profile>): List<Th
           ?: viewableReplies.firstOrNull { replyPost -> replyPost.post.hasInteractions() }
       }
       is ThreadPost.NotFoundPost,
-      is ThreadPost.BlockedPost -> null
+      is ThreadPost.BlockedPost,
+      is ThreadPost.UnknownPost -> null
     }
   }.toList().let { replyThread ->
     if (replyThread.viewable().all { it.post.author.did in conversation }) {

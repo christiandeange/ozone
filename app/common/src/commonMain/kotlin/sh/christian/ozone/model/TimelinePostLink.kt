@@ -33,7 +33,7 @@ sealed interface LinkTarget {
   ) : LinkTarget
 }
 
-fun Facet.toLink(): TimelinePostLink {
+fun Facet.toLinkOrNull(): TimelinePostLink? {
   return TimelinePostLink(
     start = index.byteStart.toInt(),
     end = index.byteEnd.toInt(),
@@ -41,6 +41,7 @@ fun Facet.toLink(): TimelinePostLink {
       is FacetFeatureUnion.Link -> ExternalLink(feature.value.uri)
       is FacetFeatureUnion.Mention -> UserDidMention(feature.value.did)
       is FacetFeatureUnion.Tag -> Hashtag(feature.value.tag)
+      is FacetFeatureUnion.Unknown -> return null
     },
   )
 }
