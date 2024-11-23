@@ -21,6 +21,7 @@ import sh.christian.ozone.api.generator.builder.SealedRelationship
 import sh.christian.ozone.api.generator.builder.TypesGenerator
 import sh.christian.ozone.api.generator.builder.XrpcBodyGenerator
 import sh.christian.ozone.api.generator.builder.XrpcQueryParamsGenerator
+import sh.christian.ozone.api.generator.builder.addDescription
 import sh.christian.ozone.api.generator.builder.capitalized
 import sh.christian.ozone.api.generator.builder.createOpenEnumClass
 import sh.christian.ozone.api.lexicon.LexiconDocument
@@ -158,6 +159,7 @@ class LexiconClassFileCreator(
     FileSpec.builder(xrpcSerializersModuleMemberName)
       .addProperty(
         PropertySpec.builder(xrpcSerializersModuleMemberName.simpleName, TypeNames.SerializersModule)
+          .addDescription("SerializersModule to decode unknown values for union reference types.")
           .initializer(
             buildCodeBlock {
               beginControlFlow("SerializersModule {")
