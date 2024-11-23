@@ -56,9 +56,24 @@ plugins {
 dependencies {
   // This is where you have your schema files stored in your project.
   lexicons(fileTree("lexicons") { include("**/*.json") })
+
+  // You can also depend directly on the published Bluesky lexicons instead.
+  lexicons("sh.christian.ozone:bluesky:0.2.0")
 }
 
 lexicons {
+  // Determines the package name of generated supporting methods. Defaults to "sh.christian.ozone".
+  namespace.set("com.example.myapp")
+
+   // Configuration for how to handle unknown types and known values.
+  defaults {
+     // Determines whether to generate classes to encapsulate unknown types for union references. Defaults to false.
+     generateUnknownsForSealedTypes.set(true)
+
+     // Determines whether to generate classes to encapsulate unknown values for strings. Defaults to false.
+     generateUnknownsForEnums.set(true)
+  }
+
   // Generates an additional interface for the target schemas.
   // This method can be called more than once to generate multiple API interfaces.
   generateApi("BlueskyApi") {
@@ -82,7 +97,7 @@ lexicons {
     suspending.set(true)
   }
 
-  // File path where Kotlin source files will be written to. Defaults to "/build/generated/lexicons".
+  // File path where Kotlin source files will be written to. Defaults to "<project-dir>/build/generated/lexicons".
   outputDirectory.set(project.layout.buildDirectory.dir("out"))
 }
 ```
