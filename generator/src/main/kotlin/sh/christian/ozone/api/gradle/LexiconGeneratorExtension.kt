@@ -25,7 +25,7 @@ abstract class LexiconGeneratorExtension
   val namespace: Property<String> =
     objects.property<String>().convention("sh.christian.ozone")
 
-  internal val defaults = GeneratorDefaults(objects)
+  val defaults = GeneratorDefaults(objects)
 
   val outputDirectory: DirectoryProperty =
     objects.directoryProperty().convention(
@@ -55,9 +55,13 @@ abstract class LexiconGeneratorExtension
     val generateUnknownsForSealedTypes: Property<Boolean> =
       objects.property<Boolean>().convention(false)
 
+    val generateUnknownsForEnums: Property<Boolean> =
+      objects.property<Boolean>().convention(false)
+
     internal fun buildDefaultsConfiguration(): DefaultsConfiguration {
       return DefaultsConfiguration(
         generateUnknownsForSealedTypes = generateUnknownsForSealedTypes.readFinalizedValue(),
+        generateUnknownsForEnums = generateUnknownsForEnums.readFinalizedValue(),
       )
     }
   }

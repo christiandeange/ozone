@@ -117,24 +117,13 @@ public final class app/bsky/jetstream/SubscribeKind$Commit : app/bsky/jetstream/
 }
 
 public final class app/bsky/jetstream/SubscribeKind$Companion {
-	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeKind;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+	public final fun unsafeValueOf (Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeKind;
 }
 
 public final class app/bsky/jetstream/SubscribeKind$Identity : app/bsky/jetstream/SubscribeKind {
 	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeKind$Identity;
 	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/jetstream/SubscribeKind$Unknown : app/bsky/jetstream/SubscribeKind {
-	public fun <init> (Ljava/lang/String;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeKind$Unknown;
-	public static synthetic fun copy$default (Lapp/bsky/jetstream/SubscribeKind$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeKind$Unknown;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getRawValue ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -155,8 +144,8 @@ public abstract class app/bsky/jetstream/SubscribeOperation : sh/christian/ozone
 }
 
 public final class app/bsky/jetstream/SubscribeOperation$Companion {
-	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeOperation;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+	public final fun unsafeValueOf (Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeOperation;
 }
 
 public final class app/bsky/jetstream/SubscribeOperation$Create : app/bsky/jetstream/SubscribeOperation {
@@ -169,17 +158,6 @@ public final class app/bsky/jetstream/SubscribeOperation$Create : app/bsky/jetst
 public final class app/bsky/jetstream/SubscribeOperation$Delete : app/bsky/jetstream/SubscribeOperation {
 	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeOperation$Delete;
 	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/jetstream/SubscribeOperation$Unknown : app/bsky/jetstream/SubscribeOperation {
-	public fun <init> (Ljava/lang/String;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeOperation$Unknown;
-	public static synthetic fun copy$default (Lapp/bsky/jetstream/SubscribeOperation$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeOperation$Unknown;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getRawValue ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }

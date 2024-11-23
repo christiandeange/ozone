@@ -4,4 +4,5 @@ import java.io.Serializable
 
 data class DefaultsConfiguration(
   val generateUnknownsForSealedTypes: Boolean,
+  val generateUnknownsForEnums: Boolean,
 ) : Serializable

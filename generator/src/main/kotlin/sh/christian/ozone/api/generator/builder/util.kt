@@ -226,13 +226,16 @@ fun createObjectClass(
 fun createOpenEnumClass(
   enumClass: EnumClass,
   entries: Collection<EnumEntry>,
+  generateUnknown: Boolean,
 ): List<TypeSpec> {
   val className = enumClass.className
+
+  val valueOf = if (generateUnknown) "safeValueOf" else "unsafeValueOf"
   val serializerClassName = className.peerClass(className.simpleName + "Serializer")
   val serializerTypeSpec = TypeSpec.classBuilder(serializerClassName)
     .addSuperinterface(
       TypeNames.KSerializer.parameterizedBy(className),
-      CodeBlock.of("%M(%T::safeValueOf)".trimIndent(), stringEnumSerializer, className)
+      CodeBlock.of("%M(%T::$valueOf)".trimIndent(), stringEnumSerializer, className)
     )
     .build()
 
@@ -256,13 +259,13 @@ fun createOpenEnumClass(
         .build()
     )
 
-  val safeValueOfControlFlow = CodeBlock.builder()
+  val valueOfControlFlow = CodeBlock.builder()
     .beginControlFlow("return when (value)")
 
   entries.forEach { entry ->
     val entryClassName = entry.name.substringAfterLast('#').toPascalCase()
 
-    safeValueOfControlFlow.addStatement("%S -> %L", entry.name, entryClassName)
+    valueOfControlFlow.addStatement("%S -> %L", entry.name, entryClassName)
     sealedClass.addType(
       TypeSpec.objectBuilder(entryClassName)
         .addModifiers(KModifier.DATA)
@@ -278,39 +281,47 @@ fun createOpenEnumClass(
     if (it in sealedClass.typeSpecs.map { type -> type.name }) "_$it" else it
   }
 
-  sealedClass.addType(
-    TypeSpec.classBuilder(safeUnknownEntryName)
-      .addModifiers(KModifier.DATA)
-      .primaryConstructor(
-        FunSpec.constructorBuilder()
-          .addParameter(
-            ParameterSpec
-              .builder("rawValue", STRING)
-              .build()
-          )
-          .build()
-      )
-      .addProperty(
-        PropertySpec.builder("rawValue", STRING)
-          .initializer("rawValue")
-          .build()
-      )
-      .superclass(className)
-      .addSuperclassConstructorParameter("""rawValue""")
-      .build()
-  )
+  if (generateUnknown) {
+    sealedClass.addType(
+      TypeSpec.classBuilder(safeUnknownEntryName)
+        .addModifiers(KModifier.DATA)
+        .primaryConstructor(
+          FunSpec.constructorBuilder()
+            .addParameter(
+              ParameterSpec
+                .builder("rawValue", STRING)
+                .build()
+            )
+            .build()
+        )
+        .addProperty(
+          PropertySpec.builder("rawValue", STRING)
+            .initializer("rawValue")
+            .build()
+        )
+        .superclass(className)
+        .addSuperclassConstructorParameter("""rawValue""")
+        .build()
+    )
+  }
 
   sealedClass.addType(
     TypeSpec.companionObjectBuilder()
       .addFunction(
-        FunSpec.builder("safeValueOf")
+        FunSpec.builder(valueOf)
           .addParameter(
             ParameterSpec.builder("value", STRING).build()
           )
           .returns(className)
           .addCode(
-            safeValueOfControlFlow
-              .addStatement("else -> $safeUnknownEntryName(value)", className)
+            valueOfControlFlow
+              .apply {
+                if (generateUnknown) {
+                  addStatement("else -> $safeUnknownEntryName(value)")
+                } else {
+                  addStatement("else -> error(%P)", "Unknown value: '\$value'")
+                }
+              }
               .endControlFlow()
               .build()
           )

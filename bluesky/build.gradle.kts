@@ -39,6 +39,7 @@ lexicons {
 
   defaults {
     generateUnknownsForSealedTypes.set(false)
+    generateUnknownsForEnums.set(true)
   }
 
   generateApi("BlueskyApi") {
