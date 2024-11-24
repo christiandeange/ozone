@@ -1284,6 +1284,13 @@ public final class app/bsky/actor/Sort$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/actor/Sort$Hotness : app/bsky/actor/Sort {
+	public static final field INSTANCE Lapp/bsky/actor/Sort$Hotness;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class app/bsky/actor/Sort$MostLikes : app/bsky/actor/Sort {
 	public static final field INSTANCE Lapp/bsky/actor/Sort$MostLikes;
 	public fun equals (Ljava/lang/Object;)Z
