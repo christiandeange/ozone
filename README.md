@@ -5,12 +5,14 @@ ozone
 
 ### Overview
 
-The Ozone project for the [AT Protocol](https://atproto.com/) consists of 3 components:
+The Ozone project for the [AT Protocol](https://atproto.com/) consists of 4 components:
 
 1. A Gradle plugin to compile AT Protocol schemas into usable Kotlin classes.
 2. Multiplatform APIs for the AT Protocol spec that can be used with any compatible service, including [Bluesky Social](https://bsky.app).
    - Supports Android, JVM, JavaScript, and iOS.
-3. Example client apps that demonstrate usage of those APIs.
+3. APIs to connect to the [Jetstream](https://github.com/bluesky-social/jetstream) firehose for Bluesky Social.
+   - Supports Android, JVM, and JavaScript.
+4. Example client apps that demonstrate usage of those APIs.
 
 > **Warning**
 >
@@ -41,6 +43,20 @@ dependencies {
 #### Swift / Objective-C
 
 In Xcode, select **File > Add Packages** and enter https://github.com/christiandeange/BlueskyAPI
+
+### Jetstream Bindings
+
+Documentation is available at [ozone.christian.sh](https://ozone.christian.sh/ozone/sh.christian.ozone.jetstream/index.html).
+
+#### Java / Kotlin
+
+```kotlin
+// build.gradle[.kts]
+
+dependencies {
+  api("sh.christian.ozone:jetstream:0.2.0")
+}
+```
 
 ### Gradle Plugin
 
