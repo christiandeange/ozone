@@ -27,6 +27,7 @@ import sh.christian.ozone.login.auth.Server
 import sh.christian.ozone.login.auth.ServerInfo
 import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable.DismissHandler
+import sh.christian.ozone.util.toReadOnlyList
 
 @Inject
 class LoginWorkflow(
@@ -148,7 +149,7 @@ class LoginWorkflow(
       apiProvider.api.describeServer().map { response ->
         ServerInfo(
           inviteCodeRequired = response.inviteCodeRequired ?: false,
-          availableUserDomains = response.availableUserDomains,
+          availableUserDomains = response.availableUserDomains.toReadOnlyList(),
           privacyPolicy = response.links?.privacyPolicy?.uri,
           termsOfService = response.links?.termsOfService?.uri,
         )

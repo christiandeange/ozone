@@ -22,7 +22,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import kotlinx.collections.immutable.ImmutableList
 import sh.christian.ozone.compose.PostReplyInfo
 import sh.christian.ozone.model.Moment
 import sh.christian.ozone.model.Notification
@@ -41,11 +40,12 @@ import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 import sh.christian.ozone.user.UserReference
+import sh.christian.ozone.util.ReadOnlyList
 
 @OptIn(ExperimentalFoundationApi::class)
 class NotificationsScreen(
   private val now: Moment,
-  private val notifications: ImmutableList<Notification>,
+  private val notifications: ReadOnlyList<Notification>,
   private val onLoadMore: () -> Unit,
   private val onExit: () -> Unit,
   private val onOpenPost: (ThreadProps) -> Unit,

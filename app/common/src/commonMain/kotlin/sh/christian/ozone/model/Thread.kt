@@ -3,24 +3,24 @@ package sh.christian.ozone.model
 import app.bsky.feed.ThreadViewPost
 import app.bsky.feed.ThreadViewPostParentUnion
 import app.bsky.feed.ThreadViewPostReplieUnion
-import kotlinx.collections.immutable.ImmutableList
-import kotlinx.collections.immutable.toImmutableList
 import sh.christian.ozone.model.ThreadPost.BlockedPost
 import sh.christian.ozone.model.ThreadPost.NotFoundPost
 import sh.christian.ozone.model.ThreadPost.UnknownPost
 import sh.christian.ozone.model.ThreadPost.ViewablePost
+import sh.christian.ozone.util.ReadOnlyList
 import sh.christian.ozone.util.mapImmutable
+import sh.christian.ozone.util.toReadOnlyList
 
 data class Thread(
   val post: TimelinePost,
-  val parents: ImmutableList<ThreadPost>,
-  val replies: ImmutableList<ThreadPost>,
+  val parents: ReadOnlyList<ThreadPost>,
+  val replies: ReadOnlyList<ThreadPost>,
 )
 
 sealed interface ThreadPost {
   data class ViewablePost(
     val post: TimelinePost,
-    val replies: ImmutableList<ThreadPost>,
+    val replies: ReadOnlyList<ThreadPost>,
   ) : ThreadPost
 
   object NotFoundPost : ThreadPost
@@ -44,7 +44,7 @@ fun ThreadViewPost.toThread(): Thread {
       .map { it.toThreadPost() }
       .toList()
       .reversed()
-      .toImmutableList(),
+      .toReadOnlyList(),
     replies = replies.mapImmutable { reply -> reply.toThreadPost() },
   )
 }

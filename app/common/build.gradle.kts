@@ -31,6 +31,7 @@ kotlin {
         api(compose.material3)
         api(compose.runtime)
 
+        api(libs.kotlinx.immutable)
         api(libs.kotlinx.serialization.core)
         api(libs.workflow.core)
         api(libs.workflow.runtime)

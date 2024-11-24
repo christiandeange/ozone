@@ -6,7 +6,7 @@ import app.bsky.actor.ProfileViewDetailed
 import kotlinx.serialization.Serializable
 import sh.christian.ozone.api.Did
 import sh.christian.ozone.api.Handle
-import sh.christian.ozone.api.model.ReadOnlyList
+import sh.christian.ozone.util.ReadOnlyList
 import sh.christian.ozone.util.mapImmutable
 
 @Serializable

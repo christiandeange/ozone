@@ -46,7 +46,6 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import kotlinx.collections.immutable.ImmutableList
 import sh.christian.ozone.compose.PostReplyInfo
 import sh.christian.ozone.compose.asReplyInfo
 import sh.christian.ozone.model.FullProfile
@@ -70,6 +69,7 @@ import sh.christian.ozone.ui.compose.stable
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 import sh.christian.ozone.user.UserReference
+import sh.christian.ozone.util.ReadOnlyList
 import sh.christian.ozone.util.color
 import kotlin.math.max
 
@@ -77,7 +77,7 @@ import kotlin.math.max
 class ProfileScreen(
   private val now: Moment,
   private val profile: FullProfile,
-  private val feed: ImmutableList<TimelinePost>,
+  private val feed: ReadOnlyList<TimelinePost>,
   private val isSelf: Boolean,
   private val onLoadMore: () -> Unit,
   private val onOpenPost: (ThreadProps) -> Unit,

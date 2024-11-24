@@ -2,6 +2,7 @@ package sh.christian.ozone.api.generator.builder
 
 import com.squareup.kotlinpoet.BYTE_ARRAY
 import com.squareup.kotlinpoet.ClassName
+import com.squareup.kotlinpoet.LIST
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.TypeAliasSpec
 import com.squareup.kotlinpoet.TypeSpec
@@ -103,7 +104,7 @@ class XrpcBodyGenerator(
                   }
                 }
               }
-            }.let { type -> TypeNames.ReadOnlyList.parameterizedBy(type) },
+            }.let { type -> LIST.parameterizedBy(type) },
             nullable = nullable,
             description = when (val items = prop.array.items) {
               is LexiconArrayItem.Blob -> items.blob.description

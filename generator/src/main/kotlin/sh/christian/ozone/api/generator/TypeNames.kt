@@ -21,7 +21,6 @@ object TypeNames {
   val KSerializer by classOfPackage("kotlinx.serialization")
   val Language by classOfPackage("sh.christian.ozone.api")
   val Nsid by classOfPackage("sh.christian.ozone.api")
-  val ReadOnlyList by classOfPackage("sh.christian.ozone.api.model")
   val Result by classOfPackage("kotlin")
   val RKey by classOfPackage("sh.christian.ozone.api")
   val SerialName by classOfPackage("kotlinx.serialization")

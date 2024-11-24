@@ -9,6 +9,7 @@ import com.squareup.kotlinpoet.Documentable
 import com.squareup.kotlinpoet.Dynamic
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier
+import com.squareup.kotlinpoet.LIST
 import com.squareup.kotlinpoet.LambdaTypeName
 import com.squareup.kotlinpoet.MemberName
 import com.squareup.kotlinpoet.ParameterSpec
@@ -378,7 +379,7 @@ fun LexiconSingleReference.typeName(
   val referenceClassName = ClassName(packageName, className)
 
   return if (lexiconRefType is LexiconArray) {
-    TypeNames.ReadOnlyList.parameterizedBy(referenceClassName)
+    LIST.parameterizedBy(referenceClassName)
   } else {
     referenceClassName
   }
@@ -429,7 +430,7 @@ fun typeName(
           )
         }
       }
-    }.let { TypeNames.ReadOnlyList.parameterizedBy(it) }
+    }.let { LIST.parameterizedBy(it) }
   }
   is LexiconBlob -> {
     TypeNames.Blob

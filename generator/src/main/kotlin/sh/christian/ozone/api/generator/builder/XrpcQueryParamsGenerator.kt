@@ -4,13 +4,12 @@ import com.squareup.kotlinpoet.ANY
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.FunSpec
+import com.squareup.kotlinpoet.LIST
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.STRING
 import com.squareup.kotlinpoet.asClassName
 import com.squareup.kotlinpoet.withIndent
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
-import sh.christian.ozone.api.generator.TypeNames
-import sh.christian.ozone.api.generator.toImmutableList
 import sh.christian.ozone.api.lexicon.LexiconUserType
 import sh.christian.ozone.api.lexicon.LexiconXrpcParameter
 import sh.christian.ozone.api.lexicon.LexiconXrpcParameters
@@ -56,7 +55,7 @@ class XrpcQueryParamsGenerator(
         is LexiconXrpcParameter.PrimitiveArray -> {
           SimpleProperty(
             name = name,
-            type = TypeNames.ReadOnlyList.parameterizedBy(context.primitiveTypeName(prop.array.items, name)),
+            type = LIST.parameterizedBy(context.primitiveTypeName(prop.array.items, name)),
             nullable = nullable,
             description = prop.array.description,
             definedDefault = context.primitiveDefaultValue(prop.array.items, name),
@@ -78,7 +77,7 @@ class XrpcQueryParamsGenerator(
   }
 
   private fun toMap(properties: List<SimpleProperty>): FunSpec {
-    val returns = TypeNames.ReadOnlyList.parameterizedBy(
+    val returns = LIST.parameterizedBy(
       Pair::class.asClassName().parameterizedBy(STRING, ANY.copy(nullable = true))
     )
 
@@ -86,21 +85,19 @@ class XrpcQueryParamsGenerator(
       .returns(returns)
       .addCode(
         CodeBlock.builder()
-          .add("return buildList {\n")
-          .withIndent {
+          .beginControlFlow("return buildList {")
+          .apply {
             properties.forEach { property ->
               if (property.isCollection()) {
-                add("%L.forEach {\n", property.name)
-                withIndent {
-                  addStatement("add(%S to it)", property.name)
-                }
-                add("}\n")
+                beginControlFlow("%L.forEach {", property.name)
+                addStatement("add(%S to it)", property.name)
+                endControlFlow()
               } else {
                 addStatement("add(%S to %L)", property.name, property.name)
               }
             }
           }
-          .add("}.%M()", toImmutableList)
+          .endControlFlow()
           .build()
       )
       .build()

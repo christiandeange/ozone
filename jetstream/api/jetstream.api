@@ -181,17 +181,17 @@ public final class app/bsky/jetstream/SubscribeOperationSerializer : kotlinx/ser
 public final class app/bsky/jetstream/SubscribeOptionsUpdate {
 	public static final field Companion Lapp/bsky/jetstream/SubscribeOptionsUpdate$Companion;
 	public fun <init> ()V
-	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Long;)V
-	public synthetic fun <init> (Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/util/List;
 	public final fun component3 ()Ljava/lang/Long;
-	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Long;)Lapp/bsky/jetstream/SubscribeOptionsUpdate;
-	public static synthetic fun copy$default (Lapp/bsky/jetstream/SubscribeOptionsUpdate;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Long;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeOptionsUpdate;
+	public final fun copy (Ljava/util/List;Ljava/util/List;Ljava/lang/Long;)Lapp/bsky/jetstream/SubscribeOptionsUpdate;
+	public static synthetic fun copy$default (Lapp/bsky/jetstream/SubscribeOptionsUpdate;Ljava/util/List;Ljava/util/List;Ljava/lang/Long;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeOptionsUpdate;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getMaxMessageSizeBytes ()Ljava/lang/Long;
-	public final fun getWantedCollections ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun getWantedDids ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getWantedCollections ()Ljava/util/List;
+	public final fun getWantedDids ()Ljava/util/List;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -203,24 +203,24 @@ public final class app/bsky/jetstream/SubscribeOptionsUpdate$Companion {
 public final class app/bsky/jetstream/SubscribeQueryParams {
 	public static final field Companion Lapp/bsky/jetstream/SubscribeQueryParams$Companion;
 	public fun <init> ()V
-	public fun <init> (Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/Boolean;)V
-	public synthetic fun <init> (Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component1 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
+	public fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/util/List;
 	public final fun component3 ()Ljava/lang/Long;
 	public final fun component4 ()Ljava/lang/Long;
 	public final fun component5 ()Ljava/lang/Boolean;
 	public final fun component6 ()Ljava/lang/Boolean;
-	public final fun copy (Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/Boolean;)Lapp/bsky/jetstream/SubscribeQueryParams;
-	public static synthetic fun copy$default (Lapp/bsky/jetstream/SubscribeQueryParams;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeQueryParams;
+	public final fun copy (Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/Boolean;)Lapp/bsky/jetstream/SubscribeQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/jetstream/SubscribeQueryParams;Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCompress ()Ljava/lang/Boolean;
 	public final fun getCursor ()Ljava/lang/Long;
 	public final fun getMaxMessageSizeBytes ()Ljava/lang/Long;
 	public final fun getRequireHello ()Ljava/lang/Boolean;
-	public final fun getWantedCollections ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun getWantedDids ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getWantedCollections ()Ljava/util/List;
+	public final fun getWantedDids ()Ljava/util/List;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }

@@ -1,12 +1,17 @@
 package sh.christian.ozone.model
 
 import app.bsky.notification.ListNotificationsNotification
-import app.bsky.notification.ListNotificationsReason
-import app.bsky.notification.ListNotificationsReason.*
+import app.bsky.notification.ListNotificationsReason.Follow
+import app.bsky.notification.ListNotificationsReason.Like
+import app.bsky.notification.ListNotificationsReason.Mention
+import app.bsky.notification.ListNotificationsReason.Quote
+import app.bsky.notification.ListNotificationsReason.Reply
+import app.bsky.notification.ListNotificationsReason.Repost
+import app.bsky.notification.ListNotificationsReason.StarterpackJoined
+import app.bsky.notification.ListNotificationsReason.Unknown
 import kotlinx.serialization.Serializable
 import sh.christian.ozone.api.AtUri
 import sh.christian.ozone.api.Cid
-import sh.christian.ozone.api.model.ReadOnlyList
 import sh.christian.ozone.model.Notification.Content.Followed
 import sh.christian.ozone.model.Notification.Content.JoinedStarterPack
 import sh.christian.ozone.model.Notification.Content.Liked
@@ -15,6 +20,7 @@ import sh.christian.ozone.model.Notification.Content.Quoted
 import sh.christian.ozone.model.Notification.Content.RepliedTo
 import sh.christian.ozone.model.Notification.Content.Reposted
 import sh.christian.ozone.notifications.NotificationsRepository.Companion.getPostUri
+import sh.christian.ozone.util.ReadOnlyList
 
 @Serializable
 data class Notifications(

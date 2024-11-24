@@ -1,4 +1,4 @@
-package sh.christian.ozone.api.runtime
+package sh.christian.ozone.util
 
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList

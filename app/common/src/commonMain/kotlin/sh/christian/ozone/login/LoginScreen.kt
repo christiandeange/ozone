@@ -58,7 +58,6 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation.Companion.None
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import sh.christian.ozone.api.Handle
 import sh.christian.ozone.login.LoginScreenMode.SIGN_IN
@@ -82,6 +81,7 @@ import sh.christian.ozone.ui.icons.Visibility
 import sh.christian.ozone.ui.icons.VisibilityOff
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
+import sh.christian.ozone.util.ReadOnlyList
 
 class LoginScreen(
   private val mode: LoginScreenMode,
@@ -270,7 +270,7 @@ private fun BasicInputField(
   label: String,
   icon: StablePainter,
   field: MutableState<String>,
-  autofillTypes: ImmutableList<AutofillType>,
+  autofillTypes: ReadOnlyList<AutofillType>,
 ) {
   OutlinedTextField(
     modifier = modifier.autofill(

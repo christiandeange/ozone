@@ -1,10 +1,10 @@
 package sh.christian.ozone.login.auth
 
-import kotlinx.collections.immutable.ImmutableList
+import sh.christian.ozone.util.ReadOnlyList
 
 data class ServerInfo(
   val inviteCodeRequired: Boolean,
-  val availableUserDomains: ImmutableList<String>,
+  val availableUserDomains: ReadOnlyList<String>,
   val privacyPolicy: String?,
   val termsOfService: String?,
 )

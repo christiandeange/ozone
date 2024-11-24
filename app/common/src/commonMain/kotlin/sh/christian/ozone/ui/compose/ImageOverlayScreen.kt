@@ -20,11 +20,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
 import io.kamel.core.Resource
-import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.OverlayRendering
 import sh.christian.ozone.ui.workflow.overlay
+import sh.christian.ozone.util.ReadOnlyList
 
 @OptIn(ExperimentalFoundationApi::class)
 class ImageOverlayScreen(
@@ -86,7 +86,7 @@ class ImageOverlayScreen(
 }
 
 data class OpenImageAction(
-  val images: ImmutableList<BasicImage>,
+  val images: ReadOnlyList<BasicImage>,
   val selectedIndex: Int,
 ) {
   init {

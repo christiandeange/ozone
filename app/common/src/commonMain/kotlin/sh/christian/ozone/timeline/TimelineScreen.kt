@@ -38,7 +38,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import kotlinx.collections.immutable.ImmutableList
 import kotlinx.coroutines.launch
 import sh.christian.ozone.compose.PostReplyInfo
 import sh.christian.ozone.compose.asReplyInfo
@@ -57,12 +56,13 @@ import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
 import sh.christian.ozone.user.UserDid
 import sh.christian.ozone.user.UserReference
+import sh.christian.ozone.util.ReadOnlyList
 import sh.christian.ozone.util.color
 
 class TimelineScreen(
   private val now: Moment,
   private val profile: Profile?,
-  private val timeline: ImmutableList<TimelinePost>,
+  private val timeline: ReadOnlyList<TimelinePost>,
   private val showRefreshPrompt: Boolean,
   private val showComposePostButton: Boolean,
   private val onRefresh: () -> Unit,

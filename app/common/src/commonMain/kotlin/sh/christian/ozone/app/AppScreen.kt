@@ -9,16 +9,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import sh.christian.ozone.ui.compose.Overlay
 import sh.christian.ozone.ui.workflow.Dismissable.DismissHandler
 import sh.christian.ozone.ui.workflow.Dismissable.Ignore
 import sh.christian.ozone.ui.workflow.OverlayRendering
 import sh.christian.ozone.ui.workflow.ViewRendering
+import sh.christian.ozone.util.ReadOnlyList
 
 data class AppScreen(
-  val mains: ImmutableList<ViewRendering>,
+  val mains: ReadOnlyList<ViewRendering>,
   val overlay: OverlayRendering? = null,
 ) : ViewRendering {
   @Composable

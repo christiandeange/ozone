@@ -8,11 +8,9 @@ import com.squareup.workflow1.WorkflowAction
 import com.squareup.workflow1.action
 import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
-import kotlinx.collections.immutable.toImmutableList
 import kotlinx.datetime.Clock
 import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.api.ApiProvider
-import sh.christian.ozone.api.AtIdentifier
 import sh.christian.ozone.api.NetworkWorker
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.app.AppScreen
@@ -45,6 +43,7 @@ import sh.christian.ozone.util.RemoteData
 import sh.christian.ozone.util.RemoteData.Failed
 import sh.christian.ozone.util.RemoteData.Fetching
 import sh.christian.ozone.util.RemoteData.Success
+import sh.christian.ozone.util.toReadOnlyList
 
 @Inject
 class ProfileWorkflow(
@@ -91,7 +90,7 @@ class ProfileWorkflow(
             Success(
               Timeline(
                 cursor = feedResult.value.cursor,
-                posts = (oldPosts + newPosts).toImmutableList(),
+                posts = (oldPosts + newPosts).toReadOnlyList(),
               )
             )
           } else {
@@ -113,7 +112,7 @@ class ProfileWorkflow(
           feed = state.feed.getOrNull()?.posts.orEmpty(),
         )
       }
-      .toImmutableList()
+      .toReadOnlyList()
 
     return when (renderState) {
       is ShowingProfile -> {
@@ -155,7 +154,7 @@ class ProfileWorkflow(
           }
         }
 
-        composeScreen.copy(mains = (screenStack + composeScreen.mains).toImmutableList())
+        composeScreen.copy(mains = (screenStack + composeScreen.mains).toReadOnlyList())
       }
       is ShowingThread -> {
         val threadScreen = context.renderChild(threadWorkflow, renderState.props) {
@@ -164,7 +163,7 @@ class ProfileWorkflow(
           }
         }
 
-        threadScreen.copy(mains = (screenStack + threadScreen.mains).toImmutableList())
+        threadScreen.copy(mains = (screenStack + threadScreen.mains).toReadOnlyList())
       }
       is ShowingError -> {
         AppScreen(
@@ -207,7 +206,7 @@ class ProfileWorkflow(
     return ProfileScreen(
       now = Moment(clock.now()),
       profile = profile,
-      feed = feed.toImmutableList(),
+      feed = feed.toReadOnlyList(),
       isSelf = myProfileRepository.isMe(UserDid(profile.did)),
       onLoadMore = eventHandler {
         state = ShowingProfile(

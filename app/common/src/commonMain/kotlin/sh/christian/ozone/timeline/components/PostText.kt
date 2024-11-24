@@ -16,7 +16,6 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.UrlAnnotation
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.unit.dp
-import kotlinx.collections.immutable.ImmutableList
 import sh.christian.ozone.api.Did
 import sh.christian.ozone.api.Handle
 import sh.christian.ozone.model.LinkTarget
@@ -26,6 +25,7 @@ import sh.christian.ozone.model.TimelinePostLink
 import sh.christian.ozone.user.UserDid
 import sh.christian.ozone.user.UserHandle
 import sh.christian.ozone.user.UserReference
+import sh.christian.ozone.util.ReadOnlyList
 import sh.christian.ozone.util.byteOffsets
 
 @OptIn(ExperimentalTextApi::class)
@@ -75,7 +75,7 @@ internal fun PostText(
 @Composable
 fun rememberFormattedTextPost(
   text: String,
-  textLinks: ImmutableList<TimelinePostLink>,
+  textLinks: ReadOnlyList<TimelinePostLink>,
 ): AnnotatedString {
   return remember(text, textLinks) { formatTextPost(text, textLinks) }
 }

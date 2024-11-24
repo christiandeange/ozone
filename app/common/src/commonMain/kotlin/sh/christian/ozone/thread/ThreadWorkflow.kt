@@ -10,7 +10,6 @@ import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.action
 import com.squareup.workflow1.runningWorker
 import kotlinx.collections.immutable.persistentListOf
-import kotlinx.collections.immutable.toImmutableList
 import kotlinx.datetime.Clock
 import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.api.ApiProvider
@@ -41,6 +40,7 @@ import sh.christian.ozone.ui.compose.ImageOverlayScreen
 import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.EmptyScreen
+import sh.christian.ozone.util.toReadOnlyList
 
 @Inject
 class ThreadWorkflow(
@@ -78,7 +78,7 @@ class ThreadWorkflow(
       .reversed()
       .map { state -> context.threadScreen(state.thread!!) }
       .ifEmpty { listOf(EmptyScreen) }
-      .toImmutableList()
+      .toReadOnlyList()
 
     return when (renderState) {
       is FetchingPost -> {
@@ -131,7 +131,7 @@ class ThreadWorkflow(
           }
         }
 
-        profileScreen.copy(mains = (screenStack + profileScreen.mains).toImmutableList())
+        profileScreen.copy(mains = (screenStack + profileScreen.mains).toReadOnlyList())
       }
 
       is ShowingFullSizeImage -> {
@@ -160,7 +160,7 @@ class ThreadWorkflow(
           }
         }
 
-        profileScreen.copy(mains = (screenStack + profileScreen.mains).toImmutableList())
+        profileScreen.copy(mains = (screenStack + profileScreen.mains).toReadOnlyList())
       }
 
       is ShowingError -> {

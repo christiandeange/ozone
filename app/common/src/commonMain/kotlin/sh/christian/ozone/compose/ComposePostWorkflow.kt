@@ -18,8 +18,6 @@ import com.squareup.workflow1.StatefulWorkflow
 import com.squareup.workflow1.action
 import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
-import kotlinx.collections.immutable.persistentListOf
-import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
@@ -28,7 +26,6 @@ import kotlinx.coroutines.flow.first
 import kotlinx.datetime.Clock
 import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.api.ApiProvider
-import sh.christian.ozone.api.AtIdentifier
 import sh.christian.ozone.api.NetworkWorker
 import sh.christian.ozone.api.Nsid
 import sh.christian.ozone.api.response.AtpResponse
@@ -189,13 +186,13 @@ class ComposePostWorkflow(
             Facet(
               index = FacetByteSlice(link.start.toLong(), link.end.toLong()),
               features = when (link.target) {
-                is ExternalLink -> persistentListOf(Link(FacetLink(link.target.uri)))
-                is UserDidMention -> persistentListOf(Mention(FacetMention(link.target.did)))
-                is Hashtag -> persistentListOf(Tag(FacetTag(link.target.tag)))
-                is UserHandleMention -> persistentListOf()
+                is ExternalLink -> listOf(Link(FacetLink(link.target.uri)))
+                is UserDidMention -> listOf(Mention(FacetMention(link.target.did)))
+                is Hashtag -> listOf(Tag(FacetTag(link.target.tag)))
+                is UserHandleMention -> listOf()
               },
             )
-          }.toImmutableList(),
+          },
           createdAt = clock.now(),
         )
       ),

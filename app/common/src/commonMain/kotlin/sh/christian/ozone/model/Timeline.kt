@@ -1,11 +1,11 @@
 package sh.christian.ozone.model
 
 import app.bsky.feed.FeedViewPost
-import kotlinx.collections.immutable.ImmutableList
+import sh.christian.ozone.util.ReadOnlyList
 import sh.christian.ozone.util.mapImmutable
 
 data class Timeline(
-  val posts: ImmutableList<TimelinePost>,
+  val posts: ReadOnlyList<TimelinePost>,
   val cursor: String?,
 ) {
   companion object {

@@ -43,8 +43,6 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import de.cketti.codepoints.codePointCount
-import kotlinx.collections.immutable.ImmutableList
-import kotlinx.collections.immutable.toImmutableList
 import sh.christian.ozone.api.Did
 import sh.christian.ozone.api.Handle
 import sh.christian.ozone.api.Uri
@@ -58,8 +56,10 @@ import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.compose.rememberSystemInsets
 import sh.christian.ozone.ui.workflow.ViewRendering
 import sh.christian.ozone.ui.workflow.screen
+import sh.christian.ozone.util.ReadOnlyList
 import sh.christian.ozone.util.byteOffsets
 import sh.christian.ozone.util.color
+import sh.christian.ozone.util.toReadOnlyList
 import kotlin.math.min
 import androidx.compose.ui.graphics.lerp as lerpColor
 import androidx.compose.ui.unit.lerp as lerpDp
@@ -197,7 +197,7 @@ class ComposePostScreen(
   }
 })
 
-private fun AnnotatedString.links(): ImmutableList<TimelinePostLink> {
+private fun AnnotatedString.links(): ReadOnlyList<TimelinePostLink> {
   val byteOffsets = text.byteOffsets()
   val handleRegex = Regex(
     "(^|\\s|\\()(@)([a-zA-Z0-9.-]+)(\\b)",
@@ -247,11 +247,11 @@ private fun AnnotatedString.links(): ImmutableList<TimelinePostLink> {
       )
     }
 
-  return (mentions + hashtags + hyperlinks).toImmutableList()
+  return (mentions + hashtags + hyperlinks).toReadOnlyList()
 }
 
 data class PostPayload(
   val authorDid: Did,
   val text: String,
-  val links: ImmutableList<TimelinePostLink>,
+  val links: ReadOnlyList<TimelinePostLink>,
 )

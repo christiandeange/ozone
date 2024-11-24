@@ -8,7 +8,6 @@ import app.bsky.notification.ListNotificationsResponse
 import app.bsky.notification.UpdateSeenRequest
 import kotlinx.atomicfu.atomic
 import kotlinx.collections.immutable.persistentListOf
-import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.currentCoroutineContext
@@ -37,6 +36,7 @@ import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.model.toNotification
 import sh.christian.ozone.model.toPost
 import sh.christian.ozone.util.mapNotNullImmutable
+import sh.christian.ozone.util.toReadOnlyList
 import kotlin.time.Duration.Companion.minutes
 
 @Inject
@@ -119,7 +119,7 @@ class NotificationsRepository(
 
         val mergedNotifications = if (cursor != null) {
           Notifications(
-            list = (latest.value.list + newNotifications.list).toImmutableList(),
+            list = (latest.value.list + newNotifications.list).toReadOnlyList(),
             cursor = newNotifications.cursor,
           )
         } else {
@@ -141,7 +141,7 @@ class NotificationsRepository(
     val postUris = response.notifications
       .mapNotNull { it.getPostUri() }
       .distinct()
-      .toImmutableList()
+      .toReadOnlyList()
 
     return if (postUris.isEmpty()) {
       emptyList()

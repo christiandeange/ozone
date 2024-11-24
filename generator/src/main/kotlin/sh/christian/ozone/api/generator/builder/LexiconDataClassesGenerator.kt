@@ -2,6 +2,7 @@ package sh.christian.ozone.api.generator.builder
 
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.KModifier
+import com.squareup.kotlinpoet.LIST
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
@@ -95,7 +96,7 @@ class LexiconDataClassesGenerator(
                 }
               }
             }
-          }.let { TypeNames.ReadOnlyList.parameterizedBy(it) }
+          }.let { LIST.parameterizedBy(it) }
         }
         is LexiconObjectProperty.Blob -> typeName(environment, context, "", property.blob)
         is LexiconObjectProperty.IpldType -> typeName(environment, context, "", property.ipld)

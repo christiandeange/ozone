@@ -6,7 +6,6 @@ import com.squareup.workflow1.Worker
 import com.squareup.workflow1.action
 import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
-import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.datetime.Clock
 import me.tatarka.inject.annotations.Inject
@@ -30,6 +29,7 @@ import sh.christian.ozone.ui.compose.TextOverlayScreen
 import sh.christian.ozone.ui.workflow.Dismissable
 import sh.christian.ozone.ui.workflow.Dismissable.DismissHandler
 import sh.christian.ozone.user.MyProfileRepository
+import sh.christian.ozone.util.toReadOnlyList
 import kotlin.time.Duration.Companion.minutes
 
 @Inject
@@ -164,7 +164,7 @@ class TimelineWorkflow(
     return TimelineScreen(
       now = Moment(clock.now()),
       profile = profile,
-      timeline = timelineResponse?.posts.orEmpty().toImmutableList(),
+      timeline = timelineResponse?.posts.orEmpty().toReadOnlyList(),
       showRefreshPrompt = showRefreshPrompt,
       showComposePostButton = profile != null && timelineResponse != null,
       onRefresh = eventHandler {
