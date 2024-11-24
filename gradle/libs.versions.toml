@@ -70,4 +70,4 @@ workflow-runtime = { module = "com.squareup.workflow1:workflow-runtime", version
 
 zstd = { module = "com.github.luben:zstd-jni", version = "1.5.6-7" }
 
-bluesky = { module = "sh.christian.ozone:bluesky", version = "0.2.0" }
+bluesky = { module = "sh.christian.ozone:bluesky", version = "0.3.0" }
