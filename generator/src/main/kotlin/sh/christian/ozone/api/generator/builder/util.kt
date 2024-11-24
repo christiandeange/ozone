@@ -80,9 +80,6 @@ fun createDataClass(
                   defaultValue(property.defaultValue())
                 }
                 addDescription(property.description)
-                if (property.type.hasClassName(BYTE_ARRAY)) {
-                  addAnnotation(AnnotationSpec.builder(TypeNames.ByteString).build())
-                }
               }
               .build()
           }

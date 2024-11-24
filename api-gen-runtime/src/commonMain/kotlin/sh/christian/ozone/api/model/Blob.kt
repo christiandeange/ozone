@@ -6,7 +6,6 @@ import kotlinx.serialization.EncodeDefault
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.cbor.ByteString
 import sh.christian.ozone.api.Cid
 import sh.christian.ozone.api.runtime.BlobSerializer
 
@@ -21,7 +20,7 @@ sealed interface Blob {
 
   @Serializable
   data class StandardBlob(
-    @ByteString val ref: BlobRef,
+    val ref: BlobRef,
     val mimeType: String,
     val size: Long,
   ) : Blob {

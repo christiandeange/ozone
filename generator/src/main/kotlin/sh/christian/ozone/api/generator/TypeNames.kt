@@ -9,7 +9,6 @@ object TypeNames {
   val AtpEnum by classOfPackage("sh.christian.ozone.api.model")
   val AtpResponse by classOfPackage("sh.christian.ozone.api.response")
   val Blob by classOfPackage("sh.christian.ozone.api.model")
-  val ByteString by classOfPackage("kotlinx.serialization.cbor")
   val Cid by classOfPackage("sh.christian.ozone.api")
   val Deprecated by classOfPackage("kotlin")
   val Did by classOfPackage("sh.christian.ozone.api")
