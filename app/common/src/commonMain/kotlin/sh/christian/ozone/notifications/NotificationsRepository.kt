@@ -31,6 +31,7 @@ import sh.christian.ozone.app.Supervisor
 import sh.christian.ozone.di.SingleInApp
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.toErrorProps
+import sh.christian.ozone.login.LoginRepository
 import sh.christian.ozone.model.Notifications
 import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.model.toNotification
@@ -43,6 +44,7 @@ import kotlin.time.Duration.Companion.minutes
 @SingleInApp
 class NotificationsRepository(
   private val apiProvider: ApiProvider,
+  private val loginRepository: LoginRepository,
 ) : Supervisor() {
   private val latest: MutableStateFlow<Notifications> = MutableStateFlow(EMPTY_VALUE)
   private val loadErrors: MutableSharedFlow<ErrorProps> = MutableSharedFlow()
@@ -59,7 +61,7 @@ class NotificationsRepository(
 
   @OptIn(ExperimentalCoroutinesApi::class)
   override suspend fun CoroutineScope.onStart() {
-    apiProvider.auth()
+    loginRepository.authFlow()
       .flatMapLatest { auth ->
         if (auth != null) {
           flow {

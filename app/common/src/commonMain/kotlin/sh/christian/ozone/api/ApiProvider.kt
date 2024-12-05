@@ -9,15 +9,12 @@ import io.ktor.client.plugins.logging.Logging
 import io.ktor.http.takeFrom
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.yield
 import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.BlueskyApi
-import sh.christian.ozone.XrpcBlueskyApi
 import sh.christian.ozone.app.Supervisor
 import sh.christian.ozone.di.SingleInApp
 import sh.christian.ozone.login.LoginRepository
@@ -29,19 +26,12 @@ class ApiProvider(
   private val apiRepository: ServerRepository,
   private val loginRepository: LoginRepository,
 ) : Supervisor() {
-
   private val apiHost = MutableStateFlow(apiRepository.server.host)
-  private val auth = MutableStateFlow(loginRepository.auth)
-  private val tokens = MutableStateFlow(loginRepository.auth?.toTokens())
 
   private val client = HttpClient(engine) {
     install(Logging) {
       logger = Logger.DEFAULT
       level = LogLevel.NONE
-    }
-
-    install(XrpcAuthPlugin) {
-      authTokens = tokens
     }
 
     install(DefaultRequest) {
@@ -51,7 +41,12 @@ class ApiProvider(
     expectSuccess = false
   }
 
-  val api: BlueskyApi = XrpcBlueskyApi(client)
+  private val _api = AuthenticatedXrpcBlueskyApi(
+    httpClient = client,
+    initialTokens = loginRepository.auth?.toTokens(),
+  )
+
+  val api: BlueskyApi = _api
 
   override suspend fun CoroutineScope.onStart() {
     coroutineScope {
@@ -62,15 +57,7 @@ class ApiProvider(
       }
 
       launch(OzoneDispatchers.IO) {
-        loginRepository.authFlow().collect {
-            tokens.value = it?.toTokens()
-            yield()
-            auth.value = it
-          }
-      }
-
-      launch(OzoneDispatchers.IO) {
-        tokens.collect { tokens ->
+        _api.authTokens.collect { tokens ->
           if (tokens != null) {
             loginRepository.auth = loginRepository.auth?.withTokens(tokens)
           } else {
@@ -81,11 +68,13 @@ class ApiProvider(
     }
   }
 
-  fun auth(): Flow<AuthInfo?> = auth
+  fun signOut() {
+    _api.clearCredentials()
+  }
 
-  private fun AuthInfo.toTokens() = Tokens(accessJwt, refreshJwt)
+  private fun AuthInfo.toTokens() = BlueskyAuthPlugin.Tokens(accessJwt, refreshJwt)
 
-  private fun AuthInfo.withTokens(tokens: Tokens) = copy(
+  private fun AuthInfo.withTokens(tokens: BlueskyAuthPlugin.Tokens) = copy(
     accessJwt = tokens.auth,
     refreshJwt = tokens.refresh,
   )
