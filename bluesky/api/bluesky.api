@@ -14685,6 +14685,224 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun upsertSet (Ltools/ozone/set/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
+public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/christian/ozone/BlueskyApi {
+	public fun <init> (Lio/ktor/client/HttpClient;Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;)V
+	public synthetic fun <init> (Lio/ktor/client/HttpClient;Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lsh/christian/ozone/XrpcBlueskyApi;Lkotlinx/coroutines/flow/MutableStateFlow;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun activateAccount (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun addMember (Ltools/ozone/team/AddMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun addReservedHandle (Lcom/atproto/temp/AddReservedHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun addValues (Ltools/ozone/set/AddValuesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun applyWrites (Lcom/atproto/repo/ApplyWritesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun checkAccountStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun checkSignupQueue (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun clearCredentials ()V
+	public fun confirmEmail (Lcom/atproto/server/ConfirmEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun createAccount (Lcom/atproto/server/CreateAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun createAppPassword (Lcom/atproto/server/CreateAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun createInviteCode (Lcom/atproto/server/CreateInviteCodeRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun createInviteCodes (Lcom/atproto/server/CreateInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun createRecord (Lcom/atproto/repo/CreateRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun createReport (Lcom/atproto/moderation/CreateReportRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun createSession (Lcom/atproto/server/CreateSessionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun createTemplate (Ltools/ozone/communication/CreateTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deactivateAccount (Lcom/atproto/server/DeactivateAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteAccount (Lcom/atproto/admin/DeleteAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteAccount (Lcom/atproto/server/DeleteAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteAccount (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteMember (Ltools/ozone/team/DeleteMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteMessageForSelf (Lchat/bsky/convo/DeleteMessageForSelfRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteRecord (Lcom/atproto/repo/DeleteRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteSet (Ltools/ozone/set/DeleteSetRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteTemplate (Ltools/ozone/communication/DeleteTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteValues (Ltools/ozone/set/DeleteValuesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun describeFeedGenerator (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun describeRepo (Lcom/atproto/repo/DescribeRepoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun describeServer (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun disableAccountInvites (Lcom/atproto/admin/DisableAccountInvitesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun disableInviteCodes (Lcom/atproto/admin/DisableInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun emitEvent (Ltools/ozone/moderation/EmitEventRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun enableAccountInvites (Lcom/atproto/admin/EnableAccountInvitesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun exportAccountData (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun findCorrelation (Ltools/ozone/signature/FindCorrelationQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun findRelatedAccounts (Ltools/ozone/signature/FindRelatedAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAccountInfo (Lcom/atproto/admin/GetAccountInfoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAccountInfos (Lcom/atproto/admin/GetAccountInfosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAccountInviteCodes (Lcom/atproto/server/GetAccountInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getActorFeeds (Lapp/bsky/feed/GetActorFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getActorLikes (Lapp/bsky/feed/GetActorLikesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getActorMetadata (Lchat/bsky/moderation/GetActorMetadataQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getActorStarterPacks (Lapp/bsky/graph/GetActorStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getAuthTokens ()Lkotlinx/coroutines/flow/StateFlow;
+	public fun getAuthorFeed (Lapp/bsky/feed/GetAuthorFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getBlob (Lcom/atproto/sync/GetBlobQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getBlocks (Lapp/bsky/graph/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getBlocks (Lcom/atproto/sync/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConfig (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getFeed (Lapp/bsky/feed/GetFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getFeedGenerator (Lapp/bsky/feed/GetFeedGeneratorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getFeedGenerators (Lapp/bsky/feed/GetFeedGeneratorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getFeedSkeleton (Lapp/bsky/feed/GetFeedSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getFollowers (Lapp/bsky/graph/GetFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getFollows (Lapp/bsky/graph/GetFollowsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getInviteCodes (Lcom/atproto/admin/GetInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getJobStatus (Lapp/bsky/video/GetJobStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getKnownFollowers (Lapp/bsky/graph/GetKnownFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getLatestCommit (Lcom/atproto/sync/GetLatestCommitQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getLikes (Lapp/bsky/feed/GetLikesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getList (Lapp/bsky/graph/GetListQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getListBlocks (Lapp/bsky/graph/GetListBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getListFeed (Lapp/bsky/feed/GetListFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getListMutes (Lapp/bsky/graph/GetListMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getLists (Lapp/bsky/graph/GetListsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getLog (Lchat/bsky/convo/GetLogQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getMessageContext (Lchat/bsky/moderation/GetMessageContextQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getMessages (Lchat/bsky/convo/GetMessagesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getMutes (Lapp/bsky/graph/GetMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getPostThread (Lapp/bsky/feed/GetPostThreadQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getPosts (Lapp/bsky/feed/GetPostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getPreferences (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getProfile (Lapp/bsky/actor/GetProfileQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getProfiles (Lapp/bsky/actor/GetProfilesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getQuotes (Lapp/bsky/feed/GetQuotesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getRecommendedDidCredentials (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getRecord (Lcom/atproto/repo/GetRecordQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getRecord (Lcom/atproto/sync/GetRecordQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getRecord (Ltools/ozone/moderation/GetRecordQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getRecords (Ltools/ozone/moderation/GetRecordsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getRelationships (Lapp/bsky/graph/GetRelationshipsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getRepo (Lcom/atproto/sync/GetRepoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getRepo (Ltools/ozone/moderation/GetRepoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getRepoStatus (Lcom/atproto/sync/GetRepoStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getRepos (Ltools/ozone/moderation/GetReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getRepostedBy (Lapp/bsky/feed/GetRepostedByQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getServiceAuth (Lcom/atproto/server/GetServiceAuthQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getServices (Lapp/bsky/labeler/GetServicesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getStarterPack (Lapp/bsky/graph/GetStarterPackQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getStarterPacks (Lapp/bsky/graph/GetStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getSubjectStatus (Lcom/atproto/admin/GetSubjectStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getSuggestedFollowsByActor (Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getSuggestions (Lapp/bsky/actor/GetSuggestionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getTimeline (Lapp/bsky/feed/GetTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getUploadLimits (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getValues (Ltools/ozone/set/GetValuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun importRepo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun leaveConvo (Lchat/bsky/convo/LeaveConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listBlobs (Lcom/atproto/sync/ListBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listConvos (Lchat/bsky/convo/ListConvosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listMembers (Ltools/ozone/team/ListMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listMissingBlobs (Lcom/atproto/repo/ListMissingBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listNotifications (Lapp/bsky/notification/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listOptions (Ltools/ozone/setting/ListOptionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listRecords (Lcom/atproto/repo/ListRecordsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listRepos (Lcom/atproto/sync/ListReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listTemplates (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun muteActor (Lapp/bsky/graph/MuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun muteActorList (Lapp/bsky/graph/MuteActorListRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun muteConvo (Lchat/bsky/convo/MuteConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun muteThread (Lapp/bsky/graph/MuteThreadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun notifyOfUpdate (Lcom/atproto/sync/NotifyOfUpdateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun putPreferences (Lapp/bsky/actor/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun putPreferences (Lapp/bsky/notification/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun putRecord (Lcom/atproto/repo/PutRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun queryEvents (Ltools/ozone/moderation/QueryEventsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun queryLabels (Lcom/atproto/label/QueryLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun querySets (Ltools/ozone/set/QuerySetsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun queryStatuses (Ltools/ozone/moderation/QueryStatusesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun refreshSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun registerPush (Lapp/bsky/notification/RegisterPushRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun removeOptions (Ltools/ozone/setting/RemoveOptionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun requestAccountDelete (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun requestCrawl (Lcom/atproto/sync/RequestCrawlRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun requestEmailConfirmation (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun requestEmailUpdate (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun requestPasswordReset (Lcom/atproto/server/RequestPasswordResetRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun requestPhoneVerification (Lcom/atproto/temp/RequestPhoneVerificationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun requestPlcOperationSignature (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun reserveSigningKey (Lcom/atproto/server/ReserveSigningKeyRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun resetPassword (Lcom/atproto/server/ResetPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun resolveHandle (Lcom/atproto/identity/ResolveHandleQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun revokeAppPassword (Lcom/atproto/server/RevokeAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchAccounts (Lcom/atproto/admin/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchAccounts (Ltools/ozone/signature/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchActors (Lapp/bsky/actor/SearchActorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchActorsTypeahead (Lapp/bsky/actor/SearchActorsTypeaheadQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchPosts (Lapp/bsky/feed/SearchPostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchRepos (Ltools/ozone/moderation/SearchReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchStarterPacks (Lapp/bsky/graph/SearchStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun sendEmail (Lcom/atproto/admin/SendEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun sendInteractions (Lapp/bsky/feed/SendInteractionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun sendMessage (Lchat/bsky/convo/SendMessageRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun sendMessageBatch (Lchat/bsky/convo/SendMessageBatchRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun signPlcOperation (Lcom/atproto/identity/SignPlcOperationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun submitPlcOperation (Lcom/atproto/identity/SubmitPlcOperationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun subscribeLabels (Lcom/atproto/label/SubscribeLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun subscribeRepos (Lcom/atproto/sync/SubscribeReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun unmuteActor (Lapp/bsky/graph/UnmuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun unmuteActorList (Lapp/bsky/graph/UnmuteActorListRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun unmuteConvo (Lchat/bsky/convo/UnmuteConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun unmuteThread (Lapp/bsky/graph/UnmuteThreadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateAccountEmail (Lcom/atproto/admin/UpdateAccountEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateAccountHandle (Lcom/atproto/admin/UpdateAccountHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateAccountPassword (Lcom/atproto/admin/UpdateAccountPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateActorAccess (Lchat/bsky/moderation/UpdateActorAccessRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateMember (Ltools/ozone/team/UpdateMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateRead (Lchat/bsky/convo/UpdateReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateSeen (Lapp/bsky/notification/UpdateSeenRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateSubjectStatus (Lcom/atproto/admin/UpdateSubjectStatusRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateTemplate (Ltools/ozone/communication/UpdateTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun uploadBlob ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun uploadVideo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun upsertOption (Ltools/ozone/setting/UpsertOptionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun upsertSet (Ltools/ozone/set/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class sh/christian/ozone/api/BlueskyAuthPlugin {
+	public static final field Companion Lsh/christian/ozone/api/BlueskyAuthPlugin$Companion;
+	public fun <init> (Lkotlinx/serialization/json/Json;Lkotlinx/coroutines/flow/MutableStateFlow;)V
+}
+
+public final class sh/christian/ozone/api/BlueskyAuthPlugin$Companion : io/ktor/client/plugins/HttpClientPlugin {
+	public fun getKey ()Lio/ktor/util/AttributeKey;
+	public synthetic fun install (Ljava/lang/Object;Lio/ktor/client/HttpClient;)V
+	public fun install (Lsh/christian/ozone/api/BlueskyAuthPlugin;Lio/ktor/client/HttpClient;)V
+	public synthetic fun prepare (Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public fun prepare (Lkotlin/jvm/functions/Function1;)Lsh/christian/ozone/api/BlueskyAuthPlugin;
+}
+
+public final class sh/christian/ozone/api/BlueskyAuthPlugin$Config {
+	public fun <init> ()V
+	public fun <init> (Lkotlinx/serialization/json/Json;Lkotlinx/coroutines/flow/MutableStateFlow;)V
+	public synthetic fun <init> (Lkotlinx/serialization/json/Json;Lkotlinx/coroutines/flow/MutableStateFlow;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getAuthTokens ()Lkotlinx/coroutines/flow/MutableStateFlow;
+	public final fun getJson ()Lkotlinx/serialization/json/Json;
+	public final fun setAuthTokens (Lkotlinx/coroutines/flow/MutableStateFlow;)V
+	public final fun setJson (Lkotlinx/serialization/json/Json;)V
+}
+
+public final class sh/christian/ozone/api/BlueskyAuthPlugin$Tokens {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;
+	public static synthetic fun copy$default (Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAuth ()Ljava/lang/String;
+	public final fun getRefresh ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class sh/christian/ozone/api/xrpc/FindSubscriptionSerializerKt {
 	public static final fun findSubscriptionSerializer (Lkotlin/reflect/KClass;Ljava/lang/String;)Lkotlinx/serialization/KSerializer;
 }
