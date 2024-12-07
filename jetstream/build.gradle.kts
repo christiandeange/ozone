@@ -20,6 +20,12 @@ dependencies {
   })
 }
 
+lexicons {
+  defaults {
+    generateUnknownsForEnums.set(true)
+  }
+}
+
 kotlin {
   sourceSets {
     val commonMain by getting {

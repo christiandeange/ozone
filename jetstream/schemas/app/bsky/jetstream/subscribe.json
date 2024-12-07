@@ -112,31 +112,36 @@
     },
     "identity": {
       "type": "object",
-      "required": ["did", "handle", "seq", "time"],
+      "description": "Represents a change to an account's identity. Could be an updated handle, signing key, or pds hosting endpoint. Serves as a prod to all downstream services to refresh their identity cache.",
+      "required": ["seq", "did", "time"],
       "properties": {
-        "did": {
-          "type": "string",
-          "format": "did"
-        },
+        "seq": { "type": "integer" },
+        "did": { "type": "string", "format": "did" },
+        "time": { "type": "string", "format": "datetime" },
         "handle": {
           "type": "string",
-          "format": "handle"
-        },
-        "seq": { "type": "integer" },
-        "time": { "type": "string" }
+          "format": "handle",
+          "description": "The current handle for the account, or 'handle.invalid' if validation fails. This field is optional, might have been validated or passed-through from an upstream source. Semantics and behaviors for PDS vs Relay may evolve in the future; see atproto specs for more details."
+        }
       }
     },
     "account": {
       "type": "object",
-      "required": ["active", "did", "seq", "time"],
+      "description": "Represents a change to an account's status on a host (eg, PDS or Relay). The semantics of this event are that the status is at the host which emitted the event, not necessarily that at the currently active PDS. Eg, a Relay takedown would emit a takedown with active=false, even if the PDS is still active.",
+      "required": ["seq", "did", "time", "active"],
       "properties": {
-        "active": { "type": "boolean" },
-        "did": {
-          "type": "string",
-          "format": "did"
-        },
         "seq": { "type": "integer" },
-        "time": { "type": "string" }
+        "did": { "type": "string", "format": "did" },
+        "time": { "type": "string", "format": "datetime" },
+        "active": {
+          "type": "boolean",
+          "description": "Indicates that the account has a repository which can be fetched from the host that emitted this event."
+        },
+        "status": {
+          "type": "string",
+          "description": "If active=false, this optional field indicates a reason for why the account is not active.",
+          "knownValues": ["takendown", "suspended", "deleted", "deactivated"]
+        }
       }
     },
     "sourcedMessage": {
