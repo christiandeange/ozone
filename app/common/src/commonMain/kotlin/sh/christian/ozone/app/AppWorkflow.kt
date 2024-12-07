@@ -47,7 +47,7 @@ class AppWorkflow(
     context: RenderContext,
   ): AppScreen = when (renderState) {
     is ShowingLogin -> {
-      context.runningWorker(apiProvider.auth().filterNotNull().asWorker(), "has-auth") { auth ->
+      context.runningWorker(loginRepository.authFlow().filterNotNull().asWorker(), "has-auth") { auth ->
         action {
           state = ShowingLoggedIn(HomeProps(auth, 0))
         }
@@ -68,7 +68,7 @@ class AppWorkflow(
           state = ShowingLoggedIn(renderState.props.copy(unreadNotificationCount = unread))
         }
       }
-      context.runningWorker(apiProvider.auth().filter { it == null }.asWorker(), "no-auth") {
+      context.runningWorker(loginRepository.authFlow().filter { it == null }.asWorker(), "no-auth") {
         action {
           state = ShowingLogin
         }
@@ -78,7 +78,7 @@ class AppWorkflow(
         action {
           when (output) {
             is HomeOutput.CloseApp -> setOutput(Unit)
-            is HomeOutput.SignOut -> loginRepository.auth = null
+            is HomeOutput.SignOut -> apiProvider.signOut()
           }
         }
       }
