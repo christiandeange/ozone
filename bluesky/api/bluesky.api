@@ -12665,14 +12665,16 @@ public final class com/atproto/server/CreateInviteCodesResponse$Companion {
 
 public final class com/atproto/server/CreateSessionRequest {
 	public static final field Companion Lcom/atproto/server/CreateSessionRequest$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/server/CreateSessionRequest;
-	public static synthetic fun copy$default (Lcom/atproto/server/CreateSessionRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/server/CreateSessionRequest;
+	public final fun component4 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)Lcom/atproto/server/CreateSessionRequest;
+	public static synthetic fun copy$default (Lcom/atproto/server/CreateSessionRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Lcom/atproto/server/CreateSessionRequest;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAllowTakendown ()Ljava/lang/Boolean;
 	public final fun getAuthFactorToken ()Ljava/lang/String;
 	public final fun getIdentifier ()Ljava/lang/String;
 	public final fun getPassword ()Ljava/lang/String;
