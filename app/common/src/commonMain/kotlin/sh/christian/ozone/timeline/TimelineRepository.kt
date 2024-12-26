@@ -14,6 +14,7 @@ import sh.christian.ozone.app.Supervisor
 import sh.christian.ozone.di.SingleInApp
 import sh.christian.ozone.error.ErrorProps
 import sh.christian.ozone.error.toErrorProps
+import sh.christian.ozone.login.LoginRepository
 import sh.christian.ozone.model.Timeline
 import sh.christian.ozone.util.toReadOnlyList
 
@@ -21,6 +22,7 @@ import sh.christian.ozone.util.toReadOnlyList
 @SingleInApp
 class TimelineRepository(
   private val apiProvider: ApiProvider,
+  private val loginRepository: LoginRepository,
 ): Supervisor() {
   private val latest: MutableStateFlow<Timeline?> = MutableStateFlow(null)
   private val loadErrors: MutableSharedFlow<ErrorProps> = MutableSharedFlow()
@@ -29,7 +31,7 @@ class TimelineRepository(
   val errors: Flow<ErrorProps> = loadErrors
 
   override suspend fun CoroutineScope.onStart() {
-    apiProvider.auth().filter { it == null }.collect {
+    loginRepository.authFlow().filter { it == null }.collect {
       latest.value = null
     }
   }
