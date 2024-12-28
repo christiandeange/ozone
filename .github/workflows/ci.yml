@@ -21,10 +21,10 @@ jobs:
           java-version: '17'
           check-latest: true
 
-      - name: Check Bluesky
-        run: ./gradlew clean :bluesky:check --no-daemon --stacktrace
+      - name: Check APIs
+        run: ./gradlew clean apiCheck --no-daemon --stacktrace
 
-  assemble-android:
+  check-android:
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -39,7 +39,7 @@ jobs:
       - name: Assemble Android
         run: ./gradlew clean :app:android:assemble --no-daemon --stacktrace
 
-  assemble-ios:
+  check-ios:
     runs-on: macos-latest
     timeout-minutes: 30
 
@@ -60,7 +60,10 @@ jobs:
           configuration: debug
           working-directory: app/iosApp/
 
-  assemble-js:
+      - name: Test iOS
+        run: ./gradlew clean :bluesky:iosSimulatorArm64Test --no-daemon --stacktrace
+
+  check-js:
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -72,10 +75,10 @@ jobs:
           java-version: '17'
           check-latest: true
 
-      - name: Assemble JS
-        run: ./gradlew clean :app:web:assemble --no-daemon --stacktrace
+      - name: Test JS
+        run: ./gradlew clean :bluesky:jsTest :app:web:assemble --no-daemon --stacktrace
 
-  assemble-jvm:
+  check-jvm:
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -87,5 +90,5 @@ jobs:
           java-version: '17'
           check-latest: true
 
-      - name: Assemble JVM
-        run: ./gradlew clean :app:desktop:assemble --no-daemon --stacktrace
+      - name: Test JVM
+        run: ./gradlew clean :bluesky:jvmTest :app:desktop:assemble --no-daemon --stacktrace
