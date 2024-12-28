@@ -82,7 +82,7 @@ class LexiconApiGenerator(
   private fun processQuery(context: GeneratorContext, query: LexiconXrpcQuery) {
     apiCalls += Query(
       id = context.document.id,
-      name = context.procedureName,
+      name = context.apiMethodName(),
       description = query.description,
       propertiesType = query.parameters?.type(context),
       outputType = query.output!!.type(context, suffix = "Response"),
@@ -92,7 +92,7 @@ class LexiconApiGenerator(
   private fun processProcedure(context: GeneratorContext, procedure: LexiconXrpcProcedure) {
     apiCalls += Procedure(
       id = context.document.id,
-      name = context.procedureName,
+      name = context.apiMethodName(),
       description = procedure.description,
       inputType = procedure.input?.type(context, suffix = "Request"),
       outputType = procedure.output?.type(context, suffix = "Response"),
@@ -102,7 +102,7 @@ class LexiconApiGenerator(
   private fun processSubscription(context: GeneratorContext, subscription: LexiconXrpcSubscription) {
     apiCalls += Subscription(
       id = context.document.id,
-      name = context.procedureName,
+      name = context.apiMethodName(),
       description = subscription.description,
       propertiesType = subscription.parameters?.type(context),
       outputType = subscription.message!!.type(context, suffix = "Message"),
@@ -139,6 +139,14 @@ class LexiconApiGenerator(
       description = description,
       encoding = "",
     )
+  }
+
+  private fun GeneratorContext.apiMethodName(): String {
+    return if (authority == "app.bsky.unspecced") {
+      procedureName + "Unspecced"
+    } else {
+      procedureName
+    }
   }
 
   private fun ApiCall.toFunctionSpec(

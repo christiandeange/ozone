@@ -14440,6 +14440,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getBlocks (Lapp/bsky/graph/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getBlocks (Lcom/atproto/sync/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConfig (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getConfigUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -14463,6 +14464,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getMessageContext (Lchat/bsky/moderation/GetMessageContextQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getMessages (Lchat/bsky/convo/GetMessagesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getMutes (Lapp/bsky/graph/GetMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getPopularFeedGeneratorsUnspecced (Lapp/bsky/unspecced/GetPopularFeedGeneratorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getPostThread (Lapp/bsky/feed/GetPostThreadQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getPosts (Lapp/bsky/feed/GetPostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getPreferences (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -14489,7 +14491,10 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSuggestedFollowsByActor (Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSuggestions (Lapp/bsky/actor/GetSuggestionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getSuggestionsSkeletonUnspecced (Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getTaggedSuggestionsUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getTimeline (Lapp/bsky/feed/GetTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getTrendingTopicsUnspecced (Lapp/bsky/unspecced/GetTrendingTopicsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getUploadLimits (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getValues (Ltools/ozone/set/GetValuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -14534,10 +14539,13 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun searchAccounts (Lcom/atproto/admin/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchAccounts (Ltools/ozone/signature/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchActors (Lapp/bsky/actor/SearchActorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun searchActorsSkeletonUnspecced (Lapp/bsky/unspecced/SearchActorsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchActorsTypeahead (Lapp/bsky/actor/SearchActorsTypeaheadQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchPosts (Lapp/bsky/feed/SearchPostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun searchPostsSkeletonUnspecced (Lapp/bsky/unspecced/SearchPostsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchRepos (Ltools/ozone/moderation/SearchReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchStarterPacks (Lapp/bsky/graph/SearchStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun searchStarterPacksSkeletonUnspecced (Lapp/bsky/unspecced/SearchStarterPacksSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun sendEmail (Lcom/atproto/admin/SendEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun sendInteractions (Lapp/bsky/feed/SendInteractionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun sendMessage (Lchat/bsky/convo/SendMessageRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -14623,6 +14631,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getBlocks (Lapp/bsky/graph/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlocks (Lcom/atproto/sync/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConfig (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConfigUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -14646,6 +14655,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getMessageContext (Lchat/bsky/moderation/GetMessageContextQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getMessages (Lchat/bsky/convo/GetMessagesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getMutes (Lapp/bsky/graph/GetMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getPopularFeedGeneratorsUnspecced (Lapp/bsky/unspecced/GetPopularFeedGeneratorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getPostThread (Lapp/bsky/feed/GetPostThreadQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getPosts (Lapp/bsky/feed/GetPostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getPreferences (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -14672,7 +14682,10 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestedFollowsByActor (Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestions (Lapp/bsky/actor/GetSuggestionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getSuggestionsSkeletonUnspecced (Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getTaggedSuggestionsUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getTimeline (Lapp/bsky/feed/GetTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getTrendingTopicsUnspecced (Lapp/bsky/unspecced/GetTrendingTopicsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getUploadLimits (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getValues (Ltools/ozone/set/GetValuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -14717,10 +14730,13 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun searchAccounts (Lcom/atproto/admin/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchAccounts (Ltools/ozone/signature/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchActors (Lapp/bsky/actor/SearchActorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchActorsSkeletonUnspecced (Lapp/bsky/unspecced/SearchActorsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchActorsTypeahead (Lapp/bsky/actor/SearchActorsTypeaheadQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchPosts (Lapp/bsky/feed/SearchPostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchPostsSkeletonUnspecced (Lapp/bsky/unspecced/SearchPostsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchRepos (Ltools/ozone/moderation/SearchReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchStarterPacks (Lapp/bsky/graph/SearchStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchStarterPacksSkeletonUnspecced (Lapp/bsky/unspecced/SearchStarterPacksSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun sendEmail (Lcom/atproto/admin/SendEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun sendInteractions (Lapp/bsky/feed/SendInteractionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun sendMessage (Lchat/bsky/convo/SendMessageRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -14805,6 +14821,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getBlocks (Lapp/bsky/graph/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlocks (Lcom/atproto/sync/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConfig (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConfigUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -14828,6 +14845,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getMessageContext (Lchat/bsky/moderation/GetMessageContextQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getMessages (Lchat/bsky/convo/GetMessagesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getMutes (Lapp/bsky/graph/GetMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getPopularFeedGeneratorsUnspecced (Lapp/bsky/unspecced/GetPopularFeedGeneratorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getPostThread (Lapp/bsky/feed/GetPostThreadQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getPosts (Lapp/bsky/feed/GetPostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getPreferences (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -14854,7 +14872,10 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestedFollowsByActor (Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestions (Lapp/bsky/actor/GetSuggestionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getSuggestionsSkeletonUnspecced (Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getTaggedSuggestionsUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getTimeline (Lapp/bsky/feed/GetTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getTrendingTopicsUnspecced (Lapp/bsky/unspecced/GetTrendingTopicsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getUploadLimits (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getValues (Ltools/ozone/set/GetValuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -14899,10 +14920,13 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun searchAccounts (Lcom/atproto/admin/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchAccounts (Ltools/ozone/signature/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchActors (Lapp/bsky/actor/SearchActorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchActorsSkeletonUnspecced (Lapp/bsky/unspecced/SearchActorsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchActorsTypeahead (Lapp/bsky/actor/SearchActorsTypeaheadQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchPosts (Lapp/bsky/feed/SearchPostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchPostsSkeletonUnspecced (Lapp/bsky/unspecced/SearchPostsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchRepos (Ltools/ozone/moderation/SearchReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchStarterPacks (Lapp/bsky/graph/SearchStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchStarterPacksSkeletonUnspecced (Lapp/bsky/unspecced/SearchStarterPacksSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun sendEmail (Lcom/atproto/admin/SendEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun sendInteractions (Lapp/bsky/feed/SendInteractionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun sendMessage (Lchat/bsky/convo/SendMessageRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -14974,30 +14998,6 @@ public final class sh/christian/ozone/api/xrpc/FindSubscriptionSerializerKt {
 
 public final class sh/christian/ozone/api/xrpc/XrpcSerializersModuleKt {
 	public static final fun getXrpcSerializersModule ()Lkotlinx/serialization/modules/SerializersModule;
-}
-
-public abstract interface class sh/christian/ozone/unspecced/UnspeccedBlueskyApi {
-	public abstract fun getConfig (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun getPopularFeedGenerators (Lapp/bsky/unspecced/GetPopularFeedGeneratorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun getSuggestionsSkeleton (Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun getTaggedSuggestions (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun getTrendingTopics (Lapp/bsky/unspecced/GetTrendingTopicsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun searchActorsSkeleton (Lapp/bsky/unspecced/SearchActorsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun searchPostsSkeleton (Lapp/bsky/unspecced/SearchPostsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun searchStarterPacksSkeleton (Lapp/bsky/unspecced/SearchStarterPacksSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-}
-
-public final class sh/christian/ozone/unspecced/XrpcUnspeccedBlueskyApi : sh/christian/ozone/unspecced/UnspeccedBlueskyApi {
-	public fun <init> ()V
-	public fun <init> (Lio/ktor/client/HttpClient;)V
-	public fun getConfig (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getPopularFeedGenerators (Lapp/bsky/unspecced/GetPopularFeedGeneratorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getSuggestionsSkeleton (Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getTaggedSuggestions (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getTrendingTopics (Lapp/bsky/unspecced/GetTrendingTopicsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun searchActorsSkeleton (Lapp/bsky/unspecced/SearchActorsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun searchPostsSkeleton (Lapp/bsky/unspecced/SearchPostsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun searchStarterPacksSkeleton (Lapp/bsky/unspecced/SearchStarterPacksSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class tools/ozone/communication/CreateTemplateRequest {
