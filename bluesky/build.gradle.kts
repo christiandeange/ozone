@@ -56,3 +56,15 @@ tasks.apiCheck.configure { dependsOn(generateLexicons) }
 tasks.withType<AbstractDokkaTask>().configureEach {
   dependsOn(tasks.withType<KotlinCompile>())
 }
+
+kotlin {
+  sourceSets {
+    val commonTest by getting {
+      dependencies {
+        implementation(libs.kotlinx.coroutines.test)
+        implementation(libs.ktor.test)
+        implementation(kotlin("test"))
+      }
+    }
+  }
+}

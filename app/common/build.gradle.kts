@@ -43,7 +43,7 @@ kotlin {
         implementation(libs.kamel)
         implementation(libs.kotlininject)
         implementation(libs.kotlinx.atomicfu)
-        implementation(libs.kotlinx.coroutines)
+        implementation(libs.kotlinx.coroutines.core)
         implementation(libs.ktor.logging)
 
         api(project(":bluesky"))

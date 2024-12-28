@@ -103,7 +103,7 @@ private constructor(
     }
   }
 
-  private companion object {
+  companion object {
     /**
      * Wraps an [XrpcBlueskyApi] instance as an [AuthenticatedXrpcBlueskyApi] with the optional initial tokens.
      */

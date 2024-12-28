@@ -14767,6 +14767,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 }
 
 public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/christian/ozone/BlueskyApi {
+	public static final field Companion Lsh/christian/ozone/api/AuthenticatedXrpcBlueskyApi$Companion;
 	public fun <init> (Lio/ktor/client/HttpClient;Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;)V
 	public synthetic fun <init> (Lio/ktor/client/HttpClient;Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (Lsh/christian/ozone/XrpcBlueskyApi;Lkotlinx/coroutines/flow/MutableStateFlow;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -14954,6 +14955,11 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun uploadVideo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun upsertOption (Ltools/ozone/setting/UpsertOptionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun upsertSet (Ltools/ozone/set/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi$Companion {
+	public final fun authenticated (Lsh/christian/ozone/XrpcBlueskyApi;Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;)Lsh/christian/ozone/api/AuthenticatedXrpcBlueskyApi;
+	public static synthetic fun authenticated$default (Lsh/christian/ozone/api/AuthenticatedXrpcBlueskyApi$Companion;Lsh/christian/ozone/XrpcBlueskyApi;Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;ILjava/lang/Object;)Lsh/christian/ozone/api/AuthenticatedXrpcBlueskyApi;
 }
 
 public final class sh/christian/ozone/api/BlueskyAuthPlugin {
