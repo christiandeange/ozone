@@ -257,6 +257,13 @@ fun createOpenEnumClass(
         .build()
     )
 
+  val superToString: FunSpec =
+    FunSpec.builder("toString")
+      .addModifiers(KModifier.OVERRIDE)
+      .returns(STRING)
+      .addStatement("return super.toString()")
+      .build()
+
   val valueOfControlFlow = CodeBlock.builder()
     .beginControlFlow("return when (value)")
 
@@ -270,6 +277,7 @@ fun createOpenEnumClass(
         .addDescription(entry.description)
         .superclass(className)
         .addSuperclassConstructorParameter("%S", entry.name)
+        .addFunction(superToString)
         .build()
     )
   }
