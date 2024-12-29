@@ -44,7 +44,7 @@ jobs:
 
       - name: Smoke Test
         if: steps.changed-files.outputs.files_changed == 'true'
-        run: ./gradlew clean apiDump :app:desktop:assemble --no-daemon --stacktrace
+        run: ./gradlew clean apiDump :bluesky:jvmTest :app:desktop:assemble --no-daemon --stacktrace
 
       - name: Commit Changes
         uses: stefanzweifel/git-auto-commit-action@v4
