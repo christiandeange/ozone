@@ -1,7 +1,3 @@
-public final class sh/christian/ozone/api/runtime/ValueClassSerializerKt {
-	public static final fun valueClassSerializer (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)Lkotlinx/serialization/KSerializer;
-}
-
 public final class sh/christian/ozone/api/xrpc/XrpcConfigurationKt {
 	public static final fun withXrpcConfiguration (Lio/ktor/client/HttpClient;Lkotlinx/serialization/modules/SerializersModule;)Lio/ktor/client/HttpClient;
 	public static synthetic fun withXrpcConfiguration$default (Lio/ktor/client/HttpClient;Lkotlinx/serialization/modules/SerializersModule;ILjava/lang/Object;)Lio/ktor/client/HttpClient;

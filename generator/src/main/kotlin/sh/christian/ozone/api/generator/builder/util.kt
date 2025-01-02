@@ -25,7 +25,6 @@ import com.squareup.kotlinpoet.buildCodeBlock
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.TypeNames
 import sh.christian.ozone.api.generator.stringEnumSerializer
-import sh.christian.ozone.api.generator.valueClassSerializer
 import sh.christian.ozone.api.lexicon.LexiconArray
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
 import sh.christian.ozone.api.lexicon.LexiconBlob
@@ -147,42 +146,12 @@ fun createValueClass(
   innerType: TypeName,
   additionalConfiguration: TypeSpec.Builder.() -> Unit = {},
 ): List<TypeSpec> {
-  val serializerClassName = className.peerClass(className.simpleName + "Serializer")
-  val serializerTypeSpec = serialName?.let {
-    TypeSpec.classBuilder(serializerClassName)
-      .addSuperinterface(
-        TypeNames.KSerializer.parameterizedBy(className),
-        CodeBlock.of(
-          """
-          %M(
-          ⇥serialName = %S,⇤
-          ⇥constructor = ::%T,⇤
-          ⇥valueProvider = %T::value,⇤
-          ⇥valueSerializerProvider = { %T.serializer() },⇤
-          )
-          """.trimIndent(),
-          valueClassSerializer,
-          serialName,
-          className,
-          className,
-          innerType,
-        )
-      )
-      .build()
-  }
-
   val valueClassTypeSpec = TypeSpec.classBuilder(className)
     .addModifiers(KModifier.VALUE)
     .addAnnotation(JvmInline::class)
     .apply {
-      if (serialName == null) {
-        addAnnotation(TypeNames.Serializable)
-      } else {
-        addAnnotation(
-          AnnotationSpec.builder(TypeNames.Serializable)
-            .addMember("with = %T::class", serializerClassName)
-            .build()
-        )
+      addAnnotation(TypeNames.Serializable)
+      if (serialName != null) {
         addAnnotation(
           AnnotationSpec.builder(TypeNames.SerialName)
             .addMember("%S", serialName)
@@ -208,7 +177,7 @@ fun createValueClass(
     .apply(additionalConfiguration)
     .build()
 
-  return listOfNotNull(serializerTypeSpec, valueClassTypeSpec)
+  return listOf(valueClassTypeSpec)
 }
 
 fun createObjectClass(
