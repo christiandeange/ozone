@@ -10294,6 +10294,22 @@ public final class com/atproto/label/SubscribeLabelsQueryParams$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/atproto/lexicon/Schema {
+	public static final field Companion Lcom/atproto/lexicon/Schema$Companion;
+	public fun <init> (J)V
+	public final fun component1 ()J
+	public final fun copy (J)Lcom/atproto/lexicon/Schema;
+	public static synthetic fun copy$default (Lcom/atproto/lexicon/Schema;JILjava/lang/Object;)Lcom/atproto/lexicon/Schema;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLexicon ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/lexicon/Schema$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/atproto/moderation/CreateReportRequest {
 	public static final field Companion Lcom/atproto/moderation/CreateReportRequest$Companion;
 	public fun <init> (Lcom/atproto/moderation/Token;Ljava/lang/String;Lcom/atproto/moderation/CreateReportRequestSubjectUnion;)V
