@@ -2698,6 +2698,13 @@ public final class app/bsky/feed/GetAuthorFeedFilter$PostsWithReplies : app/bsky
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class app/bsky/feed/GetAuthorFeedFilter$PostsWithVideo : app/bsky/feed/GetAuthorFeedFilter {
+	public static final field INSTANCE Lapp/bsky/feed/GetAuthorFeedFilter$PostsWithVideo;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class app/bsky/feed/GetAuthorFeedFilter$Unknown : app/bsky/feed/GetAuthorFeedFilter {
 	public fun <init> (Ljava/lang/String;)V
 	public final fun component1 ()Ljava/lang/String;
@@ -4341,19 +4348,38 @@ public final class app/bsky/feed/SkeletonReasonRepost$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/feed/ThreadContext {
+	public static final field Companion Lapp/bsky/feed/ThreadContext$Companion;
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-W3xQKsw ()Ljava/lang/String;
+	public final fun copy-s_JSDxM (Ljava/lang/String;)Lapp/bsky/feed/ThreadContext;
+	public static synthetic fun copy-s_JSDxM$default (Lapp/bsky/feed/ThreadContext;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/ThreadContext;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRootAuthorLike-W3xQKsw ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/ThreadContext$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/feed/ThreadViewPost {
 	public static final field Companion Lapp/bsky/feed/ThreadViewPost$Companion;
-	public fun <init> (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ThreadViewPostParentUnion;Ljava/util/List;)V
-	public synthetic fun <init> (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ThreadViewPostParentUnion;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ThreadViewPostParentUnion;Ljava/util/List;Lapp/bsky/feed/ThreadContext;)V
+	public synthetic fun <init> (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ThreadViewPostParentUnion;Ljava/util/List;Lapp/bsky/feed/ThreadContext;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lapp/bsky/feed/PostView;
 	public final fun component2 ()Lapp/bsky/feed/ThreadViewPostParentUnion;
 	public final fun component3 ()Ljava/util/List;
-	public final fun copy (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ThreadViewPostParentUnion;Ljava/util/List;)Lapp/bsky/feed/ThreadViewPost;
-	public static synthetic fun copy$default (Lapp/bsky/feed/ThreadViewPost;Lapp/bsky/feed/PostView;Lapp/bsky/feed/ThreadViewPostParentUnion;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/feed/ThreadViewPost;
+	public final fun component4 ()Lapp/bsky/feed/ThreadContext;
+	public final fun copy (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ThreadViewPostParentUnion;Ljava/util/List;Lapp/bsky/feed/ThreadContext;)Lapp/bsky/feed/ThreadViewPost;
+	public static synthetic fun copy$default (Lapp/bsky/feed/ThreadViewPost;Lapp/bsky/feed/PostView;Lapp/bsky/feed/ThreadViewPostParentUnion;Ljava/util/List;Lapp/bsky/feed/ThreadContext;ILjava/lang/Object;)Lapp/bsky/feed/ThreadViewPost;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getParent ()Lapp/bsky/feed/ThreadViewPostParentUnion;
 	public final fun getPost ()Lapp/bsky/feed/PostView;
 	public final fun getReplies ()Ljava/util/List;
+	public final fun getThreadContext ()Lapp/bsky/feed/ThreadContext;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
