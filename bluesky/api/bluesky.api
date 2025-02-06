@@ -514,6 +514,156 @@ public final class app/bsky/actor/PersonalDetailsPref$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/actor/PostInteractionSettingsPref {
+	public static final field Companion Lapp/bsky/actor/PostInteractionSettingsPref$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;Ljava/util/List;)Lapp/bsky/actor/PostInteractionSettingsPref;
+	public static synthetic fun copy$default (Lapp/bsky/actor/PostInteractionSettingsPref;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/actor/PostInteractionSettingsPref;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPostgateEmbeddingRules ()Ljava/util/List;
+	public final fun getThreadgateAllowRules ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/PostInteractionSettingsPref$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/actor/PostInteractionSettingsPrefPostgateEmbeddingRuleUnion {
+	public static final field Companion Lapp/bsky/actor/PostInteractionSettingsPrefPostgateEmbeddingRuleUnion$Companion;
+}
+
+public final class app/bsky/actor/PostInteractionSettingsPrefPostgateEmbeddingRuleUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/PostInteractionSettingsPrefPostgateEmbeddingRuleUnion$DisableRule : app/bsky/actor/PostInteractionSettingsPrefPostgateEmbeddingRuleUnion {
+	public static final field Companion Lapp/bsky/actor/PostInteractionSettingsPrefPostgateEmbeddingRuleUnion$DisableRule$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/feed/PostgateDisableRule;)Lapp/bsky/actor/PostInteractionSettingsPrefPostgateEmbeddingRuleUnion$DisableRule;
+	public static fun constructor-impl (Lapp/bsky/feed/PostgateDisableRule;)Lapp/bsky/feed/PostgateDisableRule;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/feed/PostgateDisableRule;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/feed/PostgateDisableRule;Lapp/bsky/feed/PostgateDisableRule;)Z
+	public final fun getValue ()Lapp/bsky/feed/PostgateDisableRule;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/feed/PostgateDisableRule;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/feed/PostgateDisableRule;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/feed/PostgateDisableRule;
+}
+
+public final class app/bsky/actor/PostInteractionSettingsPrefPostgateEmbeddingRuleUnion$DisableRule$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/PostInteractionSettingsPrefPostgateEmbeddingRuleUnion$Unknown : app/bsky/actor/PostInteractionSettingsPrefPostgateEmbeddingRuleUnion {
+	public static final field Companion Lapp/bsky/actor/PostInteractionSettingsPrefPostgateEmbeddingRuleUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/actor/PostInteractionSettingsPrefPostgateEmbeddingRuleUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/actor/PostInteractionSettingsPrefPostgateEmbeddingRuleUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion {
+	public static final field Companion Lapp/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$Companion;
+}
+
+public final class app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$FollowingRule : app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion {
+	public static final field Companion Lapp/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$FollowingRule$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/feed/ThreadgateFollowingRule;)Lapp/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$FollowingRule;
+	public static fun constructor-impl (Lapp/bsky/feed/ThreadgateFollowingRule;)Lapp/bsky/feed/ThreadgateFollowingRule;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/feed/ThreadgateFollowingRule;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/feed/ThreadgateFollowingRule;Lapp/bsky/feed/ThreadgateFollowingRule;)Z
+	public final fun getValue ()Lapp/bsky/feed/ThreadgateFollowingRule;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/feed/ThreadgateFollowingRule;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/feed/ThreadgateFollowingRule;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/feed/ThreadgateFollowingRule;
+}
+
+public final class app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$FollowingRule$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$ListRule : app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion {
+	public static final field Companion Lapp/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$ListRule$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/feed/ThreadgateListRule;)Lapp/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$ListRule;
+	public static fun constructor-impl (Lapp/bsky/feed/ThreadgateListRule;)Lapp/bsky/feed/ThreadgateListRule;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/feed/ThreadgateListRule;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/feed/ThreadgateListRule;Lapp/bsky/feed/ThreadgateListRule;)Z
+	public final fun getValue ()Lapp/bsky/feed/ThreadgateListRule;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/feed/ThreadgateListRule;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/feed/ThreadgateListRule;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/feed/ThreadgateListRule;
+}
+
+public final class app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$ListRule$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$MentionRule : app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion {
+	public static final field Companion Lapp/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$MentionRule$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/feed/ThreadgateMentionRule;)Lapp/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$MentionRule;
+	public static fun constructor-impl (Lapp/bsky/feed/ThreadgateMentionRule;)Lapp/bsky/feed/ThreadgateMentionRule;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/feed/ThreadgateMentionRule;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/feed/ThreadgateMentionRule;Lapp/bsky/feed/ThreadgateMentionRule;)Z
+	public final fun getValue ()Lapp/bsky/feed/ThreadgateMentionRule;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/feed/ThreadgateMentionRule;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/feed/ThreadgateMentionRule;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/feed/ThreadgateMentionRule;
+}
+
+public final class app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$MentionRule$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$Unknown : app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion {
+	public static final field Companion Lapp/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public abstract interface class app/bsky/actor/PreferencesUnion {
 	public static final field Companion Lapp/bsky/actor/PreferencesUnion$Companion;
 }
@@ -690,6 +840,25 @@ public final class app/bsky/actor/PreferencesUnion$PersonalDetailsPref : app/bsk
 }
 
 public final class app/bsky/actor/PreferencesUnion$PersonalDetailsPref$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/PreferencesUnion$PostInteractionSettingsPref : app/bsky/actor/PreferencesUnion {
+	public static final field Companion Lapp/bsky/actor/PreferencesUnion$PostInteractionSettingsPref$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/actor/PostInteractionSettingsPref;)Lapp/bsky/actor/PreferencesUnion$PostInteractionSettingsPref;
+	public static fun constructor-impl (Lapp/bsky/actor/PostInteractionSettingsPref;)Lapp/bsky/actor/PostInteractionSettingsPref;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/actor/PostInteractionSettingsPref;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/actor/PostInteractionSettingsPref;Lapp/bsky/actor/PostInteractionSettingsPref;)Z
+	public final fun getValue ()Lapp/bsky/actor/PostInteractionSettingsPref;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/actor/PostInteractionSettingsPref;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/actor/PostInteractionSettingsPref;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/actor/PostInteractionSettingsPref;
+}
+
+public final class app/bsky/actor/PreferencesUnion$PostInteractionSettingsPref$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
