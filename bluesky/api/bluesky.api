@@ -588,6 +588,25 @@ public final class app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRule
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$FollowerRule : app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion {
+	public static final field Companion Lapp/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$FollowerRule$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/feed/ThreadgateFollowerRule;)Lapp/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$FollowerRule;
+	public static fun constructor-impl (Lapp/bsky/feed/ThreadgateFollowerRule;)Lapp/bsky/feed/ThreadgateFollowerRule;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/feed/ThreadgateFollowerRule;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/feed/ThreadgateFollowerRule;Lapp/bsky/feed/ThreadgateFollowerRule;)Z
+	public final fun getValue ()Lapp/bsky/feed/ThreadgateFollowerRule;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/feed/ThreadgateFollowerRule;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/feed/ThreadgateFollowerRule;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/feed/ThreadgateFollowerRule;
+}
+
+public final class app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$FollowerRule$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$FollowingRule : app/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion {
 	public static final field Companion Lapp/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$FollowingRule$Companion;
 	public static final synthetic fun box-impl (Lapp/bsky/feed/ThreadgateFollowingRule;)Lapp/bsky/actor/PostInteractionSettingsPrefThreadgateAllowRuleUnion$FollowingRule;
@@ -4756,6 +4775,25 @@ public final class app/bsky/feed/ThreadgateAllowUnion$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/feed/ThreadgateAllowUnion$FollowerRule : app/bsky/feed/ThreadgateAllowUnion {
+	public static final field Companion Lapp/bsky/feed/ThreadgateAllowUnion$FollowerRule$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/feed/ThreadgateFollowerRule;)Lapp/bsky/feed/ThreadgateAllowUnion$FollowerRule;
+	public static fun constructor-impl (Lapp/bsky/feed/ThreadgateFollowerRule;)Lapp/bsky/feed/ThreadgateFollowerRule;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/feed/ThreadgateFollowerRule;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/feed/ThreadgateFollowerRule;Lapp/bsky/feed/ThreadgateFollowerRule;)Z
+	public final fun getValue ()Lapp/bsky/feed/ThreadgateFollowerRule;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/feed/ThreadgateFollowerRule;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/feed/ThreadgateFollowerRule;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/feed/ThreadgateFollowerRule;
+}
+
+public final class app/bsky/feed/ThreadgateAllowUnion$FollowerRule$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/feed/ThreadgateAllowUnion$FollowingRule : app/bsky/feed/ThreadgateAllowUnion {
 	public static final field Companion Lapp/bsky/feed/ThreadgateAllowUnion$FollowingRule$Companion;
 	public static final synthetic fun box-impl (Lapp/bsky/feed/ThreadgateFollowingRule;)Lapp/bsky/feed/ThreadgateAllowUnion$FollowingRule;
@@ -4829,6 +4867,11 @@ public final class app/bsky/feed/ThreadgateAllowUnion$Unknown : app/bsky/feed/Th
 }
 
 public final class app/bsky/feed/ThreadgateAllowUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/feed/ThreadgateFollowerRule {
+	public static final field INSTANCE Lapp/bsky/feed/ThreadgateFollowerRule;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -14650,6 +14693,25 @@ public final class tools/ozone/moderation/EmitEventRequestEventUnion$ModEventMut
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$ModEventPriorityScore : tools/ozone/moderation/EmitEventRequestEventUnion {
+	public static final field Companion Ltools/ozone/moderation/EmitEventRequestEventUnion$ModEventPriorityScore$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/ModEventPriorityScore;)Ltools/ozone/moderation/EmitEventRequestEventUnion$ModEventPriorityScore;
+	public static fun constructor-impl (Ltools/ozone/moderation/ModEventPriorityScore;)Ltools/ozone/moderation/ModEventPriorityScore;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/ModEventPriorityScore;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/ModEventPriorityScore;Ltools/ozone/moderation/ModEventPriorityScore;)Z
+	public final fun getValue ()Ltools/ozone/moderation/ModEventPriorityScore;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/ModEventPriorityScore;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/ModEventPriorityScore;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/ModEventPriorityScore;
+}
+
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$ModEventPriorityScore$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/moderation/EmitEventRequestEventUnion$ModEventReport : tools/ozone/moderation/EmitEventRequestEventUnion {
 	public static final field Companion Ltools/ozone/moderation/EmitEventRequestEventUnion$ModEventReport$Companion;
 	public static final synthetic fun box-impl (Ltools/ozone/moderation/ModEventReport;)Ltools/ozone/moderation/EmitEventRequestEventUnion$ModEventReport;
@@ -15337,6 +15399,25 @@ public final class tools/ozone/moderation/ModEventMuteReporter$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/ModEventPriorityScore {
+	public static final field Companion Ltools/ozone/moderation/ModEventPriorityScore$Companion;
+	public fun <init> (Ljava/lang/String;J)V
+	public synthetic fun <init> (Ljava/lang/String;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun copy (Ljava/lang/String;J)Ltools/ozone/moderation/ModEventPriorityScore;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/ModEventPriorityScore;Ljava/lang/String;JILjava/lang/Object;)Ltools/ozone/moderation/ModEventPriorityScore;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getScore ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ModEventPriorityScore$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/moderation/ModEventReport {
 	public static final field Companion Ltools/ozone/moderation/ModEventReport$Companion;
 	public fun <init> (Ljava/lang/String;Ljava/lang/Boolean;Lcom/atproto/moderation/Token;)V
@@ -15727,6 +15808,25 @@ public final class tools/ozone/moderation/ModEventViewDetailEventUnion$ModEventM
 }
 
 public final class tools/ozone/moderation/ModEventViewDetailEventUnion$ModEventMuteReporter$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$ModEventPriorityScore : tools/ozone/moderation/ModEventViewDetailEventUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewDetailEventUnion$ModEventPriorityScore$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/ModEventPriorityScore;)Ltools/ozone/moderation/ModEventViewDetailEventUnion$ModEventPriorityScore;
+	public static fun constructor-impl (Ltools/ozone/moderation/ModEventPriorityScore;)Ltools/ozone/moderation/ModEventPriorityScore;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/ModEventPriorityScore;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/ModEventPriorityScore;Ltools/ozone/moderation/ModEventPriorityScore;)Z
+	public final fun getValue ()Ltools/ozone/moderation/ModEventPriorityScore;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/ModEventPriorityScore;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/ModEventPriorityScore;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/ModEventPriorityScore;
+}
+
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$ModEventPriorityScore$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -16202,6 +16302,25 @@ public final class tools/ozone/moderation/ModEventViewEventUnion$ModEventMuteRep
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/ModEventViewEventUnion$ModEventPriorityScore : tools/ozone/moderation/ModEventViewEventUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewEventUnion$ModEventPriorityScore$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/ModEventPriorityScore;)Ltools/ozone/moderation/ModEventViewEventUnion$ModEventPriorityScore;
+	public static fun constructor-impl (Ltools/ozone/moderation/ModEventPriorityScore;)Ltools/ozone/moderation/ModEventPriorityScore;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/ModEventPriorityScore;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/ModEventPriorityScore;Ltools/ozone/moderation/ModEventPriorityScore;)Z
+	public final fun getValue ()Ltools/ozone/moderation/ModEventPriorityScore;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/ModEventPriorityScore;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/ModEventPriorityScore;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/ModEventPriorityScore;
+}
+
+public final class tools/ozone/moderation/ModEventViewEventUnion$ModEventPriorityScore$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/moderation/ModEventViewEventUnion$ModEventReport : tools/ozone/moderation/ModEventViewEventUnion {
 	public static final field Companion Ltools/ozone/moderation/ModEventViewEventUnion$ModEventReport$Companion;
 	public static final synthetic fun box-impl (Ltools/ozone/moderation/ModEventReport;)Ltools/ozone/moderation/ModEventViewEventUnion$ModEventReport;
@@ -16665,8 +16784,8 @@ public final class tools/ozone/moderation/QueryEventsSubjectTypeSerializer : kot
 
 public final class tools/ozone/moderation/QueryStatusesQueryParams {
 	public static final field Companion Ltools/ozone/moderation/QueryStatusesQueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryStatusesSubjectType;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryStatusesSubjectType;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryStatusesSubjectType;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryStatusesSubjectType;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Ljava/util/List;
 	public final fun component1 ()Ljava/lang/Long;
 	public final fun component10 ()Lkotlinx/datetime/Instant;
@@ -16695,14 +16814,15 @@ public final class tools/ozone/moderation/QueryStatusesQueryParams {
 	public final fun component31 ()Ljava/lang/Long;
 	public final fun component32 ()Ljava/lang/Long;
 	public final fun component33 ()Ljava/lang/Long;
+	public final fun component34 ()Ljava/lang/Long;
 	public final fun component4 ()Ljava/lang/Boolean;
 	public final fun component5-pvpWXas ()Ljava/lang/String;
 	public final fun component6 ()Ljava/lang/String;
 	public final fun component7 ()Lkotlinx/datetime/Instant;
 	public final fun component8 ()Lkotlinx/datetime/Instant;
 	public final fun component9 ()Lkotlinx/datetime/Instant;
-	public final fun copy-8yjP3A0 (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryStatusesSubjectType;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)Ltools/ozone/moderation/QueryStatusesQueryParams;
-	public static synthetic fun copy-8yjP3A0$default (Ltools/ozone/moderation/QueryStatusesQueryParams;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryStatusesSubjectType;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;IILjava/lang/Object;)Ltools/ozone/moderation/QueryStatusesQueryParams;
+	public final fun copy-XITi4JY (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryStatusesSubjectType;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)Ltools/ozone/moderation/QueryStatusesQueryParams;
+	public static synthetic fun copy-XITi4JY$default (Ltools/ozone/moderation/QueryStatusesQueryParams;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryStatusesSubjectType;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;IILjava/lang/Object;)Ltools/ozone/moderation/QueryStatusesQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAppealed ()Ljava/lang/Boolean;
 	public final fun getCollections ()Ljava/util/List;
@@ -16720,6 +16840,7 @@ public final class tools/ozone/moderation/QueryStatusesQueryParams {
 	public final fun getLastReviewedBy-68yuAGA ()Ljava/lang/String;
 	public final fun getLimit ()Ljava/lang/Long;
 	public final fun getMinAccountSuspendCount ()Ljava/lang/Long;
+	public final fun getMinPriorityScore ()Ljava/lang/Long;
 	public final fun getMinReportedRecordsCount ()Ljava/lang/Long;
 	public final fun getMinTakendownRecordsCount ()Ljava/lang/Long;
 	public final fun getOnlyMuted ()Ljava/lang/Boolean;
@@ -17176,22 +17297,23 @@ public final class tools/ozone/moderation/StatusSerializer : kotlinx/serializati
 
 public final class tools/ozone/moderation/SubjectStatusView {
 	public static final field Companion Ltools/ozone/moderation/SubjectStatusView$Companion;
-	public synthetic fun <init> (JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Ltools/ozone/moderation/SubjectStatusViewHostingUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/util/List;Ltools/ozone/moderation/AccountStats;Ltools/ozone/moderation/RecordsStats;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Ltools/ozone/moderation/SubjectStatusViewHostingUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/util/List;Ltools/ozone/moderation/AccountStats;Ltools/ozone/moderation/RecordsStats;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Ltools/ozone/moderation/SubjectStatusViewHostingUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/util/List;Ltools/ozone/moderation/AccountStats;Ltools/ozone/moderation/RecordsStats;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Ltools/ozone/moderation/SubjectStatusViewHostingUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/util/List;Ltools/ozone/moderation/AccountStats;Ltools/ozone/moderation/RecordsStats;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
-	public final fun component10 ()Lkotlinx/datetime/Instant;
+	public final fun component10 ()Ljava/lang/Long;
 	public final fun component11 ()Lkotlinx/datetime/Instant;
-	public final fun component12-68yuAGA ()Ljava/lang/String;
-	public final fun component13 ()Lkotlinx/datetime/Instant;
+	public final fun component12 ()Lkotlinx/datetime/Instant;
+	public final fun component13-68yuAGA ()Ljava/lang/String;
 	public final fun component14 ()Lkotlinx/datetime/Instant;
 	public final fun component15 ()Lkotlinx/datetime/Instant;
-	public final fun component16 ()Ljava/lang/Boolean;
+	public final fun component16 ()Lkotlinx/datetime/Instant;
 	public final fun component17 ()Ljava/lang/Boolean;
-	public final fun component18 ()Lkotlinx/datetime/Instant;
-	public final fun component19 ()Ljava/util/List;
+	public final fun component18 ()Ljava/lang/Boolean;
+	public final fun component19 ()Lkotlinx/datetime/Instant;
 	public final fun component2 ()Ltools/ozone/moderation/SubjectStatusViewSubjectUnion;
-	public final fun component20 ()Ltools/ozone/moderation/AccountStats;
-	public final fun component21 ()Ltools/ozone/moderation/RecordsStats;
+	public final fun component20 ()Ljava/util/List;
+	public final fun component21 ()Ltools/ozone/moderation/AccountStats;
+	public final fun component22 ()Ltools/ozone/moderation/RecordsStats;
 	public final fun component3 ()Ltools/ozone/moderation/SubjectStatusViewHostingUnion;
 	public final fun component4 ()Ljava/util/List;
 	public final fun component5 ()Ljava/lang/String;
@@ -17199,8 +17321,8 @@ public final class tools/ozone/moderation/SubjectStatusView {
 	public final fun component7 ()Lkotlinx/datetime/Instant;
 	public final fun component8 ()Ltools/ozone/moderation/Token;
 	public final fun component9 ()Ljava/lang/String;
-	public final fun copy-fzYRsso (JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Ltools/ozone/moderation/SubjectStatusViewHostingUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/util/List;Ltools/ozone/moderation/AccountStats;Ltools/ozone/moderation/RecordsStats;)Ltools/ozone/moderation/SubjectStatusView;
-	public static synthetic fun copy-fzYRsso$default (Ltools/ozone/moderation/SubjectStatusView;JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Ltools/ozone/moderation/SubjectStatusViewHostingUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/util/List;Ltools/ozone/moderation/AccountStats;Ltools/ozone/moderation/RecordsStats;ILjava/lang/Object;)Ltools/ozone/moderation/SubjectStatusView;
+	public final fun copy-kTmh6Hg (JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Ltools/ozone/moderation/SubjectStatusViewHostingUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/util/List;Ltools/ozone/moderation/AccountStats;Ltools/ozone/moderation/RecordsStats;)Ltools/ozone/moderation/SubjectStatusView;
+	public static synthetic fun copy-kTmh6Hg$default (Ltools/ozone/moderation/SubjectStatusView;JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Ltools/ozone/moderation/SubjectStatusViewHostingUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/util/List;Ltools/ozone/moderation/AccountStats;Ltools/ozone/moderation/RecordsStats;ILjava/lang/Object;)Ltools/ozone/moderation/SubjectStatusView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAccountStats ()Ltools/ozone/moderation/AccountStats;
 	public final fun getAppealed ()Ljava/lang/Boolean;
@@ -17214,6 +17336,7 @@ public final class tools/ozone/moderation/SubjectStatusView {
 	public final fun getLastReviewedBy-68yuAGA ()Ljava/lang/String;
 	public final fun getMuteReportingUntil ()Lkotlinx/datetime/Instant;
 	public final fun getMuteUntil ()Lkotlinx/datetime/Instant;
+	public final fun getPriorityScore ()Ljava/lang/Long;
 	public final fun getRecordsStats ()Ltools/ozone/moderation/RecordsStats;
 	public final fun getReviewState ()Ltools/ozone/moderation/Token;
 	public final fun getSubject ()Ltools/ozone/moderation/SubjectStatusViewSubjectUnion;
