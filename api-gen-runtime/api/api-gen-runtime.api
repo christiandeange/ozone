@@ -6,16 +6,24 @@ public final class sh/christian/ozone/api/AtIdentifier$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class sh/christian/ozone/api/AtUri {
+public final class sh/christian/ozone/api/AtUri : java/lang/CharSequence {
 	public static final field Companion Lsh/christian/ozone/api/AtUri$Companion;
 	public static final synthetic fun box-impl (Ljava/lang/String;)Lsh/christian/ozone/api/AtUri;
+	public final fun charAt (I)C
 	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
 	public fun equals (Ljava/lang/Object;)Z
 	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
 	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public fun get (I)C
+	public static fun get-impl (Ljava/lang/String;I)C
 	public final fun getAtUri ()Ljava/lang/String;
+	public fun getLength ()I
+	public static fun getLength-impl (Ljava/lang/String;)I
 	public fun hashCode ()I
 	public static fun hashCode-impl (Ljava/lang/String;)I
+	public synthetic fun length ()I
+	public fun subSequence (II)Ljava/lang/CharSequence;
+	public static fun subSequence-impl (Ljava/lang/String;II)Ljava/lang/CharSequence;
 	public fun toString ()Ljava/lang/String;
 	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
 	public final synthetic fun unbox-impl ()Ljava/lang/String;
@@ -25,16 +33,24 @@ public final class sh/christian/ozone/api/AtUri$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class sh/christian/ozone/api/Cid {
+public final class sh/christian/ozone/api/Cid : java/lang/CharSequence {
 	public static final field Companion Lsh/christian/ozone/api/Cid$Companion;
 	public static final synthetic fun box-impl (Ljava/lang/String;)Lsh/christian/ozone/api/Cid;
+	public final fun charAt (I)C
 	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
 	public fun equals (Ljava/lang/Object;)Z
 	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
 	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public fun get (I)C
+	public static fun get-impl (Ljava/lang/String;I)C
 	public final fun getCid ()Ljava/lang/String;
+	public fun getLength ()I
+	public static fun getLength-impl (Ljava/lang/String;)I
 	public fun hashCode ()I
 	public static fun hashCode-impl (Ljava/lang/String;)I
+	public synthetic fun length ()I
+	public fun subSequence (II)Ljava/lang/CharSequence;
+	public static fun subSequence-impl (Ljava/lang/String;II)Ljava/lang/CharSequence;
 	public fun toString ()Ljava/lang/String;
 	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
 	public final synthetic fun unbox-impl ()Ljava/lang/String;
@@ -44,16 +60,24 @@ public final class sh/christian/ozone/api/Cid$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class sh/christian/ozone/api/Did : sh/christian/ozone/api/AtIdentifier {
+public final class sh/christian/ozone/api/Did : java/lang/CharSequence, sh/christian/ozone/api/AtIdentifier {
 	public static final field Companion Lsh/christian/ozone/api/Did$Companion;
 	public static final synthetic fun box-impl (Ljava/lang/String;)Lsh/christian/ozone/api/Did;
+	public final fun charAt (I)C
 	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
 	public fun equals (Ljava/lang/Object;)Z
 	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
 	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public fun get (I)C
+	public static fun get-impl (Ljava/lang/String;I)C
 	public final fun getDid ()Ljava/lang/String;
+	public fun getLength ()I
+	public static fun getLength-impl (Ljava/lang/String;)I
 	public fun hashCode ()I
 	public static fun hashCode-impl (Ljava/lang/String;)I
+	public synthetic fun length ()I
+	public fun subSequence (II)Ljava/lang/CharSequence;
+	public static fun subSequence-impl (Ljava/lang/String;II)Ljava/lang/CharSequence;
 	public fun toString ()Ljava/lang/String;
 	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
 	public final synthetic fun unbox-impl ()Ljava/lang/String;
@@ -64,16 +88,24 @@ public final class sh/christian/ozone/api/Did$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class sh/christian/ozone/api/Handle : sh/christian/ozone/api/AtIdentifier {
+public final class sh/christian/ozone/api/Handle : java/lang/CharSequence, sh/christian/ozone/api/AtIdentifier {
 	public static final field Companion Lsh/christian/ozone/api/Handle$Companion;
 	public static final synthetic fun box-impl (Ljava/lang/String;)Lsh/christian/ozone/api/Handle;
+	public final fun charAt (I)C
 	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
 	public fun equals (Ljava/lang/Object;)Z
 	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
 	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public fun get (I)C
+	public static fun get-impl (Ljava/lang/String;I)C
 	public final fun getHandle ()Ljava/lang/String;
+	public fun getLength ()I
+	public static fun getLength-impl (Ljava/lang/String;)I
 	public fun hashCode ()I
 	public static fun hashCode-impl (Ljava/lang/String;)I
+	public synthetic fun length ()I
+	public fun subSequence (II)Ljava/lang/CharSequence;
+	public static fun subSequence-impl (Ljava/lang/String;II)Ljava/lang/CharSequence;
 	public fun toString ()Ljava/lang/String;
 	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
 	public final synthetic fun unbox-impl ()Ljava/lang/String;
@@ -84,16 +116,24 @@ public final class sh/christian/ozone/api/Handle$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class sh/christian/ozone/api/Language {
+public final class sh/christian/ozone/api/Language : java/lang/CharSequence {
 	public static final field Companion Lsh/christian/ozone/api/Language$Companion;
 	public static final synthetic fun box-impl (Ljava/lang/String;)Lsh/christian/ozone/api/Language;
+	public final fun charAt (I)C
 	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
 	public fun equals (Ljava/lang/Object;)Z
 	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
 	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public fun get (I)C
+	public static fun get-impl (Ljava/lang/String;I)C
+	public fun getLength ()I
+	public static fun getLength-impl (Ljava/lang/String;)I
 	public final fun getTag ()Ljava/lang/String;
 	public fun hashCode ()I
 	public static fun hashCode-impl (Ljava/lang/String;)I
+	public synthetic fun length ()I
+	public fun subSequence (II)Ljava/lang/CharSequence;
+	public static fun subSequence-impl (Ljava/lang/String;II)Ljava/lang/CharSequence;
 	public fun toString ()Ljava/lang/String;
 	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
 	public final synthetic fun unbox-impl ()Ljava/lang/String;
@@ -103,18 +143,26 @@ public final class sh/christian/ozone/api/Language$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class sh/christian/ozone/api/Nsid {
+public final class sh/christian/ozone/api/Nsid : java/lang/CharSequence {
 	public static final field Companion Lsh/christian/ozone/api/Nsid$Companion;
 	public static final synthetic fun box-impl (Ljava/lang/String;)Lsh/christian/ozone/api/Nsid;
+	public final fun charAt (I)C
 	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
 	public fun equals (Ljava/lang/Object;)Z
 	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
 	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public fun get (I)C
+	public static fun get-impl (Ljava/lang/String;I)C
 	public static final fun getDomainAuthority-impl (Ljava/lang/String;)Ljava/lang/String;
+	public fun getLength ()I
+	public static fun getLength-impl (Ljava/lang/String;)I
 	public static final fun getName-impl (Ljava/lang/String;)Ljava/lang/String;
 	public final fun getNsid ()Ljava/lang/String;
 	public fun hashCode ()I
 	public static fun hashCode-impl (Ljava/lang/String;)I
+	public synthetic fun length ()I
+	public fun subSequence (II)Ljava/lang/CharSequence;
+	public static fun subSequence-impl (Ljava/lang/String;II)Ljava/lang/CharSequence;
 	public fun toString ()Ljava/lang/String;
 	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
 	public final synthetic fun unbox-impl ()Ljava/lang/String;
@@ -125,16 +173,24 @@ public final class sh/christian/ozone/api/Nsid$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class sh/christian/ozone/api/RKey {
+public final class sh/christian/ozone/api/RKey : java/lang/CharSequence {
 	public static final field Companion Lsh/christian/ozone/api/RKey$Companion;
 	public static final synthetic fun box-impl (Ljava/lang/String;)Lsh/christian/ozone/api/RKey;
+	public final fun charAt (I)C
 	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
 	public fun equals (Ljava/lang/Object;)Z
 	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
 	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public fun get (I)C
+	public static fun get-impl (Ljava/lang/String;I)C
+	public fun getLength ()I
+	public static fun getLength-impl (Ljava/lang/String;)I
 	public final fun getRkey ()Ljava/lang/String;
 	public fun hashCode ()I
 	public static fun hashCode-impl (Ljava/lang/String;)I
+	public synthetic fun length ()I
+	public fun subSequence (II)Ljava/lang/CharSequence;
+	public static fun subSequence-impl (Ljava/lang/String;II)Ljava/lang/CharSequence;
 	public fun toString ()Ljava/lang/String;
 	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
 	public final synthetic fun unbox-impl ()Ljava/lang/String;
@@ -144,16 +200,24 @@ public final class sh/christian/ozone/api/RKey$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class sh/christian/ozone/api/Tid {
+public final class sh/christian/ozone/api/Tid : java/lang/CharSequence {
 	public static final field Companion Lsh/christian/ozone/api/Tid$Companion;
 	public static final synthetic fun box-impl (Ljava/lang/String;)Lsh/christian/ozone/api/Tid;
+	public final fun charAt (I)C
 	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
 	public fun equals (Ljava/lang/Object;)Z
 	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
 	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public fun get (I)C
+	public static fun get-impl (Ljava/lang/String;I)C
+	public fun getLength ()I
+	public static fun getLength-impl (Ljava/lang/String;)I
 	public final fun getTid ()Ljava/lang/String;
 	public fun hashCode ()I
 	public static fun hashCode-impl (Ljava/lang/String;)I
+	public synthetic fun length ()I
+	public fun subSequence (II)Ljava/lang/CharSequence;
+	public static fun subSequence-impl (Ljava/lang/String;II)Ljava/lang/CharSequence;
 	public fun toString ()Ljava/lang/String;
 	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
 	public final synthetic fun unbox-impl ()Ljava/lang/String;
@@ -163,16 +227,24 @@ public final class sh/christian/ozone/api/Tid$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class sh/christian/ozone/api/Uri {
+public final class sh/christian/ozone/api/Uri : java/lang/CharSequence {
 	public static final field Companion Lsh/christian/ozone/api/Uri$Companion;
 	public static final synthetic fun box-impl (Ljava/lang/String;)Lsh/christian/ozone/api/Uri;
+	public final fun charAt (I)C
 	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
 	public fun equals (Ljava/lang/Object;)Z
 	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
 	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public fun get (I)C
+	public static fun get-impl (Ljava/lang/String;I)C
+	public fun getLength ()I
+	public static fun getLength-impl (Ljava/lang/String;)I
 	public final fun getUri ()Ljava/lang/String;
 	public fun hashCode ()I
 	public static fun hashCode-impl (Ljava/lang/String;)I
+	public synthetic fun length ()I
+	public fun subSequence (II)Ljava/lang/CharSequence;
+	public static fun subSequence-impl (Ljava/lang/String;II)Ljava/lang/CharSequence;
 	public fun toString ()Ljava/lang/String;
 	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
 	public final synthetic fun unbox-impl ()Ljava/lang/String;

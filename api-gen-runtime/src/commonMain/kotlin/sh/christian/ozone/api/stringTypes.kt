@@ -12,7 +12,7 @@ import kotlin.jvm.JvmInline
 @JvmInline
 value class Uri(
   val uri: String,
-) {
+): CharSequence by uri {
   override fun toString(): String = uri
 }
 
@@ -25,7 +25,7 @@ value class Uri(
 @JvmInline
 value class AtUri(
   val atUri: String,
-) {
+): CharSequence by atUri {
   override fun toString(): String = atUri
 }
 
@@ -37,7 +37,7 @@ value class AtUri(
 @JvmInline
 value class Did(
   val did: String,
-): AtIdentifier {
+): AtIdentifier, CharSequence by did {
 
   init {
     require(Regex.matches(did)) {
@@ -62,7 +62,7 @@ value class Did(
 @JvmInline
 value class Handle(
   val handle: String,
-): AtIdentifier {
+): AtIdentifier, CharSequence by handle {
 
   init {
     require(Regex.matches(handle)) {
@@ -95,7 +95,7 @@ sealed interface AtIdentifier
 @JvmInline
 value class Nsid(
   val nsid: String,
-) {
+): CharSequence by nsid {
   init {
     require(Regex.matches(nsid)) {
       "'$nsid' is not a valid namespace identifier."
@@ -127,7 +127,7 @@ value class Nsid(
 @JvmInline
 value class Cid(
   val cid: String,
-) {
+): CharSequence by cid {
   override fun toString(): String = cid
 }
 
@@ -142,7 +142,7 @@ value class Cid(
 @JvmInline
 value class Language(
   val tag: String,
-) {
+): CharSequence by tag {
   override fun toString(): String = tag
 }
 
@@ -155,7 +155,7 @@ value class Language(
 @JvmInline
 value class Tid(
   val tid: String,
-) {
+): CharSequence by tid {
   override fun toString(): String = tid
 }
 
@@ -168,6 +168,6 @@ value class Tid(
 @JvmInline
 value class RKey(
   val rkey: String,
-) {
+): CharSequence by rkey {
   override fun toString(): String = rkey
 }
