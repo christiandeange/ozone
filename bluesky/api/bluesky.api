@@ -7788,26 +7788,60 @@ public final class chat/bsky/actor/ProfileViewBasic$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class chat/bsky/convo/AcceptConvoRequest {
+	public static final field Companion Lchat/bsky/convo/AcceptConvoRequest$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/convo/AcceptConvoRequest;
+	public static synthetic fun copy$default (Lchat/bsky/convo/AcceptConvoRequest;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/AcceptConvoRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/AcceptConvoRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/AcceptConvoResponse {
+	public static final field Companion Lchat/bsky/convo/AcceptConvoResponse$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/convo/AcceptConvoResponse;
+	public static synthetic fun copy$default (Lchat/bsky/convo/AcceptConvoResponse;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/AcceptConvoResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRev ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/AcceptConvoResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class chat/bsky/convo/ConvoView {
 	public static final field Companion Lchat/bsky/convo/ConvoView$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lchat/bsky/convo/ConvoViewLastMessageUnion;ZLjava/lang/Boolean;J)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lchat/bsky/convo/ConvoViewLastMessageUnion;ZLjava/lang/Boolean;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lchat/bsky/convo/ConvoViewLastMessageUnion;ZLchat/bsky/convo/Status;J)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lchat/bsky/convo/ConvoViewLastMessageUnion;ZLchat/bsky/convo/Status;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/util/List;
 	public final fun component4 ()Lchat/bsky/convo/ConvoViewLastMessageUnion;
 	public final fun component5 ()Z
-	public final fun component6 ()Ljava/lang/Boolean;
+	public final fun component6 ()Lchat/bsky/convo/Status;
 	public final fun component7 ()J
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lchat/bsky/convo/ConvoViewLastMessageUnion;ZLjava/lang/Boolean;J)Lchat/bsky/convo/ConvoView;
-	public static synthetic fun copy$default (Lchat/bsky/convo/ConvoView;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lchat/bsky/convo/ConvoViewLastMessageUnion;ZLjava/lang/Boolean;JILjava/lang/Object;)Lchat/bsky/convo/ConvoView;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lchat/bsky/convo/ConvoViewLastMessageUnion;ZLchat/bsky/convo/Status;J)Lchat/bsky/convo/ConvoView;
+	public static synthetic fun copy$default (Lchat/bsky/convo/ConvoView;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lchat/bsky/convo/ConvoViewLastMessageUnion;ZLchat/bsky/convo/Status;JILjava/lang/Object;)Lchat/bsky/convo/ConvoView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getId ()Ljava/lang/String;
 	public final fun getLastMessage ()Lchat/bsky/convo/ConvoViewLastMessageUnion;
 	public final fun getMembers ()Ljava/util/List;
 	public final fun getMuted ()Z
-	public final fun getOpened ()Ljava/lang/Boolean;
 	public final fun getRev ()Ljava/lang/String;
+	public final fun getStatus ()Lchat/bsky/convo/Status;
 	public final fun getUnreadCount ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -7922,6 +7956,42 @@ public final class chat/bsky/convo/DeletedMessageView$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class chat/bsky/convo/GetConvoAvailabilityQueryParams {
+	public static final field Companion Lchat/bsky/convo/GetConvoAvailabilityQueryParams$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lchat/bsky/convo/GetConvoAvailabilityQueryParams;
+	public static synthetic fun copy$default (Lchat/bsky/convo/GetConvoAvailabilityQueryParams;Ljava/util/List;ILjava/lang/Object;)Lchat/bsky/convo/GetConvoAvailabilityQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMembers ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/GetConvoAvailabilityQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/GetConvoAvailabilityResponse {
+	public static final field Companion Lchat/bsky/convo/GetConvoAvailabilityResponse$Companion;
+	public fun <init> (ZLchat/bsky/convo/ConvoView;)V
+	public synthetic fun <init> (ZLchat/bsky/convo/ConvoView;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Lchat/bsky/convo/ConvoView;
+	public final fun copy (ZLchat/bsky/convo/ConvoView;)Lchat/bsky/convo/GetConvoAvailabilityResponse;
+	public static synthetic fun copy$default (Lchat/bsky/convo/GetConvoAvailabilityResponse;ZLchat/bsky/convo/ConvoView;ILjava/lang/Object;)Lchat/bsky/convo/GetConvoAvailabilityResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCanChat ()Z
+	public final fun getConvo ()Lchat/bsky/convo/ConvoView;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/GetConvoAvailabilityResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class chat/bsky/convo/GetConvoForMembersQueryParams {
 	public static final field Companion Lchat/bsky/convo/GetConvoForMembersQueryParams$Companion;
 	public fun <init> (Ljava/util/List;)V
@@ -8028,6 +8098,25 @@ public final class chat/bsky/convo/GetLogResponse$Companion {
 
 public abstract interface class chat/bsky/convo/GetLogResponseLogUnion {
 	public static final field Companion Lchat/bsky/convo/GetLogResponseLogUnion$Companion;
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$AcceptConvo : chat/bsky/convo/GetLogResponseLogUnion {
+	public static final field Companion Lchat/bsky/convo/GetLogResponseLogUnion$AcceptConvo$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/LogAcceptConvo;)Lchat/bsky/convo/GetLogResponseLogUnion$AcceptConvo;
+	public static fun constructor-impl (Lchat/bsky/convo/LogAcceptConvo;)Lchat/bsky/convo/LogAcceptConvo;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/LogAcceptConvo;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/LogAcceptConvo;Lchat/bsky/convo/LogAcceptConvo;)Z
+	public final fun getValue ()Lchat/bsky/convo/LogAcceptConvo;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/LogAcceptConvo;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/LogAcceptConvo;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/LogAcceptConvo;
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$AcceptConvo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class chat/bsky/convo/GetLogResponseLogUnion$BeginConvo : chat/bsky/convo/GetLogResponseLogUnion {
@@ -8272,22 +8361,64 @@ public final class chat/bsky/convo/LeaveConvoResponse$Companion {
 public final class chat/bsky/convo/ListConvosQueryParams {
 	public static final field Companion Lchat/bsky/convo/ListConvosQueryParams$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/Long;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/String;Lchat/bsky/convo/ListConvosReadState;Lchat/bsky/convo/ListConvosStatus;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/String;Lchat/bsky/convo/ListConvosReadState;Lchat/bsky/convo/ListConvosStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Ljava/util/List;
 	public final fun component1 ()Ljava/lang/Long;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/Long;Ljava/lang/String;)Lchat/bsky/convo/ListConvosQueryParams;
-	public static synthetic fun copy$default (Lchat/bsky/convo/ListConvosQueryParams;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/ListConvosQueryParams;
+	public final fun component3 ()Lchat/bsky/convo/ListConvosReadState;
+	public final fun component4 ()Lchat/bsky/convo/ListConvosStatus;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/String;Lchat/bsky/convo/ListConvosReadState;Lchat/bsky/convo/ListConvosStatus;)Lchat/bsky/convo/ListConvosQueryParams;
+	public static synthetic fun copy$default (Lchat/bsky/convo/ListConvosQueryParams;Ljava/lang/Long;Ljava/lang/String;Lchat/bsky/convo/ListConvosReadState;Lchat/bsky/convo/ListConvosStatus;ILjava/lang/Object;)Lchat/bsky/convo/ListConvosQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getReadState ()Lchat/bsky/convo/ListConvosReadState;
+	public final fun getStatus ()Lchat/bsky/convo/ListConvosStatus;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
 public final class chat/bsky/convo/ListConvosQueryParams$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class chat/bsky/convo/ListConvosReadState : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lchat/bsky/convo/ListConvosReadState$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/ListConvosReadState$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lchat/bsky/convo/ListConvosReadState;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/ListConvosReadState$Unknown : chat/bsky/convo/ListConvosReadState {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/convo/ListConvosReadState$Unknown;
+	public static synthetic fun copy$default (Lchat/bsky/convo/ListConvosReadState$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/ListConvosReadState$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/ListConvosReadState$Unread : chat/bsky/convo/ListConvosReadState {
+	public static final field INSTANCE Lchat/bsky/convo/ListConvosReadState$Unread;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/ListConvosReadStateSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/ListConvosReadState;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/ListConvosReadState;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class chat/bsky/convo/ListConvosResponse {
@@ -8306,6 +8437,69 @@ public final class chat/bsky/convo/ListConvosResponse {
 }
 
 public final class chat/bsky/convo/ListConvosResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class chat/bsky/convo/ListConvosStatus : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lchat/bsky/convo/ListConvosStatus$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/ListConvosStatus$Accepted : chat/bsky/convo/ListConvosStatus {
+	public static final field INSTANCE Lchat/bsky/convo/ListConvosStatus$Accepted;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/ListConvosStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lchat/bsky/convo/ListConvosStatus;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/ListConvosStatus$Request : chat/bsky/convo/ListConvosStatus {
+	public static final field INSTANCE Lchat/bsky/convo/ListConvosStatus$Request;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/ListConvosStatus$Unknown : chat/bsky/convo/ListConvosStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/convo/ListConvosStatus$Unknown;
+	public static synthetic fun copy$default (Lchat/bsky/convo/ListConvosStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/ListConvosStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/ListConvosStatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/ListConvosStatus;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/ListConvosStatus;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class chat/bsky/convo/LogAcceptConvo {
+	public static final field Companion Lchat/bsky/convo/LogAcceptConvo$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/convo/LogAcceptConvo;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogAcceptConvo;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/LogAcceptConvo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/LogAcceptConvo$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -8512,6 +8706,127 @@ public final class chat/bsky/convo/LogLeaveConvo {
 }
 
 public final class chat/bsky/convo/LogLeaveConvo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/LogMuteConvo {
+	public static final field Companion Lchat/bsky/convo/LogMuteConvo$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/convo/LogMuteConvo;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogMuteConvo;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/LogMuteConvo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/LogMuteConvo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/LogReadMessage {
+	public static final field Companion Lchat/bsky/convo/LogReadMessage$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/LogReadMessageMessageUnion;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lchat/bsky/convo/LogReadMessageMessageUnion;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/LogReadMessageMessageUnion;)Lchat/bsky/convo/LogReadMessage;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogReadMessage;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/LogReadMessageMessageUnion;ILjava/lang/Object;)Lchat/bsky/convo/LogReadMessage;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getMessage ()Lchat/bsky/convo/LogReadMessageMessageUnion;
+	public final fun getRev ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/LogReadMessage$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class chat/bsky/convo/LogReadMessageMessageUnion {
+	public static final field Companion Lchat/bsky/convo/LogReadMessageMessageUnion$Companion;
+}
+
+public final class chat/bsky/convo/LogReadMessageMessageUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/LogReadMessageMessageUnion$DeletedMessageView : chat/bsky/convo/LogReadMessageMessageUnion {
+	public static final field Companion Lchat/bsky/convo/LogReadMessageMessageUnion$DeletedMessageView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/DeletedMessageView;)Lchat/bsky/convo/LogReadMessageMessageUnion$DeletedMessageView;
+	public static fun constructor-impl (Lchat/bsky/convo/DeletedMessageView;)Lchat/bsky/convo/DeletedMessageView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/DeletedMessageView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/DeletedMessageView;Lchat/bsky/convo/DeletedMessageView;)Z
+	public final fun getValue ()Lchat/bsky/convo/DeletedMessageView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/DeletedMessageView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/DeletedMessageView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/DeletedMessageView;
+}
+
+public final class chat/bsky/convo/LogReadMessageMessageUnion$DeletedMessageView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/LogReadMessageMessageUnion$MessageView : chat/bsky/convo/LogReadMessageMessageUnion {
+	public static final field Companion Lchat/bsky/convo/LogReadMessageMessageUnion$MessageView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/MessageView;)Lchat/bsky/convo/LogReadMessageMessageUnion$MessageView;
+	public static fun constructor-impl (Lchat/bsky/convo/MessageView;)Lchat/bsky/convo/MessageView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/MessageView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/MessageView;Lchat/bsky/convo/MessageView;)Z
+	public final fun getValue ()Lchat/bsky/convo/MessageView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/MessageView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/MessageView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/MessageView;
+}
+
+public final class chat/bsky/convo/LogReadMessageMessageUnion$MessageView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/LogReadMessageMessageUnion$Unknown : chat/bsky/convo/LogReadMessageMessageUnion {
+	public static final field Companion Lchat/bsky/convo/LogReadMessageMessageUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lchat/bsky/convo/LogReadMessageMessageUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class chat/bsky/convo/LogReadMessageMessageUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/LogUnmuteConvo {
+	public static final field Companion Lchat/bsky/convo/LogUnmuteConvo$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/convo/LogUnmuteConvo;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogUnmuteConvo;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/LogUnmuteConvo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/LogUnmuteConvo$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -8791,6 +9106,51 @@ public final class chat/bsky/convo/SendMessageRequest {
 
 public final class chat/bsky/convo/SendMessageRequest$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class chat/bsky/convo/Status : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lchat/bsky/convo/Status$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/Status$Accepted : chat/bsky/convo/Status {
+	public static final field INSTANCE Lchat/bsky/convo/Status$Accepted;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/Status$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lchat/bsky/convo/Status;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/Status$Request : chat/bsky/convo/Status {
+	public static final field INSTANCE Lchat/bsky/convo/Status$Request;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/Status$Unknown : chat/bsky/convo/Status {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/convo/Status$Unknown;
+	public static synthetic fun copy$default (Lchat/bsky/convo/Status$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/Status$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/StatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/Status;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/Status;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class chat/bsky/convo/UnmuteConvoRequest {
@@ -10829,13 +11189,13 @@ public final class com/atproto/repo/ApplyWritesCreate {
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-Ley70Jo ()Ljava/lang/String;
-	public final fun component2 ()Ljava/lang/String;
+	public final fun component2-zbJ-4pg ()Ljava/lang/String;
 	public final fun component3 ()Lsh/christian/ozone/api/model/JsonContent;
-	public final fun copy-XC62NXI (Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;)Lcom/atproto/repo/ApplyWritesCreate;
-	public static synthetic fun copy-XC62NXI$default (Lcom/atproto/repo/ApplyWritesCreate;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;ILjava/lang/Object;)Lcom/atproto/repo/ApplyWritesCreate;
+	public final fun copy-5IorsIE (Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;)Lcom/atproto/repo/ApplyWritesCreate;
+	public static synthetic fun copy-5IorsIE$default (Lcom/atproto/repo/ApplyWritesCreate;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;ILjava/lang/Object;)Lcom/atproto/repo/ApplyWritesCreate;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
-	public final fun getRkey ()Ljava/lang/String;
+	public final fun getRkey-zbJ-4pg ()Ljava/lang/String;
 	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -10870,12 +11230,12 @@ public final class com/atproto/repo/ApplyWritesDelete {
 	public static final field Companion Lcom/atproto/repo/ApplyWritesDelete$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-Ley70Jo ()Ljava/lang/String;
-	public final fun component2 ()Ljava/lang/String;
-	public final fun copy-Uz1JlHo (Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/repo/ApplyWritesDelete;
-	public static synthetic fun copy-Uz1JlHo$default (Lcom/atproto/repo/ApplyWritesDelete;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/ApplyWritesDelete;
+	public final fun component2-I04nEKc ()Ljava/lang/String;
+	public final fun copy-Nb9FLDw (Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/repo/ApplyWritesDelete;
+	public static synthetic fun copy-Nb9FLDw$default (Lcom/atproto/repo/ApplyWritesDelete;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/ApplyWritesDelete;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
-	public final fun getRkey ()Ljava/lang/String;
+	public final fun getRkey-I04nEKc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -11104,13 +11464,13 @@ public final class com/atproto/repo/ApplyWritesUpdate {
 	public static final field Companion Lcom/atproto/repo/ApplyWritesUpdate$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-Ley70Jo ()Ljava/lang/String;
-	public final fun component2 ()Ljava/lang/String;
+	public final fun component2-I04nEKc ()Ljava/lang/String;
 	public final fun component3 ()Lsh/christian/ozone/api/model/JsonContent;
-	public final fun copy-XC62NXI (Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;)Lcom/atproto/repo/ApplyWritesUpdate;
-	public static synthetic fun copy-XC62NXI$default (Lcom/atproto/repo/ApplyWritesUpdate;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;ILjava/lang/Object;)Lcom/atproto/repo/ApplyWritesUpdate;
+	public final fun copy-OxnpRFE (Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;)Lcom/atproto/repo/ApplyWritesUpdate;
+	public static synthetic fun copy-OxnpRFE$default (Lcom/atproto/repo/ApplyWritesUpdate;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;ILjava/lang/Object;)Lcom/atproto/repo/ApplyWritesUpdate;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
-	public final fun getRkey ()Ljava/lang/String;
+	public final fun getRkey-I04nEKc ()Ljava/lang/String;
 	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -11190,12 +11550,12 @@ public final class com/atproto/repo/CommitMeta {
 	public static final field Companion Lcom/atproto/repo/CommitMeta$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-OA0YjOw ()Ljava/lang/String;
-	public final fun component2 ()Ljava/lang/String;
-	public final fun copy-C6Harzk (Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/repo/CommitMeta;
-	public static synthetic fun copy-C6Harzk$default (Lcom/atproto/repo/CommitMeta;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/CommitMeta;
+	public final fun component2-m01Zjwg ()Ljava/lang/String;
+	public final fun copy-AqIGPIY (Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/repo/CommitMeta;
+	public static synthetic fun copy-AqIGPIY$default (Lcom/atproto/repo/CommitMeta;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/CommitMeta;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCid-OA0YjOw ()Ljava/lang/String;
-	public final fun getRev ()Ljava/lang/String;
+	public final fun getRev-m01Zjwg ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -11210,17 +11570,17 @@ public final class com/atproto/repo/CreateRecordRequest {
 	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2-Ley70Jo ()Ljava/lang/String;
-	public final fun component3 ()Ljava/lang/String;
+	public final fun component3-zbJ-4pg ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/Boolean;
 	public final fun component5 ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun component6-OC6CE0s ()Ljava/lang/String;
-	public final fun copy-gdHo1nY (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;)Lcom/atproto/repo/CreateRecordRequest;
-	public static synthetic fun copy-gdHo1nY$default (Lcom/atproto/repo/CreateRecordRequest;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/CreateRecordRequest;
+	public final fun copy-OPKnBg4 (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;)Lcom/atproto/repo/CreateRecordRequest;
+	public static synthetic fun copy-OPKnBg4$default (Lcom/atproto/repo/CreateRecordRequest;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/CreateRecordRequest;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
 	public final fun getRecord ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun getRepo ()Lsh/christian/ozone/api/AtIdentifier;
-	public final fun getRkey ()Ljava/lang/String;
+	public final fun getRkey-zbJ-4pg ()Ljava/lang/String;
 	public final fun getSwapCommit-OC6CE0s ()Ljava/lang/String;
 	public final fun getValidate ()Ljava/lang/Boolean;
 	public fun hashCode ()I
@@ -11305,15 +11665,15 @@ public final class com/atproto/repo/DeleteRecordRequest {
 	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2-Ley70Jo ()Ljava/lang/String;
-	public final fun component3 ()Ljava/lang/String;
+	public final fun component3-I04nEKc ()Ljava/lang/String;
 	public final fun component4-OC6CE0s ()Ljava/lang/String;
 	public final fun component5-OC6CE0s ()Ljava/lang/String;
-	public final fun copy-OEqNLMo (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/repo/DeleteRecordRequest;
-	public static synthetic fun copy-OEqNLMo$default (Lcom/atproto/repo/DeleteRecordRequest;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/DeleteRecordRequest;
+	public final fun copy-7u7KtCw (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/repo/DeleteRecordRequest;
+	public static synthetic fun copy-7u7KtCw$default (Lcom/atproto/repo/DeleteRecordRequest;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/DeleteRecordRequest;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
 	public final fun getRepo ()Lsh/christian/ozone/api/AtIdentifier;
-	public final fun getRkey ()Ljava/lang/String;
+	public final fun getRkey-I04nEKc ()Ljava/lang/String;
 	public final fun getSwapCommit-OC6CE0s ()Ljava/lang/String;
 	public final fun getSwapRecord-OC6CE0s ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -11390,15 +11750,15 @@ public final class com/atproto/repo/GetRecordQueryParams {
 	public final fun asList ()Ljava/util/List;
 	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2-Ley70Jo ()Ljava/lang/String;
-	public final fun component3 ()Ljava/lang/String;
+	public final fun component3-I04nEKc ()Ljava/lang/String;
 	public final fun component4-OC6CE0s ()Ljava/lang/String;
-	public final fun copy--amocy0 (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/repo/GetRecordQueryParams;
-	public static synthetic fun copy--amocy0$default (Lcom/atproto/repo/GetRecordQueryParams;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/GetRecordQueryParams;
+	public final fun copy-7lG3cSI (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/repo/GetRecordQueryParams;
+	public static synthetic fun copy-7lG3cSI$default (Lcom/atproto/repo/GetRecordQueryParams;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/GetRecordQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCid-OC6CE0s ()Ljava/lang/String;
 	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
 	public final fun getRepo ()Lsh/christian/ozone/api/AtIdentifier;
-	public final fun getRkey ()Ljava/lang/String;
+	public final fun getRkey-I04nEKc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -11559,18 +11919,18 @@ public final class com/atproto/repo/PutRecordRequest {
 	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2-Ley70Jo ()Ljava/lang/String;
-	public final fun component3 ()Ljava/lang/String;
+	public final fun component3-I04nEKc ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/Boolean;
 	public final fun component5 ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun component6-OC6CE0s ()Ljava/lang/String;
 	public final fun component7-OC6CE0s ()Ljava/lang/String;
-	public final fun copy-Et0lU_Y (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/repo/PutRecordRequest;
-	public static synthetic fun copy-Et0lU_Y$default (Lcom/atproto/repo/PutRecordRequest;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/PutRecordRequest;
+	public final fun copy-8pNr6io (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/repo/PutRecordRequest;
+	public static synthetic fun copy-8pNr6io$default (Lcom/atproto/repo/PutRecordRequest;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/repo/PutRecordRequest;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
 	public final fun getRecord ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun getRepo ()Lsh/christian/ozone/api/AtIdentifier;
-	public final fun getRkey ()Ljava/lang/String;
+	public final fun getRkey-I04nEKc ()Ljava/lang/String;
 	public final fun getSwapCommit-OC6CE0s ()Ljava/lang/String;
 	public final fun getSwapRecord-OC6CE0s ()Ljava/lang/String;
 	public final fun getValidate ()Ljava/lang/Boolean;
@@ -12687,12 +13047,12 @@ public final class com/atproto/sync/GetLatestCommitResponse {
 	public static final field Companion Lcom/atproto/sync/GetLatestCommitResponse$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-OA0YjOw ()Ljava/lang/String;
-	public final fun component2 ()Ljava/lang/String;
-	public final fun copy-C6Harzk (Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/sync/GetLatestCommitResponse;
-	public static synthetic fun copy-C6Harzk$default (Lcom/atproto/sync/GetLatestCommitResponse;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/sync/GetLatestCommitResponse;
+	public final fun component2-m01Zjwg ()Ljava/lang/String;
+	public final fun copy-AqIGPIY (Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/sync/GetLatestCommitResponse;
+	public static synthetic fun copy-AqIGPIY$default (Lcom/atproto/sync/GetLatestCommitResponse;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/sync/GetLatestCommitResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCid-OA0YjOw ()Ljava/lang/String;
-	public final fun getRev ()Ljava/lang/String;
+	public final fun getRev-m01Zjwg ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -12708,14 +13068,14 @@ public final class com/atproto/sync/GetRecordQueryParams {
 	public final fun asList ()Ljava/util/List;
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component2-Ley70Jo ()Ljava/lang/String;
-	public final fun component3 ()Ljava/lang/String;
+	public final fun component3-I04nEKc ()Ljava/lang/String;
 	public final fun component4-OC6CE0s ()Ljava/lang/String;
-	public final fun copy-QTueNNE (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/sync/GetRecordQueryParams;
-	public static synthetic fun copy-QTueNNE$default (Lcom/atproto/sync/GetRecordQueryParams;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/sync/GetRecordQueryParams;
+	public final fun copy-uUTfl_M (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/sync/GetRecordQueryParams;
+	public static synthetic fun copy-uUTfl_M$default (Lcom/atproto/sync/GetRecordQueryParams;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/sync/GetRecordQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
-	public final fun getRkey ()Ljava/lang/String;
+	public final fun getRkey-I04nEKc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -12730,12 +13090,12 @@ public final class com/atproto/sync/GetRepoQueryParams {
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Ljava/util/List;
 	public final fun component1-715Ygxc ()Ljava/lang/String;
-	public final fun component2 ()Ljava/lang/String;
-	public final fun copy-vy2gcmM (Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/sync/GetRepoQueryParams;
-	public static synthetic fun copy-vy2gcmM$default (Lcom/atproto/sync/GetRepoQueryParams;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/sync/GetRepoQueryParams;
+	public final fun component2-cnsKCKU ()Ljava/lang/String;
+	public final fun copy-swoOzq0 (Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/sync/GetRepoQueryParams;
+	public static synthetic fun copy-swoOzq0$default (Lcom/atproto/sync/GetRepoQueryParams;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/sync/GetRepoQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
-	public final fun getSince ()Ljava/lang/String;
+	public final fun getSince-cnsKCKU ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -12768,13 +13128,13 @@ public final class com/atproto/sync/GetRepoStatusResponse {
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component2 ()Z
 	public final fun component3 ()Lcom/atproto/sync/GetRepoStatusStatus;
-	public final fun component4 ()Ljava/lang/String;
-	public final fun copy-gUbersM (Ljava/lang/String;ZLcom/atproto/sync/GetRepoStatusStatus;Ljava/lang/String;)Lcom/atproto/sync/GetRepoStatusResponse;
-	public static synthetic fun copy-gUbersM$default (Lcom/atproto/sync/GetRepoStatusResponse;Ljava/lang/String;ZLcom/atproto/sync/GetRepoStatusStatus;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/sync/GetRepoStatusResponse;
+	public final fun component4-cnsKCKU ()Ljava/lang/String;
+	public final fun copy-5tZcTt0 (Ljava/lang/String;ZLcom/atproto/sync/GetRepoStatusStatus;Ljava/lang/String;)Lcom/atproto/sync/GetRepoStatusResponse;
+	public static synthetic fun copy-5tZcTt0$default (Lcom/atproto/sync/GetRepoStatusResponse;Ljava/lang/String;ZLcom/atproto/sync/GetRepoStatusStatus;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/sync/GetRepoStatusResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getActive ()Z
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
-	public final fun getRev ()Ljava/lang/String;
+	public final fun getRev-cnsKCKU ()Ljava/lang/String;
 	public final fun getStatus ()Lcom/atproto/sync/GetRepoStatusStatus;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -12802,6 +13162,20 @@ public final class com/atproto/sync/GetRepoStatusStatus$Deactivated : com/atprot
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class com/atproto/sync/GetRepoStatusStatus$Deleted : com/atproto/sync/GetRepoStatusStatus {
+	public static final field INSTANCE Lcom/atproto/sync/GetRepoStatusStatus$Deleted;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/GetRepoStatusStatus$Desynchronized : com/atproto/sync/GetRepoStatusStatus {
+	public static final field INSTANCE Lcom/atproto/sync/GetRepoStatusStatus$Desynchronized;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class com/atproto/sync/GetRepoStatusStatus$Suspended : com/atproto/sync/GetRepoStatusStatus {
 	public static final field INSTANCE Lcom/atproto/sync/GetRepoStatusStatus$Suspended;
 	public fun equals (Ljava/lang/Object;)Z
@@ -12811,6 +13185,13 @@ public final class com/atproto/sync/GetRepoStatusStatus$Suspended : com/atproto/
 
 public final class com/atproto/sync/GetRepoStatusStatus$Takendown : com/atproto/sync/GetRepoStatusStatus {
 	public static final field INSTANCE Lcom/atproto/sync/GetRepoStatusStatus$Takendown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/GetRepoStatusStatus$Throttled : com/atproto/sync/GetRepoStatusStatus {
+	public static final field INSTANCE Lcom/atproto/sync/GetRepoStatusStatus$Throttled;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -12842,16 +13223,16 @@ public final class com/atproto/sync/ListBlobsQueryParams {
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Ljava/util/List;
 	public final fun component1-715Ygxc ()Ljava/lang/String;
-	public final fun component2 ()Ljava/lang/String;
+	public final fun component2-cnsKCKU ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/Long;
 	public final fun component4 ()Ljava/lang/String;
-	public final fun copy-gUbersM (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lcom/atproto/sync/ListBlobsQueryParams;
-	public static synthetic fun copy-gUbersM$default (Lcom/atproto/sync/ListBlobsQueryParams;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/sync/ListBlobsQueryParams;
+	public final fun copy--_0OL4E (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lcom/atproto/sync/ListBlobsQueryParams;
+	public static synthetic fun copy--_0OL4E$default (Lcom/atproto/sync/ListBlobsQueryParams;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/sync/ListBlobsQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getLimit ()Ljava/lang/Long;
-	public final fun getSince ()Ljava/lang/String;
+	public final fun getSince-cnsKCKU ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -12963,16 +13344,16 @@ public final class com/atproto/sync/ListReposRepo {
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lcom/atproto/sync/ListReposStatus;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component2-OA0YjOw ()Ljava/lang/String;
-	public final fun component3 ()Ljava/lang/String;
+	public final fun component3-m01Zjwg ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/Boolean;
 	public final fun component5 ()Lcom/atproto/sync/ListReposStatus;
-	public final fun copy-ku2CKRk (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lcom/atproto/sync/ListReposStatus;)Lcom/atproto/sync/ListReposRepo;
-	public static synthetic fun copy-ku2CKRk$default (Lcom/atproto/sync/ListReposRepo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lcom/atproto/sync/ListReposStatus;ILjava/lang/Object;)Lcom/atproto/sync/ListReposRepo;
+	public final fun copy-3YaVoQo (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lcom/atproto/sync/ListReposStatus;)Lcom/atproto/sync/ListReposRepo;
+	public static synthetic fun copy-3YaVoQo$default (Lcom/atproto/sync/ListReposRepo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lcom/atproto/sync/ListReposStatus;ILjava/lang/Object;)Lcom/atproto/sync/ListReposRepo;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getActive ()Ljava/lang/Boolean;
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getHead-OA0YjOw ()Ljava/lang/String;
-	public final fun getRev ()Ljava/lang/String;
+	public final fun getRev-m01Zjwg ()Ljava/lang/String;
 	public final fun getStatus ()Lcom/atproto/sync/ListReposStatus;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -13019,6 +13400,20 @@ public final class com/atproto/sync/ListReposStatus$Deactivated : com/atproto/sy
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class com/atproto/sync/ListReposStatus$Deleted : com/atproto/sync/ListReposStatus {
+	public static final field INSTANCE Lcom/atproto/sync/ListReposStatus$Deleted;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/ListReposStatus$Desynchronized : com/atproto/sync/ListReposStatus {
+	public static final field INSTANCE Lcom/atproto/sync/ListReposStatus$Desynchronized;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class com/atproto/sync/ListReposStatus$Suspended : com/atproto/sync/ListReposStatus {
 	public static final field INSTANCE Lcom/atproto/sync/ListReposStatus$Suspended;
 	public fun equals (Ljava/lang/Object;)Z
@@ -13028,6 +13423,13 @@ public final class com/atproto/sync/ListReposStatus$Suspended : com/atproto/sync
 
 public final class com/atproto/sync/ListReposStatus$Takendown : com/atproto/sync/ListReposStatus {
 	public static final field INSTANCE Lcom/atproto/sync/ListReposStatus$Takendown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/ListReposStatus$Throttled : com/atproto/sync/ListReposStatus {
+	public static final field INSTANCE Lcom/atproto/sync/ListReposStatus$Throttled;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -13164,33 +13566,33 @@ public final class com/atproto/sync/SubscribeReposActionSerializer : kotlinx/ser
 
 public final class com/atproto/sync/SubscribeReposCommit {
 	public static final field Companion Lcom/atproto/sync/SubscribeReposCommit$Companion;
-	public synthetic fun <init> (JZZLjava/lang/String;[B[BLjava/lang/String;Ljava/lang/String;[BLjava/util/List;Ljava/util/List;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JZZLjava/lang/String;[B[BLjava/lang/String;Ljava/lang/String;[BLjava/util/List;Ljava/util/List;Lkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JZZLjava/lang/String;[BLjava/lang/String;Ljava/lang/String;[BLjava/util/List;Ljava/util/List;[BLkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JZZLjava/lang/String;[BLjava/lang/String;Ljava/lang/String;[BLjava/util/List;Ljava/util/List;[BLkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
 	public final fun component10 ()Ljava/util/List;
-	public final fun component11 ()Ljava/util/List;
+	public final fun component11 ()[B
 	public final fun component12 ()Lkotlinx/datetime/Instant;
 	public final fun component2 ()Z
 	public final fun component3 ()Z
 	public final fun component4-715Ygxc ()Ljava/lang/String;
 	public final fun component5 ()[B
-	public final fun component6 ()[B
-	public final fun component7 ()Ljava/lang/String;
-	public final fun component8 ()Ljava/lang/String;
-	public final fun component9 ()[B
-	public final fun copy-OwrDsB4 (JZZLjava/lang/String;[B[BLjava/lang/String;Ljava/lang/String;[BLjava/util/List;Ljava/util/List;Lkotlinx/datetime/Instant;)Lcom/atproto/sync/SubscribeReposCommit;
-	public static synthetic fun copy-OwrDsB4$default (Lcom/atproto/sync/SubscribeReposCommit;JZZLjava/lang/String;[B[BLjava/lang/String;Ljava/lang/String;[BLjava/util/List;Ljava/util/List;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lcom/atproto/sync/SubscribeReposCommit;
+	public final fun component6-m01Zjwg ()Ljava/lang/String;
+	public final fun component7-cnsKCKU ()Ljava/lang/String;
+	public final fun component8 ()[B
+	public final fun component9 ()Ljava/util/List;
+	public final fun copy-N9KEAR8 (JZZLjava/lang/String;[BLjava/lang/String;Ljava/lang/String;[BLjava/util/List;Ljava/util/List;[BLkotlinx/datetime/Instant;)Lcom/atproto/sync/SubscribeReposCommit;
+	public static synthetic fun copy-N9KEAR8$default (Lcom/atproto/sync/SubscribeReposCommit;JZZLjava/lang/String;[BLjava/lang/String;Ljava/lang/String;[BLjava/util/List;Ljava/util/List;[BLkotlinx/datetime/Instant;ILjava/lang/Object;)Lcom/atproto/sync/SubscribeReposCommit;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getBlobs ()Ljava/util/List;
 	public final fun getBlocks ()[B
 	public final fun getCommit ()[B
 	public final fun getOps ()Ljava/util/List;
+	public final fun getPrevData ()[B
 	public final fun getRepo-715Ygxc ()Ljava/lang/String;
-	public final fun getRev ()Ljava/lang/String;
+	public final fun getRev-m01Zjwg ()Ljava/lang/String;
 	public final fun getSeq ()J
-	public final fun getSince ()Ljava/lang/String;
+	public final fun getSince-cnsKCKU ()Ljava/lang/String;
 	public final fun getTime ()Lkotlinx/datetime/Instant;
-	public final fun getTooBig ()Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -13367,6 +13769,25 @@ public final class com/atproto/sync/SubscribeReposMessageUnion$Migrate$Companion
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/atproto/sync/SubscribeReposMessageUnion$Sync : com/atproto/sync/SubscribeReposMessageUnion {
+	public static final field Companion Lcom/atproto/sync/SubscribeReposMessageUnion$Sync$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/sync/SubscribeReposSync;)Lcom/atproto/sync/SubscribeReposMessageUnion$Sync;
+	public static fun constructor-impl (Lcom/atproto/sync/SubscribeReposSync;)Lcom/atproto/sync/SubscribeReposSync;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/sync/SubscribeReposSync;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/sync/SubscribeReposSync;Lcom/atproto/sync/SubscribeReposSync;)Z
+	public final fun getValue ()Lcom/atproto/sync/SubscribeReposSync;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/sync/SubscribeReposSync;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/sync/SubscribeReposSync;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/sync/SubscribeReposSync;
+}
+
+public final class com/atproto/sync/SubscribeReposMessageUnion$Sync$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/atproto/sync/SubscribeReposMessageUnion$Tombstone : com/atproto/sync/SubscribeReposMessageUnion {
 	public static final field Companion Lcom/atproto/sync/SubscribeReposMessageUnion$Tombstone$Companion;
 	public static final synthetic fun box-impl (Lcom/atproto/sync/SubscribeReposTombstone;)Lcom/atproto/sync/SubscribeReposMessageUnion$Tombstone;
@@ -13468,17 +13889,19 @@ public final class com/atproto/sync/SubscribeReposQueryParams$Companion {
 
 public final class com/atproto/sync/SubscribeReposRepoOp {
 	public static final field Companion Lcom/atproto/sync/SubscribeReposRepoOp$Companion;
-	public fun <init> (Lcom/atproto/sync/SubscribeReposAction;Ljava/lang/String;[B)V
-	public synthetic fun <init> (Lcom/atproto/sync/SubscribeReposAction;Ljava/lang/String;[BILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lcom/atproto/sync/SubscribeReposAction;Ljava/lang/String;[B[B)V
+	public synthetic fun <init> (Lcom/atproto/sync/SubscribeReposAction;Ljava/lang/String;[B[BILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lcom/atproto/sync/SubscribeReposAction;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()[B
-	public final fun copy (Lcom/atproto/sync/SubscribeReposAction;Ljava/lang/String;[B)Lcom/atproto/sync/SubscribeReposRepoOp;
-	public static synthetic fun copy$default (Lcom/atproto/sync/SubscribeReposRepoOp;Lcom/atproto/sync/SubscribeReposAction;Ljava/lang/String;[BILjava/lang/Object;)Lcom/atproto/sync/SubscribeReposRepoOp;
+	public final fun component4 ()[B
+	public final fun copy (Lcom/atproto/sync/SubscribeReposAction;Ljava/lang/String;[B[B)Lcom/atproto/sync/SubscribeReposRepoOp;
+	public static synthetic fun copy$default (Lcom/atproto/sync/SubscribeReposRepoOp;Lcom/atproto/sync/SubscribeReposAction;Ljava/lang/String;[B[BILjava/lang/Object;)Lcom/atproto/sync/SubscribeReposRepoOp;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAction ()Lcom/atproto/sync/SubscribeReposAction;
 	public final fun getCid ()[B
 	public final fun getPath ()Ljava/lang/String;
+	public final fun getPrev ()[B
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -13512,6 +13935,13 @@ public final class com/atproto/sync/SubscribeReposStatus$Deleted : com/atproto/s
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class com/atproto/sync/SubscribeReposStatus$Desynchronized : com/atproto/sync/SubscribeReposStatus {
+	public static final field INSTANCE Lcom/atproto/sync/SubscribeReposStatus$Desynchronized;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class com/atproto/sync/SubscribeReposStatus$Suspended : com/atproto/sync/SubscribeReposStatus {
 	public static final field INSTANCE Lcom/atproto/sync/SubscribeReposStatus$Suspended;
 	public fun equals (Ljava/lang/Object;)Z
@@ -13521,6 +13951,13 @@ public final class com/atproto/sync/SubscribeReposStatus$Suspended : com/atproto
 
 public final class com/atproto/sync/SubscribeReposStatus$Takendown : com/atproto/sync/SubscribeReposStatus {
 	public static final field INSTANCE Lcom/atproto/sync/SubscribeReposStatus$Takendown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/SubscribeReposStatus$Throttled : com/atproto/sync/SubscribeReposStatus {
+	public static final field INSTANCE Lcom/atproto/sync/SubscribeReposStatus$Throttled;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -13544,6 +13981,30 @@ public final class com/atproto/sync/SubscribeReposStatusSerializer : kotlinx/ser
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/sync/SubscribeReposStatus;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class com/atproto/sync/SubscribeReposSync {
+	public static final field Companion Lcom/atproto/sync/SubscribeReposSync$Companion;
+	public synthetic fun <init> (JLjava/lang/String;[BLjava/lang/String;Lkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component2-715Ygxc ()Ljava/lang/String;
+	public final fun component3 ()[B
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Lkotlinx/datetime/Instant;
+	public final fun copy-HTZSsLY (JLjava/lang/String;[BLjava/lang/String;Lkotlinx/datetime/Instant;)Lcom/atproto/sync/SubscribeReposSync;
+	public static synthetic fun copy-HTZSsLY$default (Lcom/atproto/sync/SubscribeReposSync;JLjava/lang/String;[BLjava/lang/String;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lcom/atproto/sync/SubscribeReposSync;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBlocks ()[B
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public final fun getSeq ()J
+	public final fun getTime ()Lkotlinx/datetime/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/SubscribeReposSync$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class com/atproto/sync/SubscribeReposTombstone$Companion {
@@ -13646,6 +14107,7 @@ public final class com/atproto/temp/RequestPhoneVerificationRequest$Companion {
 }
 
 public abstract interface class sh/christian/ozone/BlueskyApi {
+	public abstract fun acceptConvo (Lchat/bsky/convo/AcceptConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun activateAccount (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun addMember (Ltools/ozone/team/AddMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun addReservedHandle (Lcom/atproto/temp/AddReservedHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -13697,6 +14159,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getConfig (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConfigUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getConvoAvailability (Lchat/bsky/convo/GetConvoAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFeed (Lapp/bsky/feed/GetFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -13839,6 +14302,7 @@ public final class sh/christian/ozone/BlueskyJsonKt {
 public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/BlueskyApi {
 	public fun <init> ()V
 	public fun <init> (Lio/ktor/client/HttpClient;)V
+	public fun acceptConvo (Lchat/bsky/convo/AcceptConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun activateAccount (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun addMember (Ltools/ozone/team/AddMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun addReservedHandle (Lcom/atproto/temp/AddReservedHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -13890,6 +14354,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getConfig (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConfigUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConvoAvailability (Lchat/bsky/convo/GetConvoAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFeed (Lapp/bsky/feed/GetFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -14030,6 +14495,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun <init> (Lio/ktor/client/HttpClient;Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;)V
 	public synthetic fun <init> (Lio/ktor/client/HttpClient;Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (Lsh/christian/ozone/XrpcBlueskyApi;Lkotlinx/coroutines/flow/MutableStateFlow;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun acceptConvo (Lchat/bsky/convo/AcceptConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun activateAccount (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun addMember (Ltools/ozone/team/AddMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun addReservedHandle (Lcom/atproto/temp/AddReservedHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -14083,6 +14549,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getConfig (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConfigUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConvoAvailability (Lchat/bsky/convo/GetConvoAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFeed (Lapp/bsky/feed/GetFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -14658,6 +15125,25 @@ public final class tools/ozone/moderation/EmitEventRequestEventUnion$ModEventCom
 }
 
 public final class tools/ozone/moderation/EmitEventRequestEventUnion$ModEventComment$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$ModEventDivert : tools/ozone/moderation/EmitEventRequestEventUnion {
+	public static final field Companion Ltools/ozone/moderation/EmitEventRequestEventUnion$ModEventDivert$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/ModEventDivert;)Ltools/ozone/moderation/EmitEventRequestEventUnion$ModEventDivert;
+	public static fun constructor-impl (Ltools/ozone/moderation/ModEventDivert;)Ltools/ozone/moderation/ModEventDivert;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/ModEventDivert;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/ModEventDivert;Ltools/ozone/moderation/ModEventDivert;)Z
+	public final fun getValue ()Ltools/ozone/moderation/ModEventDivert;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/ModEventDivert;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/ModEventDivert;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/ModEventDivert;
+}
+
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$ModEventDivert$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
