@@ -9185,6 +9185,85 @@ public final class chat/bsky/convo/UnmuteConvoResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class chat/bsky/convo/UpdateAllReadRequest {
+	public static final field Companion Lchat/bsky/convo/UpdateAllReadRequest$Companion;
+	public fun <init> ()V
+	public fun <init> (Lchat/bsky/convo/UpdateAllReadStatus;)V
+	public synthetic fun <init> (Lchat/bsky/convo/UpdateAllReadStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lchat/bsky/convo/UpdateAllReadStatus;
+	public final fun copy (Lchat/bsky/convo/UpdateAllReadStatus;)Lchat/bsky/convo/UpdateAllReadRequest;
+	public static synthetic fun copy$default (Lchat/bsky/convo/UpdateAllReadRequest;Lchat/bsky/convo/UpdateAllReadStatus;ILjava/lang/Object;)Lchat/bsky/convo/UpdateAllReadRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStatus ()Lchat/bsky/convo/UpdateAllReadStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/UpdateAllReadRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/UpdateAllReadResponse {
+	public static final field Companion Lchat/bsky/convo/UpdateAllReadResponse$Companion;
+	public fun <init> (J)V
+	public final fun component1 ()J
+	public final fun copy (J)Lchat/bsky/convo/UpdateAllReadResponse;
+	public static synthetic fun copy$default (Lchat/bsky/convo/UpdateAllReadResponse;JILjava/lang/Object;)Lchat/bsky/convo/UpdateAllReadResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getUpdatedCount ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/UpdateAllReadResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class chat/bsky/convo/UpdateAllReadStatus : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lchat/bsky/convo/UpdateAllReadStatus$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/UpdateAllReadStatus$Accepted : chat/bsky/convo/UpdateAllReadStatus {
+	public static final field INSTANCE Lchat/bsky/convo/UpdateAllReadStatus$Accepted;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/UpdateAllReadStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lchat/bsky/convo/UpdateAllReadStatus;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/UpdateAllReadStatus$Request : chat/bsky/convo/UpdateAllReadStatus {
+	public static final field INSTANCE Lchat/bsky/convo/UpdateAllReadStatus$Request;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/UpdateAllReadStatus$Unknown : chat/bsky/convo/UpdateAllReadStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/convo/UpdateAllReadStatus$Unknown;
+	public static synthetic fun copy$default (Lchat/bsky/convo/UpdateAllReadStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/UpdateAllReadStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/UpdateAllReadStatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/UpdateAllReadStatus;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/UpdateAllReadStatus;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
 public final class chat/bsky/convo/UpdateReadRequest {
 	public static final field Companion Lchat/bsky/convo/UpdateReadRequest$Companion;
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
@@ -14282,6 +14361,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun updateAccountHandle (Lcom/atproto/admin/UpdateAccountHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateAccountPassword (Lcom/atproto/admin/UpdateAccountPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateActorAccess (Lchat/bsky/moderation/UpdateActorAccessRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun updateAllRead (Lchat/bsky/convo/UpdateAllReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateMember (Ltools/ozone/team/UpdateMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -14477,6 +14557,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun updateAccountHandle (Lcom/atproto/admin/UpdateAccountHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateAccountPassword (Lcom/atproto/admin/UpdateAccountPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateActorAccess (Lchat/bsky/moderation/UpdateActorAccessRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateAllRead (Lchat/bsky/convo/UpdateAllReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateMember (Ltools/ozone/team/UpdateMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -14672,6 +14753,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun updateAccountHandle (Lcom/atproto/admin/UpdateAccountHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateAccountPassword (Lcom/atproto/admin/UpdateAccountPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateActorAccess (Lchat/bsky/moderation/UpdateActorAccessRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateAllRead (Lchat/bsky/convo/UpdateAllReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateMember (Ltools/ozone/team/UpdateMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -15845,6 +15927,7 @@ public final class tools/ozone/moderation/ModEventAcknowledge$Companion {
 
 public final class tools/ozone/moderation/ModEventComment {
 	public static final field Companion Ltools/ozone/moderation/ModEventComment$Companion;
+	public fun <init> ()V
 	public fun <init> (Ljava/lang/String;Ljava/lang/Boolean;)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
