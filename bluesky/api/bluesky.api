@@ -13826,10 +13826,6 @@ public final class com/atproto/sync/SubscribeReposCommit$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/sync/SubscribeReposHandle$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
 public final class com/atproto/sync/SubscribeReposIdentity {
 	public static final field Companion Lcom/atproto/sync/SubscribeReposIdentity$Companion;
 	public synthetic fun <init> (JLjava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -13918,25 +13914,6 @@ public final class com/atproto/sync/SubscribeReposMessageUnion$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/sync/SubscribeReposMessageUnion$Handle : com/atproto/sync/SubscribeReposMessageUnion {
-	public static final field Companion Lcom/atproto/sync/SubscribeReposMessageUnion$Handle$Companion;
-	public static final synthetic fun box-impl (Lcom/atproto/sync/SubscribeReposHandle;)Lcom/atproto/sync/SubscribeReposMessageUnion$Handle;
-	public static fun constructor-impl (Lcom/atproto/sync/SubscribeReposHandle;)Lcom/atproto/sync/SubscribeReposHandle;
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lcom/atproto/sync/SubscribeReposHandle;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lcom/atproto/sync/SubscribeReposHandle;Lcom/atproto/sync/SubscribeReposHandle;)Z
-	public final fun getValue ()Lcom/atproto/sync/SubscribeReposHandle;
-	public fun hashCode ()I
-	public static fun hashCode-impl (Lcom/atproto/sync/SubscribeReposHandle;)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lcom/atproto/sync/SubscribeReposHandle;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lcom/atproto/sync/SubscribeReposHandle;
-}
-
-public final class com/atproto/sync/SubscribeReposMessageUnion$Handle$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
 public final class com/atproto/sync/SubscribeReposMessageUnion$Identity : com/atproto/sync/SubscribeReposMessageUnion {
 	public static final field Companion Lcom/atproto/sync/SubscribeReposMessageUnion$Identity$Companion;
 	public static final synthetic fun box-impl (Lcom/atproto/sync/SubscribeReposIdentity;)Lcom/atproto/sync/SubscribeReposMessageUnion$Identity;
@@ -13975,25 +13952,6 @@ public final class com/atproto/sync/SubscribeReposMessageUnion$Info$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/sync/SubscribeReposMessageUnion$Migrate : com/atproto/sync/SubscribeReposMessageUnion {
-	public static final field Companion Lcom/atproto/sync/SubscribeReposMessageUnion$Migrate$Companion;
-	public static final synthetic fun box-impl (Lcom/atproto/sync/SubscribeReposMigrate;)Lcom/atproto/sync/SubscribeReposMessageUnion$Migrate;
-	public static fun constructor-impl (Lcom/atproto/sync/SubscribeReposMigrate;)Lcom/atproto/sync/SubscribeReposMigrate;
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lcom/atproto/sync/SubscribeReposMigrate;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lcom/atproto/sync/SubscribeReposMigrate;Lcom/atproto/sync/SubscribeReposMigrate;)Z
-	public final fun getValue ()Lcom/atproto/sync/SubscribeReposMigrate;
-	public fun hashCode ()I
-	public static fun hashCode-impl (Lcom/atproto/sync/SubscribeReposMigrate;)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lcom/atproto/sync/SubscribeReposMigrate;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lcom/atproto/sync/SubscribeReposMigrate;
-}
-
-public final class com/atproto/sync/SubscribeReposMessageUnion$Migrate$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
 public final class com/atproto/sync/SubscribeReposMessageUnion$Sync : com/atproto/sync/SubscribeReposMessageUnion {
 	public static final field Companion Lcom/atproto/sync/SubscribeReposMessageUnion$Sync$Companion;
 	public static final synthetic fun box-impl (Lcom/atproto/sync/SubscribeReposSync;)Lcom/atproto/sync/SubscribeReposMessageUnion$Sync;
@@ -14013,25 +13971,6 @@ public final class com/atproto/sync/SubscribeReposMessageUnion$Sync$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/sync/SubscribeReposMessageUnion$Tombstone : com/atproto/sync/SubscribeReposMessageUnion {
-	public static final field Companion Lcom/atproto/sync/SubscribeReposMessageUnion$Tombstone$Companion;
-	public static final synthetic fun box-impl (Lcom/atproto/sync/SubscribeReposTombstone;)Lcom/atproto/sync/SubscribeReposMessageUnion$Tombstone;
-	public static fun constructor-impl (Lcom/atproto/sync/SubscribeReposTombstone;)Lcom/atproto/sync/SubscribeReposTombstone;
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lcom/atproto/sync/SubscribeReposTombstone;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lcom/atproto/sync/SubscribeReposTombstone;Lcom/atproto/sync/SubscribeReposTombstone;)Z
-	public final fun getValue ()Lcom/atproto/sync/SubscribeReposTombstone;
-	public fun hashCode ()I
-	public static fun hashCode-impl (Lcom/atproto/sync/SubscribeReposTombstone;)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lcom/atproto/sync/SubscribeReposTombstone;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lcom/atproto/sync/SubscribeReposTombstone;
-}
-
-public final class com/atproto/sync/SubscribeReposMessageUnion$Tombstone$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
 public final class com/atproto/sync/SubscribeReposMessageUnion$Unknown : com/atproto/sync/SubscribeReposMessageUnion {
 	public static final field Companion Lcom/atproto/sync/SubscribeReposMessageUnion$Unknown$Companion;
 	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lcom/atproto/sync/SubscribeReposMessageUnion$Unknown;
@@ -14048,10 +13987,6 @@ public final class com/atproto/sync/SubscribeReposMessageUnion$Unknown : com/atp
 }
 
 public final class com/atproto/sync/SubscribeReposMessageUnion$Unknown$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/sync/SubscribeReposMigrate$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -14229,10 +14164,6 @@ public final class com/atproto/sync/SubscribeReposSync {
 }
 
 public final class com/atproto/sync/SubscribeReposSync$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class com/atproto/sync/SubscribeReposTombstone$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
