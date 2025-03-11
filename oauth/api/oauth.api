@@ -1,0 +1,92 @@
+public final class sh/christian/ozone/oauth/CryptographicRandom : kotlin/random/Random {
+	public fun <init> ()V
+	public fun nextBits (I)I
+}
+
+public final class sh/christian/ozone/oauth/OAuthApi {
+	public static final field Companion Lsh/christian/ozone/oauth/OAuthApi$Companion;
+	public fun <init> ()V
+	public fun <init> (Lio/ktor/client/HttpClient;Lsh/christian/ozone/oauth/OAuthCodeChallengeMethodSelector;Lkotlin/random/Random;)V
+	public synthetic fun <init> (Lio/ktor/client/HttpClient;Lsh/christian/ozone/oauth/OAuthCodeChallengeMethodSelector;Lkotlin/random/Random;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun buildAuthorizationRequest (Lsh/christian/ozone/oauth/OAuthClient;Ljava/util/List;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun buildAuthorizationRequest$default (Lsh/christian/ozone/oauth/OAuthApi;Lsh/christian/ozone/oauth/OAuthClient;Ljava/util/List;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class sh/christian/ozone/oauth/OAuthApi$Companion {
+}
+
+public final class sh/christian/ozone/oauth/OAuthAuthorizationRequest {
+	public synthetic fun <init> (Lio/ktor/http/Url;JLjava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lio/ktor/http/Url;
+	public final fun component2-UwyO8pc ()J
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy-dWUq8MI (Lio/ktor/http/Url;JLjava/lang/String;Ljava/lang/String;)Lsh/christian/ozone/oauth/OAuthAuthorizationRequest;
+	public static synthetic fun copy-dWUq8MI$default (Lsh/christian/ozone/oauth/OAuthAuthorizationRequest;Lio/ktor/http/Url;JLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lsh/christian/ozone/oauth/OAuthAuthorizationRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAuthorizeRequestUrl ()Lio/ktor/http/Url;
+	public final fun getExpiresIn-UwyO8pc ()J
+	public final fun getNonce ()Ljava/lang/String;
+	public final fun getState ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class sh/christian/ozone/oauth/OAuthClient {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lsh/christian/ozone/oauth/OAuthClient;
+	public static synthetic fun copy$default (Lsh/christian/ozone/oauth/OAuthClient;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lsh/christian/ozone/oauth/OAuthClient;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getClientId ()Ljava/lang/String;
+	public final fun getRedirectUri ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract class sh/christian/ozone/oauth/OAuthCodeChallengeMethod {
+	public fun <init> (Ljava/lang/String;)V
+	public fun getMethod ()Ljava/lang/String;
+	public abstract fun provideCodeChallenge (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class sh/christian/ozone/oauth/OAuthCodeChallengeMethod$Plain : sh/christian/ozone/oauth/OAuthCodeChallengeMethod {
+	public static final field INSTANCE Lsh/christian/ozone/oauth/OAuthCodeChallengeMethod$Plain;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun provideCodeChallenge (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class sh/christian/ozone/oauth/OAuthCodeChallengeMethod$S256 : sh/christian/ozone/oauth/OAuthCodeChallengeMethod {
+	public static final field INSTANCE Lsh/christian/ozone/oauth/OAuthCodeChallengeMethod$S256;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun provideCodeChallenge (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class sh/christian/ozone/oauth/OAuthCodeChallengeMethodSelector {
+	public abstract fun selectCodeChallengeMethod (Ljava/util/List;)Lsh/christian/ozone/oauth/OAuthCodeChallengeMethod;
+}
+
+public final class sh/christian/ozone/oauth/OAuthScope {
+	public static final field Companion Lsh/christian/ozone/oauth/OAuthScope$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lsh/christian/ozone/oauth/OAuthScope;
+	public static synthetic fun copy$default (Lsh/christian/ozone/oauth/OAuthScope;Ljava/lang/String;ILjava/lang/Object;)Lsh/christian/ozone/oauth/OAuthScope;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class sh/christian/ozone/oauth/OAuthScope$Companion {
+	public final fun getAtProto ()Lsh/christian/ozone/oauth/OAuthScope;
+	public final fun getBlueskyChat ()Lsh/christian/ozone/oauth/OAuthScope;
+	public final fun getEmail ()Lsh/christian/ozone/oauth/OAuthScope;
+	public final fun getGeneric ()Lsh/christian/ozone/oauth/OAuthScope;
+}
+
