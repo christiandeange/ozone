@@ -9398,14 +9398,12 @@ public final class chat/bsky/convo/MuteConvoResponse$Companion {
 
 public final class chat/bsky/convo/ReactionView {
 	public static final field Companion Lchat/bsky/convo/ReactionView$Companion;
-	public fun <init> (Ljava/lang/String;Lchat/bsky/convo/ReactionViewSender;Lkotlinx/datetime/Instant;)V
+	public fun <init> (Ljava/lang/String;Lchat/bsky/convo/ReactionViewSender;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Lchat/bsky/convo/ReactionViewSender;
-	public final fun component3 ()Lkotlinx/datetime/Instant;
-	public final fun copy (Ljava/lang/String;Lchat/bsky/convo/ReactionViewSender;Lkotlinx/datetime/Instant;)Lchat/bsky/convo/ReactionView;
-	public static synthetic fun copy$default (Lchat/bsky/convo/ReactionView;Ljava/lang/String;Lchat/bsky/convo/ReactionViewSender;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lchat/bsky/convo/ReactionView;
+	public final fun copy (Ljava/lang/String;Lchat/bsky/convo/ReactionViewSender;)Lchat/bsky/convo/ReactionView;
+	public static synthetic fun copy$default (Lchat/bsky/convo/ReactionView;Ljava/lang/String;Lchat/bsky/convo/ReactionViewSender;ILjava/lang/Object;)Lchat/bsky/convo/ReactionView;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
 	public final fun getSender ()Lchat/bsky/convo/ReactionViewSender;
 	public final fun getValue ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -14780,6 +14778,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getStarterPack (Lapp/bsky/graph/GetStarterPackQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getStarterPacks (Lapp/bsky/graph/GetStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSubjectStatus (Lcom/atproto/admin/GetSubjectStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getSubjects (Ltools/ozone/moderation/GetSubjectsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSuggestedFollowsByActor (Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSuggestions (Lapp/bsky/actor/GetSuggestionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -14981,6 +14980,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getStarterPack (Lapp/bsky/graph/GetStarterPackQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getStarterPacks (Lapp/bsky/graph/GetStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSubjectStatus (Lcom/atproto/admin/GetSubjectStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getSubjects (Ltools/ozone/moderation/GetSubjectsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestedFollowsByActor (Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestions (Lapp/bsky/actor/GetSuggestionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -15182,6 +15182,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getStarterPack (Lapp/bsky/graph/GetStarterPackQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getStarterPacks (Lapp/bsky/graph/GetStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSubjectStatus (Lcom/atproto/admin/GetSubjectStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getSubjects (Ltools/ozone/moderation/GetSubjectsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestedFollowsByActor (Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestions (Lapp/bsky/actor/GetSuggestionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -16367,6 +16368,39 @@ public final class tools/ozone/moderation/GetReposResponseRepoUnion$Unknown : to
 }
 
 public final class tools/ozone/moderation/GetReposResponseRepoUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/GetSubjectsQueryParams {
+	public static final field Companion Ltools/ozone/moderation/GetSubjectsQueryParams$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Ltools/ozone/moderation/GetSubjectsQueryParams;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/GetSubjectsQueryParams;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/moderation/GetSubjectsQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSubjects ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/GetSubjectsQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/GetSubjectsResponse {
+	public static final field Companion Ltools/ozone/moderation/GetSubjectsResponse$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Ltools/ozone/moderation/GetSubjectsResponse;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/GetSubjectsResponse;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/moderation/GetSubjectsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSubjects ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/GetSubjectsResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -18686,6 +18720,60 @@ public final class tools/ozone/moderation/SubjectStatusViewSubjectUnion$Unknown 
 }
 
 public final class tools/ozone/moderation/SubjectStatusViewSubjectUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/SubjectView {
+	public static final field Companion Ltools/ozone/moderation/SubjectView$Companion;
+	public fun <init> (Lcom/atproto/moderation/SubjectType;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ltools/ozone/moderation/RepoViewDetail;Ltools/ozone/moderation/SubjectViewProfileUnion;Ltools/ozone/moderation/RecordViewDetail;)V
+	public synthetic fun <init> (Lcom/atproto/moderation/SubjectType;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ltools/ozone/moderation/RepoViewDetail;Ltools/ozone/moderation/SubjectViewProfileUnion;Ltools/ozone/moderation/RecordViewDetail;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/atproto/moderation/SubjectType;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ltools/ozone/moderation/SubjectStatusView;
+	public final fun component4 ()Ltools/ozone/moderation/RepoViewDetail;
+	public final fun component5 ()Ltools/ozone/moderation/SubjectViewProfileUnion;
+	public final fun component6 ()Ltools/ozone/moderation/RecordViewDetail;
+	public final fun copy (Lcom/atproto/moderation/SubjectType;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ltools/ozone/moderation/RepoViewDetail;Ltools/ozone/moderation/SubjectViewProfileUnion;Ltools/ozone/moderation/RecordViewDetail;)Ltools/ozone/moderation/SubjectView;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/SubjectType;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ltools/ozone/moderation/RepoViewDetail;Ltools/ozone/moderation/SubjectViewProfileUnion;Ltools/ozone/moderation/RecordViewDetail;ILjava/lang/Object;)Ltools/ozone/moderation/SubjectView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getProfile ()Ltools/ozone/moderation/SubjectViewProfileUnion;
+	public final fun getRecord ()Ltools/ozone/moderation/RecordViewDetail;
+	public final fun getRepo ()Ltools/ozone/moderation/RepoViewDetail;
+	public final fun getStatus ()Ltools/ozone/moderation/SubjectStatusView;
+	public final fun getSubject ()Ljava/lang/String;
+	public final fun getType ()Lcom/atproto/moderation/SubjectType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/SubjectView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class tools/ozone/moderation/SubjectViewProfileUnion {
+	public static final field Companion Ltools/ozone/moderation/SubjectViewProfileUnion$Companion;
+}
+
+public final class tools/ozone/moderation/SubjectViewProfileUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/SubjectViewProfileUnion$Unknown : tools/ozone/moderation/SubjectViewProfileUnion {
+	public static final field Companion Ltools/ozone/moderation/SubjectViewProfileUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/moderation/SubjectViewProfileUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/moderation/SubjectViewProfileUnion$Unknown$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
