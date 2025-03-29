@@ -7872,20 +7872,22 @@ public final class chat/bsky/convo/AddReactionResponse$Companion {
 
 public final class chat/bsky/convo/ConvoView {
 	public static final field Companion Lchat/bsky/convo/ConvoView$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lchat/bsky/convo/ConvoViewLastMessageUnion;ZLchat/bsky/convo/Status;J)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lchat/bsky/convo/ConvoViewLastMessageUnion;ZLchat/bsky/convo/Status;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lchat/bsky/convo/ConvoViewLastMessageUnion;Lchat/bsky/convo/ConvoViewLastReactionUnion;ZLchat/bsky/convo/Status;J)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lchat/bsky/convo/ConvoViewLastMessageUnion;Lchat/bsky/convo/ConvoViewLastReactionUnion;ZLchat/bsky/convo/Status;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/util/List;
 	public final fun component4 ()Lchat/bsky/convo/ConvoViewLastMessageUnion;
-	public final fun component5 ()Z
-	public final fun component6 ()Lchat/bsky/convo/Status;
-	public final fun component7 ()J
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lchat/bsky/convo/ConvoViewLastMessageUnion;ZLchat/bsky/convo/Status;J)Lchat/bsky/convo/ConvoView;
-	public static synthetic fun copy$default (Lchat/bsky/convo/ConvoView;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lchat/bsky/convo/ConvoViewLastMessageUnion;ZLchat/bsky/convo/Status;JILjava/lang/Object;)Lchat/bsky/convo/ConvoView;
+	public final fun component5 ()Lchat/bsky/convo/ConvoViewLastReactionUnion;
+	public final fun component6 ()Z
+	public final fun component7 ()Lchat/bsky/convo/Status;
+	public final fun component8 ()J
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lchat/bsky/convo/ConvoViewLastMessageUnion;Lchat/bsky/convo/ConvoViewLastReactionUnion;ZLchat/bsky/convo/Status;J)Lchat/bsky/convo/ConvoView;
+	public static synthetic fun copy$default (Lchat/bsky/convo/ConvoView;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lchat/bsky/convo/ConvoViewLastMessageUnion;Lchat/bsky/convo/ConvoViewLastReactionUnion;ZLchat/bsky/convo/Status;JILjava/lang/Object;)Lchat/bsky/convo/ConvoView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getId ()Ljava/lang/String;
 	public final fun getLastMessage ()Lchat/bsky/convo/ConvoViewLastMessageUnion;
+	public final fun getLastReaction ()Lchat/bsky/convo/ConvoViewLastReactionUnion;
 	public final fun getMembers ()Ljava/util/List;
 	public final fun getMuted ()Z
 	public final fun getRev ()Ljava/lang/String;
@@ -7926,25 +7928,6 @@ public final class chat/bsky/convo/ConvoViewLastMessageUnion$DeletedMessageView$
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class chat/bsky/convo/ConvoViewLastMessageUnion$MessageAndReactionView : chat/bsky/convo/ConvoViewLastMessageUnion {
-	public static final field Companion Lchat/bsky/convo/ConvoViewLastMessageUnion$MessageAndReactionView$Companion;
-	public static final synthetic fun box-impl (Lchat/bsky/convo/MessageAndReactionView;)Lchat/bsky/convo/ConvoViewLastMessageUnion$MessageAndReactionView;
-	public static fun constructor-impl (Lchat/bsky/convo/MessageAndReactionView;)Lchat/bsky/convo/MessageAndReactionView;
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lchat/bsky/convo/MessageAndReactionView;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lchat/bsky/convo/MessageAndReactionView;Lchat/bsky/convo/MessageAndReactionView;)Z
-	public final fun getValue ()Lchat/bsky/convo/MessageAndReactionView;
-	public fun hashCode ()I
-	public static fun hashCode-impl (Lchat/bsky/convo/MessageAndReactionView;)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lchat/bsky/convo/MessageAndReactionView;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lchat/bsky/convo/MessageAndReactionView;
-}
-
-public final class chat/bsky/convo/ConvoViewLastMessageUnion$MessageAndReactionView$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
 public final class chat/bsky/convo/ConvoViewLastMessageUnion$MessageView : chat/bsky/convo/ConvoViewLastMessageUnion {
 	public static final field Companion Lchat/bsky/convo/ConvoViewLastMessageUnion$MessageView$Companion;
 	public static final synthetic fun box-impl (Lchat/bsky/convo/MessageView;)Lchat/bsky/convo/ConvoViewLastMessageUnion$MessageView;
@@ -7980,6 +7963,52 @@ public final class chat/bsky/convo/ConvoViewLastMessageUnion$Unknown : chat/bsky
 }
 
 public final class chat/bsky/convo/ConvoViewLastMessageUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class chat/bsky/convo/ConvoViewLastReactionUnion {
+	public static final field Companion Lchat/bsky/convo/ConvoViewLastReactionUnion$Companion;
+}
+
+public final class chat/bsky/convo/ConvoViewLastReactionUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/ConvoViewLastReactionUnion$MessageAndReactionView : chat/bsky/convo/ConvoViewLastReactionUnion {
+	public static final field Companion Lchat/bsky/convo/ConvoViewLastReactionUnion$MessageAndReactionView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/MessageAndReactionView;)Lchat/bsky/convo/ConvoViewLastReactionUnion$MessageAndReactionView;
+	public static fun constructor-impl (Lchat/bsky/convo/MessageAndReactionView;)Lchat/bsky/convo/MessageAndReactionView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/MessageAndReactionView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/MessageAndReactionView;Lchat/bsky/convo/MessageAndReactionView;)Z
+	public final fun getValue ()Lchat/bsky/convo/MessageAndReactionView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/MessageAndReactionView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/MessageAndReactionView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/MessageAndReactionView;
+}
+
+public final class chat/bsky/convo/ConvoViewLastReactionUnion$MessageAndReactionView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/ConvoViewLastReactionUnion$Unknown : chat/bsky/convo/ConvoViewLastReactionUnion {
+	public static final field Companion Lchat/bsky/convo/ConvoViewLastReactionUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lchat/bsky/convo/ConvoViewLastReactionUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class chat/bsky/convo/ConvoViewLastReactionUnion$Unknown$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -9398,12 +9427,14 @@ public final class chat/bsky/convo/MuteConvoResponse$Companion {
 
 public final class chat/bsky/convo/ReactionView {
 	public static final field Companion Lchat/bsky/convo/ReactionView$Companion;
-	public fun <init> (Ljava/lang/String;Lchat/bsky/convo/ReactionViewSender;)V
+	public fun <init> (Ljava/lang/String;Lchat/bsky/convo/ReactionViewSender;Lkotlinx/datetime/Instant;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Lchat/bsky/convo/ReactionViewSender;
-	public final fun copy (Ljava/lang/String;Lchat/bsky/convo/ReactionViewSender;)Lchat/bsky/convo/ReactionView;
-	public static synthetic fun copy$default (Lchat/bsky/convo/ReactionView;Ljava/lang/String;Lchat/bsky/convo/ReactionViewSender;ILjava/lang/Object;)Lchat/bsky/convo/ReactionView;
+	public final fun component3 ()Lkotlinx/datetime/Instant;
+	public final fun copy (Ljava/lang/String;Lchat/bsky/convo/ReactionViewSender;Lkotlinx/datetime/Instant;)Lchat/bsky/convo/ReactionView;
+	public static synthetic fun copy$default (Lchat/bsky/convo/ReactionView;Ljava/lang/String;Lchat/bsky/convo/ReactionViewSender;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lchat/bsky/convo/ReactionView;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
 	public final fun getSender ()Lchat/bsky/convo/ReactionViewSender;
 	public final fun getValue ()Ljava/lang/String;
 	public fun hashCode ()I
