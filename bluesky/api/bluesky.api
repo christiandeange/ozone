@@ -10529,6 +10529,24 @@ public final class com/atproto/admin/UpdateAccountPasswordRequest$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/atproto/admin/UpdateAccountSigningKeyRequest {
+	public static final field Companion Lcom/atproto/admin/UpdateAccountSigningKeyRequest$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2-715Ygxc ()Ljava/lang/String;
+	public final fun copy-vjBnsU8 (Ljava/lang/String;Ljava/lang/String;)Lcom/atproto/admin/UpdateAccountSigningKeyRequest;
+	public static synthetic fun copy-vjBnsU8$default (Lcom/atproto/admin/UpdateAccountSigningKeyRequest;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/admin/UpdateAccountSigningKeyRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getSigningKey-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/admin/UpdateAccountSigningKeyRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/atproto/admin/UpdateSubjectStatusRequest {
 	public static final field Companion Lcom/atproto/admin/UpdateSubjectStatusRequest$Companion;
 	public fun <init> (Lcom/atproto/admin/UpdateSubjectStatusRequestSubjectUnion;Lcom/atproto/admin/StatusAttr;Lcom/atproto/admin/StatusAttr;)V
@@ -14888,6 +14906,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun updateAccountEmail (Lcom/atproto/admin/UpdateAccountEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateAccountHandle (Lcom/atproto/admin/UpdateAccountHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateAccountPassword (Lcom/atproto/admin/UpdateAccountPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun updateAccountSigningKey (Lcom/atproto/admin/UpdateAccountSigningKeyRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateActorAccess (Lchat/bsky/moderation/UpdateActorAccessRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateAllRead (Lchat/bsky/convo/UpdateAllReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -15090,6 +15109,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun updateAccountEmail (Lcom/atproto/admin/UpdateAccountEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateAccountHandle (Lcom/atproto/admin/UpdateAccountHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateAccountPassword (Lcom/atproto/admin/UpdateAccountPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateAccountSigningKey (Lcom/atproto/admin/UpdateAccountSigningKeyRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateActorAccess (Lchat/bsky/moderation/UpdateActorAccessRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateAllRead (Lchat/bsky/convo/UpdateAllReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -15292,6 +15312,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun updateAccountEmail (Lcom/atproto/admin/UpdateAccountEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateAccountHandle (Lcom/atproto/admin/UpdateAccountHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateAccountPassword (Lcom/atproto/admin/UpdateAccountPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateAccountSigningKey (Lcom/atproto/admin/UpdateAccountSigningKeyRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateActorAccess (Lchat/bsky/moderation/UpdateActorAccessRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateAllRead (Lchat/bsky/convo/UpdateAllReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
