@@ -7111,6 +7111,77 @@ public final class app/bsky/unspecced/GetPopularFeedGeneratorsResponse$Companion
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/unspecced/GetSuggestedStarterPacksQueryParams {
+	public static final field Companion Lapp/bsky/unspecced/GetSuggestedStarterPacksQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/Long;)Lapp/bsky/unspecced/GetSuggestedStarterPacksQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetSuggestedStarterPacksQueryParams;Ljava/lang/Long;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestedStarterPacksQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLimit ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetSuggestedStarterPacksQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetSuggestedStarterPacksResponse {
+	public static final field Companion Lapp/bsky/unspecced/GetSuggestedStarterPacksResponse$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lapp/bsky/unspecced/GetSuggestedStarterPacksResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetSuggestedStarterPacksResponse;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestedStarterPacksResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStarterPacks ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetSuggestedStarterPacksResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetSuggestedStarterPacksSkeletonQueryParams {
+	public static final field Companion Lapp/bsky/unspecced/GetSuggestedStarterPacksSkeletonQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1-68yuAGA ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun copy-zGeKB5I (Ljava/lang/String;Ljava/lang/Long;)Lapp/bsky/unspecced/GetSuggestedStarterPacksSkeletonQueryParams;
+	public static synthetic fun copy-zGeKB5I$default (Lapp/bsky/unspecced/GetSuggestedStarterPacksSkeletonQueryParams;Ljava/lang/String;Ljava/lang/Long;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestedStarterPacksSkeletonQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getViewer-68yuAGA ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetSuggestedStarterPacksSkeletonQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetSuggestedStarterPacksSkeletonResponse {
+	public static final field Companion Lapp/bsky/unspecced/GetSuggestedStarterPacksSkeletonResponse$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lapp/bsky/unspecced/GetSuggestedStarterPacksSkeletonResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetSuggestedStarterPacksSkeletonResponse;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestedStarterPacksSkeletonResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStarterPacks ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetSuggestedStarterPacksSkeletonResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/unspecced/GetSuggestionsSkeletonQueryParams {
 	public static final field Companion Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -7274,6 +7345,77 @@ public final class app/bsky/unspecced/GetTrendingTopicsResponse {
 }
 
 public final class app/bsky/unspecced/GetTrendingTopicsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetTrendsQueryParams {
+	public static final field Companion Lapp/bsky/unspecced/GetTrendsQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/Long;)Lapp/bsky/unspecced/GetTrendsQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetTrendsQueryParams;Ljava/lang/Long;ILjava/lang/Object;)Lapp/bsky/unspecced/GetTrendsQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLimit ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetTrendsQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetTrendsResponse {
+	public static final field Companion Lapp/bsky/unspecced/GetTrendsResponse$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lapp/bsky/unspecced/GetTrendsResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetTrendsResponse;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetTrendsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getTrends ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetTrendsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetTrendsSkeletonQueryParams {
+	public static final field Companion Lapp/bsky/unspecced/GetTrendsSkeletonQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1-68yuAGA ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun copy-zGeKB5I (Ljava/lang/String;Ljava/lang/Long;)Lapp/bsky/unspecced/GetTrendsSkeletonQueryParams;
+	public static synthetic fun copy-zGeKB5I$default (Lapp/bsky/unspecced/GetTrendsSkeletonQueryParams;Ljava/lang/String;Ljava/lang/Long;ILjava/lang/Object;)Lapp/bsky/unspecced/GetTrendsSkeletonQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getViewer-68yuAGA ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetTrendsSkeletonQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetTrendsSkeletonResponse {
+	public static final field Companion Lapp/bsky/unspecced/GetTrendsSkeletonResponse$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lapp/bsky/unspecced/GetTrendsSkeletonResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetTrendsSkeletonResponse;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetTrendsSkeletonResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getTrends ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetTrendsSkeletonResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -7522,6 +7664,106 @@ public final class app/bsky/unspecced/SkeletonSearchStarterPack {
 }
 
 public final class app/bsky/unspecced/SkeletonSearchStarterPack$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/SkeletonTrend {
+	public static final field Companion Lapp/bsky/unspecced/SkeletonTrend$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;JLapp/bsky/unspecced/Status;Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;JLapp/bsky/unspecced/Status;Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlinx/datetime/Instant;
+	public final fun component5 ()J
+	public final fun component6 ()Lapp/bsky/unspecced/Status;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;JLapp/bsky/unspecced/Status;Ljava/lang/String;Ljava/util/List;)Lapp/bsky/unspecced/SkeletonTrend;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/SkeletonTrend;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;JLapp/bsky/unspecced/Status;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/SkeletonTrend;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCategory ()Ljava/lang/String;
+	public final fun getDids ()Ljava/util/List;
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getLink ()Ljava/lang/String;
+	public final fun getPostCount ()J
+	public final fun getStartedAt ()Lkotlinx/datetime/Instant;
+	public final fun getStatus ()Lapp/bsky/unspecced/Status;
+	public final fun getTopic ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/SkeletonTrend$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class app/bsky/unspecced/Status : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/unspecced/Status$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/Status$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/unspecced/Status;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/Status$Hot : app/bsky/unspecced/Status {
+	public static final field INSTANCE Lapp/bsky/unspecced/Status$Hot;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/Status$Unknown : app/bsky/unspecced/Status {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/unspecced/Status$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/Status$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/Status$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/StatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/unspecced/Status;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/unspecced/Status;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class app/bsky/unspecced/TrendView {
+	public static final field Companion Lapp/bsky/unspecced/TrendView$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;JLapp/bsky/unspecced/Status;Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;JLapp/bsky/unspecced/Status;Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlinx/datetime/Instant;
+	public final fun component5 ()J
+	public final fun component6 ()Lapp/bsky/unspecced/Status;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;JLapp/bsky/unspecced/Status;Ljava/lang/String;Ljava/util/List;)Lapp/bsky/unspecced/TrendView;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/TrendView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;JLapp/bsky/unspecced/Status;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/TrendView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActors ()Ljava/util/List;
+	public final fun getCategory ()Ljava/lang/String;
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getLink ()Ljava/lang/String;
+	public final fun getPostCount ()J
+	public final fun getStartedAt ()Lkotlinx/datetime/Instant;
+	public final fun getStatus ()Lapp/bsky/unspecced/Status;
+	public final fun getTopic ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/TrendView$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -14830,11 +15072,15 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getSubjects (Ltools/ozone/moderation/GetSubjectsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSuggestedFollowsByActor (Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getSuggestedStarterPacksSkeletonUnspecced (Lapp/bsky/unspecced/GetSuggestedStarterPacksSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getSuggestedStarterPacksUnspecced (Lapp/bsky/unspecced/GetSuggestedStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSuggestions (Lapp/bsky/actor/GetSuggestionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSuggestionsSkeletonUnspecced (Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getTaggedSuggestionsUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getTimeline (Lapp/bsky/feed/GetTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getTrendingTopicsUnspecced (Lapp/bsky/unspecced/GetTrendingTopicsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getTrendsSkeletonUnspecced (Lapp/bsky/unspecced/GetTrendsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getTrendsUnspecced (Lapp/bsky/unspecced/GetTrendsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getUploadLimits (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getValues (Ltools/ozone/set/GetValuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -15033,11 +15279,15 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getSubjects (Ltools/ozone/moderation/GetSubjectsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestedFollowsByActor (Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getSuggestedStarterPacksSkeletonUnspecced (Lapp/bsky/unspecced/GetSuggestedStarterPacksSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getSuggestedStarterPacksUnspecced (Lapp/bsky/unspecced/GetSuggestedStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestions (Lapp/bsky/actor/GetSuggestionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestionsSkeletonUnspecced (Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getTaggedSuggestionsUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getTimeline (Lapp/bsky/feed/GetTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getTrendingTopicsUnspecced (Lapp/bsky/unspecced/GetTrendingTopicsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getTrendsSkeletonUnspecced (Lapp/bsky/unspecced/GetTrendsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getTrendsUnspecced (Lapp/bsky/unspecced/GetTrendsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getUploadLimits (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getValues (Ltools/ozone/set/GetValuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -15236,11 +15486,15 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getSubjects (Ltools/ozone/moderation/GetSubjectsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestedFollowsByActor (Lapp/bsky/graph/GetSuggestedFollowsByActorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getSuggestedStarterPacksSkeletonUnspecced (Lapp/bsky/unspecced/GetSuggestedStarterPacksSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getSuggestedStarterPacksUnspecced (Lapp/bsky/unspecced/GetSuggestedStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestions (Lapp/bsky/actor/GetSuggestionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestionsSkeletonUnspecced (Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getTaggedSuggestionsUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getTimeline (Lapp/bsky/feed/GetTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getTrendingTopicsUnspecced (Lapp/bsky/unspecced/GetTrendingTopicsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getTrendsSkeletonUnspecced (Lapp/bsky/unspecced/GetTrendsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getTrendsUnspecced (Lapp/bsky/unspecced/GetTrendsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getUploadLimits (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getValues (Ltools/ozone/set/GetValuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
