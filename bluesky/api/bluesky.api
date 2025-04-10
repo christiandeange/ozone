@@ -14104,6 +14104,46 @@ public final class com/atproto/sync/GetHeadResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/atproto/sync/GetHostStatusQueryParams {
+	public static final field Companion Lcom/atproto/sync/GetHostStatusQueryParams$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/sync/GetHostStatusQueryParams;
+	public static synthetic fun copy$default (Lcom/atproto/sync/GetHostStatusQueryParams;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/sync/GetHostStatusQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHostname ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/GetHostStatusQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/sync/GetHostStatusResponse {
+	public static final field Companion Lcom/atproto/sync/GetHostStatusResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Lcom/atproto/sync/HostStatus;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Lcom/atproto/sync/HostStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun component4 ()Lcom/atproto/sync/HostStatus;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Lcom/atproto/sync/HostStatus;)Lcom/atproto/sync/GetHostStatusResponse;
+	public static synthetic fun copy$default (Lcom/atproto/sync/GetHostStatusResponse;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Lcom/atproto/sync/HostStatus;ILjava/lang/Object;)Lcom/atproto/sync/GetHostStatusResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccountCount ()Ljava/lang/Long;
+	public final fun getHostname ()Ljava/lang/String;
+	public final fun getSeq ()Ljava/lang/Long;
+	public final fun getStatus ()Lcom/atproto/sync/HostStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/GetHostStatusResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/atproto/sync/GetLatestCommitQueryParams {
 	public static final field Companion Lcom/atproto/sync/GetLatestCommitQueryParams$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -14293,6 +14333,72 @@ public final class com/atproto/sync/GetRepoStatusStatusSerializer : kotlinx/seri
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
+public abstract class com/atproto/sync/HostStatus : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lcom/atproto/sync/HostStatus$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/HostStatus$Active : com/atproto/sync/HostStatus {
+	public static final field INSTANCE Lcom/atproto/sync/HostStatus$Active;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/HostStatus$Banned : com/atproto/sync/HostStatus {
+	public static final field INSTANCE Lcom/atproto/sync/HostStatus$Banned;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/HostStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/sync/HostStatus;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/sync/HostStatus$Idle : com/atproto/sync/HostStatus {
+	public static final field INSTANCE Lcom/atproto/sync/HostStatus$Idle;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/HostStatus$Offline : com/atproto/sync/HostStatus {
+	public static final field INSTANCE Lcom/atproto/sync/HostStatus$Offline;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/HostStatus$Throttled : com/atproto/sync/HostStatus {
+	public static final field INSTANCE Lcom/atproto/sync/HostStatus$Throttled;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/HostStatus$Unknown : com/atproto/sync/HostStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/sync/HostStatus$Unknown;
+	public static synthetic fun copy$default (Lcom/atproto/sync/HostStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/sync/HostStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/HostStatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/atproto/sync/HostStatus;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/atproto/sync/HostStatus;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
 public final class com/atproto/sync/ListBlobsQueryParams {
 	public static final field Companion Lcom/atproto/sync/ListBlobsQueryParams$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -14333,6 +14439,69 @@ public final class com/atproto/sync/ListBlobsResponse {
 }
 
 public final class com/atproto/sync/ListBlobsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/sync/ListHostsHost {
+	public static final field Companion Lcom/atproto/sync/ListHostsHost$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Lcom/atproto/sync/HostStatus;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Lcom/atproto/sync/HostStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun component4 ()Lcom/atproto/sync/HostStatus;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Lcom/atproto/sync/HostStatus;)Lcom/atproto/sync/ListHostsHost;
+	public static synthetic fun copy$default (Lcom/atproto/sync/ListHostsHost;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Lcom/atproto/sync/HostStatus;ILjava/lang/Object;)Lcom/atproto/sync/ListHostsHost;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccountCount ()Ljava/lang/Long;
+	public final fun getHostname ()Ljava/lang/String;
+	public final fun getSeq ()Ljava/lang/Long;
+	public final fun getStatus ()Lcom/atproto/sync/HostStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/ListHostsHost$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/sync/ListHostsQueryParams {
+	public static final field Companion Lcom/atproto/sync/ListHostsQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/String;)Lcom/atproto/sync/ListHostsQueryParams;
+	public static synthetic fun copy$default (Lcom/atproto/sync/ListHostsQueryParams;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/sync/ListHostsQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/ListHostsQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/sync/ListHostsResponse {
+	public static final field Companion Lcom/atproto/sync/ListHostsResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Lcom/atproto/sync/ListHostsResponse;
+	public static synthetic fun copy$default (Lcom/atproto/sync/ListHostsResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lcom/atproto/sync/ListHostsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getHosts ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/sync/ListHostsResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -15176,6 +15345,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getFeedSkeleton (Lapp/bsky/feed/GetFeedSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFollowers (Lapp/bsky/graph/GetFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFollows (Lapp/bsky/graph/GetFollowsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getHostStatus (Lcom/atproto/sync/GetHostStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getInviteCodes (Lcom/atproto/admin/GetInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getJobStatus (Lapp/bsky/video/GetJobStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getKnownFollowers (Lapp/bsky/graph/GetKnownFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -15239,6 +15409,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listBlobs (Lcom/atproto/sync/ListBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listConvos (Lchat/bsky/convo/ListConvosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun listHosts (Lcom/atproto/sync/ListHostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listMembers (Ltools/ozone/team/ListMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listMissingBlobs (Lcom/atproto/repo/ListMissingBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listNotifications (Lapp/bsky/notification/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -15387,6 +15558,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getFeedSkeleton (Lapp/bsky/feed/GetFeedSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFollowers (Lapp/bsky/graph/GetFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFollows (Lapp/bsky/graph/GetFollowsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getHostStatus (Lcom/atproto/sync/GetHostStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getInviteCodes (Lcom/atproto/admin/GetInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getJobStatus (Lapp/bsky/video/GetJobStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getKnownFollowers (Lapp/bsky/graph/GetKnownFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -15450,6 +15622,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listBlobs (Lcom/atproto/sync/ListBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listConvos (Lchat/bsky/convo/ListConvosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listHosts (Lcom/atproto/sync/ListHostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listMembers (Ltools/ozone/team/ListMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listMissingBlobs (Lcom/atproto/repo/ListMissingBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listNotifications (Lapp/bsky/notification/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -15598,6 +15771,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getFeedSkeleton (Lapp/bsky/feed/GetFeedSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFollowers (Lapp/bsky/graph/GetFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFollows (Lapp/bsky/graph/GetFollowsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getHostStatus (Lcom/atproto/sync/GetHostStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getInviteCodes (Lcom/atproto/admin/GetInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getJobStatus (Lapp/bsky/video/GetJobStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getKnownFollowers (Lapp/bsky/graph/GetKnownFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -15661,6 +15835,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listBlobs (Lcom/atproto/sync/ListBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listConvos (Lchat/bsky/convo/ListConvosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listHosts (Lcom/atproto/sync/ListHostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listMembers (Ltools/ozone/team/ListMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listMissingBlobs (Lcom/atproto/repo/ListMissingBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listNotifications (Lapp/bsky/notification/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
