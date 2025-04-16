@@ -6301,6 +6301,28 @@ public final class app/bsky/graph/UnmuteThreadRequest$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/graph/Verification {
+	public static final field Companion Lapp/bsky/graph/Verification$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2-hDwCUG8 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlinx/datetime/Instant;
+	public final fun copy-dB0H9Ao (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;)Lapp/bsky/graph/Verification;
+	public static synthetic fun copy-dB0H9Ao$default (Lapp/bsky/graph/Verification;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lapp/bsky/graph/Verification;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
+	public final fun getSubject-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/graph/Verification$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/labeler/GetServicesQueryParams {
 	public static final field Companion Lapp/bsky/labeler/GetServicesQueryParams$Companion;
 	public fun <init> (Ljava/util/List;Ljava/lang/Boolean;)V
