@@ -1079,10 +1079,11 @@ public final class app/bsky/actor/ProfileLabelsUnion$Unknown$Companion {
 
 public final class app/bsky/actor/ProfileView {
 	public static final field Companion Lapp/bsky/actor/ProfileView$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lapp/bsky/actor/VerificationState;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lapp/bsky/actor/VerificationState;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component10 ()Ljava/util/List;
+	public final fun component11 ()Lapp/bsky/actor/VerificationState;
 	public final fun component2-hDwCUG8 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
@@ -1091,8 +1092,8 @@ public final class app/bsky/actor/ProfileView {
 	public final fun component7 ()Lkotlinx/datetime/Instant;
 	public final fun component8 ()Lkotlinx/datetime/Instant;
 	public final fun component9 ()Lapp/bsky/actor/ViewerState;
-	public final fun copy-F861NUg (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;)Lapp/bsky/actor/ProfileView;
-	public static synthetic fun copy-F861NUg$default (Lapp/bsky/actor/ProfileView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/actor/ProfileView;
+	public final fun copy-npuhNVQ (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lapp/bsky/actor/VerificationState;)Lapp/bsky/actor/ProfileView;
+	public static synthetic fun copy-npuhNVQ$default (Lapp/bsky/actor/ProfileView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lapp/bsky/actor/VerificationState;ILjava/lang/Object;)Lapp/bsky/actor/ProfileView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAssociated ()Lapp/bsky/actor/ProfileAssociated;
 	public final fun getAvatar-pvpWXas ()Ljava/lang/String;
@@ -1103,6 +1104,7 @@ public final class app/bsky/actor/ProfileView {
 	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
 	public final fun getIndexedAt ()Lkotlinx/datetime/Instant;
 	public final fun getLabels ()Ljava/util/List;
+	public final fun getVerification ()Lapp/bsky/actor/VerificationState;
 	public final fun getViewer ()Lapp/bsky/actor/ViewerState;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1114,8 +1116,8 @@ public final class app/bsky/actor/ProfileView$Companion {
 
 public final class app/bsky/actor/ProfileViewBasic {
 	public static final field Companion Lapp/bsky/actor/ProfileViewBasic$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lkotlinx/datetime/Instant;Lapp/bsky/actor/VerificationState;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lkotlinx/datetime/Instant;Lapp/bsky/actor/VerificationState;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component2-hDwCUG8 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
@@ -1124,8 +1126,9 @@ public final class app/bsky/actor/ProfileViewBasic {
 	public final fun component6 ()Lapp/bsky/actor/ViewerState;
 	public final fun component7 ()Ljava/util/List;
 	public final fun component8 ()Lkotlinx/datetime/Instant;
-	public final fun copy-LV3VAhw (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lkotlinx/datetime/Instant;)Lapp/bsky/actor/ProfileViewBasic;
-	public static synthetic fun copy-LV3VAhw$default (Lapp/bsky/actor/ProfileViewBasic;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lapp/bsky/actor/ProfileViewBasic;
+	public final fun component9 ()Lapp/bsky/actor/VerificationState;
+	public final fun copy-9gOqo1E (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lkotlinx/datetime/Instant;Lapp/bsky/actor/VerificationState;)Lapp/bsky/actor/ProfileViewBasic;
+	public static synthetic fun copy-9gOqo1E$default (Lapp/bsky/actor/ProfileViewBasic;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lkotlinx/datetime/Instant;Lapp/bsky/actor/VerificationState;ILjava/lang/Object;)Lapp/bsky/actor/ProfileViewBasic;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAssociated ()Lapp/bsky/actor/ProfileAssociated;
 	public final fun getAvatar-pvpWXas ()Ljava/lang/String;
@@ -1134,6 +1137,7 @@ public final class app/bsky/actor/ProfileViewBasic {
 	public final fun getDisplayName ()Ljava/lang/String;
 	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
 	public final fun getLabels ()Ljava/util/List;
+	public final fun getVerification ()Lapp/bsky/actor/VerificationState;
 	public final fun getViewer ()Lapp/bsky/actor/ViewerState;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1145,8 +1149,8 @@ public final class app/bsky/actor/ProfileViewBasic$Companion {
 
 public final class app/bsky/actor/ProfileViewDetailed {
 	public static final field Companion Lapp/bsky/actor/ProfileViewDetailed$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/graph/StarterPackViewBasic;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/graph/StarterPackViewBasic;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/graph/StarterPackViewBasic;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;Lapp/bsky/actor/VerificationState;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/graph/StarterPackViewBasic;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;Lapp/bsky/actor/VerificationState;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component10 ()Lapp/bsky/actor/ProfileAssociated;
 	public final fun component11 ()Lapp/bsky/graph/StarterPackViewBasic;
@@ -1155,6 +1159,7 @@ public final class app/bsky/actor/ProfileViewDetailed {
 	public final fun component14 ()Lapp/bsky/actor/ViewerState;
 	public final fun component15 ()Ljava/util/List;
 	public final fun component16 ()Lcom/atproto/repo/StrongRef;
+	public final fun component17 ()Lapp/bsky/actor/VerificationState;
 	public final fun component2-hDwCUG8 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
@@ -1163,8 +1168,8 @@ public final class app/bsky/actor/ProfileViewDetailed {
 	public final fun component7 ()Ljava/lang/Long;
 	public final fun component8 ()Ljava/lang/Long;
 	public final fun component9 ()Ljava/lang/Long;
-	public final fun copy-nrUg1CA (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/graph/StarterPackViewBasic;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;)Lapp/bsky/actor/ProfileViewDetailed;
-	public static synthetic fun copy-nrUg1CA$default (Lapp/bsky/actor/ProfileViewDetailed;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/graph/StarterPackViewBasic;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;ILjava/lang/Object;)Lapp/bsky/actor/ProfileViewDetailed;
+	public final fun copy-7NNnA2w (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/graph/StarterPackViewBasic;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;Lapp/bsky/actor/VerificationState;)Lapp/bsky/actor/ProfileViewDetailed;
+	public static synthetic fun copy-7NNnA2w$default (Lapp/bsky/actor/ProfileViewDetailed;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/graph/StarterPackViewBasic;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;Lapp/bsky/actor/VerificationState;ILjava/lang/Object;)Lapp/bsky/actor/ProfileViewDetailed;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAssociated ()Lapp/bsky/actor/ProfileAssociated;
 	public final fun getAvatar-pvpWXas ()Ljava/lang/String;
@@ -1181,6 +1186,7 @@ public final class app/bsky/actor/ProfileViewDetailed {
 	public final fun getLabels ()Ljava/util/List;
 	public final fun getPinnedPost ()Lcom/atproto/repo/StrongRef;
 	public final fun getPostsCount ()Ljava/lang/Long;
+	public final fun getVerification ()Lapp/bsky/actor/VerificationState;
 	public final fun getViewer ()Lapp/bsky/actor/ViewerState;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1432,6 +1438,58 @@ public final class app/bsky/actor/ThreadViewPref$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public abstract class app/bsky/actor/TrustedVerifierStatus : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/actor/TrustedVerifierStatus$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/TrustedVerifierStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/actor/TrustedVerifierStatus;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/TrustedVerifierStatus$Invalid : app/bsky/actor/TrustedVerifierStatus {
+	public static final field INSTANCE Lapp/bsky/actor/TrustedVerifierStatus$Invalid;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/TrustedVerifierStatus$None : app/bsky/actor/TrustedVerifierStatus {
+	public static final field INSTANCE Lapp/bsky/actor/TrustedVerifierStatus$None;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/TrustedVerifierStatus$Unknown : app/bsky/actor/TrustedVerifierStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/actor/TrustedVerifierStatus$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/actor/TrustedVerifierStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/actor/TrustedVerifierStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/TrustedVerifierStatus$Valid : app/bsky/actor/TrustedVerifierStatus {
+	public static final field INSTANCE Lapp/bsky/actor/TrustedVerifierStatus$Valid;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/TrustedVerifierStatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/actor/TrustedVerifierStatus;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/TrustedVerifierStatus;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
 public abstract class app/bsky/actor/Type : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lapp/bsky/actor/Type$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1481,6 +1539,100 @@ public final class app/bsky/actor/TypeSerializer : kotlinx/serialization/KSerial
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/Type;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class app/bsky/actor/VerificationState {
+	public static final field Companion Lapp/bsky/actor/VerificationState$Companion;
+	public fun <init> (Ljava/util/List;Lapp/bsky/actor/VerifiedStatus;Lapp/bsky/actor/TrustedVerifierStatus;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Lapp/bsky/actor/VerifiedStatus;
+	public final fun component3 ()Lapp/bsky/actor/TrustedVerifierStatus;
+	public final fun copy (Ljava/util/List;Lapp/bsky/actor/VerifiedStatus;Lapp/bsky/actor/TrustedVerifierStatus;)Lapp/bsky/actor/VerificationState;
+	public static synthetic fun copy$default (Lapp/bsky/actor/VerificationState;Ljava/util/List;Lapp/bsky/actor/VerifiedStatus;Lapp/bsky/actor/TrustedVerifierStatus;ILjava/lang/Object;)Lapp/bsky/actor/VerificationState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getTrustedVerifierStatus ()Lapp/bsky/actor/TrustedVerifierStatus;
+	public final fun getVerifications ()Ljava/util/List;
+	public final fun getVerifiedStatus ()Lapp/bsky/actor/VerifiedStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/VerificationState$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/VerificationView {
+	public static final field Companion Lapp/bsky/actor/VerificationView$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ZLkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2-x27MrHI ()Ljava/lang/String;
+	public final fun component3 ()Z
+	public final fun component4 ()Lkotlinx/datetime/Instant;
+	public final fun copy-r1A605s (Ljava/lang/String;Ljava/lang/String;ZLkotlinx/datetime/Instant;)Lapp/bsky/actor/VerificationView;
+	public static synthetic fun copy-r1A605s$default (Lapp/bsky/actor/VerificationView;Ljava/lang/String;Ljava/lang/String;ZLkotlinx/datetime/Instant;ILjava/lang/Object;)Lapp/bsky/actor/VerificationView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getIssuer-715Ygxc ()Ljava/lang/String;
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isValid ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/VerificationView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class app/bsky/actor/VerifiedStatus : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/actor/VerifiedStatus$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/VerifiedStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/actor/VerifiedStatus;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/VerifiedStatus$Invalid : app/bsky/actor/VerifiedStatus {
+	public static final field INSTANCE Lapp/bsky/actor/VerifiedStatus$Invalid;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/VerifiedStatus$None : app/bsky/actor/VerifiedStatus {
+	public static final field INSTANCE Lapp/bsky/actor/VerifiedStatus$None;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/VerifiedStatus$Unknown : app/bsky/actor/VerifiedStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/actor/VerifiedStatus$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/actor/VerifiedStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/actor/VerifiedStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/VerifiedStatus$Valid : app/bsky/actor/VerifiedStatus {
+	public static final field INSTANCE Lapp/bsky/actor/VerifiedStatus$Valid;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/VerifiedStatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/actor/VerifiedStatus;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/VerifiedStatus;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
