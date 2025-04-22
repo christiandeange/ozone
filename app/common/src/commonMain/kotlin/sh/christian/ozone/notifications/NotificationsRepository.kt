@@ -168,6 +168,8 @@ class NotificationsRepository(
       is ListNotificationsReason.Quote -> uri
       is ListNotificationsReason.Follow -> null
       is ListNotificationsReason.StarterpackJoined -> null
+      is ListNotificationsReason.Verified -> null
+      is ListNotificationsReason.Unverified -> null
     }
   }
 }

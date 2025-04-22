@@ -1,6 +1,7 @@
 package sh.christian.ozone.model
 
 import app.bsky.notification.ListNotificationsNotification
+import app.bsky.notification.ListNotificationsReason
 import app.bsky.notification.ListNotificationsReason.Follow
 import app.bsky.notification.ListNotificationsReason.Like
 import app.bsky.notification.ListNotificationsReason.Mention
@@ -9,6 +10,8 @@ import app.bsky.notification.ListNotificationsReason.Reply
 import app.bsky.notification.ListNotificationsReason.Repost
 import app.bsky.notification.ListNotificationsReason.StarterpackJoined
 import app.bsky.notification.ListNotificationsReason.Unknown
+import app.bsky.notification.ListNotificationsReason.Unverified
+import app.bsky.notification.ListNotificationsReason.Verified
 import kotlinx.serialization.Serializable
 import sh.christian.ozone.api.AtUri
 import sh.christian.ozone.api.Cid
@@ -19,6 +22,8 @@ import sh.christian.ozone.model.Notification.Content.Mentioned
 import sh.christian.ozone.model.Notification.Content.Quoted
 import sh.christian.ozone.model.Notification.Content.RepliedTo
 import sh.christian.ozone.model.Notification.Content.Reposted
+import sh.christian.ozone.model.Notification.Content.UserUnverified
+import sh.christian.ozone.model.Notification.Content.UserVerified
 import sh.christian.ozone.notifications.NotificationsRepository.Companion.getPostUri
 import sh.christian.ozone.util.ReadOnlyList
 
@@ -63,6 +68,10 @@ data class Notification(
     ) : Content
 
     data object JoinedStarterPack : Content
+
+    data object UserVerified : Content
+
+    data object UserUnverified : Content
   }
 
   enum class Reason {
@@ -74,6 +83,8 @@ data class Notification(
     REPLY,
     QUOTE,
     JOINED_STARTERPACK,
+    VERIFIED,
+    UNVERIFIED,
   }
 }
 
@@ -94,6 +105,8 @@ fun ListNotificationsNotification.toNotification(
     is Reply -> Notification.Reason.REPLY to notificationPost?.let(::RepliedTo)
     is Quote -> Notification.Reason.QUOTE to notificationPost?.let(::Quoted)
     is StarterpackJoined -> Notification.Reason.JOINED_STARTERPACK to JoinedStarterPack
+    is Verified -> Notification.Reason.VERIFIED to UserVerified
+    is Unverified -> Notification.Reason.UNVERIFIED to UserUnverified
   }
 
   return Notification(

@@ -32,6 +32,8 @@ import sh.christian.ozone.notifications.type.MentionRow
 import sh.christian.ozone.notifications.type.QuoteRow
 import sh.christian.ozone.notifications.type.ReplyRow
 import sh.christian.ozone.notifications.type.RepostRow
+import sh.christian.ozone.notifications.type.UnverifiedRow
+import sh.christian.ozone.notifications.type.VerifiedRow
 import sh.christian.ozone.thread.ThreadProps
 import sh.christian.ozone.ui.compose.InfiniteListHandler
 import sh.christian.ozone.ui.compose.OpenImageAction
@@ -104,6 +106,8 @@ class NotificationsScreen(
                   is Notification.Content.RepliedTo -> ReplyRow(context, content)
                   is Notification.Content.Reposted -> RepostRow(context, notification, content)
                   is Notification.Content.JoinedStarterPack -> JoinedStarterPackRow(context, notification)
+                  is Notification.Content.UserVerified -> VerifiedRow(context, notification)
+                  is Notification.Content.UserUnverified -> UnverifiedRow(context, notification)
                   null -> Unit
                 }
               }

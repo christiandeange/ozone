@@ -6956,6 +6956,20 @@ public final class app/bsky/notification/ListNotificationsReason$Unknown : app/b
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class app/bsky/notification/ListNotificationsReason$Unverified : app/bsky/notification/ListNotificationsReason {
+	public static final field INSTANCE Lapp/bsky/notification/ListNotificationsReason$Unverified;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/ListNotificationsReason$Verified : app/bsky/notification/ListNotificationsReason {
+	public static final field INSTANCE Lapp/bsky/notification/ListNotificationsReason$Verified;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class app/bsky/notification/ListNotificationsReasonSerializer : kotlinx/serialization/KSerializer {
 	public fun <init> ()V
 	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/notification/ListNotificationsReason;
@@ -7001,6 +7015,11 @@ public final class app/bsky/notification/PutPreferencesRequest {
 }
 
 public final class app/bsky/notification/PutPreferencesRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/RecordDeleted {
+	public static final field INSTANCE Lapp/bsky/notification/RecordDeleted;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
