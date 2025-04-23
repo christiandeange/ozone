@@ -6,6 +6,7 @@ import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.style.TextOverflow
@@ -13,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import sh.christian.ozone.model.Moment
 import sh.christian.ozone.model.Profile
 import sh.christian.ozone.ui.compose.TimeDelta
+import sh.christian.ozone.ui.compose.VerifiedCheck
 
 @Composable
 internal fun PostHeadline(
@@ -29,6 +31,11 @@ internal fun PostHeadline(
       text = primaryText,
       maxLines = 1,
       style = LocalTextStyle.current.copy(fontWeight = Bold),
+    )
+
+    VerifiedCheck(
+      modifier = Modifier.align(Alignment.CenterVertically),
+      verification = author.verification,
     )
 
     if (secondaryText != null) {

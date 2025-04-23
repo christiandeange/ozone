@@ -3,9 +3,13 @@ package sh.christian.ozone.model
 import app.bsky.actor.ProfileView
 import app.bsky.actor.ProfileViewBasic
 import app.bsky.actor.ProfileViewDetailed
+import app.bsky.actor.TrustedVerifierStatus
+import app.bsky.actor.VerificationState
+import app.bsky.actor.VerifiedStatus
 import kotlinx.serialization.Serializable
 import sh.christian.ozone.api.Did
 import sh.christian.ozone.api.Handle
+import sh.christian.ozone.model.Profile.Verification
 import sh.christian.ozone.util.ReadOnlyList
 import sh.christian.ozone.util.mapImmutable
 
@@ -19,6 +23,13 @@ sealed interface Profile {
   val followingMe: Boolean
   val followedByMe: Boolean
   val labels: ReadOnlyList<Label>
+  val verification: Verification
+
+  enum class Verification {
+    NONE,
+    VERIFIED,
+    TRUSTED_VERIFIER,
+  }
 }
 
 @Serializable
@@ -31,6 +42,7 @@ data class LiteProfile(
   override val followingMe: Boolean,
   override val followedByMe: Boolean,
   override val labels: ReadOnlyList<Label>,
+  override val verification: Verification,
 ) : Profile
 
 @Serializable
@@ -49,6 +61,7 @@ data class FullProfile(
   override val followingMe: Boolean,
   override val followedByMe: Boolean,
   override val labels: ReadOnlyList<Label>,
+  override val verification: Verification,
 ) : Profile
 
 fun ProfileViewDetailed.toProfile(): FullProfile {
@@ -67,6 +80,7 @@ fun ProfileViewDetailed.toProfile(): FullProfile {
     followingMe = viewer?.followedBy != null,
     followedByMe = viewer?.following != null,
     labels = labels.mapImmutable { it.toLabel() },
+    verification = verification?.toVerification() ?: Verification.NONE,
   )
 }
 
@@ -80,6 +94,7 @@ fun ProfileViewBasic.toProfile(): Profile {
     followingMe = viewer?.followedBy != null,
     followedByMe = viewer?.following != null,
     labels = labels.mapImmutable { it.toLabel() },
+    verification = verification?.toVerification() ?: Verification.NONE,
   )
 }
 
@@ -93,5 +108,22 @@ fun ProfileView.toProfile(): Profile {
     followingMe = viewer?.followedBy != null,
     followedByMe = viewer?.following != null,
     labels = labels.mapImmutable { it.toLabel() },
+    verification = verification?.toVerification() ?: Verification.NONE,
   )
+}
+
+fun VerificationState.toVerification(): Verification {
+  return when (trustedVerifierStatus) {
+    is TrustedVerifierStatus.Valid -> Verification.TRUSTED_VERIFIER
+    is TrustedVerifierStatus.Unknown,
+    is TrustedVerifierStatus.Invalid,
+    is TrustedVerifierStatus.None -> {
+      when (verifiedStatus) {
+        is VerifiedStatus.Valid -> Verification.VERIFIED
+        is VerifiedStatus.Invalid,
+        is VerifiedStatus.None,
+        is VerifiedStatus.Unknown -> Verification.NONE
+      }
+    }
+  }
 }
