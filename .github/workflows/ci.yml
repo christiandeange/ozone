@@ -52,7 +52,7 @@ jobs:
           check-latest: true
 
       - name: Assemble iOS
-        uses: mxcl/xcodebuild@v2
+        uses: mxcl/xcodebuild@v3
         with:
           platform: iOS
           action: build
