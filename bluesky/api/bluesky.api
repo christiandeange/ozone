@@ -15554,6 +15554,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun exportAccountData (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun findCorrelation (Ltools/ozone/signature/FindCorrelationQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun findRelatedAccounts (Ltools/ozone/signature/FindRelatedAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getAccountHistory (Ltools/ozone/hosting/GetAccountHistoryQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAccountInfo (Lcom/atproto/admin/GetAccountInfoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAccountInfos (Lcom/atproto/admin/GetAccountInfosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAccountInviteCodes (Lcom/atproto/server/GetAccountInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -15767,6 +15768,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun exportAccountData (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun findCorrelation (Ltools/ozone/signature/FindCorrelationQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun findRelatedAccounts (Ltools/ozone/signature/FindRelatedAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAccountHistory (Ltools/ozone/hosting/GetAccountHistoryQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAccountInfo (Lcom/atproto/admin/GetAccountInfoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAccountInfos (Lcom/atproto/admin/GetAccountInfosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAccountInviteCodes (Lcom/atproto/server/GetAccountInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -15979,6 +15981,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun exportAccountData (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun findCorrelation (Ltools/ozone/signature/FindCorrelationQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun findRelatedAccounts (Ltools/ozone/signature/FindRelatedAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAccountHistory (Ltools/ozone/hosting/GetAccountHistoryQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAccountInfo (Lcom/atproto/admin/GetAccountInfoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAccountInfos (Lcom/atproto/admin/GetAccountInfosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAccountInviteCodes (Lcom/atproto/server/GetAccountInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -16312,6 +16315,329 @@ public final class tools/ozone/communication/UpdateTemplateRequest {
 }
 
 public final class tools/ozone/communication/UpdateTemplateRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryAccountCreated {
+	public static final field Companion Ltools/ozone/hosting/GetAccountHistoryAccountCreated$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2-367xRBg ()Ljava/lang/String;
+	public final fun copy-C1CJ5rA (Ljava/lang/String;Ljava/lang/String;)Ltools/ozone/hosting/GetAccountHistoryAccountCreated;
+	public static synthetic fun copy-C1CJ5rA$default (Ltools/ozone/hosting/GetAccountHistoryAccountCreated;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/hosting/GetAccountHistoryAccountCreated;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEmail ()Ljava/lang/String;
+	public final fun getHandle-367xRBg ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryAccountCreated$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEmailConfirmed {
+	public static final field Companion Ltools/ozone/hosting/GetAccountHistoryEmailConfirmed$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/hosting/GetAccountHistoryEmailConfirmed;
+	public static synthetic fun copy$default (Ltools/ozone/hosting/GetAccountHistoryEmailConfirmed;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/hosting/GetAccountHistoryEmailConfirmed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEmail ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEmailConfirmed$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEmailUpdated {
+	public static final field Companion Ltools/ozone/hosting/GetAccountHistoryEmailUpdated$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/hosting/GetAccountHistoryEmailUpdated;
+	public static synthetic fun copy$default (Ltools/ozone/hosting/GetAccountHistoryEmailUpdated;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/hosting/GetAccountHistoryEmailUpdated;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEmail ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEmailUpdated$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEvent {
+	public static final field Companion Ltools/ozone/hosting/GetAccountHistoryEvent$Companion;
+	public fun <init> (Ltools/ozone/hosting/GetAccountHistoryEventDetailsUnion;Ljava/lang/String;Lkotlinx/datetime/Instant;)V
+	public final fun component1 ()Ltools/ozone/hosting/GetAccountHistoryEventDetailsUnion;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lkotlinx/datetime/Instant;
+	public final fun copy (Ltools/ozone/hosting/GetAccountHistoryEventDetailsUnion;Ljava/lang/String;Lkotlinx/datetime/Instant;)Ltools/ozone/hosting/GetAccountHistoryEvent;
+	public static synthetic fun copy$default (Ltools/ozone/hosting/GetAccountHistoryEvent;Ltools/ozone/hosting/GetAccountHistoryEventDetailsUnion;Ljava/lang/String;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Ltools/ozone/hosting/GetAccountHistoryEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getCreatedBy ()Ljava/lang/String;
+	public final fun getDetails ()Ltools/ozone/hosting/GetAccountHistoryEventDetailsUnion;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class tools/ozone/hosting/GetAccountHistoryEventDetailsUnion {
+	public static final field Companion Ltools/ozone/hosting/GetAccountHistoryEventDetailsUnion$Companion;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEventDetailsUnion$AccountCreated : tools/ozone/hosting/GetAccountHistoryEventDetailsUnion {
+	public static final field Companion Ltools/ozone/hosting/GetAccountHistoryEventDetailsUnion$AccountCreated$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/hosting/GetAccountHistoryAccountCreated;)Ltools/ozone/hosting/GetAccountHistoryEventDetailsUnion$AccountCreated;
+	public static fun constructor-impl (Ltools/ozone/hosting/GetAccountHistoryAccountCreated;)Ltools/ozone/hosting/GetAccountHistoryAccountCreated;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/hosting/GetAccountHistoryAccountCreated;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/hosting/GetAccountHistoryAccountCreated;Ltools/ozone/hosting/GetAccountHistoryAccountCreated;)Z
+	public final fun getValue ()Ltools/ozone/hosting/GetAccountHistoryAccountCreated;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/hosting/GetAccountHistoryAccountCreated;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/hosting/GetAccountHistoryAccountCreated;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/hosting/GetAccountHistoryAccountCreated;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEventDetailsUnion$AccountCreated$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEventDetailsUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEventDetailsUnion$EmailConfirmed : tools/ozone/hosting/GetAccountHistoryEventDetailsUnion {
+	public static final field Companion Ltools/ozone/hosting/GetAccountHistoryEventDetailsUnion$EmailConfirmed$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/hosting/GetAccountHistoryEmailConfirmed;)Ltools/ozone/hosting/GetAccountHistoryEventDetailsUnion$EmailConfirmed;
+	public static fun constructor-impl (Ltools/ozone/hosting/GetAccountHistoryEmailConfirmed;)Ltools/ozone/hosting/GetAccountHistoryEmailConfirmed;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/hosting/GetAccountHistoryEmailConfirmed;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/hosting/GetAccountHistoryEmailConfirmed;Ltools/ozone/hosting/GetAccountHistoryEmailConfirmed;)Z
+	public final fun getValue ()Ltools/ozone/hosting/GetAccountHistoryEmailConfirmed;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/hosting/GetAccountHistoryEmailConfirmed;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/hosting/GetAccountHistoryEmailConfirmed;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/hosting/GetAccountHistoryEmailConfirmed;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEventDetailsUnion$EmailConfirmed$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEventDetailsUnion$EmailUpdated : tools/ozone/hosting/GetAccountHistoryEventDetailsUnion {
+	public static final field Companion Ltools/ozone/hosting/GetAccountHistoryEventDetailsUnion$EmailUpdated$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/hosting/GetAccountHistoryEmailUpdated;)Ltools/ozone/hosting/GetAccountHistoryEventDetailsUnion$EmailUpdated;
+	public static fun constructor-impl (Ltools/ozone/hosting/GetAccountHistoryEmailUpdated;)Ltools/ozone/hosting/GetAccountHistoryEmailUpdated;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/hosting/GetAccountHistoryEmailUpdated;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/hosting/GetAccountHistoryEmailUpdated;Ltools/ozone/hosting/GetAccountHistoryEmailUpdated;)Z
+	public final fun getValue ()Ltools/ozone/hosting/GetAccountHistoryEmailUpdated;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/hosting/GetAccountHistoryEmailUpdated;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/hosting/GetAccountHistoryEmailUpdated;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/hosting/GetAccountHistoryEmailUpdated;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEventDetailsUnion$EmailUpdated$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEventDetailsUnion$HandleUpdated : tools/ozone/hosting/GetAccountHistoryEventDetailsUnion {
+	public static final field Companion Ltools/ozone/hosting/GetAccountHistoryEventDetailsUnion$HandleUpdated$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/hosting/GetAccountHistoryHandleUpdated;)Ltools/ozone/hosting/GetAccountHistoryEventDetailsUnion$HandleUpdated;
+	public static fun constructor-impl (Ltools/ozone/hosting/GetAccountHistoryHandleUpdated;)Ltools/ozone/hosting/GetAccountHistoryHandleUpdated;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/hosting/GetAccountHistoryHandleUpdated;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/hosting/GetAccountHistoryHandleUpdated;Ltools/ozone/hosting/GetAccountHistoryHandleUpdated;)Z
+	public final fun getValue ()Ltools/ozone/hosting/GetAccountHistoryHandleUpdated;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/hosting/GetAccountHistoryHandleUpdated;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/hosting/GetAccountHistoryHandleUpdated;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/hosting/GetAccountHistoryHandleUpdated;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEventDetailsUnion$HandleUpdated$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEventDetailsUnion$PasswordUpdated : tools/ozone/hosting/GetAccountHistoryEventDetailsUnion {
+	public static final field Companion Ltools/ozone/hosting/GetAccountHistoryEventDetailsUnion$PasswordUpdated$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/hosting/GetAccountHistoryPasswordUpdated;)Ltools/ozone/hosting/GetAccountHistoryEventDetailsUnion$PasswordUpdated;
+	public static fun constructor-impl (Ltools/ozone/hosting/GetAccountHistoryPasswordUpdated;)Ltools/ozone/hosting/GetAccountHistoryPasswordUpdated;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/hosting/GetAccountHistoryPasswordUpdated;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/hosting/GetAccountHistoryPasswordUpdated;Ltools/ozone/hosting/GetAccountHistoryPasswordUpdated;)Z
+	public final fun getValue ()Ltools/ozone/hosting/GetAccountHistoryPasswordUpdated;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/hosting/GetAccountHistoryPasswordUpdated;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/hosting/GetAccountHistoryPasswordUpdated;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/hosting/GetAccountHistoryPasswordUpdated;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEventDetailsUnion$PasswordUpdated$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEventDetailsUnion$Unknown : tools/ozone/hosting/GetAccountHistoryEventDetailsUnion {
+	public static final field Companion Ltools/ozone/hosting/GetAccountHistoryEventDetailsUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/hosting/GetAccountHistoryEventDetailsUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEventDetailsUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/hosting/GetAccountHistoryEvents : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/hosting/GetAccountHistoryEvents$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEvents$AccountCreated : tools/ozone/hosting/GetAccountHistoryEvents {
+	public static final field INSTANCE Ltools/ozone/hosting/GetAccountHistoryEvents$AccountCreated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEvents$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/hosting/GetAccountHistoryEvents;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEvents$EmailConfirmed : tools/ozone/hosting/GetAccountHistoryEvents {
+	public static final field INSTANCE Ltools/ozone/hosting/GetAccountHistoryEvents$EmailConfirmed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEvents$EmailUpdated : tools/ozone/hosting/GetAccountHistoryEvents {
+	public static final field INSTANCE Ltools/ozone/hosting/GetAccountHistoryEvents$EmailUpdated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEvents$HandleUpdated : tools/ozone/hosting/GetAccountHistoryEvents {
+	public static final field INSTANCE Ltools/ozone/hosting/GetAccountHistoryEvents$HandleUpdated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEvents$PasswordUpdated : tools/ozone/hosting/GetAccountHistoryEvents {
+	public static final field INSTANCE Ltools/ozone/hosting/GetAccountHistoryEvents$PasswordUpdated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEvents$Unknown : tools/ozone/hosting/GetAccountHistoryEvents {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/hosting/GetAccountHistoryEvents$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/hosting/GetAccountHistoryEvents$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/hosting/GetAccountHistoryEvents$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryEventsSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/hosting/GetAccountHistoryEvents;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/hosting/GetAccountHistoryEvents;)V
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryHandleUpdated {
+	public static final field Companion Ltools/ozone/hosting/GetAccountHistoryHandleUpdated$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-hDwCUG8 ()Ljava/lang/String;
+	public final fun copy-fOWag2k (Ljava/lang/String;)Ltools/ozone/hosting/GetAccountHistoryHandleUpdated;
+	public static synthetic fun copy-fOWag2k$default (Ltools/ozone/hosting/GetAccountHistoryHandleUpdated;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/hosting/GetAccountHistoryHandleUpdated;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryHandleUpdated$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryPasswordUpdated {
+	public static final field INSTANCE Ltools/ozone/hosting/GetAccountHistoryPasswordUpdated;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryQueryParams {
+	public static final field Companion Ltools/ozone/hosting/GetAccountHistoryQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun copy-gUbersM (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;)Ltools/ozone/hosting/GetAccountHistoryQueryParams;
+	public static synthetic fun copy-gUbersM$default (Ltools/ozone/hosting/GetAccountHistoryQueryParams;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;ILjava/lang/Object;)Ltools/ozone/hosting/GetAccountHistoryQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getEvents ()Ljava/util/List;
+	public final fun getLimit ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryResponse {
+	public static final field Companion Ltools/ozone/hosting/GetAccountHistoryResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Ltools/ozone/hosting/GetAccountHistoryResponse;
+	public static synthetic fun copy$default (Ltools/ozone/hosting/GetAccountHistoryResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/hosting/GetAccountHistoryResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getEvents ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/hosting/GetAccountHistoryResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
