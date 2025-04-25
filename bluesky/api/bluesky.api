@@ -15637,6 +15637,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getUploadLimits (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getValues (Ltools/ozone/set/GetValuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun grantVerifications (Ltools/ozone/verification/GrantVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun importRepo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun leaveConvo (Lchat/bsky/convo/LeaveConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -15651,6 +15652,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun listRepos (Lcom/atproto/sync/ListReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listReposByCollection (Lcom/atproto/sync/ListReposByCollectionQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listTemplates (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun listVerifications (Ltools/ozone/verification/ListVerificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun muteActor (Lapp/bsky/graph/MuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun muteActorList (Lapp/bsky/graph/MuteActorListRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun muteConvo (Lchat/bsky/convo/MuteConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -15681,6 +15683,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun resolveHandle (Lcom/atproto/identity/ResolveHandleQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun resolveIdentity (Lcom/atproto/identity/ResolveIdentityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun revokeAppPassword (Lcom/atproto/server/RevokeAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun revokeVerifications (Ltools/ozone/verification/RevokeVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchAccounts (Lcom/atproto/admin/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchAccounts (Ltools/ozone/signature/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchActors (Lapp/bsky/actor/SearchActorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -15851,6 +15854,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getUploadLimits (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getValues (Ltools/ozone/set/GetValuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun grantVerifications (Ltools/ozone/verification/GrantVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun importRepo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun leaveConvo (Lchat/bsky/convo/LeaveConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -15865,6 +15869,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun listRepos (Lcom/atproto/sync/ListReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listReposByCollection (Lcom/atproto/sync/ListReposByCollectionQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listTemplates (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listVerifications (Ltools/ozone/verification/ListVerificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun muteActor (Lapp/bsky/graph/MuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun muteActorList (Lapp/bsky/graph/MuteActorListRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun muteConvo (Lchat/bsky/convo/MuteConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -15895,6 +15900,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun resolveHandle (Lcom/atproto/identity/ResolveHandleQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun resolveIdentity (Lcom/atproto/identity/ResolveIdentityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeAppPassword (Lcom/atproto/server/RevokeAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun revokeVerifications (Ltools/ozone/verification/RevokeVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchAccounts (Lcom/atproto/admin/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchAccounts (Ltools/ozone/signature/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchActors (Lapp/bsky/actor/SearchActorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -16065,6 +16071,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getUploadLimits (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getValues (Ltools/ozone/set/GetValuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun grantVerifications (Ltools/ozone/verification/GrantVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun importRepo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun leaveConvo (Lchat/bsky/convo/LeaveConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -16079,6 +16086,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun listRepos (Lcom/atproto/sync/ListReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listReposByCollection (Lcom/atproto/sync/ListReposByCollectionQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listTemplates (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listVerifications (Ltools/ozone/verification/ListVerificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun muteActor (Lapp/bsky/graph/MuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun muteActorList (Lapp/bsky/graph/MuteActorListRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun muteConvo (Lchat/bsky/convo/MuteConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -16109,6 +16117,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun resolveHandle (Lcom/atproto/identity/ResolveHandleQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun resolveIdentity (Lcom/atproto/identity/ResolveIdentityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeAppPassword (Lcom/atproto/server/RevokeAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun revokeVerifications (Ltools/ozone/verification/RevokeVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchAccounts (Lcom/atproto/admin/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchAccounts (Ltools/ozone/signature/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchActors (Lapp/bsky/actor/SearchActorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -20055,21 +20064,22 @@ public final class tools/ozone/moderation/VideoDetails$Companion {
 
 public final class tools/ozone/server/GetConfigResponse {
 	public static final field Companion Ltools/ozone/server/GetConfigResponse$Companion;
-	public fun <init> ()V
-	public fun <init> (Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigViewerConfig;)V
-	public synthetic fun <init> (Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigViewerConfig;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigViewerConfig;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigViewerConfig;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ltools/ozone/server/GetConfigServiceConfig;
 	public final fun component2 ()Ltools/ozone/server/GetConfigServiceConfig;
 	public final fun component3 ()Ltools/ozone/server/GetConfigServiceConfig;
 	public final fun component4 ()Ltools/ozone/server/GetConfigServiceConfig;
 	public final fun component5 ()Ltools/ozone/server/GetConfigViewerConfig;
-	public final fun copy (Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigViewerConfig;)Ltools/ozone/server/GetConfigResponse;
-	public static synthetic fun copy$default (Ltools/ozone/server/GetConfigResponse;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigViewerConfig;ILjava/lang/Object;)Ltools/ozone/server/GetConfigResponse;
+	public final fun component6-68yuAGA ()Ljava/lang/String;
+	public final fun copy-DBN_J0c (Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigViewerConfig;Ljava/lang/String;)Ltools/ozone/server/GetConfigResponse;
+	public static synthetic fun copy-DBN_J0c$default (Ltools/ozone/server/GetConfigResponse;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigServiceConfig;Ltools/ozone/server/GetConfigViewerConfig;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/server/GetConfigResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAppview ()Ltools/ozone/server/GetConfigServiceConfig;
 	public final fun getBlobDivert ()Ltools/ozone/server/GetConfigServiceConfig;
 	public final fun getChat ()Ltools/ozone/server/GetConfigServiceConfig;
 	public final fun getPds ()Ltools/ozone/server/GetConfigServiceConfig;
+	public final fun getVerifierDid-68yuAGA ()Ljava/lang/String;
 	public final fun getViewer ()Ltools/ozone/server/GetConfigViewerConfig;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -20922,6 +20932,13 @@ public final class tools/ozone/team/Token$RoleTriage : tools/ozone/team/Token {
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class tools/ozone/team/Token$RoleVerifier : tools/ozone/team/Token {
+	public static final field INSTANCE Ltools/ozone/team/Token$RoleVerifier;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class tools/ozone/team/Token$Unknown : tools/ozone/team/Token {
 	public fun <init> (Ljava/lang/String;)V
 	public final fun component1 ()Ljava/lang/String;
@@ -20960,6 +20977,413 @@ public final class tools/ozone/team/UpdateMemberRequest {
 }
 
 public final class tools/ozone/team/UpdateMemberRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/verification/GrantVerificationsGrantError {
+	public static final field Companion Ltools/ozone/verification/GrantVerificationsGrantError$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2-715Ygxc ()Ljava/lang/String;
+	public final fun copy-F4IRIfk (Ljava/lang/String;Ljava/lang/String;)Ltools/ozone/verification/GrantVerificationsGrantError;
+	public static synthetic fun copy-F4IRIfk$default (Ltools/ozone/verification/GrantVerificationsGrantError;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/verification/GrantVerificationsGrantError;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getError ()Ljava/lang/String;
+	public final fun getSubject-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/verification/GrantVerificationsGrantError$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/verification/GrantVerificationsRequest {
+	public static final field Companion Ltools/ozone/verification/GrantVerificationsRequest$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Ltools/ozone/verification/GrantVerificationsRequest;
+	public static synthetic fun copy$default (Ltools/ozone/verification/GrantVerificationsRequest;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/verification/GrantVerificationsRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getVerifications ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/verification/GrantVerificationsRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/verification/GrantVerificationsResponse {
+	public static final field Companion Ltools/ozone/verification/GrantVerificationsResponse$Companion;
+	public fun <init> (Ljava/util/List;Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;Ljava/util/List;)Ltools/ozone/verification/GrantVerificationsResponse;
+	public static synthetic fun copy$default (Ltools/ozone/verification/GrantVerificationsResponse;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/verification/GrantVerificationsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFailedVerifications ()Ljava/util/List;
+	public final fun getVerifications ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/verification/GrantVerificationsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/verification/GrantVerificationsVerificationInput {
+	public static final field Companion Ltools/ozone/verification/GrantVerificationsVerificationInput$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2-hDwCUG8 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy-dB0H9Ao (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ltools/ozone/verification/GrantVerificationsVerificationInput;
+	public static synthetic fun copy-dB0H9Ao$default (Ltools/ozone/verification/GrantVerificationsVerificationInput;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/verification/GrantVerificationsVerificationInput;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Ljava/lang/String;
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
+	public final fun getSubject-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/verification/GrantVerificationsVerificationInput$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/verification/ListVerificationsQueryParams {
+	public static final field Companion Ltools/ozone/verification/ListVerificationsQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Lkotlinx/datetime/Instant;
+	public final fun component4 ()Lkotlinx/datetime/Instant;
+	public final fun component5 ()Ljava/util/List;
+	public final fun component6 ()Ljava/util/List;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/Boolean;)Ltools/ozone/verification/ListVerificationsQueryParams;
+	public static synthetic fun copy$default (Ltools/ozone/verification/ListVerificationsQueryParams;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Ltools/ozone/verification/ListVerificationsQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAfter ()Lkotlinx/datetime/Instant;
+	public final fun getCreatedBefore ()Lkotlinx/datetime/Instant;
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getIssuers ()Ljava/util/List;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getSortDirection ()Ljava/lang/String;
+	public final fun getSubjects ()Ljava/util/List;
+	public fun hashCode ()I
+	public final fun isRevoked ()Ljava/lang/Boolean;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/verification/ListVerificationsQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/verification/ListVerificationsResponse {
+	public static final field Companion Ltools/ozone/verification/ListVerificationsResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Ltools/ozone/verification/ListVerificationsResponse;
+	public static synthetic fun copy$default (Ltools/ozone/verification/ListVerificationsResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/verification/ListVerificationsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getVerifications ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/verification/ListVerificationsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/verification/RevokeVerificationsRequest {
+	public static final field Companion Ltools/ozone/verification/RevokeVerificationsRequest$Companion;
+	public fun <init> (Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/lang/String;)Ltools/ozone/verification/RevokeVerificationsRequest;
+	public static synthetic fun copy$default (Ltools/ozone/verification/RevokeVerificationsRequest;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/verification/RevokeVerificationsRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRevokeReason ()Ljava/lang/String;
+	public final fun getUris ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/verification/RevokeVerificationsRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/verification/RevokeVerificationsResponse {
+	public static final field Companion Ltools/ozone/verification/RevokeVerificationsResponse$Companion;
+	public fun <init> (Ljava/util/List;Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;Ljava/util/List;)Ltools/ozone/verification/RevokeVerificationsResponse;
+	public static synthetic fun copy$default (Ltools/ozone/verification/RevokeVerificationsResponse;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/verification/RevokeVerificationsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFailedRevocations ()Ljava/util/List;
+	public final fun getRevokedVerifications ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/verification/RevokeVerificationsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/verification/RevokeVerificationsRevokeError {
+	public static final field Companion Ltools/ozone/verification/RevokeVerificationsRevokeError$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy-wMvghHc (Ljava/lang/String;Ljava/lang/String;)Ltools/ozone/verification/RevokeVerificationsRevokeError;
+	public static synthetic fun copy-wMvghHc$default (Ltools/ozone/verification/RevokeVerificationsRevokeError;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/verification/RevokeVerificationsRevokeError;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getError ()Ljava/lang/String;
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/verification/RevokeVerificationsRevokeError$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/verification/VerificationView {
+	public static final field Companion Ltools/ozone/verification/VerificationView$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Ltools/ozone/verification/VerificationViewSubjectProfileUnion;Ltools/ozone/verification/VerificationViewIssuerProfileUnion;Ltools/ozone/verification/VerificationViewSubjectRepoUnion;Ltools/ozone/verification/VerificationViewIssuerRepoUnion;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Ltools/ozone/verification/VerificationViewSubjectProfileUnion;Ltools/ozone/verification/VerificationViewIssuerProfileUnion;Ltools/ozone/verification/VerificationViewSubjectRepoUnion;Ltools/ozone/verification/VerificationViewIssuerRepoUnion;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component10 ()Ltools/ozone/verification/VerificationViewSubjectProfileUnion;
+	public final fun component11 ()Ltools/ozone/verification/VerificationViewIssuerProfileUnion;
+	public final fun component12 ()Ltools/ozone/verification/VerificationViewSubjectRepoUnion;
+	public final fun component13 ()Ltools/ozone/verification/VerificationViewIssuerRepoUnion;
+	public final fun component2-x27MrHI ()Ljava/lang/String;
+	public final fun component3-715Ygxc ()Ljava/lang/String;
+	public final fun component4-hDwCUG8 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Lkotlinx/datetime/Instant;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Lkotlinx/datetime/Instant;
+	public final fun component9-68yuAGA ()Ljava/lang/String;
+	public final fun copy-ESMmxWA (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Ltools/ozone/verification/VerificationViewSubjectProfileUnion;Ltools/ozone/verification/VerificationViewIssuerProfileUnion;Ltools/ozone/verification/VerificationViewSubjectRepoUnion;Ltools/ozone/verification/VerificationViewIssuerRepoUnion;)Ltools/ozone/verification/VerificationView;
+	public static synthetic fun copy-ESMmxWA$default (Ltools/ozone/verification/VerificationView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Ltools/ozone/verification/VerificationViewSubjectProfileUnion;Ltools/ozone/verification/VerificationViewIssuerProfileUnion;Ltools/ozone/verification/VerificationViewSubjectRepoUnion;Ltools/ozone/verification/VerificationViewIssuerRepoUnion;ILjava/lang/Object;)Ltools/ozone/verification/VerificationView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
+	public final fun getIssuer-715Ygxc ()Ljava/lang/String;
+	public final fun getIssuerProfile ()Ltools/ozone/verification/VerificationViewIssuerProfileUnion;
+	public final fun getIssuerRepo ()Ltools/ozone/verification/VerificationViewIssuerRepoUnion;
+	public final fun getRevokeReason ()Ljava/lang/String;
+	public final fun getRevokedAt ()Lkotlinx/datetime/Instant;
+	public final fun getRevokedBy-68yuAGA ()Ljava/lang/String;
+	public final fun getSubject-715Ygxc ()Ljava/lang/String;
+	public final fun getSubjectProfile ()Ltools/ozone/verification/VerificationViewSubjectProfileUnion;
+	public final fun getSubjectRepo ()Ltools/ozone/verification/VerificationViewSubjectRepoUnion;
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/verification/VerificationView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class tools/ozone/verification/VerificationViewIssuerProfileUnion {
+	public static final field Companion Ltools/ozone/verification/VerificationViewIssuerProfileUnion$Companion;
+}
+
+public final class tools/ozone/verification/VerificationViewIssuerProfileUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/verification/VerificationViewIssuerProfileUnion$Unknown : tools/ozone/verification/VerificationViewIssuerProfileUnion {
+	public static final field Companion Ltools/ozone/verification/VerificationViewIssuerProfileUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/verification/VerificationViewIssuerProfileUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/verification/VerificationViewIssuerProfileUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class tools/ozone/verification/VerificationViewIssuerRepoUnion {
+	public static final field Companion Ltools/ozone/verification/VerificationViewIssuerRepoUnion$Companion;
+}
+
+public final class tools/ozone/verification/VerificationViewIssuerRepoUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/verification/VerificationViewIssuerRepoUnion$Detail : tools/ozone/verification/VerificationViewIssuerRepoUnion {
+	public static final field Companion Ltools/ozone/verification/VerificationViewIssuerRepoUnion$Detail$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/RepoViewDetail;)Ltools/ozone/verification/VerificationViewIssuerRepoUnion$Detail;
+	public static fun constructor-impl (Ltools/ozone/moderation/RepoViewDetail;)Ltools/ozone/moderation/RepoViewDetail;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/RepoViewDetail;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/RepoViewDetail;Ltools/ozone/moderation/RepoViewDetail;)Z
+	public final fun getValue ()Ltools/ozone/moderation/RepoViewDetail;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/RepoViewDetail;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/RepoViewDetail;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/RepoViewDetail;
+}
+
+public final class tools/ozone/verification/VerificationViewIssuerRepoUnion$Detail$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/verification/VerificationViewIssuerRepoUnion$NotFound : tools/ozone/verification/VerificationViewIssuerRepoUnion {
+	public static final field Companion Ltools/ozone/verification/VerificationViewIssuerRepoUnion$NotFound$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/RepoViewNotFound;)Ltools/ozone/verification/VerificationViewIssuerRepoUnion$NotFound;
+	public static fun constructor-impl (Ltools/ozone/moderation/RepoViewNotFound;)Ltools/ozone/moderation/RepoViewNotFound;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/RepoViewNotFound;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/RepoViewNotFound;Ltools/ozone/moderation/RepoViewNotFound;)Z
+	public final fun getValue ()Ltools/ozone/moderation/RepoViewNotFound;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/RepoViewNotFound;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/RepoViewNotFound;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/RepoViewNotFound;
+}
+
+public final class tools/ozone/verification/VerificationViewIssuerRepoUnion$NotFound$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/verification/VerificationViewIssuerRepoUnion$Unknown : tools/ozone/verification/VerificationViewIssuerRepoUnion {
+	public static final field Companion Ltools/ozone/verification/VerificationViewIssuerRepoUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/verification/VerificationViewIssuerRepoUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/verification/VerificationViewIssuerRepoUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class tools/ozone/verification/VerificationViewSubjectProfileUnion {
+	public static final field Companion Ltools/ozone/verification/VerificationViewSubjectProfileUnion$Companion;
+}
+
+public final class tools/ozone/verification/VerificationViewSubjectProfileUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/verification/VerificationViewSubjectProfileUnion$Unknown : tools/ozone/verification/VerificationViewSubjectProfileUnion {
+	public static final field Companion Ltools/ozone/verification/VerificationViewSubjectProfileUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/verification/VerificationViewSubjectProfileUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/verification/VerificationViewSubjectProfileUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class tools/ozone/verification/VerificationViewSubjectRepoUnion {
+	public static final field Companion Ltools/ozone/verification/VerificationViewSubjectRepoUnion$Companion;
+}
+
+public final class tools/ozone/verification/VerificationViewSubjectRepoUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/verification/VerificationViewSubjectRepoUnion$Detail : tools/ozone/verification/VerificationViewSubjectRepoUnion {
+	public static final field Companion Ltools/ozone/verification/VerificationViewSubjectRepoUnion$Detail$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/RepoViewDetail;)Ltools/ozone/verification/VerificationViewSubjectRepoUnion$Detail;
+	public static fun constructor-impl (Ltools/ozone/moderation/RepoViewDetail;)Ltools/ozone/moderation/RepoViewDetail;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/RepoViewDetail;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/RepoViewDetail;Ltools/ozone/moderation/RepoViewDetail;)Z
+	public final fun getValue ()Ltools/ozone/moderation/RepoViewDetail;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/RepoViewDetail;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/RepoViewDetail;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/RepoViewDetail;
+}
+
+public final class tools/ozone/verification/VerificationViewSubjectRepoUnion$Detail$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/verification/VerificationViewSubjectRepoUnion$NotFound : tools/ozone/verification/VerificationViewSubjectRepoUnion {
+	public static final field Companion Ltools/ozone/verification/VerificationViewSubjectRepoUnion$NotFound$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/RepoViewNotFound;)Ltools/ozone/verification/VerificationViewSubjectRepoUnion$NotFound;
+	public static fun constructor-impl (Ltools/ozone/moderation/RepoViewNotFound;)Ltools/ozone/moderation/RepoViewNotFound;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/RepoViewNotFound;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/RepoViewNotFound;Ltools/ozone/moderation/RepoViewNotFound;)Z
+	public final fun getValue ()Ltools/ozone/moderation/RepoViewNotFound;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/RepoViewNotFound;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/RepoViewNotFound;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/RepoViewNotFound;
+}
+
+public final class tools/ozone/verification/VerificationViewSubjectRepoUnion$NotFound$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/verification/VerificationViewSubjectRepoUnion$Unknown : tools/ozone/verification/VerificationViewSubjectRepoUnion {
+	public static final field Companion Ltools/ozone/verification/VerificationViewSubjectRepoUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/verification/VerificationViewSubjectRepoUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/verification/VerificationViewSubjectRepoUnion$Unknown$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
