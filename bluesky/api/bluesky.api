@@ -7465,16 +7465,36 @@ public final class app/bsky/richtext/FacetTag$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/unspecced/GetConfigLiveNowConfig {
+	public static final field Companion Lapp/bsky/unspecced/GetConfigLiveNowConfig$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy-vy2gcmM (Ljava/lang/String;Ljava/util/List;)Lapp/bsky/unspecced/GetConfigLiveNowConfig;
+	public static synthetic fun copy-vy2gcmM$default (Lapp/bsky/unspecced/GetConfigLiveNowConfig;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetConfigLiveNowConfig;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getDomains ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetConfigLiveNowConfig$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/unspecced/GetConfigResponse {
 	public static final field Companion Lapp/bsky/unspecced/GetConfigResponse$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/Boolean;)V
-	public synthetic fun <init> (Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Boolean;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Boolean;
-	public final fun copy (Ljava/lang/Boolean;)Lapp/bsky/unspecced/GetConfigResponse;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetConfigResponse;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/unspecced/GetConfigResponse;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/Boolean;Ljava/util/List;)Lapp/bsky/unspecced/GetConfigResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetConfigResponse;Ljava/lang/Boolean;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetConfigResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCheckEmailConfirmed ()Ljava/lang/Boolean;
+	public final fun getLiveNow ()Ljava/util/List;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
