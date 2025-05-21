@@ -2913,19 +2913,21 @@ public final class app/bsky/feed/DescribeFeedGeneratorResponse$Companion {
 
 public final class app/bsky/feed/FeedViewPost {
 	public static final field Companion Lapp/bsky/feed/FeedViewPost$Companion;
-	public fun <init> (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ReplyRef;Lapp/bsky/feed/FeedViewPostReasonUnion;Ljava/lang/String;)V
-	public synthetic fun <init> (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ReplyRef;Lapp/bsky/feed/FeedViewPostReasonUnion;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ReplyRef;Lapp/bsky/feed/FeedViewPostReasonUnion;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ReplyRef;Lapp/bsky/feed/FeedViewPostReasonUnion;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lapp/bsky/feed/PostView;
 	public final fun component2 ()Lapp/bsky/feed/ReplyRef;
 	public final fun component3 ()Lapp/bsky/feed/FeedViewPostReasonUnion;
 	public final fun component4 ()Ljava/lang/String;
-	public final fun copy (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ReplyRef;Lapp/bsky/feed/FeedViewPostReasonUnion;Ljava/lang/String;)Lapp/bsky/feed/FeedViewPost;
-	public static synthetic fun copy$default (Lapp/bsky/feed/FeedViewPost;Lapp/bsky/feed/PostView;Lapp/bsky/feed/ReplyRef;Lapp/bsky/feed/FeedViewPostReasonUnion;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/FeedViewPost;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ReplyRef;Lapp/bsky/feed/FeedViewPostReasonUnion;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/feed/FeedViewPost;
+	public static synthetic fun copy$default (Lapp/bsky/feed/FeedViewPost;Lapp/bsky/feed/PostView;Lapp/bsky/feed/ReplyRef;Lapp/bsky/feed/FeedViewPostReasonUnion;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/FeedViewPost;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getFeedContext ()Ljava/lang/String;
 	public final fun getPost ()Lapp/bsky/feed/PostView;
 	public final fun getReason ()Lapp/bsky/feed/FeedViewPostReasonUnion;
 	public final fun getReply ()Lapp/bsky/feed/ReplyRef;
+	public final fun getReqId ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -3466,15 +3468,17 @@ public final class app/bsky/feed/GetFeedSkeletonQueryParams$Companion {
 
 public final class app/bsky/feed/GetFeedSkeletonResponse {
 	public static final field Companion Lapp/bsky/feed/GetFeedSkeletonResponse$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/util/List;
-	public final fun copy (Ljava/lang/String;Ljava/util/List;)Lapp/bsky/feed/GetFeedSkeletonResponse;
-	public static synthetic fun copy$default (Lapp/bsky/feed/GetFeedSkeletonResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/feed/GetFeedSkeletonResponse;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)Lapp/bsky/feed/GetFeedSkeletonResponse;
+	public static synthetic fun copy$default (Lapp/bsky/feed/GetFeedSkeletonResponse;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/GetFeedSkeletonResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getFeed ()Ljava/util/List;
+	public final fun getReqId ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -3927,17 +3931,19 @@ public final class app/bsky/feed/GetTimelineResponse$Companion {
 
 public final class app/bsky/feed/Interaction {
 	public static final field Companion Lapp/bsky/feed/Interaction$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-W3xQKsw ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun copy-C-8gy4Y (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/feed/Interaction;
-	public static synthetic fun copy-C-8gy4Y$default (Lapp/bsky/feed/Interaction;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/Interaction;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy-ycGvV20 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/feed/Interaction;
+	public static synthetic fun copy-ycGvV20$default (Lapp/bsky/feed/Interaction;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/Interaction;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getEvent ()Ljava/lang/String;
 	public final fun getFeedContext ()Ljava/lang/String;
 	public final fun getItem-W3xQKsw ()Ljava/lang/String;
+	public final fun getReqId ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
