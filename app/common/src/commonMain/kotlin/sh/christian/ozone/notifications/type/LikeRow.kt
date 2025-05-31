@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import sh.christian.ozone.model.Notification
+import sh.christian.ozone.model.TimelinePost
 import sh.christian.ozone.notifications.NotificationRowContext
 import sh.christian.ozone.thread.ThreadProps
 import sh.christian.ozone.ui.compose.TimeDelta
@@ -27,9 +28,27 @@ fun LikeRow(
   notification: Notification,
   content: Notification.Content.Liked,
 ) {
+  LikeRow(context, notification, content.post)
+}
+
+@Composable
+fun LikeRow(
+  context: NotificationRowContext,
+  notification: Notification,
+  content: Notification.Content.LikedViaRepost,
+) {
+  LikeRow(context, notification, content.post)
+}
+
+@Composable
+fun LikeRow(
+  context: NotificationRowContext,
+  notification: Notification,
+  post: TimelinePost,
+) {
   val profile = notification.author
   NotificationRowScaffold(
-    modifier = Modifier.clickable { context.onOpenPost(ThreadProps.FromPost(content.post)) },
+    modifier = Modifier.clickable { context.onOpenPost(ThreadProps.FromPost(post)) },
     context = context,
     profile = profile,
     icon = {
@@ -54,7 +73,7 @@ fun LikeRow(
           )
         }
         Text(
-          text = content.post.text,
+          text = post.text,
           overflow = TextOverflow.Ellipsis,
           maxLines = 1,
           style = LocalTextStyle.current.copy(color = MaterialTheme.colorScheme.outline),

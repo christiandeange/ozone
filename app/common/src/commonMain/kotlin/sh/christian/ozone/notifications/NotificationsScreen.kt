@@ -108,6 +108,8 @@ class NotificationsScreen(
                   is Notification.Content.JoinedStarterPack -> JoinedStarterPackRow(context, notification)
                   is Notification.Content.UserVerified -> VerifiedRow(context, notification)
                   is Notification.Content.UserUnverified -> UnverifiedRow(context, notification)
+                  is Notification.Content.LikedViaRepost -> LikeRow(context, notification, content)
+                  is Notification.Content.RepostedViaRepost -> RepostRow(context, notification, content)
                   null -> Unit
                 }
               }

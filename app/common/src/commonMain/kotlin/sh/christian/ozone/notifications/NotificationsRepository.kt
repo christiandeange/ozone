@@ -170,6 +170,8 @@ class NotificationsRepository(
       is ListNotificationsReason.StarterpackJoined -> null
       is ListNotificationsReason.Verified -> null
       is ListNotificationsReason.Unverified -> null
+      is ListNotificationsReason.LikeViaRepost -> reasonSubject
+      is ListNotificationsReason.RepostViaRepost -> reasonSubject
     }
   }
 }

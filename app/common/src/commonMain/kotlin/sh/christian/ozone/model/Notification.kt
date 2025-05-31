@@ -1,13 +1,14 @@
 package sh.christian.ozone.model
 
 import app.bsky.notification.ListNotificationsNotification
-import app.bsky.notification.ListNotificationsReason
 import app.bsky.notification.ListNotificationsReason.Follow
 import app.bsky.notification.ListNotificationsReason.Like
+import app.bsky.notification.ListNotificationsReason.LikeViaRepost
 import app.bsky.notification.ListNotificationsReason.Mention
 import app.bsky.notification.ListNotificationsReason.Quote
 import app.bsky.notification.ListNotificationsReason.Reply
 import app.bsky.notification.ListNotificationsReason.Repost
+import app.bsky.notification.ListNotificationsReason.RepostViaRepost
 import app.bsky.notification.ListNotificationsReason.StarterpackJoined
 import app.bsky.notification.ListNotificationsReason.Unknown
 import app.bsky.notification.ListNotificationsReason.Unverified
@@ -18,10 +19,12 @@ import sh.christian.ozone.api.Cid
 import sh.christian.ozone.model.Notification.Content.Followed
 import sh.christian.ozone.model.Notification.Content.JoinedStarterPack
 import sh.christian.ozone.model.Notification.Content.Liked
+import sh.christian.ozone.model.Notification.Content.LikedViaRepost
 import sh.christian.ozone.model.Notification.Content.Mentioned
 import sh.christian.ozone.model.Notification.Content.Quoted
 import sh.christian.ozone.model.Notification.Content.RepliedTo
 import sh.christian.ozone.model.Notification.Content.Reposted
+import sh.christian.ozone.model.Notification.Content.RepostedViaRepost
 import sh.christian.ozone.model.Notification.Content.UserUnverified
 import sh.christian.ozone.model.Notification.Content.UserVerified
 import sh.christian.ozone.notifications.NotificationsRepository.Companion.getPostUri
@@ -72,6 +75,14 @@ data class Notification(
     data object UserVerified : Content
 
     data object UserUnverified : Content
+
+    data class LikedViaRepost(
+      val post: TimelinePost,
+    ) : Content
+
+    data class RepostedViaRepost(
+      val post: TimelinePost,
+    ) : Content
   }
 
   enum class Reason {
@@ -85,6 +96,8 @@ data class Notification(
     JOINED_STARTERPACK,
     VERIFIED,
     UNVERIFIED,
+    LIKE_VIA_REPOST,
+    REPOST_VIA_REPOST,
   }
 }
 
@@ -107,6 +120,8 @@ fun ListNotificationsNotification.toNotification(
     is StarterpackJoined -> Notification.Reason.JOINED_STARTERPACK to JoinedStarterPack
     is Verified -> Notification.Reason.VERIFIED to UserVerified
     is Unverified -> Notification.Reason.UNVERIFIED to UserUnverified
+    is LikeViaRepost -> Notification.Reason.LIKE_VIA_REPOST to notificationPost?.let(::LikedViaRepost)
+    is RepostViaRepost -> Notification.Reason.REPOST_VIA_REPOST to notificationPost?.let(::RepostedViaRepost)
   }
 
   return Notification(
