@@ -7632,26 +7632,6 @@ public final class app/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItem$Comp
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemPost {
-	public static final field Companion Lapp/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemPost$Companion;
-	public fun <init> (Lapp/bsky/feed/PostView;ZZ)V
-	public final fun component1 ()Lapp/bsky/feed/PostView;
-	public final fun component2 ()Z
-	public final fun component3 ()Z
-	public final fun copy (Lapp/bsky/feed/PostView;ZZ)Lapp/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemPost;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemPost;Lapp/bsky/feed/PostView;ZZILjava/lang/Object;)Lapp/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemPost;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getHiddenByThreadgate ()Z
-	public final fun getMutedByViewer ()Z
-	public final fun getPost ()Lapp/bsky/feed/PostView;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemPost$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
 public abstract interface class app/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemValueUnion {
 	public static final field Companion Lapp/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemValueUnion$Companion;
 }
@@ -7660,22 +7640,22 @@ public final class app/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemValue
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemValueUnion$ThreadHiddenItemPost : app/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemValueUnion {
-	public static final field Companion Lapp/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemValueUnion$ThreadHiddenItemPost$Companion;
-	public static final synthetic fun box-impl (Lapp/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemPost;)Lapp/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemValueUnion$ThreadHiddenItemPost;
-	public static fun constructor-impl (Lapp/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemPost;)Lapp/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemPost;
+public final class app/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemValueUnion$ThreadItemPost : app/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemValueUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemValueUnion$ThreadItemPost$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/unspecced/ThreadItemPost;)Lapp/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemValueUnion$ThreadItemPost;
+	public static fun constructor-impl (Lapp/bsky/unspecced/ThreadItemPost;)Lapp/bsky/unspecced/ThreadItemPost;
 	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lapp/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemPost;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lapp/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemPost;Lapp/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemPost;)Z
-	public final fun getValue ()Lapp/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemPost;
+	public static fun equals-impl (Lapp/bsky/unspecced/ThreadItemPost;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/unspecced/ThreadItemPost;Lapp/bsky/unspecced/ThreadItemPost;)Z
+	public final fun getValue ()Lapp/bsky/unspecced/ThreadItemPost;
 	public fun hashCode ()I
-	public static fun hashCode-impl (Lapp/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemPost;)I
+	public static fun hashCode-impl (Lapp/bsky/unspecced/ThreadItemPost;)I
 	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lapp/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemPost;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lapp/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemPost;
+	public static fun toString-impl (Lapp/bsky/unspecced/ThreadItemPost;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/unspecced/ThreadItemPost;
 }
 
-public final class app/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemValueUnion$ThreadHiddenItemPost$Companion {
+public final class app/bsky/unspecced/GetPostThreadHiddenV2ThreadHiddenItemValueUnion$ThreadItemPost$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -7819,135 +7799,87 @@ public final class app/bsky/unspecced/GetPostThreadV2ThreadItem$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/unspecced/GetPostThreadV2ThreadItemBlocked {
-	public static final field Companion Lapp/bsky/unspecced/GetPostThreadV2ThreadItemBlocked$Companion;
-	public fun <init> (Lapp/bsky/feed/BlockedAuthor;)V
-	public final fun component1 ()Lapp/bsky/feed/BlockedAuthor;
-	public final fun copy (Lapp/bsky/feed/BlockedAuthor;)Lapp/bsky/unspecced/GetPostThreadV2ThreadItemBlocked;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemBlocked;Lapp/bsky/feed/BlockedAuthor;ILjava/lang/Object;)Lapp/bsky/unspecced/GetPostThreadV2ThreadItemBlocked;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAuthor ()Lapp/bsky/feed/BlockedAuthor;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/unspecced/GetPostThreadV2ThreadItemBlocked$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class app/bsky/unspecced/GetPostThreadV2ThreadItemNoUnauthenticated {
-	public static final field INSTANCE Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNoUnauthenticated;
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class app/bsky/unspecced/GetPostThreadV2ThreadItemNotFound {
-	public static final field INSTANCE Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNotFound;
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class app/bsky/unspecced/GetPostThreadV2ThreadItemPost {
-	public static final field Companion Lapp/bsky/unspecced/GetPostThreadV2ThreadItemPost$Companion;
-	public fun <init> (Lapp/bsky/feed/PostView;ZJZ)V
-	public final fun component1 ()Lapp/bsky/feed/PostView;
-	public final fun component2 ()Z
-	public final fun component3 ()J
-	public final fun component4 ()Z
-	public final fun copy (Lapp/bsky/feed/PostView;ZJZ)Lapp/bsky/unspecced/GetPostThreadV2ThreadItemPost;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemPost;Lapp/bsky/feed/PostView;ZJZILjava/lang/Object;)Lapp/bsky/unspecced/GetPostThreadV2ThreadItemPost;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getMoreParents ()Z
-	public final fun getMoreReplies ()J
-	public final fun getOpThread ()Z
-	public final fun getPost ()Lapp/bsky/feed/PostView;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/unspecced/GetPostThreadV2ThreadItemPost$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
 public abstract interface class app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion {
 	public static final field Companion Lapp/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$Companion;
+}
+
+public final class app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$Blocked : app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$Blocked$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/unspecced/ThreadItemBlocked;)Lapp/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$Blocked;
+	public static fun constructor-impl (Lapp/bsky/unspecced/ThreadItemBlocked;)Lapp/bsky/unspecced/ThreadItemBlocked;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/unspecced/ThreadItemBlocked;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/unspecced/ThreadItemBlocked;Lapp/bsky/unspecced/ThreadItemBlocked;)Z
+	public final fun getValue ()Lapp/bsky/unspecced/ThreadItemBlocked;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/unspecced/ThreadItemBlocked;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/unspecced/ThreadItemBlocked;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/unspecced/ThreadItemBlocked;
+}
+
+public final class app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$Blocked$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$ThreadItemBlocked : app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion {
-	public static final field Companion Lapp/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$ThreadItemBlocked$Companion;
-	public static final synthetic fun box-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemBlocked;)Lapp/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$ThreadItemBlocked;
-	public static fun constructor-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemBlocked;)Lapp/bsky/unspecced/GetPostThreadV2ThreadItemBlocked;
+public final class app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$NoUnauthenticated : app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$NoUnauthenticated$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/unspecced/ThreadItemNoUnauthenticated;)Lapp/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$NoUnauthenticated;
+	public static fun constructor-impl (Lapp/bsky/unspecced/ThreadItemNoUnauthenticated;)Lapp/bsky/unspecced/ThreadItemNoUnauthenticated;
 	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemBlocked;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemBlocked;Lapp/bsky/unspecced/GetPostThreadV2ThreadItemBlocked;)Z
-	public final fun getValue ()Lapp/bsky/unspecced/GetPostThreadV2ThreadItemBlocked;
+	public static fun equals-impl (Lapp/bsky/unspecced/ThreadItemNoUnauthenticated;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/unspecced/ThreadItemNoUnauthenticated;Lapp/bsky/unspecced/ThreadItemNoUnauthenticated;)Z
+	public final fun getValue ()Lapp/bsky/unspecced/ThreadItemNoUnauthenticated;
 	public fun hashCode ()I
-	public static fun hashCode-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemBlocked;)I
+	public static fun hashCode-impl (Lapp/bsky/unspecced/ThreadItemNoUnauthenticated;)I
 	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemBlocked;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lapp/bsky/unspecced/GetPostThreadV2ThreadItemBlocked;
+	public static fun toString-impl (Lapp/bsky/unspecced/ThreadItemNoUnauthenticated;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/unspecced/ThreadItemNoUnauthenticated;
 }
 
-public final class app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$ThreadItemBlocked$Companion {
+public final class app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$NoUnauthenticated$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$ThreadItemNoUnauthenticated : app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion {
-	public static final field Companion Lapp/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$ThreadItemNoUnauthenticated$Companion;
-	public static final synthetic fun box-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNoUnauthenticated;)Lapp/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$ThreadItemNoUnauthenticated;
-	public static fun constructor-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNoUnauthenticated;)Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNoUnauthenticated;
+public final class app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$NotFound : app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$NotFound$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/unspecced/ThreadItemNotFound;)Lapp/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$NotFound;
+	public static fun constructor-impl (Lapp/bsky/unspecced/ThreadItemNotFound;)Lapp/bsky/unspecced/ThreadItemNotFound;
 	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNoUnauthenticated;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNoUnauthenticated;Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNoUnauthenticated;)Z
-	public final fun getValue ()Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNoUnauthenticated;
+	public static fun equals-impl (Lapp/bsky/unspecced/ThreadItemNotFound;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/unspecced/ThreadItemNotFound;Lapp/bsky/unspecced/ThreadItemNotFound;)Z
+	public final fun getValue ()Lapp/bsky/unspecced/ThreadItemNotFound;
 	public fun hashCode ()I
-	public static fun hashCode-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNoUnauthenticated;)I
+	public static fun hashCode-impl (Lapp/bsky/unspecced/ThreadItemNotFound;)I
 	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNoUnauthenticated;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNoUnauthenticated;
+	public static fun toString-impl (Lapp/bsky/unspecced/ThreadItemNotFound;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/unspecced/ThreadItemNotFound;
 }
 
-public final class app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$ThreadItemNoUnauthenticated$Companion {
+public final class app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$NotFound$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$ThreadItemNotFound : app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion {
-	public static final field Companion Lapp/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$ThreadItemNotFound$Companion;
-	public static final synthetic fun box-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNotFound;)Lapp/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$ThreadItemNotFound;
-	public static fun constructor-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNotFound;)Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNotFound;
+public final class app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$Post : app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$Post$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/unspecced/ThreadItemPost;)Lapp/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$Post;
+	public static fun constructor-impl (Lapp/bsky/unspecced/ThreadItemPost;)Lapp/bsky/unspecced/ThreadItemPost;
 	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNotFound;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNotFound;Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNotFound;)Z
-	public final fun getValue ()Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNotFound;
+	public static fun equals-impl (Lapp/bsky/unspecced/ThreadItemPost;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/unspecced/ThreadItemPost;Lapp/bsky/unspecced/ThreadItemPost;)Z
+	public final fun getValue ()Lapp/bsky/unspecced/ThreadItemPost;
 	public fun hashCode ()I
-	public static fun hashCode-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNotFound;)I
+	public static fun hashCode-impl (Lapp/bsky/unspecced/ThreadItemPost;)I
 	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNotFound;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lapp/bsky/unspecced/GetPostThreadV2ThreadItemNotFound;
+	public static fun toString-impl (Lapp/bsky/unspecced/ThreadItemPost;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/unspecced/ThreadItemPost;
 }
 
-public final class app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$ThreadItemNotFound$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$ThreadItemPost : app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion {
-	public static final field Companion Lapp/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$ThreadItemPost$Companion;
-	public static final synthetic fun box-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemPost;)Lapp/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$ThreadItemPost;
-	public static fun constructor-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemPost;)Lapp/bsky/unspecced/GetPostThreadV2ThreadItemPost;
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemPost;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemPost;Lapp/bsky/unspecced/GetPostThreadV2ThreadItemPost;)Z
-	public final fun getValue ()Lapp/bsky/unspecced/GetPostThreadV2ThreadItemPost;
-	public fun hashCode ()I
-	public static fun hashCode-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemPost;)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lapp/bsky/unspecced/GetPostThreadV2ThreadItemPost;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lapp/bsky/unspecced/GetPostThreadV2ThreadItemPost;
-}
-
-public final class app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$ThreadItemPost$Companion {
+public final class app/bsky/unspecced/GetPostThreadV2ThreadItemValueUnion$Post$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -8739,6 +8671,58 @@ public final class app/bsky/unspecced/StatusSerializer : kotlinx/serialization/K
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/unspecced/Status;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class app/bsky/unspecced/ThreadItemBlocked {
+	public static final field Companion Lapp/bsky/unspecced/ThreadItemBlocked$Companion;
+	public fun <init> (Lapp/bsky/feed/BlockedAuthor;)V
+	public final fun component1 ()Lapp/bsky/feed/BlockedAuthor;
+	public final fun copy (Lapp/bsky/feed/BlockedAuthor;)Lapp/bsky/unspecced/ThreadItemBlocked;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/ThreadItemBlocked;Lapp/bsky/feed/BlockedAuthor;ILjava/lang/Object;)Lapp/bsky/unspecced/ThreadItemBlocked;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAuthor ()Lapp/bsky/feed/BlockedAuthor;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/ThreadItemBlocked$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/ThreadItemNoUnauthenticated {
+	public static final field INSTANCE Lapp/bsky/unspecced/ThreadItemNoUnauthenticated;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/ThreadItemNotFound {
+	public static final field INSTANCE Lapp/bsky/unspecced/ThreadItemNotFound;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/ThreadItemPost {
+	public static final field Companion Lapp/bsky/unspecced/ThreadItemPost$Companion;
+	public fun <init> (Lapp/bsky/feed/PostView;ZJZZZ)V
+	public final fun component1 ()Lapp/bsky/feed/PostView;
+	public final fun component2 ()Z
+	public final fun component3 ()J
+	public final fun component4 ()Z
+	public final fun component5 ()Z
+	public final fun component6 ()Z
+	public final fun copy (Lapp/bsky/feed/PostView;ZJZZZ)Lapp/bsky/unspecced/ThreadItemPost;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/ThreadItemPost;Lapp/bsky/feed/PostView;ZJZZZILjava/lang/Object;)Lapp/bsky/unspecced/ThreadItemPost;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHiddenByThreadgate ()Z
+	public final fun getMoreParents ()Z
+	public final fun getMoreReplies ()J
+	public final fun getMutedByViewer ()Z
+	public final fun getOpThread ()Z
+	public final fun getPost ()Lapp/bsky/feed/PostView;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/ThreadItemPost$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class app/bsky/unspecced/TrendView {
