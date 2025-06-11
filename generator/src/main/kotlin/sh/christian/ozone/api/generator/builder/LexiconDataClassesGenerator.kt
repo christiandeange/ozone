@@ -376,37 +376,3 @@ class LexiconDataClassesGenerator(
     return name
   }
 }
-
-private fun List<String>.commonPrefix(): String = when (size) {
-  0 -> ""
-  1 -> first()
-  else -> {
-    val sample = first()
-    sample.forEachIndexed { i, c ->
-      if (any { it.count() <= i || it[i] != c }) {
-        return sample.substring(0, i)
-      }
-    }
-    sample
-  }
-}.let { prefix ->
-  if (prefix in this) {
-    prefix.substringBefore('#') + '#'
-  } else {
-    prefix
-  }
-}
-
-private fun List<String>.commonSuffix(): String = when (size) {
-  0 -> ""
-  1 -> first()
-  else -> {
-    val sample = first().reversed()
-    sample.forEachIndexed { i, c ->
-      if (any { it.count() <= i || it[i] != c }) {
-        return sample.substring(0, i).reversed()
-      }
-    }
-    first()
-  }
-}

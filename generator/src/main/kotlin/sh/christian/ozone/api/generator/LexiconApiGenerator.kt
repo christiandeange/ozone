@@ -23,6 +23,8 @@ import sh.christian.ozone.api.generator.TypeNames.Flow
 import sh.christian.ozone.api.generator.TypeNames.Result
 import sh.christian.ozone.api.generator.builder.GeneratorContext
 import sh.christian.ozone.api.generator.builder.addDescription
+import sh.christian.ozone.api.generator.builder.capitalized
+import sh.christian.ozone.api.generator.builder.commonPrefix
 import sh.christian.ozone.api.lexicon.LexiconArray
 import sh.christian.ozone.api.lexicon.LexiconBlob
 import sh.christian.ozone.api.lexicon.LexiconDocument
@@ -63,6 +65,8 @@ class LexiconApiGenerator(
   }
 
   fun generateApis() {
+    resolveApiCallConflicts()
+
     configurations.forEach { configuration ->
       generateAtpApi(
         configuration = configuration,
@@ -332,10 +336,43 @@ class LexiconApiGenerator(
       .sortedBy { it.name }
   }
 
+  private fun resolveApiCallConflicts() {
+    apiCalls.groupBy { it.signature() }.values.forEach { conflictingGroup ->
+      if (conflictingGroup.size < 2) return@forEach
+
+      // Compute the common prefix among all conflicting API calls so that we can remove it and keep the difference.
+      val commonPrefix = conflictingGroup.map { it.id }.commonPrefix()
+
+      apiCalls.removeAll(conflictingGroup.toSet())
+      apiCalls.addAll(
+        conflictingGroup.map { apiCall ->
+          // Change dot case to camel case for the API call name
+          val newName = apiCall.name
+            .plus("For")
+            .plus(
+              apiCall.id
+                .removePrefix(commonPrefix)
+                .replace(Regex("\\W\\w")) { it.value.last().uppercase() }
+                .removeSuffix(apiCall.name.capitalized())
+                .capitalized()
+            )
+
+          when (apiCall) {
+            is Query -> apiCall.copy(name = newName)
+            is Procedure -> apiCall.copy(name = newName)
+            is Subscription -> apiCall.copy(name = newName)
+          }
+        }
+      )
+    }
+  }
+
   private sealed interface ApiCall {
     val id: String
     val name: String
     val description: String?
+
+    fun signature(): String
 
     data class Query(
       override val id: String,
@@ -343,7 +380,11 @@ class LexiconApiGenerator(
       override val description: String?,
       val propertiesType: ApiType?,
       val outputType: ApiType,
-    ) : ApiCall
+    ) : ApiCall {
+      override fun signature(): String {
+        return "$name(${propertiesType?.typeName?.toString() ?: ""})"
+      }
+    }
 
     data class Procedure(
       override val id: String,
@@ -351,7 +392,11 @@ class LexiconApiGenerator(
       override val description: String?,
       val inputType: ApiType?,
       val outputType: ApiType?,
-    ) : ApiCall
+    ) : ApiCall {
+      override fun signature(): String {
+        return "$name(${inputType?.typeName?.toString() ?: ""})"
+      }
+    }
 
     data class Subscription(
       override val id: String,
@@ -359,7 +404,11 @@ class LexiconApiGenerator(
       override val description: String?,
       val propertiesType: ApiType?,
       val outputType: ApiType,
-    ) : ApiCall
+    ) : ApiCall {
+      override fun signature(): String {
+        return "$name(${propertiesType?.typeName?.toString() ?: ""})"
+      }
+    }
   }
 
   private data class ApiType(
