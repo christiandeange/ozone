@@ -6991,13 +6991,13 @@ public final class app/bsky/labeler/ServiceLabelsUnion$Unknown$Companion {
 
 public final class app/bsky/notification/ChatPreference {
 	public static final field Companion Lapp/bsky/notification/ChatPreference$Companion;
-	public fun <init> (Lapp/bsky/notification/Filter;Z)V
-	public final fun component1 ()Lapp/bsky/notification/Filter;
+	public fun <init> (Lapp/bsky/notification/Include;Z)V
+	public final fun component1 ()Lapp/bsky/notification/Include;
 	public final fun component2 ()Z
-	public final fun copy (Lapp/bsky/notification/Filter;Z)Lapp/bsky/notification/ChatPreference;
-	public static synthetic fun copy$default (Lapp/bsky/notification/ChatPreference;Lapp/bsky/notification/Filter;ZILjava/lang/Object;)Lapp/bsky/notification/ChatPreference;
+	public final fun copy (Lapp/bsky/notification/Include;Z)Lapp/bsky/notification/ChatPreference;
+	public static synthetic fun copy$default (Lapp/bsky/notification/ChatPreference;Lapp/bsky/notification/Include;ZILjava/lang/Object;)Lapp/bsky/notification/ChatPreference;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getFilter ()Lapp/bsky/notification/Filter;
+	public final fun getInclude ()Lapp/bsky/notification/Include;
 	public final fun getPush ()Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -7007,68 +7007,16 @@ public final class app/bsky/notification/ChatPreference$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract class app/bsky/notification/Filter : sh/christian/ozone/api/model/AtpEnum {
-	public static final field Companion Lapp/bsky/notification/Filter$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun getValue ()Ljava/lang/String;
-}
-
-public final class app/bsky/notification/Filter$Accepted : app/bsky/notification/Filter {
-	public static final field INSTANCE Lapp/bsky/notification/Filter$Accepted;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/notification/Filter$All : app/bsky/notification/Filter {
-	public static final field INSTANCE Lapp/bsky/notification/Filter$All;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/notification/Filter$Companion {
-	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/notification/Filter;
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class app/bsky/notification/Filter$Follows : app/bsky/notification/Filter {
-	public static final field INSTANCE Lapp/bsky/notification/Filter$Follows;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/notification/Filter$Unknown : app/bsky/notification/Filter {
-	public fun <init> (Ljava/lang/String;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;)Lapp/bsky/notification/Filter$Unknown;
-	public static synthetic fun copy$default (Lapp/bsky/notification/Filter$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/Filter$Unknown;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getRawValue ()Ljava/lang/String;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/notification/FilterSerializer : kotlinx/serialization/KSerializer {
-	public fun <init> ()V
-	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/notification/Filter;
-	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
-	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/notification/Filter;)V
-	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-}
-
 public final class app/bsky/notification/FilterablePreference {
 	public static final field Companion Lapp/bsky/notification/FilterablePreference$Companion;
-	public fun <init> (Lapp/bsky/notification/Filter;ZZ)V
-	public final fun component1 ()Lapp/bsky/notification/Filter;
+	public fun <init> (Lapp/bsky/notification/Include;ZZ)V
+	public final fun component1 ()Lapp/bsky/notification/Include;
 	public final fun component2 ()Z
 	public final fun component3 ()Z
-	public final fun copy (Lapp/bsky/notification/Filter;ZZ)Lapp/bsky/notification/FilterablePreference;
-	public static synthetic fun copy$default (Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/Filter;ZZILjava/lang/Object;)Lapp/bsky/notification/FilterablePreference;
+	public final fun copy (Lapp/bsky/notification/Include;ZZ)Lapp/bsky/notification/FilterablePreference;
+	public static synthetic fun copy$default (Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/Include;ZZILjava/lang/Object;)Lapp/bsky/notification/FilterablePreference;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getFilter ()Lapp/bsky/notification/Filter;
+	public final fun getInclude ()Lapp/bsky/notification/Include;
 	public final fun getList ()Z
 	public final fun getPush ()Z
 	public fun hashCode ()I
@@ -7130,6 +7078,58 @@ public final class app/bsky/notification/GetUnreadCountResponse {
 
 public final class app/bsky/notification/GetUnreadCountResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class app/bsky/notification/Include : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/notification/Include$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/Include$Accepted : app/bsky/notification/Include {
+	public static final field INSTANCE Lapp/bsky/notification/Include$Accepted;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/Include$All : app/bsky/notification/Include {
+	public static final field INSTANCE Lapp/bsky/notification/Include$All;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/Include$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/notification/Include;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/Include$Follows : app/bsky/notification/Include {
+	public static final field INSTANCE Lapp/bsky/notification/Include$Follows;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/Include$Unknown : app/bsky/notification/Include {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/notification/Include$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/notification/Include$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/Include$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/IncludeSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/notification/Include;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/notification/Include;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/notification/ListNotificationsNotification {
