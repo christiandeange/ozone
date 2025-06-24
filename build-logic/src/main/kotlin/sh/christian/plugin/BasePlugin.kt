@@ -21,6 +21,6 @@ private fun Project.applyPlugin() {
   }
 
   project.kotlinExtension.jvmToolchain {
-    languageVersion.set(JavaLanguageVersion.of("11"))
+    languageVersion.set(JavaLanguageVersion.of("17"))
   }
 }
