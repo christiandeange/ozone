@@ -21,7 +21,15 @@ sealed class AtpResponse<T : Any> {
     val response: T?,
     val error: AtpErrorDescription?,
     val headers: Map<String, String>,
-  ) : AtpResponse<T>()
+  ) : AtpResponse<T>() {
+
+    /**
+     * Converts this failure into an [AtpException] that can be thrown.
+     */
+    fun asException(): AtpException {
+      return AtpException(statusCode, error)
+    }
+  }
 
   fun maybeResponse(): T? = when (this) {
     is Success -> response

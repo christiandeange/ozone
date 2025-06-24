@@ -345,6 +345,7 @@ public final class sh/christian/ozone/api/model/JsonContent$Companion {
 public final class sh/christian/ozone/api/response/AtpErrorDescription {
 	public static final field Companion Lsh/christian/ozone/api/response/AtpErrorDescription$Companion;
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lsh/christian/ozone/api/response/AtpErrorDescription;
@@ -361,7 +362,9 @@ public final class sh/christian/ozone/api/response/AtpErrorDescription$Companion
 }
 
 public final class sh/christian/ozone/api/response/AtpException : java/lang/Exception {
-	public fun <init> (Lsh/christian/ozone/api/response/StatusCode;)V
+	public fun <init> (Lsh/christian/ozone/api/response/StatusCode;Lsh/christian/ozone/api/response/AtpErrorDescription;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/response/StatusCode;Lsh/christian/ozone/api/response/AtpErrorDescription;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getError ()Lsh/christian/ozone/api/response/AtpErrorDescription;
 	public final fun getStatusCode ()Lsh/christian/ozone/api/response/StatusCode;
 }
 
@@ -373,6 +376,7 @@ public abstract class sh/christian/ozone/api/response/AtpResponse {
 
 public final class sh/christian/ozone/api/response/AtpResponse$Failure : sh/christian/ozone/api/response/AtpResponse {
 	public fun <init> (Lsh/christian/ozone/api/response/StatusCode;Ljava/lang/Object;Lsh/christian/ozone/api/response/AtpErrorDescription;Ljava/util/Map;)V
+	public final fun asException ()Lsh/christian/ozone/api/response/AtpException;
 	public final fun component1 ()Lsh/christian/ozone/api/response/StatusCode;
 	public final fun component2 ()Ljava/lang/Object;
 	public final fun component3 ()Lsh/christian/ozone/api/response/AtpErrorDescription;

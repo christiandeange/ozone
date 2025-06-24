@@ -1,6 +1,10 @@
+@file:OptIn(ExperimentalSerializationApi::class)
+
 package sh.christian.ozone.api.response
 
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonNames
 
 /**
  * Description of an unsuccessful response.
@@ -18,5 +22,6 @@ data class AtpErrorDescription(
   /**
    * Description of the error, appropriate for display to humans.
    */
-  val message: String?,
+  @JsonNames("message", "error_description")
+  val message: String? = null,
 )
