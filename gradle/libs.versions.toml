@@ -3,6 +3,7 @@ agp = "8.7.3"
 buildconfig = "5.5.0"
 compose = "1.8.1"
 coroutines = "1.10.2"
+crypto = "0.4.0"
 dokka = "1.9.20"
 kmmbridge = "1.0.1"
 kotlin = "2.1.20"
@@ -71,7 +72,11 @@ maven-publish = { module = "com.vanniktech:gradle-maven-publish-plugin", version
 workflow-core = { module = "com.squareup.workflow1:workflow-core", version.ref = "workflow" }
 workflow-runtime = { module = "com.squareup.workflow1:workflow-runtime", version.ref = "workflow" }
 
-securerandom = { module = "org.kotlincrypto.random:crypto-rand", version = "0.5.0" }
+crypto-core = { module = "dev.whyoleg.cryptography:cryptography-core", version.ref = "crypto" }
+crypto-random = { module = "dev.whyoleg.cryptography:cryptography-random", version.ref = "crypto" }
+crypto-jdk = { module = "dev.whyoleg.cryptography:cryptography-provider-jdk", version.ref = "crypto" }
+crypto-apple = { module = "dev.whyoleg.cryptography:cryptography-provider-apple", version.ref = "crypto" }
+crypto-webcrypto = { module = "dev.whyoleg.cryptography:cryptography-provider-webcrypto", version.ref = "crypto" }
 zstd = { module = "com.github.luben:zstd-jni", version = "1.5.6-7" }
 
 bluesky = { module = "sh.christian.ozone:bluesky", version = "0.3.3" }

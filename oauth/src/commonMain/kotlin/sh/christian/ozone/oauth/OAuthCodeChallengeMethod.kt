@@ -1,7 +1,6 @@
 package sh.christian.ozone.oauth
 
 import io.ktor.util.Digest
-import io.ktor.util.encodeBase64
 
 /**
  * Represents an OAuth code challenge method that the OAuth server will use to verify the code challenge.
@@ -28,7 +27,7 @@ abstract class OAuthCodeChallengeMethod(open val method: String) {
   data object S256 : OAuthCodeChallengeMethod("S256") {
     override suspend fun provideCodeChallenge(codeVerifier: String): String {
       val sha256 = Digest("SHA-256").also { it += codeVerifier.encodeToByteArray() }.build()
-      val base64UrlSafe = sha256.encodeBase64().substringBefore('=').replace('+', '-').replace('/', '_')
+      val base64UrlSafe = sha256.encodeBase64Url()
       return base64UrlSafe
     }
   }

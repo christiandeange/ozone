@@ -1,18 +1,36 @@
 package sh.christian.ozone.oauth
 
+import dev.whyoleg.cryptography.CryptographyProvider
+import dev.whyoleg.cryptography.algorithms.EC
+import dev.whyoleg.cryptography.algorithms.EC.Curve.Companion.P256
+import dev.whyoleg.cryptography.algorithms.ECDSA
+import dev.whyoleg.cryptography.algorithms.SHA256
+import dev.whyoleg.cryptography.random.CryptographyRandom
 import io.ktor.client.HttpClient
+import io.ktor.client.request.forms.FormDataContent
 import io.ktor.client.request.get
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
+import io.ktor.http.Parameters
+import io.ktor.http.ParametersBuilder
 import io.ktor.http.Url
 import io.ktor.http.buildUrl
 import io.ktor.http.takeFrom
 import kotlinx.coroutines.coroutineScope
+import kotlinx.datetime.Clock
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.buildJsonObject
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.api.xrpc.defaultHttpClient
 import sh.christian.ozone.api.xrpc.toAtpModel
 import sh.christian.ozone.api.xrpc.toAtpResponse
 import sh.christian.ozone.api.xrpc.withXrpcConfiguration
+import sh.christian.ozone.oauth.dpop.DpopKeyPair
+import sh.christian.ozone.oauth.network.OAuthAuthorizationServer
+import sh.christian.ozone.oauth.network.OAuthParRequest
+import sh.christian.ozone.oauth.network.OAuthParResponse
+import sh.christian.ozone.oauth.network.OAuthTokenResponse
 import kotlin.random.Random
 import kotlin.time.Duration.Companion.seconds
 
@@ -21,32 +39,43 @@ import kotlin.time.Duration.Companion.seconds
  *
  * @constructor Construct a new OAuth API instance.
  *
- * @param client The HTTP client to use for requests.
+ * @param httpClient The HTTP client to use for requests.
  * @param challengeSelector The strategy to select the code challenge method.
  * @param random The random number generator to use for generating state and code challenges.
+ * @param clock The clock to use for generating timestamps.
  */
 class OAuthApi(
-  private val client: HttpClient,
+  private val httpClient: HttpClient,
   private val challengeSelector: OAuthCodeChallengeMethodSelector,
-  private val random: Random = CryptographicRandom(),
+  private val random: Random = CryptographyRandom,
+  private val clock: Clock = Clock.System,
 ) {
+  private val client: HttpClient = httpClient.withXrpcConfiguration()
+
+  private lateinit var oauthServer: OAuthAuthorizationServer
+  private var dpopKeyPair: ECDSA.KeyPair? = null
 
   /** Construct a new instance using the Bluesky OAuth client and always using the `"S256"` code challenge method. */
   constructor() : this(
-    client = defaultHttpClient.withXrpcConfiguration(),
+    httpClient = defaultHttpClient,
     challengeSelector = OAuthCodeChallengeMethodSelector { OAuthCodeChallengeMethod.S256 },
-    random = CryptographicRandom(),
+    random = CryptographyRandom,
+    clock = Clock.System,
   )
 
   /**
-   * Build an authorization request for the given client and scopes.
+   * Build an authorization request for the given client and scopes. This URL can be used to redirect the user to
+   * the OAuth server to log into their account.
+   *
+   * Keep track of the [OAuthAuthorizationRequest]'s [nonce][OAuthAuthorizationRequest.nonce] and
+   * [codeVerifier][OAuthAuthorizationRequest.codeVerifier] to use later when requesting an access token.
    */
   suspend fun buildAuthorizationRequest(
     oauthClient: OAuthClient,
     scopes: List<OAuthScope>,
     loginHandleHint: String? = null,
   ): OAuthAuthorizationRequest = coroutineScope {
-    val oauthServer = client.get("/.well-known/oauth-authorization-server").toAtpModel<OAuthAuthorizationServer>()
+    val oauthServer = resolveOauthAuthorizationServer()
 
     val unsupportedScopes = scopes.filter { it.value !in oauthServer.scopesSupported }
     require(unsupportedScopes.isEmpty()) {
@@ -95,9 +124,186 @@ class OAuthApi(
     OAuthAuthorizationRequest(
       authorizeRequestUrl = authorizeRequestUrl,
       expiresIn = response.expiresIn.seconds,
+      codeVerifier = codeVerifier,
       state = state,
       nonce = nonce,
     )
+  }
+
+  /**
+   * Request an access token using the provided OAuth client, nonce, code verifier, and authorization code.
+   *
+   * You are **highly encouraged** to verify that the state received in the callback matches the state returned by
+   * [buildAuthorizationRequest] before calling this method, to prevent CSRF attacks. You can also pass in an optional
+   * [DPoP key pair][DpopKeyPair] to sign the request with DPoP, otherwise a new key pair will be generated for you.
+   */
+  suspend fun requestToken(
+    oauthClient: OAuthClient,
+    nonce: String,
+    codeVerifier: String,
+    code: String,
+    keyPair: DpopKeyPair? = null,
+  ): OAuthToken {
+    val requestParameters = ParametersBuilder().apply {
+      append("grant_type", "authorization_code")
+      append("client_id", oauthClient.clientId)
+      append("code", code)
+      append("code_verifier", codeVerifier)
+      append("redirect_uri", oauthClient.redirectUri)
+    }.build()
+
+    return requestOrRefreshToken(
+      oauthClient = oauthClient,
+      requestParameters = requestParameters,
+      nonce = nonce,
+      keyPair = keyPair,
+    )
+  }
+
+  /**
+   * Refresh an access token using the provided OAuth client, nonce, and refresh token.
+   *
+   * The nonce should be passed in from the previous [requestToken] request, if available.
+   *
+   * You can also pass in an optional [DPoP key pair][DpopKeyPair] to sign the request with DPoP, otherwise it will use
+   * the one used for [requestToken]. If no key pair was used for the initial token request by this [OAuthApi] instance,
+   * a new one will be generated for you.
+   */
+  suspend fun refreshToken(
+    oauthClient: OAuthClient,
+    nonce: String?,
+    refreshToken: String,
+    keyPair: DpopKeyPair? = null,
+  ): OAuthToken {
+    val requestParameters = ParametersBuilder().apply {
+      append("grant_type", "refresh_token")
+      append("client_id", oauthClient.clientId)
+      append("refresh_token", refreshToken)
+    }.build()
+
+    return requestOrRefreshToken(
+      oauthClient = oauthClient,
+      requestParameters = requestParameters,
+      nonce = nonce,
+      keyPair = keyPair,
+    )
+  }
+
+  private suspend fun requestOrRefreshToken(
+    oauthClient: OAuthClient,
+    requestParameters: Parameters,
+    nonce: String?,
+    keyPair: DpopKeyPair?
+  ): OAuthToken {
+    val oauthServer = resolveOauthAuthorizationServer()
+    val tokenRequestUrl = Url(oauthServer.tokenEndpoint)
+
+    // Use a provided DPoP key pair if provided, or the previously-used one if available, or generate a new one.
+    val dpopKeyPair: ECDSA.KeyPair =
+      keyPair?.keyPair?.also { dpopKeyPair = it }
+        ?: dpopKeyPair
+        ?: newDpopKeyPair().also { dpopKeyPair = it }
+
+    val dpopHeader = createDpopHeader(
+      keyPair = dpopKeyPair,
+      clientId = oauthClient.clientId,
+      nonce = nonce,
+      tokenEndpoint = tokenRequestUrl.toString(),
+    )
+
+    val callResponse = client.post(tokenRequestUrl) {
+      headers["DPoP"] = dpopHeader
+      setBody(FormDataContent(requestParameters))
+    }
+
+    val atpResponse = callResponse.toAtpResponse<OAuthTokenResponse>()
+    when (atpResponse) {
+      is AtpResponse.Success<OAuthTokenResponse> -> {
+        val tokenResponse = atpResponse.response
+
+        val newNonce = requireNotNull(atpResponse.headers["DPoP-Nonce"] ?: atpResponse.headers["dpop-nonce"]) {
+          "DPoP-Nonce header not found in token response"
+        }
+
+        return OAuthToken(
+          accessToken = tokenResponse.accessToken,
+          refreshToken = tokenResponse.refreshToken,
+          keyPair = DpopKeyPair(dpopKeyPair),
+          expiresIn = tokenResponse.expiresInSeconds.seconds,
+          scopes = tokenResponse.scopes.split(" ").map { OAuthScope(it) },
+          nonce = newNonce,
+        )
+      }
+      is AtpResponse.Failure -> {
+        if (atpResponse.error?.error == "use_dpop_nonce") {
+          // If the error indicates we need to use a DPoP nonce, we can retry with the new nonce.
+          val newNonce = requireNotNull(atpResponse.headers["DPoP-Nonce"] ?: atpResponse.headers["dpop-nonce"]) {
+            "DPoP-Nonce header not found in token response"
+          }
+          return requestOrRefreshToken(oauthClient, requestParameters, newNonce, keyPair)
+        } else {
+          throw atpResponse.asException()
+        }
+      }
+    }
+  }
+
+  private suspend fun createDpopHeader(
+    keyPair: ECDSA.KeyPair,
+    clientId: String,
+    nonce: String?,
+    tokenEndpoint: String,
+  ): String {
+    val rawBytes = keyPair.publicKey.encodeToByteArray(EC.PublicKey.Format.RAW)
+    check(rawBytes.first() == 0x04.toByte()) {
+      "Unexpected public key format: expected uncompressed (0x04) but got ${rawBytes.first()}"
+    }
+    val x = rawBytes.copyOfRange(1, 33)
+    val y = rawBytes.copyOfRange(33, 65)
+
+    val headerMap = buildJsonObject {
+      put("typ", JsonPrimitive("dpop+jwt"))
+      put("alg", JsonPrimitive("ES256"))
+      put("jwk", buildJsonObject {
+        put("crv", JsonPrimitive("P-256"))
+        put("kty", JsonPrimitive("EC"))
+        put("x", JsonPrimitive(x.encodeBase64Url()))
+        put("y", JsonPrimitive(y.encodeBase64Url()))
+      })
+    }
+    val claimsMap = buildJsonObject {
+      put("iss", JsonPrimitive(clientId))
+      put("iat", JsonPrimitive(clock.now().epochSeconds))
+      put("jti", JsonPrimitive(random.nextBytes(16).encodeBase64Url()))
+      put("htm", JsonPrimitive("POST"))
+      put("htu", JsonPrimitive(tokenEndpoint))
+      nonce?.let {
+        put("nonce", JsonPrimitive(it))
+      }
+    }
+
+    val header = Json.encodeToString(headerMap).encodeBase64Url()
+    val claims = Json.encodeToString(claimsMap).encodeBase64Url()
+    val signedData = "$header.$claims"
+
+    val signature = keyPair.privateKey
+      .signatureGenerator(digest = SHA256, format = ECDSA.SignatureFormat.RAW)
+      .generateSignature(signedData.encodeToByteArray())
+      .encodeBase64Url()
+
+    return "$signedData.$signature"
+  }
+
+  private suspend fun resolveOauthAuthorizationServer(): OAuthAuthorizationServer {
+    if (!::oauthServer.isInitialized) {
+      oauthServer = client.get("/.well-known/oauth-authorization-server")
+        .toAtpModel<OAuthAuthorizationServer>()
+    }
+    return oauthServer
+  }
+
+  private suspend fun newDpopKeyPair(): ECDSA.KeyPair {
+    return CryptographyProvider.Default.get(ECDSA).keyPairGenerator(P256).generateKey()
   }
 
   companion object {
