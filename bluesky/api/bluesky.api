@@ -111,6 +111,58 @@ public final class app/bsky/actor/AllowIncomingSerializer : kotlinx/serializatio
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
+public abstract class app/bsky/actor/AllowSubscriptions : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/actor/AllowSubscriptions$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/AllowSubscriptions$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/actor/AllowSubscriptions;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/AllowSubscriptions$Followers : app/bsky/actor/AllowSubscriptions {
+	public static final field INSTANCE Lapp/bsky/actor/AllowSubscriptions$Followers;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/AllowSubscriptions$Mutuals : app/bsky/actor/AllowSubscriptions {
+	public static final field INSTANCE Lapp/bsky/actor/AllowSubscriptions$Mutuals;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/AllowSubscriptions$None : app/bsky/actor/AllowSubscriptions {
+	public static final field INSTANCE Lapp/bsky/actor/AllowSubscriptions$None;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/AllowSubscriptions$Unknown : app/bsky/actor/AllowSubscriptions {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/actor/AllowSubscriptions$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/actor/AllowSubscriptions$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/actor/AllowSubscriptions$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/AllowSubscriptionsSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/actor/AllowSubscriptions;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/AllowSubscriptions;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
 public final class app/bsky/actor/BskyAppProgressGuide {
 	public static final field Companion Lapp/bsky/actor/BskyAppProgressGuide$Companion;
 	public fun <init> (Ljava/lang/String;)V
@@ -1011,16 +1063,18 @@ public final class app/bsky/actor/Profile$Companion {
 public final class app/bsky/actor/ProfileAssociated {
 	public static final field Companion Lapp/bsky/actor/ProfileAssociated$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;)V
-	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;Lapp/bsky/actor/ProfileAssociatedActivitySubscription;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;Lapp/bsky/actor/ProfileAssociatedActivitySubscription;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Long;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3 ()Ljava/lang/Long;
 	public final fun component4 ()Ljava/lang/Boolean;
 	public final fun component5 ()Lapp/bsky/actor/ProfileAssociatedChat;
-	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;)Lapp/bsky/actor/ProfileAssociated;
-	public static synthetic fun copy$default (Lapp/bsky/actor/ProfileAssociated;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;ILjava/lang/Object;)Lapp/bsky/actor/ProfileAssociated;
+	public final fun component6 ()Lapp/bsky/actor/ProfileAssociatedActivitySubscription;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;Lapp/bsky/actor/ProfileAssociatedActivitySubscription;)Lapp/bsky/actor/ProfileAssociated;
+	public static synthetic fun copy$default (Lapp/bsky/actor/ProfileAssociated;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;Lapp/bsky/actor/ProfileAssociatedActivitySubscription;ILjava/lang/Object;)Lapp/bsky/actor/ProfileAssociated;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActivitySubscription ()Lapp/bsky/actor/ProfileAssociatedActivitySubscription;
 	public final fun getChat ()Lapp/bsky/actor/ProfileAssociatedChat;
 	public final fun getFeedgens ()Ljava/lang/Long;
 	public final fun getLabeler ()Ljava/lang/Boolean;
@@ -1031,6 +1085,22 @@ public final class app/bsky/actor/ProfileAssociated {
 }
 
 public final class app/bsky/actor/ProfileAssociated$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/ProfileAssociatedActivitySubscription {
+	public static final field Companion Lapp/bsky/actor/ProfileAssociatedActivitySubscription$Companion;
+	public fun <init> (Lapp/bsky/actor/AllowSubscriptions;)V
+	public final fun component1 ()Lapp/bsky/actor/AllowSubscriptions;
+	public final fun copy (Lapp/bsky/actor/AllowSubscriptions;)Lapp/bsky/actor/ProfileAssociatedActivitySubscription;
+	public static synthetic fun copy$default (Lapp/bsky/actor/ProfileAssociatedActivitySubscription;Lapp/bsky/actor/AllowSubscriptions;ILjava/lang/Object;)Lapp/bsky/actor/ProfileAssociatedActivitySubscription;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAllowSubscriptions ()Lapp/bsky/actor/AllowSubscriptions;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/ProfileAssociatedActivitySubscription$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -1859,8 +1929,8 @@ public final class app/bsky/actor/VerifiedStatusSerializer : kotlinx/serializati
 
 public final class app/bsky/actor/ViewerState {
 	public static final field Companion Lapp/bsky/actor/ViewerState$Companion;
-	public synthetic fun <init> (Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/KnownFollowers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/KnownFollowers;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/KnownFollowers;Lapp/bsky/notification/ActivitySubscription;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/KnownFollowers;Lapp/bsky/notification/ActivitySubscription;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Boolean;
 	public final fun component2 ()Lapp/bsky/graph/ListViewBasic;
 	public final fun component3 ()Ljava/lang/Boolean;
@@ -1869,9 +1939,11 @@ public final class app/bsky/actor/ViewerState {
 	public final fun component6-W3xQKsw ()Ljava/lang/String;
 	public final fun component7-W3xQKsw ()Ljava/lang/String;
 	public final fun component8 ()Lapp/bsky/actor/KnownFollowers;
-	public final fun copy-cI2jNss (Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/KnownFollowers;)Lapp/bsky/actor/ViewerState;
-	public static synthetic fun copy-cI2jNss$default (Lapp/bsky/actor/ViewerState;Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/KnownFollowers;ILjava/lang/Object;)Lapp/bsky/actor/ViewerState;
+	public final fun component9 ()Lapp/bsky/notification/ActivitySubscription;
+	public final fun copy-foBw3UM (Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/KnownFollowers;Lapp/bsky/notification/ActivitySubscription;)Lapp/bsky/actor/ViewerState;
+	public static synthetic fun copy-foBw3UM$default (Lapp/bsky/actor/ViewerState;Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/KnownFollowers;Lapp/bsky/notification/ActivitySubscription;ILjava/lang/Object;)Lapp/bsky/actor/ViewerState;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActivitySubscription ()Lapp/bsky/notification/ActivitySubscription;
 	public final fun getBlockedBy ()Ljava/lang/Boolean;
 	public final fun getBlocking-W3xQKsw ()Ljava/lang/String;
 	public final fun getBlockingByList ()Lapp/bsky/graph/ListViewBasic;
@@ -6989,6 +7061,24 @@ public final class app/bsky/labeler/ServiceLabelsUnion$Unknown$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/notification/ActivitySubscription {
+	public static final field Companion Lapp/bsky/notification/ActivitySubscription$Companion;
+	public fun <init> (ZZ)V
+	public final fun component1 ()Z
+	public final fun component2 ()Z
+	public final fun copy (ZZ)Lapp/bsky/notification/ActivitySubscription;
+	public static synthetic fun copy$default (Lapp/bsky/notification/ActivitySubscription;ZZILjava/lang/Object;)Lapp/bsky/notification/ActivitySubscription;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPost ()Z
+	public final fun getReply ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/ActivitySubscription$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/notification/ChatPreference {
 	public static final field Companion Lapp/bsky/notification/ChatPreference$Companion;
 	public fun <init> (Lapp/bsky/notification/Include;Z)V
@@ -7005,6 +7095,74 @@ public final class app/bsky/notification/ChatPreference {
 
 public final class app/bsky/notification/ChatPreference$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/Declaration {
+	public static final field Companion Lapp/bsky/notification/Declaration$Companion;
+	public fun <init> (Lapp/bsky/notification/DeclarationAllowSubscriptions;)V
+	public final fun component1 ()Lapp/bsky/notification/DeclarationAllowSubscriptions;
+	public final fun copy (Lapp/bsky/notification/DeclarationAllowSubscriptions;)Lapp/bsky/notification/Declaration;
+	public static synthetic fun copy$default (Lapp/bsky/notification/Declaration;Lapp/bsky/notification/DeclarationAllowSubscriptions;ILjava/lang/Object;)Lapp/bsky/notification/Declaration;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAllowSubscriptions ()Lapp/bsky/notification/DeclarationAllowSubscriptions;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/Declaration$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class app/bsky/notification/DeclarationAllowSubscriptions : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/notification/DeclarationAllowSubscriptions$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/DeclarationAllowSubscriptions$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/notification/DeclarationAllowSubscriptions;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/DeclarationAllowSubscriptions$Followers : app/bsky/notification/DeclarationAllowSubscriptions {
+	public static final field INSTANCE Lapp/bsky/notification/DeclarationAllowSubscriptions$Followers;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/DeclarationAllowSubscriptions$Mutuals : app/bsky/notification/DeclarationAllowSubscriptions {
+	public static final field INSTANCE Lapp/bsky/notification/DeclarationAllowSubscriptions$Mutuals;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/DeclarationAllowSubscriptions$None : app/bsky/notification/DeclarationAllowSubscriptions {
+	public static final field INSTANCE Lapp/bsky/notification/DeclarationAllowSubscriptions$None;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/DeclarationAllowSubscriptions$Unknown : app/bsky/notification/DeclarationAllowSubscriptions {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/notification/DeclarationAllowSubscriptions$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/notification/DeclarationAllowSubscriptions$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/DeclarationAllowSubscriptions$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/DeclarationAllowSubscriptionsSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/notification/DeclarationAllowSubscriptions;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/notification/DeclarationAllowSubscriptions;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/notification/FilterablePreference {
@@ -7130,6 +7288,46 @@ public final class app/bsky/notification/IncludeSerializer : kotlinx/serializati
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/notification/Include;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class app/bsky/notification/ListActivitySubscriptionsQueryParams {
+	public static final field Companion Lapp/bsky/notification/ListActivitySubscriptionsQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/notification/ListActivitySubscriptionsQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/notification/ListActivitySubscriptionsQueryParams;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/ListActivitySubscriptionsQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/ListActivitySubscriptionsQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/ListActivitySubscriptionsResponse {
+	public static final field Companion Lapp/bsky/notification/ListActivitySubscriptionsResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Lapp/bsky/notification/ListActivitySubscriptionsResponse;
+	public static synthetic fun copy$default (Lapp/bsky/notification/ListActivitySubscriptionsResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/notification/ListActivitySubscriptionsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getSubscriptions ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/ListActivitySubscriptionsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class app/bsky/notification/ListNotificationsNotification {
@@ -7381,6 +7579,43 @@ public final class app/bsky/notification/Preferences$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/notification/PutActivitySubscriptionRequest {
+	public static final field Companion Lapp/bsky/notification/PutActivitySubscriptionRequest$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/notification/ActivitySubscription;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Lapp/bsky/notification/ActivitySubscription;
+	public final fun copy-vy2gcmM (Ljava/lang/String;Lapp/bsky/notification/ActivitySubscription;)Lapp/bsky/notification/PutActivitySubscriptionRequest;
+	public static synthetic fun copy-vy2gcmM$default (Lapp/bsky/notification/PutActivitySubscriptionRequest;Ljava/lang/String;Lapp/bsky/notification/ActivitySubscription;ILjava/lang/Object;)Lapp/bsky/notification/PutActivitySubscriptionRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActivitySubscription ()Lapp/bsky/notification/ActivitySubscription;
+	public final fun getSubject-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/PutActivitySubscriptionRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/PutActivitySubscriptionResponse {
+	public static final field Companion Lapp/bsky/notification/PutActivitySubscriptionResponse$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/notification/ActivitySubscription;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/notification/ActivitySubscription;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Lapp/bsky/notification/ActivitySubscription;
+	public final fun copy-vy2gcmM (Ljava/lang/String;Lapp/bsky/notification/ActivitySubscription;)Lapp/bsky/notification/PutActivitySubscriptionResponse;
+	public static synthetic fun copy-vy2gcmM$default (Lapp/bsky/notification/PutActivitySubscriptionResponse;Ljava/lang/String;Lapp/bsky/notification/ActivitySubscription;ILjava/lang/Object;)Lapp/bsky/notification/PutActivitySubscriptionResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActivitySubscription ()Lapp/bsky/notification/ActivitySubscription;
+	public final fun getSubject-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/PutActivitySubscriptionResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/notification/PutPreferencesRequest {
 	public static final field Companion Lapp/bsky/notification/PutPreferencesRequest$Companion;
 	public fun <init> (Z)V
@@ -7531,6 +7766,24 @@ public final class app/bsky/notification/RegisterPushRequest {
 }
 
 public final class app/bsky/notification/RegisterPushRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/SubjectActivitySubscription {
+	public static final field Companion Lapp/bsky/notification/SubjectActivitySubscription$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/notification/ActivitySubscription;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Lapp/bsky/notification/ActivitySubscription;
+	public final fun copy-vy2gcmM (Ljava/lang/String;Lapp/bsky/notification/ActivitySubscription;)Lapp/bsky/notification/SubjectActivitySubscription;
+	public static synthetic fun copy-vy2gcmM$default (Lapp/bsky/notification/SubjectActivitySubscription;Ljava/lang/String;Lapp/bsky/notification/ActivitySubscription;ILjava/lang/Object;)Lapp/bsky/notification/SubjectActivitySubscription;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActivitySubscription ()Lapp/bsky/notification/ActivitySubscription;
+	public final fun getSubject-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/SubjectActivitySubscription$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -16478,6 +16731,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun grantVerifications (Ltools/ozone/verification/GrantVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun importRepo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun leaveConvo (Lchat/bsky/convo/LeaveConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun listActivitySubscriptions (Lapp/bsky/notification/ListActivitySubscriptionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listBlobs (Lcom/atproto/sync/ListBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listConvos (Lchat/bsky/convo/ListConvosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -16496,6 +16750,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun muteConvo (Lchat/bsky/convo/MuteConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun muteThread (Lapp/bsky/graph/MuteThreadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun notifyOfUpdate (Lcom/atproto/sync/NotifyOfUpdateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun putActivitySubscription (Lapp/bsky/notification/PutActivitySubscriptionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun putPreferences (Lapp/bsky/actor/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun putPreferences (Lapp/bsky/notification/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun putPreferencesV2 (Lapp/bsky/notification/PutPreferencesV2Request;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -16699,6 +16954,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun grantVerifications (Ltools/ozone/verification/GrantVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun importRepo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun leaveConvo (Lchat/bsky/convo/LeaveConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listActivitySubscriptions (Lapp/bsky/notification/ListActivitySubscriptionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listBlobs (Lcom/atproto/sync/ListBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listConvos (Lchat/bsky/convo/ListConvosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -16717,6 +16973,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun muteConvo (Lchat/bsky/convo/MuteConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun muteThread (Lapp/bsky/graph/MuteThreadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun notifyOfUpdate (Lcom/atproto/sync/NotifyOfUpdateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun putActivitySubscription (Lapp/bsky/notification/PutActivitySubscriptionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putPreferences (Lapp/bsky/actor/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putPreferences (Lapp/bsky/notification/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putPreferencesV2 (Lapp/bsky/notification/PutPreferencesV2Request;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -16920,6 +17177,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun grantVerifications (Ltools/ozone/verification/GrantVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun importRepo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun leaveConvo (Lchat/bsky/convo/LeaveConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listActivitySubscriptions (Lapp/bsky/notification/ListActivitySubscriptionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listBlobs (Lcom/atproto/sync/ListBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listConvos (Lchat/bsky/convo/ListConvosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -16938,6 +17196,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun muteConvo (Lchat/bsky/convo/MuteConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun muteThread (Lapp/bsky/graph/MuteThreadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun notifyOfUpdate (Lcom/atproto/sync/NotifyOfUpdateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun putActivitySubscription (Lapp/bsky/notification/PutActivitySubscriptionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putPreferences (Lapp/bsky/actor/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putPreferences (Lapp/bsky/notification/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putPreferencesV2 (Lapp/bsky/notification/PutPreferencesV2Request;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
