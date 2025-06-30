@@ -1,8 +1,5 @@
 package sh.christian.ozone.oauth
 
-import dev.whyoleg.cryptography.CryptographyProvider
-import dev.whyoleg.cryptography.algorithms.EC
-import dev.whyoleg.cryptography.algorithms.EC.Curve.Companion.P256
 import dev.whyoleg.cryptography.algorithms.ECDSA
 import dev.whyoleg.cryptography.algorithms.SHA256
 import dev.whyoleg.cryptography.random.CryptographyRandom
@@ -53,7 +50,7 @@ class OAuthApi(
   private val client: HttpClient = httpClient.withXrpcConfiguration()
 
   private lateinit var oauthServer: OAuthAuthorizationServer
-  private var dpopKeyPair: ECDSA.KeyPair? = null
+  private var dpopKeyPair: DpopKeyPair? = null
 
   /** Construct a new instance using the Bluesky OAuth client and always using the `"S256"` code challenge method. */
   constructor() : this(
@@ -199,16 +196,17 @@ class OAuthApi(
     val tokenRequestUrl = Url(oauthServer.tokenEndpoint)
 
     // Use a provided DPoP key pair if provided, or the previously-used one if available, or generate a new one.
-    val dpopKeyPair: ECDSA.KeyPair =
-      keyPair?.keyPair?.also { dpopKeyPair = it }
-        ?: dpopKeyPair
-        ?: newDpopKeyPair().also { dpopKeyPair = it }
+    val dpopKeyPair: DpopKeyPair =
+      (keyPair ?: dpopKeyPair ?: DpopKeyPair.generateKeyPair())
+        .also { dpopKeyPair = it }
 
-    val dpopHeader = createDpopHeader(
+    val dpopHeader = createDpopHeaderValue(
       keyPair = dpopKeyPair,
       clientId = oauthClient.clientId,
+      method = "POST",
+      endpoint = tokenRequestUrl.toString(),
       nonce = nonce,
-      tokenEndpoint = tokenRequestUrl.toString(),
+      accessToken = null,
     )
 
     val callResponse = client.post(tokenRequestUrl) {
@@ -228,7 +226,7 @@ class OAuthApi(
         return OAuthToken(
           accessToken = tokenResponse.accessToken,
           refreshToken = tokenResponse.refreshToken,
-          keyPair = DpopKeyPair(dpopKeyPair),
+          keyPair = dpopKeyPair,
           expiresIn = tokenResponse.expiresInSeconds.seconds,
           scopes = tokenResponse.scopes.split(" ").map { OAuthScope(it) },
           nonce = newNonce,
@@ -248,13 +246,15 @@ class OAuthApi(
     }
   }
 
-  private suspend fun createDpopHeader(
-    keyPair: ECDSA.KeyPair,
+  private suspend fun createDpopHeaderValue(
+    keyPair: DpopKeyPair,
     clientId: String,
+    method: String,
+    endpoint: String,
     nonce: String?,
-    tokenEndpoint: String,
+    accessToken: String?,
   ): String {
-    val rawBytes = keyPair.publicKey.encodeToByteArray(EC.PublicKey.Format.RAW)
+    val rawBytes = keyPair.publicKey(DpopKeyPair.PublicKeyFormat.RAW)
     check(rawBytes.first() == 0x04.toByte()) {
       "Unexpected public key format: expected uncompressed (0x04) but got ${rawBytes.first()}"
     }
@@ -275,10 +275,13 @@ class OAuthApi(
       put("iss", JsonPrimitive(clientId))
       put("iat", JsonPrimitive(clock.now().epochSeconds))
       put("jti", JsonPrimitive(random.nextBytes(16).encodeBase64Url()))
-      put("htm", JsonPrimitive("POST"))
-      put("htu", JsonPrimitive(tokenEndpoint))
+      put("htm", JsonPrimitive(method))
+      put("htu", JsonPrimitive(endpoint))
       nonce?.let {
         put("nonce", JsonPrimitive(it))
+      }
+      accessToken?.let {
+        put("ath", JsonPrimitive(OAuthCodeChallengeMethod.S256.provideCodeChallenge(accessToken)))
       }
     }
 
@@ -286,7 +289,7 @@ class OAuthApi(
     val claims = Json.encodeToString(claimsMap).encodeBase64Url()
     val signedData = "$header.$claims"
 
-    val signature = keyPair.privateKey
+    val signature = keyPair.keyPair.privateKey
       .signatureGenerator(digest = SHA256, format = ECDSA.SignatureFormat.RAW)
       .generateSignature(signedData.encodeToByteArray())
       .encodeBase64Url()
@@ -300,10 +303,6 @@ class OAuthApi(
         .toAtpModel<OAuthAuthorizationServer>()
     }
     return oauthServer
-  }
-
-  private suspend fun newDpopKeyPair(): ECDSA.KeyPair {
-    return CryptographyProvider.Default.get(ECDSA).keyPairGenerator(P256).generateKey()
   }
 
   companion object {

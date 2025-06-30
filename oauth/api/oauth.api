@@ -120,6 +120,7 @@ public final class sh/christian/ozone/oauth/dpop/DpopKeyPair {
 
 public final class sh/christian/ozone/oauth/dpop/DpopKeyPair$Companion {
 	public final fun fromKeyPair ([BLsh/christian/ozone/oauth/dpop/DpopKeyPair$PublicKeyFormat;[BLsh/christian/ozone/oauth/dpop/DpopKeyPair$PrivateKeyFormat;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun generateKeyPair (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class sh/christian/ozone/oauth/dpop/DpopKeyPair$PrivateKeyFormat : java/lang/Enum {

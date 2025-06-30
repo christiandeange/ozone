@@ -17034,14 +17034,36 @@ public final class sh/christian/ozone/api/BlueskyAuthPlugin$Config {
 	public final fun setJson (Lkotlinx/serialization/json/Json;)V
 }
 
-public final class sh/christian/ozone/api/BlueskyAuthPlugin$Tokens {
+public abstract interface class sh/christian/ozone/api/BlueskyAuthPlugin$Tokens {
+	public static final field Companion Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens$Companion;
+}
+
+public final class sh/christian/ozone/api/BlueskyAuthPlugin$Tokens$Bearer : sh/christian/ozone/api/BlueskyAuthPlugin$Tokens {
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;
-	public static synthetic fun copy$default (Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens$Bearer;
+	public static synthetic fun copy$default (Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens$Bearer;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens$Bearer;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAuth ()Ljava/lang/String;
+	public final fun getRefresh ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class sh/christian/ozone/api/BlueskyAuthPlugin$Tokens$Companion {
+}
+
+public final class sh/christian/ozone/api/BlueskyAuthPlugin$Tokens$Dpop : sh/christian/ozone/api/BlueskyAuthPlugin$Tokens {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens$Dpop;
+	public static synthetic fun copy$default (Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens$Dpop;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens$Dpop;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAuth ()Ljava/lang/String;
+	public final fun getDpop ()Ljava/lang/String;
 	public final fun getRefresh ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;

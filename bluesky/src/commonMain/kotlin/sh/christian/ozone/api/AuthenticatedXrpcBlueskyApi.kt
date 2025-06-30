@@ -96,7 +96,7 @@ private constructor(
     refreshTokenProvider: T.() -> String,
   ) {
     if (this is AtpResponse.Success) {
-      _authTokens.value = BlueskyAuthPlugin.Tokens(
+      _authTokens.value = BlueskyAuthPlugin.Tokens.Bearer(
         auth = accessTokenProvider(response),
         refresh = refreshTokenProvider(response),
       )

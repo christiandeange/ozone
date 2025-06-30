@@ -22,11 +22,11 @@ class DpopKeyPair
 internal constructor(
   internal val keyPair: ECDSA.KeyPair,
 ) {
-  /** Export the public key of the DPoP keypair in the specified format. */
+  /** Export the public key of the DPoP keypair to a byte array using the specified format. */
   suspend fun publicKey(format: PublicKeyFormat): ByteArray =
     keyPair.publicKey.encodeToByteArray(format.format)
 
-  /** Export the private key of the DPoP keypair in the specified format. */
+  /** Export the private key of the DPoP keypair to a byte array using the specified format. */
   suspend fun privateKey(format: PrivateKeyFormat): ByteArray =
     keyPair.privateKey.encodeToByteArray(format.format)
 
@@ -87,10 +87,18 @@ internal constructor(
 
       return DpopKeyPair(dpopKeyPair)
     }
+
+    /**
+     * Generates a brand new DPoP key pair using the P-256 curve.
+     */
+    suspend fun generateKeyPair(): DpopKeyPair {
+      val keyPair = CryptographyProvider.Default.get(ECDSA).keyPairGenerator(P256).generateKey()
+      return DpopKeyPair(SimpleKeyPair(keyPair.publicKey, keyPair.privateKey))
+    }
   }
 
   @OptIn(CryptographyProviderApi::class)
-  private class SimpleKeyPair(
+  internal class SimpleKeyPair(
     override val publicKey: ECDSA.PublicKey,
     override val privateKey: ECDSA.PrivateKey,
   ) : ECDSA.KeyPair
