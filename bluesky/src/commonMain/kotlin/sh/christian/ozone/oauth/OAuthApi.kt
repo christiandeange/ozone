@@ -23,7 +23,6 @@ import sh.christian.ozone.api.xrpc.defaultHttpClient
 import sh.christian.ozone.api.xrpc.toAtpModel
 import sh.christian.ozone.api.xrpc.toAtpResponse
 import sh.christian.ozone.api.xrpc.withXrpcConfiguration
-import sh.christian.ozone.oauth.dpop.DpopKeyPair
 import sh.christian.ozone.oauth.network.OAuthAuthorizationServer
 import sh.christian.ozone.oauth.network.OAuthParRequest
 import sh.christian.ozone.oauth.network.OAuthParResponse
@@ -150,9 +149,24 @@ class OAuthApi(
     }.build()
 
     return requestOrRefreshToken(
-      oauthClient = oauthClient,
+      clientId = oauthClient.clientId,
       requestParameters = requestParameters,
       nonce = nonce,
+      keyPair = keyPair,
+    )
+  }
+
+  /** @see refreshToken */
+  suspend fun refreshToken(
+    oauthClient: OAuthClient,
+    nonce: String?,
+    refreshToken: String,
+    keyPair: DpopKeyPair? = null,
+  ): OAuthToken {
+    return refreshToken(
+      clientId = oauthClient.clientId,
+      nonce = nonce,
+      refreshToken = refreshToken,
       keyPair = keyPair,
     )
   }
@@ -167,19 +181,19 @@ class OAuthApi(
    * a new one will be generated for you.
    */
   suspend fun refreshToken(
-    oauthClient: OAuthClient,
+    clientId: String,
     nonce: String?,
     refreshToken: String,
     keyPair: DpopKeyPair? = null,
   ): OAuthToken {
     val requestParameters = ParametersBuilder().apply {
       append("grant_type", "refresh_token")
-      append("client_id", oauthClient.clientId)
+      append("client_id", clientId)
       append("refresh_token", refreshToken)
     }.build()
 
     return requestOrRefreshToken(
-      oauthClient = oauthClient,
+      clientId = clientId,
       requestParameters = requestParameters,
       nonce = nonce,
       keyPair = keyPair,
@@ -187,7 +201,7 @@ class OAuthApi(
   }
 
   private suspend fun requestOrRefreshToken(
-    oauthClient: OAuthClient,
+    clientId: String,
     requestParameters: Parameters,
     nonce: String?,
     keyPair: DpopKeyPair?
@@ -202,7 +216,7 @@ class OAuthApi(
 
     val dpopHeader = createDpopHeaderValue(
       keyPair = dpopKeyPair,
-      clientId = oauthClient.clientId,
+      clientId = clientId,
       method = "POST",
       endpoint = tokenRequestUrl.toString(),
       nonce = nonce,
@@ -239,7 +253,7 @@ class OAuthApi(
           val newNonce = requireNotNull(atpResponse.headers["DPoP-Nonce"] ?: atpResponse.headers["dpop-nonce"]) {
             "DPoP-Nonce header not found in token response"
           }
-          return requestOrRefreshToken(oauthClient, requestParameters, newNonce, keyPair)
+          return requestOrRefreshToken(clientId, requestParameters, newNonce, keyPair)
         } else {
           throw atpResponse.asException()
         }

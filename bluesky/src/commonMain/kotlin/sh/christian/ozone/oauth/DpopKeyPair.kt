@@ -1,9 +1,8 @@
-package sh.christian.ozone.oauth.dpop
+package sh.christian.ozone.oauth
 
 import dev.whyoleg.cryptography.CryptographyProvider
 import dev.whyoleg.cryptography.CryptographyProviderApi
 import dev.whyoleg.cryptography.algorithms.EC
-import dev.whyoleg.cryptography.algorithms.EC.Curve.Companion.P256
 import dev.whyoleg.cryptography.algorithms.ECDSA
 
 /**
@@ -77,8 +76,8 @@ internal constructor(
       privateKeyFormat: PrivateKeyFormat,
     ): DpopKeyPair {
       val ecdsa: ECDSA = CryptographyProvider.Default.get(ECDSA)
-      val decodedPublicKey = ecdsa.publicKeyDecoder(P256).decodeFromByteArray(publicKeyFormat.format, publicKey)
-      val decodedPrivateKey = ecdsa.privateKeyDecoder(P256).decodeFromByteArray(privateKeyFormat.format, privateKey)
+      val decodedPublicKey = ecdsa.publicKeyDecoder(EC.Curve.P256).decodeFromByteArray(publicKeyFormat.format, publicKey)
+      val decodedPrivateKey = ecdsa.privateKeyDecoder(EC.Curve.P256).decodeFromByteArray(privateKeyFormat.format, privateKey)
 
       val dpopKeyPair = SimpleKeyPair(
         publicKey = decodedPublicKey,
@@ -92,7 +91,7 @@ internal constructor(
      * Generates a brand new DPoP key pair using the P-256 curve.
      */
     suspend fun generateKeyPair(): DpopKeyPair {
-      val keyPair = CryptographyProvider.Default.get(ECDSA).keyPairGenerator(P256).generateKey()
+      val keyPair = CryptographyProvider.Default.get(ECDSA).keyPairGenerator(EC.Curve.P256).generateKey()
       return DpopKeyPair(SimpleKeyPair(keyPair.publicKey, keyPair.privateKey))
     }
   }

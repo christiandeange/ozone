@@ -9,7 +9,6 @@ import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.contentOrNull
 import sh.christian.ozone.api.Did
-import sh.christian.ozone.oauth.dpop.DpopKeyPair
 import kotlin.time.Duration
 
 /**

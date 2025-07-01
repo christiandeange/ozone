@@ -13,6 +13,9 @@ import sh.christian.ozone.BlueskyApi
 import sh.christian.ozone.XrpcBlueskyApi
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.api.xrpc.defaultHttpClient
+import sh.christian.ozone.oauth.OAuthApi
+import sh.christian.ozone.oauth.OAuthCodeChallengeMethod
+import sh.christian.ozone.oauth.OAuthToken
 
 /**
  * Wrapper around [XrpcBlueskyApi] to transparently manage session tokens on the user's behalf.
@@ -84,6 +87,20 @@ private constructor(
   }
 
   /**
+   * Activates the OAuth session using the provided [OAuthToken]. This will save the DPoP tokens and PDS URL
+   */
+  fun activateOauth(oauthToken: OAuthToken) {
+    _authTokens.value = BlueskyAuthPlugin.Tokens.Dpop(
+      auth = oauthToken.accessToken,
+      refresh = oauthToken.refreshToken,
+      pdsUrl = oauthToken.pds,
+      keyPair = oauthToken.keyPair,
+      clientId = oauthToken.clientId,
+      nonce = oauthToken.nonce,
+    )
+  }
+
+  /**
    * Clears the current session tokens, effectively logging the user out. Note that the session and refresh token are
    * **not invalidated** on the server side, unlike calling [deleteSession].
    */
@@ -116,6 +133,7 @@ private constructor(
     ): HttpClient {
       return config {
         install(BlueskyAuthPlugin) {
+          this.oauthApi = OAuthApi(this@withBlueskyAuth, { OAuthCodeChallengeMethod.S256 })
           this.authTokens = authTokens
         }
       }

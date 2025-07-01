@@ -59,6 +59,27 @@ tasks.withType<AbstractDokkaTask>().configureEach {
 
 kotlin {
   sourceSets {
+    val commonMain by getting {
+      dependencies {
+        implementation(libs.crypto.core)
+        implementation(libs.crypto.random)
+      }
+    }
+    val jvmMain by getting {
+      dependencies {
+        implementation(libs.crypto.jdk)
+      }
+    }
+    val iosMain by getting {
+      dependencies {
+        implementation(libs.crypto.apple)
+      }
+    }
+    val jsMain by getting {
+      dependencies {
+        implementation(libs.crypto.webcrypto)
+      }
+    }
     val commonTest by getting {
       dependencies {
         implementation(libs.kotlinx.coroutines.test)

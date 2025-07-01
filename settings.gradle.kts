@@ -36,7 +36,6 @@ include(":api-gen-runtime-internal")
 include(":bluesky")
 include(":jetstream")
 include(":lexicons")
-include(":oauth")
 
 includeBuild("build-logic")
 includeBuild("generator")
