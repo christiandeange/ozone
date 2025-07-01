@@ -229,6 +229,7 @@ class OAuthApi(
           keyPair = dpopKeyPair,
           expiresIn = tokenResponse.expiresInSeconds.seconds,
           scopes = tokenResponse.scopes.split(" ").map { OAuthScope(it) },
+          subject = tokenResponse.subject,
           nonce = newNonce,
         )
       }
@@ -246,7 +247,10 @@ class OAuthApi(
     }
   }
 
-  private suspend fun createDpopHeaderValue(
+  /**
+   * Create a value for the `DPoP` header to be used in requests to the OAuth server.
+   */
+  suspend fun createDpopHeaderValue(
     keyPair: DpopKeyPair,
     clientId: String,
     method: String,
