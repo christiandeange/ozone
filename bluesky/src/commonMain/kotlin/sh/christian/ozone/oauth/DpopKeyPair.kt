@@ -3,7 +3,9 @@ package sh.christian.ozone.oauth
 import dev.whyoleg.cryptography.CryptographyProvider
 import dev.whyoleg.cryptography.CryptographyProviderApi
 import dev.whyoleg.cryptography.algorithms.EC
+import dev.whyoleg.cryptography.algorithms.EC.Curve.Companion.P256
 import dev.whyoleg.cryptography.algorithms.ECDSA
+import kotlinx.serialization.Serializable
 
 /**
  * Represents a DPoP (Demonstrating Proof of Possession) key pair, which consists of a public and private key pair.
@@ -13,10 +15,12 @@ import dev.whyoleg.cryptography.algorithms.ECDSA
  * like Bluesky.
  *
  * Keys can be imported or exported in various formats depending on the target platform currently being used:
+ * - **JS**: Does not support [publicKeyBlocking] or [privateKeyBlocking] methods but supports all key formats.
  * - **JVM**: Does not support JWK for importing or exporting keys.
  * - **Android**: Does not support JWK for importing or exporting keys.
  * - **iOS**: Does not support JWK for importing or exporting keys, and does not support RAW for importing keys.
  */
+@Serializable(with = DerDpopKeyPairSerializer::class)
 class DpopKeyPair
 internal constructor(
   internal val keyPair: ECDSA.KeyPair,
@@ -25,9 +29,25 @@ internal constructor(
   suspend fun publicKey(format: PublicKeyFormat): ByteArray =
     keyPair.publicKey.encodeToByteArray(format.format)
 
+  /**
+   * Export the public key of the DPoP keypair to a byte array using the specified format.
+   *
+   * **NOT** compatible with JS targets.
+   */
+  fun publicKeyBlocking(format: PublicKeyFormat): ByteArray =
+    keyPair.publicKey.encodeToByteArrayBlocking(format.format)
+
   /** Export the private key of the DPoP keypair to a byte array using the specified format. */
   suspend fun privateKey(format: PrivateKeyFormat): ByteArray =
     keyPair.privateKey.encodeToByteArray(format.format)
+
+  /**
+   * Export the private key of the DPoP keypair to a byte array using the specified format.
+   *
+   * **NOT** compatible with JS targets.
+   */
+  fun privateKeyBlocking(format: PrivateKeyFormat): ByteArray =
+    keyPair.privateKey.encodeToByteArrayBlocking(format.format)
 
   enum class PublicKeyFormat {
     JWK,
@@ -76,8 +96,32 @@ internal constructor(
       privateKeyFormat: PrivateKeyFormat,
     ): DpopKeyPair {
       val ecdsa: ECDSA = CryptographyProvider.Default.get(ECDSA)
-      val decodedPublicKey = ecdsa.publicKeyDecoder(EC.Curve.P256).decodeFromByteArray(publicKeyFormat.format, publicKey)
-      val decodedPrivateKey = ecdsa.privateKeyDecoder(EC.Curve.P256).decodeFromByteArray(privateKeyFormat.format, privateKey)
+      val decodedPublicKey = ecdsa.publicKeyDecoder(P256).decodeFromByteArray(publicKeyFormat.format, publicKey)
+      val decodedPrivateKey = ecdsa.privateKeyDecoder(P256).decodeFromByteArray(privateKeyFormat.format, privateKey)
+
+      val dpopKeyPair = SimpleKeyPair(
+        publicKey = decodedPublicKey,
+        privateKey = decodedPrivateKey,
+      )
+
+      return DpopKeyPair(dpopKeyPair)
+    }
+
+    /**
+     * Creates a DPoP key pair from the provided public and private keys in the specified formats.
+     *
+     * **NOT** compatible with JS targets.
+     */
+    fun fromKeyPairBlocking(
+      publicKey: ByteArray,
+      publicKeyFormat: PublicKeyFormat,
+      privateKey: ByteArray,
+      privateKeyFormat: PrivateKeyFormat,
+    ): DpopKeyPair {
+      val ecdsa: ECDSA = CryptographyProvider.Default.get(ECDSA)
+      val decodedPublicKey = ecdsa.publicKeyDecoder(P256).decodeFromByteArrayBlocking(publicKeyFormat.format, publicKey)
+      val decodedPrivateKey =
+        ecdsa.privateKeyDecoder(P256).decodeFromByteArrayBlocking(privateKeyFormat.format, privateKey)
 
       val dpopKeyPair = SimpleKeyPair(
         publicKey = decodedPublicKey,
@@ -91,7 +135,7 @@ internal constructor(
      * Generates a brand new DPoP key pair using the P-256 curve.
      */
     suspend fun generateKeyPair(): DpopKeyPair {
-      val keyPair = CryptographyProvider.Default.get(ECDSA).keyPairGenerator(EC.Curve.P256).generateKey()
+      val keyPair = CryptographyProvider.Default.get(ECDSA).keyPairGenerator(P256).generateKey()
       return DpopKeyPair(SimpleKeyPair(keyPair.publicKey, keyPair.privateKey))
     }
   }

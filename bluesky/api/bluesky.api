@@ -17086,15 +17086,23 @@ public final class sh/christian/ozone/api/xrpc/XrpcSerializersModuleKt {
 	public static final fun getXrpcSerializersModule ()Lkotlinx/serialization/modules/SerializersModule;
 }
 
+public final class sh/christian/ozone/oauth/DerDpopKeyPairSerializer : sh/christian/ozone/oauth/DpopKeyPairSerializer {
+	public static final field INSTANCE Lsh/christian/ozone/oauth/DerDpopKeyPairSerializer;
+}
+
 public final class sh/christian/ozone/oauth/DpopKeyPair {
 	public static final field Companion Lsh/christian/ozone/oauth/DpopKeyPair$Companion;
 	public final fun privateKey (Lsh/christian/ozone/oauth/DpopKeyPair$PrivateKeyFormat;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun privateKeyBlocking (Lsh/christian/ozone/oauth/DpopKeyPair$PrivateKeyFormat;)[B
 	public final fun publicKey (Lsh/christian/ozone/oauth/DpopKeyPair$PublicKeyFormat;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun publicKeyBlocking (Lsh/christian/ozone/oauth/DpopKeyPair$PublicKeyFormat;)[B
 }
 
 public final class sh/christian/ozone/oauth/DpopKeyPair$Companion {
 	public final fun fromKeyPair ([BLsh/christian/ozone/oauth/DpopKeyPair$PublicKeyFormat;[BLsh/christian/ozone/oauth/DpopKeyPair$PrivateKeyFormat;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun fromKeyPairBlocking ([BLsh/christian/ozone/oauth/DpopKeyPair$PublicKeyFormat;[BLsh/christian/ozone/oauth/DpopKeyPair$PrivateKeyFormat;)Lsh/christian/ozone/oauth/DpopKeyPair;
 	public final fun generateKeyPair (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class sh/christian/ozone/oauth/DpopKeyPair$PrivateKeyFormat : java/lang/Enum {
@@ -17117,6 +17125,21 @@ public final class sh/christian/ozone/oauth/DpopKeyPair$PublicKeyFormat : java/l
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lsh/christian/ozone/oauth/DpopKeyPair$PublicKeyFormat;
 	public static fun values ()[Lsh/christian/ozone/oauth/DpopKeyPair$PublicKeyFormat;
+}
+
+public abstract class sh/christian/ozone/oauth/DpopKeyPairSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> (Lsh/christian/ozone/oauth/DpopKeyPair$PublicKeyFormat;Lsh/christian/ozone/oauth/DpopKeyPair$PrivateKeyFormat;)V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lsh/christian/ozone/oauth/DpopKeyPair;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public final fun getPrivateKeyFormat ()Lsh/christian/ozone/oauth/DpopKeyPair$PrivateKeyFormat;
+	public final fun getPublicKeyFormat ()Lsh/christian/ozone/oauth/DpopKeyPair$PublicKeyFormat;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lsh/christian/ozone/oauth/DpopKeyPair;)V
+}
+
+public final class sh/christian/ozone/oauth/JwkDpopKeyPairSerializer : sh/christian/ozone/oauth/DpopKeyPairSerializer {
+	public static final field INSTANCE Lsh/christian/ozone/oauth/JwkDpopKeyPairSerializer;
 }
 
 public final class sh/christian/ozone/oauth/OAuthApi {
@@ -17239,6 +17262,14 @@ public final class sh/christian/ozone/oauth/OAuthToken {
 	public final fun getSubject-715Ygxc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
+}
+
+public final class sh/christian/ozone/oauth/PemDpopKeyPairSerializer : sh/christian/ozone/oauth/DpopKeyPairSerializer {
+	public static final field INSTANCE Lsh/christian/ozone/oauth/PemDpopKeyPairSerializer;
+}
+
+public final class sh/christian/ozone/oauth/RawDpopKeyPairSerializer : sh/christian/ozone/oauth/DpopKeyPairSerializer {
+	public static final field INSTANCE Lsh/christian/ozone/oauth/RawDpopKeyPairSerializer;
 }
 
 public final class tools/ozone/communication/CreateTemplateRequest {

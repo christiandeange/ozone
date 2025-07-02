@@ -303,8 +303,8 @@ class OAuthApi(
       }
     }
 
-    val header = Json.encodeToString(headerMap).encodeBase64Url()
-    val claims = Json.encodeToString(claimsMap).encodeBase64Url()
+    val header = Json.encodeToString(headerMap).encodeToByteArray().encodeBase64Url()
+    val claims = Json.encodeToString(claimsMap).encodeToByteArray().encodeBase64Url()
     val signedData = "$header.$claims"
 
     val signature = keyPair.keyPair.privateKey
