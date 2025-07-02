@@ -42,11 +42,21 @@ class BlueskyAuthPlugin(
   )
 
   sealed interface Tokens {
+
+    /**
+     * Represents a set of authentication bearer tokens used for accessing the Bluesky API. These are typically acquired
+     * by logging into Bluesky using a username and password combination.
+     */
     data class Bearer(
       val auth: String,
       val refresh: String,
     ) : Tokens
 
+    /**
+     * Represents a set of DPoP authentication tokens used for accessing the Bluesky API. These are typically acquired
+     * by authenticating with an OAuth client against the Bluesky OAuth server. Network requests using DPoP will be
+     * automatically rerouted directly to the PDS.
+     */
     data class Dpop(
       val auth: String,
       val refresh: String,

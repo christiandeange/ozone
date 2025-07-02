@@ -27,6 +27,8 @@ import sh.christian.ozone.oauth.OAuthToken
  * - [createSession]
  * - [refreshSession]
  *
+ * A session can also be manually activated by invoking the [activateBearerTokens] or [activateOauth] methods.
+ *
  * Use of [deleteSession] will clear the session. The session can also be manually cleared by calling [clearCredentials]
  * which will forget, but not invalidate, the current session tokens.
  */
@@ -62,19 +64,19 @@ private constructor(
 
   override suspend fun createAccount(request: CreateAccountRequest): AtpResponse<CreateAccountResponse> {
     return delegate.createAccount(request).also {
-      it.saveTokens({ accessJwt }, { refreshJwt })
+      it.saveBearerTokens({ accessJwt }, { refreshJwt })
     }
   }
 
   override suspend fun createSession(request: CreateSessionRequest): AtpResponse<CreateSessionResponse> {
     return delegate.createSession(request).also {
-      it.saveTokens({ accessJwt }, { refreshJwt })
+      it.saveBearerTokens({ accessJwt }, { refreshJwt })
     }
   }
 
   override suspend fun refreshSession(): AtpResponse<RefreshSessionResponse> {
     return delegate.refreshSession().also {
-      it.saveTokens({ accessJwt }, { refreshJwt })
+      it.saveBearerTokens({ accessJwt }, { refreshJwt })
     }
   }
 
@@ -87,7 +89,22 @@ private constructor(
   }
 
   /**
-   * Activates the OAuth session using the provided [OAuthToken]. This will save the DPoP tokens and PDS URL
+   * Activates the Bearer session using the provided tokens. This will save the access and refresh tokens. Rotation of
+   * the tokens is handled automatically.
+   */
+  fun activateBearerTokens(
+    accessToken: String,
+    refreshToken: String,
+  ) {
+    _authTokens.value = BlueskyAuthPlugin.Tokens.Bearer(
+      auth = accessToken,
+      refresh = refreshToken,
+    )
+  }
+
+  /**
+   * Activates the OAuth session using the provided [OAuthToken]. This will save the OAuth access and refresh tokens,
+   * as well as the PDS URL, key pair, client ID, and nonce. Rotation of the DPoP nonce is handled automatically.
    */
   fun activateOauth(oauthToken: OAuthToken) {
     _authTokens.value = BlueskyAuthPlugin.Tokens.Dpop(
@@ -101,14 +118,14 @@ private constructor(
   }
 
   /**
-   * Clears the current session tokens, effectively logging the user out. Note that the session and refresh token are
+   * Clears the current session tokens, effectively logging the user out. Note that any previously-cached tokens are
    * **not invalidated** on the server side, unlike calling [deleteSession].
    */
   fun clearCredentials() {
     _authTokens.value = null
   }
 
-  private inline fun <reified T : Any> AtpResponse<T>.saveTokens(
+  private inline fun <reified T : Any> AtpResponse<T>.saveBearerTokens(
     accessTokenProvider: T.() -> String,
     refreshTokenProvider: T.() -> String,
   ) {
