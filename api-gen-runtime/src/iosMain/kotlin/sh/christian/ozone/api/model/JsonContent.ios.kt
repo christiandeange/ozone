@@ -3,7 +3,6 @@
 package sh.christian.ozone.api.model
 
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import sh.christian.ozone.api.runtime.JsonContentSerializer
 

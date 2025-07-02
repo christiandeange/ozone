@@ -130,7 +130,7 @@ class BlueskyAuthPlugin(
 
     private suspend fun HttpRequestBuilder.auth(plugin: BlueskyAuthPlugin) {
       when (val tokens = plugin.authTokens.value) {
-        is Tokens.Bearer -> header(Authorization, tokens.auth)
+        is Tokens.Bearer -> header(Authorization, "Bearer ${tokens.auth}")
         is Tokens.Dpop -> applyDpop(plugin, tokens, tokens.auth)
         null -> {
           // No tokens available, do not add Authorization header
@@ -140,7 +140,7 @@ class BlueskyAuthPlugin(
 
     private suspend fun HttpRequestBuilder.refresh(plugin: BlueskyAuthPlugin) {
       when (val tokens = plugin.authTokens.value) {
-        is Tokens.Bearer -> header(Authorization, tokens.refresh)
+        is Tokens.Bearer -> header(Authorization, "Bearer ${tokens.refresh}")
         is Tokens.Dpop -> applyDpop(plugin, tokens, tokens.refresh)
         null -> {
           // No tokens available, do not add Authorization header

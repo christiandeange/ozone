@@ -11,6 +11,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filterIsInstance
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import me.tatarka.inject.annotations.Inject
@@ -57,7 +58,7 @@ class ApiProvider(
       }
 
       launch(OzoneDispatchers.IO) {
-        _api.authTokens.collect { tokens ->
+        _api.authTokens.filterIsInstance<BlueskyAuthPlugin.Tokens.Bearer?>().collect { tokens ->
           if (tokens != null) {
             loginRepository.auth = loginRepository.auth?.withTokens(tokens)
           } else {
@@ -72,9 +73,9 @@ class ApiProvider(
     _api.clearCredentials()
   }
 
-  private fun AuthInfo.toTokens() = BlueskyAuthPlugin.Tokens(accessJwt, refreshJwt)
+  private fun AuthInfo.toTokens() = BlueskyAuthPlugin.Tokens.Bearer(accessJwt, refreshJwt)
 
-  private fun AuthInfo.withTokens(tokens: BlueskyAuthPlugin.Tokens) = copy(
+  private fun AuthInfo.withTokens(tokens: BlueskyAuthPlugin.Tokens.Bearer) = copy(
     accessJwt = tokens.auth,
     refreshJwt = tokens.refresh,
   )

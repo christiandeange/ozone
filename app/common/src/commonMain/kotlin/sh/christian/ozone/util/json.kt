@@ -1,7 +1,6 @@
 package sh.christian.ozone.util
 
 import kotlinx.serialization.KSerializer
-import kotlinx.serialization.encodeToString
 import sh.christian.ozone.BlueskyJson
 import sh.christian.ozone.api.model.JsonContent
 
