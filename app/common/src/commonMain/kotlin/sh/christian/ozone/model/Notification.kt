@@ -10,6 +10,7 @@ import app.bsky.notification.ListNotificationsReason.Reply
 import app.bsky.notification.ListNotificationsReason.Repost
 import app.bsky.notification.ListNotificationsReason.RepostViaRepost
 import app.bsky.notification.ListNotificationsReason.StarterpackJoined
+import app.bsky.notification.ListNotificationsReason.SubscribedPost
 import app.bsky.notification.ListNotificationsReason.Unknown
 import app.bsky.notification.ListNotificationsReason.Unverified
 import app.bsky.notification.ListNotificationsReason.Verified
@@ -122,6 +123,7 @@ fun ListNotificationsNotification.toNotification(
     is Unverified -> Notification.Reason.UNVERIFIED to UserUnverified
     is LikeViaRepost -> Notification.Reason.LIKE_VIA_REPOST to notificationPost?.let(::LikedViaRepost)
     is RepostViaRepost -> Notification.Reason.REPOST_VIA_REPOST to notificationPost?.let(::RepostedViaRepost)
+    is SubscribedPost -> return null
   }
 
   return Notification(

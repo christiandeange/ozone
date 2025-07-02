@@ -7464,6 +7464,13 @@ public final class app/bsky/notification/ListNotificationsReason$StarterpackJoin
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class app/bsky/notification/ListNotificationsReason$SubscribedPost : app/bsky/notification/ListNotificationsReason {
+	public static final field INSTANCE Lapp/bsky/notification/ListNotificationsReason$SubscribedPost;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class app/bsky/notification/ListNotificationsReason$Unknown : app/bsky/notification/ListNotificationsReason {
 	public fun <init> (Ljava/lang/String;)V
 	public final fun component1 ()Ljava/lang/String;

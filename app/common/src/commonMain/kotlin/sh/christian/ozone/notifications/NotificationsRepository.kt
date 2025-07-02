@@ -172,6 +172,7 @@ class NotificationsRepository(
       is ListNotificationsReason.Unverified -> null
       is ListNotificationsReason.LikeViaRepost -> reasonSubject
       is ListNotificationsReason.RepostViaRepost -> reasonSubject
+      is ListNotificationsReason.SubscribedPost -> null
     }
   }
 }
