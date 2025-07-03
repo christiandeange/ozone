@@ -13281,16 +13281,37 @@ public final class com/atproto/lexicon/Schema$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/atproto/moderation/CreateReportModTool {
+	public static final field Companion Lcom/atproto/moderation/CreateReportModTool$Companion;
+	public fun <init> (Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;)V
+	public synthetic fun <init> (Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lsh/christian/ozone/api/model/JsonContent;
+	public final fun copy (Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;)Lcom/atproto/moderation/CreateReportModTool;
+	public static synthetic fun copy$default (Lcom/atproto/moderation/CreateReportModTool;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;ILjava/lang/Object;)Lcom/atproto/moderation/CreateReportModTool;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMeta ()Lsh/christian/ozone/api/model/JsonContent;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/moderation/CreateReportModTool$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/atproto/moderation/CreateReportRequest {
 	public static final field Companion Lcom/atproto/moderation/CreateReportRequest$Companion;
-	public fun <init> (Lcom/atproto/moderation/Token;Ljava/lang/String;Lcom/atproto/moderation/CreateReportRequestSubjectUnion;)V
-	public synthetic fun <init> (Lcom/atproto/moderation/Token;Ljava/lang/String;Lcom/atproto/moderation/CreateReportRequestSubjectUnion;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lcom/atproto/moderation/Token;Ljava/lang/String;Lcom/atproto/moderation/CreateReportRequestSubjectUnion;Lcom/atproto/moderation/CreateReportModTool;)V
+	public synthetic fun <init> (Lcom/atproto/moderation/Token;Ljava/lang/String;Lcom/atproto/moderation/CreateReportRequestSubjectUnion;Lcom/atproto/moderation/CreateReportModTool;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lcom/atproto/moderation/Token;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Lcom/atproto/moderation/CreateReportRequestSubjectUnion;
-	public final fun copy (Lcom/atproto/moderation/Token;Ljava/lang/String;Lcom/atproto/moderation/CreateReportRequestSubjectUnion;)Lcom/atproto/moderation/CreateReportRequest;
-	public static synthetic fun copy$default (Lcom/atproto/moderation/CreateReportRequest;Lcom/atproto/moderation/Token;Ljava/lang/String;Lcom/atproto/moderation/CreateReportRequestSubjectUnion;ILjava/lang/Object;)Lcom/atproto/moderation/CreateReportRequest;
+	public final fun component4 ()Lcom/atproto/moderation/CreateReportModTool;
+	public final fun copy (Lcom/atproto/moderation/Token;Ljava/lang/String;Lcom/atproto/moderation/CreateReportRequestSubjectUnion;Lcom/atproto/moderation/CreateReportModTool;)Lcom/atproto/moderation/CreateReportRequest;
+	public static synthetic fun copy$default (Lcom/atproto/moderation/CreateReportRequest;Lcom/atproto/moderation/Token;Ljava/lang/String;Lcom/atproto/moderation/CreateReportRequestSubjectUnion;Lcom/atproto/moderation/CreateReportModTool;ILjava/lang/Object;)Lcom/atproto/moderation/CreateReportRequest;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getModTool ()Lcom/atproto/moderation/CreateReportModTool;
 	public final fun getReason ()Ljava/lang/String;
 	public final fun getReasonType ()Lcom/atproto/moderation/Token;
 	public final fun getSubject ()Lcom/atproto/moderation/CreateReportRequestSubjectUnion;
@@ -16615,6 +16636,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun addMember (Ltools/ozone/team/AddMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun addReaction (Lchat/bsky/convo/AddReactionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun addReservedHandle (Lcom/atproto/temp/AddReservedHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun addRule (Ltools/ozone/safelink/AddRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun addValues (Ltools/ozone/set/AddValuesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun applyWrites (Lcom/atproto/repo/ApplyWritesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun checkAccountStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -16763,7 +16785,9 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun putPreferencesV2 (Lapp/bsky/notification/PutPreferencesV2Request;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun putRecord (Lcom/atproto/repo/PutRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun queryEvents (Ltools/ozone/moderation/QueryEventsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun queryEvents (Ltools/ozone/safelink/QueryEventsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun queryLabels (Lcom/atproto/label/QueryLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun queryRules (Ltools/ozone/safelink/QueryRulesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun querySets (Ltools/ozone/set/QuerySetsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun queryStatuses (Ltools/ozone/moderation/QueryStatusesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun refreshIdentity (Lcom/atproto/identity/RefreshIdentityRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -16771,6 +16795,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun registerPush (Lapp/bsky/notification/RegisterPushRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun removeOptions (Ltools/ozone/setting/RemoveOptionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun removeReaction (Lchat/bsky/convo/RemoveReactionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun removeRule (Ltools/ozone/safelink/RemoveRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun requestAccountDelete (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun requestCrawl (Lcom/atproto/sync/RequestCrawlRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun requestEmailConfirmation (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -16817,6 +16842,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateMember (Ltools/ozone/team/UpdateMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateRead (Lchat/bsky/convo/UpdateReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun updateRule (Ltools/ozone/safelink/UpdateRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateSeen (Lapp/bsky/notification/UpdateSeenRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateSubjectStatus (Lcom/atproto/admin/UpdateSubjectStatusRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateTemplate (Ltools/ozone/communication/UpdateTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -16838,6 +16864,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun addMember (Ltools/ozone/team/AddMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun addReaction (Lchat/bsky/convo/AddReactionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun addReservedHandle (Lcom/atproto/temp/AddReservedHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun addRule (Ltools/ozone/safelink/AddRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun addValues (Ltools/ozone/set/AddValuesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun applyWrites (Lcom/atproto/repo/ApplyWritesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun checkAccountStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -16986,7 +17013,9 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun putPreferencesV2 (Lapp/bsky/notification/PutPreferencesV2Request;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putRecord (Lcom/atproto/repo/PutRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryEvents (Ltools/ozone/moderation/QueryEventsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun queryEvents (Ltools/ozone/safelink/QueryEventsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryLabels (Lcom/atproto/label/QueryLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun queryRules (Ltools/ozone/safelink/QueryRulesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun querySets (Ltools/ozone/set/QuerySetsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryStatuses (Ltools/ozone/moderation/QueryStatusesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun refreshIdentity (Lcom/atproto/identity/RefreshIdentityRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -16994,6 +17023,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun registerPush (Lapp/bsky/notification/RegisterPushRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun removeOptions (Ltools/ozone/setting/RemoveOptionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun removeReaction (Lchat/bsky/convo/RemoveReactionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun removeRule (Ltools/ozone/safelink/RemoveRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun requestAccountDelete (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun requestCrawl (Lcom/atproto/sync/RequestCrawlRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun requestEmailConfirmation (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17040,6 +17070,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateMember (Ltools/ozone/team/UpdateMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateRead (Lchat/bsky/convo/UpdateReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateRule (Ltools/ozone/safelink/UpdateRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateSeen (Lapp/bsky/notification/UpdateSeenRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateSubjectStatus (Lcom/atproto/admin/UpdateSubjectStatusRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateTemplate (Ltools/ozone/communication/UpdateTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17059,6 +17090,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun addMember (Ltools/ozone/team/AddMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun addReaction (Lchat/bsky/convo/AddReactionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun addReservedHandle (Lcom/atproto/temp/AddReservedHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun addRule (Ltools/ozone/safelink/AddRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun addValues (Ltools/ozone/set/AddValuesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun applyWrites (Lcom/atproto/repo/ApplyWritesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun checkAccountStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17209,7 +17241,9 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun putPreferencesV2 (Lapp/bsky/notification/PutPreferencesV2Request;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putRecord (Lcom/atproto/repo/PutRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryEvents (Ltools/ozone/moderation/QueryEventsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun queryEvents (Ltools/ozone/safelink/QueryEventsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryLabels (Lcom/atproto/label/QueryLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun queryRules (Ltools/ozone/safelink/QueryRulesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun querySets (Ltools/ozone/set/QuerySetsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryStatuses (Ltools/ozone/moderation/QueryStatusesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun refreshIdentity (Lcom/atproto/identity/RefreshIdentityRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17217,6 +17251,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun registerPush (Lapp/bsky/notification/RegisterPushRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun removeOptions (Ltools/ozone/setting/RemoveOptionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun removeReaction (Lchat/bsky/convo/RemoveReactionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun removeRule (Ltools/ozone/safelink/RemoveRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun requestAccountDelete (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun requestCrawl (Lcom/atproto/sync/RequestCrawlRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun requestEmailConfirmation (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17263,6 +17298,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateMember (Ltools/ozone/team/UpdateMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateRead (Lchat/bsky/convo/UpdateReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateRule (Ltools/ozone/safelink/UpdateRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateSeen (Lapp/bsky/notification/UpdateSeenRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateSubjectStatus (Lcom/atproto/admin/UpdateSubjectStatusRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateTemplate (Ltools/ozone/communication/UpdateTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17933,17 +17969,19 @@ public final class tools/ozone/moderation/BlobViewDetailsUnion$VideoDetails$Comp
 
 public final class tools/ozone/moderation/EmitEventRequest {
 	public static final field Companion Ltools/ozone/moderation/EmitEventRequest$Companion;
-	public synthetic fun <init> (Ltools/ozone/moderation/EmitEventRequestEventUnion;Ltools/ozone/moderation/EmitEventRequestSubjectUnion;Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ltools/ozone/moderation/EmitEventRequestEventUnion;Ltools/ozone/moderation/EmitEventRequestSubjectUnion;Ljava/util/List;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ltools/ozone/moderation/EmitEventRequestEventUnion;Ltools/ozone/moderation/EmitEventRequestSubjectUnion;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/ModTool;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ltools/ozone/moderation/EmitEventRequestEventUnion;Ltools/ozone/moderation/EmitEventRequestSubjectUnion;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/ModTool;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ltools/ozone/moderation/EmitEventRequestEventUnion;
 	public final fun component2 ()Ltools/ozone/moderation/EmitEventRequestSubjectUnion;
 	public final fun component3 ()Ljava/util/List;
 	public final fun component4-715Ygxc ()Ljava/lang/String;
-	public final fun copy-TCiwxGw (Ltools/ozone/moderation/EmitEventRequestEventUnion;Ltools/ozone/moderation/EmitEventRequestSubjectUnion;Ljava/util/List;Ljava/lang/String;)Ltools/ozone/moderation/EmitEventRequest;
-	public static synthetic fun copy-TCiwxGw$default (Ltools/ozone/moderation/EmitEventRequest;Ltools/ozone/moderation/EmitEventRequestEventUnion;Ltools/ozone/moderation/EmitEventRequestSubjectUnion;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/EmitEventRequest;
+	public final fun component5 ()Ltools/ozone/moderation/ModTool;
+	public final fun copy-SSajkXg (Ltools/ozone/moderation/EmitEventRequestEventUnion;Ltools/ozone/moderation/EmitEventRequestSubjectUnion;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/ModTool;)Ltools/ozone/moderation/EmitEventRequest;
+	public static synthetic fun copy-SSajkXg$default (Ltools/ozone/moderation/EmitEventRequest;Ltools/ozone/moderation/EmitEventRequestEventUnion;Ltools/ozone/moderation/EmitEventRequestSubjectUnion;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/ModTool;ILjava/lang/Object;)Ltools/ozone/moderation/EmitEventRequest;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
 	public final fun getEvent ()Ltools/ozone/moderation/EmitEventRequestEventUnion;
+	public final fun getModTool ()Ltools/ozone/moderation/ModTool;
 	public final fun getSubject ()Ltools/ozone/moderation/EmitEventRequestSubjectUnion;
 	public final fun getSubjectBlobCids ()Ljava/util/List;
 	public fun hashCode ()I
@@ -19084,8 +19122,8 @@ public final class tools/ozone/moderation/ModEventUnmuteReporter$Companion {
 
 public final class tools/ozone/moderation/ModEventView {
 	public static final field Companion Ltools/ozone/moderation/ModEventView$Companion;
-	public synthetic fun <init> (JLtools/ozone/moderation/ModEventViewEventUnion;Ltools/ozone/moderation/ModEventViewSubjectUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JLtools/ozone/moderation/ModEventViewEventUnion;Ltools/ozone/moderation/ModEventViewSubjectUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLtools/ozone/moderation/ModEventViewEventUnion;Ltools/ozone/moderation/ModEventViewSubjectUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/String;Ltools/ozone/moderation/ModTool;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLtools/ozone/moderation/ModEventViewEventUnion;Ltools/ozone/moderation/ModEventViewSubjectUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/String;Ltools/ozone/moderation/ModTool;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
 	public final fun component2 ()Ltools/ozone/moderation/ModEventViewEventUnion;
 	public final fun component3 ()Ltools/ozone/moderation/ModEventViewSubjectUnion;
@@ -19094,14 +19132,16 @@ public final class tools/ozone/moderation/ModEventView {
 	public final fun component6 ()Lkotlinx/datetime/Instant;
 	public final fun component7 ()Ljava/lang/String;
 	public final fun component8 ()Ljava/lang/String;
-	public final fun copy-haJDZso (JLtools/ozone/moderation/ModEventViewEventUnion;Ltools/ozone/moderation/ModEventViewSubjectUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/String;)Ltools/ozone/moderation/ModEventView;
-	public static synthetic fun copy-haJDZso$default (Ltools/ozone/moderation/ModEventView;JLtools/ozone/moderation/ModEventViewEventUnion;Ltools/ozone/moderation/ModEventViewSubjectUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/ModEventView;
+	public final fun component9 ()Ltools/ozone/moderation/ModTool;
+	public final fun copy-G3dVrls (JLtools/ozone/moderation/ModEventViewEventUnion;Ltools/ozone/moderation/ModEventViewSubjectUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/String;Ltools/ozone/moderation/ModTool;)Ltools/ozone/moderation/ModEventView;
+	public static synthetic fun copy-G3dVrls$default (Ltools/ozone/moderation/ModEventView;JLtools/ozone/moderation/ModEventViewEventUnion;Ltools/ozone/moderation/ModEventViewSubjectUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/String;Ltools/ozone/moderation/ModTool;ILjava/lang/Object;)Ltools/ozone/moderation/ModEventView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
 	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
 	public final fun getCreatorHandle ()Ljava/lang/String;
 	public final fun getEvent ()Ltools/ozone/moderation/ModEventViewEventUnion;
 	public final fun getId ()J
+	public final fun getModTool ()Ltools/ozone/moderation/ModTool;
 	public final fun getSubject ()Ltools/ozone/moderation/ModEventViewSubjectUnion;
 	public final fun getSubjectBlobCids ()Ljava/util/List;
 	public final fun getSubjectHandle ()Ljava/lang/String;
@@ -19115,20 +19155,23 @@ public final class tools/ozone/moderation/ModEventView$Companion {
 
 public final class tools/ozone/moderation/ModEventViewDetail {
 	public static final field Companion Ltools/ozone/moderation/ModEventViewDetail$Companion;
-	public synthetic fun <init> (JLtools/ozone/moderation/ModEventViewDetailEventUnion;Ltools/ozone/moderation/ModEventViewDetailSubjectUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLtools/ozone/moderation/ModEventViewDetailEventUnion;Ltools/ozone/moderation/ModEventViewDetailSubjectUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/ModTool;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLtools/ozone/moderation/ModEventViewDetailEventUnion;Ltools/ozone/moderation/ModEventViewDetailSubjectUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/ModTool;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
 	public final fun component2 ()Ltools/ozone/moderation/ModEventViewDetailEventUnion;
 	public final fun component3 ()Ltools/ozone/moderation/ModEventViewDetailSubjectUnion;
 	public final fun component4 ()Ljava/util/List;
 	public final fun component5-715Ygxc ()Ljava/lang/String;
 	public final fun component6 ()Lkotlinx/datetime/Instant;
-	public final fun copy-DI-R9KI (JLtools/ozone/moderation/ModEventViewDetailEventUnion;Ltools/ozone/moderation/ModEventViewDetailSubjectUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;)Ltools/ozone/moderation/ModEventViewDetail;
-	public static synthetic fun copy-DI-R9KI$default (Ltools/ozone/moderation/ModEventViewDetail;JLtools/ozone/moderation/ModEventViewDetailEventUnion;Ltools/ozone/moderation/ModEventViewDetailSubjectUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Ltools/ozone/moderation/ModEventViewDetail;
+	public final fun component7 ()Ltools/ozone/moderation/ModTool;
+	public final fun copy-wtx5_wc (JLtools/ozone/moderation/ModEventViewDetailEventUnion;Ltools/ozone/moderation/ModEventViewDetailSubjectUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/ModTool;)Ltools/ozone/moderation/ModEventViewDetail;
+	public static synthetic fun copy-wtx5_wc$default (Ltools/ozone/moderation/ModEventViewDetail;JLtools/ozone/moderation/ModEventViewDetailEventUnion;Ltools/ozone/moderation/ModEventViewDetailSubjectUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/ModTool;ILjava/lang/Object;)Ltools/ozone/moderation/ModEventViewDetail;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
 	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
 	public final fun getEvent ()Ltools/ozone/moderation/ModEventViewDetailEventUnion;
 	public final fun getId ()J
+	public final fun getModTool ()Ltools/ozone/moderation/ModTool;
 	public final fun getSubject ()Ltools/ozone/moderation/ModEventViewDetailSubjectUnion;
 	public final fun getSubjectBlobs ()Ljava/util/List;
 	public fun hashCode ()I
@@ -20102,6 +20145,25 @@ public final class tools/ozone/moderation/ModEventViewSubjectUnion$Unknown$Compa
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/ModTool {
+	public static final field Companion Ltools/ozone/moderation/ModTool$Companion;
+	public fun <init> (Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;)V
+	public synthetic fun <init> (Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lsh/christian/ozone/api/model/JsonContent;
+	public final fun copy (Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/moderation/ModTool;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/ModTool;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;ILjava/lang/Object;)Ltools/ozone/moderation/ModTool;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMeta ()Lsh/christian/ozone/api/model/JsonContent;
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ModTool$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/moderation/Moderation {
 	public static final field Companion Ltools/ozone/moderation/Moderation$Companion;
 	public fun <init> ()V
@@ -20192,8 +20254,8 @@ public final class tools/ozone/moderation/OpSerializer : kotlinx/serialization/K
 
 public final class tools/ozone/moderation/QueryEventsQueryParams {
 	public static final field Companion Ltools/ozone/moderation/QueryEventsQueryParams$Companion;
-	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryEventsSubjectType;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryEventsSubjectType;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryEventsSubjectType;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryEventsSubjectType;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Ljava/util/List;
 	public final fun component1 ()Ljava/util/List;
 	public final fun component10 ()Ljava/lang/Long;
@@ -20205,8 +20267,9 @@ public final class tools/ozone/moderation/QueryEventsQueryParams {
 	public final fun component16 ()Ljava/util/List;
 	public final fun component17 ()Ljava/util/List;
 	public final fun component18 ()Ljava/util/List;
-	public final fun component19 ()Ljava/lang/String;
+	public final fun component19 ()Ljava/util/List;
 	public final fun component2-68yuAGA ()Ljava/lang/String;
+	public final fun component20 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Lkotlinx/datetime/Instant;
 	public final fun component5 ()Lkotlinx/datetime/Instant;
@@ -20214,8 +20277,8 @@ public final class tools/ozone/moderation/QueryEventsQueryParams {
 	public final fun component7 ()Ljava/util/List;
 	public final fun component8 ()Ltools/ozone/moderation/QueryEventsSubjectType;
 	public final fun component9 ()Ljava/lang/Boolean;
-	public final fun copy-_1NeaXE (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryEventsSubjectType;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;)Ltools/ozone/moderation/QueryEventsQueryParams;
-	public static synthetic fun copy-_1NeaXE$default (Ltools/ozone/moderation/QueryEventsQueryParams;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryEventsSubjectType;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/QueryEventsQueryParams;
+	public final fun copy-faDSqjk (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryEventsSubjectType;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;)Ltools/ozone/moderation/QueryEventsQueryParams;
+	public static synthetic fun copy-faDSqjk$default (Ltools/ozone/moderation/QueryEventsQueryParams;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryEventsSubjectType;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/QueryEventsQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAddedLabels ()Ljava/util/List;
 	public final fun getAddedTags ()Ljava/util/List;
@@ -20228,6 +20291,7 @@ public final class tools/ozone/moderation/QueryEventsQueryParams {
 	public final fun getHasComment ()Ljava/lang/Boolean;
 	public final fun getIncludeAllUserRecords ()Ljava/lang/Boolean;
 	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getModTool ()Ljava/util/List;
 	public final fun getPolicies ()Ljava/util/List;
 	public final fun getRemovedLabels ()Ljava/util/List;
 	public final fun getRemovedTags ()Ljava/util/List;
@@ -21191,6 +21255,540 @@ public final class tools/ozone/moderation/VideoDetails {
 }
 
 public final class tools/ozone/moderation/VideoDetails$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/safelink/ActionType : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/safelink/ActionType$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/ActionType$Block : tools/ozone/safelink/ActionType {
+	public static final field INSTANCE Ltools/ozone/safelink/ActionType$Block;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/ActionType$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/safelink/ActionType;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/safelink/ActionType$Unknown : tools/ozone/safelink/ActionType {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/safelink/ActionType$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/safelink/ActionType$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/safelink/ActionType$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/ActionType$Warn : tools/ozone/safelink/ActionType {
+	public static final field INSTANCE Ltools/ozone/safelink/ActionType$Warn;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/ActionType$Whitelist : tools/ozone/safelink/ActionType {
+	public static final field INSTANCE Ltools/ozone/safelink/ActionType$Whitelist;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/ActionTypeSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/safelink/ActionType;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/safelink/ActionType;)V
+}
+
+public final class tools/ozone/safelink/AddRuleRequest {
+	public static final field Companion Ltools/ozone/safelink/AddRuleRequest$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ltools/ozone/safelink/ActionType;Ltools/ozone/safelink/ReasonType;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ltools/ozone/safelink/ActionType;Ltools/ozone/safelink/ReasonType;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ltools/ozone/safelink/PatternType;
+	public final fun component3 ()Ltools/ozone/safelink/ActionType;
+	public final fun component4 ()Ltools/ozone/safelink/ReasonType;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6-68yuAGA ()Ljava/lang/String;
+	public final fun copy-DBN_J0c (Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ltools/ozone/safelink/ActionType;Ltools/ozone/safelink/ReasonType;Ljava/lang/String;Ljava/lang/String;)Ltools/ozone/safelink/AddRuleRequest;
+	public static synthetic fun copy-DBN_J0c$default (Ltools/ozone/safelink/AddRuleRequest;Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ltools/ozone/safelink/ActionType;Ltools/ozone/safelink/ReasonType;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/safelink/AddRuleRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAction ()Ltools/ozone/safelink/ActionType;
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getCreatedBy-68yuAGA ()Ljava/lang/String;
+	public final fun getPattern ()Ltools/ozone/safelink/PatternType;
+	public final fun getReason ()Ltools/ozone/safelink/ReasonType;
+	public final fun getUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/AddRuleRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/safelink/Event {
+	public static final field Companion Ltools/ozone/safelink/Event$Companion;
+	public synthetic fun <init> (JLtools/ozone/safelink/EventType;Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ltools/ozone/safelink/ActionType;Ltools/ozone/safelink/ReasonType;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLtools/ozone/safelink/EventType;Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ltools/ozone/safelink/ActionType;Ltools/ozone/safelink/ReasonType;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component2 ()Ltools/ozone/safelink/EventType;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ltools/ozone/safelink/PatternType;
+	public final fun component5 ()Ltools/ozone/safelink/ActionType;
+	public final fun component6 ()Ltools/ozone/safelink/ReasonType;
+	public final fun component7-715Ygxc ()Ljava/lang/String;
+	public final fun component8 ()Lkotlinx/datetime/Instant;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy-DpmQZN0 (JLtools/ozone/safelink/EventType;Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ltools/ozone/safelink/ActionType;Ltools/ozone/safelink/ReasonType;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;)Ltools/ozone/safelink/Event;
+	public static synthetic fun copy-DpmQZN0$default (Ltools/ozone/safelink/Event;JLtools/ozone/safelink/EventType;Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ltools/ozone/safelink/ActionType;Ltools/ozone/safelink/ReasonType;Ljava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/safelink/Event;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAction ()Ltools/ozone/safelink/ActionType;
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
+	public final fun getEventType ()Ltools/ozone/safelink/EventType;
+	public final fun getId ()J
+	public final fun getPattern ()Ltools/ozone/safelink/PatternType;
+	public final fun getReason ()Ltools/ozone/safelink/ReasonType;
+	public final fun getUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/Event$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/safelink/EventType : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/safelink/EventType$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/EventType$AddRule : tools/ozone/safelink/EventType {
+	public static final field INSTANCE Ltools/ozone/safelink/EventType$AddRule;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/EventType$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/safelink/EventType;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/safelink/EventType$RemoveRule : tools/ozone/safelink/EventType {
+	public static final field INSTANCE Ltools/ozone/safelink/EventType$RemoveRule;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/EventType$Unknown : tools/ozone/safelink/EventType {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/safelink/EventType$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/safelink/EventType$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/safelink/EventType$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/EventType$UpdateRule : tools/ozone/safelink/EventType {
+	public static final field INSTANCE Ltools/ozone/safelink/EventType$UpdateRule;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/EventTypeSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/safelink/EventType;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/safelink/EventType;)V
+}
+
+public abstract class tools/ozone/safelink/PatternType : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/safelink/PatternType$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/PatternType$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/safelink/PatternType;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/safelink/PatternType$Domain : tools/ozone/safelink/PatternType {
+	public static final field INSTANCE Ltools/ozone/safelink/PatternType$Domain;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/PatternType$Unknown : tools/ozone/safelink/PatternType {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/safelink/PatternType$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/safelink/PatternType$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/safelink/PatternType$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/PatternType$Url : tools/ozone/safelink/PatternType {
+	public static final field INSTANCE Ltools/ozone/safelink/PatternType$Url;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/PatternTypeSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/safelink/PatternType;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/safelink/PatternType;)V
+}
+
+public final class tools/ozone/safelink/QueryEventsRequest {
+	public static final field Companion Ltools/ozone/safelink/QueryEventsRequest$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/util/List;Ljava/lang/String;Ltools/ozone/safelink/QueryEventsSortDirection;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/util/List;Ljava/lang/String;Ltools/ozone/safelink/QueryEventsSortDirection;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ltools/ozone/safelink/QueryEventsSortDirection;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/util/List;Ljava/lang/String;Ltools/ozone/safelink/QueryEventsSortDirection;)Ltools/ozone/safelink/QueryEventsRequest;
+	public static synthetic fun copy$default (Ltools/ozone/safelink/QueryEventsRequest;Ljava/lang/String;Ljava/lang/Long;Ljava/util/List;Ljava/lang/String;Ltools/ozone/safelink/QueryEventsSortDirection;ILjava/lang/Object;)Ltools/ozone/safelink/QueryEventsRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getPatternType ()Ljava/lang/String;
+	public final fun getSortDirection ()Ltools/ozone/safelink/QueryEventsSortDirection;
+	public final fun getUrls ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/QueryEventsRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/safelink/QueryEventsResponse {
+	public static final field Companion Ltools/ozone/safelink/QueryEventsResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Ltools/ozone/safelink/QueryEventsResponse;
+	public static synthetic fun copy$default (Ltools/ozone/safelink/QueryEventsResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/safelink/QueryEventsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getEvents ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/QueryEventsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/safelink/QueryEventsSortDirection : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/safelink/QueryEventsSortDirection$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/QueryEventsSortDirection$Asc : tools/ozone/safelink/QueryEventsSortDirection {
+	public static final field INSTANCE Ltools/ozone/safelink/QueryEventsSortDirection$Asc;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/QueryEventsSortDirection$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/safelink/QueryEventsSortDirection;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/safelink/QueryEventsSortDirection$Desc : tools/ozone/safelink/QueryEventsSortDirection {
+	public static final field INSTANCE Ltools/ozone/safelink/QueryEventsSortDirection$Desc;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/QueryEventsSortDirection$Unknown : tools/ozone/safelink/QueryEventsSortDirection {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/safelink/QueryEventsSortDirection$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/safelink/QueryEventsSortDirection$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/safelink/QueryEventsSortDirection$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/QueryEventsSortDirectionSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/safelink/QueryEventsSortDirection;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/safelink/QueryEventsSortDirection;)V
+}
+
+public final class tools/ozone/safelink/QueryRulesRequest {
+	public static final field Companion Ltools/ozone/safelink/QueryRulesRequest$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ltools/ozone/safelink/QueryRulesSortDirection;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ltools/ozone/safelink/QueryRulesSortDirection;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/util/List;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7-68yuAGA ()Ljava/lang/String;
+	public final fun component8 ()Ltools/ozone/safelink/QueryRulesSortDirection;
+	public final fun copy-SM-zgS8 (Ljava/lang/String;Ljava/lang/Long;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ltools/ozone/safelink/QueryRulesSortDirection;)Ltools/ozone/safelink/QueryRulesRequest;
+	public static synthetic fun copy-SM-zgS8$default (Ltools/ozone/safelink/QueryRulesRequest;Ljava/lang/String;Ljava/lang/Long;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ltools/ozone/safelink/QueryRulesSortDirection;ILjava/lang/Object;)Ltools/ozone/safelink/QueryRulesRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActions ()Ljava/util/List;
+	public final fun getCreatedBy-68yuAGA ()Ljava/lang/String;
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getPatternType ()Ljava/lang/String;
+	public final fun getReason ()Ljava/lang/String;
+	public final fun getSortDirection ()Ltools/ozone/safelink/QueryRulesSortDirection;
+	public final fun getUrls ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/QueryRulesRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/safelink/QueryRulesResponse {
+	public static final field Companion Ltools/ozone/safelink/QueryRulesResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Ltools/ozone/safelink/QueryRulesResponse;
+	public static synthetic fun copy$default (Ltools/ozone/safelink/QueryRulesResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/safelink/QueryRulesResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getRules ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/QueryRulesResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/safelink/QueryRulesSortDirection : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/safelink/QueryRulesSortDirection$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/QueryRulesSortDirection$Asc : tools/ozone/safelink/QueryRulesSortDirection {
+	public static final field INSTANCE Ltools/ozone/safelink/QueryRulesSortDirection$Asc;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/QueryRulesSortDirection$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/safelink/QueryRulesSortDirection;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/safelink/QueryRulesSortDirection$Desc : tools/ozone/safelink/QueryRulesSortDirection {
+	public static final field INSTANCE Ltools/ozone/safelink/QueryRulesSortDirection$Desc;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/QueryRulesSortDirection$Unknown : tools/ozone/safelink/QueryRulesSortDirection {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/safelink/QueryRulesSortDirection$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/safelink/QueryRulesSortDirection$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/safelink/QueryRulesSortDirection$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/QueryRulesSortDirectionSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/safelink/QueryRulesSortDirection;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/safelink/QueryRulesSortDirection;)V
+}
+
+public abstract class tools/ozone/safelink/ReasonType : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/safelink/ReasonType$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/ReasonType$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/safelink/ReasonType;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/safelink/ReasonType$Csam : tools/ozone/safelink/ReasonType {
+	public static final field INSTANCE Ltools/ozone/safelink/ReasonType$Csam;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/ReasonType$None : tools/ozone/safelink/ReasonType {
+	public static final field INSTANCE Ltools/ozone/safelink/ReasonType$None;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/ReasonType$Phishing : tools/ozone/safelink/ReasonType {
+	public static final field INSTANCE Ltools/ozone/safelink/ReasonType$Phishing;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/ReasonType$Spam : tools/ozone/safelink/ReasonType {
+	public static final field INSTANCE Ltools/ozone/safelink/ReasonType$Spam;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/ReasonType$Unknown : tools/ozone/safelink/ReasonType {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/safelink/ReasonType$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/safelink/ReasonType$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/safelink/ReasonType$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/ReasonTypeSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/safelink/ReasonType;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/safelink/ReasonType;)V
+}
+
+public final class tools/ozone/safelink/RemoveRuleRequest {
+	public static final field Companion Ltools/ozone/safelink/RemoveRuleRequest$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ltools/ozone/safelink/PatternType;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4-68yuAGA ()Ljava/lang/String;
+	public final fun copy-JeTGFFg (Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ljava/lang/String;Ljava/lang/String;)Ltools/ozone/safelink/RemoveRuleRequest;
+	public static synthetic fun copy-JeTGFFg$default (Ltools/ozone/safelink/RemoveRuleRequest;Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/safelink/RemoveRuleRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getCreatedBy-68yuAGA ()Ljava/lang/String;
+	public final fun getPattern ()Ltools/ozone/safelink/PatternType;
+	public final fun getUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/RemoveRuleRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/safelink/UpdateRuleRequest {
+	public static final field Companion Ltools/ozone/safelink/UpdateRuleRequest$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ltools/ozone/safelink/ActionType;Ltools/ozone/safelink/ReasonType;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ltools/ozone/safelink/ActionType;Ltools/ozone/safelink/ReasonType;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ltools/ozone/safelink/PatternType;
+	public final fun component3 ()Ltools/ozone/safelink/ActionType;
+	public final fun component4 ()Ltools/ozone/safelink/ReasonType;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6-68yuAGA ()Ljava/lang/String;
+	public final fun copy-DBN_J0c (Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ltools/ozone/safelink/ActionType;Ltools/ozone/safelink/ReasonType;Ljava/lang/String;Ljava/lang/String;)Ltools/ozone/safelink/UpdateRuleRequest;
+	public static synthetic fun copy-DBN_J0c$default (Ltools/ozone/safelink/UpdateRuleRequest;Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ltools/ozone/safelink/ActionType;Ltools/ozone/safelink/ReasonType;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/safelink/UpdateRuleRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAction ()Ltools/ozone/safelink/ActionType;
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getCreatedBy-68yuAGA ()Ljava/lang/String;
+	public final fun getPattern ()Ltools/ozone/safelink/PatternType;
+	public final fun getReason ()Ltools/ozone/safelink/ReasonType;
+	public final fun getUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/UpdateRuleRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/safelink/UrlRule {
+	public static final field Companion Ltools/ozone/safelink/UrlRule$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ltools/ozone/safelink/ActionType;Ltools/ozone/safelink/ReasonType;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ltools/ozone/safelink/ActionType;Ltools/ozone/safelink/ReasonType;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ltools/ozone/safelink/PatternType;
+	public final fun component3 ()Ltools/ozone/safelink/ActionType;
+	public final fun component4 ()Ltools/ozone/safelink/ReasonType;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6-715Ygxc ()Ljava/lang/String;
+	public final fun component7 ()Lkotlinx/datetime/Instant;
+	public final fun component8 ()Lkotlinx/datetime/Instant;
+	public final fun copy-Y11WXlc (Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ltools/ozone/safelink/ActionType;Ltools/ozone/safelink/ReasonType;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;)Ltools/ozone/safelink/UrlRule;
+	public static synthetic fun copy-Y11WXlc$default (Ltools/ozone/safelink/UrlRule;Ljava/lang/String;Ltools/ozone/safelink/PatternType;Ltools/ozone/safelink/ActionType;Ltools/ozone/safelink/ReasonType;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Ltools/ozone/safelink/UrlRule;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAction ()Ltools/ozone/safelink/ActionType;
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
+	public final fun getPattern ()Ltools/ozone/safelink/PatternType;
+	public final fun getReason ()Ltools/ozone/safelink/ReasonType;
+	public final fun getUpdatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/safelink/UrlRule$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
