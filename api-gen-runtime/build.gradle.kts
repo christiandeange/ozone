@@ -24,7 +24,17 @@ kotlin {
     }
     val iosMain by getting {
       dependencies {
-        api(libs.ktor.darwin)
+        implementation(libs.ktor.darwin)
+      }
+    }
+    val jvmMain by getting {
+      dependencies {
+        implementation(libs.ktor.cio)
+      }
+    }
+    val jsMain by getting {
+      dependencies {
+        implementation(libs.ktor.js)
       }
     }
   }

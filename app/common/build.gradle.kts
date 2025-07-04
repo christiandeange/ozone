@@ -56,25 +56,13 @@ kotlin {
     val androidMain by getting {
       dependencies {
         implementation(libs.androidx.activity.compose)
-        implementation(libs.ktor.cio)
         implementation(libs.zoomable)
-      }
-    }
-    val iosMain by getting {
-      dependencies {
-        implementation(libs.ktor.darwin)
       }
     }
     val jvmMain by getting {
       dependencies {
         implementation(libs.apache.commons)
-        implementation(libs.ktor.cio)
         implementation(libs.zoomable)
-      }
-    }
-    val jsMain by getting {
-      dependencies {
-        implementation(libs.ktor.js)
       }
     }
   }

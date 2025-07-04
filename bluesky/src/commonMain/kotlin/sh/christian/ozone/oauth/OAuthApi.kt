@@ -4,25 +4,30 @@ import dev.whyoleg.cryptography.algorithms.ECDSA
 import dev.whyoleg.cryptography.algorithms.SHA256
 import dev.whyoleg.cryptography.random.CryptographyRandom
 import io.ktor.client.HttpClient
+import io.ktor.client.call.body
+import io.ktor.client.call.save
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.forms.FormDataContent
 import io.ktor.client.request.get
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
+import io.ktor.client.statement.HttpResponse
 import io.ktor.http.Parameters
 import io.ktor.http.ParametersBuilder
 import io.ktor.http.Url
 import io.ktor.http.buildUrl
+import io.ktor.http.isSuccess
 import io.ktor.http.takeFrom
+import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.coroutineScope
 import kotlinx.datetime.Clock
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonObject
-import sh.christian.ozone.api.response.AtpResponse
+import sh.christian.ozone.api.response.AtpErrorDescription
+import sh.christian.ozone.api.response.AtpException
+import sh.christian.ozone.api.response.StatusCode
 import sh.christian.ozone.api.xrpc.defaultHttpClient
-import sh.christian.ozone.api.xrpc.toAtpModel
-import sh.christian.ozone.api.xrpc.toAtpResponse
-import sh.christian.ozone.api.xrpc.withXrpcConfiguration
 import sh.christian.ozone.oauth.network.OAuthAuthorizationServer
 import sh.christian.ozone.oauth.network.OAuthParRequest
 import sh.christian.ozone.oauth.network.OAuthParResponse
@@ -46,7 +51,11 @@ class OAuthApi(
   private val random: Random = CryptographyRandom,
   private val clock: Clock = Clock.System,
 ) {
-  private val client: HttpClient = httpClient.withXrpcConfiguration()
+  private val client: HttpClient = httpClient.config {
+    install(ContentNegotiation) {
+      json(Json { ignoreUnknownKeys = true })
+    }
+  }
 
   private lateinit var oauthServer: OAuthAuthorizationServer
   private var dpopKeyPair: DpopKeyPair? = null
@@ -102,10 +111,13 @@ class OAuthApi(
       setBody(request)
     }
 
-    val response = when (val responseType = callResponse.toAtpResponse<OAuthParResponse>()) {
-      is AtpResponse.Success -> responseType.response
-      is AtpResponse.Failure -> error(responseType.response ?: responseType.error ?: responseType.statusCode)
-    }
+    val response: OAuthParResponse = callResponse.decodeResponse(
+      onSuccess = { it },
+      onFailure = {
+        val errorMessage = it?.toString() ?: StatusCode.fromCode(callResponse.status.value).toString()
+        error("Failed to create PAR request: $errorMessage")
+      },
+    )
 
     val nonce = requireNotNull(callResponse.headers["DPoP-Nonce"] ?: callResponse.headers["dpop-nonce"]) {
       "DPoP-Nonce header not found in authorization response"
@@ -228,16 +240,13 @@ class OAuthApi(
       setBody(FormDataContent(requestParameters))
     }
 
-    val atpResponse = callResponse.toAtpResponse<OAuthTokenResponse>()
-    when (atpResponse) {
-      is AtpResponse.Success<OAuthTokenResponse> -> {
-        val tokenResponse = atpResponse.response
-
-        val newNonce = requireNotNull(atpResponse.headers["DPoP-Nonce"] ?: atpResponse.headers["dpop-nonce"]) {
+    return callResponse.mapResponse<OAuthTokenResponse, OAuthToken>(
+      onSuccess = { tokenResponse ->
+        val newNonce = requireNotNull(headers["DPoP-Nonce"] ?: headers["dpop-nonce"]) {
           "DPoP-Nonce header not found in token response"
         }
 
-        return OAuthToken(
+        OAuthToken(
           accessToken = tokenResponse.accessToken,
           refreshToken = tokenResponse.refreshToken,
           keyPair = dpopKeyPair,
@@ -246,19 +255,19 @@ class OAuthApi(
           subject = tokenResponse.subject,
           nonce = newNonce,
         )
-      }
-      is AtpResponse.Failure -> {
-        if (atpResponse.error?.error == "use_dpop_nonce") {
+      },
+      onFailure = { errorDescription ->
+        if (errorDescription?.error == "use_dpop_nonce") {
           // If the error indicates we need to use a DPoP nonce, we can retry with the new nonce.
-          val newNonce = requireNotNull(atpResponse.headers["DPoP-Nonce"] ?: atpResponse.headers["dpop-nonce"]) {
+          val newNonce = requireNotNull(headers["DPoP-Nonce"] ?: headers["dpop-nonce"]) {
             "DPoP-Nonce header not found in token response"
           }
           return requestOrRefreshToken(clientId, requestParameters, newNonce, keyPair)
         } else {
-          throw atpResponse.asException()
+          throw AtpException(StatusCode.fromCode(status.value), errorDescription)
         }
-      }
-    }
+      },
+    )
   }
 
   /**
@@ -317,10 +326,34 @@ class OAuthApi(
 
   private suspend fun resolveOauthAuthorizationServer(): OAuthAuthorizationServer {
     if (!::oauthServer.isInitialized) {
-      oauthServer = client.get("/.well-known/oauth-authorization-server")
-        .toAtpModel<OAuthAuthorizationServer>()
+      oauthServer = client.get("/.well-known/oauth-authorization-server").decodeResponse(
+        onSuccess = { it },
+        onFailure = { errorDescription ->
+          throw AtpException(StatusCode.fromCode(status.value), errorDescription)
+        },
+      )
     }
     return oauthServer
+  }
+
+  private suspend inline fun <reified T : Any> HttpResponse.decodeResponse(
+    onSuccess: HttpResponse.(T) -> T,
+    onFailure: HttpResponse.(AtpErrorDescription?) -> T,
+  ): T {
+    return mapResponse<T, T>(onSuccess, onFailure)
+  }
+
+  private suspend inline fun <reified T : Any, R> HttpResponse.mapResponse(
+    onSuccess: HttpResponse.(T) -> R,
+    onFailure: HttpResponse.(AtpErrorDescription?) -> R,
+  ): R {
+    call.save()
+    return if (status.isSuccess()) {
+      onSuccess(body<T>())
+    } else {
+      val maybeErrorDescription = runCatching { body<AtpErrorDescription>() }.getOrNull()
+      onFailure(maybeErrorDescription)
+    }
   }
 
   companion object {

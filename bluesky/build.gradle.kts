@@ -63,6 +63,8 @@ kotlin {
       dependencies {
         implementation(libs.crypto.core)
         implementation(libs.crypto.random)
+        implementation(libs.ktor.contentnegotiation)
+        implementation(libs.ktor.serialization.json)
       }
     }
     val jvmMain by getting {

@@ -551,3 +551,16 @@ public final class sh/christian/ozone/api/runtime/StringEnumSerializer : kotlinx
 	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lsh/christian/ozone/api/model/AtpEnum;)V
 }
 
+public final class sh/christian/ozone/api/xrpc/DefaultHttpClientKt {
+	public static final fun getDefaultHttpClient ()Lio/ktor/client/HttpClient;
+}
+
+public final class sh/christian/ozone/api/xrpc/DefaultHttpEngine_jvmKt {
+	public static final fun getDefaultHttpEngine ()Lio/ktor/client/engine/HttpClientEngineFactory;
+}
+
+public final class sh/christian/ozone/api/xrpc/XrpcDefaults {
+	public static final field BSKY_NETWORK Lio/ktor/http/Url;
+	public static final field BSKY_SOCIAL Lio/ktor/http/Url;
+}
+

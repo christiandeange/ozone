@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.BlueskyApi
+import sh.christian.ozone.api.xrpc.defaultHttpEngine
 import sh.christian.ozone.app.Supervisor
 import sh.christian.ozone.di.SingleInApp
 import sh.christian.ozone.login.LoginRepository
@@ -29,7 +30,7 @@ class ApiProvider(
 ) : Supervisor() {
   private val apiHost = MutableStateFlow(apiRepository.server.host)
 
-  private val client = HttpClient(engine) {
+  private val client = HttpClient(defaultHttpEngine) {
     install(Logging) {
       logger = Logger.DEFAULT
       level = LogLevel.NONE

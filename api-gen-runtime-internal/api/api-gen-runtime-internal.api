@@ -3,10 +3,6 @@ public final class sh/christian/ozone/api/xrpc/XrpcConfigurationKt {
 	public static synthetic fun withXrpcConfiguration$default (Lio/ktor/client/HttpClient;Lkotlinx/serialization/modules/SerializersModule;ILjava/lang/Object;)Lio/ktor/client/HttpClient;
 }
 
-public final class sh/christian/ozone/api/xrpc/XrpcConfiguration_jvmKt {
-	public static final fun getDefaultHttpClient ()Lio/ktor/client/HttpClient;
-}
-
 public final class sh/christian/ozone/api/xrpc/XrpcRequestKt {
 	public static final fun errorDescriptionOrNull (Lio/ktor/client/statement/HttpResponse;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun procedure (Lio/ktor/client/HttpClient;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
