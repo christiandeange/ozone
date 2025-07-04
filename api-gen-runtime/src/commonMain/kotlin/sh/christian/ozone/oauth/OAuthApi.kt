@@ -4,6 +4,7 @@ import dev.whyoleg.cryptography.algorithms.ECDSA
 import dev.whyoleg.cryptography.algorithms.SHA256
 import dev.whyoleg.cryptography.random.CryptographyRandom
 import io.ktor.client.HttpClient
+import io.ktor.client.HttpClientConfig
 import io.ktor.client.call.body
 import io.ktor.client.call.save
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
