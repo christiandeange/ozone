@@ -114,15 +114,14 @@ class OAuthApi(
 
     val response: OAuthParResponse = callResponse.decodeResponse(
       onSuccess = { it },
+      onNewNonce = { error("Should not happen") },
       onFailure = {
         val errorMessage = it?.toString() ?: StatusCode.fromCode(callResponse.status.value).toString()
         error("Failed to create PAR request: $errorMessage")
       },
     )
 
-    val nonce = requireNotNull(callResponse.headers["DPoP-Nonce"] ?: callResponse.headers["dpop-nonce"]) {
-      "DPoP-Nonce header not found in authorization response"
-    }
+    val nonce = callResponse.responseDpopNonce
 
     val authorizeRequestUrl = buildUrl {
       takeFrom(oauthServer.authorizationEndpoint)
@@ -240,10 +239,6 @@ class OAuthApi(
 
     return callResponse.mapResponse<OAuthTokenResponse, OAuthToken>(
       onSuccess = { tokenResponse ->
-        val newNonce = requireNotNull(headers["DPoP-Nonce"] ?: headers["dpop-nonce"]) {
-          "DPoP-Nonce header not found in token response"
-        }
-
         OAuthToken(
           accessToken = tokenResponse.accessToken,
           refreshToken = tokenResponse.refreshToken,
@@ -251,19 +246,15 @@ class OAuthApi(
           expiresIn = tokenResponse.expiresInSeconds.seconds,
           scopes = tokenResponse.scopes.split(" ").map { OAuthScope(it) },
           subject = tokenResponse.subject,
-          nonce = newNonce,
+          nonce = responseDpopNonce,
         )
       },
+      onNewNonce = { newNonce ->
+        // If the response indicates we need to use a new DPoP nonce, we can retry with the new nonce.
+        requestOrRefreshToken(clientId, requestParameters, newNonce, dpopKeyPair)
+      },
       onFailure = { errorDescription ->
-        if (errorDescription?.error == "use_dpop_nonce") {
-          // If the error indicates we need to use a DPoP nonce, we can retry with the new nonce.
-          val newNonce = requireNotNull(headers["DPoP-Nonce"] ?: headers["dpop-nonce"]) {
-            "DPoP-Nonce header not found in token response"
-          }
-          return requestOrRefreshToken(clientId, requestParameters, newNonce, keyPair)
-        } else {
-          throw AtpException(StatusCode.fromCode(status.value), errorDescription)
-        }
+        throw AtpException(StatusCode.fromCode(status.value), errorDescription)
       },
     )
   }
@@ -327,16 +318,11 @@ class OAuthApi(
 
     return callResponse.mapResponse<JsonObject, Unit>(
       onSuccess = { _ -> },
+      onNewNonce = { newNonce ->
+        revokeToken(accessToken, clientId, newNonce, dpopKeyPair)
+      },
       onFailure = { errorDescription ->
-        if (errorDescription?.error == "use_dpop_nonce") {
-          // If the error indicates we need to use a DPoP nonce, we can retry with the new nonce.
-          val newNonce = requireNotNull(headers["DPoP-Nonce"] ?: headers["dpop-nonce"]) {
-            "DPoP-Nonce header not found in token response"
-          }
-          return revokeToken(accessToken, clientId, newNonce, dpopKeyPair)
-        } else {
-          throw AtpException(StatusCode.fromCode(status.value), errorDescription)
-        }
+        throw AtpException(StatusCode.fromCode(status.value), errorDescription)
       },
     )
   }
@@ -399,6 +385,7 @@ class OAuthApi(
     if (!::oauthServer.isInitialized) {
       oauthServer = client.get("/.well-known/oauth-authorization-server").decodeResponse(
         onSuccess = { it },
+        onNewNonce = { error("Should not happen") },
         onFailure = { errorDescription ->
           throw AtpException(StatusCode.fromCode(status.value), errorDescription)
         },
@@ -414,24 +401,34 @@ class OAuthApi(
   }
 
   private suspend inline fun <reified T : Any> HttpResponse.decodeResponse(
-    onSuccess: HttpResponse.(T) -> T,
-    onFailure: HttpResponse.(AtpErrorDescription?) -> T,
+    onSuccess: suspend HttpResponse.(T) -> T,
+    onNewNonce: suspend HttpResponse.(String) -> T,
+    onFailure: suspend HttpResponse.(AtpErrorDescription?) -> T,
   ): T {
-    return mapResponse<T, T>(onSuccess, onFailure)
+    return mapResponse<T, T>(onSuccess, onNewNonce, onFailure)
   }
 
   private suspend inline fun <reified T : Any, R> HttpResponse.mapResponse(
-    onSuccess: HttpResponse.(T) -> R,
-    onFailure: HttpResponse.(AtpErrorDescription?) -> R,
+    onSuccess: suspend HttpResponse.(T) -> R,
+    onNewNonce: suspend HttpResponse.(String) -> R,
+    onFailure: suspend HttpResponse.(AtpErrorDescription?) -> R,
   ): R {
     call.save()
     return if (status.isSuccess()) {
       onSuccess(body<T>())
     } else {
       val maybeErrorDescription = runCatching { body<AtpErrorDescription>() }.getOrNull()
-      onFailure(maybeErrorDescription)
+      if (maybeErrorDescription?.error == "use_dpop_nonce") {
+        // If the error indicates we need to use a DPoP nonce, we can retry with the new nonce.
+        return onNewNonce(responseDpopNonce)
+      } else {
+        onFailure(maybeErrorDescription)
+      }
     }
   }
+
+  private val HttpResponse.responseDpopNonce: String
+    get() = requireNotNull(headers["DPoP-Nonce"]) { "DPoP-Nonce header not found in response" }
 
   companion object {
     private val CODE_VERIFIER_CHARS: List<Char> =

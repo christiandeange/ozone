@@ -208,8 +208,7 @@ class BlueskyAuthPlugin(
           null
         }
         is Tokens.Dpop -> {
-          val nonce = callResponse.headers["DPoP-Nonce"] ?: callResponse.headers["dpop-nonce"]
-          nonce?.let { tokens.copy(nonce = nonce) }
+          callResponse.headers["DPoP-Nonce"]?.let { tokens.copy(nonce = it) }
         }
         null -> {
           // No tokens available, unable to refresh
