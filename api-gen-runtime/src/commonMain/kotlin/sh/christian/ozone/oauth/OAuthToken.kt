@@ -41,19 +41,25 @@ data class OAuthToken(
   /**
    * The unique identifier for the OAuth client.
    */
-  val clientId: String = requirePayload("client_id")
+  val clientId: String by lazy {
+    requirePayload("client_id")
+  }
 
   /**
    * The audience of the JWT, typically the DID of the PDS (Personal Data Server) that the token is intended for.
    */
-  val audience: Did = Did(requirePayload("aud"))
+  val audience: Did by lazy {
+    Did(requirePayload("aud"))
+  }
 
   /**
    * The URL of the PDS (Personal Data Server) associated with the audience.
    */
-  val pds: Url = buildUrl {
-    protocol = URLProtocol.HTTPS
-    host = audience.toString().substringAfterLast(":")
+  val pds: Url by lazy {
+    buildUrl {
+      protocol = URLProtocol.HTTPS
+      host = audience.toString().substringAfterLast(":")
+    }
   }
 
   private fun requirePayload(key: String): String {

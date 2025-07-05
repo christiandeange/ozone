@@ -634,6 +634,8 @@ public final class sh/christian/ozone/oauth/OAuthApi {
 	public static synthetic fun refreshToken$default (Lsh/christian/ozone/oauth/OAuthApi;Lsh/christian/ozone/oauth/OAuthClient;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/oauth/DpopKeyPair;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 	public final fun requestToken (Lsh/christian/ozone/oauth/OAuthClient;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/oauth/DpopKeyPair;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun requestToken$default (Lsh/christian/ozone/oauth/OAuthApi;Lsh/christian/ozone/oauth/OAuthClient;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/oauth/DpopKeyPair;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun revokeToken (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/oauth/DpopKeyPair;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun revokeToken (Lsh/christian/ozone/oauth/OAuthToken;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class sh/christian/ozone/oauth/OAuthApi$Companion {

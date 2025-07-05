@@ -4,7 +4,6 @@ import dev.whyoleg.cryptography.algorithms.ECDSA
 import dev.whyoleg.cryptography.algorithms.SHA256
 import dev.whyoleg.cryptography.random.CryptographyRandom
 import io.ktor.client.HttpClient
-import io.ktor.client.HttpClientConfig
 import io.ktor.client.call.body
 import io.ktor.client.call.save
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -23,6 +22,7 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.coroutineScope
 import kotlinx.datetime.Clock
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonObject
 import sh.christian.ozone.api.response.AtpErrorDescription
@@ -81,7 +81,7 @@ class OAuthApi(
     scopes: List<OAuthScope>,
     loginHandleHint: String? = null,
   ): OAuthAuthorizationRequest = coroutineScope {
-    val oauthServer = resolveOauthAuthorizationServer()
+    val oauthServer = resolveOAuthAuthorizationServer()
 
     val unsupportedScopes = scopes.filter { it.value !in oauthServer.scopesSupported }
     require(unsupportedScopes.isEmpty()) {
@@ -219,13 +219,10 @@ class OAuthApi(
     nonce: String?,
     keyPair: DpopKeyPair?
   ): OAuthToken {
-    val oauthServer = resolveOauthAuthorizationServer()
+    val oauthServer = resolveOAuthAuthorizationServer()
     val tokenRequestUrl = Url(oauthServer.tokenEndpoint)
 
-    // Use a provided DPoP key pair if provided, or the previously-used one if available, or generate a new one.
-    val dpopKeyPair: DpopKeyPair =
-      (keyPair ?: dpopKeyPair ?: DpopKeyPair.generateKeyPair())
-        .also { dpopKeyPair = it }
+    val dpopKeyPair = resolveDpopKeyPair(providedKeyPair = keyPair)
 
     val dpopHeader = createDpopHeaderValue(
       keyPair = dpopKeyPair,
@@ -264,6 +261,79 @@ class OAuthApi(
             "DPoP-Nonce header not found in token response"
           }
           return requestOrRefreshToken(clientId, requestParameters, newNonce, keyPair)
+        } else {
+          throw AtpException(StatusCode.fromCode(status.value), errorDescription)
+        }
+      },
+    )
+  }
+
+  /**
+   * Revoke the provided [oauthToken][OAuthToken] using the OAuth server's revocation endpoint.
+   */
+  suspend fun revokeToken(oauthToken: OAuthToken) {
+    revokeToken(
+      accessToken = oauthToken.accessToken,
+      clientId = oauthToken.clientId,
+      nonce = oauthToken.nonce,
+      keyPair = oauthToken.keyPair,
+    )
+  }
+
+  /**
+   * Revoke the provided access token using the OAuth server's revocation endpoint.
+   *
+   * The nonce should be passed in from the previous [requestToken] request, if available.
+   *
+   * You can also pass in an optional [DPoP key pair][DpopKeyPair] to sign the request with DPoP, otherwise it will use
+   * the one used for [requestToken]. If no key pair was used for the initial token request by this [OAuthApi] instance,
+   * a new one will be generated for you.
+   */
+  suspend fun revokeToken(
+    accessToken: String,
+    clientId: String,
+    nonce: String?,
+    keyPair: DpopKeyPair?,
+  ) {
+    val oauthServer = resolveOAuthAuthorizationServer()
+    val revokeUrl = Url(oauthServer.revocationEndpoint)
+
+    val dpopKeyPair = resolveDpopKeyPair(providedKeyPair = keyPair)
+
+    val dpopHeader = createDpopHeaderValue(
+      keyPair = dpopKeyPair,
+      clientId = clientId,
+      method = "POST",
+      endpoint = revokeUrl.toString(),
+      nonce = nonce,
+      accessToken = null,
+    )
+
+    val callResponse = client.post(revokeUrl) {
+      headers["Content-Type"] = "application/x-www-form-urlencoded"
+      headers["Authorization"] = "DPoP $accessToken"
+      headers["DPoP"] = dpopHeader
+
+      setBody(
+        FormDataContent(
+          Parameters.build {
+            append("token", accessToken)
+            append("token_type_hint", "access_token")
+            append("client_id", clientId)
+          }
+        )
+      )
+    }
+
+    return callResponse.mapResponse<JsonObject, Unit>(
+      onSuccess = { _ -> },
+      onFailure = { errorDescription ->
+        if (errorDescription?.error == "use_dpop_nonce") {
+          // If the error indicates we need to use a DPoP nonce, we can retry with the new nonce.
+          val newNonce = requireNotNull(headers["DPoP-Nonce"] ?: headers["dpop-nonce"]) {
+            "DPoP-Nonce header not found in token response"
+          }
+          return revokeToken(accessToken, clientId, newNonce, dpopKeyPair)
         } else {
           throw AtpException(StatusCode.fromCode(status.value), errorDescription)
         }
@@ -325,7 +395,7 @@ class OAuthApi(
     return "$signedData.$signature"
   }
 
-  private suspend fun resolveOauthAuthorizationServer(): OAuthAuthorizationServer {
+  private suspend fun resolveOAuthAuthorizationServer(): OAuthAuthorizationServer {
     if (!::oauthServer.isInitialized) {
       oauthServer = client.get("/.well-known/oauth-authorization-server").decodeResponse(
         onSuccess = { it },
@@ -335,6 +405,12 @@ class OAuthApi(
       )
     }
     return oauthServer
+  }
+
+  private suspend fun resolveDpopKeyPair(providedKeyPair: DpopKeyPair?): DpopKeyPair {
+    // Use a provided DPoP key pair if provided, or the previously-used one if available, or generate a new one.
+    return (providedKeyPair ?: dpopKeyPair ?: DpopKeyPair.generateKeyPair())
+        .also { dpopKeyPair = it }
   }
 
   private suspend inline fun <reified T : Any> HttpResponse.decodeResponse(

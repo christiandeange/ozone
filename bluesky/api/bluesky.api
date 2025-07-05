@@ -16787,13 +16787,13 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 
 public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/christian/ozone/BlueskyApi {
 	public static final field Companion Lsh/christian/ozone/api/AuthenticatedXrpcBlueskyApi$Companion;
-	public fun <init> (Lio/ktor/client/HttpClient;Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;)V
-	public synthetic fun <init> (Lio/ktor/client/HttpClient;Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lsh/christian/ozone/XrpcBlueskyApi;Lkotlinx/coroutines/flow/MutableStateFlow;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lio/ktor/client/HttpClient;Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;Lsh/christian/ozone/oauth/OAuthApi;)V
+	public synthetic fun <init> (Lio/ktor/client/HttpClient;Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;Lsh/christian/ozone/oauth/OAuthApi;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lsh/christian/ozone/XrpcBlueskyApi;Lkotlinx/coroutines/flow/MutableStateFlow;Lsh/christian/ozone/oauth/OAuthApi;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun acceptConvo (Lchat/bsky/convo/AcceptConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun activateAccount (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun activateBearerTokens (Ljava/lang/String;Ljava/lang/String;)V
-	public final fun activateOauth (Lsh/christian/ozone/oauth/OAuthToken;)V
+	public final fun activateOAuth (Lsh/christian/ozone/oauth/OAuthToken;)V
 	public fun addMember (Ltools/ozone/team/AddMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun addReaction (Lchat/bsky/convo/AddReactionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun addReservedHandle (Lcom/atproto/temp/AddReservedHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -16817,6 +16817,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun deleteAccount (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteMember (Ltools/ozone/team/DeleteMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteMessageForSelf (Lchat/bsky/convo/DeleteMessageForSelfRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun deleteOAuthSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteRecord (Lcom/atproto/repo/DeleteRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteSet (Ltools/ozone/set/DeleteSetRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17009,8 +17010,8 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 }
 
 public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi$Companion {
-	public final fun authenticated (Lsh/christian/ozone/XrpcBlueskyApi;Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;)Lsh/christian/ozone/api/AuthenticatedXrpcBlueskyApi;
-	public static synthetic fun authenticated$default (Lsh/christian/ozone/api/AuthenticatedXrpcBlueskyApi$Companion;Lsh/christian/ozone/XrpcBlueskyApi;Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;ILjava/lang/Object;)Lsh/christian/ozone/api/AuthenticatedXrpcBlueskyApi;
+	public final fun authenticated (Lsh/christian/ozone/XrpcBlueskyApi;Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;Lsh/christian/ozone/oauth/OAuthApi;)Lsh/christian/ozone/api/AuthenticatedXrpcBlueskyApi;
+	public static synthetic fun authenticated$default (Lsh/christian/ozone/api/AuthenticatedXrpcBlueskyApi$Companion;Lsh/christian/ozone/XrpcBlueskyApi;Lsh/christian/ozone/api/BlueskyAuthPlugin$Tokens;Lsh/christian/ozone/oauth/OAuthApi;ILjava/lang/Object;)Lsh/christian/ozone/api/AuthenticatedXrpcBlueskyApi;
 }
 
 public final class sh/christian/ozone/api/BlueskyAuthPlugin {

@@ -231,7 +231,7 @@ class LexiconApiGenerator(
       .addProperty(
         PropertySpec
           .builder("client", TypeNames.HttpClient)
-          .addModifiers(KModifier.PRIVATE)
+          .addModifiers(KModifier.INTERNAL)
           .initializer(
             buildCodeBlock {
               if (environment.defaults.generateUnknownsForSealedTypes) {
