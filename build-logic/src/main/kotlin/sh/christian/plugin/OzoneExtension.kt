@@ -4,7 +4,7 @@ import com.android.build.gradle.AppExtension
 import com.android.build.gradle.LibraryExtension
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.get
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.kotlinExtension
 import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
@@ -53,7 +53,11 @@ abstract class OzoneExtension(
     kotlin {
       jvm {
         compilations.all {
-          kotlinOptions.jvmTarget = "11"
+          compileTaskProvider.configure {
+            compilerOptions {
+              jvmTarget.set(JvmTarget.JVM_11)
+            }
+          }
         }
       }
     }

@@ -36,8 +36,6 @@ kotlin {
         api(libs.workflow.core)
         api(libs.workflow.runtime)
 
-        // Uncomment to fetch all icons.
-        // implementation(libs.androidx.icons.extended)
         implementation(libs.codepoints.deluxe)
         implementation(compose.components.resources)
         implementation(libs.kamel)
@@ -45,6 +43,9 @@ kotlin {
         implementation(libs.kotlinx.atomicfu)
         implementation(libs.kotlinx.coroutines.core)
         implementation(libs.ktor.logging)
+        // Uncomment to fetch all icons.
+        // implementation(libs.material.icons.extended)
+        implementation(libs.material.icons.core)
 
         api(project(":bluesky"))
         api(project(":app:store"))
@@ -55,25 +56,13 @@ kotlin {
     val androidMain by getting {
       dependencies {
         implementation(libs.androidx.activity.compose)
-        implementation(libs.ktor.cio)
         implementation(libs.zoomable)
-      }
-    }
-    val iosMain by getting {
-      dependencies {
-        implementation(libs.ktor.darwin)
       }
     }
     val jvmMain by getting {
       dependencies {
         implementation(libs.apache.commons)
-        implementation(libs.ktor.cio)
         implementation(libs.zoomable)
-      }
-    }
-    val jsMain by getting {
-      dependencies {
-        implementation(libs.ktor.js)
       }
     }
   }

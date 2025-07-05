@@ -7,7 +7,6 @@ import com.atproto.server.CreateSessionResponse
 import com.atproto.server.RefreshSessionResponse
 import io.ktor.client.HttpClient
 import kotlinx.coroutines.test.runTest
-import kotlinx.serialization.encodeToString
 import sh.christian.ozone.BlueskyJson
 import sh.christian.ozone.XrpcBlueskyApi
 import sh.christian.ozone.api.AuthenticatedXrpcBlueskyApi.Companion.authenticated
@@ -20,14 +19,14 @@ class AuthenticatedXrpcBlueskyApiTest {
 
   @Test
   fun testInitialTokensFromConstructor() = runTest {
-    val tokens = BlueskyAuthPlugin.Tokens("accessJwt", "refreshJwt")
+    val tokens = BlueskyAuthPlugin.Tokens.Bearer("accessJwt", "refreshJwt")
     val api = AuthenticatedXrpcBlueskyApi(HttpClient(mockEngine("")), tokens)
     assertEquals(tokens, api.authTokens.value)
   }
 
   @Test
   fun testInitialTokensFromFactory() = runTest {
-    val tokens = BlueskyAuthPlugin.Tokens("accessJwt", "refreshJwt")
+    val tokens = BlueskyAuthPlugin.Tokens.Bearer("accessJwt", "refreshJwt")
     val api = XrpcBlueskyApi(HttpClient(mockEngine(""))).authenticated(tokens)
     assertEquals(tokens, api.authTokens.value)
   }
@@ -49,7 +48,7 @@ class AuthenticatedXrpcBlueskyApiTest {
     val api = AuthenticatedXrpcBlueskyApi(HttpClient(mockEngine(response)))
     assertNull(api.authTokens.value)
     api.createAccount(request)
-    assertEquals(BlueskyAuthPlugin.Tokens("accessJwt", "refreshJwt"), api.authTokens.value)
+    assertEquals(BlueskyAuthPlugin.Tokens.Bearer("accessJwt", "refreshJwt"), api.authTokens.value)
   }
 
   @Test
@@ -68,7 +67,7 @@ class AuthenticatedXrpcBlueskyApiTest {
     val api = AuthenticatedXrpcBlueskyApi(HttpClient(mockEngine(response)))
     assertNull(api.authTokens.value)
     api.createSession(request)
-    assertEquals(BlueskyAuthPlugin.Tokens("accessJwt", "refreshJwt"), api.authTokens.value)
+    assertEquals(BlueskyAuthPlugin.Tokens.Bearer("accessJwt", "refreshJwt"), api.authTokens.value)
   }
 
   @Test
@@ -83,7 +82,7 @@ class AuthenticatedXrpcBlueskyApiTest {
     val api = AuthenticatedXrpcBlueskyApi(HttpClient(mockEngine(response)))
     assertNull(api.authTokens.value)
     api.refreshSession()
-    assertEquals(BlueskyAuthPlugin.Tokens("accessJwt", "refreshJwt"), api.authTokens.value)
+    assertEquals(BlueskyAuthPlugin.Tokens.Bearer("accessJwt", "refreshJwt"), api.authTokens.value)
   }
 
   @Test
@@ -115,9 +114,9 @@ class AuthenticatedXrpcBlueskyApiTest {
 
     assertNull(api.authTokens.value)
     api.createSession(createRequest)
-    assertEquals(BlueskyAuthPlugin.Tokens("accessJwt-1", "refreshJwt-1"), api.authTokens.value)
+    assertEquals(BlueskyAuthPlugin.Tokens.Bearer("accessJwt-1", "refreshJwt-1"), api.authTokens.value)
     api.refreshSession()
-    assertEquals(BlueskyAuthPlugin.Tokens("accessJwt-2", "refreshJwt-2"), api.authTokens.value)
+    assertEquals(BlueskyAuthPlugin.Tokens.Bearer("accessJwt-2", "refreshJwt-2"), api.authTokens.value)
   }
 
   @Test
@@ -143,7 +142,7 @@ class AuthenticatedXrpcBlueskyApiTest {
 
     assertNull(api.authTokens.value)
     api.createSession(createRequest)
-    assertEquals(BlueskyAuthPlugin.Tokens("accessJwt", "refreshJwt"), api.authTokens.value)
+    assertEquals(BlueskyAuthPlugin.Tokens.Bearer("accessJwt", "refreshJwt"), api.authTokens.value)
     api.deleteSession()
     assertNull(api.authTokens.value)
   }
@@ -165,7 +164,7 @@ class AuthenticatedXrpcBlueskyApiTest {
 
     assertNull(api.authTokens.value)
     api.createSession(createRequest)
-    assertEquals(BlueskyAuthPlugin.Tokens("accessJwt", "refreshJwt"), api.authTokens.value)
+    assertEquals(BlueskyAuthPlugin.Tokens.Bearer("accessJwt", "refreshJwt"), api.authTokens.value)
     api.clearCredentials()
     assertNull(api.authTokens.value)
   }

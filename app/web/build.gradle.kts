@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpack
-
 plugins {
   kotlin("plugin.serialization")
   id("ozone-multiplatform")

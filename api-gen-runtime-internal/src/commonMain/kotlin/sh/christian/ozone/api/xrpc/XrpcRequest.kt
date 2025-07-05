@@ -2,6 +2,7 @@ package sh.christian.ozone.api.xrpc
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
+import io.ktor.client.call.save
 import io.ktor.client.plugins.websocket.wss
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
@@ -64,14 +65,14 @@ suspend fun HttpClient.subscription(
 suspend inline fun <reified T : Any> HttpResponse.toAtpModel(): T {
   return when (val status = StatusCode.fromCode(status.value)) {
     is StatusCode.Okay -> body<T>()
-    is StatusCode.Failure -> throw AtpException(status)
+    is StatusCode.Failure -> throw AtpException(status, errorDescriptionOrNull())
   }
 }
 
 suspend inline fun <reified T : Any> HttpResponse.toAtpResult(): Result<T> {
   return when (val status = StatusCode.fromCode(status.value)) {
     is StatusCode.Okay -> Result.success(body<T>())
-    is StatusCode.Failure -> Result.failure(AtpException(status))
+    is StatusCode.Failure -> Result.failure(AtpException(status, errorDescriptionOrNull()))
   }
 }
 
@@ -86,12 +87,8 @@ suspend inline fun <reified T : Any> HttpResponse.toAtpResponse(): AtpResponse<T
       )
     }
     is StatusCode.Failure -> {
+      val maybeError = errorDescriptionOrNull()
       val maybeBody = runCatching<T> { body() }.getOrNull()
-      val maybeError = if (maybeBody == null) {
-        runCatching<AtpErrorDescription> { body() }.getOrNull()
-      } else {
-        null
-      }
 
       return AtpResponse.Failure(
         headers = headers,
@@ -100,6 +97,16 @@ suspend inline fun <reified T : Any> HttpResponse.toAtpResponse(): AtpResponse<T
         error = maybeError,
       )
     }
+  }
+}
+
+suspend inline fun HttpResponse.errorDescriptionOrNull(): AtpErrorDescription? {
+  return when (StatusCode.fromCode(status.value)) {
+    is StatusCode.Failure -> {
+      call.save()
+      runCatching { body<AtpErrorDescription>() }.getOrNull()
+    }
+    else -> null
   }
 }
 

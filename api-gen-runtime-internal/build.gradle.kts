@@ -29,20 +29,5 @@ kotlin {
         implementation(kotlin("reflect"))
       }
     }
-    val iosMain by getting {
-      dependencies {
-        implementation(libs.ktor.darwin)
-      }
-    }
-    val jvmMain by getting {
-      dependencies {
-        implementation(libs.ktor.cio)
-      }
-    }
-    val jsMain by getting {
-      dependencies {
-        implementation(libs.ktor.js)
-      }
-    }
   }
 }
