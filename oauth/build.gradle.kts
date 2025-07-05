@@ -8,33 +8,38 @@ plugins {
 ozone {
   js()
   jvm()
-  ios("BlueskyAPIRuntime")
+  ios("BlueskyAPIOAuth")
 }
 
 kotlin {
   sourceSets {
     val commonMain by getting {
       dependencies {
+        api(project(":api-gen-runtime"))
+
         api(libs.kotlinx.datetime)
-        api(libs.kotlinx.serialization.json)
         api(libs.ktor.core)
 
-        implementation(kotlin("reflect"))
+        implementation(libs.crypto.core)
+        implementation(libs.crypto.random)
+        implementation(libs.kotlinx.serialization.json)
+        implementation(libs.ktor.contentnegotiation)
+        implementation(libs.ktor.serialization.json)
       }
     }
     val iosMain by getting {
       dependencies {
-        implementation(libs.ktor.darwin)
+        implementation(libs.crypto.apple)
       }
     }
     val jvmMain by getting {
       dependencies {
-        implementation(libs.ktor.cio)
+        implementation(libs.crypto.jdk)
       }
     }
     val jsMain by getting {
       dependencies {
-        implementation(libs.ktor.js)
+        implementation(libs.crypto.webcrypto)
       }
     }
   }

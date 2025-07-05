@@ -9,7 +9,6 @@ plugins {
   id("ozone-publish")
   id("co.touchlab.kmmbridge")
   id("sh.christian.ozone.generator")
-  id("org.jetbrains.kotlinx.binary-compatibility-validator")
 }
 
 ozone {
@@ -59,6 +58,11 @@ tasks.withType<AbstractDokkaTask>().configureEach {
 
 kotlin {
   sourceSets {
+    val commonMain by getting {
+      dependencies {
+        api(project(":oauth"))
+      }
+    }
     val commonTest by getting {
       dependencies {
         implementation(libs.kotlinx.coroutines.test)
