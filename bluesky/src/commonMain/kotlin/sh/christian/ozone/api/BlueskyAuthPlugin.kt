@@ -227,7 +227,6 @@ class BlueskyAuthPlugin(
 
       val dpopHeader = plugin.oauthApi.createDpopHeaderValue(
         keyPair = tokens.keyPair,
-        clientId = tokens.clientId,
         method = method.value,
         endpoint = url.toString(),
         nonce = tokens.nonce,

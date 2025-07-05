@@ -161,7 +161,6 @@ class OAuthApi(
     }.build()
 
     return requestOrRefreshToken(
-      clientId = oauthClient.clientId,
       requestParameters = requestParameters,
       nonce = nonce,
       keyPair = keyPair,
@@ -205,7 +204,6 @@ class OAuthApi(
     }.build()
 
     return requestOrRefreshToken(
-      clientId = clientId,
       requestParameters = requestParameters,
       nonce = nonce,
       keyPair = keyPair,
@@ -213,7 +211,6 @@ class OAuthApi(
   }
 
   private suspend fun requestOrRefreshToken(
-    clientId: String,
     requestParameters: Parameters,
     nonce: String?,
     keyPair: DpopKeyPair?
@@ -225,7 +222,6 @@ class OAuthApi(
 
     val dpopHeader = createDpopHeaderValue(
       keyPair = dpopKeyPair,
-      clientId = clientId,
       method = "POST",
       endpoint = tokenRequestUrl.toString(),
       nonce = nonce,
@@ -251,7 +247,7 @@ class OAuthApi(
       },
       onNewNonce = { newNonce ->
         // If the response indicates we need to use a new DPoP nonce, we can retry with the new nonce.
-        requestOrRefreshToken(clientId, requestParameters, newNonce, dpopKeyPair)
+        requestOrRefreshToken(requestParameters, newNonce, dpopKeyPair)
       },
       onFailure = { errorDescription ->
         throw AtpException(StatusCode.fromCode(status.value), errorDescription)
@@ -293,7 +289,6 @@ class OAuthApi(
 
     val dpopHeader = createDpopHeaderValue(
       keyPair = dpopKeyPair,
-      clientId = clientId,
       method = "POST",
       endpoint = revokeUrl.toString(),
       nonce = nonce,
@@ -332,7 +327,6 @@ class OAuthApi(
    */
   suspend fun createDpopHeaderValue(
     keyPair: DpopKeyPair,
-    clientId: String,
     method: String,
     endpoint: String,
     nonce: String?,
@@ -356,7 +350,6 @@ class OAuthApi(
       })
     }
     val claimsMap = buildJsonObject {
-      put("iss", JsonPrimitive(clientId))
       put("iat", JsonPrimitive(clock.now().epochSeconds))
       put("jti", JsonPrimitive(random.nextBytes(16).encodeBase64Url()))
       put("htm", JsonPrimitive(method))
