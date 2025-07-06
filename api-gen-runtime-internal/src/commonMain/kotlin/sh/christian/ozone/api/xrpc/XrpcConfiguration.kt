@@ -7,14 +7,10 @@ import io.ktor.client.plugins.api.createClientPlugin
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.websocket.WebSockets
 import io.ktor.http.URLProtocol
-import io.ktor.http.Url
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.modules.SerializersModule
 import sh.christian.ozone.api.runtime.buildXrpcJsonConfiguration
-
-internal val BSKY_SOCIAL = Url("https://bsky.social")
-internal val BSKY_NETWORK = Url("https://bsky.network")
 
 internal object WebsocketRedirectPlugin : ClientPlugin<Unit>
 by createClientPlugin("WebsocketRedirect", {
@@ -26,8 +22,6 @@ by createClientPlugin("WebsocketRedirect", {
     }
   }
 })
-
-expect val defaultHttpClient: HttpClient
 
 fun HttpClient.withXrpcConfiguration(
   module: SerializersModule = Json.Default.serializersModule,

@@ -13,6 +13,9 @@ import sh.christian.ozone.BlueskyApi
 import sh.christian.ozone.XrpcBlueskyApi
 import sh.christian.ozone.api.response.AtpResponse
 import sh.christian.ozone.api.xrpc.defaultHttpClient
+import sh.christian.ozone.oauth.OAuthApi
+import sh.christian.ozone.oauth.OAuthCodeChallengeMethod
+import sh.christian.ozone.oauth.OAuthToken
 
 /**
  * Wrapper around [XrpcBlueskyApi] to transparently manage session tokens on the user's behalf.
@@ -24,13 +27,17 @@ import sh.christian.ozone.api.xrpc.defaultHttpClient
  * - [createSession]
  * - [refreshSession]
  *
- * Use of [deleteSession] will clear the session. The session can also be manually cleared by calling [clearCredentials]
- * which will forget, but not invalidate, the current session tokens.
+ * A session can also be manually activated by invoking the [activateBearerTokens] or [activateOAuth] methods.
+ *
+ * Use of [deleteSession] (for Bearer auth) or [deleteOAuthSession] (for OAuth) will clear the session. The session
+ * can also be manually cleared by calling [clearCredentials] which will remove, but not invalidate, the current session
+ * tokens.
  */
 class AuthenticatedXrpcBlueskyApi
 private constructor(
   private val delegate: XrpcBlueskyApi,
   private val _authTokens: MutableStateFlow<BlueskyAuthPlugin.Tokens?>,
+  private val _oauthApi: OAuthApi,
 ) : BlueskyApi by delegate {
   /**
    * The current session tokens. This will be `null` if the user is not authenticated.
@@ -40,9 +47,11 @@ private constructor(
   private constructor(
     httpClient: HttpClient,
     authTokens: MutableStateFlow<BlueskyAuthPlugin.Tokens?>,
+    oauthApi: OAuthApi,
   ) : this(
-    delegate = XrpcBlueskyApi(httpClient.withBlueskyAuth(authTokens)),
+    delegate = XrpcBlueskyApi(httpClient.withBlueskyAuth(authTokens, oauthApi)),
     _authTokens = authTokens,
+    _oauthApi = oauthApi,
   )
 
   /**
@@ -51,27 +60,29 @@ private constructor(
    * @param httpClient Optional [HttpClient] to use for network requests. This instance will be configured to work with
    * basic XRPC API instances.
    * @param initialTokens Optional initial session tokens to use. If not provided, the API will start unauthenticated.
+   * @param oauthApi Optional [OAuthApi] instance to use for OAuth token management.
    */
   constructor(
     httpClient: HttpClient = defaultHttpClient,
     initialTokens: BlueskyAuthPlugin.Tokens? = null,
-  ) : this(httpClient, MutableStateFlow(initialTokens))
+    oauthApi: OAuthApi = OAuthApi(httpClient, { OAuthCodeChallengeMethod.S256 }),
+  ) : this(httpClient, MutableStateFlow(initialTokens), oauthApi)
 
   override suspend fun createAccount(request: CreateAccountRequest): AtpResponse<CreateAccountResponse> {
     return delegate.createAccount(request).also {
-      it.saveTokens({ accessJwt }, { refreshJwt })
+      it.saveBearerTokens({ accessJwt }, { refreshJwt })
     }
   }
 
   override suspend fun createSession(request: CreateSessionRequest): AtpResponse<CreateSessionResponse> {
     return delegate.createSession(request).also {
-      it.saveTokens({ accessJwt }, { refreshJwt })
+      it.saveBearerTokens({ accessJwt }, { refreshJwt })
     }
   }
 
   override suspend fun refreshSession(): AtpResponse<RefreshSessionResponse> {
     return delegate.refreshSession().also {
-      it.saveTokens({ accessJwt }, { refreshJwt })
+      it.saveBearerTokens({ accessJwt }, { refreshJwt })
     }
   }
 
@@ -84,19 +95,66 @@ private constructor(
   }
 
   /**
-   * Clears the current session tokens, effectively logging the user out. Note that the session and refresh token are
+   * Activates the Bearer session using the provided tokens. This will save the access and refresh tokens. Rotation of
+   * the tokens is handled automatically.
+   */
+  fun activateBearerTokens(
+    accessToken: String,
+    refreshToken: String,
+  ) {
+    _authTokens.value = BlueskyAuthPlugin.Tokens.Bearer(
+      auth = accessToken,
+      refresh = refreshToken,
+    )
+  }
+
+  /**
+   * Activates the OAuth session using the provided [OAuthToken]. This will save the OAuth access and refresh tokens,
+   * as well as the PDS URL, key pair, client ID, and nonce. Rotation of the DPoP nonce is handled automatically.
+   */
+  fun activateOAuth(oauthToken: OAuthToken) {
+    _authTokens.value = BlueskyAuthPlugin.Tokens.Dpop(
+      auth = oauthToken.accessToken,
+      refresh = oauthToken.refreshToken,
+      pdsUrl = oauthToken.pds,
+      keyPair = oauthToken.keyPair,
+      clientId = oauthToken.clientId,
+      nonce = oauthToken.nonce,
+    )
+  }
+
+  /**
+   * Revoke the current [oauthToken][OAuthToken] using the OAuth server's revocation endpoint.
+   */
+  suspend fun deleteOAuthSession() {
+    val dpopToken = checkNotNull(_authTokens.value as? BlueskyAuthPlugin.Tokens.Dpop) {
+      "Cannot delete OAuth session without DPoP tokens"
+    }
+
+    _oauthApi.revokeToken(
+      accessToken = dpopToken.auth,
+      clientId = dpopToken.clientId,
+      nonce = dpopToken.nonce,
+      keyPair = dpopToken.keyPair,
+    )
+
+    clearCredentials()
+  }
+
+  /**
+   * Clears the current session tokens, effectively logging the user out. Note that any previously-cached tokens are
    * **not invalidated** on the server side, unlike calling [deleteSession].
    */
   fun clearCredentials() {
     _authTokens.value = null
   }
 
-  private inline fun <reified T : Any> AtpResponse<T>.saveTokens(
+  private inline fun <reified T : Any> AtpResponse<T>.saveBearerTokens(
     accessTokenProvider: T.() -> String,
     refreshTokenProvider: T.() -> String,
   ) {
     if (this is AtpResponse.Success) {
-      _authTokens.value = BlueskyAuthPlugin.Tokens(
+      _authTokens.value = BlueskyAuthPlugin.Tokens.Bearer(
         auth = accessTokenProvider(response),
         refresh = refreshTokenProvider(response),
       )
@@ -107,16 +165,21 @@ private constructor(
     /**
      * Wraps an [XrpcBlueskyApi] instance as an [AuthenticatedXrpcBlueskyApi] with the optional initial tokens.
      */
-    fun XrpcBlueskyApi.authenticated(initialTokens: BlueskyAuthPlugin.Tokens? = null): AuthenticatedXrpcBlueskyApi {
-      return AuthenticatedXrpcBlueskyApi(this, MutableStateFlow(initialTokens))
+    fun XrpcBlueskyApi.authenticated(
+      initialTokens: BlueskyAuthPlugin.Tokens? = null,
+      oauthApi: OAuthApi = OAuthApi(client, { OAuthCodeChallengeMethod.S256 }),
+    ): AuthenticatedXrpcBlueskyApi {
+      return AuthenticatedXrpcBlueskyApi(this, MutableStateFlow(initialTokens), oauthApi)
     }
 
     private fun HttpClient.withBlueskyAuth(
       authTokens: MutableStateFlow<BlueskyAuthPlugin.Tokens?>,
+      oauthApi: OAuthApi,
     ): HttpClient {
       return config {
         install(BlueskyAuthPlugin) {
           this.authTokens = authTokens
+          this.oauthApi = oauthApi
         }
       }
     }

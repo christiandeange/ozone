@@ -14,7 +14,7 @@ setProperty("POM_DESCRIPTION", "Gradle Plugin to generate AT Protocol classes.")
 
 kotlin {
   jvmToolchain {
-    languageVersion.set(JavaLanguageVersion.of("11"))
+    languageVersion.set(JavaLanguageVersion.of("17"))
   }
 }
 

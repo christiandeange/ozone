@@ -21,6 +21,7 @@ Package.swift
 ### Project ###
 /docs
 /.kotlin/
+local.properties
 
 ### CI ###
 tmp-atproto/

@@ -5,4 +5,8 @@ package sh.christian.ozone.api.response
  */
 class AtpException(
   val statusCode: StatusCode,
-) : Exception("XRPC request failed: ${statusCode::class.simpleName}")
+  val error: AtpErrorDescription? = null,
+) : Exception(
+  "XRPC request failed: ${statusCode::class.simpleName}"
+    .plus(error?.message?.let { " ($it)" }.orEmpty())
+)
