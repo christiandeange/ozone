@@ -130,7 +130,7 @@ class OAuthApi(
     }
 
     OAuthAuthorizationRequest(
-      authorizeRequestUrl = authorizeRequestUrl,
+      authorizeRequestUrl = authorizeRequestUrl.toString(),
       expiresIn = response.expiresIn.seconds,
       codeVerifier = codeVerifier,
       state = state,

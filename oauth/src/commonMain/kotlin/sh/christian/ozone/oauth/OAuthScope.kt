@@ -1,8 +1,12 @@
 package sh.christian.ozone.oauth
 
+import kotlinx.serialization.Serializable
+import sh.christian.ozone.oauth.OAuthScope.Companion.Generic
+
 /**
  * OAuth scopes allow more granular control over the resources and actions a client is granted access to.
  */
+@Serializable
 data class OAuthScope(val value: String) {
   companion object {
     /**

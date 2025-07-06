@@ -1,6 +1,6 @@
 package sh.christian.ozone.oauth
 
-import io.ktor.http.Url
+import kotlinx.serialization.Serializable
 import kotlin.time.Duration
 
 /**
@@ -12,8 +12,9 @@ import kotlin.time.Duration
  * @param state A unique string to maintain state between the request and callback.
  * @param nonce A unique string to prevent replay attacks.
  */
+@Serializable
 data class OAuthAuthorizationRequest(
-  val authorizeRequestUrl: Url,
+  val authorizeRequestUrl: String,
   val expiresIn: Duration,
   val codeVerifier: String,
   val state: String,

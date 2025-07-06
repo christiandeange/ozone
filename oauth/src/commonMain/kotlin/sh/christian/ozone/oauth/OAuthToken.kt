@@ -4,6 +4,7 @@ import io.ktor.http.URLProtocol
 import io.ktor.http.Url
 import io.ktor.http.buildUrl
 import io.ktor.util.decodeBase64String
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
@@ -22,6 +23,7 @@ import kotlin.time.Duration
  * @param subject The DID of the user account associated with the token.
  * @param nonce A unique string to prevent replay attacks, typically used in conjunction with DPoP.
  */
+@Serializable
 data class OAuthToken(
   val accessToken: String,
   val refreshToken: String,
