@@ -7756,14 +7756,17 @@ public final class app/bsky/notification/RegisterPushPlatformSerializer : kotlin
 
 public final class app/bsky/notification/RegisterPushRequest {
 	public static final field Companion Lapp/bsky/notification/RegisterPushRequest$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/notification/RegisterPushPlatform;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/notification/RegisterPushPlatform;Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/notification/RegisterPushPlatform;Ljava/lang/String;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Lapp/bsky/notification/RegisterPushPlatform;
 	public final fun component4 ()Ljava/lang/String;
-	public final fun copy-gUbersM (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/notification/RegisterPushPlatform;Ljava/lang/String;)Lapp/bsky/notification/RegisterPushRequest;
-	public static synthetic fun copy-gUbersM$default (Lapp/bsky/notification/RegisterPushRequest;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/notification/RegisterPushPlatform;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/RegisterPushRequest;
+	public final fun component5 ()Ljava/lang/Boolean;
+	public final fun copy-WmiG2qg (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/notification/RegisterPushPlatform;Ljava/lang/String;Ljava/lang/Boolean;)Lapp/bsky/notification/RegisterPushRequest;
+	public static synthetic fun copy-WmiG2qg$default (Lapp/bsky/notification/RegisterPushRequest;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/notification/RegisterPushPlatform;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/notification/RegisterPushRequest;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAgeRestricted ()Ljava/lang/Boolean;
 	public final fun getAppId ()Ljava/lang/String;
 	public final fun getPlatform ()Lapp/bsky/notification/RegisterPushPlatform;
 	public final fun getServiceDid-715Ygxc ()Ljava/lang/String;
