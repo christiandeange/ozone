@@ -27,13 +27,13 @@ jobs:
 
       - name: Publish Release
         env:
-          SONATYPE_NEXUS_USERNAME: ${{ secrets.SONATYPE_NEXUS_USERNAME }}
-          SONATYPE_NEXUS_PASSWORD: ${{ secrets.SONATYPE_NEXUS_PASSWORD }}
+          SONATYPE_CENTRAL_USERNAME: ${{ secrets.SONATYPE_CENTRAL_USERNAME }}
+          SONATYPE_CENTRAL_PASSWORD: ${{ secrets.SONATYPE_CENTRAL_PASSWORD }}
           ARTIFACT_SIGNING_PRIVATE_KEY: ${{ secrets.ARTIFACT_SIGNING_PRIVATE_KEY }}
           ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD }}
         run: |
-          ORG_GRADLE_PROJECT_mavenCentralUsername="$SONATYPE_NEXUS_USERNAME" \
-          ORG_GRADLE_PROJECT_mavenCentralPassword="$SONATYPE_NEXUS_PASSWORD" \
+          ORG_GRADLE_PROJECT_mavenCentralUsername="$SONATYPE_CENTRAL_USERNAME" \
+          ORG_GRADLE_PROJECT_mavenCentralPassword="$SONATYPE_CENTRAL_PASSWORD" \
           ORG_GRADLE_PROJECT_signingInMemoryKey="$ARTIFACT_SIGNING_PRIVATE_KEY" \
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword="$ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD" \
           ./gradlew clean publish :generator:publish --no-daemon --stacktrace

@@ -1,7 +1,6 @@
 package sh.christian.plugin
 
 import com.vanniktech.maven.publish.MavenPublishBaseExtension
-import com.vanniktech.maven.publish.SonatypeHost
 import kotlinx.validation.ApiValidationExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -60,7 +59,7 @@ class PublishingPlugin : Plugin<Project> {
         }
       }
 
-      publishToMavenCentral(SonatypeHost.S01, automaticRelease = true)
+      publishToMavenCentral(automaticRelease = true)
       signAllPublications()
     }
   }
