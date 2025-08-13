@@ -1,19 +1,19 @@
 public final class app/bsky/jetstream/SubscribeAccount {
 	public static final field Companion Lapp/bsky/jetstream/SubscribeAccount$Companion;
-	public synthetic fun <init> (JLjava/lang/String;Lkotlinx/datetime/Instant;ZLapp/bsky/jetstream/SubscribeStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JLjava/lang/String;Lkotlinx/datetime/Instant;ZLapp/bsky/jetstream/SubscribeStatus;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLjava/lang/String;Lkotlinx/datetime/Instant;ZLapp/bsky/jetstream/SubscribeAccountStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLjava/lang/String;Lkotlinx/datetime/Instant;ZLapp/bsky/jetstream/SubscribeAccountStatus;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
 	public final fun component2-715Ygxc ()Ljava/lang/String;
 	public final fun component3 ()Lkotlinx/datetime/Instant;
 	public final fun component4 ()Z
-	public final fun component5 ()Lapp/bsky/jetstream/SubscribeStatus;
-	public final fun copy-HTZSsLY (JLjava/lang/String;Lkotlinx/datetime/Instant;ZLapp/bsky/jetstream/SubscribeStatus;)Lapp/bsky/jetstream/SubscribeAccount;
-	public static synthetic fun copy-HTZSsLY$default (Lapp/bsky/jetstream/SubscribeAccount;JLjava/lang/String;Lkotlinx/datetime/Instant;ZLapp/bsky/jetstream/SubscribeStatus;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeAccount;
+	public final fun component5 ()Lapp/bsky/jetstream/SubscribeAccountStatus;
+	public final fun copy-HTZSsLY (JLjava/lang/String;Lkotlinx/datetime/Instant;ZLapp/bsky/jetstream/SubscribeAccountStatus;)Lapp/bsky/jetstream/SubscribeAccount;
+	public static synthetic fun copy-HTZSsLY$default (Lapp/bsky/jetstream/SubscribeAccount;JLjava/lang/String;Lkotlinx/datetime/Instant;ZLapp/bsky/jetstream/SubscribeAccountStatus;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeAccount;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getActive ()Z
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getSeq ()J
-	public final fun getStatus ()Lapp/bsky/jetstream/SubscribeStatus;
+	public final fun getStatus ()Lapp/bsky/jetstream/SubscribeAccountStatus;
 	public final fun getTime ()Lkotlinx/datetime/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -23,22 +23,81 @@ public final class app/bsky/jetstream/SubscribeAccount$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public abstract class app/bsky/jetstream/SubscribeAccountStatus : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/jetstream/SubscribeAccountStatus$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/jetstream/SubscribeAccountStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeAccountStatus;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/jetstream/SubscribeAccountStatus$Deactivated : app/bsky/jetstream/SubscribeAccountStatus {
+	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeAccountStatus$Deactivated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/jetstream/SubscribeAccountStatus$Deleted : app/bsky/jetstream/SubscribeAccountStatus {
+	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeAccountStatus$Deleted;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/jetstream/SubscribeAccountStatus$Suspended : app/bsky/jetstream/SubscribeAccountStatus {
+	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeAccountStatus$Suspended;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/jetstream/SubscribeAccountStatus$Takendown : app/bsky/jetstream/SubscribeAccountStatus {
+	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeAccountStatus$Takendown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/jetstream/SubscribeAccountStatus$Unknown : app/bsky/jetstream/SubscribeAccountStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeAccountStatus$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/jetstream/SubscribeAccountStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeAccountStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/jetstream/SubscribeAccountStatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/jetstream/SubscribeAccountStatus;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/jetstream/SubscribeAccountStatus;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
 public final class app/bsky/jetstream/SubscribeCommit {
 	public static final field Companion Lapp/bsky/jetstream/SubscribeCommit$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/jetstream/SubscribeOperation;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/jetstream/SubscribeOperation;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/jetstream/SubscribeCommitOperation;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/jetstream/SubscribeCommitOperation;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Lapp/bsky/jetstream/SubscribeOperation;
+	public final fun component2 ()Lapp/bsky/jetstream/SubscribeCommitOperation;
 	public final fun component3-Ley70Jo ()Ljava/lang/String;
 	public final fun component4-I04nEKc ()Ljava/lang/String;
 	public final fun component5 ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun component6-OC6CE0s ()Ljava/lang/String;
-	public final fun copy-gGKcm70 (Ljava/lang/String;Lapp/bsky/jetstream/SubscribeOperation;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeCommit;
-	public static synthetic fun copy-gGKcm70$default (Lapp/bsky/jetstream/SubscribeCommit;Ljava/lang/String;Lapp/bsky/jetstream/SubscribeOperation;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeCommit;
+	public final fun copy-gGKcm70 (Ljava/lang/String;Lapp/bsky/jetstream/SubscribeCommitOperation;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeCommit;
+	public static synthetic fun copy-gGKcm70$default (Lapp/bsky/jetstream/SubscribeCommit;Ljava/lang/String;Lapp/bsky/jetstream/SubscribeCommitOperation;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeCommit;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCid-OC6CE0s ()Ljava/lang/String;
 	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
-	public final fun getOperation ()Lapp/bsky/jetstream/SubscribeOperation;
+	public final fun getOperation ()Lapp/bsky/jetstream/SubscribeCommitOperation;
 	public final fun getRecord ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun getRev ()Ljava/lang/String;
 	public final fun getRkey-I04nEKc ()Ljava/lang/String;
@@ -50,24 +109,76 @@ public final class app/bsky/jetstream/SubscribeCommit$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public abstract class app/bsky/jetstream/SubscribeCommitOperation : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/jetstream/SubscribeCommitOperation$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/jetstream/SubscribeCommitOperation$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeCommitOperation;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/jetstream/SubscribeCommitOperation$Create : app/bsky/jetstream/SubscribeCommitOperation {
+	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeCommitOperation$Create;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/jetstream/SubscribeCommitOperation$Delete : app/bsky/jetstream/SubscribeCommitOperation {
+	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeCommitOperation$Delete;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/jetstream/SubscribeCommitOperation$Unknown : app/bsky/jetstream/SubscribeCommitOperation {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeCommitOperation$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/jetstream/SubscribeCommitOperation$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeCommitOperation$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/jetstream/SubscribeCommitOperation$Update : app/bsky/jetstream/SubscribeCommitOperation {
+	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeCommitOperation$Update;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/jetstream/SubscribeCommitOperationSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/jetstream/SubscribeCommitOperation;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/jetstream/SubscribeCommitOperation;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
 public final class app/bsky/jetstream/SubscribeEvent {
 	public static final field Companion Lapp/bsky/jetstream/SubscribeEvent$Companion;
-	public synthetic fun <init> (Ljava/lang/String;JLapp/bsky/jetstream/SubscribeKind;Lapp/bsky/jetstream/SubscribeCommit;Lapp/bsky/jetstream/SubscribeIdentity;Lapp/bsky/jetstream/SubscribeAccount;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;JLapp/bsky/jetstream/SubscribeKind;Lapp/bsky/jetstream/SubscribeCommit;Lapp/bsky/jetstream/SubscribeIdentity;Lapp/bsky/jetstream/SubscribeAccount;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;JLapp/bsky/jetstream/SubscribeEventKind;Lapp/bsky/jetstream/SubscribeCommit;Lapp/bsky/jetstream/SubscribeIdentity;Lapp/bsky/jetstream/SubscribeAccount;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;JLapp/bsky/jetstream/SubscribeEventKind;Lapp/bsky/jetstream/SubscribeCommit;Lapp/bsky/jetstream/SubscribeIdentity;Lapp/bsky/jetstream/SubscribeAccount;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component2 ()J
-	public final fun component3 ()Lapp/bsky/jetstream/SubscribeKind;
+	public final fun component3 ()Lapp/bsky/jetstream/SubscribeEventKind;
 	public final fun component4 ()Lapp/bsky/jetstream/SubscribeCommit;
 	public final fun component5 ()Lapp/bsky/jetstream/SubscribeIdentity;
 	public final fun component6 ()Lapp/bsky/jetstream/SubscribeAccount;
-	public final fun copy-cWm1TCM (Ljava/lang/String;JLapp/bsky/jetstream/SubscribeKind;Lapp/bsky/jetstream/SubscribeCommit;Lapp/bsky/jetstream/SubscribeIdentity;Lapp/bsky/jetstream/SubscribeAccount;)Lapp/bsky/jetstream/SubscribeEvent;
-	public static synthetic fun copy-cWm1TCM$default (Lapp/bsky/jetstream/SubscribeEvent;Ljava/lang/String;JLapp/bsky/jetstream/SubscribeKind;Lapp/bsky/jetstream/SubscribeCommit;Lapp/bsky/jetstream/SubscribeIdentity;Lapp/bsky/jetstream/SubscribeAccount;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeEvent;
+	public final fun copy-cWm1TCM (Ljava/lang/String;JLapp/bsky/jetstream/SubscribeEventKind;Lapp/bsky/jetstream/SubscribeCommit;Lapp/bsky/jetstream/SubscribeIdentity;Lapp/bsky/jetstream/SubscribeAccount;)Lapp/bsky/jetstream/SubscribeEvent;
+	public static synthetic fun copy-cWm1TCM$default (Lapp/bsky/jetstream/SubscribeEvent;Ljava/lang/String;JLapp/bsky/jetstream/SubscribeEventKind;Lapp/bsky/jetstream/SubscribeCommit;Lapp/bsky/jetstream/SubscribeIdentity;Lapp/bsky/jetstream/SubscribeAccount;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeEvent;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAccount ()Lapp/bsky/jetstream/SubscribeAccount;
 	public final fun getCommit ()Lapp/bsky/jetstream/SubscribeCommit;
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getIdentity ()Lapp/bsky/jetstream/SubscribeIdentity;
-	public final fun getKind ()Lapp/bsky/jetstream/SubscribeKind;
+	public final fun getKind ()Lapp/bsky/jetstream/SubscribeEventKind;
 	public final fun getTime_us ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -75,6 +186,58 @@ public final class app/bsky/jetstream/SubscribeEvent {
 
 public final class app/bsky/jetstream/SubscribeEvent$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class app/bsky/jetstream/SubscribeEventKind : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/jetstream/SubscribeEventKind$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/jetstream/SubscribeEventKind$Account : app/bsky/jetstream/SubscribeEventKind {
+	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeEventKind$Account;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/jetstream/SubscribeEventKind$Commit : app/bsky/jetstream/SubscribeEventKind {
+	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeEventKind$Commit;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/jetstream/SubscribeEventKind$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeEventKind;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/jetstream/SubscribeEventKind$Identity : app/bsky/jetstream/SubscribeEventKind {
+	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeEventKind$Identity;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/jetstream/SubscribeEventKind$Unknown : app/bsky/jetstream/SubscribeEventKind {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeEventKind$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/jetstream/SubscribeEventKind$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeEventKind$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/jetstream/SubscribeEventKindSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/jetstream/SubscribeEventKind;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/jetstream/SubscribeEventKind;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/jetstream/SubscribeIdentity {
@@ -98,110 +261,6 @@ public final class app/bsky/jetstream/SubscribeIdentity {
 
 public final class app/bsky/jetstream/SubscribeIdentity$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public abstract class app/bsky/jetstream/SubscribeKind : sh/christian/ozone/api/model/AtpEnum {
-	public static final field Companion Lapp/bsky/jetstream/SubscribeKind$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun getValue ()Ljava/lang/String;
-}
-
-public final class app/bsky/jetstream/SubscribeKind$Account : app/bsky/jetstream/SubscribeKind {
-	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeKind$Account;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/jetstream/SubscribeKind$Commit : app/bsky/jetstream/SubscribeKind {
-	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeKind$Commit;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/jetstream/SubscribeKind$Companion {
-	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeKind;
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class app/bsky/jetstream/SubscribeKind$Identity : app/bsky/jetstream/SubscribeKind {
-	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeKind$Identity;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/jetstream/SubscribeKind$Unknown : app/bsky/jetstream/SubscribeKind {
-	public fun <init> (Ljava/lang/String;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeKind$Unknown;
-	public static synthetic fun copy$default (Lapp/bsky/jetstream/SubscribeKind$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeKind$Unknown;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getRawValue ()Ljava/lang/String;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/jetstream/SubscribeKindSerializer : kotlinx/serialization/KSerializer {
-	public fun <init> ()V
-	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/jetstream/SubscribeKind;
-	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
-	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/jetstream/SubscribeKind;)V
-	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-}
-
-public abstract class app/bsky/jetstream/SubscribeOperation : sh/christian/ozone/api/model/AtpEnum {
-	public static final field Companion Lapp/bsky/jetstream/SubscribeOperation$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun getValue ()Ljava/lang/String;
-}
-
-public final class app/bsky/jetstream/SubscribeOperation$Companion {
-	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeOperation;
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class app/bsky/jetstream/SubscribeOperation$Create : app/bsky/jetstream/SubscribeOperation {
-	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeOperation$Create;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/jetstream/SubscribeOperation$Delete : app/bsky/jetstream/SubscribeOperation {
-	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeOperation$Delete;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/jetstream/SubscribeOperation$Unknown : app/bsky/jetstream/SubscribeOperation {
-	public fun <init> (Ljava/lang/String;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeOperation$Unknown;
-	public static synthetic fun copy$default (Lapp/bsky/jetstream/SubscribeOperation$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeOperation$Unknown;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getRawValue ()Ljava/lang/String;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/jetstream/SubscribeOperation$Update : app/bsky/jetstream/SubscribeOperation {
-	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeOperation$Update;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/jetstream/SubscribeOperationSerializer : kotlinx/serialization/KSerializer {
-	public fun <init> ()V
-	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/jetstream/SubscribeOperation;
-	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
-	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/jetstream/SubscribeOperation;)V
-	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/jetstream/SubscribeOptionsUpdate {
@@ -271,65 +330,6 @@ public final class app/bsky/jetstream/SubscribeSourcedMessage {
 
 public final class app/bsky/jetstream/SubscribeSourcedMessage$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public abstract class app/bsky/jetstream/SubscribeStatus : sh/christian/ozone/api/model/AtpEnum {
-	public static final field Companion Lapp/bsky/jetstream/SubscribeStatus$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun getValue ()Ljava/lang/String;
-}
-
-public final class app/bsky/jetstream/SubscribeStatus$Companion {
-	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeStatus;
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class app/bsky/jetstream/SubscribeStatus$Deactivated : app/bsky/jetstream/SubscribeStatus {
-	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeStatus$Deactivated;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/jetstream/SubscribeStatus$Deleted : app/bsky/jetstream/SubscribeStatus {
-	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeStatus$Deleted;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/jetstream/SubscribeStatus$Suspended : app/bsky/jetstream/SubscribeStatus {
-	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeStatus$Suspended;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/jetstream/SubscribeStatus$Takendown : app/bsky/jetstream/SubscribeStatus {
-	public static final field INSTANCE Lapp/bsky/jetstream/SubscribeStatus$Takendown;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/jetstream/SubscribeStatus$Unknown : app/bsky/jetstream/SubscribeStatus {
-	public fun <init> (Ljava/lang/String;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeStatus$Unknown;
-	public static synthetic fun copy$default (Lapp/bsky/jetstream/SubscribeStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeStatus$Unknown;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getRawValue ()Ljava/lang/String;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/jetstream/SubscribeStatusSerializer : kotlinx/serialization/KSerializer {
-	public fun <init> ()V
-	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/jetstream/SubscribeStatus;
-	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
-	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/jetstream/SubscribeStatus;)V
-	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class sh/christian/ozone/jetstream/JetstreamApi : sh/christian/ozone/jetstream/JetstreamInterface {

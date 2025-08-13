@@ -2,8 +2,8 @@ package sh.christian.ozone.notifications
 
 import app.bsky.feed.GetPostsQueryParams
 import app.bsky.notification.ListNotificationsNotification
+import app.bsky.notification.ListNotificationsNotificationReason
 import app.bsky.notification.ListNotificationsQueryParams
-import app.bsky.notification.ListNotificationsReason
 import app.bsky.notification.ListNotificationsResponse
 import app.bsky.notification.UpdateSeenRequest
 import kotlinx.atomicfu.atomic
@@ -160,19 +160,19 @@ class NotificationsRepository(
     private val EMPTY_VALUE = Notifications(persistentListOf(), null)
 
     fun ListNotificationsNotification.getPostUri(): AtUri? = when (reason) {
-      is ListNotificationsReason.Unknown -> null
-      is ListNotificationsReason.Like -> reasonSubject
-      is ListNotificationsReason.Repost -> reasonSubject
-      is ListNotificationsReason.Mention -> uri
-      is ListNotificationsReason.Reply -> uri
-      is ListNotificationsReason.Quote -> uri
-      is ListNotificationsReason.Follow -> null
-      is ListNotificationsReason.StarterpackJoined -> null
-      is ListNotificationsReason.Verified -> null
-      is ListNotificationsReason.Unverified -> null
-      is ListNotificationsReason.LikeViaRepost -> reasonSubject
-      is ListNotificationsReason.RepostViaRepost -> reasonSubject
-      is ListNotificationsReason.SubscribedPost -> null
+      is ListNotificationsNotificationReason.Unknown -> null
+      is ListNotificationsNotificationReason.Like -> reasonSubject
+      is ListNotificationsNotificationReason.Repost -> reasonSubject
+      is ListNotificationsNotificationReason.Mention -> uri
+      is ListNotificationsNotificationReason.Reply -> uri
+      is ListNotificationsNotificationReason.Quote -> uri
+      is ListNotificationsNotificationReason.Follow -> null
+      is ListNotificationsNotificationReason.StarterpackJoined -> null
+      is ListNotificationsNotificationReason.Verified -> null
+      is ListNotificationsNotificationReason.Unverified -> null
+      is ListNotificationsNotificationReason.LikeViaRepost -> reasonSubject
+      is ListNotificationsNotificationReason.RepostViaRepost -> reasonSubject
+      is ListNotificationsNotificationReason.SubscribedPost -> null
     }
   }
 }

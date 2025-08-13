@@ -4,6 +4,8 @@ import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.TypeAliasSpec
 import com.squareup.kotlinpoet.TypeSpec
 import sh.christian.ozone.api.lexicon.LexiconDocument
+import sh.christian.ozone.api.lexicon.LexiconUserType
+import kotlin.text.ifEmpty
 
 class GeneratorContext
 private constructor(

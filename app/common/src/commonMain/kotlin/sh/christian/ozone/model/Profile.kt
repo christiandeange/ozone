@@ -3,9 +3,9 @@ package sh.christian.ozone.model
 import app.bsky.actor.ProfileView
 import app.bsky.actor.ProfileViewBasic
 import app.bsky.actor.ProfileViewDetailed
-import app.bsky.actor.TrustedVerifierStatus
 import app.bsky.actor.VerificationState
-import app.bsky.actor.VerifiedStatus
+import app.bsky.actor.VerificationStateTrustedVerifierStatus
+import app.bsky.actor.VerificationStateVerifiedStatus
 import kotlinx.serialization.Serializable
 import sh.christian.ozone.api.Did
 import sh.christian.ozone.api.Handle
@@ -114,15 +114,15 @@ fun ProfileView.toProfile(): Profile {
 
 fun VerificationState.toVerification(): Verification {
   return when (trustedVerifierStatus) {
-    is TrustedVerifierStatus.Valid -> Verification.TRUSTED_VERIFIER
-    is TrustedVerifierStatus.Unknown,
-    is TrustedVerifierStatus.Invalid,
-    is TrustedVerifierStatus.None -> {
+    is VerificationStateTrustedVerifierStatus.Valid -> Verification.TRUSTED_VERIFIER
+    is VerificationStateTrustedVerifierStatus.Unknown,
+    is VerificationStateTrustedVerifierStatus.Invalid,
+    is VerificationStateTrustedVerifierStatus.None -> {
       when (verifiedStatus) {
-        is VerifiedStatus.Valid -> Verification.VERIFIED
-        is VerifiedStatus.Invalid,
-        is VerifiedStatus.None,
-        is VerifiedStatus.Unknown -> Verification.NONE
+        is VerificationStateVerifiedStatus.Valid -> Verification.VERIFIED
+        is VerificationStateVerifiedStatus.Invalid,
+        is VerificationStateVerifiedStatus.None,
+        is VerificationStateVerifiedStatus.Unknown -> Verification.NONE
       }
     }
   }
