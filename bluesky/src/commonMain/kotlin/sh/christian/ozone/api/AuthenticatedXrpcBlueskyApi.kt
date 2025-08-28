@@ -17,6 +17,11 @@ import sh.christian.ozone.oauth.OAuthApi
 import sh.christian.ozone.oauth.OAuthCodeChallengeMethod
 import sh.christian.ozone.oauth.OAuthToken
 
+data class AuthenticatedXrpcBlueskyApiHooks(
+  val onSaveBearerTokens: (bearerTokens: BlueskyAuthPlugin.Tokens.Bearer) -> Unit = {},
+  val onClearCredentials: () -> Unit = {},
+)
+
 /**
  * Wrapper around [XrpcBlueskyApi] to transparently manage session tokens on the user's behalf.
  *
@@ -38,6 +43,7 @@ private constructor(
   private val delegate: XrpcBlueskyApi,
   private val _authTokens: MutableStateFlow<BlueskyAuthPlugin.Tokens?>,
   private val _oauthApi: OAuthApi,
+  private val _hooks: AuthenticatedXrpcBlueskyApiHooks = AuthenticatedXrpcBlueskyApiHooks(),
 ) : BlueskyApi by delegate {
   /**
    * The current session tokens. This will be `null` if the user is not authenticated.
@@ -48,10 +54,12 @@ private constructor(
     httpClient: HttpClient,
     authTokens: MutableStateFlow<BlueskyAuthPlugin.Tokens?>,
     oauthApi: OAuthApi,
+    hooks: AuthenticatedXrpcBlueskyApiHooks,
   ) : this(
     delegate = XrpcBlueskyApi(httpClient.withBlueskyAuth(authTokens, oauthApi)),
     _authTokens = authTokens,
     _oauthApi = oauthApi,
+    _hooks = hooks,
   )
 
   /**
@@ -66,7 +74,8 @@ private constructor(
     httpClient: HttpClient = defaultHttpClient,
     initialTokens: BlueskyAuthPlugin.Tokens? = null,
     oauthApi: OAuthApi = OAuthApi(httpClient, { OAuthCodeChallengeMethod.S256 }),
-  ) : this(httpClient, MutableStateFlow(initialTokens), oauthApi)
+    hooks: AuthenticatedXrpcBlueskyApiHooks = AuthenticatedXrpcBlueskyApiHooks(),
+  ) : this(httpClient, MutableStateFlow(initialTokens), oauthApi, hooks)
 
   override suspend fun createAccount(request: CreateAccountRequest): AtpResponse<CreateAccountResponse> {
     return delegate.createAccount(request).also {
@@ -147,6 +156,7 @@ private constructor(
    */
   fun clearCredentials() {
     _authTokens.value = null
+    _hooks.onClearCredentials()
   }
 
   private inline fun <reified T : Any> AtpResponse<T>.saveBearerTokens(
@@ -154,10 +164,12 @@ private constructor(
     refreshTokenProvider: T.() -> String,
   ) {
     if (this is AtpResponse.Success) {
-      _authTokens.value = BlueskyAuthPlugin.Tokens.Bearer(
+      val tokens = BlueskyAuthPlugin.Tokens.Bearer(
         auth = accessTokenProvider(response),
         refresh = refreshTokenProvider(response),
       )
+      _authTokens.value = tokens
+      _hooks.onSaveBearerTokens(tokens)
     }
   }
 
