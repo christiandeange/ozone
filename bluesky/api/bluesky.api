@@ -17367,6 +17367,22 @@ public final class com/atproto/temp/RequestPhoneVerificationRequest$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/atproto/temp/RevokeAccountCredentialsRequest {
+	public static final field Companion Lcom/atproto/temp/RevokeAccountCredentialsRequest$Companion;
+	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;)V
+	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
+	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;)Lcom/atproto/temp/RevokeAccountCredentialsRequest;
+	public static synthetic fun copy$default (Lcom/atproto/temp/RevokeAccountCredentialsRequest;Lsh/christian/ozone/api/AtIdentifier;ILjava/lang/Object;)Lcom/atproto/temp/RevokeAccountCredentialsRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccount ()Lsh/christian/ozone/api/AtIdentifier;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/temp/RevokeAccountCredentialsRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun acceptConvo (Lchat/bsky/convo/AcceptConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun activateAccount (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17551,6 +17567,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun resolveDid (Lcom/atproto/identity/ResolveDidQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun resolveHandle (Lcom/atproto/identity/ResolveHandleQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun resolveIdentity (Lcom/atproto/identity/ResolveIdentityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun revokeAccountCredentials (Lcom/atproto/temp/RevokeAccountCredentialsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun revokeAppPassword (Lcom/atproto/server/RevokeAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun revokeVerifications (Ltools/ozone/verification/RevokeVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchAccounts (Lcom/atproto/admin/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17786,6 +17803,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun resolveDid (Lcom/atproto/identity/ResolveDidQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun resolveHandle (Lcom/atproto/identity/ResolveHandleQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun resolveIdentity (Lcom/atproto/identity/ResolveIdentityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun revokeAccountCredentials (Lcom/atproto/temp/RevokeAccountCredentialsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeAppPassword (Lcom/atproto/server/RevokeAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeVerifications (Ltools/ozone/verification/RevokeVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchAccounts (Lcom/atproto/admin/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18024,6 +18042,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun resolveDid (Lcom/atproto/identity/ResolveDidQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun resolveHandle (Lcom/atproto/identity/ResolveHandleQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun resolveIdentity (Lcom/atproto/identity/ResolveIdentityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun revokeAccountCredentials (Lcom/atproto/temp/RevokeAccountCredentialsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeAppPassword (Lcom/atproto/server/RevokeAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeVerifications (Ltools/ozone/verification/RevokeVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchAccounts (Lcom/atproto/admin/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
