@@ -100,6 +100,7 @@ private constructor(
       if (it is AtpResponse.Success) {
         clearCredentials()
       }
+      _hooks.onClearCredentials()
     }
   }
 
@@ -148,6 +149,7 @@ private constructor(
     )
 
     clearCredentials()
+    _hooks.onClearCredentials()
   }
 
   /**
@@ -156,7 +158,6 @@ private constructor(
    */
   fun clearCredentials() {
     _authTokens.value = null
-    _hooks.onClearCredentials()
   }
 
   private inline fun <reified T : Any> AtpResponse<T>.saveBearerTokens(
