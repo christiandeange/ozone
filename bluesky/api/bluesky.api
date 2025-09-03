@@ -2019,6 +2019,201 @@ public final class app/bsky/actor/ViewerState$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/bookmark/Bookmark {
+	public static final field Companion Lapp/bsky/bookmark/Bookmark$Companion;
+	public fun <init> (Lcom/atproto/repo/StrongRef;)V
+	public final fun component1 ()Lcom/atproto/repo/StrongRef;
+	public final fun copy (Lcom/atproto/repo/StrongRef;)Lapp/bsky/bookmark/Bookmark;
+	public static synthetic fun copy$default (Lapp/bsky/bookmark/Bookmark;Lcom/atproto/repo/StrongRef;ILjava/lang/Object;)Lapp/bsky/bookmark/Bookmark;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSubject ()Lcom/atproto/repo/StrongRef;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/bookmark/Bookmark$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/bookmark/BookmarkView {
+	public static final field Companion Lapp/bsky/bookmark/BookmarkView$Companion;
+	public fun <init> (Lcom/atproto/repo/StrongRef;Lkotlinx/datetime/Instant;Lapp/bsky/bookmark/BookmarkViewItemUnion;)V
+	public synthetic fun <init> (Lcom/atproto/repo/StrongRef;Lkotlinx/datetime/Instant;Lapp/bsky/bookmark/BookmarkViewItemUnion;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/atproto/repo/StrongRef;
+	public final fun component2 ()Lkotlinx/datetime/Instant;
+	public final fun component3 ()Lapp/bsky/bookmark/BookmarkViewItemUnion;
+	public final fun copy (Lcom/atproto/repo/StrongRef;Lkotlinx/datetime/Instant;Lapp/bsky/bookmark/BookmarkViewItemUnion;)Lapp/bsky/bookmark/BookmarkView;
+	public static synthetic fun copy$default (Lapp/bsky/bookmark/BookmarkView;Lcom/atproto/repo/StrongRef;Lkotlinx/datetime/Instant;Lapp/bsky/bookmark/BookmarkViewItemUnion;ILjava/lang/Object;)Lapp/bsky/bookmark/BookmarkView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getItem ()Lapp/bsky/bookmark/BookmarkViewItemUnion;
+	public final fun getSubject ()Lcom/atproto/repo/StrongRef;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/bookmark/BookmarkView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/bookmark/BookmarkViewItemUnion {
+	public static final field Companion Lapp/bsky/bookmark/BookmarkViewItemUnion$Companion;
+}
+
+public final class app/bsky/bookmark/BookmarkViewItemUnion$BlockedPost : app/bsky/bookmark/BookmarkViewItemUnion {
+	public static final field Companion Lapp/bsky/bookmark/BookmarkViewItemUnion$BlockedPost$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/feed/BlockedPost;)Lapp/bsky/bookmark/BookmarkViewItemUnion$BlockedPost;
+	public static fun constructor-impl (Lapp/bsky/feed/BlockedPost;)Lapp/bsky/feed/BlockedPost;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/feed/BlockedPost;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/feed/BlockedPost;Lapp/bsky/feed/BlockedPost;)Z
+	public final fun getValue ()Lapp/bsky/feed/BlockedPost;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/feed/BlockedPost;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/feed/BlockedPost;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/feed/BlockedPost;
+}
+
+public final class app/bsky/bookmark/BookmarkViewItemUnion$BlockedPost$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/bookmark/BookmarkViewItemUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/bookmark/BookmarkViewItemUnion$NotFoundPost : app/bsky/bookmark/BookmarkViewItemUnion {
+	public static final field Companion Lapp/bsky/bookmark/BookmarkViewItemUnion$NotFoundPost$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/feed/NotFoundPost;)Lapp/bsky/bookmark/BookmarkViewItemUnion$NotFoundPost;
+	public static fun constructor-impl (Lapp/bsky/feed/NotFoundPost;)Lapp/bsky/feed/NotFoundPost;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/feed/NotFoundPost;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/feed/NotFoundPost;Lapp/bsky/feed/NotFoundPost;)Z
+	public final fun getValue ()Lapp/bsky/feed/NotFoundPost;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/feed/NotFoundPost;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/feed/NotFoundPost;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/feed/NotFoundPost;
+}
+
+public final class app/bsky/bookmark/BookmarkViewItemUnion$NotFoundPost$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/bookmark/BookmarkViewItemUnion$PostView : app/bsky/bookmark/BookmarkViewItemUnion {
+	public static final field Companion Lapp/bsky/bookmark/BookmarkViewItemUnion$PostView$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/feed/PostView;)Lapp/bsky/bookmark/BookmarkViewItemUnion$PostView;
+	public static fun constructor-impl (Lapp/bsky/feed/PostView;)Lapp/bsky/feed/PostView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/feed/PostView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/feed/PostView;Lapp/bsky/feed/PostView;)Z
+	public final fun getValue ()Lapp/bsky/feed/PostView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/feed/PostView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/feed/PostView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/feed/PostView;
+}
+
+public final class app/bsky/bookmark/BookmarkViewItemUnion$PostView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/bookmark/BookmarkViewItemUnion$Unknown : app/bsky/bookmark/BookmarkViewItemUnion {
+	public static final field Companion Lapp/bsky/bookmark/BookmarkViewItemUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/bookmark/BookmarkViewItemUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/bookmark/BookmarkViewItemUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/bookmark/CreateBookmarkRequest {
+	public static final field Companion Lapp/bsky/bookmark/CreateBookmarkRequest$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2-OA0YjOw ()Ljava/lang/String;
+	public final fun copy-iYSLDH8 (Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/bookmark/CreateBookmarkRequest;
+	public static synthetic fun copy-iYSLDH8$default (Lapp/bsky/bookmark/CreateBookmarkRequest;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/bookmark/CreateBookmarkRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCid-OA0YjOw ()Ljava/lang/String;
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/bookmark/CreateBookmarkRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/bookmark/DeleteBookmarkRequest {
+	public static final field Companion Lapp/bsky/bookmark/DeleteBookmarkRequest$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun copy-g66Z2H8 (Ljava/lang/String;)Lapp/bsky/bookmark/DeleteBookmarkRequest;
+	public static synthetic fun copy-g66Z2H8$default (Lapp/bsky/bookmark/DeleteBookmarkRequest;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/bookmark/DeleteBookmarkRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/bookmark/DeleteBookmarkRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/bookmark/GetBookmarksQueryParams {
+	public static final field Companion Lapp/bsky/bookmark/GetBookmarksQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/bookmark/GetBookmarksQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/bookmark/GetBookmarksQueryParams;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/bookmark/GetBookmarksQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/bookmark/GetBookmarksQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/bookmark/GetBookmarksResponse {
+	public static final field Companion Lapp/bsky/bookmark/GetBookmarksResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Lapp/bsky/bookmark/GetBookmarksResponse;
+	public static synthetic fun copy$default (Lapp/bsky/bookmark/GetBookmarksResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/bookmark/GetBookmarksResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBookmarks ()Ljava/util/List;
+	public final fun getCursor ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/bookmark/GetBookmarksResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/embed/AspectRatio {
 	public static final field Companion Lapp/bsky/embed/AspectRatio$Companion;
 	public fun <init> (JJ)V
@@ -4291,13 +4486,14 @@ public final class app/bsky/feed/PostTextSlice$Companion {
 
 public final class app/bsky/feed/PostView {
 	public static final field Companion Lapp/bsky/feed/PostView$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Ljava/util/List;Lapp/bsky/feed/ThreadgateView;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Ljava/util/List;Lapp/bsky/feed/ThreadgateView;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Ljava/util/List;Lapp/bsky/feed/ThreadgateView;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Ljava/util/List;Lapp/bsky/feed/ThreadgateView;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-x27MrHI ()Ljava/lang/String;
-	public final fun component10 ()Lkotlinx/datetime/Instant;
-	public final fun component11 ()Lapp/bsky/feed/ViewerState;
-	public final fun component12 ()Ljava/util/List;
-	public final fun component13 ()Lapp/bsky/feed/ThreadgateView;
+	public final fun component10 ()Ljava/lang/Long;
+	public final fun component11 ()Lkotlinx/datetime/Instant;
+	public final fun component12 ()Lapp/bsky/feed/ViewerState;
+	public final fun component13 ()Ljava/util/List;
+	public final fun component14 ()Lapp/bsky/feed/ThreadgateView;
 	public final fun component2-OA0YjOw ()Ljava/lang/String;
 	public final fun component3 ()Lapp/bsky/actor/ProfileViewBasic;
 	public final fun component4 ()Lsh/christian/ozone/api/model/JsonContent;
@@ -4306,10 +4502,11 @@ public final class app/bsky/feed/PostView {
 	public final fun component7 ()Ljava/lang/Long;
 	public final fun component8 ()Ljava/lang/Long;
 	public final fun component9 ()Ljava/lang/Long;
-	public final fun copy-PaJitKE (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Ljava/util/List;Lapp/bsky/feed/ThreadgateView;)Lapp/bsky/feed/PostView;
-	public static synthetic fun copy-PaJitKE$default (Lapp/bsky/feed/PostView;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Ljava/util/List;Lapp/bsky/feed/ThreadgateView;ILjava/lang/Object;)Lapp/bsky/feed/PostView;
+	public final fun copy-9iefSLs (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Ljava/util/List;Lapp/bsky/feed/ThreadgateView;)Lapp/bsky/feed/PostView;
+	public static synthetic fun copy-9iefSLs$default (Lapp/bsky/feed/PostView;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Ljava/util/List;Lapp/bsky/feed/ThreadgateView;ILjava/lang/Object;)Lapp/bsky/feed/PostView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAuthor ()Lapp/bsky/actor/ProfileViewBasic;
+	public final fun getBookmarkCount ()Ljava/lang/Long;
 	public final fun getCid-OA0YjOw ()Ljava/lang/String;
 	public final fun getEmbed ()Lapp/bsky/feed/PostViewEmbedUnion;
 	public final fun getIndexedAt ()Lkotlinx/datetime/Instant;
@@ -5517,17 +5714,19 @@ public final class app/bsky/feed/TokenSerializer : kotlinx/serialization/KSerial
 
 public final class app/bsky/feed/ViewerState {
 	public static final field Companion Lapp/bsky/feed/ViewerState$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-W3xQKsw ()Ljava/lang/String;
 	public final fun component2-W3xQKsw ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/Boolean;
 	public final fun component4 ()Ljava/lang/Boolean;
 	public final fun component5 ()Ljava/lang/Boolean;
 	public final fun component6 ()Ljava/lang/Boolean;
-	public final fun copy-ayQU-3c (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;)Lapp/bsky/feed/ViewerState;
-	public static synthetic fun copy-ayQU-3c$default (Lapp/bsky/feed/ViewerState;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/feed/ViewerState;
+	public final fun component7 ()Ljava/lang/Boolean;
+	public final fun copy-3wEY0gg (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;)Lapp/bsky/feed/ViewerState;
+	public static synthetic fun copy-3wEY0gg$default (Lapp/bsky/feed/ViewerState;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/feed/ViewerState;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBookmarked ()Ljava/lang/Boolean;
 	public final fun getEmbeddingDisabled ()Ljava/lang/Boolean;
 	public final fun getLike-W3xQKsw ()Ljava/lang/String;
 	public final fun getPinned ()Ljava/lang/Boolean;
@@ -17398,6 +17597,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun confirmEmail (Lcom/atproto/server/ConfirmEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createAccount (Lcom/atproto/server/CreateAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createAppPassword (Lcom/atproto/server/CreateAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun createBookmark (Lapp/bsky/bookmark/CreateBookmarkRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createInviteCode (Lcom/atproto/server/CreateInviteCodeRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createInviteCodes (Lcom/atproto/server/CreateInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createRecord (Lcom/atproto/repo/CreateRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17408,6 +17608,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun deleteAccount (Lcom/atproto/admin/DeleteAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteAccount (Lcom/atproto/server/DeleteAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteAccount (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deleteBookmark (Lapp/bsky/bookmark/DeleteBookmarkRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteMember (Ltools/ozone/team/DeleteMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteMessageForSelf (Lchat/bsky/convo/DeleteMessageForSelfRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteRecord (Lcom/atproto/repo/DeleteRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17439,6 +17640,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getBlob (Lcom/atproto/sync/GetBlobQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getBlocks (Lapp/bsky/graph/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getBlocks (Lcom/atproto/sync/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getBookmarks (Lapp/bsky/bookmark/GetBookmarksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConfig (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConfigUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17634,6 +17836,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun confirmEmail (Lcom/atproto/server/ConfirmEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createAccount (Lcom/atproto/server/CreateAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createAppPassword (Lcom/atproto/server/CreateAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun createBookmark (Lapp/bsky/bookmark/CreateBookmarkRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createInviteCode (Lcom/atproto/server/CreateInviteCodeRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createInviteCodes (Lcom/atproto/server/CreateInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createRecord (Lcom/atproto/repo/CreateRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17644,6 +17847,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun deleteAccount (Lcom/atproto/admin/DeleteAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteAccount (Lcom/atproto/server/DeleteAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteAccount (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteBookmark (Lapp/bsky/bookmark/DeleteBookmarkRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteMember (Ltools/ozone/team/DeleteMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteMessageForSelf (Lchat/bsky/convo/DeleteMessageForSelfRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteRecord (Lcom/atproto/repo/DeleteRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17675,6 +17879,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getBlob (Lcom/atproto/sync/GetBlobQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlocks (Lapp/bsky/graph/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlocks (Lcom/atproto/sync/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getBookmarks (Lapp/bsky/bookmark/GetBookmarksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConfig (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConfigUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17871,6 +18076,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun confirmEmail (Lcom/atproto/server/ConfirmEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createAccount (Lcom/atproto/server/CreateAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createAppPassword (Lcom/atproto/server/CreateAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun createBookmark (Lapp/bsky/bookmark/CreateBookmarkRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createInviteCode (Lcom/atproto/server/CreateInviteCodeRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createInviteCodes (Lcom/atproto/server/CreateInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createRecord (Lcom/atproto/repo/CreateRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17881,6 +18087,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun deleteAccount (Lcom/atproto/admin/DeleteAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteAccount (Lcom/atproto/server/DeleteAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteAccount (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteBookmark (Lapp/bsky/bookmark/DeleteBookmarkRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteMember (Ltools/ozone/team/DeleteMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteMessageForSelf (Lchat/bsky/convo/DeleteMessageForSelfRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun deleteOAuthSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17914,6 +18121,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getBlob (Lcom/atproto/sync/GetBlobQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlocks (Lapp/bsky/graph/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlocks (Lcom/atproto/sync/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getBookmarks (Lapp/bsky/bookmark/GetBookmarksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConfig (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConfigUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -22841,6 +23049,352 @@ public final class tools/ozone/moderation/VideoDetails {
 
 public final class tools/ozone/moderation/VideoDetails$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/report/Token : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/report/Token$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/report/Token;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/Token$ReasonAppeal : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonAppeal;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonChildSafetyCSAM : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonChildSafetyCSAM;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonChildSafetyEndangerment : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonChildSafetyEndangerment;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonChildSafetyGroom : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonChildSafetyGroom;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonChildSafetyHarassment : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonChildSafetyHarassment;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonChildSafetyMinorPrivacy : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonChildSafetyMinorPrivacy;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonChildSafetyOther : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonChildSafetyOther;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonChildSafetyPromotion : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonChildSafetyPromotion;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonCivicDisclosure : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonCivicDisclosure;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonCivicElectoralProcess : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonCivicElectoralProcess;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonCivicImpersonation : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonCivicImpersonation;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonCivicInterference : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonCivicInterference;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonCivicMisinformation : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonCivicMisinformation;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonHarassmentDoxxing : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonHarassmentDoxxing;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonHarassmentHateSpeech : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonHarassmentHateSpeech;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonHarassmentOther : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonHarassmentOther;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonHarassmentTargeted : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonHarassmentTargeted;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonHarassmentTroll : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonHarassmentTroll;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonMisleadingBot : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonMisleadingBot;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonMisleadingImpersonation : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonMisleadingImpersonation;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonMisleadingMisinformation : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonMisleadingMisinformation;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonMisleadingOther : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonMisleadingOther;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonMisleadingScam : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonMisleadingScam;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonMisleadingSpam : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonMisleadingSpam;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonMisleadingSyntheticContent : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonMisleadingSyntheticContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonRuleBanEvasion : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonRuleBanEvasion;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonRuleOther : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonRuleOther;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonRuleProhibitedSales : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonRuleProhibitedSales;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonRuleSiteSecurity : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonRuleSiteSecurity;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonRuleStolenContent : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonRuleStolenContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonSexualAbuseContent : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonSexualAbuseContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonSexualAnimal : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonSexualAnimal;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonSexualDeepfake : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonSexualDeepfake;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonSexualNCII : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonSexualNCII;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonSexualOther : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonSexualOther;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonSexualSextortion : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonSexualSextortion;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonSexualUnlabeled : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonSexualUnlabeled;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonViolenceAnimalWelfare : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonViolenceAnimalWelfare;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonViolenceExtremistContent : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonViolenceExtremistContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonViolenceGlorification : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonViolenceGlorification;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonViolenceGraphicContent : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonViolenceGraphicContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonViolenceOther : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonViolenceOther;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonViolenceSelfHarm : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonViolenceSelfHarm;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonViolenceThreats : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonViolenceThreats;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonViolenceTrafficking : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonViolenceTrafficking;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$Unknown : tools/ozone/report/Token {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/report/Token$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/report/Token$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/Token$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/TokenSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/report/Token;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/report/Token;)V
 }
 
 public abstract class tools/ozone/safelink/ActionType : sh/christian/ozone/api/model/AtpEnum {
