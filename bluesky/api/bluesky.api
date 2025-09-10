@@ -17513,6 +17513,39 @@ public final class com/atproto/temp/CheckSignupQueueResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/atproto/temp/DereferenceScopeQueryParams {
+	public static final field Companion Lcom/atproto/temp/DereferenceScopeQueryParams$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/temp/DereferenceScopeQueryParams;
+	public static synthetic fun copy$default (Lcom/atproto/temp/DereferenceScopeQueryParams;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/temp/DereferenceScopeQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getScope ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/temp/DereferenceScopeQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/temp/DereferenceScopeResponse {
+	public static final field Companion Lcom/atproto/temp/DereferenceScopeResponse$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/atproto/temp/DereferenceScopeResponse;
+	public static synthetic fun copy$default (Lcom/atproto/temp/DereferenceScopeResponse;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/temp/DereferenceScopeResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getScope ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/temp/DereferenceScopeResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/atproto/temp/FetchLabelsQueryParams {
 	public static final field Companion Lcom/atproto/temp/FetchLabelsQueryParams$Companion;
 	public fun <init> ()V
@@ -17616,6 +17649,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun deleteSet (Ltools/ozone/set/DeleteSetRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteTemplate (Ltools/ozone/communication/DeleteTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteValues (Ltools/ozone/set/DeleteValuesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun dereferenceScope (Lcom/atproto/temp/DereferenceScopeQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun describeFeedGenerator (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun describeRepo (Lcom/atproto/repo/DescribeRepoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun describeServer (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17855,6 +17889,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun deleteSet (Ltools/ozone/set/DeleteSetRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteTemplate (Ltools/ozone/communication/DeleteTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteValues (Ltools/ozone/set/DeleteValuesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun dereferenceScope (Lcom/atproto/temp/DereferenceScopeQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun describeFeedGenerator (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun describeRepo (Lcom/atproto/repo/DescribeRepoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun describeServer (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18096,6 +18131,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun deleteSet (Ltools/ozone/set/DeleteSetRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteTemplate (Ltools/ozone/communication/DeleteTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteValues (Ltools/ozone/set/DeleteValuesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun dereferenceScope (Lcom/atproto/temp/DereferenceScopeQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun describeFeedGenerator (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun describeRepo (Lcom/atproto/repo/DescribeRepoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun describeServer (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19709,6 +19745,25 @@ public final class tools/ozone/moderation/EmitEventRequestEventUnion$RecordEvent
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$RevokeAccountCredentialsEvent : tools/ozone/moderation/EmitEventRequestEventUnion {
+	public static final field Companion Ltools/ozone/moderation/EmitEventRequestEventUnion$RevokeAccountCredentialsEvent$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/RevokeAccountCredentialsEvent;)Ltools/ozone/moderation/EmitEventRequestEventUnion$RevokeAccountCredentialsEvent;
+	public static fun constructor-impl (Ltools/ozone/moderation/RevokeAccountCredentialsEvent;)Ltools/ozone/moderation/RevokeAccountCredentialsEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/RevokeAccountCredentialsEvent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/RevokeAccountCredentialsEvent;Ltools/ozone/moderation/RevokeAccountCredentialsEvent;)Z
+	public final fun getValue ()Ltools/ozone/moderation/RevokeAccountCredentialsEvent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/RevokeAccountCredentialsEvent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/RevokeAccountCredentialsEvent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/RevokeAccountCredentialsEvent;
+}
+
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$RevokeAccountCredentialsEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/moderation/EmitEventRequestEventUnion$Unknown : tools/ozone/moderation/EmitEventRequestEventUnion {
 	public static final field Companion Ltools/ozone/moderation/EmitEventRequestEventUnion$Unknown$Companion;
 	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/moderation/EmitEventRequestEventUnion$Unknown;
@@ -21060,6 +21115,25 @@ public final class tools/ozone/moderation/ModEventViewDetailEventUnion$RecordEve
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$RevokeAccountCredentialsEvent : tools/ozone/moderation/ModEventViewDetailEventUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewDetailEventUnion$RevokeAccountCredentialsEvent$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/RevokeAccountCredentialsEvent;)Ltools/ozone/moderation/ModEventViewDetailEventUnion$RevokeAccountCredentialsEvent;
+	public static fun constructor-impl (Ltools/ozone/moderation/RevokeAccountCredentialsEvent;)Ltools/ozone/moderation/RevokeAccountCredentialsEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/RevokeAccountCredentialsEvent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/RevokeAccountCredentialsEvent;Ltools/ozone/moderation/RevokeAccountCredentialsEvent;)Z
+	public final fun getValue ()Ltools/ozone/moderation/RevokeAccountCredentialsEvent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/RevokeAccountCredentialsEvent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/RevokeAccountCredentialsEvent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/RevokeAccountCredentialsEvent;
+}
+
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$RevokeAccountCredentialsEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/moderation/ModEventViewDetailEventUnion$Unknown : tools/ozone/moderation/ModEventViewDetailEventUnion {
 	public static final field Companion Ltools/ozone/moderation/ModEventViewDetailEventUnion$Unknown$Companion;
 	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/moderation/ModEventViewDetailEventUnion$Unknown;
@@ -21586,6 +21660,25 @@ public final class tools/ozone/moderation/ModEventViewEventUnion$RecordEvent : t
 }
 
 public final class tools/ozone/moderation/ModEventViewEventUnion$RecordEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ModEventViewEventUnion$RevokeAccountCredentialsEvent : tools/ozone/moderation/ModEventViewEventUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewEventUnion$RevokeAccountCredentialsEvent$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/RevokeAccountCredentialsEvent;)Ltools/ozone/moderation/ModEventViewEventUnion$RevokeAccountCredentialsEvent;
+	public static fun constructor-impl (Ltools/ozone/moderation/RevokeAccountCredentialsEvent;)Ltools/ozone/moderation/RevokeAccountCredentialsEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/RevokeAccountCredentialsEvent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/RevokeAccountCredentialsEvent;Ltools/ozone/moderation/RevokeAccountCredentialsEvent;)Z
+	public final fun getValue ()Ltools/ozone/moderation/RevokeAccountCredentialsEvent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/RevokeAccountCredentialsEvent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/RevokeAccountCredentialsEvent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/RevokeAccountCredentialsEvent;
+}
+
+public final class tools/ozone/moderation/ModEventViewEventUnion$RevokeAccountCredentialsEvent$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -22528,6 +22621,22 @@ public final class tools/ozone/moderation/ReporterStats {
 }
 
 public final class tools/ozone/moderation/ReporterStats$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/RevokeAccountCredentialsEvent {
+	public static final field Companion Ltools/ozone/moderation/RevokeAccountCredentialsEvent$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/moderation/RevokeAccountCredentialsEvent;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/RevokeAccountCredentialsEvent;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/RevokeAccountCredentialsEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/RevokeAccountCredentialsEvent$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
