@@ -17706,6 +17706,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun addRule (Ltools/ozone/safelink/AddRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun addValues (Ltools/ozone/set/AddValuesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun applyWrites (Lcom/atproto/repo/ApplyWritesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun cancelScheduledActions (Ltools/ozone/moderation/CancelScheduledActionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun checkAccountStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun checkHandleAvailability (Lcom/atproto/temp/CheckHandleAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun checkSignupQueue (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17851,6 +17852,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun listRecords (Lcom/atproto/repo/ListRecordsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listRepos (Lcom/atproto/sync/ListReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listReposByCollection (Lcom/atproto/sync/ListReposByCollectionQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun listScheduledActions (Ltools/ozone/moderation/ListScheduledActionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listTemplates (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listVerifications (Ltools/ozone/verification/ListVerificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun muteActor (Lapp/bsky/graph/MuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17890,6 +17892,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun revokeAccountCredentials (Lcom/atproto/temp/RevokeAccountCredentialsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun revokeAppPassword (Lcom/atproto/server/RevokeAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun revokeVerifications (Ltools/ozone/verification/RevokeVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun scheduleAction (Ltools/ozone/moderation/ScheduleActionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchAccounts (Lcom/atproto/admin/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchAccounts (Ltools/ozone/signature/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchActors (Lapp/bsky/actor/SearchActorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17948,6 +17951,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun addRule (Ltools/ozone/safelink/AddRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun addValues (Ltools/ozone/set/AddValuesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun applyWrites (Lcom/atproto/repo/ApplyWritesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun cancelScheduledActions (Ltools/ozone/moderation/CancelScheduledActionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun checkAccountStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun checkHandleAvailability (Lcom/atproto/temp/CheckHandleAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun checkSignupQueue (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18093,6 +18097,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun listRecords (Lcom/atproto/repo/ListRecordsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listRepos (Lcom/atproto/sync/ListReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listReposByCollection (Lcom/atproto/sync/ListReposByCollectionQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listScheduledActions (Ltools/ozone/moderation/ListScheduledActionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listTemplates (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listVerifications (Ltools/ozone/verification/ListVerificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun muteActor (Lapp/bsky/graph/MuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18132,6 +18137,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun revokeAccountCredentials (Lcom/atproto/temp/RevokeAccountCredentialsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeAppPassword (Lcom/atproto/server/RevokeAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeVerifications (Ltools/ozone/verification/RevokeVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun scheduleAction (Ltools/ozone/moderation/ScheduleActionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchAccounts (Lcom/atproto/admin/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchAccounts (Ltools/ozone/signature/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchActors (Lapp/bsky/actor/SearchActorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18190,6 +18196,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun addRule (Ltools/ozone/safelink/AddRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun addValues (Ltools/ozone/set/AddValuesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun applyWrites (Lcom/atproto/repo/ApplyWritesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun cancelScheduledActions (Ltools/ozone/moderation/CancelScheduledActionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun checkAccountStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun checkHandleAvailability (Lcom/atproto/temp/CheckHandleAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun checkSignupQueue (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18338,6 +18345,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun listRecords (Lcom/atproto/repo/ListRecordsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listRepos (Lcom/atproto/sync/ListReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listReposByCollection (Lcom/atproto/sync/ListReposByCollectionQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listScheduledActions (Ltools/ozone/moderation/ListScheduledActionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listTemplates (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listVerifications (Ltools/ozone/verification/ListVerificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun muteActor (Lapp/bsky/graph/MuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18377,6 +18385,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun revokeAccountCredentials (Lcom/atproto/temp/RevokeAccountCredentialsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeAppPassword (Lcom/atproto/server/RevokeAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeVerifications (Ltools/ozone/verification/RevokeVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun scheduleAction (Ltools/ozone/moderation/ScheduleActionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchAccounts (Lcom/atproto/admin/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchAccounts (Ltools/ozone/signature/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchActors (Lapp/bsky/actor/SearchActorsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19399,6 +19408,82 @@ public final class tools/ozone/moderation/BlobViewDetailsUnion$VideoDetails$Comp
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/CancelScheduledActionsCancellationResults {
+	public static final field Companion Ltools/ozone/moderation/CancelScheduledActionsCancellationResults$Companion;
+	public fun <init> (Ljava/util/List;Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;Ljava/util/List;)Ltools/ozone/moderation/CancelScheduledActionsCancellationResults;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/CancelScheduledActionsCancellationResults;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/moderation/CancelScheduledActionsCancellationResults;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFailed ()Ljava/util/List;
+	public final fun getSucceeded ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/CancelScheduledActionsCancellationResults$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/CancelScheduledActionsFailedCancellation {
+	public static final field Companion Ltools/ozone/moderation/CancelScheduledActionsFailedCancellation$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy-3QELDOs (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ltools/ozone/moderation/CancelScheduledActionsFailedCancellation;
+	public static synthetic fun copy-3QELDOs$default (Ltools/ozone/moderation/CancelScheduledActionsFailedCancellation;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/CancelScheduledActionsFailedCancellation;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getError ()Ljava/lang/String;
+	public final fun getErrorCode ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/CancelScheduledActionsFailedCancellation$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/CancelScheduledActionsRequest {
+	public static final field Companion Ltools/ozone/moderation/CancelScheduledActionsRequest$Companion;
+	public fun <init> (Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/lang/String;)Ltools/ozone/moderation/CancelScheduledActionsRequest;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/CancelScheduledActionsRequest;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/CancelScheduledActionsRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getSubjects ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/CancelScheduledActionsRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/CancelScheduledTakedownEvent {
+	public static final field Companion Ltools/ozone/moderation/CancelScheduledTakedownEvent$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/moderation/CancelScheduledTakedownEvent;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/CancelScheduledTakedownEvent;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/CancelScheduledTakedownEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/CancelScheduledTakedownEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/moderation/EmitEventRequest {
 	public static final field Companion Ltools/ozone/moderation/EmitEventRequest$Companion;
 	public synthetic fun <init> (Ltools/ozone/moderation/EmitEventRequestEventUnion;Ltools/ozone/moderation/EmitEventRequestSubjectUnion;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/ModTool;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -19484,6 +19569,25 @@ public final class tools/ozone/moderation/EmitEventRequestEventUnion$AgeAssuranc
 }
 
 public final class tools/ozone/moderation/EmitEventRequestEventUnion$AgeAssuranceOverrideEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$CancelScheduledTakedownEvent : tools/ozone/moderation/EmitEventRequestEventUnion {
+	public static final field Companion Ltools/ozone/moderation/EmitEventRequestEventUnion$CancelScheduledTakedownEvent$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/CancelScheduledTakedownEvent;)Ltools/ozone/moderation/EmitEventRequestEventUnion$CancelScheduledTakedownEvent;
+	public static fun constructor-impl (Ltools/ozone/moderation/CancelScheduledTakedownEvent;)Ltools/ozone/moderation/CancelScheduledTakedownEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/CancelScheduledTakedownEvent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/CancelScheduledTakedownEvent;Ltools/ozone/moderation/CancelScheduledTakedownEvent;)Z
+	public final fun getValue ()Ltools/ozone/moderation/CancelScheduledTakedownEvent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/CancelScheduledTakedownEvent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/CancelScheduledTakedownEvent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/CancelScheduledTakedownEvent;
+}
+
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$CancelScheduledTakedownEvent$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -19849,6 +19953,25 @@ public final class tools/ozone/moderation/EmitEventRequestEventUnion$RevokeAccou
 }
 
 public final class tools/ozone/moderation/EmitEventRequestEventUnion$RevokeAccountCredentialsEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$ScheduleTakedownEvent : tools/ozone/moderation/EmitEventRequestEventUnion {
+	public static final field Companion Ltools/ozone/moderation/EmitEventRequestEventUnion$ScheduleTakedownEvent$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/ScheduleTakedownEvent;)Ltools/ozone/moderation/EmitEventRequestEventUnion$ScheduleTakedownEvent;
+	public static fun constructor-impl (Ltools/ozone/moderation/ScheduleTakedownEvent;)Ltools/ozone/moderation/ScheduleTakedownEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/ScheduleTakedownEvent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/ScheduleTakedownEvent;Ltools/ozone/moderation/ScheduleTakedownEvent;)Z
+	public final fun getValue ()Ltools/ozone/moderation/ScheduleTakedownEvent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/ScheduleTakedownEvent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/ScheduleTakedownEvent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/ScheduleTakedownEvent;
+}
+
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$ScheduleTakedownEvent$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -20418,6 +20541,111 @@ public final class tools/ozone/moderation/ImageDetails$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/ListScheduledActionsRequest {
+	public static final field Companion Ltools/ozone/moderation/ListScheduledActionsRequest$Companion;
+	public fun <init> (Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lkotlinx/datetime/Instant;
+	public final fun component2 ()Lkotlinx/datetime/Instant;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/util/List;
+	public final fun component5 ()Ljava/lang/Long;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun copy (Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;)Ltools/ozone/moderation/ListScheduledActionsRequest;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/ListScheduledActionsRequest;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/ListScheduledActionsRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getEndsBefore ()Lkotlinx/datetime/Instant;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getStartsAfter ()Lkotlinx/datetime/Instant;
+	public final fun getStatuses ()Ljava/util/List;
+	public final fun getSubjects ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ListScheduledActionsRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ListScheduledActionsResponse {
+	public static final field Companion Ltools/ozone/moderation/ListScheduledActionsResponse$Companion;
+	public fun <init> (Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/lang/String;)Ltools/ozone/moderation/ListScheduledActionsResponse;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/ListScheduledActionsResponse;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/ListScheduledActionsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActions ()Ljava/util/List;
+	public final fun getCursor ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ListScheduledActionsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/moderation/ListScheduledActionsStatuses : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/moderation/ListScheduledActionsStatuses$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ListScheduledActionsStatuses$Cancelled : tools/ozone/moderation/ListScheduledActionsStatuses {
+	public static final field INSTANCE Ltools/ozone/moderation/ListScheduledActionsStatuses$Cancelled;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ListScheduledActionsStatuses$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/moderation/ListScheduledActionsStatuses;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ListScheduledActionsStatuses$Executed : tools/ozone/moderation/ListScheduledActionsStatuses {
+	public static final field INSTANCE Ltools/ozone/moderation/ListScheduledActionsStatuses$Executed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ListScheduledActionsStatuses$Failed : tools/ozone/moderation/ListScheduledActionsStatuses {
+	public static final field INSTANCE Ltools/ozone/moderation/ListScheduledActionsStatuses$Failed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ListScheduledActionsStatuses$Pending : tools/ozone/moderation/ListScheduledActionsStatuses {
+	public static final field INSTANCE Ltools/ozone/moderation/ListScheduledActionsStatuses$Pending;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ListScheduledActionsStatuses$Unknown : tools/ozone/moderation/ListScheduledActionsStatuses {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/moderation/ListScheduledActionsStatuses$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/ListScheduledActionsStatuses$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/ListScheduledActionsStatuses$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ListScheduledActionsStatusesSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/moderation/ListScheduledActionsStatuses;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/ListScheduledActionsStatuses;)V
+}
+
 public final class tools/ozone/moderation/ModEventAcknowledge {
 	public static final field Companion Ltools/ozone/moderation/ModEventAcknowledge$Companion;
 	public fun <init> ()V
@@ -20857,6 +21085,25 @@ public final class tools/ozone/moderation/ModEventViewDetailEventUnion$AgeAssura
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$CancelScheduledTakedownEvent : tools/ozone/moderation/ModEventViewDetailEventUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewDetailEventUnion$CancelScheduledTakedownEvent$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/CancelScheduledTakedownEvent;)Ltools/ozone/moderation/ModEventViewDetailEventUnion$CancelScheduledTakedownEvent;
+	public static fun constructor-impl (Ltools/ozone/moderation/CancelScheduledTakedownEvent;)Ltools/ozone/moderation/CancelScheduledTakedownEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/CancelScheduledTakedownEvent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/CancelScheduledTakedownEvent;Ltools/ozone/moderation/CancelScheduledTakedownEvent;)Z
+	public final fun getValue ()Ltools/ozone/moderation/CancelScheduledTakedownEvent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/CancelScheduledTakedownEvent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/CancelScheduledTakedownEvent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/CancelScheduledTakedownEvent;
+}
+
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$CancelScheduledTakedownEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/moderation/ModEventViewDetailEventUnion$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
@@ -21222,6 +21469,25 @@ public final class tools/ozone/moderation/ModEventViewDetailEventUnion$RevokeAcc
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$ScheduleTakedownEvent : tools/ozone/moderation/ModEventViewDetailEventUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewDetailEventUnion$ScheduleTakedownEvent$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/ScheduleTakedownEvent;)Ltools/ozone/moderation/ModEventViewDetailEventUnion$ScheduleTakedownEvent;
+	public static fun constructor-impl (Ltools/ozone/moderation/ScheduleTakedownEvent;)Ltools/ozone/moderation/ScheduleTakedownEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/ScheduleTakedownEvent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/ScheduleTakedownEvent;Ltools/ozone/moderation/ScheduleTakedownEvent;)Z
+	public final fun getValue ()Ltools/ozone/moderation/ScheduleTakedownEvent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/ScheduleTakedownEvent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/ScheduleTakedownEvent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/ScheduleTakedownEvent;
+}
+
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$ScheduleTakedownEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/moderation/ModEventViewDetailEventUnion$Unknown : tools/ozone/moderation/ModEventViewDetailEventUnion {
 	public static final field Companion Ltools/ozone/moderation/ModEventViewDetailEventUnion$Unknown$Companion;
 	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/moderation/ModEventViewDetailEventUnion$Unknown;
@@ -21402,6 +21668,25 @@ public final class tools/ozone/moderation/ModEventViewEventUnion$AgeAssuranceOve
 }
 
 public final class tools/ozone/moderation/ModEventViewEventUnion$AgeAssuranceOverrideEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ModEventViewEventUnion$CancelScheduledTakedownEvent : tools/ozone/moderation/ModEventViewEventUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewEventUnion$CancelScheduledTakedownEvent$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/CancelScheduledTakedownEvent;)Ltools/ozone/moderation/ModEventViewEventUnion$CancelScheduledTakedownEvent;
+	public static fun constructor-impl (Ltools/ozone/moderation/CancelScheduledTakedownEvent;)Ltools/ozone/moderation/CancelScheduledTakedownEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/CancelScheduledTakedownEvent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/CancelScheduledTakedownEvent;Ltools/ozone/moderation/CancelScheduledTakedownEvent;)Z
+	public final fun getValue ()Ltools/ozone/moderation/CancelScheduledTakedownEvent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/CancelScheduledTakedownEvent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/CancelScheduledTakedownEvent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/CancelScheduledTakedownEvent;
+}
+
+public final class tools/ozone/moderation/ModEventViewEventUnion$CancelScheduledTakedownEvent$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -21767,6 +22052,25 @@ public final class tools/ozone/moderation/ModEventViewEventUnion$RevokeAccountCr
 }
 
 public final class tools/ozone/moderation/ModEventViewEventUnion$RevokeAccountCredentialsEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ModEventViewEventUnion$ScheduleTakedownEvent : tools/ozone/moderation/ModEventViewEventUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewEventUnion$ScheduleTakedownEvent$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/ScheduleTakedownEvent;)Ltools/ozone/moderation/ModEventViewEventUnion$ScheduleTakedownEvent;
+	public static fun constructor-impl (Ltools/ozone/moderation/ScheduleTakedownEvent;)Ltools/ozone/moderation/ScheduleTakedownEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/ScheduleTakedownEvent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/ScheduleTakedownEvent;Ltools/ozone/moderation/ScheduleTakedownEvent;)Z
+	public final fun getValue ()Ltools/ozone/moderation/ScheduleTakedownEvent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/ScheduleTakedownEvent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/ScheduleTakedownEvent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/ScheduleTakedownEvent;
+}
+
+public final class tools/ozone/moderation/ModEventViewEventUnion$ScheduleTakedownEvent$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -22726,6 +23030,328 @@ public final class tools/ozone/moderation/RevokeAccountCredentialsEvent {
 
 public final class tools/ozone/moderation/RevokeAccountCredentialsEvent$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ScheduleActionFailedScheduling {
+	public static final field Companion Ltools/ozone/moderation/ScheduleActionFailedScheduling$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy-3QELDOs (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ltools/ozone/moderation/ScheduleActionFailedScheduling;
+	public static synthetic fun copy-3QELDOs$default (Ltools/ozone/moderation/ScheduleActionFailedScheduling;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/ScheduleActionFailedScheduling;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getError ()Ljava/lang/String;
+	public final fun getErrorCode ()Ljava/lang/String;
+	public final fun getSubject-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ScheduleActionFailedScheduling$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ScheduleActionRequest {
+	public static final field Companion Ltools/ozone/moderation/ScheduleActionRequest$Companion;
+	public synthetic fun <init> (Ltools/ozone/moderation/ScheduleActionRequestActionUnion;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/ScheduleActionSchedulingConfig;Ltools/ozone/moderation/ModTool;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ltools/ozone/moderation/ScheduleActionRequestActionUnion;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/ScheduleActionSchedulingConfig;Ltools/ozone/moderation/ModTool;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ltools/ozone/moderation/ScheduleActionRequestActionUnion;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3-715Ygxc ()Ljava/lang/String;
+	public final fun component4 ()Ltools/ozone/moderation/ScheduleActionSchedulingConfig;
+	public final fun component5 ()Ltools/ozone/moderation/ModTool;
+	public final fun copy-8h2dgVM (Ltools/ozone/moderation/ScheduleActionRequestActionUnion;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/ScheduleActionSchedulingConfig;Ltools/ozone/moderation/ModTool;)Ltools/ozone/moderation/ScheduleActionRequest;
+	public static synthetic fun copy-8h2dgVM$default (Ltools/ozone/moderation/ScheduleActionRequest;Ltools/ozone/moderation/ScheduleActionRequestActionUnion;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/ScheduleActionSchedulingConfig;Ltools/ozone/moderation/ModTool;ILjava/lang/Object;)Ltools/ozone/moderation/ScheduleActionRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAction ()Ltools/ozone/moderation/ScheduleActionRequestActionUnion;
+	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
+	public final fun getModTool ()Ltools/ozone/moderation/ModTool;
+	public final fun getScheduling ()Ltools/ozone/moderation/ScheduleActionSchedulingConfig;
+	public final fun getSubjects ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ScheduleActionRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class tools/ozone/moderation/ScheduleActionRequestActionUnion {
+	public static final field Companion Ltools/ozone/moderation/ScheduleActionRequestActionUnion$Companion;
+}
+
+public final class tools/ozone/moderation/ScheduleActionRequestActionUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ScheduleActionRequestActionUnion$Takedown : tools/ozone/moderation/ScheduleActionRequestActionUnion {
+	public static final field Companion Ltools/ozone/moderation/ScheduleActionRequestActionUnion$Takedown$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/ScheduleActionTakedown;)Ltools/ozone/moderation/ScheduleActionRequestActionUnion$Takedown;
+	public static fun constructor-impl (Ltools/ozone/moderation/ScheduleActionTakedown;)Ltools/ozone/moderation/ScheduleActionTakedown;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/ScheduleActionTakedown;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/ScheduleActionTakedown;Ltools/ozone/moderation/ScheduleActionTakedown;)Z
+	public final fun getValue ()Ltools/ozone/moderation/ScheduleActionTakedown;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/ScheduleActionTakedown;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/ScheduleActionTakedown;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/ScheduleActionTakedown;
+}
+
+public final class tools/ozone/moderation/ScheduleActionRequestActionUnion$Takedown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ScheduleActionRequestActionUnion$Unknown : tools/ozone/moderation/ScheduleActionRequestActionUnion {
+	public static final field Companion Ltools/ozone/moderation/ScheduleActionRequestActionUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/moderation/ScheduleActionRequestActionUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/moderation/ScheduleActionRequestActionUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ScheduleActionScheduledActionResults {
+	public static final field Companion Ltools/ozone/moderation/ScheduleActionScheduledActionResults$Companion;
+	public fun <init> (Ljava/util/List;Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;Ljava/util/List;)Ltools/ozone/moderation/ScheduleActionScheduledActionResults;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/ScheduleActionScheduledActionResults;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/moderation/ScheduleActionScheduledActionResults;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFailed ()Ljava/util/List;
+	public final fun getSucceeded ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ScheduleActionScheduledActionResults$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ScheduleActionSchedulingConfig {
+	public static final field Companion Ltools/ozone/moderation/ScheduleActionSchedulingConfig$Companion;
+	public fun <init> ()V
+	public fun <init> (Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;)V
+	public synthetic fun <init> (Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lkotlinx/datetime/Instant;
+	public final fun component2 ()Lkotlinx/datetime/Instant;
+	public final fun component3 ()Lkotlinx/datetime/Instant;
+	public final fun copy (Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;)Ltools/ozone/moderation/ScheduleActionSchedulingConfig;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/ScheduleActionSchedulingConfig;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Ltools/ozone/moderation/ScheduleActionSchedulingConfig;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getExecuteAfter ()Lkotlinx/datetime/Instant;
+	public final fun getExecuteAt ()Lkotlinx/datetime/Instant;
+	public final fun getExecuteUntil ()Lkotlinx/datetime/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ScheduleActionSchedulingConfig$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ScheduleActionTakedown {
+	public static final field Companion Ltools/ozone/moderation/ScheduleActionTakedown$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/Boolean;
+	public final fun component4 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;)Ltools/ozone/moderation/ScheduleActionTakedown;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/ScheduleActionTakedown;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/moderation/ScheduleActionTakedown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAcknowledgeAccountSubjects ()Ljava/lang/Boolean;
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getDurationInHours ()Ljava/lang/Long;
+	public final fun getPolicies ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ScheduleActionTakedown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ScheduleTakedownEvent {
+	public static final field Companion Ltools/ozone/moderation/ScheduleTakedownEvent$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlinx/datetime/Instant;
+	public final fun component3 ()Lkotlinx/datetime/Instant;
+	public final fun component4 ()Lkotlinx/datetime/Instant;
+	public final fun copy (Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;)Ltools/ozone/moderation/ScheduleTakedownEvent;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/ScheduleTakedownEvent;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Ltools/ozone/moderation/ScheduleTakedownEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getExecuteAfter ()Lkotlinx/datetime/Instant;
+	public final fun getExecuteAt ()Lkotlinx/datetime/Instant;
+	public final fun getExecuteUntil ()Lkotlinx/datetime/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ScheduleTakedownEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ScheduledActionView {
+	public static final field Companion Ltools/ozone/moderation/ScheduledActionView$Companion;
+	public synthetic fun <init> (JLtools/ozone/moderation/ScheduledActionViewAction;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/ScheduledActionViewStatus;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLtools/ozone/moderation/ScheduledActionViewAction;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/ScheduledActionViewStatus;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/Long;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component10 ()Lkotlinx/datetime/Instant;
+	public final fun component11 ()Lkotlinx/datetime/Instant;
+	public final fun component12 ()Ltools/ozone/moderation/ScheduledActionViewStatus;
+	public final fun component13 ()Lkotlinx/datetime/Instant;
+	public final fun component14 ()Ljava/lang/String;
+	public final fun component15 ()Ljava/lang/Long;
+	public final fun component2 ()Ltools/ozone/moderation/ScheduledActionViewAction;
+	public final fun component3 ()Lsh/christian/ozone/api/model/JsonContent;
+	public final fun component4-715Ygxc ()Ljava/lang/String;
+	public final fun component5 ()Lkotlinx/datetime/Instant;
+	public final fun component6 ()Lkotlinx/datetime/Instant;
+	public final fun component7 ()Lkotlinx/datetime/Instant;
+	public final fun component8 ()Ljava/lang/Boolean;
+	public final fun component9-715Ygxc ()Ljava/lang/String;
+	public final fun copy-aYK9MvE (JLtools/ozone/moderation/ScheduledActionViewAction;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/ScheduledActionViewStatus;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/Long;)Ltools/ozone/moderation/ScheduledActionView;
+	public static synthetic fun copy-aYK9MvE$default (Ltools/ozone/moderation/ScheduledActionView;JLtools/ozone/moderation/ScheduledActionViewAction;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/ScheduledActionViewStatus;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/Long;ILjava/lang/Object;)Ltools/ozone/moderation/ScheduledActionView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAction ()Ltools/ozone/moderation/ScheduledActionViewAction;
+	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getEventData ()Lsh/christian/ozone/api/model/JsonContent;
+	public final fun getExecuteAfter ()Lkotlinx/datetime/Instant;
+	public final fun getExecuteAt ()Lkotlinx/datetime/Instant;
+	public final fun getExecuteUntil ()Lkotlinx/datetime/Instant;
+	public final fun getExecutionEventId ()Ljava/lang/Long;
+	public final fun getId ()J
+	public final fun getLastExecutedAt ()Lkotlinx/datetime/Instant;
+	public final fun getLastFailureReason ()Ljava/lang/String;
+	public final fun getRandomizeExecution ()Ljava/lang/Boolean;
+	public final fun getStatus ()Ltools/ozone/moderation/ScheduledActionViewStatus;
+	public final fun getUpdatedAt ()Lkotlinx/datetime/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ScheduledActionView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/moderation/ScheduledActionViewAction : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/moderation/ScheduledActionViewAction$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ScheduledActionViewAction$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/moderation/ScheduledActionViewAction;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ScheduledActionViewAction$Takedown : tools/ozone/moderation/ScheduledActionViewAction {
+	public static final field INSTANCE Ltools/ozone/moderation/ScheduledActionViewAction$Takedown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ScheduledActionViewAction$Unknown : tools/ozone/moderation/ScheduledActionViewAction {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/moderation/ScheduledActionViewAction$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/ScheduledActionViewAction$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/ScheduledActionViewAction$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ScheduledActionViewActionSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/moderation/ScheduledActionViewAction;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/ScheduledActionViewAction;)V
+}
+
+public abstract class tools/ozone/moderation/ScheduledActionViewStatus : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/moderation/ScheduledActionViewStatus$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ScheduledActionViewStatus$Cancelled : tools/ozone/moderation/ScheduledActionViewStatus {
+	public static final field INSTANCE Ltools/ozone/moderation/ScheduledActionViewStatus$Cancelled;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ScheduledActionViewStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/moderation/ScheduledActionViewStatus;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ScheduledActionViewStatus$Executed : tools/ozone/moderation/ScheduledActionViewStatus {
+	public static final field INSTANCE Ltools/ozone/moderation/ScheduledActionViewStatus$Executed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ScheduledActionViewStatus$Failed : tools/ozone/moderation/ScheduledActionViewStatus {
+	public static final field INSTANCE Ltools/ozone/moderation/ScheduledActionViewStatus$Failed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ScheduledActionViewStatus$Pending : tools/ozone/moderation/ScheduledActionViewStatus {
+	public static final field INSTANCE Ltools/ozone/moderation/ScheduledActionViewStatus$Pending;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ScheduledActionViewStatus$Unknown : tools/ozone/moderation/ScheduledActionViewStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/moderation/ScheduledActionViewStatus$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/ScheduledActionViewStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/ScheduledActionViewStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ScheduledActionViewStatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/moderation/ScheduledActionViewStatus;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/ScheduledActionViewStatus;)V
 }
 
 public final class tools/ozone/moderation/SearchReposQueryParams {
