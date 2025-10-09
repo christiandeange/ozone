@@ -23899,13 +23899,6 @@ public final class tools/ozone/report/Token$ReasonChildSafetyCSAM : tools/ozone/
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class tools/ozone/report/Token$ReasonChildSafetyEndangerment : tools/ozone/report/Token {
-	public static final field INSTANCE Ltools/ozone/report/Token$ReasonChildSafetyEndangerment;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
 public final class tools/ozone/report/Token$ReasonChildSafetyGroom : tools/ozone/report/Token {
 	public static final field INSTANCE Ltools/ozone/report/Token$ReasonChildSafetyGroom;
 	public fun equals (Ljava/lang/Object;)Z
@@ -23920,13 +23913,6 @@ public final class tools/ozone/report/Token$ReasonChildSafetyHarassment : tools/
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class tools/ozone/report/Token$ReasonChildSafetyMinorPrivacy : tools/ozone/report/Token {
-	public static final field INSTANCE Ltools/ozone/report/Token$ReasonChildSafetyMinorPrivacy;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
 public final class tools/ozone/report/Token$ReasonChildSafetyOther : tools/ozone/report/Token {
 	public static final field INSTANCE Ltools/ozone/report/Token$ReasonChildSafetyOther;
 	public fun equals (Ljava/lang/Object;)Z
@@ -23934,43 +23920,8 @@ public final class tools/ozone/report/Token$ReasonChildSafetyOther : tools/ozone
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class tools/ozone/report/Token$ReasonChildSafetyPromotion : tools/ozone/report/Token {
-	public static final field INSTANCE Ltools/ozone/report/Token$ReasonChildSafetyPromotion;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class tools/ozone/report/Token$ReasonCivicDisclosure : tools/ozone/report/Token {
-	public static final field INSTANCE Ltools/ozone/report/Token$ReasonCivicDisclosure;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class tools/ozone/report/Token$ReasonCivicElectoralProcess : tools/ozone/report/Token {
-	public static final field INSTANCE Ltools/ozone/report/Token$ReasonCivicElectoralProcess;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class tools/ozone/report/Token$ReasonCivicImpersonation : tools/ozone/report/Token {
-	public static final field INSTANCE Ltools/ozone/report/Token$ReasonCivicImpersonation;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class tools/ozone/report/Token$ReasonCivicInterference : tools/ozone/report/Token {
-	public static final field INSTANCE Ltools/ozone/report/Token$ReasonCivicInterference;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class tools/ozone/report/Token$ReasonCivicMisinformation : tools/ozone/report/Token {
-	public static final field INSTANCE Ltools/ozone/report/Token$ReasonCivicMisinformation;
+public final class tools/ozone/report/Token$ReasonChildSafetyPrivacy : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonChildSafetyPrivacy;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -24018,15 +23969,15 @@ public final class tools/ozone/report/Token$ReasonMisleadingBot : tools/ozone/re
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class tools/ozone/report/Token$ReasonMisleadingImpersonation : tools/ozone/report/Token {
-	public static final field INSTANCE Ltools/ozone/report/Token$ReasonMisleadingImpersonation;
+public final class tools/ozone/report/Token$ReasonMisleadingElections : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonMisleadingElections;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class tools/ozone/report/Token$ReasonMisleadingMisinformation : tools/ozone/report/Token {
-	public static final field INSTANCE Ltools/ozone/report/Token$ReasonMisleadingMisinformation;
+public final class tools/ozone/report/Token$ReasonMisleadingImpersonation : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonMisleadingImpersonation;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -24053,8 +24004,8 @@ public final class tools/ozone/report/Token$ReasonMisleadingSpam : tools/ozone/r
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class tools/ozone/report/Token$ReasonMisleadingSyntheticContent : tools/ozone/report/Token {
-	public static final field INSTANCE Ltools/ozone/report/Token$ReasonMisleadingSyntheticContent;
+public final class tools/ozone/report/Token$ReasonOther : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonOther;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -24088,8 +24039,36 @@ public final class tools/ozone/report/Token$ReasonRuleSiteSecurity : tools/ozone
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class tools/ozone/report/Token$ReasonRuleStolenContent : tools/ozone/report/Token {
-	public static final field INSTANCE Ltools/ozone/report/Token$ReasonRuleStolenContent;
+public final class tools/ozone/report/Token$ReasonSelfHarmContent : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonSelfHarmContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonSelfHarmED : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonSelfHarmED;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonSelfHarmOther : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonSelfHarmOther;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonSelfHarmStunts : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonSelfHarmStunts;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/Token$ReasonSelfHarmSubstances : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonSelfHarmSubstances;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -24130,13 +24109,6 @@ public final class tools/ozone/report/Token$ReasonSexualOther : tools/ozone/repo
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class tools/ozone/report/Token$ReasonSexualSextortion : tools/ozone/report/Token {
-	public static final field INSTANCE Ltools/ozone/report/Token$ReasonSexualSextortion;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
 public final class tools/ozone/report/Token$ReasonSexualUnlabeled : tools/ozone/report/Token {
 	public static final field INSTANCE Ltools/ozone/report/Token$ReasonSexualUnlabeled;
 	public fun equals (Ljava/lang/Object;)Z
@@ -24144,8 +24116,8 @@ public final class tools/ozone/report/Token$ReasonSexualUnlabeled : tools/ozone/
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class tools/ozone/report/Token$ReasonViolenceAnimalWelfare : tools/ozone/report/Token {
-	public static final field INSTANCE Ltools/ozone/report/Token$ReasonViolenceAnimalWelfare;
+public final class tools/ozone/report/Token$ReasonViolenceAnimal : tools/ozone/report/Token {
+	public static final field INSTANCE Ltools/ozone/report/Token$ReasonViolenceAnimal;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -24174,13 +24146,6 @@ public final class tools/ozone/report/Token$ReasonViolenceGraphicContent : tools
 
 public final class tools/ozone/report/Token$ReasonViolenceOther : tools/ozone/report/Token {
 	public static final field INSTANCE Ltools/ozone/report/Token$ReasonViolenceOther;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class tools/ozone/report/Token$ReasonViolenceSelfHarm : tools/ozone/report/Token {
-	public static final field INSTANCE Ltools/ozone/report/Token$ReasonViolenceSelfHarm;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
