@@ -19165,6 +19165,30 @@ public final class tools/ozone/moderation/AccountStats$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/AccountStrike {
+	public static final field Companion Ltools/ozone/moderation/AccountStrike$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Lkotlinx/datetime/Instant;
+	public final fun component4 ()Lkotlinx/datetime/Instant;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;)Ltools/ozone/moderation/AccountStrike;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/AccountStrike;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Ltools/ozone/moderation/AccountStrike;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActiveStrikeCount ()Ljava/lang/Long;
+	public final fun getFirstStrikeAt ()Lkotlinx/datetime/Instant;
+	public final fun getLastStrikeAt ()Lkotlinx/datetime/Instant;
+	public final fun getTotalStrikeCount ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/AccountStrike$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/moderation/AgeAssuranceEvent {
 	public static final field Companion Ltools/ozone/moderation/AgeAssuranceEvent$Companion;
 	public fun <init> (Lkotlinx/datetime/Instant;Ltools/ozone/moderation/AgeAssuranceEventStatus;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
@@ -20706,16 +20730,24 @@ public final class tools/ozone/moderation/ModEventDivert$Companion {
 
 public final class tools/ozone/moderation/ModEventEmail {
 	public static final field Companion Ltools/ozone/moderation/ModEventEmail$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ltools/ozone/moderation/ModEventEmail;
-	public static synthetic fun copy$default (Ltools/ozone/moderation/ModEventEmail;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/ModEventEmail;
+	public final fun component4 ()Ljava/util/List;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/Long;
+	public final fun component7 ()Lkotlinx/datetime/Instant;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;)Ltools/ozone/moderation/ModEventEmail;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/ModEventEmail;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Ltools/ozone/moderation/ModEventEmail;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getComment ()Ljava/lang/String;
 	public final fun getContent ()Ljava/lang/String;
+	public final fun getPolicies ()Ljava/util/List;
+	public final fun getSeverityLevel ()Ljava/lang/String;
+	public final fun getStrikeCount ()Ljava/lang/Long;
+	public final fun getStrikeExpiresAt ()Lkotlinx/datetime/Instant;
 	public final fun getSubjectLine ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -20866,13 +20898,19 @@ public final class tools/ozone/moderation/ModEventResolveAppeal$Companion {
 public final class tools/ozone/moderation/ModEventReverseTakedown {
 	public static final field Companion Ltools/ozone/moderation/ModEventReverseTakedown$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;)Ltools/ozone/moderation/ModEventReverseTakedown;
-	public static synthetic fun copy$default (Ltools/ozone/moderation/ModEventReverseTakedown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/ModEventReverseTakedown;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;)Ltools/ozone/moderation/ModEventReverseTakedown;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/ModEventReverseTakedown;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;ILjava/lang/Object;)Ltools/ozone/moderation/ModEventReverseTakedown;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getComment ()Ljava/lang/String;
+	public final fun getPolicies ()Ljava/util/List;
+	public final fun getSeverityLevel ()Ljava/lang/String;
+	public final fun getStrikeCount ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -20905,19 +20943,25 @@ public final class tools/ozone/moderation/ModEventTag$Companion {
 public final class tools/ozone/moderation/ModEventTakedown {
 	public static final field Companion Ltools/ozone/moderation/ModEventTakedown$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3 ()Ljava/lang/Boolean;
 	public final fun component4 ()Ljava/util/List;
-	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;)Ltools/ozone/moderation/ModEventTakedown;
-	public static synthetic fun copy$default (Ltools/ozone/moderation/ModEventTakedown;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/moderation/ModEventTakedown;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/Long;
+	public final fun component7 ()Lkotlinx/datetime/Instant;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;)Ltools/ozone/moderation/ModEventTakedown;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/ModEventTakedown;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Ltools/ozone/moderation/ModEventTakedown;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAcknowledgeAccountSubjects ()Ljava/lang/Boolean;
 	public final fun getComment ()Ljava/lang/String;
 	public final fun getDurationInHours ()Ljava/lang/Long;
 	public final fun getPolicies ()Ljava/util/List;
+	public final fun getSeverityLevel ()Ljava/lang/String;
+	public final fun getStrikeCount ()Ljava/lang/Long;
+	public final fun getStrikeExpiresAt ()Lkotlinx/datetime/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -22300,8 +22344,8 @@ public final class tools/ozone/moderation/QueryEventsAgeAssuranceStateSerializer
 
 public final class tools/ozone/moderation/QueryEventsQueryParams {
 	public static final field Companion Ltools/ozone/moderation/QueryEventsQueryParams$Companion;
-	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryEventsSubjectType;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/QueryEventsAgeAssuranceState;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryEventsSubjectType;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/QueryEventsAgeAssuranceState;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryEventsSubjectType;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/QueryEventsAgeAssuranceState;Ljava/lang/Boolean;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryEventsSubjectType;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/QueryEventsAgeAssuranceState;Ljava/lang/Boolean;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Ljava/util/List;
 	public final fun component1 ()Ljava/util/List;
 	public final fun component10 ()Ljava/lang/Long;
@@ -22317,7 +22361,8 @@ public final class tools/ozone/moderation/QueryEventsQueryParams {
 	public final fun component2-68yuAGA ()Ljava/lang/String;
 	public final fun component20 ()Ljava/lang/String;
 	public final fun component21 ()Ltools/ozone/moderation/QueryEventsAgeAssuranceState;
-	public final fun component22 ()Ljava/lang/String;
+	public final fun component22 ()Ljava/lang/Boolean;
+	public final fun component23 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Lkotlinx/datetime/Instant;
 	public final fun component5 ()Lkotlinx/datetime/Instant;
@@ -22325,8 +22370,8 @@ public final class tools/ozone/moderation/QueryEventsQueryParams {
 	public final fun component7 ()Ljava/util/List;
 	public final fun component8 ()Ltools/ozone/moderation/QueryEventsSubjectType;
 	public final fun component9 ()Ljava/lang/Boolean;
-	public final fun copy-c7qjF7I (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryEventsSubjectType;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/QueryEventsAgeAssuranceState;Ljava/lang/String;)Ltools/ozone/moderation/QueryEventsQueryParams;
-	public static synthetic fun copy-c7qjF7I$default (Ltools/ozone/moderation/QueryEventsQueryParams;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryEventsSubjectType;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/QueryEventsAgeAssuranceState;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/QueryEventsQueryParams;
+	public final fun copy-kgFOzBA (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryEventsSubjectType;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/QueryEventsAgeAssuranceState;Ljava/lang/Boolean;Ljava/lang/String;)Ltools/ozone/moderation/QueryEventsQueryParams;
+	public static synthetic fun copy-kgFOzBA$default (Ltools/ozone/moderation/QueryEventsQueryParams;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryEventsSubjectType;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/QueryEventsAgeAssuranceState;Ljava/lang/Boolean;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/QueryEventsQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAddedLabels ()Ljava/util/List;
 	public final fun getAddedTags ()Ljava/util/List;
@@ -22350,6 +22395,7 @@ public final class tools/ozone/moderation/QueryEventsQueryParams {
 	public final fun getSubject-pvpWXas ()Ljava/lang/String;
 	public final fun getSubjectType ()Ltools/ozone/moderation/QueryEventsSubjectType;
 	public final fun getTypes ()Ljava/util/List;
+	public final fun getWithStrike ()Ljava/lang/Boolean;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -22490,8 +22536,8 @@ public final class tools/ozone/moderation/QueryStatusesAgeAssuranceStateSerializ
 
 public final class tools/ozone/moderation/QueryStatusesQueryParams {
 	public static final field Companion Ltools/ozone/moderation/QueryStatusesQueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryStatusesSubjectType;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/moderation/QueryStatusesAgeAssuranceState;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryStatusesSubjectType;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/moderation/QueryStatusesAgeAssuranceState;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryStatusesSubjectType;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/moderation/QueryStatusesAgeAssuranceState;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryStatusesSubjectType;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/moderation/QueryStatusesAgeAssuranceState;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Ljava/util/List;
 	public final fun component1 ()Ljava/lang/Long;
 	public final fun component10 ()Lkotlinx/datetime/Instant;
@@ -22521,15 +22567,16 @@ public final class tools/ozone/moderation/QueryStatusesQueryParams {
 	public final fun component32 ()Ljava/lang/Long;
 	public final fun component33 ()Ljava/lang/Long;
 	public final fun component34 ()Ljava/lang/Long;
-	public final fun component35 ()Ltools/ozone/moderation/QueryStatusesAgeAssuranceState;
+	public final fun component35 ()Ljava/lang/Long;
+	public final fun component36 ()Ltools/ozone/moderation/QueryStatusesAgeAssuranceState;
 	public final fun component4 ()Ljava/lang/Boolean;
 	public final fun component5-pvpWXas ()Ljava/lang/String;
 	public final fun component6 ()Ljava/lang/String;
 	public final fun component7 ()Lkotlinx/datetime/Instant;
 	public final fun component8 ()Lkotlinx/datetime/Instant;
 	public final fun component9 ()Lkotlinx/datetime/Instant;
-	public final fun copy-xWtH1AQ (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryStatusesSubjectType;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/moderation/QueryStatusesAgeAssuranceState;)Ltools/ozone/moderation/QueryStatusesQueryParams;
-	public static synthetic fun copy-xWtH1AQ$default (Ltools/ozone/moderation/QueryStatusesQueryParams;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryStatusesSubjectType;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/moderation/QueryStatusesAgeAssuranceState;IILjava/lang/Object;)Ltools/ozone/moderation/QueryStatusesQueryParams;
+	public final fun copy-jdMVuoQ (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryStatusesSubjectType;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/moderation/QueryStatusesAgeAssuranceState;)Ltools/ozone/moderation/QueryStatusesQueryParams;
+	public static synthetic fun copy-jdMVuoQ$default (Ltools/ozone/moderation/QueryStatusesQueryParams;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/util/List;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ltools/ozone/moderation/QueryStatusesSubjectType;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/moderation/QueryStatusesAgeAssuranceState;IILjava/lang/Object;)Ltools/ozone/moderation/QueryStatusesQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAgeAssuranceState ()Ltools/ozone/moderation/QueryStatusesAgeAssuranceState;
 	public final fun getAppealed ()Ljava/lang/Boolean;
@@ -22550,6 +22597,7 @@ public final class tools/ozone/moderation/QueryStatusesQueryParams {
 	public final fun getMinAccountSuspendCount ()Ljava/lang/Long;
 	public final fun getMinPriorityScore ()Ljava/lang/Long;
 	public final fun getMinReportedRecordsCount ()Ljava/lang/Long;
+	public final fun getMinStrikeCount ()Ljava/lang/Long;
 	public final fun getMinTakendownRecordsCount ()Ljava/lang/Long;
 	public final fun getOnlyMuted ()Ljava/lang/Boolean;
 	public final fun getQueueCount ()Ljava/lang/Long;
@@ -23399,8 +23447,8 @@ public final class tools/ozone/moderation/SearchReposResponse$Companion {
 
 public final class tools/ozone/moderation/SubjectStatusView {
 	public static final field Companion Ltools/ozone/moderation/SubjectStatusView$Companion;
-	public synthetic fun <init> (JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Ltools/ozone/moderation/SubjectStatusViewHostingUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/util/List;Ltools/ozone/moderation/AccountStats;Ltools/ozone/moderation/RecordsStats;Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceState;Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceUpdatedBy;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Ltools/ozone/moderation/SubjectStatusViewHostingUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/util/List;Ltools/ozone/moderation/AccountStats;Ltools/ozone/moderation/RecordsStats;Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceState;Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceUpdatedBy;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Ltools/ozone/moderation/SubjectStatusViewHostingUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/util/List;Ltools/ozone/moderation/AccountStats;Ltools/ozone/moderation/RecordsStats;Ltools/ozone/moderation/AccountStrike;Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceState;Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceUpdatedBy;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Ltools/ozone/moderation/SubjectStatusViewHostingUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/util/List;Ltools/ozone/moderation/AccountStats;Ltools/ozone/moderation/RecordsStats;Ltools/ozone/moderation/AccountStrike;Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceState;Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceUpdatedBy;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
 	public final fun component10 ()Ljava/lang/Long;
 	public final fun component11 ()Lkotlinx/datetime/Instant;
@@ -23416,8 +23464,9 @@ public final class tools/ozone/moderation/SubjectStatusView {
 	public final fun component20 ()Ljava/util/List;
 	public final fun component21 ()Ltools/ozone/moderation/AccountStats;
 	public final fun component22 ()Ltools/ozone/moderation/RecordsStats;
-	public final fun component23 ()Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceState;
-	public final fun component24 ()Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceUpdatedBy;
+	public final fun component23 ()Ltools/ozone/moderation/AccountStrike;
+	public final fun component24 ()Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceState;
+	public final fun component25 ()Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceUpdatedBy;
 	public final fun component3 ()Ltools/ozone/moderation/SubjectStatusViewHostingUnion;
 	public final fun component4 ()Ljava/util/List;
 	public final fun component5 ()Ljava/lang/String;
@@ -23425,10 +23474,11 @@ public final class tools/ozone/moderation/SubjectStatusView {
 	public final fun component7 ()Lkotlinx/datetime/Instant;
 	public final fun component8 ()Ltools/ozone/moderation/Token;
 	public final fun component9 ()Ljava/lang/String;
-	public final fun copy-jNux3o8 (JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Ltools/ozone/moderation/SubjectStatusViewHostingUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/util/List;Ltools/ozone/moderation/AccountStats;Ltools/ozone/moderation/RecordsStats;Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceState;Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceUpdatedBy;)Ltools/ozone/moderation/SubjectStatusView;
-	public static synthetic fun copy-jNux3o8$default (Ltools/ozone/moderation/SubjectStatusView;JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Ltools/ozone/moderation/SubjectStatusViewHostingUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/util/List;Ltools/ozone/moderation/AccountStats;Ltools/ozone/moderation/RecordsStats;Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceState;Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceUpdatedBy;ILjava/lang/Object;)Ltools/ozone/moderation/SubjectStatusView;
+	public final fun copy-uTCeVEM (JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Ltools/ozone/moderation/SubjectStatusViewHostingUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/util/List;Ltools/ozone/moderation/AccountStats;Ltools/ozone/moderation/RecordsStats;Ltools/ozone/moderation/AccountStrike;Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceState;Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceUpdatedBy;)Ltools/ozone/moderation/SubjectStatusView;
+	public static synthetic fun copy-uTCeVEM$default (Ltools/ozone/moderation/SubjectStatusView;JLtools/ozone/moderation/SubjectStatusViewSubjectUnion;Ltools/ozone/moderation/SubjectStatusViewHostingUnion;Ljava/util/List;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/Token;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlinx/datetime/Instant;Ljava/util/List;Ltools/ozone/moderation/AccountStats;Ltools/ozone/moderation/RecordsStats;Ltools/ozone/moderation/AccountStrike;Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceState;Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceUpdatedBy;ILjava/lang/Object;)Ltools/ozone/moderation/SubjectStatusView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAccountStats ()Ltools/ozone/moderation/AccountStats;
+	public final fun getAccountStrike ()Ltools/ozone/moderation/AccountStrike;
 	public final fun getAgeAssuranceState ()Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceState;
 	public final fun getAgeAssuranceUpdatedBy ()Ltools/ozone/moderation/SubjectStatusViewAgeAssuranceUpdatedBy;
 	public final fun getAppealed ()Ljava/lang/Boolean;
