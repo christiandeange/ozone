@@ -1230,13 +1230,14 @@ public final class app/bsky/actor/ProfileLabelsUnion$Unknown$Companion {
 
 public final class app/bsky/actor/ProfileView {
 	public static final field Companion Lapp/bsky/actor/ProfileView$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;Lsh/christian/ozone/api/model/JsonContent;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;Lsh/christian/ozone/api/model/JsonContent;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component10 ()Lapp/bsky/actor/ViewerState;
 	public final fun component11 ()Ljava/util/List;
 	public final fun component12 ()Lapp/bsky/actor/VerificationState;
 	public final fun component13 ()Lapp/bsky/actor/StatusView;
+	public final fun component14 ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun component2-hDwCUG8 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
@@ -1245,12 +1246,13 @@ public final class app/bsky/actor/ProfileView {
 	public final fun component7 ()Lapp/bsky/actor/ProfileAssociated;
 	public final fun component8 ()Lkotlinx/datetime/Instant;
 	public final fun component9 ()Lkotlinx/datetime/Instant;
-	public final fun copy-WGntTpg (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;)Lapp/bsky/actor/ProfileView;
-	public static synthetic fun copy-WGntTpg$default (Lapp/bsky/actor/ProfileView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;ILjava/lang/Object;)Lapp/bsky/actor/ProfileView;
+	public final fun copy-0ywYdrk (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/actor/ProfileView;
+	public static synthetic fun copy-0ywYdrk$default (Lapp/bsky/actor/ProfileView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;Lsh/christian/ozone/api/model/JsonContent;ILjava/lang/Object;)Lapp/bsky/actor/ProfileView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAssociated ()Lapp/bsky/actor/ProfileAssociated;
 	public final fun getAvatar-pvpWXas ()Ljava/lang/String;
 	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getDebug ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun getDescription ()Ljava/lang/String;
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getDisplayName ()Ljava/lang/String;
@@ -1271,11 +1273,12 @@ public final class app/bsky/actor/ProfileView$Companion {
 
 public final class app/bsky/actor/ProfileViewBasic {
 	public static final field Companion Lapp/bsky/actor/ProfileViewBasic$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lkotlinx/datetime/Instant;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lkotlinx/datetime/Instant;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lkotlinx/datetime/Instant;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;Lsh/christian/ozone/api/model/JsonContent;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lkotlinx/datetime/Instant;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;Lsh/christian/ozone/api/model/JsonContent;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component10 ()Lapp/bsky/actor/VerificationState;
 	public final fun component11 ()Lapp/bsky/actor/StatusView;
+	public final fun component12 ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun component2-hDwCUG8 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
@@ -1284,12 +1287,13 @@ public final class app/bsky/actor/ProfileViewBasic {
 	public final fun component7 ()Lapp/bsky/actor/ViewerState;
 	public final fun component8 ()Ljava/util/List;
 	public final fun component9 ()Lkotlinx/datetime/Instant;
-	public final fun copy-npuhNVQ (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lkotlinx/datetime/Instant;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;)Lapp/bsky/actor/ProfileViewBasic;
-	public static synthetic fun copy-npuhNVQ$default (Lapp/bsky/actor/ProfileViewBasic;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lkotlinx/datetime/Instant;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;ILjava/lang/Object;)Lapp/bsky/actor/ProfileViewBasic;
+	public final fun copy-TZ3dhsI (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lkotlinx/datetime/Instant;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/actor/ProfileViewBasic;
+	public static synthetic fun copy-TZ3dhsI$default (Lapp/bsky/actor/ProfileViewBasic;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lkotlinx/datetime/Instant;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;Lsh/christian/ozone/api/model/JsonContent;ILjava/lang/Object;)Lapp/bsky/actor/ProfileViewBasic;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAssociated ()Lapp/bsky/actor/ProfileAssociated;
 	public final fun getAvatar-pvpWXas ()Ljava/lang/String;
 	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getDebug ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getDisplayName ()Ljava/lang/String;
 	public final fun getHandle-hDwCUG8 ()Ljava/lang/String;
@@ -1308,8 +1312,8 @@ public final class app/bsky/actor/ProfileViewBasic$Companion {
 
 public final class app/bsky/actor/ProfileViewDetailed {
 	public static final field Companion Lapp/bsky/actor/ProfileViewDetailed$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/graph/StarterPackViewBasic;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/graph/StarterPackViewBasic;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/graph/StarterPackViewBasic;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;Lsh/christian/ozone/api/model/JsonContent;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/graph/StarterPackViewBasic;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;Lsh/christian/ozone/api/model/JsonContent;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component10 ()Ljava/lang/Long;
 	public final fun component11 ()Ljava/lang/Long;
@@ -1323,6 +1327,7 @@ public final class app/bsky/actor/ProfileViewDetailed {
 	public final fun component19 ()Lapp/bsky/actor/VerificationState;
 	public final fun component2-hDwCUG8 ()Ljava/lang/String;
 	public final fun component20 ()Lapp/bsky/actor/StatusView;
+	public final fun component21 ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
 	public final fun component5 ()Ljava/lang/String;
@@ -1330,13 +1335,14 @@ public final class app/bsky/actor/ProfileViewDetailed {
 	public final fun component7-pvpWXas ()Ljava/lang/String;
 	public final fun component8-pvpWXas ()Ljava/lang/String;
 	public final fun component9 ()Ljava/lang/Long;
-	public final fun copy-Uj1RlJc (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/graph/StarterPackViewBasic;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;)Lapp/bsky/actor/ProfileViewDetailed;
-	public static synthetic fun copy-Uj1RlJc$default (Lapp/bsky/actor/ProfileViewDetailed;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/graph/StarterPackViewBasic;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;ILjava/lang/Object;)Lapp/bsky/actor/ProfileViewDetailed;
+	public final fun copy-51CJuE8 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/graph/StarterPackViewBasic;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/actor/ProfileViewDetailed;
+	public static synthetic fun copy-51CJuE8$default (Lapp/bsky/actor/ProfileViewDetailed;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/graph/StarterPackViewBasic;Lkotlinx/datetime/Instant;Lkotlinx/datetime/Instant;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;Lapp/bsky/actor/VerificationState;Lapp/bsky/actor/StatusView;Lsh/christian/ozone/api/model/JsonContent;ILjava/lang/Object;)Lapp/bsky/actor/ProfileViewDetailed;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAssociated ()Lapp/bsky/actor/ProfileAssociated;
 	public final fun getAvatar-pvpWXas ()Ljava/lang/String;
 	public final fun getBanner-pvpWXas ()Ljava/lang/String;
 	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getDebug ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun getDescription ()Ljava/lang/String;
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getDisplayName ()Ljava/lang/String;
@@ -4497,14 +4503,15 @@ public final class app/bsky/feed/PostTextSlice$Companion {
 
 public final class app/bsky/feed/PostView {
 	public static final field Companion Lapp/bsky/feed/PostView$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Ljava/util/List;Lapp/bsky/feed/ThreadgateView;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Ljava/util/List;Lapp/bsky/feed/ThreadgateView;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Ljava/util/List;Lapp/bsky/feed/ThreadgateView;Lsh/christian/ozone/api/model/JsonContent;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Ljava/util/List;Lapp/bsky/feed/ThreadgateView;Lsh/christian/ozone/api/model/JsonContent;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-x27MrHI ()Ljava/lang/String;
 	public final fun component10 ()Ljava/lang/Long;
 	public final fun component11 ()Lkotlinx/datetime/Instant;
 	public final fun component12 ()Lapp/bsky/feed/ViewerState;
 	public final fun component13 ()Ljava/util/List;
 	public final fun component14 ()Lapp/bsky/feed/ThreadgateView;
+	public final fun component15 ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun component2-OA0YjOw ()Ljava/lang/String;
 	public final fun component3 ()Lapp/bsky/actor/ProfileViewBasic;
 	public final fun component4 ()Lsh/christian/ozone/api/model/JsonContent;
@@ -4513,12 +4520,13 @@ public final class app/bsky/feed/PostView {
 	public final fun component7 ()Ljava/lang/Long;
 	public final fun component8 ()Ljava/lang/Long;
 	public final fun component9 ()Ljava/lang/Long;
-	public final fun copy-9iefSLs (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Ljava/util/List;Lapp/bsky/feed/ThreadgateView;)Lapp/bsky/feed/PostView;
-	public static synthetic fun copy-9iefSLs$default (Lapp/bsky/feed/PostView;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Ljava/util/List;Lapp/bsky/feed/ThreadgateView;ILjava/lang/Object;)Lapp/bsky/feed/PostView;
+	public final fun copy-uxDpM98 (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Ljava/util/List;Lapp/bsky/feed/ThreadgateView;Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/feed/PostView;
+	public static synthetic fun copy-uxDpM98$default (Lapp/bsky/feed/PostView;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Ljava/util/List;Lapp/bsky/feed/ThreadgateView;Lsh/christian/ozone/api/model/JsonContent;ILjava/lang/Object;)Lapp/bsky/feed/PostView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAuthor ()Lapp/bsky/actor/ProfileViewBasic;
 	public final fun getBookmarkCount ()Ljava/lang/Long;
 	public final fun getCid-OA0YjOw ()Ljava/lang/String;
+	public final fun getDebug ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun getEmbed ()Lapp/bsky/feed/PostViewEmbedUnion;
 	public final fun getIndexedAt ()Lkotlinx/datetime/Instant;
 	public final fun getLabels ()Ljava/util/List;
