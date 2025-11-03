@@ -14105,6 +14105,43 @@ public final class com/atproto/label/SubscribeLabelsQueryParams$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class com/atproto/lexicon/ResolveLexiconQueryParams {
+	public static final field Companion Lcom/atproto/lexicon/ResolveLexiconQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1-Ley70Jo ()Ljava/lang/String;
+	public final fun copy-dYdzEwk (Ljava/lang/String;)Lcom/atproto/lexicon/ResolveLexiconQueryParams;
+	public static synthetic fun copy-dYdzEwk$default (Lcom/atproto/lexicon/ResolveLexiconQueryParams;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/lexicon/ResolveLexiconQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getNsid-Ley70Jo ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/lexicon/ResolveLexiconQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/atproto/lexicon/ResolveLexiconResponse {
+	public static final field Companion Lcom/atproto/lexicon/ResolveLexiconResponse$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lcom/atproto/lexicon/Schema;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-OA0YjOw ()Ljava/lang/String;
+	public final fun component2 ()Lcom/atproto/lexicon/Schema;
+	public final fun component3-x27MrHI ()Ljava/lang/String;
+	public final fun copy-fPDdmkk (Ljava/lang/String;Lcom/atproto/lexicon/Schema;Ljava/lang/String;)Lcom/atproto/lexicon/ResolveLexiconResponse;
+	public static synthetic fun copy-fPDdmkk$default (Lcom/atproto/lexicon/ResolveLexiconResponse;Ljava/lang/String;Lcom/atproto/lexicon/Schema;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/lexicon/ResolveLexiconResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCid-OA0YjOw ()Ljava/lang/String;
+	public final fun getSchema ()Lcom/atproto/lexicon/Schema;
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/atproto/lexicon/ResolveLexiconResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/atproto/lexicon/Schema {
 	public static final field Companion Lcom/atproto/lexicon/Schema$Companion;
 	public fun <init> (J)V
@@ -17900,6 +17937,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun resolveDid (Lcom/atproto/identity/ResolveDidQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun resolveHandle (Lcom/atproto/identity/ResolveHandleQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun resolveIdentity (Lcom/atproto/identity/ResolveIdentityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun resolveLexicon (Lcom/atproto/lexicon/ResolveLexiconQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun revokeAccountCredentials (Lcom/atproto/temp/RevokeAccountCredentialsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun revokeAppPassword (Lcom/atproto/server/RevokeAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun revokeVerifications (Ltools/ozone/verification/RevokeVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18145,6 +18183,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun resolveDid (Lcom/atproto/identity/ResolveDidQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun resolveHandle (Lcom/atproto/identity/ResolveHandleQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun resolveIdentity (Lcom/atproto/identity/ResolveIdentityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun resolveLexicon (Lcom/atproto/lexicon/ResolveLexiconQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeAccountCredentials (Lcom/atproto/temp/RevokeAccountCredentialsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeAppPassword (Lcom/atproto/server/RevokeAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeVerifications (Ltools/ozone/verification/RevokeVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18393,6 +18432,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun resolveDid (Lcom/atproto/identity/ResolveDidQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun resolveHandle (Lcom/atproto/identity/ResolveHandleQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun resolveIdentity (Lcom/atproto/identity/ResolveIdentityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun resolveLexicon (Lcom/atproto/lexicon/ResolveLexiconQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeAccountCredentials (Lcom/atproto/temp/RevokeAccountCredentialsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeAppPassword (Lcom/atproto/server/RevokeAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeVerifications (Ltools/ozone/verification/RevokeVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
