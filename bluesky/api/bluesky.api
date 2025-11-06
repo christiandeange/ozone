@@ -1756,14 +1756,12 @@ public final class app/bsky/actor/StatusViewEmbedUnion$View$Companion {
 public final class app/bsky/actor/ThreadViewPref {
 	public static final field Companion Lapp/bsky/actor/ThreadViewPref$Companion;
 	public fun <init> ()V
-	public fun <init> (Lapp/bsky/actor/ThreadViewPrefSort;Ljava/lang/Boolean;)V
-	public synthetic fun <init> (Lapp/bsky/actor/ThreadViewPrefSort;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lapp/bsky/actor/ThreadViewPrefSort;)V
+	public synthetic fun <init> (Lapp/bsky/actor/ThreadViewPrefSort;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lapp/bsky/actor/ThreadViewPrefSort;
-	public final fun component2 ()Ljava/lang/Boolean;
-	public final fun copy (Lapp/bsky/actor/ThreadViewPrefSort;Ljava/lang/Boolean;)Lapp/bsky/actor/ThreadViewPref;
-	public static synthetic fun copy$default (Lapp/bsky/actor/ThreadViewPref;Lapp/bsky/actor/ThreadViewPrefSort;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/actor/ThreadViewPref;
+	public final fun copy (Lapp/bsky/actor/ThreadViewPrefSort;)Lapp/bsky/actor/ThreadViewPref;
+	public static synthetic fun copy$default (Lapp/bsky/actor/ThreadViewPref;Lapp/bsky/actor/ThreadViewPrefSort;ILjava/lang/Object;)Lapp/bsky/actor/ThreadViewPref;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getPrioritizeFollowedUsers ()Ljava/lang/Boolean;
 	public final fun getSort ()Lapp/bsky/actor/ThreadViewPrefSort;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -8842,16 +8840,13 @@ public final class app/bsky/unspecced/GetPopularFeedGeneratorsResponse$Companion
 
 public final class app/bsky/unspecced/GetPostThreadOtherV2QueryParams {
 	public static final field Companion Lapp/bsky/unspecced/GetPostThreadOtherV2QueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Ljava/util/List;
 	public final fun component1-x27MrHI ()Ljava/lang/String;
-	public final fun component2 ()Ljava/lang/Boolean;
-	public final fun copy-wMvghHc (Ljava/lang/String;Ljava/lang/Boolean;)Lapp/bsky/unspecced/GetPostThreadOtherV2QueryParams;
-	public static synthetic fun copy-wMvghHc$default (Lapp/bsky/unspecced/GetPostThreadOtherV2QueryParams;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/unspecced/GetPostThreadOtherV2QueryParams;
+	public final fun copy-g66Z2H8 (Ljava/lang/String;)Lapp/bsky/unspecced/GetPostThreadOtherV2QueryParams;
+	public static synthetic fun copy-g66Z2H8$default (Lapp/bsky/unspecced/GetPostThreadOtherV2QueryParams;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetPostThreadOtherV2QueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAnchor-x27MrHI ()Ljava/lang/String;
-	public final fun getPrioritizeFollowedUsers ()Ljava/lang/Boolean;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -8944,23 +8939,21 @@ public final class app/bsky/unspecced/GetPostThreadOtherV2ThreadItemValueUnion$U
 
 public final class app/bsky/unspecced/GetPostThreadV2QueryParams {
 	public static final field Companion Lapp/bsky/unspecced/GetPostThreadV2QueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/unspecced/GetPostThreadV2Sort;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/unspecced/GetPostThreadV2Sort;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/unspecced/GetPostThreadV2Sort;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/unspecced/GetPostThreadV2Sort;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Ljava/util/List;
 	public final fun component1-x27MrHI ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/Boolean;
 	public final fun component3 ()Ljava/lang/Long;
 	public final fun component4 ()Ljava/lang/Long;
-	public final fun component5 ()Ljava/lang/Boolean;
-	public final fun component6 ()Lapp/bsky/unspecced/GetPostThreadV2Sort;
-	public final fun copy-fiT2n1U (Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/unspecced/GetPostThreadV2Sort;)Lapp/bsky/unspecced/GetPostThreadV2QueryParams;
-	public static synthetic fun copy-fiT2n1U$default (Lapp/bsky/unspecced/GetPostThreadV2QueryParams;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/unspecced/GetPostThreadV2Sort;ILjava/lang/Object;)Lapp/bsky/unspecced/GetPostThreadV2QueryParams;
+	public final fun component5 ()Lapp/bsky/unspecced/GetPostThreadV2Sort;
+	public final fun copy-LJwFo8M (Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/unspecced/GetPostThreadV2Sort;)Lapp/bsky/unspecced/GetPostThreadV2QueryParams;
+	public static synthetic fun copy-LJwFo8M$default (Lapp/bsky/unspecced/GetPostThreadV2QueryParams;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/unspecced/GetPostThreadV2Sort;ILjava/lang/Object;)Lapp/bsky/unspecced/GetPostThreadV2QueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAbove ()Ljava/lang/Boolean;
 	public final fun getAnchor-x27MrHI ()Ljava/lang/String;
 	public final fun getBelow ()Ljava/lang/Long;
 	public final fun getBranchingFactor ()Ljava/lang/Long;
-	public final fun getPrioritizeFollowedUsers ()Ljava/lang/Boolean;
 	public final fun getSort ()Lapp/bsky/unspecced/GetPostThreadV2Sort;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
