@@ -3,9 +3,9 @@ package sh.christian.ozone.util
 import android.text.format.DateFormat
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
-import kotlinx.datetime.toJavaInstant
 import sh.christian.ozone.model.Moment
 import java.util.Date
+import kotlin.time.toJavaInstant
 
 @Composable
 actual fun Moment.formatDate(): String {
