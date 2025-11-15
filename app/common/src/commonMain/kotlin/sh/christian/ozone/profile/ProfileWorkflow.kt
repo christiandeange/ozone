@@ -8,7 +8,7 @@ import com.squareup.workflow1.WorkflowAction
 import com.squareup.workflow1.action
 import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
-import kotlinx.datetime.Clock
+import kotlin.time.Clock
 import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.api.ApiProvider
 import sh.christian.ozone.api.NetworkWorker

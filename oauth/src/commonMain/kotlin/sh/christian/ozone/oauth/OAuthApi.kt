@@ -20,7 +20,6 @@ import io.ktor.http.isSuccess
 import io.ktor.http.takeFrom
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.coroutineScope
-import kotlinx.datetime.Clock
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
@@ -34,6 +33,7 @@ import sh.christian.ozone.oauth.network.OAuthParRequest
 import sh.christian.ozone.oauth.network.OAuthParResponse
 import sh.christian.ozone.oauth.network.OAuthTokenResponse
 import kotlin.random.Random
+import kotlin.time.Clock
 import kotlin.time.Duration.Companion.seconds
 
 /**

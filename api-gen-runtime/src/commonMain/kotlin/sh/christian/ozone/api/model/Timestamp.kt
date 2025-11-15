@@ -1,8 +1,8 @@
 package sh.christian.ozone.api.model
 
-import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
 import sh.christian.ozone.api.runtime.LenientInstantIso8601Serializer
+import kotlin.time.Instant
 
 /**
  * A specific moment in time.
