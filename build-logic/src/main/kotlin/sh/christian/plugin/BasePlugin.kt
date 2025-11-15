@@ -17,6 +17,7 @@ private fun Project.applyPlugin() {
   tasks.withType<KotlinCompile>().configureEach {
     compilerOptions {
       jvmTarget.set(JvmTarget.JVM_11)
+      optIn.add("kotlin.time.ExperimentalTime")
     }
   }
 
