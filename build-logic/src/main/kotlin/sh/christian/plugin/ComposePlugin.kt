@@ -27,12 +27,16 @@ private fun Project.applyPlugin() {
   tasks.withType<KotlinCompile>().configureEach {
     if (project.findProperty("enableComposeCompilerReports") == "true") {
       val destinationPath = project.buildDir.absolutePath + "/compose_metrics"
-      kotlinOptions.freeCompilerArgs += listOf(
-        "-P",
-        "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=$destinationPath",
-        "-P",
-        "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=$destinationPath"
-      )
+      compilerOptions {
+        freeCompilerArgs.addAll(
+          listOf(
+            "-P",
+            "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=$destinationPath",
+            "-P",
+            "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=$destinationPath"
+          )
+        )
+      }
     }
   }
 }
