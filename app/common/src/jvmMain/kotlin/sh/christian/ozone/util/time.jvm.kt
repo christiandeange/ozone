@@ -1,12 +1,12 @@
 package sh.christian.ozone.util
 
 import androidx.compose.runtime.Composable
-import kotlinx.datetime.toJavaInstant
 import sh.christian.ozone.model.Moment
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import kotlin.time.toJavaInstant
 
 @Composable
 actual fun Moment.formatDate(): String {
