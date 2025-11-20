@@ -20774,8 +20774,8 @@ public final class tools/ozone/moderation/ModEventDivert$Companion {
 
 public final class tools/ozone/moderation/ModEventEmail {
 	public static final field Companion Ltools/ozone/moderation/ModEventEmail$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
@@ -20783,8 +20783,9 @@ public final class tools/ozone/moderation/ModEventEmail {
 	public final fun component5 ()Ljava/lang/String;
 	public final fun component6 ()Ljava/lang/Long;
 	public final fun component7 ()Lkotlinx/datetime/Instant;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;)Ltools/ozone/moderation/ModEventEmail;
-	public static synthetic fun copy$default (Ltools/ozone/moderation/ModEventEmail;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Ltools/ozone/moderation/ModEventEmail;
+	public final fun component8 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;)Ltools/ozone/moderation/ModEventEmail;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/ModEventEmail;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Ljava/lang/Boolean;ILjava/lang/Object;)Ltools/ozone/moderation/ModEventEmail;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getComment ()Ljava/lang/String;
 	public final fun getContent ()Ljava/lang/String;
@@ -20794,6 +20795,7 @@ public final class tools/ozone/moderation/ModEventEmail {
 	public final fun getStrikeExpiresAt ()Lkotlinx/datetime/Instant;
 	public final fun getSubjectLine ()Ljava/lang/String;
 	public fun hashCode ()I
+	public final fun isDelivered ()Ljava/lang/Boolean;
 	public fun toString ()Ljava/lang/String;
 }
 
@@ -23306,19 +23308,29 @@ public final class tools/ozone/moderation/ScheduleActionSchedulingConfig$Compani
 public final class tools/ozone/moderation/ScheduleActionTakedown {
 	public static final field Companion Ltools/ozone/moderation/ScheduleActionTakedown$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3 ()Ljava/lang/Boolean;
 	public final fun component4 ()Ljava/util/List;
-	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;)Ltools/ozone/moderation/ScheduleActionTakedown;
-	public static synthetic fun copy$default (Ltools/ozone/moderation/ScheduleActionTakedown;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/moderation/ScheduleActionTakedown;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/Long;
+	public final fun component7 ()Lkotlinx/datetime/Instant;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/String;)Ltools/ozone/moderation/ScheduleActionTakedown;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/ScheduleActionTakedown;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/util/List;Ljava/lang/String;Ljava/lang/Long;Lkotlinx/datetime/Instant;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/ScheduleActionTakedown;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAcknowledgeAccountSubjects ()Ljava/lang/Boolean;
 	public final fun getComment ()Ljava/lang/String;
 	public final fun getDurationInHours ()Ljava/lang/Long;
+	public final fun getEmailContent ()Ljava/lang/String;
+	public final fun getEmailSubject ()Ljava/lang/String;
 	public final fun getPolicies ()Ljava/util/List;
+	public final fun getSeverityLevel ()Ljava/lang/String;
+	public final fun getStrikeCount ()Ljava/lang/Long;
+	public final fun getStrikeExpiresAt ()Lkotlinx/datetime/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
