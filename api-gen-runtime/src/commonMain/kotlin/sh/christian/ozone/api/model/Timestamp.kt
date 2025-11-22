@@ -1,6 +1,6 @@
 package sh.christian.ozone.api.model
 
-import kotlinx.datetime.Instant
+import kotlin.time.Instant
 import kotlinx.serialization.Serializable
 import sh.christian.ozone.api.runtime.LenientInstantIso8601Serializer
 
