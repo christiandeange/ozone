@@ -1,6 +1,6 @@
 package sh.christian.ozone.di
 
-import kotlinx.datetime.Clock
+import kotlin.time.Clock
 import me.tatarka.inject.annotations.Component
 import me.tatarka.inject.annotations.IntoSet
 import me.tatarka.inject.annotations.Provides
