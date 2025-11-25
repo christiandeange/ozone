@@ -2034,6 +2034,700 @@ public final class app/bsky/actor/ViewerState$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public abstract class app/bsky/ageassurance/Access : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/ageassurance/Access$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/Access$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/ageassurance/Access;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/Access$Full : app/bsky/ageassurance/Access {
+	public static final field INSTANCE Lapp/bsky/ageassurance/Access$Full;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/Access$None : app/bsky/ageassurance/Access {
+	public static final field INSTANCE Lapp/bsky/ageassurance/Access$None;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/Access$Safe : app/bsky/ageassurance/Access {
+	public static final field INSTANCE Lapp/bsky/ageassurance/Access$Safe;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/Access$Unknown : app/bsky/ageassurance/Access {
+	public static final field INSTANCE Lapp/bsky/ageassurance/Access$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/Access$_Unknown : app/bsky/ageassurance/Access {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/ageassurance/Access$_Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/Access$_Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/ageassurance/Access$_Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/AccessSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/ageassurance/Access;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/ageassurance/Access;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class app/bsky/ageassurance/BeginRequest {
+	public static final field Companion Lapp/bsky/ageassurance/BeginRequest$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/ageassurance/BeginRequest;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/BeginRequest;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/ageassurance/BeginRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCountryCode ()Ljava/lang/String;
+	public final fun getEmail ()Ljava/lang/String;
+	public final fun getLanguage ()Ljava/lang/String;
+	public final fun getRegionCode ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/BeginRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/Config {
+	public static final field Companion Lapp/bsky/ageassurance/Config$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lapp/bsky/ageassurance/Config;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/Config;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/ageassurance/Config;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRegions ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/Config$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/ConfigRegion {
+	public static final field Companion Lapp/bsky/ageassurance/ConfigRegion$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Lapp/bsky/ageassurance/ConfigRegion;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/ConfigRegion;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/ageassurance/ConfigRegion;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCountryCode ()Ljava/lang/String;
+	public final fun getRegionCode ()Ljava/lang/String;
+	public final fun getRules ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/ConfigRegion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleDefault {
+	public static final field Companion Lapp/bsky/ageassurance/ConfigRegionRuleDefault$Companion;
+	public fun <init> (Lapp/bsky/ageassurance/Access;)V
+	public final fun component1 ()Lapp/bsky/ageassurance/Access;
+	public final fun copy (Lapp/bsky/ageassurance/Access;)Lapp/bsky/ageassurance/ConfigRegionRuleDefault;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/ConfigRegionRuleDefault;Lapp/bsky/ageassurance/Access;ILjava/lang/Object;)Lapp/bsky/ageassurance/ConfigRegionRuleDefault;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccess ()Lapp/bsky/ageassurance/Access;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleDefault$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleIfAccountNewerThan {
+	public static final field Companion Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountNewerThan$Companion;
+	public fun <init> (Lkotlinx/datetime/Instant;Lapp/bsky/ageassurance/Access;)V
+	public final fun component1 ()Lkotlinx/datetime/Instant;
+	public final fun component2 ()Lapp/bsky/ageassurance/Access;
+	public final fun copy (Lkotlinx/datetime/Instant;Lapp/bsky/ageassurance/Access;)Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountNewerThan;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountNewerThan;Lkotlinx/datetime/Instant;Lapp/bsky/ageassurance/Access;ILjava/lang/Object;)Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountNewerThan;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccess ()Lapp/bsky/ageassurance/Access;
+	public final fun getDate ()Lkotlinx/datetime/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleIfAccountNewerThan$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleIfAccountOlderThan {
+	public static final field Companion Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountOlderThan$Companion;
+	public fun <init> (Lkotlinx/datetime/Instant;Lapp/bsky/ageassurance/Access;)V
+	public final fun component1 ()Lkotlinx/datetime/Instant;
+	public final fun component2 ()Lapp/bsky/ageassurance/Access;
+	public final fun copy (Lkotlinx/datetime/Instant;Lapp/bsky/ageassurance/Access;)Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountOlderThan;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountOlderThan;Lkotlinx/datetime/Instant;Lapp/bsky/ageassurance/Access;ILjava/lang/Object;)Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountOlderThan;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccess ()Lapp/bsky/ageassurance/Access;
+	public final fun getDate ()Lkotlinx/datetime/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleIfAccountOlderThan$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleIfAssuredOverAge {
+	public static final field Companion Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredOverAge$Companion;
+	public fun <init> (JLapp/bsky/ageassurance/Access;)V
+	public final fun component1 ()J
+	public final fun component2 ()Lapp/bsky/ageassurance/Access;
+	public final fun copy (JLapp/bsky/ageassurance/Access;)Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredOverAge;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredOverAge;JLapp/bsky/ageassurance/Access;ILjava/lang/Object;)Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredOverAge;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccess ()Lapp/bsky/ageassurance/Access;
+	public final fun getAge ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleIfAssuredOverAge$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleIfAssuredUnderAge {
+	public static final field Companion Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredUnderAge$Companion;
+	public fun <init> (JLapp/bsky/ageassurance/Access;)V
+	public final fun component1 ()J
+	public final fun component2 ()Lapp/bsky/ageassurance/Access;
+	public final fun copy (JLapp/bsky/ageassurance/Access;)Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredUnderAge;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredUnderAge;JLapp/bsky/ageassurance/Access;ILjava/lang/Object;)Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredUnderAge;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccess ()Lapp/bsky/ageassurance/Access;
+	public final fun getAge ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleIfAssuredUnderAge$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleIfDeclaredOverAge {
+	public static final field Companion Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredOverAge$Companion;
+	public fun <init> (JLapp/bsky/ageassurance/Access;)V
+	public final fun component1 ()J
+	public final fun component2 ()Lapp/bsky/ageassurance/Access;
+	public final fun copy (JLapp/bsky/ageassurance/Access;)Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredOverAge;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredOverAge;JLapp/bsky/ageassurance/Access;ILjava/lang/Object;)Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredOverAge;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccess ()Lapp/bsky/ageassurance/Access;
+	public final fun getAge ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleIfDeclaredOverAge$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleIfDeclaredUnderAge {
+	public static final field Companion Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredUnderAge$Companion;
+	public fun <init> (JLapp/bsky/ageassurance/Access;)V
+	public final fun component1 ()J
+	public final fun component2 ()Lapp/bsky/ageassurance/Access;
+	public final fun copy (JLapp/bsky/ageassurance/Access;)Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredUnderAge;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredUnderAge;JLapp/bsky/ageassurance/Access;ILjava/lang/Object;)Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredUnderAge;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccess ()Lapp/bsky/ageassurance/Access;
+	public final fun getAge ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleIfDeclaredUnderAge$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/ageassurance/ConfigRegionRuleUnion {
+	public static final field Companion Lapp/bsky/ageassurance/ConfigRegionRuleUnion$Companion;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleDefault : app/bsky/ageassurance/ConfigRegionRuleUnion {
+	public static final field Companion Lapp/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleDefault$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/ageassurance/ConfigRegionRuleDefault;)Lapp/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleDefault;
+	public static fun constructor-impl (Lapp/bsky/ageassurance/ConfigRegionRuleDefault;)Lapp/bsky/ageassurance/ConfigRegionRuleDefault;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/ageassurance/ConfigRegionRuleDefault;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/ageassurance/ConfigRegionRuleDefault;Lapp/bsky/ageassurance/ConfigRegionRuleDefault;)Z
+	public final fun getValue ()Lapp/bsky/ageassurance/ConfigRegionRuleDefault;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/ageassurance/ConfigRegionRuleDefault;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/ageassurance/ConfigRegionRuleDefault;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/ageassurance/ConfigRegionRuleDefault;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleDefault$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfAccountNewerThan : app/bsky/ageassurance/ConfigRegionRuleUnion {
+	public static final field Companion Lapp/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfAccountNewerThan$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountNewerThan;)Lapp/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfAccountNewerThan;
+	public static fun constructor-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountNewerThan;)Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountNewerThan;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountNewerThan;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountNewerThan;Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountNewerThan;)Z
+	public final fun getValue ()Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountNewerThan;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountNewerThan;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountNewerThan;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountNewerThan;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfAccountNewerThan$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfAccountOlderThan : app/bsky/ageassurance/ConfigRegionRuleUnion {
+	public static final field Companion Lapp/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfAccountOlderThan$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountOlderThan;)Lapp/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfAccountOlderThan;
+	public static fun constructor-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountOlderThan;)Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountOlderThan;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountOlderThan;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountOlderThan;Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountOlderThan;)Z
+	public final fun getValue ()Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountOlderThan;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountOlderThan;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountOlderThan;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/ageassurance/ConfigRegionRuleIfAccountOlderThan;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfAccountOlderThan$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfAssuredOverAge : app/bsky/ageassurance/ConfigRegionRuleUnion {
+	public static final field Companion Lapp/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfAssuredOverAge$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredOverAge;)Lapp/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfAssuredOverAge;
+	public static fun constructor-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredOverAge;)Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredOverAge;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredOverAge;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredOverAge;Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredOverAge;)Z
+	public final fun getValue ()Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredOverAge;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredOverAge;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredOverAge;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredOverAge;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfAssuredOverAge$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfAssuredUnderAge : app/bsky/ageassurance/ConfigRegionRuleUnion {
+	public static final field Companion Lapp/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfAssuredUnderAge$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredUnderAge;)Lapp/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfAssuredUnderAge;
+	public static fun constructor-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredUnderAge;)Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredUnderAge;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredUnderAge;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredUnderAge;Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredUnderAge;)Z
+	public final fun getValue ()Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredUnderAge;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredUnderAge;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredUnderAge;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/ageassurance/ConfigRegionRuleIfAssuredUnderAge;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfAssuredUnderAge$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfDeclaredOverAge : app/bsky/ageassurance/ConfigRegionRuleUnion {
+	public static final field Companion Lapp/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfDeclaredOverAge$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredOverAge;)Lapp/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfDeclaredOverAge;
+	public static fun constructor-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredOverAge;)Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredOverAge;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredOverAge;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredOverAge;Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredOverAge;)Z
+	public final fun getValue ()Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredOverAge;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredOverAge;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredOverAge;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredOverAge;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfDeclaredOverAge$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfDeclaredUnderAge : app/bsky/ageassurance/ConfigRegionRuleUnion {
+	public static final field Companion Lapp/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfDeclaredUnderAge$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredUnderAge;)Lapp/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfDeclaredUnderAge;
+	public static fun constructor-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredUnderAge;)Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredUnderAge;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredUnderAge;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredUnderAge;Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredUnderAge;)Z
+	public final fun getValue ()Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredUnderAge;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredUnderAge;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredUnderAge;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/ageassurance/ConfigRegionRuleIfDeclaredUnderAge;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleUnion$ConfigRegionRuleIfDeclaredUnderAge$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleUnion$Unknown : app/bsky/ageassurance/ConfigRegionRuleUnion {
+	public static final field Companion Lapp/bsky/ageassurance/ConfigRegionRuleUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/ageassurance/ConfigRegionRuleUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/ageassurance/ConfigRegionRuleUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/Event {
+	public static final field Companion Lapp/bsky/ageassurance/Event$Companion;
+	public fun <init> (Lkotlinx/datetime/Instant;Ljava/lang/String;Lapp/bsky/ageassurance/EventStatus;Lapp/bsky/ageassurance/EventAccess;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Lkotlinx/datetime/Instant;Ljava/lang/String;Lapp/bsky/ageassurance/EventStatus;Lapp/bsky/ageassurance/EventAccess;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lkotlinx/datetime/Instant;
+	public final fun component10 ()Ljava/lang/String;
+	public final fun component11 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lapp/bsky/ageassurance/EventStatus;
+	public final fun component4 ()Lapp/bsky/ageassurance/EventAccess;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (Lkotlinx/datetime/Instant;Ljava/lang/String;Lapp/bsky/ageassurance/EventStatus;Lapp/bsky/ageassurance/EventAccess;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/ageassurance/Event;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/Event;Lkotlinx/datetime/Instant;Ljava/lang/String;Lapp/bsky/ageassurance/EventStatus;Lapp/bsky/ageassurance/EventAccess;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/ageassurance/Event;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccess ()Lapp/bsky/ageassurance/EventAccess;
+	public final fun getAttemptId ()Ljava/lang/String;
+	public final fun getCompleteIp ()Ljava/lang/String;
+	public final fun getCompleteUa ()Ljava/lang/String;
+	public final fun getCountryCode ()Ljava/lang/String;
+	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getEmail ()Ljava/lang/String;
+	public final fun getInitIp ()Ljava/lang/String;
+	public final fun getInitUa ()Ljava/lang/String;
+	public final fun getRegionCode ()Ljava/lang/String;
+	public final fun getStatus ()Lapp/bsky/ageassurance/EventStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/Event$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class app/bsky/ageassurance/EventAccess : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/ageassurance/EventAccess$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/EventAccess$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/ageassurance/EventAccess;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/EventAccess$Full : app/bsky/ageassurance/EventAccess {
+	public static final field INSTANCE Lapp/bsky/ageassurance/EventAccess$Full;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/EventAccess$None : app/bsky/ageassurance/EventAccess {
+	public static final field INSTANCE Lapp/bsky/ageassurance/EventAccess$None;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/EventAccess$Safe : app/bsky/ageassurance/EventAccess {
+	public static final field INSTANCE Lapp/bsky/ageassurance/EventAccess$Safe;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/EventAccess$Unknown : app/bsky/ageassurance/EventAccess {
+	public static final field INSTANCE Lapp/bsky/ageassurance/EventAccess$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/EventAccess$_Unknown : app/bsky/ageassurance/EventAccess {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/ageassurance/EventAccess$_Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/EventAccess$_Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/ageassurance/EventAccess$_Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/EventAccessSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/ageassurance/EventAccess;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/ageassurance/EventAccess;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public abstract class app/bsky/ageassurance/EventStatus : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/ageassurance/EventStatus$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/EventStatus$Assured : app/bsky/ageassurance/EventStatus {
+	public static final field INSTANCE Lapp/bsky/ageassurance/EventStatus$Assured;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/EventStatus$Blocked : app/bsky/ageassurance/EventStatus {
+	public static final field INSTANCE Lapp/bsky/ageassurance/EventStatus$Blocked;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/EventStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/ageassurance/EventStatus;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/EventStatus$Pending : app/bsky/ageassurance/EventStatus {
+	public static final field INSTANCE Lapp/bsky/ageassurance/EventStatus$Pending;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/EventStatus$Unknown : app/bsky/ageassurance/EventStatus {
+	public static final field INSTANCE Lapp/bsky/ageassurance/EventStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/EventStatus$_Unknown : app/bsky/ageassurance/EventStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/ageassurance/EventStatus$_Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/EventStatus$_Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/ageassurance/EventStatus$_Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/EventStatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/ageassurance/EventStatus;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/ageassurance/EventStatus;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class app/bsky/ageassurance/GetStateQueryParams {
+	public static final field Companion Lapp/bsky/ageassurance/GetStateQueryParams$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/ageassurance/GetStateQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/GetStateQueryParams;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/ageassurance/GetStateQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCountryCode ()Ljava/lang/String;
+	public final fun getRegionCode ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/GetStateQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/GetStateResponse {
+	public static final field Companion Lapp/bsky/ageassurance/GetStateResponse$Companion;
+	public fun <init> (Lapp/bsky/ageassurance/State;Lapp/bsky/ageassurance/StateMetadata;)V
+	public final fun component1 ()Lapp/bsky/ageassurance/State;
+	public final fun component2 ()Lapp/bsky/ageassurance/StateMetadata;
+	public final fun copy (Lapp/bsky/ageassurance/State;Lapp/bsky/ageassurance/StateMetadata;)Lapp/bsky/ageassurance/GetStateResponse;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/GetStateResponse;Lapp/bsky/ageassurance/State;Lapp/bsky/ageassurance/StateMetadata;ILjava/lang/Object;)Lapp/bsky/ageassurance/GetStateResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMetadata ()Lapp/bsky/ageassurance/StateMetadata;
+	public final fun getState ()Lapp/bsky/ageassurance/State;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/GetStateResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/State {
+	public static final field Companion Lapp/bsky/ageassurance/State$Companion;
+	public fun <init> (Lkotlinx/datetime/Instant;Lapp/bsky/ageassurance/Status;Lapp/bsky/ageassurance/Access;)V
+	public synthetic fun <init> (Lkotlinx/datetime/Instant;Lapp/bsky/ageassurance/Status;Lapp/bsky/ageassurance/Access;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lkotlinx/datetime/Instant;
+	public final fun component2 ()Lapp/bsky/ageassurance/Status;
+	public final fun component3 ()Lapp/bsky/ageassurance/Access;
+	public final fun copy (Lkotlinx/datetime/Instant;Lapp/bsky/ageassurance/Status;Lapp/bsky/ageassurance/Access;)Lapp/bsky/ageassurance/State;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/State;Lkotlinx/datetime/Instant;Lapp/bsky/ageassurance/Status;Lapp/bsky/ageassurance/Access;ILjava/lang/Object;)Lapp/bsky/ageassurance/State;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccess ()Lapp/bsky/ageassurance/Access;
+	public final fun getLastInitiatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getStatus ()Lapp/bsky/ageassurance/Status;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/State$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/StateMetadata {
+	public static final field Companion Lapp/bsky/ageassurance/StateMetadata$Companion;
+	public fun <init> ()V
+	public fun <init> (Lkotlinx/datetime/Instant;)V
+	public synthetic fun <init> (Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lkotlinx/datetime/Instant;
+	public final fun copy (Lkotlinx/datetime/Instant;)Lapp/bsky/ageassurance/StateMetadata;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/StateMetadata;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lapp/bsky/ageassurance/StateMetadata;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccountCreatedAt ()Lkotlinx/datetime/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/StateMetadata$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class app/bsky/ageassurance/Status : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/ageassurance/Status$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/Status$Assured : app/bsky/ageassurance/Status {
+	public static final field INSTANCE Lapp/bsky/ageassurance/Status$Assured;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/Status$Blocked : app/bsky/ageassurance/Status {
+	public static final field INSTANCE Lapp/bsky/ageassurance/Status$Blocked;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/Status$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/ageassurance/Status;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/ageassurance/Status$Pending : app/bsky/ageassurance/Status {
+	public static final field INSTANCE Lapp/bsky/ageassurance/Status$Pending;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/Status$Unknown : app/bsky/ageassurance/Status {
+	public static final field INSTANCE Lapp/bsky/ageassurance/Status$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/Status$_Unknown : app/bsky/ageassurance/Status {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/ageassurance/Status$_Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/Status$_Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/ageassurance/Status$_Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/ageassurance/StatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/ageassurance/Status;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/ageassurance/Status;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
 public final class app/bsky/bookmark/Bookmark {
 	public static final field Companion Lapp/bsky/bookmark/Bookmark$Companion;
 	public fun <init> (Lcom/atproto/repo/StrongRef;)V
@@ -17747,6 +18441,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun addRule (Ltools/ozone/safelink/AddRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun addValues (Ltools/ozone/set/AddValuesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun applyWrites (Lcom/atproto/repo/ApplyWritesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun begin (Lapp/bsky/ageassurance/BeginRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun cancelScheduledActions (Ltools/ozone/moderation/CancelScheduledActionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun checkAccountStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun checkHandleAvailability (Lcom/atproto/temp/CheckHandleAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17799,7 +18494,8 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getBlocks (Lapp/bsky/graph/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getBlocks (Lcom/atproto/sync/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getBookmarks (Lapp/bsky/bookmark/GetBookmarksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun getConfig (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getConfigForAppBskyAgeassurance (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getConfigForToolsOzoneServer (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConfigUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConvoAvailability (Lchat/bsky/convo/GetConvoAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17857,6 +18553,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getStarterPack (Lapp/bsky/graph/GetStarterPackQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getStarterPacks (Lapp/bsky/graph/GetStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getStarterPacksWithMembership (Lapp/bsky/graph/GetStarterPacksWithMembershipQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getState (Lapp/bsky/ageassurance/GetStateQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSubjectStatus (Lcom/atproto/admin/GetSubjectStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSubjects (Ltools/ozone/moderation/GetSubjectsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -17993,6 +18690,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun addRule (Ltools/ozone/safelink/AddRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun addValues (Ltools/ozone/set/AddValuesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun applyWrites (Lcom/atproto/repo/ApplyWritesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun begin (Lapp/bsky/ageassurance/BeginRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun cancelScheduledActions (Ltools/ozone/moderation/CancelScheduledActionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun checkAccountStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun checkHandleAvailability (Lcom/atproto/temp/CheckHandleAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18045,7 +18743,8 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getBlocks (Lapp/bsky/graph/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlocks (Lcom/atproto/sync/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBookmarks (Lapp/bsky/bookmark/GetBookmarksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getConfig (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConfigForAppBskyAgeassurance (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConfigForToolsOzoneServer (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConfigUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoAvailability (Lchat/bsky/convo/GetConvoAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18103,6 +18802,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getStarterPack (Lapp/bsky/graph/GetStarterPackQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getStarterPacks (Lapp/bsky/graph/GetStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getStarterPacksWithMembership (Lapp/bsky/graph/GetStarterPacksWithMembershipQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getState (Lapp/bsky/ageassurance/GetStateQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSubjectStatus (Lcom/atproto/admin/GetSubjectStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSubjects (Ltools/ozone/moderation/GetSubjectsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18239,6 +18939,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun addRule (Ltools/ozone/safelink/AddRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun addValues (Ltools/ozone/set/AddValuesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun applyWrites (Lcom/atproto/repo/ApplyWritesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun begin (Lapp/bsky/ageassurance/BeginRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun cancelScheduledActions (Ltools/ozone/moderation/CancelScheduledActionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun checkAccountStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun checkHandleAvailability (Lcom/atproto/temp/CheckHandleAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18294,7 +18995,8 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getBlocks (Lapp/bsky/graph/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlocks (Lcom/atproto/sync/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBookmarks (Lapp/bsky/bookmark/GetBookmarksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getConfig (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConfigForAppBskyAgeassurance (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConfigForToolsOzoneServer (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConfigUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoAvailability (Lchat/bsky/convo/GetConvoAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18352,6 +19054,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getStarterPack (Lapp/bsky/graph/GetStarterPackQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getStarterPacks (Lapp/bsky/graph/GetStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getStarterPacksWithMembership (Lapp/bsky/graph/GetStarterPacksWithMembershipQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getState (Lapp/bsky/ageassurance/GetStateQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSubjectStatus (Lcom/atproto/admin/GetSubjectStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSubjects (Ltools/ozone/moderation/GetSubjectsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19235,24 +19938,30 @@ public final class tools/ozone/moderation/AccountStrike$Companion {
 
 public final class tools/ozone/moderation/AgeAssuranceEvent {
 	public static final field Companion Ltools/ozone/moderation/AgeAssuranceEvent$Companion;
-	public fun <init> (Lkotlinx/datetime/Instant;Ltools/ozone/moderation/AgeAssuranceEventStatus;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-	public synthetic fun <init> (Lkotlinx/datetime/Instant;Ltools/ozone/moderation/AgeAssuranceEventStatus;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lkotlinx/datetime/Instant;Ljava/lang/String;Ltools/ozone/moderation/AgeAssuranceEventStatus;Lapp/bsky/ageassurance/Access;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Lkotlinx/datetime/Instant;Ljava/lang/String;Ltools/ozone/moderation/AgeAssuranceEventStatus;Lapp/bsky/ageassurance/Access;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lkotlinx/datetime/Instant;
-	public final fun component2 ()Ltools/ozone/moderation/AgeAssuranceEventStatus;
-	public final fun component3 ()Ljava/lang/String;
-	public final fun component4 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ltools/ozone/moderation/AgeAssuranceEventStatus;
+	public final fun component4 ()Lapp/bsky/ageassurance/Access;
 	public final fun component5 ()Ljava/lang/String;
 	public final fun component6 ()Ljava/lang/String;
 	public final fun component7 ()Ljava/lang/String;
-	public final fun copy (Lkotlinx/datetime/Instant;Ltools/ozone/moderation/AgeAssuranceEventStatus;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ltools/ozone/moderation/AgeAssuranceEvent;
-	public static synthetic fun copy$default (Ltools/ozone/moderation/AgeAssuranceEvent;Lkotlinx/datetime/Instant;Ltools/ozone/moderation/AgeAssuranceEventStatus;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/AgeAssuranceEvent;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (Lkotlinx/datetime/Instant;Ljava/lang/String;Ltools/ozone/moderation/AgeAssuranceEventStatus;Lapp/bsky/ageassurance/Access;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ltools/ozone/moderation/AgeAssuranceEvent;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/AgeAssuranceEvent;Lkotlinx/datetime/Instant;Ljava/lang/String;Ltools/ozone/moderation/AgeAssuranceEventStatus;Lapp/bsky/ageassurance/Access;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/AgeAssuranceEvent;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccess ()Lapp/bsky/ageassurance/Access;
 	public final fun getAttemptId ()Ljava/lang/String;
 	public final fun getCompleteIp ()Ljava/lang/String;
 	public final fun getCompleteUa ()Ljava/lang/String;
+	public final fun getCountryCode ()Ljava/lang/String;
 	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
 	public final fun getInitIp ()Ljava/lang/String;
 	public final fun getInitUa ()Ljava/lang/String;
+	public final fun getRegionCode ()Ljava/lang/String;
 	public final fun getStatus ()Ltools/ozone/moderation/AgeAssuranceEventStatus;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -19316,12 +20025,15 @@ public final class tools/ozone/moderation/AgeAssuranceEventStatusSerializer : ko
 
 public final class tools/ozone/moderation/AgeAssuranceOverrideEvent {
 	public static final field Companion Ltools/ozone/moderation/AgeAssuranceOverrideEvent$Companion;
-	public fun <init> (Ltools/ozone/moderation/AgeAssuranceOverrideEventStatus;Ljava/lang/String;)V
+	public fun <init> (Ltools/ozone/moderation/AgeAssuranceOverrideEventStatus;Lapp/bsky/ageassurance/Access;Ljava/lang/String;)V
+	public synthetic fun <init> (Ltools/ozone/moderation/AgeAssuranceOverrideEventStatus;Lapp/bsky/ageassurance/Access;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ltools/ozone/moderation/AgeAssuranceOverrideEventStatus;
-	public final fun component2 ()Ljava/lang/String;
-	public final fun copy (Ltools/ozone/moderation/AgeAssuranceOverrideEventStatus;Ljava/lang/String;)Ltools/ozone/moderation/AgeAssuranceOverrideEvent;
-	public static synthetic fun copy$default (Ltools/ozone/moderation/AgeAssuranceOverrideEvent;Ltools/ozone/moderation/AgeAssuranceOverrideEventStatus;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/AgeAssuranceOverrideEvent;
+	public final fun component2 ()Lapp/bsky/ageassurance/Access;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ltools/ozone/moderation/AgeAssuranceOverrideEventStatus;Lapp/bsky/ageassurance/Access;Ljava/lang/String;)Ltools/ozone/moderation/AgeAssuranceOverrideEvent;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/AgeAssuranceOverrideEvent;Ltools/ozone/moderation/AgeAssuranceOverrideEventStatus;Lapp/bsky/ageassurance/Access;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/AgeAssuranceOverrideEvent;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccess ()Lapp/bsky/ageassurance/Access;
 	public final fun getComment ()Ljava/lang/String;
 	public final fun getStatus ()Ltools/ozone/moderation/AgeAssuranceOverrideEventStatus;
 	public fun hashCode ()I
