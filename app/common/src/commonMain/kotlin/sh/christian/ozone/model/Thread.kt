@@ -3,6 +3,7 @@ package sh.christian.ozone.model
 import app.bsky.feed.ThreadViewPost
 import app.bsky.feed.ThreadViewPostParentUnion
 import app.bsky.feed.ThreadViewPostReplieUnion
+import kotlinx.collections.immutable.persistentListOf
 import sh.christian.ozone.model.ThreadPost.BlockedPost
 import sh.christian.ozone.model.ThreadPost.NotFoundPost
 import sh.christian.ozone.model.ThreadPost.UnknownPost
@@ -45,14 +46,14 @@ fun ThreadViewPost.toThread(): Thread {
       .toList()
       .reversed()
       .toReadOnlyList(),
-    replies = replies.mapImmutable { reply -> reply.toThreadPost() },
+    replies = replies?.mapImmutable { reply -> reply.toThreadPost() } ?: persistentListOf(),
   )
 }
 
 fun ThreadViewPostParentUnion.toThreadPost(): ThreadPost = when (this) {
   is ThreadViewPostParentUnion.ThreadViewPost -> ViewablePost(
     post = value.post.toPost(),
-    replies = value.replies.mapImmutable { it.toThreadPost() }
+    replies = value.replies?.mapImmutable { it.toThreadPost() } ?: persistentListOf()
   )
   is ThreadViewPostParentUnion.NotFoundPost -> NotFoundPost
   is ThreadViewPostParentUnion.BlockedPost -> BlockedPost
@@ -62,7 +63,7 @@ fun ThreadViewPostParentUnion.toThreadPost(): ThreadPost = when (this) {
 fun ThreadViewPostReplieUnion.toThreadPost(): ThreadPost = when (this) {
   is ThreadViewPostReplieUnion.ThreadViewPost -> ViewablePost(
     post = value.post.toPost(),
-    replies = value.replies.mapImmutable { it.toThreadPost() },
+    replies = value.replies?.mapImmutable { it.toThreadPost() } ?: persistentListOf(),
   )
   is ThreadViewPostReplieUnion.NotFoundPost -> NotFoundPost
   is ThreadViewPostReplieUnion.BlockedPost -> BlockedPost

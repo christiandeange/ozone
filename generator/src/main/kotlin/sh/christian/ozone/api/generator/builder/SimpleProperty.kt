@@ -122,31 +122,36 @@ private fun TypeName.defaultValue(nullable: Boolean): CodeBlock = buildCodeBlock
       endControlFlow()
     }
     is ParameterizedTypeName -> {
-      when (rawType) {
-        ARRAY -> add("emptyArray()")
-        BOOLEAN_ARRAY -> add("booleanArrayOf()")
-        BYTE_ARRAY -> add("byteArrayOf()")
-        CHAR_ARRAY -> add("charArrayOf()")
-        SHORT_ARRAY -> add("shortArrayOf()")
-        INT_ARRAY -> add("intArrayOf()")
-        LONG_ARRAY -> add("longArrayOf()")
-        FLOAT_ARRAY -> add("floatArrayOf()")
-        DOUBLE_ARRAY -> add("doubleArrayOf()")
-        U_BYTE_ARRAY -> add("ubyteArrayOf()")
-        U_SHORT_ARRAY -> add("ushortArrayOf()")
-        U_INT_ARRAY -> add("uintArrayOf()")
-        U_LONG_ARRAY -> add("ulongArrayOf()")
-        ITERABLE -> add("emptyList()")
-        COLLECTION -> add("emptyList()")
-        LIST -> add("emptyList()")
-        SET -> add("emptySet()")
-        MAP -> add("emptyMap()")
-        MUTABLE_ITERABLE -> add("mutableListOf()")
-        MUTABLE_COLLECTION -> add("mutableListOf()")
-        MUTABLE_LIST -> add("mutableListOf()")
-        MUTABLE_SET -> add("mutableSetOf()")
-        MUTABLE_MAP -> add("mutableMapOf()")
-        else -> error("Unable to provide non-null default for ParameterizedTypeName: $this")
+      if (nullable) {
+        add("null")
+      }
+      else {
+        when (rawType) {
+          ARRAY -> add("emptyArray()")
+          BOOLEAN_ARRAY -> add("booleanArrayOf()")
+          BYTE_ARRAY -> add("byteArrayOf()")
+          CHAR_ARRAY -> add("charArrayOf()")
+          SHORT_ARRAY -> add("shortArrayOf()")
+          INT_ARRAY -> add("intArrayOf()")
+          LONG_ARRAY -> add("longArrayOf()")
+          FLOAT_ARRAY -> add("floatArrayOf()")
+          DOUBLE_ARRAY -> add("doubleArrayOf()")
+          U_BYTE_ARRAY -> add("ubyteArrayOf()")
+          U_SHORT_ARRAY -> add("ushortArrayOf()")
+          U_INT_ARRAY -> add("uintArrayOf()")
+          U_LONG_ARRAY -> add("ulongArrayOf()")
+          ITERABLE -> add("emptyList()")
+          COLLECTION -> add("emptyList()")
+          LIST -> add("emptyList()")
+          SET -> add("emptySet()")
+          MAP -> add("emptyMap()")
+          MUTABLE_ITERABLE -> add("mutableListOf()")
+          MUTABLE_COLLECTION -> add("mutableListOf()")
+          MUTABLE_LIST -> add("mutableListOf()")
+          MUTABLE_SET -> add("mutableSetOf()")
+          MUTABLE_MAP -> add("mutableMapOf()")
+          else -> error("Unable to provide non-null default for ParameterizedTypeName: $this")
+        }
       }
     }
 
