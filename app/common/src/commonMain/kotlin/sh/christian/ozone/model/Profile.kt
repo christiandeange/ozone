@@ -6,6 +6,7 @@ import app.bsky.actor.ProfileViewDetailed
 import app.bsky.actor.VerificationState
 import app.bsky.actor.VerificationStateTrustedVerifierStatus
 import app.bsky.actor.VerificationStateVerifiedStatus
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.serialization.Serializable
 import sh.christian.ozone.api.Did
 import sh.christian.ozone.api.Handle
@@ -79,7 +80,7 @@ fun ProfileViewDetailed.toProfile(): FullProfile {
     mutedByMe = viewer?.muted == true,
     followingMe = viewer?.followedBy != null,
     followedByMe = viewer?.following != null,
-    labels = labels.mapImmutable { it.toLabel() },
+    labels = labels?.mapImmutable { it.toLabel() } ?: persistentListOf(),
     verification = verification?.toVerification() ?: Verification.NONE,
   )
 }
@@ -93,7 +94,7 @@ fun ProfileViewBasic.toProfile(): Profile {
     mutedByMe = viewer?.muted != null,
     followingMe = viewer?.followedBy != null,
     followedByMe = viewer?.following != null,
-    labels = labels.mapImmutable { it.toLabel() },
+    labels = labels?.mapImmutable { it.toLabel() } ?: persistentListOf(),
     verification = verification?.toVerification() ?: Verification.NONE,
   )
 }
@@ -107,7 +108,7 @@ fun ProfileView.toProfile(): Profile {
     mutedByMe = viewer?.muted == true,
     followingMe = viewer?.followedBy != null,
     followedByMe = viewer?.following != null,
-    labels = labels.mapImmutable { it.toLabel() },
+    labels = labels?.mapImmutable { it.toLabel() } ?: persistentListOf(),
     verification = verification?.toVerification() ?: Verification.NONE,
   )
 }

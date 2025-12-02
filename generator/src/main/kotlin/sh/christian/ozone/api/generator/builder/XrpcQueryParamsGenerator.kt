@@ -88,7 +88,7 @@ class XrpcQueryParamsGenerator(
           .apply {
             properties.forEach { property ->
               if (property.isCollection()) {
-                beginControlFlow("%L.forEach {", property.name)
+                beginControlFlow("%L.orEmpty().forEach {", property.name)
                 addStatement("add(%S to it)", property.name)
                 endControlFlow()
               } else {

@@ -71,7 +71,7 @@ fun createDataClass(
               .builder(
                 property.name,
                 property.type.copy(
-                  nullable = property.nullable && property.type !is ParameterizedTypeName
+                  nullable = property.nullable
                 )
               )
               .apply {
@@ -91,7 +91,7 @@ fun createDataClass(
           .builder(
             property.name,
             property.type.copy(
-              nullable = property.nullable && property.type !is ParameterizedTypeName
+              nullable = property.nullable
             )
           )
           .initializer(property.name)
@@ -105,7 +105,7 @@ fun createDataClass(
           buildCodeBlock {
               allRequirements.forEach { (property, requirements) ->
                 val name = MemberName(className, property.name)
-                val nullable = property.nullable && !property.isCollection()
+                val nullable = property.nullable
 
                 requirements.forEach { requirement ->
                   val (accessor, operator, value) = when (requirement) {
