@@ -48,7 +48,6 @@ buildConfig {
   }
 
   forClass("Dependencies") {
-    buildConfigField("String", "KOTLINX_DATETIME", "\"${libs.versions.kotlinx.datetime.get()}\"")
     buildConfigField("String", "KOTLINX_SERIALIZATION", "\"${libs.versions.serialization.get()}\"")
     buildConfigField("String", "KTOR", "\"${libs.versions.ktor.get()}\"")
     buildConfigField("String", "OZONE", "\"$version\"")

@@ -1,7 +1,7 @@
 package sh.christian.ozone.util
 
 import androidx.compose.runtime.Composable
-import kotlinx.datetime.toJavaInstant
+import kotlin.time.toJavaInstant
 import sh.christian.ozone.model.Moment
 import java.text.DateFormat
 import java.text.SimpleDateFormat

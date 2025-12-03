@@ -1,58 +1,56 @@
 [versions]
-agp = "8.7.3"
+agp = "8.13.1"
 buildconfig = "5.5.0"
 compose = "1.8.1"
 coroutines = "1.10.2"
-crypto = "0.4.0"
-dokka = "1.9.20"
+crypto = "0.5.0"
+dokka = "2.1.0"
 kmmbridge = "1.0.1"
-kotlin = "2.1.20"
-kotlinx-abi-plugin = "0.17.0"
-kotlinx-datetime = "0.6.1"
+kotlin = "2.2.21"
+kotlinx-abi-plugin = "0.18.1"
 kotlininject = "0.7.2"
-ksp = "2.1.20-2.0.1"
-ktor = "3.0.1"
-maven-publish = "0.34.0"
-moshi = "1.15.1"
-multiplatform-settings = "1.2.0"
-serialization = "1.8.1"
-skie = "0.10.2"
+ksp = "2.3.0"
+ktor = "3.3.3"
+maven-publish = "0.35.0"
+moshi = "1.15.2"
+multiplatform-settings = "1.3.0"
+serialization = "1.9.0"
+skie = "0.10.8"
 workflow = "1.12.1-beta15"
 
 [libraries]
 agp = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 
-androidx-activity-compose = { module = "androidx.activity:activity-compose", version = "1.9.3" }
-androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.7.0" }
-androidx-core = { module = "androidx.core:core-ktx", version = "1.15.0" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version = "1.12.0" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.7.1" }
+androidx-core = { module = "androidx.core:core-ktx", version = "1.17.0" }
 retainedactivity = { module = "dev.marcellogalhardo:retained-activity", version = "1.0.2" }
 
-codepoints-deluxe = { module = "de.cketti.unicode:kotlin-codepoints-deluxe", version = "0.9.0" }
-kamel = { module = "media.kamel:kamel-image-default", version = "1.0.1" }
+codepoints-deluxe = { module = "de.cketti.unicode:kotlin-codepoints-deluxe", version = "0.11.0" }
+kamel = { module = "media.kamel:kamel-image-default", version = "1.0.8" }
 material-icons-core = { module = "org.jetbrains.compose.material:material-icons-core", version = "1.7.3" }
 material-icons-extended = { module = "org.jetbrains.compose.material:material-icons-extended", version = "1.7.3" }
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatform-settings" }
 multiplatform-settings-serialization = { module = "com.russhwolf:multiplatform-settings-serialization", version.ref = "multiplatform-settings" }
-zoomable = { module = "me.saket.telephoto:zoomable", version = "0.13.0" }
+zoomable = { module = "me.saket.telephoto:zoomable", version = "0.18.0" }
 
-apache-commons = { module = "org.apache.commons:commons-lang3", version = "3.17.0" }
-slf4j-simple = { module = "org.slf4j:slf4j-simple", version = "2.0.16" }
+apache-commons = { module = "org.apache.commons:commons-lang3", version = "3.20.0" }
+slf4j-simple = { module = "org.slf4j:slf4j-simple", version = "2.0.17" }
 
 kotlininject = { module = "me.tatarka.inject:kotlin-inject-runtime", version.ref = "kotlininject" }
 kotlininject-compiler = { module = "me.tatarka.inject:kotlin-inject-compiler-ksp", version.ref = "kotlininject" }
 
-kotlinpoet = { module = "com.squareup:kotlinpoet", version = "2.0.0" }
+kotlinpoet = { module = "com.squareup:kotlinpoet", version = "2.2.0" }
 moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
 moshi-adapters = { module = "com.squareup.moshi:moshi-adapters", version.ref = "moshi" }
 moshi-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }
-okio = { module = "com.squareup.okio:okio", version = "3.9.1" }
+okio = { module = "com.squareup.okio:okio", version = "3.16.4" }
 
 kotlinx-abi = { module = "org.jetbrains.kotlinx:binary-compatibility-validator", version.ref = "kotlinx-abi-plugin" }
-kotlinx-atomicfu = { module = "org.jetbrains.kotlinx:atomicfu", version = "0.26.0" }
+kotlinx-atomicfu = { module = "org.jetbrains.kotlinx:atomicfu", version = "0.29.0" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
-kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
-kotlinx-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version = "0.3.8" }
+kotlinx-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version = "0.4.0" }
 kotlinx-serialization-cbor = { module = "org.jetbrains.kotlinx:kotlinx-serialization-cbor", version.ref = "serialization" }
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "serialization" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
@@ -78,6 +76,6 @@ crypto-random = { module = "dev.whyoleg.cryptography:cryptography-random", versi
 crypto-jdk = { module = "dev.whyoleg.cryptography:cryptography-provider-jdk", version.ref = "crypto" }
 crypto-apple = { module = "dev.whyoleg.cryptography:cryptography-provider-apple", version.ref = "crypto" }
 crypto-webcrypto = { module = "dev.whyoleg.cryptography:cryptography-provider-webcrypto", version.ref = "crypto" }
-zstd = { module = "com.github.luben:zstd-jni", version = "1.5.6-7" }
+zstd = { module = "com.github.luben:zstd-jni", version = "1.5.7-6" }
 
 bluesky = { module = "sh.christian.ozone:bluesky", version = "0.3.3" }
