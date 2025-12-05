@@ -7617,14 +7617,22 @@ public final class app/bsky/graph/NotFoundActor$Companion {
 
 public final class app/bsky/graph/Relationship {
 	public static final field Companion Lapp/bsky/graph/Relationship$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component2-W3xQKsw ()Ljava/lang/String;
 	public final fun component3-W3xQKsw ()Ljava/lang/String;
-	public final fun copy-VKay7XA (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/graph/Relationship;
-	public static synthetic fun copy-VKay7XA$default (Lapp/bsky/graph/Relationship;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/Relationship;
+	public final fun component4-W3xQKsw ()Ljava/lang/String;
+	public final fun component5-W3xQKsw ()Ljava/lang/String;
+	public final fun component6-W3xQKsw ()Ljava/lang/String;
+	public final fun component7-W3xQKsw ()Ljava/lang/String;
+	public final fun copy-BsoPHlk (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/graph/Relationship;
+	public static synthetic fun copy-BsoPHlk$default (Lapp/bsky/graph/Relationship;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/Relationship;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBlockedBy-W3xQKsw ()Ljava/lang/String;
+	public final fun getBlockedByList-W3xQKsw ()Ljava/lang/String;
+	public final fun getBlocking-W3xQKsw ()Ljava/lang/String;
+	public final fun getBlockingByList-W3xQKsw ()Ljava/lang/String;
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getFollowedBy-W3xQKsw ()Ljava/lang/String;
 	public final fun getFollowing-W3xQKsw ()Ljava/lang/String;
