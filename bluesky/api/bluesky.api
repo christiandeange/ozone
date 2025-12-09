@@ -2923,6 +2923,220 @@ public final class app/bsky/bookmark/GetBookmarksResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/contact/DismissMatchRequest {
+	public static final field Companion Lapp/bsky/contact/DismissMatchRequest$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun copy-Kn78ayM (Ljava/lang/String;)Lapp/bsky/contact/DismissMatchRequest;
+	public static synthetic fun copy-Kn78ayM$default (Lapp/bsky/contact/DismissMatchRequest;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/contact/DismissMatchRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSubject-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/contact/DismissMatchRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/contact/DismissMatchResponse {
+	public static final field INSTANCE Lapp/bsky/contact/DismissMatchResponse;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/contact/GetMatchesQueryParams {
+	public static final field Companion Lapp/bsky/contact/GetMatchesQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/contact/GetMatchesQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/contact/GetMatchesQueryParams;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/contact/GetMatchesQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/contact/GetMatchesQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/contact/GetMatchesResponse {
+	public static final field Companion Lapp/bsky/contact/GetMatchesResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Lapp/bsky/contact/GetMatchesResponse;
+	public static synthetic fun copy$default (Lapp/bsky/contact/GetMatchesResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/contact/GetMatchesResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getMatches ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/contact/GetMatchesResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/contact/GetSyncStatusResponse {
+	public static final field Companion Lapp/bsky/contact/GetSyncStatusResponse$Companion;
+	public fun <init> ()V
+	public fun <init> (Lapp/bsky/contact/SyncStatus;)V
+	public synthetic fun <init> (Lapp/bsky/contact/SyncStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lapp/bsky/contact/SyncStatus;
+	public final fun copy (Lapp/bsky/contact/SyncStatus;)Lapp/bsky/contact/GetSyncStatusResponse;
+	public static synthetic fun copy$default (Lapp/bsky/contact/GetSyncStatusResponse;Lapp/bsky/contact/SyncStatus;ILjava/lang/Object;)Lapp/bsky/contact/GetSyncStatusResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSyncStatus ()Lapp/bsky/contact/SyncStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/contact/GetSyncStatusResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/contact/ImportContactsRequest {
+	public static final field Companion Lapp/bsky/contact/ImportContactsRequest$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Lapp/bsky/contact/ImportContactsRequest;
+	public static synthetic fun copy$default (Lapp/bsky/contact/ImportContactsRequest;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/contact/ImportContactsRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContacts ()Ljava/util/List;
+	public final fun getToken ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/contact/ImportContactsRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/contact/ImportContactsResponse {
+	public static final field Companion Lapp/bsky/contact/ImportContactsResponse$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lapp/bsky/contact/ImportContactsResponse;
+	public static synthetic fun copy$default (Lapp/bsky/contact/ImportContactsResponse;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/contact/ImportContactsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMatchesAndContactIndexes ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/contact/ImportContactsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/contact/MatchAndContactIndex {
+	public static final field Companion Lapp/bsky/contact/MatchAndContactIndex$Companion;
+	public fun <init> (Lapp/bsky/actor/ProfileView;J)V
+	public final fun component1 ()Lapp/bsky/actor/ProfileView;
+	public final fun component2 ()J
+	public final fun copy (Lapp/bsky/actor/ProfileView;J)Lapp/bsky/contact/MatchAndContactIndex;
+	public static synthetic fun copy$default (Lapp/bsky/contact/MatchAndContactIndex;Lapp/bsky/actor/ProfileView;JILjava/lang/Object;)Lapp/bsky/contact/MatchAndContactIndex;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContactIndex ()J
+	public final fun getMatch ()Lapp/bsky/actor/ProfileView;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/contact/MatchAndContactIndex$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/contact/RemoveDataRequest {
+	public static final field INSTANCE Lapp/bsky/contact/RemoveDataRequest;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/contact/RemoveDataResponse {
+	public static final field INSTANCE Lapp/bsky/contact/RemoveDataResponse;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/contact/StartPhoneVerificationRequest {
+	public static final field Companion Lapp/bsky/contact/StartPhoneVerificationRequest$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/contact/StartPhoneVerificationRequest;
+	public static synthetic fun copy$default (Lapp/bsky/contact/StartPhoneVerificationRequest;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/contact/StartPhoneVerificationRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPhone ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/contact/StartPhoneVerificationRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/contact/StartPhoneVerificationResponse {
+	public static final field INSTANCE Lapp/bsky/contact/StartPhoneVerificationResponse;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/contact/SyncStatus {
+	public static final field Companion Lapp/bsky/contact/SyncStatus$Companion;
+	public fun <init> (Lkotlinx/datetime/Instant;J)V
+	public final fun component1 ()Lkotlinx/datetime/Instant;
+	public final fun component2 ()J
+	public final fun copy (Lkotlinx/datetime/Instant;J)Lapp/bsky/contact/SyncStatus;
+	public static synthetic fun copy$default (Lapp/bsky/contact/SyncStatus;Lkotlinx/datetime/Instant;JILjava/lang/Object;)Lapp/bsky/contact/SyncStatus;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMatchesCount ()J
+	public final fun getSyncedAt ()Lkotlinx/datetime/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/contact/SyncStatus$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/contact/VerifyPhoneRequest {
+	public static final field Companion Lapp/bsky/contact/VerifyPhoneRequest$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/contact/VerifyPhoneRequest;
+	public static synthetic fun copy$default (Lapp/bsky/contact/VerifyPhoneRequest;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/contact/VerifyPhoneRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode ()Ljava/lang/String;
+	public final fun getPhone ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/contact/VerifyPhoneRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/contact/VerifyPhoneResponse {
+	public static final field Companion Lapp/bsky/contact/VerifyPhoneResponse$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/contact/VerifyPhoneResponse;
+	public static synthetic fun copy$default (Lapp/bsky/contact/VerifyPhoneResponse;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/contact/VerifyPhoneResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getToken ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/contact/VerifyPhoneResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/embed/AspectRatio {
 	public static final field Companion Lapp/bsky/embed/AspectRatio$Companion;
 	public fun <init> (JJ)V
@@ -18482,6 +18696,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun describeServer (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun disableAccountInvites (Lcom/atproto/admin/DisableAccountInvitesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun disableInviteCodes (Lcom/atproto/admin/DisableInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun dismissMatch (Lapp/bsky/contact/DismissMatchRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun emitEvent (Ltools/ozone/moderation/EmitEventRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun enableAccountInvites (Lcom/atproto/admin/EnableAccountInvitesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun exportAccountData (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18528,6 +18743,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getLists (Lapp/bsky/graph/GetListsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getListsWithMembership (Lapp/bsky/graph/GetListsWithMembershipQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getLog (Lchat/bsky/convo/GetLogQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getMatches (Lapp/bsky/contact/GetMatchesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getMessageContext (Lchat/bsky/moderation/GetMessageContextQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getMessages (Lchat/bsky/convo/GetMessagesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getMutes (Lapp/bsky/graph/GetMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18574,6 +18790,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getSuggestedUsersUnspecced (Lapp/bsky/unspecced/GetSuggestedUsersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSuggestions (Lapp/bsky/actor/GetSuggestionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSuggestionsSkeletonUnspecced (Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getSyncStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getTaggedSuggestionsUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getTimeline (Lapp/bsky/feed/GetTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getTrendingTopicsUnspecced (Lapp/bsky/unspecced/GetTrendingTopicsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18583,6 +18800,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getUploadLimits (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getValues (Ltools/ozone/set/GetValuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun grantVerifications (Ltools/ozone/verification/GrantVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun importContacts (Lapp/bsky/contact/ImportContactsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun importRepo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun initAgeAssuranceUnspecced (Lapp/bsky/unspecced/InitAgeAssuranceRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun leaveConvo (Lchat/bsky/convo/LeaveConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18620,6 +18838,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun refreshIdentity (Lcom/atproto/identity/RefreshIdentityRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun refreshSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun registerPush (Lapp/bsky/notification/RegisterPushRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun removeData (Lapp/bsky/contact/RemoveDataRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun removeOptions (Ltools/ozone/setting/RemoveOptionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun removeReaction (Lchat/bsky/convo/RemoveReactionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun removeRule (Ltools/ozone/safelink/RemoveRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18655,6 +18874,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun sendMessage (Lchat/bsky/convo/SendMessageRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun sendMessageBatch (Lchat/bsky/convo/SendMessageBatchRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun signPlcOperation (Lcom/atproto/identity/SignPlcOperationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun startPhoneVerification (Lapp/bsky/contact/StartPhoneVerificationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun submitPlcOperation (Lcom/atproto/identity/SubmitPlcOperationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun subscribeLabels (Lcom/atproto/label/SubscribeLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun subscribeRepos (Lcom/atproto/sync/SubscribeReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18681,6 +18901,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun uploadVideo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun upsertOption (Ltools/ozone/setting/UpsertOptionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun upsertSet (Ltools/ozone/set/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun verifyPhone (Lapp/bsky/contact/VerifyPhoneRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class sh/christian/ozone/BlueskyJsonKt {
@@ -18731,6 +18952,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun describeServer (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun disableAccountInvites (Lcom/atproto/admin/DisableAccountInvitesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun disableInviteCodes (Lcom/atproto/admin/DisableInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun dismissMatch (Lapp/bsky/contact/DismissMatchRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun emitEvent (Ltools/ozone/moderation/EmitEventRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun enableAccountInvites (Lcom/atproto/admin/EnableAccountInvitesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun exportAccountData (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18777,6 +18999,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getLists (Lapp/bsky/graph/GetListsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getListsWithMembership (Lapp/bsky/graph/GetListsWithMembershipQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLog (Lchat/bsky/convo/GetLogQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getMatches (Lapp/bsky/contact/GetMatchesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getMessageContext (Lchat/bsky/moderation/GetMessageContextQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getMessages (Lchat/bsky/convo/GetMessagesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getMutes (Lapp/bsky/graph/GetMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18823,6 +19046,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getSuggestedUsersUnspecced (Lapp/bsky/unspecced/GetSuggestedUsersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestions (Lapp/bsky/actor/GetSuggestionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestionsSkeletonUnspecced (Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getSyncStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getTaggedSuggestionsUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getTimeline (Lapp/bsky/feed/GetTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getTrendingTopicsUnspecced (Lapp/bsky/unspecced/GetTrendingTopicsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18832,6 +19056,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getUploadLimits (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getValues (Ltools/ozone/set/GetValuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun grantVerifications (Ltools/ozone/verification/GrantVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun importContacts (Lapp/bsky/contact/ImportContactsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun importRepo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun initAgeAssuranceUnspecced (Lapp/bsky/unspecced/InitAgeAssuranceRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun leaveConvo (Lchat/bsky/convo/LeaveConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18869,6 +19094,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun refreshIdentity (Lcom/atproto/identity/RefreshIdentityRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun refreshSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun registerPush (Lapp/bsky/notification/RegisterPushRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun removeData (Lapp/bsky/contact/RemoveDataRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun removeOptions (Ltools/ozone/setting/RemoveOptionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun removeReaction (Lchat/bsky/convo/RemoveReactionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun removeRule (Ltools/ozone/safelink/RemoveRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18904,6 +19130,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun sendMessage (Lchat/bsky/convo/SendMessageRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun sendMessageBatch (Lchat/bsky/convo/SendMessageBatchRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun signPlcOperation (Lcom/atproto/identity/SignPlcOperationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun startPhoneVerification (Lapp/bsky/contact/StartPhoneVerificationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun submitPlcOperation (Lcom/atproto/identity/SubmitPlcOperationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun subscribeLabels (Lcom/atproto/label/SubscribeLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun subscribeRepos (Lcom/atproto/sync/SubscribeReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18930,6 +19157,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun uploadVideo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun upsertOption (Ltools/ozone/setting/UpsertOptionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun upsertSet (Ltools/ozone/set/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun verifyPhone (Lapp/bsky/contact/VerifyPhoneRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/christian/ozone/BlueskyApi {
@@ -18982,6 +19210,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun describeServer (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun disableAccountInvites (Lcom/atproto/admin/DisableAccountInvitesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun disableInviteCodes (Lcom/atproto/admin/DisableInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun dismissMatch (Lapp/bsky/contact/DismissMatchRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun emitEvent (Ltools/ozone/moderation/EmitEventRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun enableAccountInvites (Lcom/atproto/admin/EnableAccountInvitesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun exportAccountData (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19029,6 +19258,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getLists (Lapp/bsky/graph/GetListsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getListsWithMembership (Lapp/bsky/graph/GetListsWithMembershipQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLog (Lchat/bsky/convo/GetLogQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getMatches (Lapp/bsky/contact/GetMatchesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getMessageContext (Lchat/bsky/moderation/GetMessageContextQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getMessages (Lchat/bsky/convo/GetMessagesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getMutes (Lapp/bsky/graph/GetMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19075,6 +19305,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getSuggestedUsersUnspecced (Lapp/bsky/unspecced/GetSuggestedUsersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestions (Lapp/bsky/actor/GetSuggestionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestionsSkeletonUnspecced (Lapp/bsky/unspecced/GetSuggestionsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getSyncStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getTaggedSuggestionsUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getTimeline (Lapp/bsky/feed/GetTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getTrendingTopicsUnspecced (Lapp/bsky/unspecced/GetTrendingTopicsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19084,6 +19315,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getUploadLimits (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getValues (Ltools/ozone/set/GetValuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun grantVerifications (Ltools/ozone/verification/GrantVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun importContacts (Lapp/bsky/contact/ImportContactsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun importRepo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun initAgeAssuranceUnspecced (Lapp/bsky/unspecced/InitAgeAssuranceRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun leaveConvo (Lchat/bsky/convo/LeaveConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19121,6 +19353,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun refreshIdentity (Lcom/atproto/identity/RefreshIdentityRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun refreshSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun registerPush (Lapp/bsky/notification/RegisterPushRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun removeData (Lapp/bsky/contact/RemoveDataRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun removeOptions (Ltools/ozone/setting/RemoveOptionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun removeReaction (Lchat/bsky/convo/RemoveReactionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun removeRule (Ltools/ozone/safelink/RemoveRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19156,6 +19389,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun sendMessage (Lchat/bsky/convo/SendMessageRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun sendMessageBatch (Lchat/bsky/convo/SendMessageBatchRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun signPlcOperation (Lcom/atproto/identity/SignPlcOperationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun startPhoneVerification (Lapp/bsky/contact/StartPhoneVerificationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun submitPlcOperation (Lcom/atproto/identity/SubmitPlcOperationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun subscribeLabels (Lcom/atproto/label/SubscribeLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun subscribeRepos (Lcom/atproto/sync/SubscribeReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19182,6 +19416,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun uploadVideo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun upsertOption (Ltools/ozone/setting/UpsertOptionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun upsertSet (Ltools/ozone/set/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun verifyPhone (Lapp/bsky/contact/VerifyPhoneRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi$Companion {
