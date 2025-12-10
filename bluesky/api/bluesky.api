@@ -132,6 +132,28 @@ public final class app/bsky/actor/ContentLabelPrefVisibilitySerializer : kotlinx
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
+public final class app/bsky/actor/DeclaredAgePref {
+	public static final field Companion Lapp/bsky/actor/DeclaredAgePref$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Boolean;
+	public final fun component2 ()Ljava/lang/Boolean;
+	public final fun component3 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;)Lapp/bsky/actor/DeclaredAgePref;
+	public static synthetic fun copy$default (Lapp/bsky/actor/DeclaredAgePref;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/actor/DeclaredAgePref;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public final fun isOverAge13 ()Ljava/lang/Boolean;
+	public final fun isOverAge16 ()Ljava/lang/Boolean;
+	public final fun isOverAge18 ()Ljava/lang/Boolean;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/DeclaredAgePref$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/actor/FeedViewPref {
 	public static final field Companion Lapp/bsky/actor/FeedViewPref$Companion;
 	public fun <init> (Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/Boolean;)V
@@ -752,6 +774,25 @@ public final class app/bsky/actor/PreferencesUnion$ContentLabelPref : app/bsky/a
 }
 
 public final class app/bsky/actor/PreferencesUnion$ContentLabelPref$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/PreferencesUnion$DeclaredAgePref : app/bsky/actor/PreferencesUnion {
+	public static final field Companion Lapp/bsky/actor/PreferencesUnion$DeclaredAgePref$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/actor/DeclaredAgePref;)Lapp/bsky/actor/PreferencesUnion$DeclaredAgePref;
+	public static fun constructor-impl (Lapp/bsky/actor/DeclaredAgePref;)Lapp/bsky/actor/DeclaredAgePref;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/actor/DeclaredAgePref;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/actor/DeclaredAgePref;Lapp/bsky/actor/DeclaredAgePref;)Z
+	public final fun getValue ()Lapp/bsky/actor/DeclaredAgePref;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/actor/DeclaredAgePref;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/actor/DeclaredAgePref;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/actor/DeclaredAgePref;
+}
+
+public final class app/bsky/actor/PreferencesUnion$DeclaredAgePref$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -3054,6 +3095,24 @@ public final class app/bsky/contact/MatchAndContactIndex$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/contact/Notification {
+	public static final field Companion Lapp/bsky/contact/Notification$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2-715Ygxc ()Ljava/lang/String;
+	public final fun copy-vjBnsU8 (Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/contact/Notification;
+	public static synthetic fun copy-vjBnsU8$default (Lapp/bsky/contact/Notification;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/contact/Notification;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFrom-715Ygxc ()Ljava/lang/String;
+	public final fun getTo-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/contact/Notification$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/contact/RemoveDataRequest {
 	public static final field INSTANCE Lapp/bsky/contact/RemoveDataRequest;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
@@ -3061,6 +3120,29 @@ public final class app/bsky/contact/RemoveDataRequest {
 
 public final class app/bsky/contact/RemoveDataResponse {
 	public static final field INSTANCE Lapp/bsky/contact/RemoveDataResponse;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/contact/SendNotificationRequest {
+	public static final field Companion Lapp/bsky/contact/SendNotificationRequest$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2-715Ygxc ()Ljava/lang/String;
+	public final fun copy-vjBnsU8 (Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/contact/SendNotificationRequest;
+	public static synthetic fun copy-vjBnsU8$default (Lapp/bsky/contact/SendNotificationRequest;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/contact/SendNotificationRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFrom-715Ygxc ()Ljava/lang/String;
+	public final fun getTo-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/contact/SendNotificationRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/contact/SendNotificationResponse {
+	public static final field INSTANCE Lapp/bsky/contact/SendNotificationResponse;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -18873,6 +18955,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun sendInteractions (Lapp/bsky/feed/SendInteractionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun sendMessage (Lchat/bsky/convo/SendMessageRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun sendMessageBatch (Lchat/bsky/convo/SendMessageBatchRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun sendNotification (Lapp/bsky/contact/SendNotificationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun signPlcOperation (Lcom/atproto/identity/SignPlcOperationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun startPhoneVerification (Lapp/bsky/contact/StartPhoneVerificationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun submitPlcOperation (Lcom/atproto/identity/SubmitPlcOperationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19129,6 +19212,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun sendInteractions (Lapp/bsky/feed/SendInteractionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun sendMessage (Lchat/bsky/convo/SendMessageRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun sendMessageBatch (Lchat/bsky/convo/SendMessageBatchRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun sendNotification (Lapp/bsky/contact/SendNotificationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun signPlcOperation (Lcom/atproto/identity/SignPlcOperationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun startPhoneVerification (Lapp/bsky/contact/StartPhoneVerificationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun submitPlcOperation (Lcom/atproto/identity/SubmitPlcOperationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19388,6 +19472,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun sendInteractions (Lapp/bsky/feed/SendInteractionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun sendMessage (Lchat/bsky/convo/SendMessageRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun sendMessageBatch (Lchat/bsky/convo/SendMessageBatchRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun sendNotification (Lapp/bsky/contact/SendNotificationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun signPlcOperation (Lcom/atproto/identity/SignPlcOperationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun startPhoneVerification (Lapp/bsky/contact/StartPhoneVerificationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun submitPlcOperation (Lcom/atproto/identity/SubmitPlcOperationRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
