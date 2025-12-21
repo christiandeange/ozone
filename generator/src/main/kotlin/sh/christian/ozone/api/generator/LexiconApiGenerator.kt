@@ -127,10 +127,7 @@ class LexiconApiGenerator(
         "*/*",
         "video/mp4",
         "application/jsonl",
-        "application/vnd.ipld.car" -> when (binaryDataType) {
-          BinaryDataType.ByteArray -> BYTE_ARRAY
-          is BinaryDataType.Custom -> ClassName(binaryDataType.packageName, binaryDataType.simpleNames)
-        }
+        "application/vnd.ipld.car" -> binaryDataType.className()
         "text/plain" -> STRING
         "application/json" -> ClassName(context.authority, "${context.classPrefix}$suffix")
         else -> error("Unknown encoding: $encoding")

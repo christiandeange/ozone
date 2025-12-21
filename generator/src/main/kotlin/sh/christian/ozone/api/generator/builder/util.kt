@@ -24,6 +24,7 @@ import com.squareup.kotlinpoet.WildcardTypeName
 import com.squareup.kotlinpoet.buildCodeBlock
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.TypeNames
+import sh.christian.ozone.api.generator.className
 import sh.christian.ozone.api.generator.stringEnumSerializer
 import sh.christian.ozone.api.lexicon.LexiconArray
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
@@ -410,7 +411,7 @@ fun typeName(
     TypeNames.Blob
   }
   is LexiconIpldType -> {
-    BYTE_ARRAY
+    environment.defaults.binaryDataType.className()
   }
   is LexiconObject -> {
     val sourceId = context.document.id

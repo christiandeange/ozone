@@ -1,5 +1,7 @@
 package sh.christian.ozone.api.generator
 
+import com.squareup.kotlinpoet.BYTE_ARRAY
+import com.squareup.kotlinpoet.ClassName
 import java.io.Serializable
 
 sealed interface BinaryDataType : Serializable {
@@ -16,7 +18,14 @@ sealed interface BinaryDataType : Serializable {
   data class Custom(
     val packageName: String,
     val simpleNames: List<String>,
-  ) : BinaryDataType {
-    private fun readResolve(): Any = this
-  }
+  ) : BinaryDataType
 }
+
+fun BinaryDataType.className() =
+  when (this) {
+    BinaryDataType.ByteArray -> BYTE_ARRAY
+    is BinaryDataType.Custom -> ClassName(
+        packageName,
+        simpleNames
+    )
+  }
