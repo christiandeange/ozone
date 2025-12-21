@@ -11,6 +11,7 @@ import org.intellij.lang.annotations.Language
 import sh.christian.ozone.api.generator.ApiConfiguration
 import sh.christian.ozone.api.generator.ApiReturnType
 import sh.christian.ozone.api.generator.ApiReturnType.Raw
+import sh.christian.ozone.api.generator.BinaryDataType
 import sh.christian.ozone.api.generator.DefaultsConfiguration
 import javax.inject.Inject
 
@@ -58,10 +59,14 @@ abstract class LexiconGeneratorExtension
     val generateUnknownsForEnums: Property<Boolean> =
       objects.property<Boolean>().convention(false)
 
+    val binaryDataType: Property<BinaryDataType> =
+      objects.property<BinaryDataType>().convention(BinaryDataType.ByteArray)
+
     internal fun buildDefaultsConfiguration(): DefaultsConfiguration {
       return DefaultsConfiguration(
         generateUnknownsForSealedTypes = generateUnknownsForSealedTypes.readFinalizedValue(),
         generateUnknownsForEnums = generateUnknownsForEnums.readFinalizedValue(),
+        binaryDataType = binaryDataType.readFinalizedValue(),
       )
     }
   }

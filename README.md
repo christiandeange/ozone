@@ -88,6 +88,9 @@ lexicons {
 
      // Determines whether to generate classes to encapsulate unknown values for strings. Defaults to false.
      generateUnknownsForEnums.set(true)
+      
+     // Defines what type to use when the protocol has binary data inputs or outputs. Defaults to ByteArray.
+     binaryDataType.set(BinaryDataType.ByteArray)
   }
 
   // Generates an additional interface for the target schemas.
@@ -99,6 +102,9 @@ lexicons {
     // Generates an additional class that implements this interface by sending corresponding
     // XRPC requests to a provided host conforming to the AT Protocol.
     // Inherits the same package name as the generated interface.
+    // NOTE: Responses are still read entirely into memory regardless of the binaryDataType 
+    // specified in the default configuration. Streaming response types are unsupported
+    // at this time.
     withKtorImplementation("XrpcBlueskyApi")
 
     // Determines the return type for each generated API method. Defaults to Raw.

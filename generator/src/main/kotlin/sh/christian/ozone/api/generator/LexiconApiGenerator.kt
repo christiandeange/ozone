@@ -58,8 +58,8 @@ class LexiconApiGenerator(
       is LexiconPrimitive,
       is LexiconRecord,
       is LexiconToken -> return
-      is LexiconXrpcQuery -> processQuery(context, mainDefinition)
-      is LexiconXrpcProcedure -> processProcedure(context, mainDefinition)
+      is LexiconXrpcQuery -> processQuery(environment.defaults.binaryDataType, context, mainDefinition)
+      is LexiconXrpcProcedure -> processProcedure(environment.defaults.binaryDataType, context, mainDefinition)
       is LexiconXrpcSubscription -> processSubscription(context, mainDefinition)
     }
   }
@@ -83,23 +83,23 @@ class LexiconApiGenerator(
     }
   }
 
-  private fun processQuery(context: GeneratorContext, query: LexiconXrpcQuery) {
+  private fun processQuery(binaryDataType: BinaryDataType, context: GeneratorContext, query: LexiconXrpcQuery) {
     apiCalls += Query(
       id = context.document.id,
       name = context.apiMethodName(),
       description = query.description,
       propertiesType = query.parameters?.type(context),
-      outputType = query.output!!.type(context, suffix = "Response"),
+      outputType = query.output!!.type(binaryDataType, context, suffix = "Response"),
     )
   }
 
-  private fun processProcedure(context: GeneratorContext, procedure: LexiconXrpcProcedure) {
+  private fun processProcedure(binaryDataType: BinaryDataType, context: GeneratorContext, procedure: LexiconXrpcProcedure) {
     apiCalls += Procedure(
       id = context.document.id,
       name = context.apiMethodName(),
       description = procedure.description,
-      inputType = procedure.input?.type(context, suffix = "Request"),
-      outputType = procedure.output?.type(context, suffix = "Response"),
+      inputType = procedure.input?.type(binaryDataType, context, suffix = "Request"),
+      outputType = procedure.output?.type(binaryDataType, context, suffix = "Response"),
     )
   }
 
@@ -121,13 +121,13 @@ class LexiconApiGenerator(
     ).takeIf { properties.isNotEmpty() }
   }
 
-  private fun LexiconXrpcBody.type(context: GeneratorContext, suffix: String): ApiType {
+  private fun LexiconXrpcBody.type(binaryDataType: BinaryDataType, context: GeneratorContext, suffix: String): ApiType {
     return ApiType(
       typeName = when (encoding) {
         "*/*",
         "video/mp4",
         "application/jsonl",
-        "application/vnd.ipld.car" -> BYTE_ARRAY
+        "application/vnd.ipld.car" -> binaryDataType.className()
         "text/plain" -> STRING
         "application/json" -> ClassName(context.authority, "${context.classPrefix}$suffix")
         else -> error("Unknown encoding: $encoding")

@@ -8,6 +8,7 @@ import com.squareup.kotlinpoet.TypeAliasSpec
 import com.squareup.kotlinpoet.TypeSpec
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.TypeNames
+import sh.christian.ozone.api.generator.className
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
 import sh.christian.ozone.api.lexicon.LexiconObject
 import sh.christian.ozone.api.lexicon.LexiconObjectProperty
@@ -90,7 +91,7 @@ class XrpcBodyGenerator(
                 context.primitiveTypeName(prop.array.items.primitive, name)
               }
               is LexiconArrayItem.Blob -> TypeNames.Blob
-              is LexiconArrayItem.IpldType -> BYTE_ARRAY
+              is LexiconArrayItem.IpldType -> environment.defaults.binaryDataType.className()
               is LexiconArrayItem.Reference -> {
                 when (prop.array.items.reference) {
                   is LexiconSingleReference -> {
