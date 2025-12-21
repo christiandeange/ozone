@@ -23,4 +23,7 @@ private fun Project.applyPlugin() {
   project.kotlinExtension.jvmToolchain {
     languageVersion.set(JavaLanguageVersion.of("17"))
   }
+  project.kotlinExtension.sourceSets.all {
+    languageSettings.optIn("kotlin.time.ExperimentalTime")
+  }
 }

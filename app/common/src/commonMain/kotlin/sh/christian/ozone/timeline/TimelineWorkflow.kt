@@ -7,7 +7,7 @@ import com.squareup.workflow1.action
 import com.squareup.workflow1.asWorker
 import com.squareup.workflow1.runningWorker
 import kotlinx.coroutines.flow.filterNotNull
-import kotlinx.datetime.Clock
+import kotlin.time.Clock
 import me.tatarka.inject.annotations.Inject
 import sh.christian.ozone.app.AppScreen
 import sh.christian.ozone.compose.ComposePostProps

@@ -1,20 +1,20 @@
 public final class app/bsky/jetstream/SubscribeAccount {
 	public static final field Companion Lapp/bsky/jetstream/SubscribeAccount$Companion;
-	public synthetic fun <init> (JLjava/lang/String;Lkotlinx/datetime/Instant;ZLapp/bsky/jetstream/SubscribeAccountStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JLjava/lang/String;Lkotlinx/datetime/Instant;ZLapp/bsky/jetstream/SubscribeAccountStatus;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLjava/lang/String;Lkotlin/time/Instant;ZLapp/bsky/jetstream/SubscribeAccountStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLjava/lang/String;Lkotlin/time/Instant;ZLapp/bsky/jetstream/SubscribeAccountStatus;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
 	public final fun component2-715Ygxc ()Ljava/lang/String;
-	public final fun component3 ()Lkotlinx/datetime/Instant;
+	public final fun component3 ()Lkotlin/time/Instant;
 	public final fun component4 ()Z
 	public final fun component5 ()Lapp/bsky/jetstream/SubscribeAccountStatus;
-	public final fun copy-HTZSsLY (JLjava/lang/String;Lkotlinx/datetime/Instant;ZLapp/bsky/jetstream/SubscribeAccountStatus;)Lapp/bsky/jetstream/SubscribeAccount;
-	public static synthetic fun copy-HTZSsLY$default (Lapp/bsky/jetstream/SubscribeAccount;JLjava/lang/String;Lkotlinx/datetime/Instant;ZLapp/bsky/jetstream/SubscribeAccountStatus;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeAccount;
+	public final fun copy-HTZSsLY (JLjava/lang/String;Lkotlin/time/Instant;ZLapp/bsky/jetstream/SubscribeAccountStatus;)Lapp/bsky/jetstream/SubscribeAccount;
+	public static synthetic fun copy-HTZSsLY$default (Lapp/bsky/jetstream/SubscribeAccount;JLjava/lang/String;Lkotlin/time/Instant;ZLapp/bsky/jetstream/SubscribeAccountStatus;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeAccount;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getActive ()Z
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getSeq ()J
 	public final fun getStatus ()Lapp/bsky/jetstream/SubscribeAccountStatus;
-	public final fun getTime ()Lkotlinx/datetime/Instant;
+	public final fun getTime ()Lkotlin/time/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -242,19 +242,19 @@ public final class app/bsky/jetstream/SubscribeEventKindSerializer : kotlinx/ser
 
 public final class app/bsky/jetstream/SubscribeIdentity {
 	public static final field Companion Lapp/bsky/jetstream/SubscribeIdentity$Companion;
-	public synthetic fun <init> (JLjava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JLjava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLjava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLjava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
 	public final fun component2-715Ygxc ()Ljava/lang/String;
-	public final fun component3 ()Lkotlinx/datetime/Instant;
+	public final fun component3 ()Lkotlin/time/Instant;
 	public final fun component4-367xRBg ()Ljava/lang/String;
-	public final fun copy-DUhffl4 (JLjava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeIdentity;
-	public static synthetic fun copy-DUhffl4$default (Lapp/bsky/jetstream/SubscribeIdentity;JLjava/lang/String;Lkotlinx/datetime/Instant;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeIdentity;
+	public final fun copy-DUhffl4 (JLjava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;)Lapp/bsky/jetstream/SubscribeIdentity;
+	public static synthetic fun copy-DUhffl4$default (Lapp/bsky/jetstream/SubscribeIdentity;JLjava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/jetstream/SubscribeIdentity;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDid-715Ygxc ()Ljava/lang/String;
 	public final fun getHandle-367xRBg ()Ljava/lang/String;
 	public final fun getSeq ()J
-	public final fun getTime ()Lkotlinx/datetime/Instant;
+	public final fun getTime ()Lkotlin/time/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }

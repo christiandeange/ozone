@@ -2,7 +2,7 @@ package sh.christian.ozone.util
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.intl.Locale
-import kotlinx.datetime.toJSDate
+import kotlin.time.toJSDate
 import sh.christian.ozone.model.Moment
 
 @Composable
