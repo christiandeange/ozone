@@ -3,6 +3,7 @@ package sh.christian.plugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.withType
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.kotlinExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -27,12 +28,17 @@ private fun Project.applyPlugin() {
   tasks.withType<KotlinCompile>().configureEach {
     if (project.findProperty("enableComposeCompilerReports") == "true") {
       val destinationPath = project.buildDir.absolutePath + "/compose_metrics"
-      kotlinOptions.freeCompilerArgs += listOf(
-        "-P",
-        "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=$destinationPath",
-        "-P",
-        "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=$destinationPath"
-      )
+      compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
+        freeCompilerArgs.set(
+          freeCompilerArgs.get() + listOf(
+            "-P",
+            "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=$destinationPath",
+            "-P",
+            "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=$destinationPath"
+          ),
+        )
+      }
     }
   }
 }

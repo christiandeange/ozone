@@ -17,7 +17,6 @@ kotlin {
       dependencies {
         api(project(":api-gen-runtime"))
 
-        api(libs.kotlinx.datetime)
         api(libs.ktor.core)
 
         implementation(libs.crypto.core)

@@ -83,7 +83,6 @@ private fun KotlinTarget.applyConfiguration(
     kotlin.srcDir(extension.outputDirectory)
     dependencies {
       api("io.ktor:ktor-client-core:${Dependencies.KTOR}")
-      api("org.jetbrains.kotlinx:kotlinx-datetime:${Dependencies.KOTLINX_DATETIME}")
       api("org.jetbrains.kotlinx:kotlinx-serialization-cbor:${Dependencies.KOTLINX_SERIALIZATION}")
       api("org.jetbrains.kotlinx:kotlinx-serialization-core:${Dependencies.KOTLINX_SERIALIZATION}")
 
