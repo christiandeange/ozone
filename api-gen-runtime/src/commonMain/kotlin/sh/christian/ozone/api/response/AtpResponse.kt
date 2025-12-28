@@ -47,7 +47,7 @@ sealed class AtpResponse<T : Any> {
     }
   }
 
-  fun <R : Any> map(transform: (T) -> R): AtpResponse<R> = when (this) {
+  inline fun <R : Any> map(transform: (T) -> R): AtpResponse<R> = when (this) {
     is Success -> Success(transform(response), headers)
     is Failure -> Failure(statusCode, response?.let(transform), error, headers)
   }
