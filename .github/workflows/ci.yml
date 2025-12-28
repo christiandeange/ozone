@@ -11,7 +11,7 @@ on:
 jobs:
   check-bluesky:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
 
     steps:
       - uses: actions/checkout@v3
@@ -26,7 +26,7 @@ jobs:
 
   check-android:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
 
     steps:
       - uses: actions/checkout@v3
@@ -65,7 +65,7 @@ jobs:
 
   check-js:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
 
     steps:
       - uses: actions/checkout@v3
@@ -80,7 +80,7 @@ jobs:
 
   check-jvm:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
 
     steps:
       - uses: actions/checkout@v3
