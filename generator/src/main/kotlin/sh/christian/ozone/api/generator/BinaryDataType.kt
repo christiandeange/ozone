@@ -11,21 +11,20 @@ sealed interface BinaryDataType : Serializable {
   }
 
   /**
-   * Represents binary data in XPRC calls with the class  specified with the arguments provided.
-   * For example, calling this with package name
-   * `"java.util"` and simple names `"Map"`, `"Entry"` yields `Map.Entry`.
+   * Represents binary data in XPRC calls with Ktor's ByteReadChannel.
    */
-  data class Custom(
-    val packageName: String,
-    val simpleNames: List<String>,
-  ) : BinaryDataType
+  object ByteReadChannel : BinaryDataType {
+    private fun readResolve(): Any = ByteArray
+  }
 }
 
 fun BinaryDataType.className() =
   when (this) {
     BinaryDataType.ByteArray -> BYTE_ARRAY
-    is BinaryDataType.Custom -> ClassName(
-        packageName,
-        simpleNames
-    )
+    is BinaryDataType.ByteReadChannel -> BYTE_READ_CHANNEL_CLASS_NAME
   }
+
+private val BYTE_READ_CHANNEL_CLASS_NAME = ClassName(
+  packageName = "io.ktor.utils.io",
+  simpleNames = listOf("ByteReadChannel")
+)
