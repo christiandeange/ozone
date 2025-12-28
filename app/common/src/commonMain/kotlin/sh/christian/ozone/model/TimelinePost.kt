@@ -4,6 +4,7 @@ import androidx.compose.runtime.Immutable
 import app.bsky.feed.FeedViewPost
 import app.bsky.feed.Post
 import app.bsky.feed.PostView
+import kotlinx.collections.immutable.persistentListOf
 import sh.christian.ozone.api.AtUri
 import sh.christian.ozone.api.Cid
 import sh.christian.ozone.util.ReadOnlyList
@@ -58,7 +59,7 @@ fun PostView.toPost(
     cid = cid,
     author = author.toProfile(),
     text = postRecord.text,
-    textLinks = postRecord.facets.mapNotNullImmutable { it.toLinkOrNull() },
+    textLinks = postRecord.facets?.mapNotNullImmutable { it.toLinkOrNull() } ?: persistentListOf(),
     createdAt = Moment(postRecord.createdAt),
     feature = embed?.toFeature(),
     replyCount = replyCount ?: 0,
@@ -67,9 +68,9 @@ fun PostView.toPost(
     indexedAt = Moment(indexedAt),
     reposted = viewer?.repost != null,
     liked = viewer?.like != null,
-    labels = labels.mapImmutable { it.toLabel() },
+    labels = labels?.mapImmutable { it.toLabel() } ?: persistentListOf(),
     reply = reply,
     reason = reason,
-    tags = postRecord.tags,
+    tags = postRecord.tags ?: listOf(),
   )
 }
