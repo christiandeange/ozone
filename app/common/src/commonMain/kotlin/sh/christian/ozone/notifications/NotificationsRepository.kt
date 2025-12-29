@@ -173,6 +173,7 @@ class NotificationsRepository(
       is ListNotificationsNotificationReason.LikeViaRepost -> reasonSubject
       is ListNotificationsNotificationReason.RepostViaRepost -> reasonSubject
       is ListNotificationsNotificationReason.SubscribedPost -> null
+      is ListNotificationsNotificationReason.ContactMatch -> null
     }
   }
 }

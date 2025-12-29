@@ -52,6 +52,8 @@ private class LexiconCodegenAdapterFactory : JsonAdapter.Factory {
     LexiconPrimitiveArray::class -> LexiconPrimitiveArrayJsonAdapter(moshi)
     LexiconToken::class -> LexiconTokenJsonAdapter(moshi)
     LexiconObject::class -> LexiconObjectJsonAdapter(moshi)
+    LexiconPermission::class -> LexiconPermissionJsonAdapter(moshi)
+    LexiconPermissionSet::class -> LexiconPermissionSetJsonAdapter(moshi)
     LexiconXrpcParameters::class -> LexiconXrpcParametersJsonAdapter(moshi)
     LexiconXrpcBody::class -> LexiconXrpcBodyJsonAdapter(moshi)
     LexiconXrpcSubscriptionMessage::class -> LexiconXrpcSubscriptionMessageJsonAdapter(moshi)
@@ -179,6 +181,7 @@ private fun JsonReader.maybeReadLexiconUserType() =
     ?: maybeReadLexiconObject()
     ?: maybeReadType(
       "query" to LexiconXrpcQuery::class,
+      "permission-set" to LexiconPermissionSet::class,
       "procedure" to LexiconXrpcProcedure::class,
       "subscription" to LexiconXrpcSubscription::class,
       "record" to LexiconRecord::class,

@@ -1,11 +1,13 @@
 package sh.christian.ozone.api.generator.builder
 
 import com.squareup.kotlinpoet.ClassName
+import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.LIST
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
+import com.squareup.kotlinpoet.withIndent
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.TypeNames
 import sh.christian.ozone.api.lexicon.LexiconArray
@@ -14,6 +16,7 @@ import sh.christian.ozone.api.lexicon.LexiconBlob
 import sh.christian.ozone.api.lexicon.LexiconIpldType
 import sh.christian.ozone.api.lexicon.LexiconObject
 import sh.christian.ozone.api.lexicon.LexiconObjectProperty
+import sh.christian.ozone.api.lexicon.LexiconPermissionSet
 import sh.christian.ozone.api.lexicon.LexiconPrimitive
 import sh.christian.ozone.api.lexicon.LexiconRecord
 import sh.christian.ozone.api.lexicon.LexiconSingleReference
@@ -41,6 +44,7 @@ class LexiconDataClassesGenerator(
       is LexiconArray -> generateTypes(context, userType)
       is LexiconBlob -> return
       is LexiconIpldType -> return
+      is LexiconPermissionSet -> generateTypes(context, userType)
       is LexiconObject -> generateTypes(context, userType)
       is LexiconPrimitive -> generateTypes(context, userType)
       is LexiconRecord -> generateTypes(context, userType)
@@ -66,6 +70,70 @@ class LexiconDataClassesGenerator(
         }
       }
     }
+  }
+
+  private fun generateTypes(
+    context: GeneratorContext,
+    permissionSet: LexiconPermissionSet,
+  ) {
+    val permissions = permissionSet.permissions.map { permission ->
+      when (permission.resource) {
+        "repo" -> {
+          CodeBlock.builder()
+            .addStatement("%T(", TypeNames.RepoPermission)
+            .withIndent {
+              addStatement("resource = %T.Repo,", TypeNames.PermissionResource)
+              addStatement("actions = %L,", valuesToList(permission.action))
+              addStatement("collections = %L,", valuesToList(permission.collection))
+            }
+            .add(")")
+            .build()
+        }
+        "rpc" -> {
+          CodeBlock.builder()
+            .addStatement("%T(", TypeNames.RpcPermission)
+            .withIndent {
+              addStatement("resource = %T.Rpc,", TypeNames.PermissionResource)
+              addStatement("inheritAudience = %L,", permission.inheritAud ?: "false")
+              permission.aud?.let { audience ->
+                addStatement("audience = %S,", audience)
+              }
+              addStatement("methods = %L,", valuesToList(permission.lxm))
+            }
+            .add(")")
+            .build()
+        }
+        else -> {
+          error("Unknown permission resource type: ${permission.resource}")
+        }
+      }
+    }
+
+    context.addType(
+      TypeSpec.objectBuilder(
+        ClassName(context.authority, context.classPrefix + context.definitionName.capitalized())
+      )
+        .addDescription(permissionSet.description)
+        .superclass(TypeNames.PermissionSet)
+        .apply {
+          permissionSet.title?.let {
+            addSuperclassConstructorParameter("defaultTitle = %S", it)
+          }
+          if (permissionSet.titleLang.isNotEmpty()) {
+            addSuperclassConstructorParameter("localizedTitles = %L", valuesToMap(permissionSet.titleLang))
+          }
+          permissionSet.detail?.let {
+            addSuperclassConstructorParameter("defaultDetail = %S", it)
+          }
+          if (permissionSet.detailLang.isNotEmpty()) {
+            addSuperclassConstructorParameter("localizedDetails = %L", valuesToMap(permissionSet.detailLang))
+          }
+          if (permissions.isNotEmpty()) {
+            addSuperclassConstructorParameter("permissions = %L", codeToList(permissions))
+          }
+        }
+        .build()
+    )
   }
 
   private fun generateTypes(

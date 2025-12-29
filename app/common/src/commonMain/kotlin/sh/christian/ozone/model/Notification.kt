@@ -1,6 +1,7 @@
 package sh.christian.ozone.model
 
 import app.bsky.notification.ListNotificationsNotification
+import app.bsky.notification.ListNotificationsNotificationReason.ContactMatch
 import app.bsky.notification.ListNotificationsNotificationReason.Follow
 import app.bsky.notification.ListNotificationsNotificationReason.Like
 import app.bsky.notification.ListNotificationsNotificationReason.LikeViaRepost
@@ -124,6 +125,7 @@ fun ListNotificationsNotification.toNotification(
     is LikeViaRepost -> Notification.Reason.LIKE_VIA_REPOST to notificationPost?.let(::LikedViaRepost)
     is RepostViaRepost -> Notification.Reason.REPOST_VIA_REPOST to notificationPost?.let(::RepostedViaRepost)
     is SubscribedPost -> return null
+    is ContactMatch -> return null
   }
 
   return Notification(

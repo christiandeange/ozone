@@ -1,3 +1,35 @@
+public final class app/bsky/AuthCreatePosts : sh/christian/ozone/api/model/permissions/PermissionSet {
+	public static final field INSTANCE Lapp/bsky/AuthCreatePosts;
+}
+
+public final class app/bsky/AuthFullApp : sh/christian/ozone/api/model/permissions/PermissionSet {
+	public static final field INSTANCE Lapp/bsky/AuthFullApp;
+}
+
+public final class app/bsky/AuthManageFeedDeclarations : sh/christian/ozone/api/model/permissions/PermissionSet {
+	public static final field INSTANCE Lapp/bsky/AuthManageFeedDeclarations;
+}
+
+public final class app/bsky/AuthManageLabelerService : sh/christian/ozone/api/model/permissions/PermissionSet {
+	public static final field INSTANCE Lapp/bsky/AuthManageLabelerService;
+}
+
+public final class app/bsky/AuthManageModeration : sh/christian/ozone/api/model/permissions/PermissionSet {
+	public static final field INSTANCE Lapp/bsky/AuthManageModeration;
+}
+
+public final class app/bsky/AuthManageNotifications : sh/christian/ozone/api/model/permissions/PermissionSet {
+	public static final field INSTANCE Lapp/bsky/AuthManageNotifications;
+}
+
+public final class app/bsky/AuthManageProfile : sh/christian/ozone/api/model/permissions/PermissionSet {
+	public static final field INSTANCE Lapp/bsky/AuthManageProfile;
+}
+
+public final class app/bsky/AuthViewAll : sh/christian/ozone/api/model/permissions/PermissionSet {
+	public static final field INSTANCE Lapp/bsky/AuthViewAll;
+}
+
 public final class app/bsky/actor/AdultContentPref {
 	public static final field Companion Lapp/bsky/actor/AdultContentPref$Companion;
 	public fun <init> (Z)V
@@ -8843,6 +8875,13 @@ public final class app/bsky/notification/ListNotificationsNotificationReason$Com
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/notification/ListNotificationsNotificationReason$ContactMatch : app/bsky/notification/ListNotificationsNotificationReason {
+	public static final field INSTANCE Lapp/bsky/notification/ListNotificationsNotificationReason$ContactMatch;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class app/bsky/notification/ListNotificationsNotificationReason$Follow : app/bsky/notification/ListNotificationsNotificationReason {
 	public static final field INSTANCE Lapp/bsky/notification/ListNotificationsNotificationReason$Follow;
 	public fun equals (Ljava/lang/Object;)Z
@@ -11238,6 +11277,10 @@ public final class app/bsky/video/UploadVideoResponse {
 
 public final class app/bsky/video/UploadVideoResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/AuthFullChatClient : sh/christian/ozone/api/model/permissions/PermissionSet {
+	public static final field INSTANCE Lchat/bsky/AuthFullChatClient;
 }
 
 public final class chat/bsky/actor/Declaration {

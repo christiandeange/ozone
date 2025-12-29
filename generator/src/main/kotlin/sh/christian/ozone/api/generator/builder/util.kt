@@ -2,7 +2,6 @@ package sh.christian.ozone.api.generator.builder
 
 import com.squareup.kotlinpoet.Annotatable
 import com.squareup.kotlinpoet.AnnotationSpec
-import com.squareup.kotlinpoet.BYTE_ARRAY
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.Documentable
@@ -32,6 +31,7 @@ import sh.christian.ozone.api.lexicon.LexiconBlob
 import sh.christian.ozone.api.lexicon.LexiconDocument
 import sh.christian.ozone.api.lexicon.LexiconIpldType
 import sh.christian.ozone.api.lexicon.LexiconObject
+import sh.christian.ozone.api.lexicon.LexiconPermissionSet
 import sh.christian.ozone.api.lexicon.LexiconPrimitive
 import sh.christian.ozone.api.lexicon.LexiconRecord
 import sh.christian.ozone.api.lexicon.LexiconSingleReference
@@ -339,6 +339,7 @@ fun LexiconSingleReference.typeName(
     is LexiconPrimitive,
     is LexiconRecord,
     is LexiconToken,
+    is LexiconPermissionSet,
     is LexiconXrpcQuery,
     is LexiconXrpcProcedure,
     is LexiconXrpcSubscription -> false
@@ -427,6 +428,9 @@ fun typeName(
   }
   is LexiconToken -> {
     STRING
+  }
+  is LexiconPermissionSet -> {
+    TypeNames.PermissionSet
   }
   is LexiconXrpcProcedure,
   is LexiconXrpcQuery,

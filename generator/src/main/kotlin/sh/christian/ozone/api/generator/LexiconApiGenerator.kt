@@ -30,6 +30,7 @@ import sh.christian.ozone.api.lexicon.LexiconBlob
 import sh.christian.ozone.api.lexicon.LexiconDocument
 import sh.christian.ozone.api.lexicon.LexiconIpldType
 import sh.christian.ozone.api.lexicon.LexiconObject
+import sh.christian.ozone.api.lexicon.LexiconPermissionSet
 import sh.christian.ozone.api.lexicon.LexiconPrimitive
 import sh.christian.ozone.api.lexicon.LexiconRecord
 import sh.christian.ozone.api.lexicon.LexiconToken
@@ -57,7 +58,8 @@ class LexiconApiGenerator(
       is LexiconObject,
       is LexiconPrimitive,
       is LexiconRecord,
-      is LexiconToken -> return
+      is LexiconToken,
+      is LexiconPermissionSet -> return
       is LexiconXrpcQuery -> processQuery(environment.defaults.binaryDataType, context, mainDefinition)
       is LexiconXrpcProcedure -> processProcedure(environment.defaults.binaryDataType, context, mainDefinition)
       is LexiconXrpcSubscription -> processSubscription(context, mainDefinition)

@@ -195,6 +195,34 @@ sealed interface LexiconObjectProperty {
 
 // endregion
 
+// region Permissions
+
+@JsonClass(generateAdapter = true)
+data class LexiconPermission(
+  val resource: String,
+  // Repo
+  val action: List<String> = emptyList(),
+  val collection: List<String> = emptyList(),
+  // RPC
+  val inheritAud: Boolean?,
+  val aud: String?,
+  val lxm: List<String> = emptyList(),
+)
+
+@JsonClass(generateAdapter = true)
+data class LexiconPermissionSet(
+  override val description: String?,
+  val title: String?,
+  @param:Json(name = "title:lang")
+  val titleLang: Map<String, String> = emptyMap(),
+  val detail: String?,
+  @param:Json(name = "detail:lang")
+  val detailLang: Map<String, String> = emptyMap(),
+  val permissions: List<LexiconPermission> = emptyList(),
+): LexiconUserType
+
+// endregion
+
 // region XRPC
 
 @JsonClass(generateAdapter = true)
