@@ -1,7 +1,8 @@
 [versions]
-agp = "8.13.1"
+agp = "8.12.3"
 buildconfig = "5.5.0"
-compose = "1.8.1"
+compose-compiler = "1.5.15"
+compose-jb = "1.9.3"
 coroutines = "1.10.2"
 crypto = "0.5.0"
 dokka = "2.1.0"

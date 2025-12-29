@@ -10,7 +10,8 @@ import androidx.compose.ui.input.key.key
 import androidx.compose.ui.input.key.onPreviewKeyEvent
 import androidx.compose.ui.input.key.type
 import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.window.CanvasBasedWindow
+import androidx.compose.ui.window.ComposeViewport
+import kotlinx.browser.document
 import kotlinx.browser.window
 import kotlinx.coroutines.coroutineScope
 import org.jetbrains.skiko.wasm.onWasmReady
@@ -23,7 +24,7 @@ suspend fun main() {
   val workflow = coroutineScope { initWorkflow(this, storage()) }
 
   onWasmReady {
-    CanvasBasedWindow {
+    ComposeViewport(document.body!!) {
       val focusManager = LocalFocusManager.current
       Box(
         Modifier.onPreviewKeyEvent {

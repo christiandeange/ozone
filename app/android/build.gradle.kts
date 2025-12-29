@@ -12,6 +12,10 @@ ozone {
       versionCode = 100
       versionName = version.toString()
     }
+
+    composeOptions {
+      kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+    }
   }
 }
 

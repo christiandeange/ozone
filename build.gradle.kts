@@ -4,7 +4,7 @@ import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
   val agp = libs.versions.agp
-  val compose = libs.versions.compose
+  val compose = libs.versions.compose.jb
   val dokka = libs.versions.dokka
   val kmmbridge = libs.versions.kmmbridge
   val kotlin = libs.versions.kotlin
