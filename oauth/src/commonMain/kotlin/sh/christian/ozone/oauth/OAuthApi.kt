@@ -16,6 +16,7 @@ import io.ktor.http.Parameters
 import io.ktor.http.ParametersBuilder
 import io.ktor.http.Url
 import io.ktor.http.buildUrl
+import io.ktor.http.headers
 import io.ktor.http.isSuccess
 import io.ktor.http.takeFrom
 import io.ktor.serialization.kotlinx.json.json
@@ -107,7 +108,11 @@ class OAuthApi(
       loginHint = loginHandleHint,
     )
 
-    val callResponse = client.post(Url(oauthServer.pushedAuthorizationRequestEndpoint)) {
+    val parEndpoint = requireNotNull(oauthServer.pushedAuthorizationRequestEndpoint) {
+      "OAuth server does not support Pushed Authorization Requests"
+    }
+
+    val callResponse = client.post(Url(parEndpoint)) {
       headers["Content-Type"] = "application/json"
       setBody(request)
     }
@@ -283,19 +288,21 @@ class OAuthApi(
     keyPair: DpopKeyPair?,
   ) {
     val oauthServer = resolveOAuthAuthorizationServer()
-    val revokeUrl = Url(oauthServer.revocationEndpoint)
+    val revokeUrl = requireNotNull(oauthServer.revocationEndpoint) {
+      "OAuth server does not support token revocation"
+    }
 
     val dpopKeyPair = resolveDpopKeyPair(providedKeyPair = keyPair)
 
     val dpopHeader = createDpopHeaderValue(
       keyPair = dpopKeyPair,
       method = "POST",
-      endpoint = revokeUrl.toString(),
+      endpoint = revokeUrl,
       nonce = nonce,
       accessToken = null,
     )
 
-    val callResponse = client.post(revokeUrl) {
+    val callResponse = client.post(Url(revokeUrl)) {
       headers["Content-Type"] = "application/x-www-form-urlencoded"
       headers["Authorization"] = "DPoP $accessToken"
       headers["DPoP"] = dpopHeader
