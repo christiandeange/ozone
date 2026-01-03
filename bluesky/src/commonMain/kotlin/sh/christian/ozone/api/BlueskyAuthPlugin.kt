@@ -109,7 +109,9 @@ class BlueskyAuthPlugin(
         }
 
         val newTokens = when (response.getOrNull()?.error) {
-          "ExpiredToken" -> refreshExpiredToken(plugin, scope)
+          "ExpiredToken",
+          "InvalidToken",
+          "invalid_token" -> refreshExpiredToken(plugin, scope)
           "use_dpop_nonce" -> refreshDpopNonce(plugin, result.response)
           else -> null
         }
