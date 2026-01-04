@@ -14,6 +14,7 @@ public final class sh/christian/ozone/oauth/DpopKeyPair$Companion {
 	public final fun fromKeyPair ([BLsh/christian/ozone/oauth/DpopKeyPair$PublicKeyFormat;[BLsh/christian/ozone/oauth/DpopKeyPair$PrivateKeyFormat;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun fromKeyPairBlocking ([BLsh/christian/ozone/oauth/DpopKeyPair$PublicKeyFormat;[BLsh/christian/ozone/oauth/DpopKeyPair$PrivateKeyFormat;)Lsh/christian/ozone/oauth/DpopKeyPair;
 	public final fun generateKeyPair (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun generateKeyPairBlocking ()Lsh/christian/ozone/oauth/DpopKeyPair;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 

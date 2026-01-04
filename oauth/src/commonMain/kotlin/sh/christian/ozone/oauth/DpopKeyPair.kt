@@ -138,6 +138,16 @@ internal constructor(
       val keyPair = CryptographyProvider.Default.get(ECDSA).keyPairGenerator(P256).generateKey()
       return DpopKeyPair(SimpleKeyPair(keyPair.publicKey, keyPair.privateKey))
     }
+
+    /**
+     * Generates a brand new DPoP key pair using the P-256 curve.
+     *
+     * **NOT** compatible with JS targets.
+     */
+    fun generateKeyPairBlocking(): DpopKeyPair {
+      val keyPair = CryptographyProvider.Default.get(ECDSA).keyPairGenerator(P256).generateKeyBlocking()
+      return DpopKeyPair(SimpleKeyPair(keyPair.publicKey, keyPair.privateKey))
+    }
   }
 
   @OptIn(CryptographyProviderApi::class)
