@@ -91,38 +91,44 @@ class BlueskyAuthPlugin(
       scope: HttpClient,
     ) {
       scope.plugin(HttpSend).intercept { context ->
-        if (!context.headers.contains(Authorization)) {
+        // If the http client already had an Authorization header, do not attempt to add our own Authorization header or
+        // handle token-related errors. The assumption is that the caller is managing token authentication themselves.
+        val alreadyHasAuth = context.headers.contains(Authorization)
+        var retryable = !alreadyHasAuth
+
+        if (!alreadyHasAuth) {
           context.auth(plugin)
         }
 
         var result: HttpClientCall = execute(context)
 
-        if (result.response.status.isSuccess()) {
-          return@intercept result
-        }
+        while (!result.response.status.isSuccess() && retryable) {
+          // Cache the response in memory since we will need to decode it potentially more than once.
+          result = result.save()
 
-        // Cache the response in memory since we will need to decode it potentially more than once.
-        result = result.save()
+          val response = runCatching<AtpErrorDescription> {
+            plugin.json.decodeFromString(result.response.bodyAsText())
+          }
 
-        val response = runCatching<AtpErrorDescription> {
-          plugin.json.decodeFromString(result.response.bodyAsText())
-        }
+          val newTokens = when (response.getOrNull()?.error) {
+            "ExpiredToken",
+            "InvalidToken",
+            "invalid_token" -> refreshExpiredToken(plugin, scope)
+            "use_dpop_nonce" -> refreshDpopNonce(plugin, result.response)
+            else -> null
+          }
 
-        val newTokens = when (response.getOrNull()?.error) {
-          "ExpiredToken",
-          "InvalidToken",
-          "invalid_token" -> refreshExpiredToken(plugin, scope)
-          "use_dpop_nonce" -> refreshDpopNonce(plugin, result.response)
-          else -> null
-        }
+          retryable = newTokens != null
 
-        if (newTokens != null) {
-          plugin.authTokens.value = newTokens
+          if (retryable) {
+            plugin.authTokens.value = newTokens
 
-          context.headers.remove(Authorization)
-          context.headers.remove("DPoP")
-          context.auth(plugin)
-          result = execute(context)
+            // Apply the new authentication tokens to the request and retry.
+            context.headers.remove(Authorization)
+            context.headers.remove("DPoP")
+            context.auth(plugin)
+            result = execute(context)
+          }
         }
 
         onResponse(plugin, result.response)
