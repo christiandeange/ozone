@@ -7,6 +7,7 @@ import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.call.save
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.plugins.pluginOrNull
 import io.ktor.client.request.forms.FormDataContent
 import io.ktor.client.request.get
 import io.ktor.client.request.post
@@ -21,7 +22,6 @@ import io.ktor.http.isSuccess
 import io.ktor.http.takeFrom
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.coroutineScope
-import kotlin.time.Clock
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
@@ -29,12 +29,14 @@ import kotlinx.serialization.json.buildJsonObject
 import sh.christian.ozone.api.response.AtpErrorDescription
 import sh.christian.ozone.api.response.AtpException
 import sh.christian.ozone.api.response.StatusCode
+import sh.christian.ozone.api.runtime.buildXrpcJsonConfiguration
 import sh.christian.ozone.api.xrpc.defaultHttpClient
 import sh.christian.ozone.oauth.network.OAuthAuthorizationServer
 import sh.christian.ozone.oauth.network.OAuthParRequest
 import sh.christian.ozone.oauth.network.OAuthParResponse
 import sh.christian.ozone.oauth.network.OAuthTokenResponse
 import kotlin.random.Random
+import kotlin.time.Clock
 import kotlin.time.Duration.Companion.seconds
 
 /**
@@ -54,8 +56,10 @@ class OAuthApi(
   private val clock: Clock = Clock.System,
 ) {
   private val client: HttpClient = httpClient.config {
-    install(ContentNegotiation) {
-      json(Json { ignoreUnknownKeys = true })
+    if (httpClient.pluginOrNull(ContentNegotiation) == null) {
+      install(ContentNegotiation) {
+        json(buildXrpcJsonConfiguration())
+      }
     }
   }
 
