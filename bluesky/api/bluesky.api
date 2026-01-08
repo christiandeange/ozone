@@ -2207,15 +2207,17 @@ public final class app/bsky/ageassurance/Config$Companion {
 
 public final class app/bsky/ageassurance/ConfigRegion {
 	public static final field Companion Lapp/bsky/ageassurance/ConfigRegion$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;JLjava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;JLjava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Ljava/util/List;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Lapp/bsky/ageassurance/ConfigRegion;
-	public static synthetic fun copy$default (Lapp/bsky/ageassurance/ConfigRegion;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/ageassurance/ConfigRegion;
+	public final fun component3 ()J
+	public final fun component4 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;JLjava/util/List;)Lapp/bsky/ageassurance/ConfigRegion;
+	public static synthetic fun copy$default (Lapp/bsky/ageassurance/ConfigRegion;Ljava/lang/String;Ljava/lang/String;JLjava/util/List;ILjava/lang/Object;)Lapp/bsky/ageassurance/ConfigRegion;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCountryCode ()Ljava/lang/String;
+	public final fun getMinAccessAge ()J
 	public final fun getRegionCode ()Ljava/lang/String;
 	public final fun getRules ()Ljava/util/List;
 	public fun hashCode ()I
