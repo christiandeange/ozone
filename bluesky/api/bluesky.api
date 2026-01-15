@@ -403,6 +403,26 @@ public final class app/bsky/actor/LabelersPref$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/actor/LiveEventPreferences {
+	public static final field Companion Lapp/bsky/actor/LiveEventPreferences$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/util/List;Ljava/lang/Boolean;)Lapp/bsky/actor/LiveEventPreferences;
+	public static synthetic fun copy$default (Lapp/bsky/actor/LiveEventPreferences;Ljava/util/List;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/actor/LiveEventPreferences;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHiddenFeedIds ()Ljava/util/List;
+	public final fun getHideAllFeeds ()Ljava/lang/Boolean;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/LiveEventPreferences$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/actor/MutedWord {
 	public static final field Companion Lapp/bsky/actor/MutedWord$Companion;
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lapp/bsky/actor/MutedWordActorTarget;Lkotlin/time/Instant;)V
@@ -901,6 +921,25 @@ public final class app/bsky/actor/PreferencesUnion$LabelersPref : app/bsky/actor
 }
 
 public final class app/bsky/actor/PreferencesUnion$LabelersPref$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/PreferencesUnion$LiveEventPreferences : app/bsky/actor/PreferencesUnion {
+	public static final field Companion Lapp/bsky/actor/PreferencesUnion$LiveEventPreferences$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/actor/LiveEventPreferences;)Lapp/bsky/actor/PreferencesUnion$LiveEventPreferences;
+	public static fun constructor-impl (Lapp/bsky/actor/LiveEventPreferences;)Lapp/bsky/actor/LiveEventPreferences;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/actor/LiveEventPreferences;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/actor/LiveEventPreferences;Lapp/bsky/actor/LiveEventPreferences;)Z
+	public final fun getValue ()Lapp/bsky/actor/LiveEventPreferences;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/actor/LiveEventPreferences;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/actor/LiveEventPreferences;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/actor/LiveEventPreferences;
+}
+
+public final class app/bsky/actor/PreferencesUnion$LiveEventPreferences$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -3256,6 +3295,501 @@ public final class app/bsky/contact/VerifyPhoneResponse {
 }
 
 public final class app/bsky/contact/VerifyPhoneResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/CreateDraftRequest {
+	public static final field Companion Lapp/bsky/draft/CreateDraftRequest$Companion;
+	public fun <init> (Lapp/bsky/draft/Draft;)V
+	public final fun component1 ()Lapp/bsky/draft/Draft;
+	public final fun copy (Lapp/bsky/draft/Draft;)Lapp/bsky/draft/CreateDraftRequest;
+	public static synthetic fun copy$default (Lapp/bsky/draft/CreateDraftRequest;Lapp/bsky/draft/Draft;ILjava/lang/Object;)Lapp/bsky/draft/CreateDraftRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDraft ()Lapp/bsky/draft/Draft;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/draft/CreateDraftRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/CreateDraftResponse {
+	public static final field Companion Lapp/bsky/draft/CreateDraftResponse$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/draft/CreateDraftResponse;
+	public static synthetic fun copy$default (Lapp/bsky/draft/CreateDraftResponse;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/draft/CreateDraftResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/draft/CreateDraftResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DeleteDraftRequest {
+	public static final field Companion Lapp/bsky/draft/DeleteDraftRequest$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-m01Zjwg ()Ljava/lang/String;
+	public final fun copy-deSBS7U (Ljava/lang/String;)Lapp/bsky/draft/DeleteDraftRequest;
+	public static synthetic fun copy-deSBS7U$default (Lapp/bsky/draft/DeleteDraftRequest;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/draft/DeleteDraftRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId-m01Zjwg ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/draft/DeleteDraftRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/Draft {
+	public static final field Companion Lapp/bsky/draft/Draft$Companion;
+	public fun <init> (Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)Lapp/bsky/draft/Draft;
+	public static synthetic fun copy$default (Lapp/bsky/draft/Draft;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/draft/Draft;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLangs ()Ljava/util/List;
+	public final fun getPostgateEmbeddingRules ()Ljava/util/List;
+	public final fun getPosts ()Ljava/util/List;
+	public final fun getThreadgateAllow ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/draft/Draft$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftEmbedCaption {
+	public static final field Companion Lapp/bsky/draft/DraftEmbedCaption$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-ji_wBX8 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy-9C8flqM (Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/draft/DraftEmbedCaption;
+	public static synthetic fun copy-9C8flqM$default (Lapp/bsky/draft/DraftEmbedCaption;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/draft/DraftEmbedCaption;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContent ()Ljava/lang/String;
+	public final fun getLang-ji_wBX8 ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/draft/DraftEmbedCaption$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftEmbedExternal {
+	public static final field Companion Lapp/bsky/draft/DraftEmbedExternal$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-v5vOzEc ()Ljava/lang/String;
+	public final fun copy-P15Rejw (Ljava/lang/String;)Lapp/bsky/draft/DraftEmbedExternal;
+	public static synthetic fun copy-P15Rejw$default (Lapp/bsky/draft/DraftEmbedExternal;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/draft/DraftEmbedExternal;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getUri-v5vOzEc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/draft/DraftEmbedExternal$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftEmbedImage {
+	public static final field Companion Lapp/bsky/draft/DraftEmbedImage$Companion;
+	public fun <init> (Lapp/bsky/draft/DraftEmbedLocalRef;Ljava/lang/String;)V
+	public synthetic fun <init> (Lapp/bsky/draft/DraftEmbedLocalRef;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lapp/bsky/draft/DraftEmbedLocalRef;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Lapp/bsky/draft/DraftEmbedLocalRef;Ljava/lang/String;)Lapp/bsky/draft/DraftEmbedImage;
+	public static synthetic fun copy$default (Lapp/bsky/draft/DraftEmbedImage;Lapp/bsky/draft/DraftEmbedLocalRef;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/draft/DraftEmbedImage;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlt ()Ljava/lang/String;
+	public final fun getLocalRef ()Lapp/bsky/draft/DraftEmbedLocalRef;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/draft/DraftEmbedImage$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftEmbedLocalRef {
+	public static final field Companion Lapp/bsky/draft/DraftEmbedLocalRef$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/draft/DraftEmbedLocalRef;
+	public static synthetic fun copy$default (Lapp/bsky/draft/DraftEmbedLocalRef;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/draft/DraftEmbedLocalRef;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPath ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/draft/DraftEmbedLocalRef$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftEmbedRecord {
+	public static final field Companion Lapp/bsky/draft/DraftEmbedRecord$Companion;
+	public fun <init> (Lcom/atproto/repo/StrongRef;)V
+	public final fun component1 ()Lcom/atproto/repo/StrongRef;
+	public final fun copy (Lcom/atproto/repo/StrongRef;)Lapp/bsky/draft/DraftEmbedRecord;
+	public static synthetic fun copy$default (Lapp/bsky/draft/DraftEmbedRecord;Lcom/atproto/repo/StrongRef;ILjava/lang/Object;)Lapp/bsky/draft/DraftEmbedRecord;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRecord ()Lcom/atproto/repo/StrongRef;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/draft/DraftEmbedRecord$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftEmbedVideo {
+	public static final field Companion Lapp/bsky/draft/DraftEmbedVideo$Companion;
+	public fun <init> (Lapp/bsky/draft/DraftEmbedLocalRef;Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Lapp/bsky/draft/DraftEmbedLocalRef;Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lapp/bsky/draft/DraftEmbedLocalRef;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/util/List;
+	public final fun copy (Lapp/bsky/draft/DraftEmbedLocalRef;Ljava/lang/String;Ljava/util/List;)Lapp/bsky/draft/DraftEmbedVideo;
+	public static synthetic fun copy$default (Lapp/bsky/draft/DraftEmbedVideo;Lapp/bsky/draft/DraftEmbedLocalRef;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/draft/DraftEmbedVideo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlt ()Ljava/lang/String;
+	public final fun getCaptions ()Ljava/util/List;
+	public final fun getLocalRef ()Lapp/bsky/draft/DraftEmbedLocalRef;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/draft/DraftEmbedVideo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftPost {
+	public static final field Companion Lapp/bsky/draft/DraftPost$Companion;
+	public fun <init> (Ljava/lang/String;Lapp/bsky/draft/DraftPostLabelsUnion;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/draft/DraftPostLabelsUnion;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lapp/bsky/draft/DraftPostLabelsUnion;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/util/List;
+	public final fun component5 ()Ljava/util/List;
+	public final fun component6 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Lapp/bsky/draft/DraftPostLabelsUnion;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)Lapp/bsky/draft/DraftPost;
+	public static synthetic fun copy$default (Lapp/bsky/draft/DraftPost;Ljava/lang/String;Lapp/bsky/draft/DraftPostLabelsUnion;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/draft/DraftPost;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEmbedExternals ()Ljava/util/List;
+	public final fun getEmbedImages ()Ljava/util/List;
+	public final fun getEmbedRecords ()Ljava/util/List;
+	public final fun getEmbedVideos ()Ljava/util/List;
+	public final fun getLabels ()Lapp/bsky/draft/DraftPostLabelsUnion;
+	public final fun getText ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/draft/DraftPost$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/draft/DraftPostLabelsUnion {
+	public static final field Companion Lapp/bsky/draft/DraftPostLabelsUnion$Companion;
+}
+
+public final class app/bsky/draft/DraftPostLabelsUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftPostLabelsUnion$SelfLabels : app/bsky/draft/DraftPostLabelsUnion {
+	public static final field Companion Lapp/bsky/draft/DraftPostLabelsUnion$SelfLabels$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/label/SelfLabels;)Lapp/bsky/draft/DraftPostLabelsUnion$SelfLabels;
+	public static fun constructor-impl (Lcom/atproto/label/SelfLabels;)Lcom/atproto/label/SelfLabels;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/label/SelfLabels;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/label/SelfLabels;Lcom/atproto/label/SelfLabels;)Z
+	public final fun getValue ()Lcom/atproto/label/SelfLabels;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/label/SelfLabels;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/label/SelfLabels;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/label/SelfLabels;
+}
+
+public final class app/bsky/draft/DraftPostLabelsUnion$SelfLabels$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftPostLabelsUnion$Unknown : app/bsky/draft/DraftPostLabelsUnion {
+	public static final field Companion Lapp/bsky/draft/DraftPostLabelsUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/draft/DraftPostLabelsUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/draft/DraftPostLabelsUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/draft/DraftPostgateEmbeddingRuleUnion {
+	public static final field Companion Lapp/bsky/draft/DraftPostgateEmbeddingRuleUnion$Companion;
+}
+
+public final class app/bsky/draft/DraftPostgateEmbeddingRuleUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftPostgateEmbeddingRuleUnion$DisableRule : app/bsky/draft/DraftPostgateEmbeddingRuleUnion {
+	public static final field Companion Lapp/bsky/draft/DraftPostgateEmbeddingRuleUnion$DisableRule$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/feed/PostgateDisableRule;)Lapp/bsky/draft/DraftPostgateEmbeddingRuleUnion$DisableRule;
+	public static fun constructor-impl (Lapp/bsky/feed/PostgateDisableRule;)Lapp/bsky/feed/PostgateDisableRule;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/feed/PostgateDisableRule;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/feed/PostgateDisableRule;Lapp/bsky/feed/PostgateDisableRule;)Z
+	public final fun getValue ()Lapp/bsky/feed/PostgateDisableRule;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/feed/PostgateDisableRule;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/feed/PostgateDisableRule;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/feed/PostgateDisableRule;
+}
+
+public final class app/bsky/draft/DraftPostgateEmbeddingRuleUnion$DisableRule$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftPostgateEmbeddingRuleUnion$Unknown : app/bsky/draft/DraftPostgateEmbeddingRuleUnion {
+	public static final field Companion Lapp/bsky/draft/DraftPostgateEmbeddingRuleUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/draft/DraftPostgateEmbeddingRuleUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/draft/DraftPostgateEmbeddingRuleUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/draft/DraftThreadgateAllowUnion {
+	public static final field Companion Lapp/bsky/draft/DraftThreadgateAllowUnion$Companion;
+}
+
+public final class app/bsky/draft/DraftThreadgateAllowUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftThreadgateAllowUnion$FollowerRule : app/bsky/draft/DraftThreadgateAllowUnion {
+	public static final field Companion Lapp/bsky/draft/DraftThreadgateAllowUnion$FollowerRule$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/feed/ThreadgateFollowerRule;)Lapp/bsky/draft/DraftThreadgateAllowUnion$FollowerRule;
+	public static fun constructor-impl (Lapp/bsky/feed/ThreadgateFollowerRule;)Lapp/bsky/feed/ThreadgateFollowerRule;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/feed/ThreadgateFollowerRule;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/feed/ThreadgateFollowerRule;Lapp/bsky/feed/ThreadgateFollowerRule;)Z
+	public final fun getValue ()Lapp/bsky/feed/ThreadgateFollowerRule;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/feed/ThreadgateFollowerRule;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/feed/ThreadgateFollowerRule;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/feed/ThreadgateFollowerRule;
+}
+
+public final class app/bsky/draft/DraftThreadgateAllowUnion$FollowerRule$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftThreadgateAllowUnion$FollowingRule : app/bsky/draft/DraftThreadgateAllowUnion {
+	public static final field Companion Lapp/bsky/draft/DraftThreadgateAllowUnion$FollowingRule$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/feed/ThreadgateFollowingRule;)Lapp/bsky/draft/DraftThreadgateAllowUnion$FollowingRule;
+	public static fun constructor-impl (Lapp/bsky/feed/ThreadgateFollowingRule;)Lapp/bsky/feed/ThreadgateFollowingRule;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/feed/ThreadgateFollowingRule;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/feed/ThreadgateFollowingRule;Lapp/bsky/feed/ThreadgateFollowingRule;)Z
+	public final fun getValue ()Lapp/bsky/feed/ThreadgateFollowingRule;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/feed/ThreadgateFollowingRule;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/feed/ThreadgateFollowingRule;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/feed/ThreadgateFollowingRule;
+}
+
+public final class app/bsky/draft/DraftThreadgateAllowUnion$FollowingRule$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftThreadgateAllowUnion$ListRule : app/bsky/draft/DraftThreadgateAllowUnion {
+	public static final field Companion Lapp/bsky/draft/DraftThreadgateAllowUnion$ListRule$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/feed/ThreadgateListRule;)Lapp/bsky/draft/DraftThreadgateAllowUnion$ListRule;
+	public static fun constructor-impl (Lapp/bsky/feed/ThreadgateListRule;)Lapp/bsky/feed/ThreadgateListRule;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/feed/ThreadgateListRule;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/feed/ThreadgateListRule;Lapp/bsky/feed/ThreadgateListRule;)Z
+	public final fun getValue ()Lapp/bsky/feed/ThreadgateListRule;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/feed/ThreadgateListRule;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/feed/ThreadgateListRule;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/feed/ThreadgateListRule;
+}
+
+public final class app/bsky/draft/DraftThreadgateAllowUnion$ListRule$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftThreadgateAllowUnion$MentionRule : app/bsky/draft/DraftThreadgateAllowUnion {
+	public static final field Companion Lapp/bsky/draft/DraftThreadgateAllowUnion$MentionRule$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/feed/ThreadgateMentionRule;)Lapp/bsky/draft/DraftThreadgateAllowUnion$MentionRule;
+	public static fun constructor-impl (Lapp/bsky/feed/ThreadgateMentionRule;)Lapp/bsky/feed/ThreadgateMentionRule;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/feed/ThreadgateMentionRule;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/feed/ThreadgateMentionRule;Lapp/bsky/feed/ThreadgateMentionRule;)Z
+	public final fun getValue ()Lapp/bsky/feed/ThreadgateMentionRule;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/feed/ThreadgateMentionRule;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/feed/ThreadgateMentionRule;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/feed/ThreadgateMentionRule;
+}
+
+public final class app/bsky/draft/DraftThreadgateAllowUnion$MentionRule$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftThreadgateAllowUnion$Unknown : app/bsky/draft/DraftThreadgateAllowUnion {
+	public static final field Companion Lapp/bsky/draft/DraftThreadgateAllowUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/draft/DraftThreadgateAllowUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/draft/DraftThreadgateAllowUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftView {
+	public static final field Companion Lapp/bsky/draft/DraftView$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/draft/Draft;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-m01Zjwg ()Ljava/lang/String;
+	public final fun component2 ()Lapp/bsky/draft/Draft;
+	public final fun component3 ()Lkotlin/time/Instant;
+	public final fun component4 ()Lkotlin/time/Instant;
+	public final fun copy-GP4s0sI (Ljava/lang/String;Lapp/bsky/draft/Draft;Lkotlin/time/Instant;Lkotlin/time/Instant;)Lapp/bsky/draft/DraftView;
+	public static synthetic fun copy-GP4s0sI$default (Lapp/bsky/draft/DraftView;Ljava/lang/String;Lapp/bsky/draft/Draft;Lkotlin/time/Instant;Lkotlin/time/Instant;ILjava/lang/Object;)Lapp/bsky/draft/DraftView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getDraft ()Lapp/bsky/draft/Draft;
+	public final fun getId-m01Zjwg ()Ljava/lang/String;
+	public final fun getUpdatedAt ()Lkotlin/time/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/draft/DraftView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftWithId {
+	public static final field Companion Lapp/bsky/draft/DraftWithId$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/draft/Draft;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-m01Zjwg ()Ljava/lang/String;
+	public final fun component2 ()Lapp/bsky/draft/Draft;
+	public final fun copy-z90HZpo (Ljava/lang/String;Lapp/bsky/draft/Draft;)Lapp/bsky/draft/DraftWithId;
+	public static synthetic fun copy-z90HZpo$default (Lapp/bsky/draft/DraftWithId;Ljava/lang/String;Lapp/bsky/draft/Draft;ILjava/lang/Object;)Lapp/bsky/draft/DraftWithId;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDraft ()Lapp/bsky/draft/Draft;
+	public final fun getId-m01Zjwg ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/draft/DraftWithId$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/GetDraftsQueryParams {
+	public static final field Companion Lapp/bsky/draft/GetDraftsQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/draft/GetDraftsQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/draft/GetDraftsQueryParams;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/draft/GetDraftsQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/draft/GetDraftsQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/GetDraftsResponse {
+	public static final field Companion Lapp/bsky/draft/GetDraftsResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Lapp/bsky/draft/GetDraftsResponse;
+	public static synthetic fun copy$default (Lapp/bsky/draft/GetDraftsResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/draft/GetDraftsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getDrafts ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/draft/GetDraftsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/UpdateDraftRequest {
+	public static final field Companion Lapp/bsky/draft/UpdateDraftRequest$Companion;
+	public fun <init> (Lapp/bsky/draft/DraftWithId;)V
+	public final fun component1 ()Lapp/bsky/draft/DraftWithId;
+	public final fun copy (Lapp/bsky/draft/DraftWithId;)Lapp/bsky/draft/UpdateDraftRequest;
+	public static synthetic fun copy$default (Lapp/bsky/draft/UpdateDraftRequest;Lapp/bsky/draft/DraftWithId;ILjava/lang/Object;)Lapp/bsky/draft/UpdateDraftRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDraft ()Lapp/bsky/draft/DraftWithId;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/draft/UpdateDraftRequest$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -18817,6 +19351,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun createAccount (Lcom/atproto/server/CreateAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createAppPassword (Lcom/atproto/server/CreateAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createBookmark (Lapp/bsky/bookmark/CreateBookmarkRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun createDraft (Lapp/bsky/draft/CreateDraftRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createInviteCode (Lcom/atproto/server/CreateInviteCodeRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createInviteCodes (Lcom/atproto/server/CreateInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createRecord (Lcom/atproto/repo/CreateRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18828,6 +19363,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun deleteAccount (Lcom/atproto/server/DeleteAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteAccount (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteBookmark (Lapp/bsky/bookmark/DeleteBookmarkRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deleteDraft (Lapp/bsky/draft/DeleteDraftRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteMember (Ltools/ozone/team/DeleteMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteMessageForSelf (Lchat/bsky/convo/DeleteMessageForSelfRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteRecord (Lcom/atproto/repo/DeleteRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -18868,6 +19404,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConvoAvailability (Lchat/bsky/convo/GetConvoAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getDrafts (Lapp/bsky/draft/GetDraftsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFeed (Lapp/bsky/feed/GetFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFeedGenerator (Lapp/bsky/feed/GetFeedGeneratorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19035,6 +19572,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun updateAccountSigningKey (Lcom/atproto/admin/UpdateAccountSigningKeyRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateActorAccess (Lchat/bsky/moderation/UpdateActorAccessRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateAllRead (Lchat/bsky/convo/UpdateAllReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun updateDraft (Lapp/bsky/draft/UpdateDraftRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateMember (Ltools/ozone/team/UpdateMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19074,6 +19612,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun createAccount (Lcom/atproto/server/CreateAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createAppPassword (Lcom/atproto/server/CreateAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createBookmark (Lapp/bsky/bookmark/CreateBookmarkRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun createDraft (Lapp/bsky/draft/CreateDraftRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createInviteCode (Lcom/atproto/server/CreateInviteCodeRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createInviteCodes (Lcom/atproto/server/CreateInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createRecord (Lcom/atproto/repo/CreateRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19085,6 +19624,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun deleteAccount (Lcom/atproto/server/DeleteAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteAccount (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteBookmark (Lapp/bsky/bookmark/DeleteBookmarkRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteDraft (Lapp/bsky/draft/DeleteDraftRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteMember (Ltools/ozone/team/DeleteMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteMessageForSelf (Lchat/bsky/convo/DeleteMessageForSelfRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteRecord (Lcom/atproto/repo/DeleteRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19125,6 +19665,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoAvailability (Lchat/bsky/convo/GetConvoAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getDrafts (Lapp/bsky/draft/GetDraftsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFeed (Lapp/bsky/feed/GetFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFeedGenerator (Lapp/bsky/feed/GetFeedGeneratorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19292,6 +19833,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun updateAccountSigningKey (Lcom/atproto/admin/UpdateAccountSigningKeyRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateActorAccess (Lchat/bsky/moderation/UpdateActorAccessRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateAllRead (Lchat/bsky/convo/UpdateAllReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateDraft (Lapp/bsky/draft/UpdateDraftRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateMember (Ltools/ozone/team/UpdateMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19332,6 +19874,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun createAccount (Lcom/atproto/server/CreateAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createAppPassword (Lcom/atproto/server/CreateAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createBookmark (Lapp/bsky/bookmark/CreateBookmarkRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun createDraft (Lapp/bsky/draft/CreateDraftRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createInviteCode (Lcom/atproto/server/CreateInviteCodeRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createInviteCodes (Lcom/atproto/server/CreateInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createRecord (Lcom/atproto/repo/CreateRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19343,6 +19886,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun deleteAccount (Lcom/atproto/server/DeleteAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteAccount (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteBookmark (Lapp/bsky/bookmark/DeleteBookmarkRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteDraft (Lapp/bsky/draft/DeleteDraftRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteMember (Ltools/ozone/team/DeleteMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteMessageForSelf (Lchat/bsky/convo/DeleteMessageForSelfRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun deleteOAuthSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19385,6 +19929,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoAvailability (Lchat/bsky/convo/GetConvoAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getDrafts (Lapp/bsky/draft/GetDraftsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFeed (Lapp/bsky/feed/GetFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFeedGenerator (Lapp/bsky/feed/GetFeedGeneratorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -19552,6 +20097,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun updateAccountSigningKey (Lcom/atproto/admin/UpdateAccountSigningKeyRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateActorAccess (Lchat/bsky/moderation/UpdateActorAccessRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateAllRead (Lchat/bsky/convo/UpdateAllReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateDraft (Lapp/bsky/draft/UpdateDraftRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateMember (Ltools/ozone/team/UpdateMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
