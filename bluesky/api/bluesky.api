@@ -10903,15 +10903,12 @@ public final class app/bsky/unspecced/GetSuggestedUsersQueryParams$Companion {
 
 public final class app/bsky/unspecced/GetSuggestedUsersResponse {
 	public static final field Companion Lapp/bsky/unspecced/GetSuggestedUsersResponse$Companion;
-	public fun <init> (Ljava/util/List;Ljava/lang/Long;)V
-	public synthetic fun <init> (Ljava/util/List;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/util/List;)V
 	public final fun component1 ()Ljava/util/List;
-	public final fun component2 ()Ljava/lang/Long;
-	public final fun copy (Ljava/util/List;Ljava/lang/Long;)Lapp/bsky/unspecced/GetSuggestedUsersResponse;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetSuggestedUsersResponse;Ljava/util/List;Ljava/lang/Long;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestedUsersResponse;
+	public final fun copy (Ljava/util/List;)Lapp/bsky/unspecced/GetSuggestedUsersResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetSuggestedUsersResponse;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestedUsersResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getActors ()Ljava/util/List;
-	public final fun getRecId ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -10944,15 +10941,12 @@ public final class app/bsky/unspecced/GetSuggestedUsersSkeletonQueryParams$Compa
 
 public final class app/bsky/unspecced/GetSuggestedUsersSkeletonResponse {
 	public static final field Companion Lapp/bsky/unspecced/GetSuggestedUsersSkeletonResponse$Companion;
-	public fun <init> (Ljava/util/List;Ljava/lang/Long;)V
-	public synthetic fun <init> (Ljava/util/List;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/util/List;)V
 	public final fun component1 ()Ljava/util/List;
-	public final fun component2 ()Ljava/lang/Long;
-	public final fun copy (Ljava/util/List;Ljava/lang/Long;)Lapp/bsky/unspecced/GetSuggestedUsersSkeletonResponse;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetSuggestedUsersSkeletonResponse;Ljava/util/List;Ljava/lang/Long;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestedUsersSkeletonResponse;
+	public final fun copy (Ljava/util/List;)Lapp/bsky/unspecced/GetSuggestedUsersSkeletonResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetSuggestedUsersSkeletonResponse;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestedUsersSkeletonResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDids ()Ljava/util/List;
-	public final fun getRecId ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
