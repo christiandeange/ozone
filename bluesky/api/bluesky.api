@@ -2,6 +2,10 @@ public final class app/bsky/AuthCreatePosts : sh/christian/ozone/api/model/permi
 	public static final field INSTANCE Lapp/bsky/AuthCreatePosts;
 }
 
+public final class app/bsky/AuthDeleteContent : sh/christian/ozone/api/model/permissions/PermissionSet {
+	public static final field INSTANCE Lapp/bsky/AuthDeleteContent;
+}
+
 public final class app/bsky/AuthFullApp : sh/christian/ozone/api/model/permissions/PermissionSet {
 	public static final field INSTANCE Lapp/bsky/AuthFullApp;
 }
@@ -1133,20 +1137,22 @@ public final class app/bsky/actor/Profile$Companion {
 public final class app/bsky/actor/ProfileAssociated {
 	public static final field Companion Lapp/bsky/actor/ProfileAssociated$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;Lapp/bsky/actor/ProfileAssociatedActivitySubscription;)V
-	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;Lapp/bsky/actor/ProfileAssociatedActivitySubscription;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;Lapp/bsky/actor/ProfileAssociatedActivitySubscription;Lapp/bsky/actor/ProfileAssociatedGerm;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;Lapp/bsky/actor/ProfileAssociatedActivitySubscription;Lapp/bsky/actor/ProfileAssociatedGerm;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Long;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3 ()Ljava/lang/Long;
 	public final fun component4 ()Ljava/lang/Boolean;
 	public final fun component5 ()Lapp/bsky/actor/ProfileAssociatedChat;
 	public final fun component6 ()Lapp/bsky/actor/ProfileAssociatedActivitySubscription;
-	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;Lapp/bsky/actor/ProfileAssociatedActivitySubscription;)Lapp/bsky/actor/ProfileAssociated;
-	public static synthetic fun copy$default (Lapp/bsky/actor/ProfileAssociated;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;Lapp/bsky/actor/ProfileAssociatedActivitySubscription;ILjava/lang/Object;)Lapp/bsky/actor/ProfileAssociated;
+	public final fun component7 ()Lapp/bsky/actor/ProfileAssociatedGerm;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;Lapp/bsky/actor/ProfileAssociatedActivitySubscription;Lapp/bsky/actor/ProfileAssociatedGerm;)Lapp/bsky/actor/ProfileAssociated;
+	public static synthetic fun copy$default (Lapp/bsky/actor/ProfileAssociated;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Lapp/bsky/actor/ProfileAssociatedChat;Lapp/bsky/actor/ProfileAssociatedActivitySubscription;Lapp/bsky/actor/ProfileAssociatedGerm;ILjava/lang/Object;)Lapp/bsky/actor/ProfileAssociated;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getActivitySubscription ()Lapp/bsky/actor/ProfileAssociatedActivitySubscription;
 	public final fun getChat ()Lapp/bsky/actor/ProfileAssociatedChat;
 	public final fun getFeedgens ()Ljava/lang/Long;
+	public final fun getGerm ()Lapp/bsky/actor/ProfileAssociatedGerm;
 	public final fun getLabeler ()Ljava/lang/Boolean;
 	public final fun getLists ()Ljava/lang/Long;
 	public final fun getStarterPacks ()Ljava/lang/Long;
@@ -1291,6 +1297,69 @@ public final class app/bsky/actor/ProfileAssociatedChatAllowIncomingSerializer :
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/ProfileAssociatedChatAllowIncoming;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class app/bsky/actor/ProfileAssociatedGerm {
+	public static final field Companion Lapp/bsky/actor/ProfileAssociatedGerm$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/actor/ProfileAssociatedGermShowButtonTo;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-v5vOzEc ()Ljava/lang/String;
+	public final fun component2 ()Lapp/bsky/actor/ProfileAssociatedGermShowButtonTo;
+	public final fun copy-yYpjrZA (Ljava/lang/String;Lapp/bsky/actor/ProfileAssociatedGermShowButtonTo;)Lapp/bsky/actor/ProfileAssociatedGerm;
+	public static synthetic fun copy-yYpjrZA$default (Lapp/bsky/actor/ProfileAssociatedGerm;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociatedGermShowButtonTo;ILjava/lang/Object;)Lapp/bsky/actor/ProfileAssociatedGerm;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMessageMeUrl-v5vOzEc ()Ljava/lang/String;
+	public final fun getShowButtonTo ()Lapp/bsky/actor/ProfileAssociatedGermShowButtonTo;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/ProfileAssociatedGerm$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class app/bsky/actor/ProfileAssociatedGermShowButtonTo : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/actor/ProfileAssociatedGermShowButtonTo$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/ProfileAssociatedGermShowButtonTo$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/actor/ProfileAssociatedGermShowButtonTo;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/ProfileAssociatedGermShowButtonTo$Everyone : app/bsky/actor/ProfileAssociatedGermShowButtonTo {
+	public static final field INSTANCE Lapp/bsky/actor/ProfileAssociatedGermShowButtonTo$Everyone;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/ProfileAssociatedGermShowButtonTo$Unknown : app/bsky/actor/ProfileAssociatedGermShowButtonTo {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/actor/ProfileAssociatedGermShowButtonTo$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/actor/ProfileAssociatedGermShowButtonTo$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/actor/ProfileAssociatedGermShowButtonTo$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/ProfileAssociatedGermShowButtonTo$UsersIFollow : app/bsky/actor/ProfileAssociatedGermShowButtonTo {
+	public static final field INSTANCE Lapp/bsky/actor/ProfileAssociatedGermShowButtonTo$UsersIFollow;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/ProfileAssociatedGermShowButtonToSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/actor/ProfileAssociatedGermShowButtonTo;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/ProfileAssociatedGermShowButtonTo;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
@@ -19331,6 +19400,94 @@ public final class com/atproto/temp/RevokeAccountCredentialsRequest {
 
 public final class com/atproto/temp/RevokeAccountCredentialsRequest$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/germnetwork/Declaration {
+	public static final field Companion Lcom/germnetwork/Declaration$Companion;
+	public fun <init> (Ljava/lang/String;[BLcom/germnetwork/DeclarationMessageMe;[BLjava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;[BLcom/germnetwork/DeclarationMessageMe;[BLjava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()[B
+	public final fun component3 ()Lcom/germnetwork/DeclarationMessageMe;
+	public final fun component4 ()[B
+	public final fun component5 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;[BLcom/germnetwork/DeclarationMessageMe;[BLjava/util/List;)Lcom/germnetwork/Declaration;
+	public static synthetic fun copy$default (Lcom/germnetwork/Declaration;Ljava/lang/String;[BLcom/germnetwork/DeclarationMessageMe;[BLjava/util/List;ILjava/lang/Object;)Lcom/germnetwork/Declaration;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContinuityProofs ()Ljava/util/List;
+	public final fun getCurrentKey ()[B
+	public final fun getKeyPackage ()[B
+	public final fun getMessageMe ()Lcom/germnetwork/DeclarationMessageMe;
+	public final fun getVersion ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/germnetwork/Declaration$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/germnetwork/DeclarationMessageMe {
+	public static final field Companion Lcom/germnetwork/DeclarationMessageMe$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lcom/germnetwork/DeclarationMessageMeShowButtonTo;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-v5vOzEc ()Ljava/lang/String;
+	public final fun component2 ()Lcom/germnetwork/DeclarationMessageMeShowButtonTo;
+	public final fun copy-yYpjrZA (Ljava/lang/String;Lcom/germnetwork/DeclarationMessageMeShowButtonTo;)Lcom/germnetwork/DeclarationMessageMe;
+	public static synthetic fun copy-yYpjrZA$default (Lcom/germnetwork/DeclarationMessageMe;Ljava/lang/String;Lcom/germnetwork/DeclarationMessageMeShowButtonTo;ILjava/lang/Object;)Lcom/germnetwork/DeclarationMessageMe;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMessageMeUrl-v5vOzEc ()Ljava/lang/String;
+	public final fun getShowButtonTo ()Lcom/germnetwork/DeclarationMessageMeShowButtonTo;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/germnetwork/DeclarationMessageMe$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class com/germnetwork/DeclarationMessageMeShowButtonTo : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lcom/germnetwork/DeclarationMessageMeShowButtonTo$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class com/germnetwork/DeclarationMessageMeShowButtonTo$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lcom/germnetwork/DeclarationMessageMeShowButtonTo;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/germnetwork/DeclarationMessageMeShowButtonTo$Everyone : com/germnetwork/DeclarationMessageMeShowButtonTo {
+	public static final field INSTANCE Lcom/germnetwork/DeclarationMessageMeShowButtonTo$Everyone;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/germnetwork/DeclarationMessageMeShowButtonTo$Unknown : com/germnetwork/DeclarationMessageMeShowButtonTo {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/germnetwork/DeclarationMessageMeShowButtonTo$Unknown;
+	public static synthetic fun copy$default (Lcom/germnetwork/DeclarationMessageMeShowButtonTo$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lcom/germnetwork/DeclarationMessageMeShowButtonTo$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/germnetwork/DeclarationMessageMeShowButtonTo$UsersIFollow : com/germnetwork/DeclarationMessageMeShowButtonTo {
+	public static final field INSTANCE Lcom/germnetwork/DeclarationMessageMeShowButtonTo$UsersIFollow;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/germnetwork/DeclarationMessageMeShowButtonToSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/germnetwork/DeclarationMessageMeShowButtonTo;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/germnetwork/DeclarationMessageMeShowButtonTo;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public abstract interface class sh/christian/ozone/BlueskyApi {
