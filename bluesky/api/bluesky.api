@@ -4666,18 +4666,20 @@ public final class app/bsky/embed/RecordWithMediaViewMediaUnion$VideoView$Compan
 
 public final class app/bsky/embed/Video {
 	public static final field Companion Lapp/bsky/embed/Video$Companion;
-	public fun <init> (Lsh/christian/ozone/api/model/Blob;Ljava/util/List;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;)V
-	public synthetic fun <init> (Lsh/christian/ozone/api/model/Blob;Ljava/util/List;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lsh/christian/ozone/api/model/Blob;Ljava/util/List;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;Lapp/bsky/embed/VideoPresentation;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/model/Blob;Ljava/util/List;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;Lapp/bsky/embed/VideoPresentation;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lsh/christian/ozone/api/model/Blob;
 	public final fun component2 ()Ljava/util/List;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Lapp/bsky/embed/AspectRatio;
-	public final fun copy (Lsh/christian/ozone/api/model/Blob;Ljava/util/List;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;)Lapp/bsky/embed/Video;
-	public static synthetic fun copy$default (Lapp/bsky/embed/Video;Lsh/christian/ozone/api/model/Blob;Ljava/util/List;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;ILjava/lang/Object;)Lapp/bsky/embed/Video;
+	public final fun component5 ()Lapp/bsky/embed/VideoPresentation;
+	public final fun copy (Lsh/christian/ozone/api/model/Blob;Ljava/util/List;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;Lapp/bsky/embed/VideoPresentation;)Lapp/bsky/embed/Video;
+	public static synthetic fun copy$default (Lapp/bsky/embed/Video;Lsh/christian/ozone/api/model/Blob;Ljava/util/List;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;Lapp/bsky/embed/VideoPresentation;ILjava/lang/Object;)Lapp/bsky/embed/Video;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAlt ()Ljava/lang/String;
 	public final fun getAspectRatio ()Lapp/bsky/embed/AspectRatio;
 	public final fun getCaptions ()Ljava/util/List;
+	public final fun getPresentation ()Lapp/bsky/embed/VideoPresentation;
 	public final fun getVideo ()Lsh/christian/ozone/api/model/Blob;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -4705,22 +4707,69 @@ public final class app/bsky/embed/VideoCaption$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public abstract class app/bsky/embed/VideoPresentation : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/embed/VideoPresentation$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/VideoPresentation$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/embed/VideoPresentation;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/VideoPresentation$Default : app/bsky/embed/VideoPresentation {
+	public static final field INSTANCE Lapp/bsky/embed/VideoPresentation$Default;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/VideoPresentation$Gif : app/bsky/embed/VideoPresentation {
+	public static final field INSTANCE Lapp/bsky/embed/VideoPresentation$Gif;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/VideoPresentation$Unknown : app/bsky/embed/VideoPresentation {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/embed/VideoPresentation$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/embed/VideoPresentation$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/embed/VideoPresentation$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/VideoPresentationSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/embed/VideoPresentation;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/VideoPresentation;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
 public final class app/bsky/embed/VideoView {
 	public static final field Companion Lapp/bsky/embed/VideoView$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;Lapp/bsky/embed/VideoViewPresentation;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;Lapp/bsky/embed/VideoViewPresentation;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-OA0YjOw ()Ljava/lang/String;
 	public final fun component2-v5vOzEc ()Ljava/lang/String;
 	public final fun component3-pvpWXas ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
 	public final fun component5 ()Lapp/bsky/embed/AspectRatio;
-	public final fun copy-LaTufYA (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;)Lapp/bsky/embed/VideoView;
-	public static synthetic fun copy-LaTufYA$default (Lapp/bsky/embed/VideoView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;ILjava/lang/Object;)Lapp/bsky/embed/VideoView;
+	public final fun component6 ()Lapp/bsky/embed/VideoViewPresentation;
+	public final fun copy-Ova3yeY (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;Lapp/bsky/embed/VideoViewPresentation;)Lapp/bsky/embed/VideoView;
+	public static synthetic fun copy-Ova3yeY$default (Lapp/bsky/embed/VideoView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;Lapp/bsky/embed/VideoViewPresentation;ILjava/lang/Object;)Lapp/bsky/embed/VideoView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAlt ()Ljava/lang/String;
 	public final fun getAspectRatio ()Lapp/bsky/embed/AspectRatio;
 	public final fun getCid-OA0YjOw ()Ljava/lang/String;
 	public final fun getPlaylist-v5vOzEc ()Ljava/lang/String;
+	public final fun getPresentation ()Lapp/bsky/embed/VideoViewPresentation;
 	public final fun getThumbnail-pvpWXas ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -4728,6 +4777,51 @@ public final class app/bsky/embed/VideoView {
 
 public final class app/bsky/embed/VideoView$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class app/bsky/embed/VideoViewPresentation : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/embed/VideoViewPresentation$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/VideoViewPresentation$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/embed/VideoViewPresentation;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/VideoViewPresentation$Default : app/bsky/embed/VideoViewPresentation {
+	public static final field INSTANCE Lapp/bsky/embed/VideoViewPresentation$Default;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/VideoViewPresentation$Gif : app/bsky/embed/VideoViewPresentation {
+	public static final field INSTANCE Lapp/bsky/embed/VideoViewPresentation$Gif;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/VideoViewPresentation$Unknown : app/bsky/embed/VideoViewPresentation {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/embed/VideoViewPresentation$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/embed/VideoViewPresentation$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/embed/VideoViewPresentation$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/VideoViewPresentationSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/embed/VideoViewPresentation;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/VideoViewPresentation;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/feed/BlockedAuthor {
