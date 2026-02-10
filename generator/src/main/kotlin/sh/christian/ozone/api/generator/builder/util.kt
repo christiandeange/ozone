@@ -114,6 +114,8 @@ fun createDataClass(
                     is Requirement.MaxValue -> listOf("", "<=", requirement.maxValue)
                     is Requirement.MinLength -> listOf(".count()", ">=", requirement.minLength)
                     is Requirement.MaxLength -> listOf(".count()", "<=", requirement.maxLength)
+                    is Requirement.MinToStringLength -> listOf(".toString().count()", ">=", requirement.minLength)
+                    is Requirement.MaxToStringLength -> listOf(".toString().count()", "<=", requirement.maxLength)
                   }
 
                   add("require(")

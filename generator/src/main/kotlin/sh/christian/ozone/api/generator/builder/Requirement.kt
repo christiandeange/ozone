@@ -16,4 +16,12 @@ sealed interface Requirement {
   data class MaxLength(
     val maxLength: Long,
   ) : Requirement
+
+  data class MinToStringLength(
+    val minLength: Long,
+  ) : Requirement
+
+  data class MaxToStringLength(
+    val maxLength: Long,
+  ) : Requirement
 }
