@@ -5,20 +5,16 @@ ozone
 
 ### Overview
 
-The Ozone project for the [AT Protocol](https://atproto.com/) consists of 4 components:
+The Ozone project for the [AT Protocol](https://atproto.com/) consists of several components:
 
 1. A Gradle plugin to compile AT Protocol schemas into usable Kotlin classes.
 2. Multiplatform APIs for the AT Protocol spec that can be used with any compatible service, including [Bluesky Social](https://bsky.app).
    - Supports Android, JVM, JavaScript, and iOS.
-3. APIs to connect to the [Jetstream](https://github.com/bluesky-social/jetstream) firehose for Bluesky Social.
+3. APIs to authenticate via [OAuth](https://atproto.com/guides/oauth) to a Personal Data Server (PDS).
+   - Supports Android, JVM, JavaScript, and iOS.
+4. APIs to connect to the [Jetstream](https://github.com/bluesky-social/jetstream) firehose for Bluesky Social.
    - Supports Android, JVM, and JavaScript.
-4. Example client apps that demonstrate usage of those APIs.
-
-> **Warning**
->
-> 🚧 🚧 🚧 Everything in here is very much a work-in-progress!
-> The [upstream schemas](https://github.com/bluesky-social/atproto/commits/main/lexicons) are still subject to breaking
-> changes and may break at any moment if used in production code. Use at your own risk!
+5. Example client apps that demonstrate usage of those APIs.
 
 ### Why "Ozone"?
 
@@ -29,6 +25,12 @@ No relation to the moderation tools also named [Ozone](https://github.com/bluesk
 ### Bluesky Social Bindings
 
 Documentation is available at [ozone.christian.sh](https://ozone.christian.sh).
+
+> **Warning**
+>
+> 🚧 🚧 🚧 Everything in here is very much a work-in-progress!
+> The [upstream schemas](https://github.com/bluesky-social/atproto/commits/main/lexicons) are still subject to breaking
+> changes and may break at any moment if used in production code. Use at your own risk!
 
 #### Java / Kotlin
 
@@ -44,9 +46,23 @@ dependencies {
 
 In Xcode, select **File > Add Packages** and enter https://github.com/christiandeange/BlueskyAPI
 
+### OAuth Client
+
+Documentation is available at [ozone.christian.sh](http://ozone.christian.sh) in the [sh.christian.ozone.oauth](https://ozone.christian.sh/ozone/sh.christian.ozone.oauth/index.html) package.
+
+#### Java / Kotlin
+
+```kotlin
+// build.gradle[.kts]
+
+dependencies {
+  api("sh.christian.ozone:oauth:0.3.3")
+}
+```
+
 ### Jetstream Bindings
 
-Documentation is available at [ozone.christian.sh](https://ozone.christian.sh/ozone/sh.christian.ozone.jetstream/index.html).
+Documentation is available at [ozone.christian.sh](http://ozone.christian.sh) in the [sh.christian.ozone.jetstream](https://ozone.christian.sh/ozone/sh.christian.ozone.jetstream/index.html) package.
 
 #### Java / Kotlin
 
