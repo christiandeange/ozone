@@ -36,7 +36,7 @@ jobs:
           ORG_GRADLE_PROJECT_mavenCentralPassword="$SONATYPE_CENTRAL_PASSWORD" \
           ORG_GRADLE_PROJECT_signingInMemoryKey="$ARTIFACT_SIGNING_PRIVATE_KEY" \
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword="$ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD" \
-          ./gradlew clean publish :generator:publish --no-daemon --stacktrace
+          ./gradlew clean publish :generator:publish -x :lexicons:publish --no-daemon --stacktrace
 
   deploy-release-docs:
     uses: ./.github/workflows/deploy_docs.yml

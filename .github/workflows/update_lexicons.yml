@@ -46,8 +46,32 @@ jobs:
         if: steps.changed-files.outputs.files_changed == 'true'
         run: ./gradlew clean apiDump :bluesky:jvmTest :app:desktop:assemble --no-daemon --stacktrace
 
+      - name: Update Lexicons Version
+        if: steps.changed-files.outputs.files_changed == 'true'
+        run: |
+          LEXICONS_VERSION_NAME=$(date +%Y.%m.%d)
+          echo "Publishing version $LEXICONS_VERSION_NAME"
+          echo "LEXICONS_VERSION_NAME=$LEXICONS_VERSION_NAME" >> "$GITHUB_ENV"
+
+          sed -i "s/^POM_VERSION=.*/POM_VERSION=$LEXICONS_VERSION_NAME/" lexicons/gradle.properties
+          sed -i "s/sh\.christian\.ozone:lexicons:[0-9.]*/sh.christian.ozone:lexicons:$LEXICONS_VERSION_NAME/" README.md
+
+      - name: Publish to Sonatype
+        if: steps.changed-files.outputs.files_changed == 'true'
+        env:
+          SONATYPE_CENTRAL_USERNAME: ${{ secrets.SONATYPE_CENTRAL_USERNAME }}
+          SONATYPE_CENTRAL_PASSWORD: ${{ secrets.SONATYPE_CENTRAL_PASSWORD }}
+          ARTIFACT_SIGNING_PRIVATE_KEY: ${{ secrets.ARTIFACT_SIGNING_PRIVATE_KEY }}
+          ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD }}
+        run: |
+          ORG_GRADLE_PROJECT_mavenCentralUsername="$SONATYPE_CENTRAL_USERNAME" \
+          ORG_GRADLE_PROJECT_mavenCentralPassword="$SONATYPE_CENTRAL_PASSWORD" \
+          ORG_GRADLE_PROJECT_signingInMemoryKey="$ARTIFACT_SIGNING_PRIVATE_KEY" \
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword="$ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD" \
+          ./gradlew clean :lexicons:publish --no-daemon --stacktrace --dry-run
+
       - name: Commit Changes
         uses: stefanzweifel/git-auto-commit-action@v4
         if: steps.changed-files.outputs.files_changed == 'true'
         with:
-          commit_message: Update lexicons from atproto
+          commit_message: Update lexicons and bump version to ${{ env.LEXICONS_VERSION_NAME }}
