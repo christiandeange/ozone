@@ -6817,11 +6817,14 @@ public final class app/bsky/feed/SearchPostsSortSerializer : kotlinx/serializati
 
 public final class app/bsky/feed/SendInteractionsRequest {
 	public static final field Companion Lapp/bsky/feed/SendInteractionsRequest$Companion;
-	public fun <init> (Ljava/util/List;)V
-	public final fun component1 ()Ljava/util/List;
-	public final fun copy (Ljava/util/List;)Lapp/bsky/feed/SendInteractionsRequest;
-	public static synthetic fun copy$default (Lapp/bsky/feed/SendInteractionsRequest;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/feed/SendInteractionsRequest;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-W3xQKsw ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy-PcYMWlM (Ljava/lang/String;Ljava/util/List;)Lapp/bsky/feed/SendInteractionsRequest;
+	public static synthetic fun copy-PcYMWlM$default (Lapp/bsky/feed/SendInteractionsRequest;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/feed/SendInteractionsRequest;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFeed-W3xQKsw ()Ljava/lang/String;
 	public final fun getInteractions ()Ljava/util/List;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
