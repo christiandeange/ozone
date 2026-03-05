@@ -38,7 +38,7 @@ jobs:
       - uses: actions/configure-pages@v4
 
       - name: Build API Reference
-        run: ./gradlew dokkaHtmlCollector
+        run: ./gradlew dokkaGenerate --no-daemon --stacktrace
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

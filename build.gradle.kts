@@ -1,6 +1,3 @@
-import org.jetbrains.dokka.gradle.DokkaCollectorTask
-import org.jetbrains.dokka.gradle.DokkaMultiModuleTask
-
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
   val agp = libs.versions.agp
@@ -47,10 +44,8 @@ allprojects {
   }
 }
 
-tasks.withType<DokkaMultiModuleTask>().configureEach {
-  outputDirectory.set(file("$rootDir/docs"))
-}
-
-tasks.withType<DokkaCollectorTask>().configureEach {
-  outputDirectory.set(file("$rootDir/docs"))
+dokka {
+  dokkaPublications.html {
+    outputDirectory.set(file("$rootDir/docs"))
+  }
 }
