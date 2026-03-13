@@ -21392,6 +21392,22 @@ public final class tools/ozone/moderation/AgeAssuranceOverrideEventStatusSeriali
 	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/moderation/AgeAssuranceOverrideEventStatus;)V
 }
 
+public final class tools/ozone/moderation/AgeAssurancePurgeEvent {
+	public static final field Companion Ltools/ozone/moderation/AgeAssurancePurgeEvent$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/moderation/AgeAssurancePurgeEvent;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/AgeAssurancePurgeEvent;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/AgeAssurancePurgeEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/AgeAssurancePurgeEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/moderation/BlobView {
 	public static final field Companion Ltools/ozone/moderation/BlobView$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;JLkotlin/time/Instant;Ltools/ozone/moderation/BlobViewDetailsUnion;Ltools/ozone/moderation/Moderation;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -21645,6 +21661,25 @@ public final class tools/ozone/moderation/EmitEventRequestEventUnion$AgeAssuranc
 }
 
 public final class tools/ozone/moderation/EmitEventRequestEventUnion$AgeAssuranceOverrideEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$AgeAssurancePurgeEvent : tools/ozone/moderation/EmitEventRequestEventUnion {
+	public static final field Companion Ltools/ozone/moderation/EmitEventRequestEventUnion$AgeAssurancePurgeEvent$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/AgeAssurancePurgeEvent;)Ltools/ozone/moderation/EmitEventRequestEventUnion$AgeAssurancePurgeEvent;
+	public static fun constructor-impl (Ltools/ozone/moderation/AgeAssurancePurgeEvent;)Ltools/ozone/moderation/AgeAssurancePurgeEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/AgeAssurancePurgeEvent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/AgeAssurancePurgeEvent;Ltools/ozone/moderation/AgeAssurancePurgeEvent;)Z
+	public final fun getValue ()Ltools/ozone/moderation/AgeAssurancePurgeEvent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/AgeAssurancePurgeEvent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/AgeAssurancePurgeEvent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/AgeAssurancePurgeEvent;
+}
+
+public final class tools/ozone/moderation/EmitEventRequestEventUnion$AgeAssurancePurgeEvent$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -23230,6 +23265,25 @@ public final class tools/ozone/moderation/ModEventViewDetailEventUnion$AgeAssura
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$AgeAssurancePurgeEvent : tools/ozone/moderation/ModEventViewDetailEventUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewDetailEventUnion$AgeAssurancePurgeEvent$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/AgeAssurancePurgeEvent;)Ltools/ozone/moderation/ModEventViewDetailEventUnion$AgeAssurancePurgeEvent;
+	public static fun constructor-impl (Ltools/ozone/moderation/AgeAssurancePurgeEvent;)Ltools/ozone/moderation/AgeAssurancePurgeEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/AgeAssurancePurgeEvent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/AgeAssurancePurgeEvent;Ltools/ozone/moderation/AgeAssurancePurgeEvent;)Z
+	public final fun getValue ()Ltools/ozone/moderation/AgeAssurancePurgeEvent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/AgeAssurancePurgeEvent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/AgeAssurancePurgeEvent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/AgeAssurancePurgeEvent;
+}
+
+public final class tools/ozone/moderation/ModEventViewDetailEventUnion$AgeAssurancePurgeEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/moderation/ModEventViewDetailEventUnion$CancelScheduledTakedownEvent : tools/ozone/moderation/ModEventViewDetailEventUnion {
 	public static final field Companion Ltools/ozone/moderation/ModEventViewDetailEventUnion$CancelScheduledTakedownEvent$Companion;
 	public static final synthetic fun box-impl (Ltools/ozone/moderation/CancelScheduledTakedownEvent;)Ltools/ozone/moderation/ModEventViewDetailEventUnion$CancelScheduledTakedownEvent;
@@ -23813,6 +23867,25 @@ public final class tools/ozone/moderation/ModEventViewEventUnion$AgeAssuranceOve
 }
 
 public final class tools/ozone/moderation/ModEventViewEventUnion$AgeAssuranceOverrideEvent$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/ModEventViewEventUnion$AgeAssurancePurgeEvent : tools/ozone/moderation/ModEventViewEventUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewEventUnion$AgeAssurancePurgeEvent$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/AgeAssurancePurgeEvent;)Ltools/ozone/moderation/ModEventViewEventUnion$AgeAssurancePurgeEvent;
+	public static fun constructor-impl (Ltools/ozone/moderation/AgeAssurancePurgeEvent;)Ltools/ozone/moderation/AgeAssurancePurgeEvent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/AgeAssurancePurgeEvent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/AgeAssurancePurgeEvent;Ltools/ozone/moderation/AgeAssurancePurgeEvent;)Z
+	public final fun getValue ()Ltools/ozone/moderation/AgeAssurancePurgeEvent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/AgeAssurancePurgeEvent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/AgeAssurancePurgeEvent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/AgeAssurancePurgeEvent;
+}
+
+public final class tools/ozone/moderation/ModEventViewEventUnion$AgeAssurancePurgeEvent$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
