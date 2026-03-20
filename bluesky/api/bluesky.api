@@ -15405,27 +15405,20 @@ public abstract class com/atproto/label/LabelValue : sh/christian/ozone/api/mode
 	public fun getValue ()Ljava/lang/String;
 }
 
+public final class com/atproto/label/LabelValue$Bot : com/atproto/label/LabelValue {
+	public static final field INSTANCE Lcom/atproto/label/LabelValue$Bot;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class com/atproto/label/LabelValue$Companion {
 	public final fun safeValueOf (Ljava/lang/String;)Lcom/atproto/label/LabelValue;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class com/atproto/label/LabelValue$DmcaViolation : com/atproto/label/LabelValue {
-	public static final field INSTANCE Lcom/atproto/label/LabelValue$DmcaViolation;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class com/atproto/label/LabelValue$Doxxing : com/atproto/label/LabelValue {
-	public static final field INSTANCE Lcom/atproto/label/LabelValue$Doxxing;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class com/atproto/label/LabelValue$Gore : com/atproto/label/LabelValue {
-	public static final field INSTANCE Lcom/atproto/label/LabelValue$Gore;
+public final class com/atproto/label/LabelValue$GraphicMedia : com/atproto/label/LabelValue {
+	public static final field INSTANCE Lcom/atproto/label/LabelValue$GraphicMedia;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -15438,22 +15431,8 @@ public final class com/atproto/label/LabelValue$Hide : com/atproto/label/LabelVa
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class com/atproto/label/LabelValue$NoPromote : com/atproto/label/LabelValue {
-	public static final field INSTANCE Lcom/atproto/label/LabelValue$NoPromote;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
 public final class com/atproto/label/LabelValue$NoUnauthenticated : com/atproto/label/LabelValue {
 	public static final field INSTANCE Lcom/atproto/label/LabelValue$NoUnauthenticated;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class com/atproto/label/LabelValue$Nsfl : com/atproto/label/LabelValue {
-	public static final field INSTANCE Lcom/atproto/label/LabelValue$Nsfl;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
