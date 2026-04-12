@@ -68,7 +68,7 @@ jobs:
           ORG_GRADLE_PROJECT_mavenCentralPassword="$SONATYPE_CENTRAL_PASSWORD" \
           ORG_GRADLE_PROJECT_signingInMemoryKey="$ARTIFACT_SIGNING_PRIVATE_KEY" \
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword="$ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD" \
-          ./gradlew clean :lexicons:publish --no-daemon --stacktrace --dry-run
+          ./gradlew clean :lexicons:publish --no-daemon --stacktrace
 
       - name: Commit Changes
         uses: stefanzweifel/git-auto-commit-action@v4
