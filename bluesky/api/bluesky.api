@@ -1235,11 +1235,14 @@ public final class app/bsky/actor/ProfileAssociatedActivitySubscriptionAllowSubs
 
 public final class app/bsky/actor/ProfileAssociatedChat {
 	public static final field Companion Lapp/bsky/actor/ProfileAssociatedChat$Companion;
-	public fun <init> (Lapp/bsky/actor/ProfileAssociatedChatAllowIncoming;)V
+	public fun <init> (Lapp/bsky/actor/ProfileAssociatedChatAllowIncoming;Lapp/bsky/actor/ProfileAssociatedChatAllowGroupInvites;)V
+	public synthetic fun <init> (Lapp/bsky/actor/ProfileAssociatedChatAllowIncoming;Lapp/bsky/actor/ProfileAssociatedChatAllowGroupInvites;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lapp/bsky/actor/ProfileAssociatedChatAllowIncoming;
-	public final fun copy (Lapp/bsky/actor/ProfileAssociatedChatAllowIncoming;)Lapp/bsky/actor/ProfileAssociatedChat;
-	public static synthetic fun copy$default (Lapp/bsky/actor/ProfileAssociatedChat;Lapp/bsky/actor/ProfileAssociatedChatAllowIncoming;ILjava/lang/Object;)Lapp/bsky/actor/ProfileAssociatedChat;
+	public final fun component2 ()Lapp/bsky/actor/ProfileAssociatedChatAllowGroupInvites;
+	public final fun copy (Lapp/bsky/actor/ProfileAssociatedChatAllowIncoming;Lapp/bsky/actor/ProfileAssociatedChatAllowGroupInvites;)Lapp/bsky/actor/ProfileAssociatedChat;
+	public static synthetic fun copy$default (Lapp/bsky/actor/ProfileAssociatedChat;Lapp/bsky/actor/ProfileAssociatedChatAllowIncoming;Lapp/bsky/actor/ProfileAssociatedChatAllowGroupInvites;ILjava/lang/Object;)Lapp/bsky/actor/ProfileAssociatedChat;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAllowGroupInvites ()Lapp/bsky/actor/ProfileAssociatedChatAllowGroupInvites;
 	public final fun getAllowIncoming ()Lapp/bsky/actor/ProfileAssociatedChatAllowIncoming;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1247,6 +1250,58 @@ public final class app/bsky/actor/ProfileAssociatedChat {
 
 public final class app/bsky/actor/ProfileAssociatedChat$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class app/bsky/actor/ProfileAssociatedChatAllowGroupInvites : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/actor/ProfileAssociatedChatAllowGroupInvites$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/ProfileAssociatedChatAllowGroupInvites$All : app/bsky/actor/ProfileAssociatedChatAllowGroupInvites {
+	public static final field INSTANCE Lapp/bsky/actor/ProfileAssociatedChatAllowGroupInvites$All;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/ProfileAssociatedChatAllowGroupInvites$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/actor/ProfileAssociatedChatAllowGroupInvites;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/ProfileAssociatedChatAllowGroupInvites$Following : app/bsky/actor/ProfileAssociatedChatAllowGroupInvites {
+	public static final field INSTANCE Lapp/bsky/actor/ProfileAssociatedChatAllowGroupInvites$Following;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/ProfileAssociatedChatAllowGroupInvites$None : app/bsky/actor/ProfileAssociatedChatAllowGroupInvites {
+	public static final field INSTANCE Lapp/bsky/actor/ProfileAssociatedChatAllowGroupInvites$None;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/ProfileAssociatedChatAllowGroupInvites$Unknown : app/bsky/actor/ProfileAssociatedChatAllowGroupInvites {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/actor/ProfileAssociatedChatAllowGroupInvites$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/actor/ProfileAssociatedChatAllowGroupInvites$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/actor/ProfileAssociatedChatAllowGroupInvites$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/actor/ProfileAssociatedChatAllowGroupInvitesSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/actor/ProfileAssociatedChatAllowGroupInvites;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/actor/ProfileAssociatedChatAllowGroupInvites;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public abstract class app/bsky/actor/ProfileAssociatedChatAllowIncoming : sh/christian/ozone/api/model/AtpEnum {
