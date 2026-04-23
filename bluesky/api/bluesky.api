@@ -12581,6 +12581,11 @@ public final class chat/bsky/actor/MemberRoleSerializer : kotlinx/serialization/
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
+public final class chat/bsky/actor/PastGroupConvoMember {
+	public static final field INSTANCE Lchat/bsky/actor/PastGroupConvoMember;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class chat/bsky/actor/ProfileViewBasic {
 	public static final field Companion Lchat/bsky/actor/ProfileViewBasic$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileAssociated;Lapp/bsky/actor/ViewerState;Ljava/util/List;Lkotlin/time/Instant;Ljava/lang/Boolean;Lapp/bsky/actor/VerificationState;Lchat/bsky/actor/ProfileViewBasicKindUnion;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -12661,6 +12666,25 @@ public final class chat/bsky/actor/ProfileViewBasicKindUnion$GroupConvoMember : 
 }
 
 public final class chat/bsky/actor/ProfileViewBasicKindUnion$GroupConvoMember$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/actor/ProfileViewBasicKindUnion$PastGroupConvoMember : chat/bsky/actor/ProfileViewBasicKindUnion {
+	public static final field Companion Lchat/bsky/actor/ProfileViewBasicKindUnion$PastGroupConvoMember$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/actor/PastGroupConvoMember;)Lchat/bsky/actor/ProfileViewBasicKindUnion$PastGroupConvoMember;
+	public static fun constructor-impl (Lchat/bsky/actor/PastGroupConvoMember;)Lchat/bsky/actor/PastGroupConvoMember;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/actor/PastGroupConvoMember;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/actor/PastGroupConvoMember;Lchat/bsky/actor/PastGroupConvoMember;)Z
+	public final fun getValue ()Lchat/bsky/actor/PastGroupConvoMember;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/actor/PastGroupConvoMember;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/actor/PastGroupConvoMember;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/actor/PastGroupConvoMember;
+}
+
+public final class chat/bsky/actor/ProfileViewBasicKindUnion$PastGroupConvoMember$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -13234,6 +13258,47 @@ public final class chat/bsky/convo/GetConvoForMembersResponse {
 }
 
 public final class chat/bsky/convo/GetConvoForMembersResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/GetConvoMembersQueryParams {
+	public static final field Companion Lchat/bsky/convo/GetConvoMembersQueryParams$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lchat/bsky/convo/GetConvoMembersQueryParams;
+	public static synthetic fun copy$default (Lchat/bsky/convo/GetConvoMembersQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/GetConvoMembersQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/GetConvoMembersQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/GetConvoMembersResponse {
+	public static final field Companion Lchat/bsky/convo/GetConvoMembersResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Lchat/bsky/convo/GetConvoMembersResponse;
+	public static synthetic fun copy$default (Lchat/bsky/convo/GetConvoMembersResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lchat/bsky/convo/GetConvoMembersResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getMembers ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/GetConvoMembersResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -13872,15 +13937,17 @@ public final class chat/bsky/convo/GetMessagesQueryParams$Companion {
 
 public final class chat/bsky/convo/GetMessagesResponse {
 	public static final field Companion Lchat/bsky/convo/GetMessagesResponse$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/util/List;
-	public final fun copy (Ljava/lang/String;Ljava/util/List;)Lchat/bsky/convo/GetMessagesResponse;
-	public static synthetic fun copy$default (Lchat/bsky/convo/GetMessagesResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lchat/bsky/convo/GetMessagesResponse;
+	public final fun component3 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;Ljava/util/List;)Lchat/bsky/convo/GetMessagesResponse;
+	public static synthetic fun copy$default (Lchat/bsky/convo/GetMessagesResponse;Ljava/lang/String;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lchat/bsky/convo/GetMessagesResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getMessages ()Ljava/util/List;
+	public final fun getRelatedProfiles ()Ljava/util/List;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -13975,16 +14042,18 @@ public final class chat/bsky/convo/GetMessagesResponseMessageUnion$Unknown$Compa
 
 public final class chat/bsky/convo/GroupConvo {
 	public static final field Companion Lchat/bsky/convo/GroupConvo$Companion;
-	public fun <init> (Ljava/lang/String;Lchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;)V
-	public synthetic fun <init> (Ljava/lang/String;Lchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;JLchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;)V
+	public synthetic fun <init> (Ljava/lang/String;JLchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Lchat/bsky/group/JoinLinkView;
-	public final fun component3 ()Lchat/bsky/convo/ConvoLockStatus;
-	public final fun copy (Ljava/lang/String;Lchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;)Lchat/bsky/convo/GroupConvo;
-	public static synthetic fun copy$default (Lchat/bsky/convo/GroupConvo;Ljava/lang/String;Lchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;ILjava/lang/Object;)Lchat/bsky/convo/GroupConvo;
+	public final fun component2 ()J
+	public final fun component3 ()Lchat/bsky/group/JoinLinkView;
+	public final fun component4 ()Lchat/bsky/convo/ConvoLockStatus;
+	public final fun copy (Ljava/lang/String;JLchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;)Lchat/bsky/convo/GroupConvo;
+	public static synthetic fun copy$default (Lchat/bsky/convo/GroupConvo;Ljava/lang/String;JLchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;ILjava/lang/Object;)Lchat/bsky/convo/GroupConvo;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getJoinLink ()Lchat/bsky/group/JoinLinkView;
 	public final fun getLockStatus ()Lchat/bsky/convo/ConvoLockStatus;
+	public final fun getMemberCount ()J
 	public final fun getName ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -14359,15 +14428,17 @@ public final class chat/bsky/convo/LogAcceptConvo$Companion {
 
 public final class chat/bsky/convo/LogAddMember {
 	public static final field Companion Lchat/bsky/convo/LogAddMember$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataAddMember;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Lchat/bsky/convo/SystemMessageDataAddMember;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataAddMember;)Lchat/bsky/convo/LogAddMember;
-	public static synthetic fun copy$default (Lchat/bsky/convo/LogAddMember;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataAddMember;ILjava/lang/Object;)Lchat/bsky/convo/LogAddMember;
+	public final fun component3 ()Lchat/bsky/convo/SystemMessageView;
+	public final fun component4 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;)Lchat/bsky/convo/LogAddMember;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogAddMember;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;ILjava/lang/Object;)Lchat/bsky/convo/LogAddMember;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getConvoId ()Ljava/lang/String;
-	public final fun getMessage ()Lchat/bsky/convo/SystemMessageDataAddMember;
+	public final fun getMessage ()Lchat/bsky/convo/SystemMessageView;
+	public final fun getRelatedProfiles ()Ljava/util/List;
 	public final fun getRev ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -14504,15 +14575,15 @@ public final class chat/bsky/convo/LogBeginConvo$Companion {
 
 public final class chat/bsky/convo/LogCreateJoinLink {
 	public static final field Companion Lchat/bsky/convo/LogCreateJoinLink$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataCreateJoinLink;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Lchat/bsky/convo/SystemMessageDataCreateJoinLink;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataCreateJoinLink;)Lchat/bsky/convo/LogCreateJoinLink;
-	public static synthetic fun copy$default (Lchat/bsky/convo/LogCreateJoinLink;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataCreateJoinLink;ILjava/lang/Object;)Lchat/bsky/convo/LogCreateJoinLink;
+	public final fun component3 ()Lchat/bsky/convo/SystemMessageView;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;)Lchat/bsky/convo/LogCreateJoinLink;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogCreateJoinLink;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;ILjava/lang/Object;)Lchat/bsky/convo/LogCreateJoinLink;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getConvoId ()Ljava/lang/String;
-	public final fun getMessage ()Lchat/bsky/convo/SystemMessageDataCreateJoinLink;
+	public final fun getMessage ()Lchat/bsky/convo/SystemMessageView;
 	public final fun getRev ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -14694,15 +14765,15 @@ public final class chat/bsky/convo/LogDeleteMessageMessageUnion$Unknown$Companio
 
 public final class chat/bsky/convo/LogDisableJoinLink {
 	public static final field Companion Lchat/bsky/convo/LogDisableJoinLink$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataDisableJoinLink;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Lchat/bsky/convo/SystemMessageDataDisableJoinLink;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataDisableJoinLink;)Lchat/bsky/convo/LogDisableJoinLink;
-	public static synthetic fun copy$default (Lchat/bsky/convo/LogDisableJoinLink;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataDisableJoinLink;ILjava/lang/Object;)Lchat/bsky/convo/LogDisableJoinLink;
+	public final fun component3 ()Lchat/bsky/convo/SystemMessageView;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;)Lchat/bsky/convo/LogDisableJoinLink;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogDisableJoinLink;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;ILjava/lang/Object;)Lchat/bsky/convo/LogDisableJoinLink;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getConvoId ()Ljava/lang/String;
-	public final fun getMessage ()Lchat/bsky/convo/SystemMessageDataDisableJoinLink;
+	public final fun getMessage ()Lchat/bsky/convo/SystemMessageView;
 	public final fun getRev ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -14714,15 +14785,15 @@ public final class chat/bsky/convo/LogDisableJoinLink$Companion {
 
 public final class chat/bsky/convo/LogEditGroup {
 	public static final field Companion Lchat/bsky/convo/LogEditGroup$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataEditGroup;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Lchat/bsky/convo/SystemMessageDataEditGroup;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataEditGroup;)Lchat/bsky/convo/LogEditGroup;
-	public static synthetic fun copy$default (Lchat/bsky/convo/LogEditGroup;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataEditGroup;ILjava/lang/Object;)Lchat/bsky/convo/LogEditGroup;
+	public final fun component3 ()Lchat/bsky/convo/SystemMessageView;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;)Lchat/bsky/convo/LogEditGroup;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogEditGroup;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;ILjava/lang/Object;)Lchat/bsky/convo/LogEditGroup;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getConvoId ()Ljava/lang/String;
-	public final fun getMessage ()Lchat/bsky/convo/SystemMessageDataEditGroup;
+	public final fun getMessage ()Lchat/bsky/convo/SystemMessageView;
 	public final fun getRev ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -14734,15 +14805,15 @@ public final class chat/bsky/convo/LogEditGroup$Companion {
 
 public final class chat/bsky/convo/LogEditJoinLink {
 	public static final field Companion Lchat/bsky/convo/LogEditJoinLink$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataEditJoinLink;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Lchat/bsky/convo/SystemMessageDataEditJoinLink;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataEditJoinLink;)Lchat/bsky/convo/LogEditJoinLink;
-	public static synthetic fun copy$default (Lchat/bsky/convo/LogEditJoinLink;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataEditJoinLink;ILjava/lang/Object;)Lchat/bsky/convo/LogEditJoinLink;
+	public final fun component3 ()Lchat/bsky/convo/SystemMessageView;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;)Lchat/bsky/convo/LogEditJoinLink;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogEditJoinLink;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;ILjava/lang/Object;)Lchat/bsky/convo/LogEditJoinLink;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getConvoId ()Ljava/lang/String;
-	public final fun getMessage ()Lchat/bsky/convo/SystemMessageDataEditJoinLink;
+	public final fun getMessage ()Lchat/bsky/convo/SystemMessageView;
 	public final fun getRev ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -14754,15 +14825,15 @@ public final class chat/bsky/convo/LogEditJoinLink$Companion {
 
 public final class chat/bsky/convo/LogEnableJoinLink {
 	public static final field Companion Lchat/bsky/convo/LogEnableJoinLink$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataEnableJoinLink;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Lchat/bsky/convo/SystemMessageDataEnableJoinLink;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataEnableJoinLink;)Lchat/bsky/convo/LogEnableJoinLink;
-	public static synthetic fun copy$default (Lchat/bsky/convo/LogEnableJoinLink;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataEnableJoinLink;ILjava/lang/Object;)Lchat/bsky/convo/LogEnableJoinLink;
+	public final fun component3 ()Lchat/bsky/convo/SystemMessageView;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;)Lchat/bsky/convo/LogEnableJoinLink;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogEnableJoinLink;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;ILjava/lang/Object;)Lchat/bsky/convo/LogEnableJoinLink;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getConvoId ()Ljava/lang/String;
-	public final fun getMessage ()Lchat/bsky/convo/SystemMessageDataEnableJoinLink;
+	public final fun getMessage ()Lchat/bsky/convo/SystemMessageView;
 	public final fun getRev ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -14812,15 +14883,17 @@ public final class chat/bsky/convo/LogLeaveConvo$Companion {
 
 public final class chat/bsky/convo/LogLockConvo {
 	public static final field Companion Lchat/bsky/convo/LogLockConvo$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataLockConvo;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Lchat/bsky/convo/SystemMessageDataLockConvo;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataLockConvo;)Lchat/bsky/convo/LogLockConvo;
-	public static synthetic fun copy$default (Lchat/bsky/convo/LogLockConvo;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataLockConvo;ILjava/lang/Object;)Lchat/bsky/convo/LogLockConvo;
+	public final fun component3 ()Lchat/bsky/convo/SystemMessageView;
+	public final fun component4 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;)Lchat/bsky/convo/LogLockConvo;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogLockConvo;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;ILjava/lang/Object;)Lchat/bsky/convo/LogLockConvo;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getConvoId ()Ljava/lang/String;
-	public final fun getMessage ()Lchat/bsky/convo/SystemMessageDataLockConvo;
+	public final fun getMessage ()Lchat/bsky/convo/SystemMessageView;
+	public final fun getRelatedProfiles ()Ljava/util/List;
 	public final fun getRev ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -14832,15 +14905,17 @@ public final class chat/bsky/convo/LogLockConvo$Companion {
 
 public final class chat/bsky/convo/LogLockConvoPermanently {
 	public static final field Companion Lchat/bsky/convo/LogLockConvoPermanently$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataLockConvoPermanently;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Lchat/bsky/convo/SystemMessageDataLockConvoPermanently;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataLockConvoPermanently;)Lchat/bsky/convo/LogLockConvoPermanently;
-	public static synthetic fun copy$default (Lchat/bsky/convo/LogLockConvoPermanently;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataLockConvoPermanently;ILjava/lang/Object;)Lchat/bsky/convo/LogLockConvoPermanently;
+	public final fun component3 ()Lchat/bsky/convo/SystemMessageView;
+	public final fun component4 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;)Lchat/bsky/convo/LogLockConvoPermanently;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogLockConvoPermanently;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;ILjava/lang/Object;)Lchat/bsky/convo/LogLockConvoPermanently;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getConvoId ()Ljava/lang/String;
-	public final fun getMessage ()Lchat/bsky/convo/SystemMessageDataLockConvoPermanently;
+	public final fun getMessage ()Lchat/bsky/convo/SystemMessageView;
+	public final fun getRelatedProfiles ()Ljava/util/List;
 	public final fun getRev ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -14852,15 +14927,17 @@ public final class chat/bsky/convo/LogLockConvoPermanently$Companion {
 
 public final class chat/bsky/convo/LogMemberJoin {
 	public static final field Companion Lchat/bsky/convo/LogMemberJoin$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataMemberJoin;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Lchat/bsky/convo/SystemMessageDataMemberJoin;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataMemberJoin;)Lchat/bsky/convo/LogMemberJoin;
-	public static synthetic fun copy$default (Lchat/bsky/convo/LogMemberJoin;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataMemberJoin;ILjava/lang/Object;)Lchat/bsky/convo/LogMemberJoin;
+	public final fun component3 ()Lchat/bsky/convo/SystemMessageView;
+	public final fun component4 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;)Lchat/bsky/convo/LogMemberJoin;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogMemberJoin;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;ILjava/lang/Object;)Lchat/bsky/convo/LogMemberJoin;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getConvoId ()Ljava/lang/String;
-	public final fun getMessage ()Lchat/bsky/convo/SystemMessageDataMemberJoin;
+	public final fun getMessage ()Lchat/bsky/convo/SystemMessageView;
+	public final fun getRelatedProfiles ()Ljava/util/List;
 	public final fun getRev ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -14872,15 +14949,17 @@ public final class chat/bsky/convo/LogMemberJoin$Companion {
 
 public final class chat/bsky/convo/LogMemberLeave {
 	public static final field Companion Lchat/bsky/convo/LogMemberLeave$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataMemberLeave;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Lchat/bsky/convo/SystemMessageDataMemberLeave;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataMemberLeave;)Lchat/bsky/convo/LogMemberLeave;
-	public static synthetic fun copy$default (Lchat/bsky/convo/LogMemberLeave;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataMemberLeave;ILjava/lang/Object;)Lchat/bsky/convo/LogMemberLeave;
+	public final fun component3 ()Lchat/bsky/convo/SystemMessageView;
+	public final fun component4 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;)Lchat/bsky/convo/LogMemberLeave;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogMemberLeave;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;ILjava/lang/Object;)Lchat/bsky/convo/LogMemberLeave;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getConvoId ()Ljava/lang/String;
-	public final fun getMessage ()Lchat/bsky/convo/SystemMessageDataMemberLeave;
+	public final fun getMessage ()Lchat/bsky/convo/SystemMessageView;
+	public final fun getRelatedProfiles ()Ljava/util/List;
 	public final fun getRev ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -15140,15 +15219,17 @@ public final class chat/bsky/convo/LogRejectJoinRequest$Companion {
 
 public final class chat/bsky/convo/LogRemoveMember {
 	public static final field Companion Lchat/bsky/convo/LogRemoveMember$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataRemoveMember;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Lchat/bsky/convo/SystemMessageDataRemoveMember;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataRemoveMember;)Lchat/bsky/convo/LogRemoveMember;
-	public static synthetic fun copy$default (Lchat/bsky/convo/LogRemoveMember;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataRemoveMember;ILjava/lang/Object;)Lchat/bsky/convo/LogRemoveMember;
+	public final fun component3 ()Lchat/bsky/convo/SystemMessageView;
+	public final fun component4 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;)Lchat/bsky/convo/LogRemoveMember;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogRemoveMember;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;ILjava/lang/Object;)Lchat/bsky/convo/LogRemoveMember;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getConvoId ()Ljava/lang/String;
-	public final fun getMessage ()Lchat/bsky/convo/SystemMessageDataRemoveMember;
+	public final fun getMessage ()Lchat/bsky/convo/SystemMessageView;
+	public final fun getRelatedProfiles ()Ljava/util/List;
 	public final fun getRev ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -15247,15 +15328,17 @@ public final class chat/bsky/convo/LogRemoveReactionMessageUnion$Unknown$Compani
 
 public final class chat/bsky/convo/LogUnlockConvo {
 	public static final field Companion Lchat/bsky/convo/LogUnlockConvo$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataUnlockConvo;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Lchat/bsky/convo/SystemMessageDataUnlockConvo;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataUnlockConvo;)Lchat/bsky/convo/LogUnlockConvo;
-	public static synthetic fun copy$default (Lchat/bsky/convo/LogUnlockConvo;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageDataUnlockConvo;ILjava/lang/Object;)Lchat/bsky/convo/LogUnlockConvo;
+	public final fun component3 ()Lchat/bsky/convo/SystemMessageView;
+	public final fun component4 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;)Lchat/bsky/convo/LogUnlockConvo;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogUnlockConvo;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/convo/SystemMessageView;Ljava/util/List;ILjava/lang/Object;)Lchat/bsky/convo/LogUnlockConvo;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getConvoId ()Ljava/lang/String;
-	public final fun getMessage ()Lchat/bsky/convo/SystemMessageDataUnlockConvo;
+	public final fun getMessage ()Lchat/bsky/convo/SystemMessageView;
+	public final fun getRelatedProfiles ()Ljava/util/List;
 	public final fun getRev ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -15655,15 +15738,15 @@ public final class chat/bsky/convo/SendMessageRequest$Companion {
 
 public final class chat/bsky/convo/SystemMessageDataAddMember {
 	public static final field Companion Lchat/bsky/convo/SystemMessageDataAddMember$Companion;
-	public fun <init> (Lchat/bsky/actor/ProfileViewBasic;Lchat/bsky/actor/MemberRole;Lchat/bsky/actor/ProfileViewBasic;)V
-	public final fun component1 ()Lchat/bsky/actor/ProfileViewBasic;
+	public fun <init> (Lchat/bsky/convo/SystemMessageReferredUser;Lchat/bsky/actor/MemberRole;Lchat/bsky/convo/SystemMessageReferredUser;)V
+	public final fun component1 ()Lchat/bsky/convo/SystemMessageReferredUser;
 	public final fun component2 ()Lchat/bsky/actor/MemberRole;
-	public final fun component3 ()Lchat/bsky/actor/ProfileViewBasic;
-	public final fun copy (Lchat/bsky/actor/ProfileViewBasic;Lchat/bsky/actor/MemberRole;Lchat/bsky/actor/ProfileViewBasic;)Lchat/bsky/convo/SystemMessageDataAddMember;
-	public static synthetic fun copy$default (Lchat/bsky/convo/SystemMessageDataAddMember;Lchat/bsky/actor/ProfileViewBasic;Lchat/bsky/actor/MemberRole;Lchat/bsky/actor/ProfileViewBasic;ILjava/lang/Object;)Lchat/bsky/convo/SystemMessageDataAddMember;
+	public final fun component3 ()Lchat/bsky/convo/SystemMessageReferredUser;
+	public final fun copy (Lchat/bsky/convo/SystemMessageReferredUser;Lchat/bsky/actor/MemberRole;Lchat/bsky/convo/SystemMessageReferredUser;)Lchat/bsky/convo/SystemMessageDataAddMember;
+	public static synthetic fun copy$default (Lchat/bsky/convo/SystemMessageDataAddMember;Lchat/bsky/convo/SystemMessageReferredUser;Lchat/bsky/actor/MemberRole;Lchat/bsky/convo/SystemMessageReferredUser;ILjava/lang/Object;)Lchat/bsky/convo/SystemMessageDataAddMember;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAddedBy ()Lchat/bsky/actor/ProfileViewBasic;
-	public final fun getMember ()Lchat/bsky/actor/ProfileViewBasic;
+	public final fun getAddedBy ()Lchat/bsky/convo/SystemMessageReferredUser;
+	public final fun getMember ()Lchat/bsky/convo/SystemMessageReferredUser;
 	public final fun getRole ()Lchat/bsky/actor/MemberRole;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -15715,12 +15798,12 @@ public final class chat/bsky/convo/SystemMessageDataEnableJoinLink {
 
 public final class chat/bsky/convo/SystemMessageDataLockConvo {
 	public static final field Companion Lchat/bsky/convo/SystemMessageDataLockConvo$Companion;
-	public fun <init> (Lchat/bsky/actor/ProfileViewBasic;)V
-	public final fun component1 ()Lchat/bsky/actor/ProfileViewBasic;
-	public final fun copy (Lchat/bsky/actor/ProfileViewBasic;)Lchat/bsky/convo/SystemMessageDataLockConvo;
-	public static synthetic fun copy$default (Lchat/bsky/convo/SystemMessageDataLockConvo;Lchat/bsky/actor/ProfileViewBasic;ILjava/lang/Object;)Lchat/bsky/convo/SystemMessageDataLockConvo;
+	public fun <init> (Lchat/bsky/convo/SystemMessageReferredUser;)V
+	public final fun component1 ()Lchat/bsky/convo/SystemMessageReferredUser;
+	public final fun copy (Lchat/bsky/convo/SystemMessageReferredUser;)Lchat/bsky/convo/SystemMessageDataLockConvo;
+	public static synthetic fun copy$default (Lchat/bsky/convo/SystemMessageDataLockConvo;Lchat/bsky/convo/SystemMessageReferredUser;ILjava/lang/Object;)Lchat/bsky/convo/SystemMessageDataLockConvo;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getLockedBy ()Lchat/bsky/actor/ProfileViewBasic;
+	public final fun getLockedBy ()Lchat/bsky/convo/SystemMessageReferredUser;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -15731,12 +15814,12 @@ public final class chat/bsky/convo/SystemMessageDataLockConvo$Companion {
 
 public final class chat/bsky/convo/SystemMessageDataLockConvoPermanently {
 	public static final field Companion Lchat/bsky/convo/SystemMessageDataLockConvoPermanently$Companion;
-	public fun <init> (Lchat/bsky/actor/ProfileViewBasic;)V
-	public final fun component1 ()Lchat/bsky/actor/ProfileViewBasic;
-	public final fun copy (Lchat/bsky/actor/ProfileViewBasic;)Lchat/bsky/convo/SystemMessageDataLockConvoPermanently;
-	public static synthetic fun copy$default (Lchat/bsky/convo/SystemMessageDataLockConvoPermanently;Lchat/bsky/actor/ProfileViewBasic;ILjava/lang/Object;)Lchat/bsky/convo/SystemMessageDataLockConvoPermanently;
+	public fun <init> (Lchat/bsky/convo/SystemMessageReferredUser;)V
+	public final fun component1 ()Lchat/bsky/convo/SystemMessageReferredUser;
+	public final fun copy (Lchat/bsky/convo/SystemMessageReferredUser;)Lchat/bsky/convo/SystemMessageDataLockConvoPermanently;
+	public static synthetic fun copy$default (Lchat/bsky/convo/SystemMessageDataLockConvoPermanently;Lchat/bsky/convo/SystemMessageReferredUser;ILjava/lang/Object;)Lchat/bsky/convo/SystemMessageDataLockConvoPermanently;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getLockedBy ()Lchat/bsky/actor/ProfileViewBasic;
+	public final fun getLockedBy ()Lchat/bsky/convo/SystemMessageReferredUser;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -15747,16 +15830,16 @@ public final class chat/bsky/convo/SystemMessageDataLockConvoPermanently$Compani
 
 public final class chat/bsky/convo/SystemMessageDataMemberJoin {
 	public static final field Companion Lchat/bsky/convo/SystemMessageDataMemberJoin$Companion;
-	public fun <init> (Lchat/bsky/actor/ProfileViewBasic;Lchat/bsky/actor/MemberRole;Lchat/bsky/actor/ProfileViewBasic;)V
-	public synthetic fun <init> (Lchat/bsky/actor/ProfileViewBasic;Lchat/bsky/actor/MemberRole;Lchat/bsky/actor/ProfileViewBasic;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Lchat/bsky/actor/ProfileViewBasic;
+	public fun <init> (Lchat/bsky/convo/SystemMessageReferredUser;Lchat/bsky/actor/MemberRole;Lchat/bsky/convo/SystemMessageReferredUser;)V
+	public synthetic fun <init> (Lchat/bsky/convo/SystemMessageReferredUser;Lchat/bsky/actor/MemberRole;Lchat/bsky/convo/SystemMessageReferredUser;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lchat/bsky/convo/SystemMessageReferredUser;
 	public final fun component2 ()Lchat/bsky/actor/MemberRole;
-	public final fun component3 ()Lchat/bsky/actor/ProfileViewBasic;
-	public final fun copy (Lchat/bsky/actor/ProfileViewBasic;Lchat/bsky/actor/MemberRole;Lchat/bsky/actor/ProfileViewBasic;)Lchat/bsky/convo/SystemMessageDataMemberJoin;
-	public static synthetic fun copy$default (Lchat/bsky/convo/SystemMessageDataMemberJoin;Lchat/bsky/actor/ProfileViewBasic;Lchat/bsky/actor/MemberRole;Lchat/bsky/actor/ProfileViewBasic;ILjava/lang/Object;)Lchat/bsky/convo/SystemMessageDataMemberJoin;
+	public final fun component3 ()Lchat/bsky/convo/SystemMessageReferredUser;
+	public final fun copy (Lchat/bsky/convo/SystemMessageReferredUser;Lchat/bsky/actor/MemberRole;Lchat/bsky/convo/SystemMessageReferredUser;)Lchat/bsky/convo/SystemMessageDataMemberJoin;
+	public static synthetic fun copy$default (Lchat/bsky/convo/SystemMessageDataMemberJoin;Lchat/bsky/convo/SystemMessageReferredUser;Lchat/bsky/actor/MemberRole;Lchat/bsky/convo/SystemMessageReferredUser;ILjava/lang/Object;)Lchat/bsky/convo/SystemMessageDataMemberJoin;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getApprovedBy ()Lchat/bsky/actor/ProfileViewBasic;
-	public final fun getMember ()Lchat/bsky/actor/ProfileViewBasic;
+	public final fun getApprovedBy ()Lchat/bsky/convo/SystemMessageReferredUser;
+	public final fun getMember ()Lchat/bsky/convo/SystemMessageReferredUser;
 	public final fun getRole ()Lchat/bsky/actor/MemberRole;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -15768,12 +15851,12 @@ public final class chat/bsky/convo/SystemMessageDataMemberJoin$Companion {
 
 public final class chat/bsky/convo/SystemMessageDataMemberLeave {
 	public static final field Companion Lchat/bsky/convo/SystemMessageDataMemberLeave$Companion;
-	public fun <init> (Lchat/bsky/actor/ProfileViewBasic;)V
-	public final fun component1 ()Lchat/bsky/actor/ProfileViewBasic;
-	public final fun copy (Lchat/bsky/actor/ProfileViewBasic;)Lchat/bsky/convo/SystemMessageDataMemberLeave;
-	public static synthetic fun copy$default (Lchat/bsky/convo/SystemMessageDataMemberLeave;Lchat/bsky/actor/ProfileViewBasic;ILjava/lang/Object;)Lchat/bsky/convo/SystemMessageDataMemberLeave;
+	public fun <init> (Lchat/bsky/convo/SystemMessageReferredUser;)V
+	public final fun component1 ()Lchat/bsky/convo/SystemMessageReferredUser;
+	public final fun copy (Lchat/bsky/convo/SystemMessageReferredUser;)Lchat/bsky/convo/SystemMessageDataMemberLeave;
+	public static synthetic fun copy$default (Lchat/bsky/convo/SystemMessageDataMemberLeave;Lchat/bsky/convo/SystemMessageReferredUser;ILjava/lang/Object;)Lchat/bsky/convo/SystemMessageDataMemberLeave;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getMember ()Lchat/bsky/actor/ProfileViewBasic;
+	public final fun getMember ()Lchat/bsky/convo/SystemMessageReferredUser;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -15784,14 +15867,14 @@ public final class chat/bsky/convo/SystemMessageDataMemberLeave$Companion {
 
 public final class chat/bsky/convo/SystemMessageDataRemoveMember {
 	public static final field Companion Lchat/bsky/convo/SystemMessageDataRemoveMember$Companion;
-	public fun <init> (Lchat/bsky/actor/ProfileViewBasic;Lchat/bsky/actor/ProfileViewBasic;)V
-	public final fun component1 ()Lchat/bsky/actor/ProfileViewBasic;
-	public final fun component2 ()Lchat/bsky/actor/ProfileViewBasic;
-	public final fun copy (Lchat/bsky/actor/ProfileViewBasic;Lchat/bsky/actor/ProfileViewBasic;)Lchat/bsky/convo/SystemMessageDataRemoveMember;
-	public static synthetic fun copy$default (Lchat/bsky/convo/SystemMessageDataRemoveMember;Lchat/bsky/actor/ProfileViewBasic;Lchat/bsky/actor/ProfileViewBasic;ILjava/lang/Object;)Lchat/bsky/convo/SystemMessageDataRemoveMember;
+	public fun <init> (Lchat/bsky/convo/SystemMessageReferredUser;Lchat/bsky/convo/SystemMessageReferredUser;)V
+	public final fun component1 ()Lchat/bsky/convo/SystemMessageReferredUser;
+	public final fun component2 ()Lchat/bsky/convo/SystemMessageReferredUser;
+	public final fun copy (Lchat/bsky/convo/SystemMessageReferredUser;Lchat/bsky/convo/SystemMessageReferredUser;)Lchat/bsky/convo/SystemMessageDataRemoveMember;
+	public static synthetic fun copy$default (Lchat/bsky/convo/SystemMessageDataRemoveMember;Lchat/bsky/convo/SystemMessageReferredUser;Lchat/bsky/convo/SystemMessageReferredUser;ILjava/lang/Object;)Lchat/bsky/convo/SystemMessageDataRemoveMember;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getMember ()Lchat/bsky/actor/ProfileViewBasic;
-	public final fun getRemovedBy ()Lchat/bsky/actor/ProfileViewBasic;
+	public final fun getMember ()Lchat/bsky/convo/SystemMessageReferredUser;
+	public final fun getRemovedBy ()Lchat/bsky/convo/SystemMessageReferredUser;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -15802,17 +15885,33 @@ public final class chat/bsky/convo/SystemMessageDataRemoveMember$Companion {
 
 public final class chat/bsky/convo/SystemMessageDataUnlockConvo {
 	public static final field Companion Lchat/bsky/convo/SystemMessageDataUnlockConvo$Companion;
-	public fun <init> (Lchat/bsky/actor/ProfileViewBasic;)V
-	public final fun component1 ()Lchat/bsky/actor/ProfileViewBasic;
-	public final fun copy (Lchat/bsky/actor/ProfileViewBasic;)Lchat/bsky/convo/SystemMessageDataUnlockConvo;
-	public static synthetic fun copy$default (Lchat/bsky/convo/SystemMessageDataUnlockConvo;Lchat/bsky/actor/ProfileViewBasic;ILjava/lang/Object;)Lchat/bsky/convo/SystemMessageDataUnlockConvo;
+	public fun <init> (Lchat/bsky/convo/SystemMessageReferredUser;)V
+	public final fun component1 ()Lchat/bsky/convo/SystemMessageReferredUser;
+	public final fun copy (Lchat/bsky/convo/SystemMessageReferredUser;)Lchat/bsky/convo/SystemMessageDataUnlockConvo;
+	public static synthetic fun copy$default (Lchat/bsky/convo/SystemMessageDataUnlockConvo;Lchat/bsky/convo/SystemMessageReferredUser;ILjava/lang/Object;)Lchat/bsky/convo/SystemMessageDataUnlockConvo;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getUnlockedBy ()Lchat/bsky/actor/ProfileViewBasic;
+	public final fun getUnlockedBy ()Lchat/bsky/convo/SystemMessageReferredUser;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
 public final class chat/bsky/convo/SystemMessageDataUnlockConvo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/SystemMessageReferredUser {
+	public static final field Companion Lchat/bsky/convo/SystemMessageReferredUser$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun copy-Kn78ayM (Ljava/lang/String;)Lchat/bsky/convo/SystemMessageReferredUser;
+	public static synthetic fun copy-Kn78ayM$default (Lchat/bsky/convo/SystemMessageReferredUser;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/SystemMessageReferredUser;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/SystemMessageReferredUser$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -16291,11 +16390,14 @@ public final class chat/bsky/group/AddMembersRequest$Companion {
 
 public final class chat/bsky/group/AddMembersResponse {
 	public static final field Companion Lchat/bsky/group/AddMembersResponse$Companion;
-	public fun <init> (Lchat/bsky/convo/ConvoView;)V
+	public fun <init> (Lchat/bsky/convo/ConvoView;Ljava/util/List;)V
+	public synthetic fun <init> (Lchat/bsky/convo/ConvoView;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lchat/bsky/convo/ConvoView;
-	public final fun copy (Lchat/bsky/convo/ConvoView;)Lchat/bsky/group/AddMembersResponse;
-	public static synthetic fun copy$default (Lchat/bsky/group/AddMembersResponse;Lchat/bsky/convo/ConvoView;ILjava/lang/Object;)Lchat/bsky/group/AddMembersResponse;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Lchat/bsky/convo/ConvoView;Ljava/util/List;)Lchat/bsky/group/AddMembersResponse;
+	public static synthetic fun copy$default (Lchat/bsky/group/AddMembersResponse;Lchat/bsky/convo/ConvoView;Ljava/util/List;ILjava/lang/Object;)Lchat/bsky/group/AddMembersResponse;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAddedMembers ()Ljava/util/List;
 	public final fun getConvo ()Lchat/bsky/convo/ConvoView;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -22616,6 +22718,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConvoAvailability (Lchat/bsky/convo/GetConvoAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getConvoMembers (Lchat/bsky/convo/GetConvoMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getDrafts (Lapp/bsky/draft/GetDraftsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFeed (Lapp/bsky/feed/GetFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -22902,6 +23005,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoAvailability (Lchat/bsky/convo/GetConvoAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConvoMembers (Lchat/bsky/convo/GetConvoMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getDrafts (Lapp/bsky/draft/GetDraftsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFeed (Lapp/bsky/feed/GetFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23191,6 +23295,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoAvailability (Lchat/bsky/convo/GetConvoAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConvoMembers (Lchat/bsky/convo/GetConvoMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getDrafts (Lapp/bsky/draft/GetDraftsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFeed (Lapp/bsky/feed/GetFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
