@@ -14042,15 +14042,17 @@ public final class chat/bsky/convo/GetMessagesResponseMessageUnion$Unknown$Compa
 
 public final class chat/bsky/convo/GroupConvo {
 	public static final field Companion Lchat/bsky/convo/GroupConvo$Companion;
-	public fun <init> (Ljava/lang/String;JLchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;)V
-	public synthetic fun <init> (Ljava/lang/String;JLchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;JLkotlin/time/Instant;Lchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;)V
+	public synthetic fun <init> (Ljava/lang/String;JLkotlin/time/Instant;Lchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()J
-	public final fun component3 ()Lchat/bsky/group/JoinLinkView;
-	public final fun component4 ()Lchat/bsky/convo/ConvoLockStatus;
-	public final fun copy (Ljava/lang/String;JLchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;)Lchat/bsky/convo/GroupConvo;
-	public static synthetic fun copy$default (Lchat/bsky/convo/GroupConvo;Ljava/lang/String;JLchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;ILjava/lang/Object;)Lchat/bsky/convo/GroupConvo;
+	public final fun component3 ()Lkotlin/time/Instant;
+	public final fun component4 ()Lchat/bsky/group/JoinLinkView;
+	public final fun component5 ()Lchat/bsky/convo/ConvoLockStatus;
+	public final fun copy (Ljava/lang/String;JLkotlin/time/Instant;Lchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;)Lchat/bsky/convo/GroupConvo;
+	public static synthetic fun copy$default (Lchat/bsky/convo/GroupConvo;Ljava/lang/String;JLkotlin/time/Instant;Lchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;ILjava/lang/Object;)Lchat/bsky/convo/GroupConvo;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
 	public final fun getJoinLink ()Lchat/bsky/group/JoinLinkView;
 	public final fun getLockStatus ()Lchat/bsky/convo/ConvoLockStatus;
 	public final fun getMemberCount ()J
