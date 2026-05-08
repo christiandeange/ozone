@@ -3960,15 +3960,17 @@ public final class app/bsky/embed/External$Companion {
 
 public final class app/bsky/embed/ExternalExternal {
 	public static final field Companion Lapp/bsky/embed/ExternalExternal$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-v5vOzEc ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Lsh/christian/ozone/api/model/Blob;
-	public final fun copy-U4PCevw (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;)Lapp/bsky/embed/ExternalExternal;
-	public static synthetic fun copy-U4PCevw$default (Lapp/bsky/embed/ExternalExternal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;ILjava/lang/Object;)Lapp/bsky/embed/ExternalExternal;
+	public final fun component5-W3xQKsw ()Ljava/lang/String;
+	public final fun copy-F5jWSNE (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;)Lapp/bsky/embed/ExternalExternal;
+	public static synthetic fun copy-F5jWSNE$default (Lapp/bsky/embed/ExternalExternal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/embed/ExternalExternal;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAssociatedRecord-W3xQKsw ()Ljava/lang/String;
 	public final fun getDescription ()Ljava/lang/String;
 	public final fun getThumb ()Lsh/christian/ozone/api/model/Blob;
 	public final fun getTitle ()Ljava/lang/String;
