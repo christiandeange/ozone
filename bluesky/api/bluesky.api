@@ -22663,6 +22663,8 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun addValues (Ltools/ozone/set/AddValuesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun applyWrites (Lcom/atproto/repo/ApplyWritesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun approveJoinRequest (Lchat/bsky/group/ApproveJoinRequestRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun assignModerator (Ltools/ozone/queue/AssignModeratorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun assignModerator (Ltools/ozone/report/AssignModeratorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun begin (Lapp/bsky/ageassurance/BeginRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun cancelScheduledActions (Ltools/ozone/moderation/CancelScheduledActionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun checkAccountStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -22670,6 +22672,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun checkSignupQueue (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun confirmEmail (Lcom/atproto/server/ConfirmEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createAccount (Lcom/atproto/server/CreateAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun createActivity (Ltools/ozone/report/CreateActivityRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createAppPassword (Lcom/atproto/server/CreateAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createBookmark (Lapp/bsky/bookmark/CreateBookmarkRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createDraft (Lapp/bsky/draft/CreateDraftRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -22677,6 +22680,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun createInviteCode (Lcom/atproto/server/CreateInviteCodeRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createInviteCodes (Lcom/atproto/server/CreateInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createJoinLink (Lchat/bsky/group/CreateJoinLinkRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun createQueue (Ltools/ozone/queue/CreateQueueRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createRecord (Lcom/atproto/repo/CreateRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createReport (Lcom/atproto/moderation/CreateReportRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun createSession (Lcom/atproto/server/CreateSessionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -22689,6 +22693,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun deleteDraft (Lapp/bsky/draft/DeleteDraftRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteMember (Ltools/ozone/team/DeleteMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteMessageForSelf (Lchat/bsky/convo/DeleteMessageForSelfRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deleteQueue (Ltools/ozone/queue/DeleteQueueRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteRecord (Lcom/atproto/repo/DeleteRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun deleteSet (Ltools/ozone/set/DeleteSetRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -22720,6 +22725,8 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getActorMetadata (Lchat/bsky/moderation/GetActorMetadataQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getActorStarterPacks (Lapp/bsky/graph/GetActorStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAgeAssuranceStateUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getAssignments (Ltools/ozone/queue/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getAssignments (Ltools/ozone/report/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAuthorFeed (Lapp/bsky/feed/GetAuthorFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getBlob (Lcom/atproto/sync/GetBlobQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getBlocks (Lapp/bsky/graph/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -22741,11 +22748,13 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getFollowers (Lapp/bsky/graph/GetFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFollows (Lapp/bsky/graph/GetFollowsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getGroupPublicInfo (Lchat/bsky/group/GetGroupPublicInfoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getHistoricalStats (Ltools/ozone/report/GetHistoricalStatsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getHostStatus (Lcom/atproto/sync/GetHostStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getInviteCodes (Lcom/atproto/admin/GetInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getJobStatus (Lapp/bsky/video/GetJobStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getKnownFollowers (Lapp/bsky/graph/GetKnownFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getLatestCommit (Lcom/atproto/sync/GetLatestCommitQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getLatestReport (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getLikes (Lapp/bsky/feed/GetLikesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getList (Lapp/bsky/graph/GetListQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getListBlocks (Lapp/bsky/graph/GetListBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -22753,6 +22762,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getListMutes (Lapp/bsky/graph/GetListMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getLists (Lapp/bsky/graph/GetListsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getListsWithMembership (Lapp/bsky/graph/GetListsWithMembershipQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getLiveStats (Ltools/ozone/report/GetLiveStatsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getLog (Lchat/bsky/convo/GetLogQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getMatches (Lapp/bsky/contact/GetMatchesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getMessageContext (Lchat/bsky/moderation/GetMessageContextQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -22780,6 +22790,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getRepo (Lcom/atproto/sync/GetRepoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getRepo (Ltools/ozone/moderation/GetRepoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getRepoStatus (Lcom/atproto/sync/GetRepoStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getReport (Ltools/ozone/report/GetReportQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getReporterStats (Ltools/ozone/moderation/GetReporterStatsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getRepos (Ltools/ozone/moderation/GetReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getRepostedBy (Lapp/bsky/feed/GetRepostedByQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -22823,6 +22834,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun importRepo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun initAgeAssuranceUnspecced (Lapp/bsky/unspecced/InitAgeAssuranceRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun leaveConvo (Lchat/bsky/convo/LeaveConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun listActivities (Ltools/ozone/report/ListActivitiesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listActivitySubscriptions (Lapp/bsky/notification/ListActivitySubscriptionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listBlobs (Lcom/atproto/sync/ListBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -22834,6 +22846,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun listMissingBlobs (Lcom/atproto/repo/ListMissingBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listNotifications (Lapp/bsky/notification/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listOptions (Ltools/ozone/setting/ListOptionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun listQueues (Ltools/ozone/queue/ListQueuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listRecords (Lcom/atproto/repo/ListRecordsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listRepos (Lcom/atproto/sync/ListReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listReposByCollection (Lcom/atproto/sync/ListReposByCollectionQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -22854,11 +22867,14 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun queryEvents (Ltools/ozone/moderation/QueryEventsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun queryEvents (Ltools/ozone/safelink/QueryEventsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun queryLabels (Lcom/atproto/label/QueryLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun queryReports (Ltools/ozone/report/QueryReportsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun queryRules (Ltools/ozone/safelink/QueryRulesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun querySets (Ltools/ozone/set/QuerySetsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun queryStatuses (Ltools/ozone/moderation/QueryStatusesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun reassignQueue (Ltools/ozone/report/ReassignQueueRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun refreshIdentity (Lcom/atproto/identity/RefreshIdentityRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun refreshSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun refreshStats (Ltools/ozone/report/RefreshStatsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun registerPush (Lapp/bsky/notification/RegisterPushRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun rejectJoinRequest (Lchat/bsky/group/RejectJoinRequestRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun removeData (Lapp/bsky/contact/RemoveDataRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -22883,6 +22899,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun revokeAccountCredentials (Lcom/atproto/temp/RevokeAccountCredentialsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun revokeAppPassword (Lcom/atproto/server/RevokeAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun revokeVerifications (Ltools/ozone/verification/RevokeVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun routeReports (Ltools/ozone/queue/RouteReportsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun scheduleAction (Ltools/ozone/moderation/ScheduleActionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchAccounts (Lcom/atproto/admin/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchAccounts (Ltools/ozone/signature/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -22905,6 +22922,8 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun subscribeLabels (Lcom/atproto/label/SubscribeLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun subscribeModEvents (Lchat/bsky/moderation/SubscribeModEventsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun subscribeRepos (Lcom/atproto/sync/SubscribeReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun unassignModerator (Ltools/ozone/queue/UnassignModeratorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun unassignModerator (Ltools/ozone/report/UnassignModeratorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun unlockConvo (Lchat/bsky/convo/UnlockConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun unmuteActor (Lapp/bsky/graph/UnmuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun unmuteActorList (Lapp/bsky/graph/UnmuteActorListRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -22921,6 +22940,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateMember (Ltools/ozone/team/UpdateMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun updateQueue (Ltools/ozone/queue/UpdateQueueRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateRead (Lchat/bsky/convo/UpdateReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateRule (Ltools/ozone/safelink/UpdateRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateSeen (Lapp/bsky/notification/UpdateSeenRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -22950,6 +22970,8 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun addValues (Ltools/ozone/set/AddValuesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun applyWrites (Lcom/atproto/repo/ApplyWritesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun approveJoinRequest (Lchat/bsky/group/ApproveJoinRequestRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun assignModerator (Ltools/ozone/queue/AssignModeratorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun assignModerator (Ltools/ozone/report/AssignModeratorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun begin (Lapp/bsky/ageassurance/BeginRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun cancelScheduledActions (Ltools/ozone/moderation/CancelScheduledActionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun checkAccountStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -22957,6 +22979,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun checkSignupQueue (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun confirmEmail (Lcom/atproto/server/ConfirmEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createAccount (Lcom/atproto/server/CreateAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun createActivity (Ltools/ozone/report/CreateActivityRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createAppPassword (Lcom/atproto/server/CreateAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createBookmark (Lapp/bsky/bookmark/CreateBookmarkRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createDraft (Lapp/bsky/draft/CreateDraftRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -22964,6 +22987,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun createInviteCode (Lcom/atproto/server/CreateInviteCodeRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createInviteCodes (Lcom/atproto/server/CreateInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createJoinLink (Lchat/bsky/group/CreateJoinLinkRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun createQueue (Ltools/ozone/queue/CreateQueueRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createRecord (Lcom/atproto/repo/CreateRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createReport (Lcom/atproto/moderation/CreateReportRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createSession (Lcom/atproto/server/CreateSessionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -22976,6 +23000,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun deleteDraft (Lapp/bsky/draft/DeleteDraftRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteMember (Ltools/ozone/team/DeleteMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteMessageForSelf (Lchat/bsky/convo/DeleteMessageForSelfRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteQueue (Ltools/ozone/queue/DeleteQueueRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteRecord (Lcom/atproto/repo/DeleteRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteSet (Ltools/ozone/set/DeleteSetRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23007,6 +23032,8 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getActorMetadata (Lchat/bsky/moderation/GetActorMetadataQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getActorStarterPacks (Lapp/bsky/graph/GetActorStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAgeAssuranceStateUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAssignments (Ltools/ozone/queue/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAssignments (Ltools/ozone/report/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAuthorFeed (Lapp/bsky/feed/GetAuthorFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlob (Lcom/atproto/sync/GetBlobQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlocks (Lapp/bsky/graph/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23028,11 +23055,13 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getFollowers (Lapp/bsky/graph/GetFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFollows (Lapp/bsky/graph/GetFollowsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getGroupPublicInfo (Lchat/bsky/group/GetGroupPublicInfoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getHistoricalStats (Ltools/ozone/report/GetHistoricalStatsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getHostStatus (Lcom/atproto/sync/GetHostStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getInviteCodes (Lcom/atproto/admin/GetInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getJobStatus (Lapp/bsky/video/GetJobStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getKnownFollowers (Lapp/bsky/graph/GetKnownFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLatestCommit (Lcom/atproto/sync/GetLatestCommitQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getLatestReport (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLikes (Lapp/bsky/feed/GetLikesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getList (Lapp/bsky/graph/GetListQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getListBlocks (Lapp/bsky/graph/GetListBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23040,6 +23069,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getListMutes (Lapp/bsky/graph/GetListMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLists (Lapp/bsky/graph/GetListsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getListsWithMembership (Lapp/bsky/graph/GetListsWithMembershipQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getLiveStats (Ltools/ozone/report/GetLiveStatsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLog (Lchat/bsky/convo/GetLogQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getMatches (Lapp/bsky/contact/GetMatchesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getMessageContext (Lchat/bsky/moderation/GetMessageContextQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23067,6 +23097,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getRepo (Lcom/atproto/sync/GetRepoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getRepo (Ltools/ozone/moderation/GetRepoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getRepoStatus (Lcom/atproto/sync/GetRepoStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getReport (Ltools/ozone/report/GetReportQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getReporterStats (Ltools/ozone/moderation/GetReporterStatsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getRepos (Ltools/ozone/moderation/GetReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getRepostedBy (Lapp/bsky/feed/GetRepostedByQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23110,6 +23141,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun importRepo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun initAgeAssuranceUnspecced (Lapp/bsky/unspecced/InitAgeAssuranceRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun leaveConvo (Lchat/bsky/convo/LeaveConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listActivities (Ltools/ozone/report/ListActivitiesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listActivitySubscriptions (Lapp/bsky/notification/ListActivitySubscriptionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listBlobs (Lcom/atproto/sync/ListBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23121,6 +23153,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun listMissingBlobs (Lcom/atproto/repo/ListMissingBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listNotifications (Lapp/bsky/notification/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listOptions (Ltools/ozone/setting/ListOptionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listQueues (Ltools/ozone/queue/ListQueuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listRecords (Lcom/atproto/repo/ListRecordsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listRepos (Lcom/atproto/sync/ListReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listReposByCollection (Lcom/atproto/sync/ListReposByCollectionQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23141,11 +23174,14 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun queryEvents (Ltools/ozone/moderation/QueryEventsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryEvents (Ltools/ozone/safelink/QueryEventsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryLabels (Lcom/atproto/label/QueryLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun queryReports (Ltools/ozone/report/QueryReportsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryRules (Ltools/ozone/safelink/QueryRulesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun querySets (Ltools/ozone/set/QuerySetsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryStatuses (Ltools/ozone/moderation/QueryStatusesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun reassignQueue (Ltools/ozone/report/ReassignQueueRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun refreshIdentity (Lcom/atproto/identity/RefreshIdentityRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun refreshSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun refreshStats (Ltools/ozone/report/RefreshStatsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun registerPush (Lapp/bsky/notification/RegisterPushRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun rejectJoinRequest (Lchat/bsky/group/RejectJoinRequestRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun removeData (Lapp/bsky/contact/RemoveDataRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23170,6 +23206,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun revokeAccountCredentials (Lcom/atproto/temp/RevokeAccountCredentialsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeAppPassword (Lcom/atproto/server/RevokeAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeVerifications (Ltools/ozone/verification/RevokeVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun routeReports (Ltools/ozone/queue/RouteReportsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun scheduleAction (Ltools/ozone/moderation/ScheduleActionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchAccounts (Lcom/atproto/admin/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchAccounts (Ltools/ozone/signature/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23192,6 +23229,8 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun subscribeLabels (Lcom/atproto/label/SubscribeLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun subscribeModEvents (Lchat/bsky/moderation/SubscribeModEventsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun subscribeRepos (Lcom/atproto/sync/SubscribeReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun unassignModerator (Ltools/ozone/queue/UnassignModeratorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun unassignModerator (Ltools/ozone/report/UnassignModeratorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun unlockConvo (Lchat/bsky/convo/UnlockConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun unmuteActor (Lapp/bsky/graph/UnmuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun unmuteActorList (Lapp/bsky/graph/UnmuteActorListRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23208,6 +23247,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateMember (Ltools/ozone/team/UpdateMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateQueue (Ltools/ozone/queue/UpdateQueueRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateRead (Lchat/bsky/convo/UpdateReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateRule (Ltools/ozone/safelink/UpdateRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateSeen (Lapp/bsky/notification/UpdateSeenRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23237,6 +23277,8 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun addValues (Ltools/ozone/set/AddValuesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun applyWrites (Lcom/atproto/repo/ApplyWritesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun approveJoinRequest (Lchat/bsky/group/ApproveJoinRequestRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun assignModerator (Ltools/ozone/queue/AssignModeratorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun assignModerator (Ltools/ozone/report/AssignModeratorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun begin (Lapp/bsky/ageassurance/BeginRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun cancelScheduledActions (Ltools/ozone/moderation/CancelScheduledActionsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun checkAccountStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23245,6 +23287,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public final fun clearCredentials ()V
 	public fun confirmEmail (Lcom/atproto/server/ConfirmEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createAccount (Lcom/atproto/server/CreateAccountRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun createActivity (Ltools/ozone/report/CreateActivityRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createAppPassword (Lcom/atproto/server/CreateAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createBookmark (Lapp/bsky/bookmark/CreateBookmarkRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createDraft (Lapp/bsky/draft/CreateDraftRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23252,6 +23295,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun createInviteCode (Lcom/atproto/server/CreateInviteCodeRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createInviteCodes (Lcom/atproto/server/CreateInviteCodesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createJoinLink (Lchat/bsky/group/CreateJoinLinkRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun createQueue (Ltools/ozone/queue/CreateQueueRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createRecord (Lcom/atproto/repo/CreateRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createReport (Lcom/atproto/moderation/CreateReportRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun createSession (Lcom/atproto/server/CreateSessionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23265,6 +23309,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun deleteMember (Ltools/ozone/team/DeleteMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteMessageForSelf (Lchat/bsky/convo/DeleteMessageForSelfRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun deleteOAuthSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun deleteQueue (Ltools/ozone/queue/DeleteQueueRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteRecord (Lcom/atproto/repo/DeleteRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun deleteSet (Ltools/ozone/set/DeleteSetRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23296,6 +23341,8 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getActorMetadata (Lchat/bsky/moderation/GetActorMetadataQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getActorStarterPacks (Lapp/bsky/graph/GetActorStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAgeAssuranceStateUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAssignments (Ltools/ozone/queue/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAssignments (Ltools/ozone/report/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun getAuthTokens ()Lkotlinx/coroutines/flow/StateFlow;
 	public fun getAuthorFeed (Lapp/bsky/feed/GetAuthorFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlob (Lcom/atproto/sync/GetBlobQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23318,11 +23365,13 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getFollowers (Lapp/bsky/graph/GetFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFollows (Lapp/bsky/graph/GetFollowsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getGroupPublicInfo (Lchat/bsky/group/GetGroupPublicInfoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getHistoricalStats (Ltools/ozone/report/GetHistoricalStatsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getHostStatus (Lcom/atproto/sync/GetHostStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getInviteCodes (Lcom/atproto/admin/GetInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getJobStatus (Lapp/bsky/video/GetJobStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getKnownFollowers (Lapp/bsky/graph/GetKnownFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLatestCommit (Lcom/atproto/sync/GetLatestCommitQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getLatestReport (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLikes (Lapp/bsky/feed/GetLikesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getList (Lapp/bsky/graph/GetListQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getListBlocks (Lapp/bsky/graph/GetListBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23330,6 +23379,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getListMutes (Lapp/bsky/graph/GetListMutesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLists (Lapp/bsky/graph/GetListsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getListsWithMembership (Lapp/bsky/graph/GetListsWithMembershipQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getLiveStats (Ltools/ozone/report/GetLiveStatsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLog (Lchat/bsky/convo/GetLogQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getMatches (Lapp/bsky/contact/GetMatchesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getMessageContext (Lchat/bsky/moderation/GetMessageContextQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23357,6 +23407,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getRepo (Lcom/atproto/sync/GetRepoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getRepo (Ltools/ozone/moderation/GetRepoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getRepoStatus (Lcom/atproto/sync/GetRepoStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getReport (Ltools/ozone/report/GetReportQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getReporterStats (Ltools/ozone/moderation/GetReporterStatsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getRepos (Ltools/ozone/moderation/GetReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getRepostedBy (Lapp/bsky/feed/GetRepostedByQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23400,6 +23451,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun importRepo ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun initAgeAssuranceUnspecced (Lapp/bsky/unspecced/InitAgeAssuranceRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun leaveConvo (Lchat/bsky/convo/LeaveConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listActivities (Ltools/ozone/report/ListActivitiesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listActivitySubscriptions (Lapp/bsky/notification/ListActivitySubscriptionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listBlobs (Lcom/atproto/sync/ListBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23411,6 +23463,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun listMissingBlobs (Lcom/atproto/repo/ListMissingBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listNotifications (Lapp/bsky/notification/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listOptions (Ltools/ozone/setting/ListOptionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listQueues (Ltools/ozone/queue/ListQueuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listRecords (Lcom/atproto/repo/ListRecordsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listRepos (Lcom/atproto/sync/ListReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listReposByCollection (Lcom/atproto/sync/ListReposByCollectionQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23431,11 +23484,14 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun queryEvents (Ltools/ozone/moderation/QueryEventsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryEvents (Ltools/ozone/safelink/QueryEventsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryLabels (Lcom/atproto/label/QueryLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun queryReports (Ltools/ozone/report/QueryReportsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryRules (Ltools/ozone/safelink/QueryRulesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun querySets (Ltools/ozone/set/QuerySetsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryStatuses (Ltools/ozone/moderation/QueryStatusesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun reassignQueue (Ltools/ozone/report/ReassignQueueRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun refreshIdentity (Lcom/atproto/identity/RefreshIdentityRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun refreshSession (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun refreshStats (Ltools/ozone/report/RefreshStatsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun registerPush (Lapp/bsky/notification/RegisterPushRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun rejectJoinRequest (Lchat/bsky/group/RejectJoinRequestRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun removeData (Lapp/bsky/contact/RemoveDataRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23460,6 +23516,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun revokeAccountCredentials (Lcom/atproto/temp/RevokeAccountCredentialsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeAppPassword (Lcom/atproto/server/RevokeAppPasswordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun revokeVerifications (Ltools/ozone/verification/RevokeVerificationsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun routeReports (Ltools/ozone/queue/RouteReportsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun scheduleAction (Ltools/ozone/moderation/ScheduleActionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchAccounts (Lcom/atproto/admin/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchAccounts (Ltools/ozone/signature/SearchAccountsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23482,6 +23539,8 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun subscribeLabels (Lcom/atproto/label/SubscribeLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun subscribeModEvents (Lchat/bsky/moderation/SubscribeModEventsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun subscribeRepos (Lcom/atproto/sync/SubscribeReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun unassignModerator (Ltools/ozone/queue/UnassignModeratorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun unassignModerator (Ltools/ozone/report/UnassignModeratorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun unlockConvo (Lchat/bsky/convo/UnlockConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun unmuteActor (Lapp/bsky/graph/UnmuteActorRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun unmuteActorList (Lapp/bsky/graph/UnmuteActorListRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23498,6 +23557,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateMember (Ltools/ozone/team/UpdateMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateQueue (Ltools/ozone/queue/UpdateQueueRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateRead (Lchat/bsky/convo/UpdateReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateRule (Ltools/ozone/safelink/UpdateRuleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateSeen (Lapp/bsky/notification/UpdateSeenRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -24614,23 +24674,49 @@ public final class tools/ozone/moderation/CancelScheduledTakedownEvent$Companion
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/EmitEventReportAction {
+	public static final field Companion Ltools/ozone/moderation/EmitEventReportAction$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/lang/Boolean;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;)Ltools/ozone/moderation/EmitEventReportAction;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/EmitEventReportAction;Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/EmitEventReportAction;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAll ()Ljava/lang/Boolean;
+	public final fun getIds ()Ljava/util/List;
+	public final fun getNote ()Ljava/lang/String;
+	public final fun getTypes ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/EmitEventReportAction$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/moderation/EmitEventRequest {
 	public static final field Companion Ltools/ozone/moderation/EmitEventRequest$Companion;
-	public synthetic fun <init> (Ltools/ozone/moderation/EmitEventRequestEventUnion;Ltools/ozone/moderation/EmitEventRequestSubjectUnion;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/ModTool;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ltools/ozone/moderation/EmitEventRequestEventUnion;Ltools/ozone/moderation/EmitEventRequestSubjectUnion;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/ModTool;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ltools/ozone/moderation/EmitEventRequestEventUnion;Ltools/ozone/moderation/EmitEventRequestSubjectUnion;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/ModTool;Ljava/lang/String;Ltools/ozone/moderation/EmitEventReportAction;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ltools/ozone/moderation/EmitEventRequestEventUnion;Ltools/ozone/moderation/EmitEventRequestSubjectUnion;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/ModTool;Ljava/lang/String;Ltools/ozone/moderation/EmitEventReportAction;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ltools/ozone/moderation/EmitEventRequestEventUnion;
 	public final fun component2 ()Ltools/ozone/moderation/EmitEventRequestSubjectUnion;
 	public final fun component3 ()Ljava/util/List;
 	public final fun component4-715Ygxc ()Ljava/lang/String;
 	public final fun component5 ()Ltools/ozone/moderation/ModTool;
 	public final fun component6 ()Ljava/lang/String;
-	public final fun copy-b1cUG9g (Ltools/ozone/moderation/EmitEventRequestEventUnion;Ltools/ozone/moderation/EmitEventRequestSubjectUnion;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/ModTool;Ljava/lang/String;)Ltools/ozone/moderation/EmitEventRequest;
-	public static synthetic fun copy-b1cUG9g$default (Ltools/ozone/moderation/EmitEventRequest;Ltools/ozone/moderation/EmitEventRequestEventUnion;Ltools/ozone/moderation/EmitEventRequestSubjectUnion;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/ModTool;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/EmitEventRequest;
+	public final fun component7 ()Ltools/ozone/moderation/EmitEventReportAction;
+	public final fun copy-zk7B-Fw (Ltools/ozone/moderation/EmitEventRequestEventUnion;Ltools/ozone/moderation/EmitEventRequestSubjectUnion;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/ModTool;Ljava/lang/String;Ltools/ozone/moderation/EmitEventReportAction;)Ltools/ozone/moderation/EmitEventRequest;
+	public static synthetic fun copy-zk7B-Fw$default (Ltools/ozone/moderation/EmitEventRequest;Ltools/ozone/moderation/EmitEventRequestEventUnion;Ltools/ozone/moderation/EmitEventRequestSubjectUnion;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/ModTool;Ljava/lang/String;Ltools/ozone/moderation/EmitEventReportAction;ILjava/lang/Object;)Ltools/ozone/moderation/EmitEventRequest;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
 	public final fun getEvent ()Ltools/ozone/moderation/EmitEventRequestEventUnion;
 	public final fun getExternalId ()Ljava/lang/String;
 	public final fun getModTool ()Ltools/ozone/moderation/ModTool;
+	public final fun getReportAction ()Ltools/ozone/moderation/EmitEventReportAction;
 	public final fun getSubject ()Ltools/ozone/moderation/EmitEventRequestSubjectUnion;
 	public final fun getSubjectBlobCids ()Ljava/util/List;
 	public fun hashCode ()I
@@ -29148,6 +29234,1972 @@ public final class tools/ozone/moderation/VideoDetails$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/queue/AssignModeratorRequest {
+	public static final field Companion Ltools/ozone/queue/AssignModeratorRequest$Companion;
+	public fun <init> (JLjava/lang/String;)V
+	public final fun component1 ()J
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (JLjava/lang/String;)Ltools/ozone/queue/AssignModeratorRequest;
+	public static synthetic fun copy$default (Ltools/ozone/queue/AssignModeratorRequest;JLjava/lang/String;ILjava/lang/Object;)Ltools/ozone/queue/AssignModeratorRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid ()Ljava/lang/String;
+	public final fun getQueueId ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/AssignModeratorRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/queue/AssignmentView {
+	public static final field Companion Ltools/ozone/queue/AssignmentView$Companion;
+	public synthetic fun <init> (JLjava/lang/String;Ltools/ozone/team/Member;Ltools/ozone/queue/QueueView;Lkotlin/time/Instant;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLjava/lang/String;Ltools/ozone/team/Member;Ltools/ozone/queue/QueueView;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component2-715Ygxc ()Ljava/lang/String;
+	public final fun component3 ()Ltools/ozone/team/Member;
+	public final fun component4 ()Ltools/ozone/queue/QueueView;
+	public final fun component5 ()Lkotlin/time/Instant;
+	public final fun component6 ()Lkotlin/time/Instant;
+	public final fun copy-uyAms5Q (JLjava/lang/String;Ltools/ozone/team/Member;Ltools/ozone/queue/QueueView;Lkotlin/time/Instant;Lkotlin/time/Instant;)Ltools/ozone/queue/AssignmentView;
+	public static synthetic fun copy-uyAms5Q$default (Ltools/ozone/queue/AssignmentView;JLjava/lang/String;Ltools/ozone/team/Member;Ltools/ozone/queue/QueueView;Lkotlin/time/Instant;Lkotlin/time/Instant;ILjava/lang/Object;)Ltools/ozone/queue/AssignmentView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getEndAt ()Lkotlin/time/Instant;
+	public final fun getId ()J
+	public final fun getModerator ()Ltools/ozone/team/Member;
+	public final fun getQueue ()Ltools/ozone/queue/QueueView;
+	public final fun getStartAt ()Lkotlin/time/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/AssignmentView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/queue/CreateQueueRequest {
+	public static final field Companion Ltools/ozone/queue/CreateQueueRequest$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3-rgu83lg ()Ljava/lang/String;
+	public final fun component4 ()Ljava/util/List;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy-n4POKk4 (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)Ltools/ozone/queue/CreateQueueRequest;
+	public static synthetic fun copy-n4POKk4$default (Ltools/ozone/queue/CreateQueueRequest;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/queue/CreateQueueRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCollection-rgu83lg ()Ljava/lang/String;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getReportTypes ()Ljava/util/List;
+	public final fun getSubjectTypes ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/CreateQueueRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/queue/CreateQueueResponse {
+	public static final field Companion Ltools/ozone/queue/CreateQueueResponse$Companion;
+	public fun <init> (Ltools/ozone/queue/QueueView;)V
+	public final fun component1 ()Ltools/ozone/queue/QueueView;
+	public final fun copy (Ltools/ozone/queue/QueueView;)Ltools/ozone/queue/CreateQueueResponse;
+	public static synthetic fun copy$default (Ltools/ozone/queue/CreateQueueResponse;Ltools/ozone/queue/QueueView;ILjava/lang/Object;)Ltools/ozone/queue/CreateQueueResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getQueue ()Ltools/ozone/queue/QueueView;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/CreateQueueResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/queue/CreateQueueSubjectTypes : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/queue/CreateQueueSubjectTypes$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/CreateQueueSubjectTypes$Account : tools/ozone/queue/CreateQueueSubjectTypes {
+	public static final field INSTANCE Ltools/ozone/queue/CreateQueueSubjectTypes$Account;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/CreateQueueSubjectTypes$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/queue/CreateQueueSubjectTypes;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/queue/CreateQueueSubjectTypes$Message : tools/ozone/queue/CreateQueueSubjectTypes {
+	public static final field INSTANCE Ltools/ozone/queue/CreateQueueSubjectTypes$Message;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/CreateQueueSubjectTypes$Record : tools/ozone/queue/CreateQueueSubjectTypes {
+	public static final field INSTANCE Ltools/ozone/queue/CreateQueueSubjectTypes$Record;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/CreateQueueSubjectTypes$Unknown : tools/ozone/queue/CreateQueueSubjectTypes {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/queue/CreateQueueSubjectTypes$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/queue/CreateQueueSubjectTypes$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/queue/CreateQueueSubjectTypes$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/CreateQueueSubjectTypesSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/queue/CreateQueueSubjectTypes;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/queue/CreateQueueSubjectTypes;)V
+}
+
+public final class tools/ozone/queue/DeleteQueueRequest {
+	public static final field Companion Ltools/ozone/queue/DeleteQueueRequest$Companion;
+	public fun <init> (JLjava/lang/Long;)V
+	public synthetic fun <init> (JLjava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun copy (JLjava/lang/Long;)Ltools/ozone/queue/DeleteQueueRequest;
+	public static synthetic fun copy$default (Ltools/ozone/queue/DeleteQueueRequest;JLjava/lang/Long;ILjava/lang/Object;)Ltools/ozone/queue/DeleteQueueRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMigrateToQueueId ()Ljava/lang/Long;
+	public final fun getQueueId ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/DeleteQueueRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/queue/DeleteQueueResponse {
+	public static final field Companion Ltools/ozone/queue/DeleteQueueResponse$Companion;
+	public fun <init> (ZLjava/lang/Long;)V
+	public synthetic fun <init> (ZLjava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun copy (ZLjava/lang/Long;)Ltools/ozone/queue/DeleteQueueResponse;
+	public static synthetic fun copy$default (Ltools/ozone/queue/DeleteQueueResponse;ZLjava/lang/Long;ILjava/lang/Object;)Ltools/ozone/queue/DeleteQueueResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDeleted ()Z
+	public final fun getReportsMigrated ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/DeleteQueueResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/queue/GetAssignmentsQueryParams {
+	public static final field Companion Ltools/ozone/queue/GetAssignmentsQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/Boolean;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;)Ltools/ozone/queue/GetAssignmentsQueryParams;
+	public static synthetic fun copy$default (Ltools/ozone/queue/GetAssignmentsQueryParams;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/queue/GetAssignmentsQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getDids ()Ljava/util/List;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getOnlyActive ()Ljava/lang/Boolean;
+	public final fun getQueueIds ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/GetAssignmentsQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/queue/GetAssignmentsResponse {
+	public static final field Companion Ltools/ozone/queue/GetAssignmentsResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Ltools/ozone/queue/GetAssignmentsResponse;
+	public static synthetic fun copy$default (Ltools/ozone/queue/GetAssignmentsResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/queue/GetAssignmentsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAssignments ()Ljava/util/List;
+	public final fun getCursor ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/GetAssignmentsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/queue/ListQueuesQueryParams {
+	public static final field Companion Ltools/ozone/queue/ListQueuesQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/Boolean;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/util/List;
+	public final fun component5 ()Ljava/lang/Long;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;)Ltools/ozone/queue/ListQueuesQueryParams;
+	public static synthetic fun copy$default (Ltools/ozone/queue/ListQueuesQueryParams;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/queue/ListQueuesQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCollection ()Ljava/lang/String;
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getEnabled ()Ljava/lang/Boolean;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getReportTypes ()Ljava/util/List;
+	public final fun getSubjectType ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/ListQueuesQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/queue/ListQueuesResponse {
+	public static final field Companion Ltools/ozone/queue/ListQueuesResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Ltools/ozone/queue/ListQueuesResponse;
+	public static synthetic fun copy$default (Ltools/ozone/queue/ListQueuesResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/queue/ListQueuesResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getQueues ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/ListQueuesResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/queue/QueueStats {
+	public static final field Companion Ltools/ozone/queue/QueueStats$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun component5 ()Ljava/lang/Long;
+	public final fun component6 ()Ljava/lang/Long;
+	public final fun component7 ()Lkotlin/time/Instant;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;)Ltools/ozone/queue/QueueStats;
+	public static synthetic fun copy$default (Ltools/ozone/queue/QueueStats;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;ILjava/lang/Object;)Ltools/ozone/queue/QueueStats;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActionRate ()Ljava/lang/Long;
+	public final fun getActionedCount ()Ljava/lang/Long;
+	public final fun getAvgHandlingTimeSec ()Ljava/lang/Long;
+	public final fun getEscalatedCount ()Ljava/lang/Long;
+	public final fun getInboundCount ()Ljava/lang/Long;
+	public final fun getLastUpdated ()Lkotlin/time/Instant;
+	public final fun getPendingCount ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/QueueStats$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/queue/QueueView {
+	public static final field Companion Ltools/ozone/queue/QueueView$Companion;
+	public synthetic fun <init> (JLjava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;ZLkotlin/time/Instant;Ltools/ozone/queue/QueueStats;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLjava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;ZLkotlin/time/Instant;Ltools/ozone/queue/QueueStats;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component10 ()Z
+	public final fun component11 ()Lkotlin/time/Instant;
+	public final fun component12 ()Ltools/ozone/queue/QueueStats;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4-rgu83lg ()Ljava/lang/String;
+	public final fun component5 ()Ljava/util/List;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7-715Ygxc ()Ljava/lang/String;
+	public final fun component8 ()Lkotlin/time/Instant;
+	public final fun component9 ()Lkotlin/time/Instant;
+	public final fun copy-Z86KTAM (JLjava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;ZLkotlin/time/Instant;Ltools/ozone/queue/QueueStats;)Ltools/ozone/queue/QueueView;
+	public static synthetic fun copy-Z86KTAM$default (Ltools/ozone/queue/QueueView;JLjava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;ZLkotlin/time/Instant;Ltools/ozone/queue/QueueStats;ILjava/lang/Object;)Ltools/ozone/queue/QueueView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCollection-rgu83lg ()Ljava/lang/String;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
+	public final fun getDeletedAt ()Lkotlin/time/Instant;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getEnabled ()Z
+	public final fun getId ()J
+	public final fun getName ()Ljava/lang/String;
+	public final fun getReportTypes ()Ljava/util/List;
+	public final fun getStats ()Ltools/ozone/queue/QueueStats;
+	public final fun getSubjectTypes ()Ljava/util/List;
+	public final fun getUpdatedAt ()Lkotlin/time/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/QueueView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/queue/QueueViewSubjectTypes : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/queue/QueueViewSubjectTypes$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/QueueViewSubjectTypes$Account : tools/ozone/queue/QueueViewSubjectTypes {
+	public static final field INSTANCE Ltools/ozone/queue/QueueViewSubjectTypes$Account;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/QueueViewSubjectTypes$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/queue/QueueViewSubjectTypes;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/queue/QueueViewSubjectTypes$Message : tools/ozone/queue/QueueViewSubjectTypes {
+	public static final field INSTANCE Ltools/ozone/queue/QueueViewSubjectTypes$Message;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/QueueViewSubjectTypes$Record : tools/ozone/queue/QueueViewSubjectTypes {
+	public static final field INSTANCE Ltools/ozone/queue/QueueViewSubjectTypes$Record;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/QueueViewSubjectTypes$Unknown : tools/ozone/queue/QueueViewSubjectTypes {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/queue/QueueViewSubjectTypes$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/queue/QueueViewSubjectTypes$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/queue/QueueViewSubjectTypes$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/QueueViewSubjectTypesSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/queue/QueueViewSubjectTypes;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/queue/QueueViewSubjectTypes;)V
+}
+
+public final class tools/ozone/queue/RouteReportsRequest {
+	public static final field Companion Ltools/ozone/queue/RouteReportsRequest$Companion;
+	public fun <init> (JJ)V
+	public final fun component1 ()J
+	public final fun component2 ()J
+	public final fun copy (JJ)Ltools/ozone/queue/RouteReportsRequest;
+	public static synthetic fun copy$default (Ltools/ozone/queue/RouteReportsRequest;JJILjava/lang/Object;)Ltools/ozone/queue/RouteReportsRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEndReportId ()J
+	public final fun getStartReportId ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/RouteReportsRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/queue/RouteReportsResponse {
+	public static final field Companion Ltools/ozone/queue/RouteReportsResponse$Companion;
+	public fun <init> (JJ)V
+	public final fun component1 ()J
+	public final fun component2 ()J
+	public final fun copy (JJ)Ltools/ozone/queue/RouteReportsResponse;
+	public static synthetic fun copy$default (Ltools/ozone/queue/RouteReportsResponse;JJILjava/lang/Object;)Ltools/ozone/queue/RouteReportsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAssigned ()J
+	public final fun getUnmatched ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/RouteReportsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/queue/UnassignModeratorRequest {
+	public static final field Companion Ltools/ozone/queue/UnassignModeratorRequest$Companion;
+	public synthetic fun <init> (JLjava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component2-715Ygxc ()Ljava/lang/String;
+	public final fun copy-F4IRIfk (JLjava/lang/String;)Ltools/ozone/queue/UnassignModeratorRequest;
+	public static synthetic fun copy-F4IRIfk$default (Ltools/ozone/queue/UnassignModeratorRequest;JLjava/lang/String;ILjava/lang/Object;)Ltools/ozone/queue/UnassignModeratorRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getQueueId ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/UnassignModeratorRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/queue/UpdateQueueRequest {
+	public static final field Companion Ltools/ozone/queue/UpdateQueueRequest$Companion;
+	public fun <init> (JLjava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;)V
+	public synthetic fun <init> (JLjava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/Boolean;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (JLjava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;)Ltools/ozone/queue/UpdateQueueRequest;
+	public static synthetic fun copy$default (Ltools/ozone/queue/UpdateQueueRequest;JLjava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/queue/UpdateQueueRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getEnabled ()Ljava/lang/Boolean;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getQueueId ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/UpdateQueueRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/queue/UpdateQueueResponse {
+	public static final field Companion Ltools/ozone/queue/UpdateQueueResponse$Companion;
+	public fun <init> (Ltools/ozone/queue/QueueView;)V
+	public final fun component1 ()Ltools/ozone/queue/QueueView;
+	public final fun copy (Ltools/ozone/queue/QueueView;)Ltools/ozone/queue/UpdateQueueResponse;
+	public static synthetic fun copy$default (Ltools/ozone/queue/UpdateQueueResponse;Ltools/ozone/queue/QueueView;ILjava/lang/Object;)Ltools/ozone/queue/UpdateQueueResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getQueue ()Ltools/ozone/queue/QueueView;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/queue/UpdateQueueResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/AssignModeratorRequest {
+	public static final field Companion Ltools/ozone/report/AssignModeratorRequest$Companion;
+	public synthetic fun <init> (JLjava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLjava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3-68yuAGA ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/Boolean;
+	public final fun copy-6lKguXw (JLjava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;)Ltools/ozone/report/AssignModeratorRequest;
+	public static synthetic fun copy-6lKguXw$default (Ltools/ozone/report/AssignModeratorRequest;JLjava/lang/Long;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Ltools/ozone/report/AssignModeratorRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid-68yuAGA ()Ljava/lang/String;
+	public final fun getQueueId ()Ljava/lang/Long;
+	public final fun getReportId ()J
+	public fun hashCode ()I
+	public final fun isPermanent ()Ljava/lang/Boolean;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/AssignModeratorRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/AssignmentActivity {
+	public static final field Companion Ltools/ozone/report/AssignmentActivity$Companion;
+	public fun <init> ()V
+	public fun <init> (Ltools/ozone/report/AssignmentActivityPreviousStatus;)V
+	public synthetic fun <init> (Ltools/ozone/report/AssignmentActivityPreviousStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ltools/ozone/report/AssignmentActivityPreviousStatus;
+	public final fun copy (Ltools/ozone/report/AssignmentActivityPreviousStatus;)Ltools/ozone/report/AssignmentActivity;
+	public static synthetic fun copy$default (Ltools/ozone/report/AssignmentActivity;Ltools/ozone/report/AssignmentActivityPreviousStatus;ILjava/lang/Object;)Ltools/ozone/report/AssignmentActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPreviousStatus ()Ltools/ozone/report/AssignmentActivityPreviousStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/AssignmentActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/report/AssignmentActivityPreviousStatus : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/report/AssignmentActivityPreviousStatus$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/AssignmentActivityPreviousStatus$Assigned : tools/ozone/report/AssignmentActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/AssignmentActivityPreviousStatus$Assigned;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/AssignmentActivityPreviousStatus$Closed : tools/ozone/report/AssignmentActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/AssignmentActivityPreviousStatus$Closed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/AssignmentActivityPreviousStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/report/AssignmentActivityPreviousStatus;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/AssignmentActivityPreviousStatus$Escalated : tools/ozone/report/AssignmentActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/AssignmentActivityPreviousStatus$Escalated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/AssignmentActivityPreviousStatus$Open : tools/ozone/report/AssignmentActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/AssignmentActivityPreviousStatus$Open;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/AssignmentActivityPreviousStatus$Queued : tools/ozone/report/AssignmentActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/AssignmentActivityPreviousStatus$Queued;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/AssignmentActivityPreviousStatus$Unknown : tools/ozone/report/AssignmentActivityPreviousStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/report/AssignmentActivityPreviousStatus$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/report/AssignmentActivityPreviousStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/AssignmentActivityPreviousStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/AssignmentActivityPreviousStatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/report/AssignmentActivityPreviousStatus;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/report/AssignmentActivityPreviousStatus;)V
+}
+
+public final class tools/ozone/report/AssignmentView {
+	public static final field Companion Ltools/ozone/report/AssignmentView$Companion;
+	public synthetic fun <init> (JLjava/lang/String;Ltools/ozone/team/Member;Ltools/ozone/queue/QueueView;JLkotlin/time/Instant;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLjava/lang/String;Ltools/ozone/team/Member;Ltools/ozone/queue/QueueView;JLkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component2-715Ygxc ()Ljava/lang/String;
+	public final fun component3 ()Ltools/ozone/team/Member;
+	public final fun component4 ()Ltools/ozone/queue/QueueView;
+	public final fun component5 ()J
+	public final fun component6 ()Lkotlin/time/Instant;
+	public final fun component7 ()Lkotlin/time/Instant;
+	public final fun copy-alk0mbY (JLjava/lang/String;Ltools/ozone/team/Member;Ltools/ozone/queue/QueueView;JLkotlin/time/Instant;Lkotlin/time/Instant;)Ltools/ozone/report/AssignmentView;
+	public static synthetic fun copy-alk0mbY$default (Ltools/ozone/report/AssignmentView;JLjava/lang/String;Ltools/ozone/team/Member;Ltools/ozone/queue/QueueView;JLkotlin/time/Instant;Lkotlin/time/Instant;ILjava/lang/Object;)Ltools/ozone/report/AssignmentView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getEndAt ()Lkotlin/time/Instant;
+	public final fun getId ()J
+	public final fun getModerator ()Ltools/ozone/team/Member;
+	public final fun getQueue ()Ltools/ozone/queue/QueueView;
+	public final fun getReportId ()J
+	public final fun getStartAt ()Lkotlin/time/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/AssignmentView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/CloseActivity {
+	public static final field Companion Ltools/ozone/report/CloseActivity$Companion;
+	public fun <init> ()V
+	public fun <init> (Ltools/ozone/report/CloseActivityPreviousStatus;)V
+	public synthetic fun <init> (Ltools/ozone/report/CloseActivityPreviousStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ltools/ozone/report/CloseActivityPreviousStatus;
+	public final fun copy (Ltools/ozone/report/CloseActivityPreviousStatus;)Ltools/ozone/report/CloseActivity;
+	public static synthetic fun copy$default (Ltools/ozone/report/CloseActivity;Ltools/ozone/report/CloseActivityPreviousStatus;ILjava/lang/Object;)Ltools/ozone/report/CloseActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPreviousStatus ()Ltools/ozone/report/CloseActivityPreviousStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/CloseActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/report/CloseActivityPreviousStatus : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/report/CloseActivityPreviousStatus$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/CloseActivityPreviousStatus$Assigned : tools/ozone/report/CloseActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/CloseActivityPreviousStatus$Assigned;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/CloseActivityPreviousStatus$Closed : tools/ozone/report/CloseActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/CloseActivityPreviousStatus$Closed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/CloseActivityPreviousStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/report/CloseActivityPreviousStatus;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/CloseActivityPreviousStatus$Escalated : tools/ozone/report/CloseActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/CloseActivityPreviousStatus$Escalated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/CloseActivityPreviousStatus$Open : tools/ozone/report/CloseActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/CloseActivityPreviousStatus$Open;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/CloseActivityPreviousStatus$Queued : tools/ozone/report/CloseActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/CloseActivityPreviousStatus$Queued;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/CloseActivityPreviousStatus$Unknown : tools/ozone/report/CloseActivityPreviousStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/report/CloseActivityPreviousStatus$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/report/CloseActivityPreviousStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/CloseActivityPreviousStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/CloseActivityPreviousStatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/report/CloseActivityPreviousStatus;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/report/CloseActivityPreviousStatus;)V
+}
+
+public final class tools/ozone/report/CreateActivityRequest {
+	public static final field Companion Ltools/ozone/report/CreateActivityRequest$Companion;
+	public fun <init> (JLtools/ozone/report/CreateActivityRequestActivityUnion;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (JLtools/ozone/report/CreateActivityRequestActivityUnion;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component2 ()Ltools/ozone/report/CreateActivityRequestActivityUnion;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/Boolean;
+	public final fun copy (JLtools/ozone/report/CreateActivityRequestActivityUnion;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)Ltools/ozone/report/CreateActivityRequest;
+	public static synthetic fun copy$default (Ltools/ozone/report/CreateActivityRequest;JLtools/ozone/report/CreateActivityRequestActivityUnion;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Ltools/ozone/report/CreateActivityRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActivity ()Ltools/ozone/report/CreateActivityRequestActivityUnion;
+	public final fun getInternalNote ()Ljava/lang/String;
+	public final fun getPublicNote ()Ljava/lang/String;
+	public final fun getReportId ()J
+	public fun hashCode ()I
+	public final fun isAutomated ()Ljava/lang/Boolean;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/CreateActivityRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class tools/ozone/report/CreateActivityRequestActivityUnion {
+	public static final field Companion Ltools/ozone/report/CreateActivityRequestActivityUnion$Companion;
+}
+
+public final class tools/ozone/report/CreateActivityRequestActivityUnion$AssignmentActivity : tools/ozone/report/CreateActivityRequestActivityUnion {
+	public static final field Companion Ltools/ozone/report/CreateActivityRequestActivityUnion$AssignmentActivity$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/report/AssignmentActivity;)Ltools/ozone/report/CreateActivityRequestActivityUnion$AssignmentActivity;
+	public static fun constructor-impl (Ltools/ozone/report/AssignmentActivity;)Ltools/ozone/report/AssignmentActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/report/AssignmentActivity;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/report/AssignmentActivity;Ltools/ozone/report/AssignmentActivity;)Z
+	public final fun getValue ()Ltools/ozone/report/AssignmentActivity;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/report/AssignmentActivity;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/report/AssignmentActivity;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/report/AssignmentActivity;
+}
+
+public final class tools/ozone/report/CreateActivityRequestActivityUnion$AssignmentActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/CreateActivityRequestActivityUnion$CloseActivity : tools/ozone/report/CreateActivityRequestActivityUnion {
+	public static final field Companion Ltools/ozone/report/CreateActivityRequestActivityUnion$CloseActivity$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/report/CloseActivity;)Ltools/ozone/report/CreateActivityRequestActivityUnion$CloseActivity;
+	public static fun constructor-impl (Ltools/ozone/report/CloseActivity;)Ltools/ozone/report/CloseActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/report/CloseActivity;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/report/CloseActivity;Ltools/ozone/report/CloseActivity;)Z
+	public final fun getValue ()Ltools/ozone/report/CloseActivity;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/report/CloseActivity;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/report/CloseActivity;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/report/CloseActivity;
+}
+
+public final class tools/ozone/report/CreateActivityRequestActivityUnion$CloseActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/CreateActivityRequestActivityUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/CreateActivityRequestActivityUnion$EscalationActivity : tools/ozone/report/CreateActivityRequestActivityUnion {
+	public static final field Companion Ltools/ozone/report/CreateActivityRequestActivityUnion$EscalationActivity$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/report/EscalationActivity;)Ltools/ozone/report/CreateActivityRequestActivityUnion$EscalationActivity;
+	public static fun constructor-impl (Ltools/ozone/report/EscalationActivity;)Ltools/ozone/report/EscalationActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/report/EscalationActivity;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/report/EscalationActivity;Ltools/ozone/report/EscalationActivity;)Z
+	public final fun getValue ()Ltools/ozone/report/EscalationActivity;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/report/EscalationActivity;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/report/EscalationActivity;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/report/EscalationActivity;
+}
+
+public final class tools/ozone/report/CreateActivityRequestActivityUnion$EscalationActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/CreateActivityRequestActivityUnion$NoteActivity : tools/ozone/report/CreateActivityRequestActivityUnion {
+	public static final field Companion Ltools/ozone/report/CreateActivityRequestActivityUnion$NoteActivity$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/report/NoteActivity;)Ltools/ozone/report/CreateActivityRequestActivityUnion$NoteActivity;
+	public static fun constructor-impl (Ltools/ozone/report/NoteActivity;)Ltools/ozone/report/NoteActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/report/NoteActivity;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/report/NoteActivity;Ltools/ozone/report/NoteActivity;)Z
+	public final fun getValue ()Ltools/ozone/report/NoteActivity;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/report/NoteActivity;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/report/NoteActivity;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/report/NoteActivity;
+}
+
+public final class tools/ozone/report/CreateActivityRequestActivityUnion$NoteActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/CreateActivityRequestActivityUnion$QueueActivity : tools/ozone/report/CreateActivityRequestActivityUnion {
+	public static final field Companion Ltools/ozone/report/CreateActivityRequestActivityUnion$QueueActivity$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/report/QueueActivity;)Ltools/ozone/report/CreateActivityRequestActivityUnion$QueueActivity;
+	public static fun constructor-impl (Ltools/ozone/report/QueueActivity;)Ltools/ozone/report/QueueActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/report/QueueActivity;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/report/QueueActivity;Ltools/ozone/report/QueueActivity;)Z
+	public final fun getValue ()Ltools/ozone/report/QueueActivity;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/report/QueueActivity;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/report/QueueActivity;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/report/QueueActivity;
+}
+
+public final class tools/ozone/report/CreateActivityRequestActivityUnion$QueueActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/CreateActivityRequestActivityUnion$ReopenActivity : tools/ozone/report/CreateActivityRequestActivityUnion {
+	public static final field Companion Ltools/ozone/report/CreateActivityRequestActivityUnion$ReopenActivity$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/report/ReopenActivity;)Ltools/ozone/report/CreateActivityRequestActivityUnion$ReopenActivity;
+	public static fun constructor-impl (Ltools/ozone/report/ReopenActivity;)Ltools/ozone/report/ReopenActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/report/ReopenActivity;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/report/ReopenActivity;Ltools/ozone/report/ReopenActivity;)Z
+	public final fun getValue ()Ltools/ozone/report/ReopenActivity;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/report/ReopenActivity;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/report/ReopenActivity;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/report/ReopenActivity;
+}
+
+public final class tools/ozone/report/CreateActivityRequestActivityUnion$ReopenActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/CreateActivityRequestActivityUnion$Unknown : tools/ozone/report/CreateActivityRequestActivityUnion {
+	public static final field Companion Ltools/ozone/report/CreateActivityRequestActivityUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/report/CreateActivityRequestActivityUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/report/CreateActivityRequestActivityUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/CreateActivityResponse {
+	public static final field Companion Ltools/ozone/report/CreateActivityResponse$Companion;
+	public fun <init> (Ltools/ozone/report/ReportActivityView;)V
+	public final fun component1 ()Ltools/ozone/report/ReportActivityView;
+	public final fun copy (Ltools/ozone/report/ReportActivityView;)Ltools/ozone/report/CreateActivityResponse;
+	public static synthetic fun copy$default (Ltools/ozone/report/CreateActivityResponse;Ltools/ozone/report/ReportActivityView;ILjava/lang/Object;)Ltools/ozone/report/CreateActivityResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActivity ()Ltools/ozone/report/ReportActivityView;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/CreateActivityResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/EscalationActivity {
+	public static final field Companion Ltools/ozone/report/EscalationActivity$Companion;
+	public fun <init> ()V
+	public fun <init> (Ltools/ozone/report/EscalationActivityPreviousStatus;)V
+	public synthetic fun <init> (Ltools/ozone/report/EscalationActivityPreviousStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ltools/ozone/report/EscalationActivityPreviousStatus;
+	public final fun copy (Ltools/ozone/report/EscalationActivityPreviousStatus;)Ltools/ozone/report/EscalationActivity;
+	public static synthetic fun copy$default (Ltools/ozone/report/EscalationActivity;Ltools/ozone/report/EscalationActivityPreviousStatus;ILjava/lang/Object;)Ltools/ozone/report/EscalationActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPreviousStatus ()Ltools/ozone/report/EscalationActivityPreviousStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/EscalationActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/report/EscalationActivityPreviousStatus : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/report/EscalationActivityPreviousStatus$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/EscalationActivityPreviousStatus$Assigned : tools/ozone/report/EscalationActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/EscalationActivityPreviousStatus$Assigned;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/EscalationActivityPreviousStatus$Closed : tools/ozone/report/EscalationActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/EscalationActivityPreviousStatus$Closed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/EscalationActivityPreviousStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/report/EscalationActivityPreviousStatus;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/EscalationActivityPreviousStatus$Escalated : tools/ozone/report/EscalationActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/EscalationActivityPreviousStatus$Escalated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/EscalationActivityPreviousStatus$Open : tools/ozone/report/EscalationActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/EscalationActivityPreviousStatus$Open;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/EscalationActivityPreviousStatus$Queued : tools/ozone/report/EscalationActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/EscalationActivityPreviousStatus$Queued;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/EscalationActivityPreviousStatus$Unknown : tools/ozone/report/EscalationActivityPreviousStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/report/EscalationActivityPreviousStatus$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/report/EscalationActivityPreviousStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/EscalationActivityPreviousStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/EscalationActivityPreviousStatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/report/EscalationActivityPreviousStatus;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/report/EscalationActivityPreviousStatus;)V
+}
+
+public final class tools/ozone/report/GetAssignmentsQueryParams {
+	public static final field Companion Ltools/ozone/report/GetAssignmentsQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/Boolean;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;)Ltools/ozone/report/GetAssignmentsQueryParams;
+	public static synthetic fun copy$default (Ltools/ozone/report/GetAssignmentsQueryParams;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/GetAssignmentsQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getDids ()Ljava/util/List;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getOnlyActive ()Ljava/lang/Boolean;
+	public final fun getReportIds ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/GetAssignmentsQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/GetAssignmentsResponse {
+	public static final field Companion Ltools/ozone/report/GetAssignmentsResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Ltools/ozone/report/GetAssignmentsResponse;
+	public static synthetic fun copy$default (Ltools/ozone/report/GetAssignmentsResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/report/GetAssignmentsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAssignments ()Ljava/util/List;
+	public final fun getCursor ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/GetAssignmentsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/GetHistoricalStatsQueryParams {
+	public static final field Companion Ltools/ozone/report/GetHistoricalStatsQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/String;Ljava/util/List;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/String;Ljava/util/List;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun component2-68yuAGA ()Ljava/lang/String;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Lkotlin/time/Instant;
+	public final fun component5 ()Lkotlin/time/Instant;
+	public final fun component6 ()Ljava/lang/Long;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun copy-UJCNTWM (Ljava/lang/Long;Ljava/lang/String;Ljava/util/List;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/String;)Ltools/ozone/report/GetHistoricalStatsQueryParams;
+	public static synthetic fun copy-UJCNTWM$default (Ltools/ozone/report/GetHistoricalStatsQueryParams;Ljava/lang/Long;Ljava/lang/String;Ljava/util/List;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/GetHistoricalStatsQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getEndDate ()Lkotlin/time/Instant;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getModeratorDid-68yuAGA ()Ljava/lang/String;
+	public final fun getQueueId ()Ljava/lang/Long;
+	public final fun getReportTypes ()Ljava/util/List;
+	public final fun getStartDate ()Lkotlin/time/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/GetHistoricalStatsQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/GetHistoricalStatsResponse {
+	public static final field Companion Ltools/ozone/report/GetHistoricalStatsResponse$Companion;
+	public fun <init> (Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/lang/String;)Ltools/ozone/report/GetHistoricalStatsResponse;
+	public static synthetic fun copy$default (Ltools/ozone/report/GetHistoricalStatsResponse;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/GetHistoricalStatsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getStats ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/GetHistoricalStatsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/GetLatestReportResponse {
+	public static final field Companion Ltools/ozone/report/GetLatestReportResponse$Companion;
+	public fun <init> (Ltools/ozone/report/ReportView;)V
+	public final fun component1 ()Ltools/ozone/report/ReportView;
+	public final fun copy (Ltools/ozone/report/ReportView;)Ltools/ozone/report/GetLatestReportResponse;
+	public static synthetic fun copy$default (Ltools/ozone/report/GetLatestReportResponse;Ltools/ozone/report/ReportView;ILjava/lang/Object;)Ltools/ozone/report/GetLatestReportResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getReport ()Ltools/ozone/report/ReportView;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/GetLatestReportResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/GetLiveStatsQueryParams {
+	public static final field Companion Ltools/ozone/report/GetLiveStatsQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/String;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun component2-68yuAGA ()Ljava/lang/String;
+	public final fun component3 ()Ljava/util/List;
+	public final fun copy-mozCNIg (Ljava/lang/Long;Ljava/lang/String;Ljava/util/List;)Ltools/ozone/report/GetLiveStatsQueryParams;
+	public static synthetic fun copy-mozCNIg$default (Ltools/ozone/report/GetLiveStatsQueryParams;Ljava/lang/Long;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/report/GetLiveStatsQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getModeratorDid-68yuAGA ()Ljava/lang/String;
+	public final fun getQueueId ()Ljava/lang/Long;
+	public final fun getReportTypes ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/GetLiveStatsQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/GetLiveStatsResponse {
+	public static final field Companion Ltools/ozone/report/GetLiveStatsResponse$Companion;
+	public fun <init> (Ltools/ozone/report/LiveStats;)V
+	public final fun component1 ()Ltools/ozone/report/LiveStats;
+	public final fun copy (Ltools/ozone/report/LiveStats;)Ltools/ozone/report/GetLiveStatsResponse;
+	public static synthetic fun copy$default (Ltools/ozone/report/GetLiveStatsResponse;Ltools/ozone/report/LiveStats;ILjava/lang/Object;)Ltools/ozone/report/GetLiveStatsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStats ()Ltools/ozone/report/LiveStats;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/GetLiveStatsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/GetReportQueryParams {
+	public static final field Companion Ltools/ozone/report/GetReportQueryParams$Companion;
+	public fun <init> (J)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()J
+	public final fun copy (J)Ltools/ozone/report/GetReportQueryParams;
+	public static synthetic fun copy$default (Ltools/ozone/report/GetReportQueryParams;JILjava/lang/Object;)Ltools/ozone/report/GetReportQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/GetReportQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/HistoricalStats {
+	public static final field Companion Ltools/ozone/report/HistoricalStats$Companion;
+	public fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun component5 ()Ljava/lang/Long;
+	public final fun component6 ()Ljava/lang/Long;
+	public final fun component7 ()Ljava/lang/Long;
+	public final fun component8 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)Ltools/ozone/report/HistoricalStats;
+	public static synthetic fun copy$default (Ltools/ozone/report/HistoricalStats;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILjava/lang/Object;)Ltools/ozone/report/HistoricalStats;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActionRate ()Ljava/lang/Long;
+	public final fun getActionedCount ()Ljava/lang/Long;
+	public final fun getAvgHandlingTimeSec ()Ljava/lang/Long;
+	public final fun getComputedAt ()Lkotlin/time/Instant;
+	public final fun getDate ()Ljava/lang/String;
+	public final fun getEscalatedCount ()Ljava/lang/Long;
+	public final fun getInboundCount ()Ljava/lang/Long;
+	public final fun getPendingCount ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/HistoricalStats$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/ListActivitiesQueryParams {
+	public static final field Companion Ltools/ozone/report/ListActivitiesQueryParams$Companion;
+	public fun <init> (JLjava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (JLjava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()J
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (JLjava/lang/Long;Ljava/lang/String;)Ltools/ozone/report/ListActivitiesQueryParams;
+	public static synthetic fun copy$default (Ltools/ozone/report/ListActivitiesQueryParams;JLjava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/ListActivitiesQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getReportId ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ListActivitiesQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/ListActivitiesResponse {
+	public static final field Companion Ltools/ozone/report/ListActivitiesResponse$Companion;
+	public fun <init> (Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/lang/String;)Ltools/ozone/report/ListActivitiesResponse;
+	public static synthetic fun copy$default (Ltools/ozone/report/ListActivitiesResponse;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/ListActivitiesResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActivities ()Ljava/util/List;
+	public final fun getCursor ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ListActivitiesResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/LiveStats {
+	public static final field Companion Ltools/ozone/report/LiveStats$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun component5 ()Ljava/lang/Long;
+	public final fun component6 ()Ljava/lang/Long;
+	public final fun component7 ()Lkotlin/time/Instant;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;)Ltools/ozone/report/LiveStats;
+	public static synthetic fun copy$default (Ltools/ozone/report/LiveStats;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;ILjava/lang/Object;)Ltools/ozone/report/LiveStats;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActionRate ()Ljava/lang/Long;
+	public final fun getActionedCount ()Ljava/lang/Long;
+	public final fun getAvgHandlingTimeSec ()Ljava/lang/Long;
+	public final fun getEscalatedCount ()Ljava/lang/Long;
+	public final fun getInboundCount ()Ljava/lang/Long;
+	public final fun getLastUpdated ()Lkotlin/time/Instant;
+	public final fun getPendingCount ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/LiveStats$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/NoteActivity {
+	public static final field INSTANCE Ltools/ozone/report/NoteActivity;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/QueryReportsQueryParams {
+	public static final field Companion Ltools/ozone/report/QueryReportsQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/util/List;Ltools/ozone/report/QueryReportsStatus;Ljava/lang/String;Ljava/lang/String;Ltools/ozone/report/QueryReportsSubjectType;Ljava/util/List;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/util/List;Ltools/ozone/report/QueryReportsStatus;Ljava/lang/String;Ljava/lang/String;Ltools/ozone/report/QueryReportsSubjectType;Ljava/util/List;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun component10 ()Ljava/lang/Boolean;
+	public final fun component11-68yuAGA ()Ljava/lang/String;
+	public final fun component12 ()Ljava/lang/String;
+	public final fun component13 ()Ljava/lang/String;
+	public final fun component14 ()Ljava/lang/Long;
+	public final fun component15 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ltools/ozone/report/QueryReportsStatus;
+	public final fun component4-pvpWXas ()Ljava/lang/String;
+	public final fun component5-68yuAGA ()Ljava/lang/String;
+	public final fun component6 ()Ltools/ozone/report/QueryReportsSubjectType;
+	public final fun component7 ()Ljava/util/List;
+	public final fun component8 ()Lkotlin/time/Instant;
+	public final fun component9 ()Lkotlin/time/Instant;
+	public final fun copy-tJwMnH8 (Ljava/lang/Long;Ljava/util/List;Ltools/ozone/report/QueryReportsStatus;Ljava/lang/String;Ljava/lang/String;Ltools/ozone/report/QueryReportsSubjectType;Ljava/util/List;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Ltools/ozone/report/QueryReportsQueryParams;
+	public static synthetic fun copy-tJwMnH8$default (Ltools/ozone/report/QueryReportsQueryParams;Ljava/lang/Long;Ljava/util/List;Ltools/ozone/report/QueryReportsStatus;Ljava/lang/String;Ljava/lang/String;Ltools/ozone/report/QueryReportsSubjectType;Ljava/util/List;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/QueryReportsQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAssignedTo-68yuAGA ()Ljava/lang/String;
+	public final fun getCollections ()Ljava/util/List;
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getDid-68yuAGA ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getQueueId ()Ljava/lang/Long;
+	public final fun getReportTypes ()Ljava/util/List;
+	public final fun getReportedAfter ()Lkotlin/time/Instant;
+	public final fun getReportedBefore ()Lkotlin/time/Instant;
+	public final fun getSortDirection ()Ljava/lang/String;
+	public final fun getSortField ()Ljava/lang/String;
+	public final fun getStatus ()Ltools/ozone/report/QueryReportsStatus;
+	public final fun getSubject-pvpWXas ()Ljava/lang/String;
+	public final fun getSubjectType ()Ltools/ozone/report/QueryReportsSubjectType;
+	public fun hashCode ()I
+	public final fun isMuted ()Ljava/lang/Boolean;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueryReportsQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/QueryReportsResponse {
+	public static final field Companion Ltools/ozone/report/QueryReportsResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Ltools/ozone/report/QueryReportsResponse;
+	public static synthetic fun copy$default (Ltools/ozone/report/QueryReportsResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/report/QueryReportsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getReports ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueryReportsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/report/QueryReportsStatus : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/report/QueryReportsStatus$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueryReportsStatus$Assigned : tools/ozone/report/QueryReportsStatus {
+	public static final field INSTANCE Ltools/ozone/report/QueryReportsStatus$Assigned;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueryReportsStatus$Closed : tools/ozone/report/QueryReportsStatus {
+	public static final field INSTANCE Ltools/ozone/report/QueryReportsStatus$Closed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueryReportsStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/report/QueryReportsStatus;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/QueryReportsStatus$Escalated : tools/ozone/report/QueryReportsStatus {
+	public static final field INSTANCE Ltools/ozone/report/QueryReportsStatus$Escalated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueryReportsStatus$Open : tools/ozone/report/QueryReportsStatus {
+	public static final field INSTANCE Ltools/ozone/report/QueryReportsStatus$Open;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueryReportsStatus$Queued : tools/ozone/report/QueryReportsStatus {
+	public static final field INSTANCE Ltools/ozone/report/QueryReportsStatus$Queued;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueryReportsStatus$Unknown : tools/ozone/report/QueryReportsStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/report/QueryReportsStatus$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/report/QueryReportsStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/QueryReportsStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueryReportsStatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/report/QueryReportsStatus;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/report/QueryReportsStatus;)V
+}
+
+public abstract class tools/ozone/report/QueryReportsSubjectType : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/report/QueryReportsSubjectType$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueryReportsSubjectType$Account : tools/ozone/report/QueryReportsSubjectType {
+	public static final field INSTANCE Ltools/ozone/report/QueryReportsSubjectType$Account;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueryReportsSubjectType$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/report/QueryReportsSubjectType;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/QueryReportsSubjectType$Record : tools/ozone/report/QueryReportsSubjectType {
+	public static final field INSTANCE Ltools/ozone/report/QueryReportsSubjectType$Record;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueryReportsSubjectType$Unknown : tools/ozone/report/QueryReportsSubjectType {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/report/QueryReportsSubjectType$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/report/QueryReportsSubjectType$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/QueryReportsSubjectType$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueryReportsSubjectTypeSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/report/QueryReportsSubjectType;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/report/QueryReportsSubjectType;)V
+}
+
+public final class tools/ozone/report/QueueActivity {
+	public static final field Companion Ltools/ozone/report/QueueActivity$Companion;
+	public fun <init> ()V
+	public fun <init> (Ltools/ozone/report/QueueActivityPreviousStatus;)V
+	public synthetic fun <init> (Ltools/ozone/report/QueueActivityPreviousStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ltools/ozone/report/QueueActivityPreviousStatus;
+	public final fun copy (Ltools/ozone/report/QueueActivityPreviousStatus;)Ltools/ozone/report/QueueActivity;
+	public static synthetic fun copy$default (Ltools/ozone/report/QueueActivity;Ltools/ozone/report/QueueActivityPreviousStatus;ILjava/lang/Object;)Ltools/ozone/report/QueueActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPreviousStatus ()Ltools/ozone/report/QueueActivityPreviousStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueueActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/report/QueueActivityPreviousStatus : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/report/QueueActivityPreviousStatus$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueueActivityPreviousStatus$Assigned : tools/ozone/report/QueueActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/QueueActivityPreviousStatus$Assigned;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueueActivityPreviousStatus$Closed : tools/ozone/report/QueueActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/QueueActivityPreviousStatus$Closed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueueActivityPreviousStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/report/QueueActivityPreviousStatus;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/QueueActivityPreviousStatus$Escalated : tools/ozone/report/QueueActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/QueueActivityPreviousStatus$Escalated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueueActivityPreviousStatus$Open : tools/ozone/report/QueueActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/QueueActivityPreviousStatus$Open;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueueActivityPreviousStatus$Queued : tools/ozone/report/QueueActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/QueueActivityPreviousStatus$Queued;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueueActivityPreviousStatus$Unknown : tools/ozone/report/QueueActivityPreviousStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/report/QueueActivityPreviousStatus$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/report/QueueActivityPreviousStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/QueueActivityPreviousStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueueActivityPreviousStatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/report/QueueActivityPreviousStatus;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/report/QueueActivityPreviousStatus;)V
+}
+
+public final class tools/ozone/report/ReassignQueueRequest {
+	public static final field Companion Ltools/ozone/report/ReassignQueueRequest$Companion;
+	public fun <init> (JJLjava/lang/String;)V
+	public synthetic fun <init> (JJLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component2 ()J
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (JJLjava/lang/String;)Ltools/ozone/report/ReassignQueueRequest;
+	public static synthetic fun copy$default (Ltools/ozone/report/ReassignQueueRequest;JJLjava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/ReassignQueueRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getQueueId ()J
+	public final fun getReportId ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReassignQueueRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/ReassignQueueResponse {
+	public static final field Companion Ltools/ozone/report/ReassignQueueResponse$Companion;
+	public fun <init> (Ltools/ozone/report/ReportView;)V
+	public final fun component1 ()Ltools/ozone/report/ReportView;
+	public final fun copy (Ltools/ozone/report/ReportView;)Ltools/ozone/report/ReassignQueueResponse;
+	public static synthetic fun copy$default (Ltools/ozone/report/ReassignQueueResponse;Ltools/ozone/report/ReportView;ILjava/lang/Object;)Ltools/ozone/report/ReassignQueueResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getReport ()Ltools/ozone/report/ReportView;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReassignQueueResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/RefreshStatsRequest {
+	public static final field Companion Ltools/ozone/report/RefreshStatsRequest$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Ltools/ozone/report/RefreshStatsRequest;
+	public static synthetic fun copy$default (Ltools/ozone/report/RefreshStatsRequest;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/report/RefreshStatsRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEndDate ()Ljava/lang/String;
+	public final fun getQueueIds ()Ljava/util/List;
+	public final fun getStartDate ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/RefreshStatsRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/RefreshStatsResponse {
+	public static final field INSTANCE Ltools/ozone/report/RefreshStatsResponse;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/ReopenActivity {
+	public static final field Companion Ltools/ozone/report/ReopenActivity$Companion;
+	public fun <init> ()V
+	public fun <init> (Ltools/ozone/report/ReopenActivityPreviousStatus;)V
+	public synthetic fun <init> (Ltools/ozone/report/ReopenActivityPreviousStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ltools/ozone/report/ReopenActivityPreviousStatus;
+	public final fun copy (Ltools/ozone/report/ReopenActivityPreviousStatus;)Ltools/ozone/report/ReopenActivity;
+	public static synthetic fun copy$default (Ltools/ozone/report/ReopenActivity;Ltools/ozone/report/ReopenActivityPreviousStatus;ILjava/lang/Object;)Ltools/ozone/report/ReopenActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPreviousStatus ()Ltools/ozone/report/ReopenActivityPreviousStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReopenActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/report/ReopenActivityPreviousStatus : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/report/ReopenActivityPreviousStatus$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReopenActivityPreviousStatus$Assigned : tools/ozone/report/ReopenActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/ReopenActivityPreviousStatus$Assigned;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReopenActivityPreviousStatus$Closed : tools/ozone/report/ReopenActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/ReopenActivityPreviousStatus$Closed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReopenActivityPreviousStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/report/ReopenActivityPreviousStatus;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/ReopenActivityPreviousStatus$Escalated : tools/ozone/report/ReopenActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/ReopenActivityPreviousStatus$Escalated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReopenActivityPreviousStatus$Open : tools/ozone/report/ReopenActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/ReopenActivityPreviousStatus$Open;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReopenActivityPreviousStatus$Queued : tools/ozone/report/ReopenActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/ReopenActivityPreviousStatus$Queued;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReopenActivityPreviousStatus$Unknown : tools/ozone/report/ReopenActivityPreviousStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/report/ReopenActivityPreviousStatus$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/report/ReopenActivityPreviousStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/ReopenActivityPreviousStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReopenActivityPreviousStatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/report/ReopenActivityPreviousStatus;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/report/ReopenActivityPreviousStatus;)V
+}
+
+public final class tools/ozone/report/ReportActivityView {
+	public static final field Companion Ltools/ozone/report/ReportActivityView$Companion;
+	public synthetic fun <init> (JJLtools/ozone/report/ReportActivityViewActivityUnion;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;ZLjava/lang/String;Ltools/ozone/team/Member;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JJLtools/ozone/report/ReportActivityViewActivityUnion;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;ZLjava/lang/String;Ltools/ozone/team/Member;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component10 ()Lkotlin/time/Instant;
+	public final fun component2 ()J
+	public final fun component3 ()Ltools/ozone/report/ReportActivityViewActivityUnion;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Lsh/christian/ozone/api/model/JsonContent;
+	public final fun component7 ()Z
+	public final fun component8-715Ygxc ()Ljava/lang/String;
+	public final fun component9 ()Ltools/ozone/team/Member;
+	public final fun copy-NHTrxTE (JJLtools/ozone/report/ReportActivityViewActivityUnion;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;ZLjava/lang/String;Ltools/ozone/team/Member;Lkotlin/time/Instant;)Ltools/ozone/report/ReportActivityView;
+	public static synthetic fun copy-NHTrxTE$default (Ltools/ozone/report/ReportActivityView;JJLtools/ozone/report/ReportActivityViewActivityUnion;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/JsonContent;ZLjava/lang/String;Ltools/ozone/team/Member;Lkotlin/time/Instant;ILjava/lang/Object;)Ltools/ozone/report/ReportActivityView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActivity ()Ltools/ozone/report/ReportActivityViewActivityUnion;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
+	public final fun getId ()J
+	public final fun getInternalNote ()Ljava/lang/String;
+	public final fun getMeta ()Lsh/christian/ozone/api/model/JsonContent;
+	public final fun getModerator ()Ltools/ozone/team/Member;
+	public final fun getPublicNote ()Ljava/lang/String;
+	public final fun getReportId ()J
+	public fun hashCode ()I
+	public final fun isAutomated ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReportActivityView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class tools/ozone/report/ReportActivityViewActivityUnion {
+	public static final field Companion Ltools/ozone/report/ReportActivityViewActivityUnion$Companion;
+}
+
+public final class tools/ozone/report/ReportActivityViewActivityUnion$AssignmentActivity : tools/ozone/report/ReportActivityViewActivityUnion {
+	public static final field Companion Ltools/ozone/report/ReportActivityViewActivityUnion$AssignmentActivity$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/report/AssignmentActivity;)Ltools/ozone/report/ReportActivityViewActivityUnion$AssignmentActivity;
+	public static fun constructor-impl (Ltools/ozone/report/AssignmentActivity;)Ltools/ozone/report/AssignmentActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/report/AssignmentActivity;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/report/AssignmentActivity;Ltools/ozone/report/AssignmentActivity;)Z
+	public final fun getValue ()Ltools/ozone/report/AssignmentActivity;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/report/AssignmentActivity;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/report/AssignmentActivity;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/report/AssignmentActivity;
+}
+
+public final class tools/ozone/report/ReportActivityViewActivityUnion$AssignmentActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/ReportActivityViewActivityUnion$CloseActivity : tools/ozone/report/ReportActivityViewActivityUnion {
+	public static final field Companion Ltools/ozone/report/ReportActivityViewActivityUnion$CloseActivity$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/report/CloseActivity;)Ltools/ozone/report/ReportActivityViewActivityUnion$CloseActivity;
+	public static fun constructor-impl (Ltools/ozone/report/CloseActivity;)Ltools/ozone/report/CloseActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/report/CloseActivity;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/report/CloseActivity;Ltools/ozone/report/CloseActivity;)Z
+	public final fun getValue ()Ltools/ozone/report/CloseActivity;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/report/CloseActivity;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/report/CloseActivity;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/report/CloseActivity;
+}
+
+public final class tools/ozone/report/ReportActivityViewActivityUnion$CloseActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/ReportActivityViewActivityUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/ReportActivityViewActivityUnion$EscalationActivity : tools/ozone/report/ReportActivityViewActivityUnion {
+	public static final field Companion Ltools/ozone/report/ReportActivityViewActivityUnion$EscalationActivity$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/report/EscalationActivity;)Ltools/ozone/report/ReportActivityViewActivityUnion$EscalationActivity;
+	public static fun constructor-impl (Ltools/ozone/report/EscalationActivity;)Ltools/ozone/report/EscalationActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/report/EscalationActivity;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/report/EscalationActivity;Ltools/ozone/report/EscalationActivity;)Z
+	public final fun getValue ()Ltools/ozone/report/EscalationActivity;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/report/EscalationActivity;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/report/EscalationActivity;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/report/EscalationActivity;
+}
+
+public final class tools/ozone/report/ReportActivityViewActivityUnion$EscalationActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/ReportActivityViewActivityUnion$NoteActivity : tools/ozone/report/ReportActivityViewActivityUnion {
+	public static final field Companion Ltools/ozone/report/ReportActivityViewActivityUnion$NoteActivity$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/report/NoteActivity;)Ltools/ozone/report/ReportActivityViewActivityUnion$NoteActivity;
+	public static fun constructor-impl (Ltools/ozone/report/NoteActivity;)Ltools/ozone/report/NoteActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/report/NoteActivity;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/report/NoteActivity;Ltools/ozone/report/NoteActivity;)Z
+	public final fun getValue ()Ltools/ozone/report/NoteActivity;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/report/NoteActivity;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/report/NoteActivity;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/report/NoteActivity;
+}
+
+public final class tools/ozone/report/ReportActivityViewActivityUnion$NoteActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/ReportActivityViewActivityUnion$QueueActivity : tools/ozone/report/ReportActivityViewActivityUnion {
+	public static final field Companion Ltools/ozone/report/ReportActivityViewActivityUnion$QueueActivity$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/report/QueueActivity;)Ltools/ozone/report/ReportActivityViewActivityUnion$QueueActivity;
+	public static fun constructor-impl (Ltools/ozone/report/QueueActivity;)Ltools/ozone/report/QueueActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/report/QueueActivity;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/report/QueueActivity;Ltools/ozone/report/QueueActivity;)Z
+	public final fun getValue ()Ltools/ozone/report/QueueActivity;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/report/QueueActivity;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/report/QueueActivity;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/report/QueueActivity;
+}
+
+public final class tools/ozone/report/ReportActivityViewActivityUnion$QueueActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/ReportActivityViewActivityUnion$ReopenActivity : tools/ozone/report/ReportActivityViewActivityUnion {
+	public static final field Companion Ltools/ozone/report/ReportActivityViewActivityUnion$ReopenActivity$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/report/ReopenActivity;)Ltools/ozone/report/ReportActivityViewActivityUnion$ReopenActivity;
+	public static fun constructor-impl (Ltools/ozone/report/ReopenActivity;)Ltools/ozone/report/ReopenActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/report/ReopenActivity;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/report/ReopenActivity;Ltools/ozone/report/ReopenActivity;)Z
+	public final fun getValue ()Ltools/ozone/report/ReopenActivity;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/report/ReopenActivity;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/report/ReopenActivity;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/report/ReopenActivity;
+}
+
+public final class tools/ozone/report/ReportActivityViewActivityUnion$ReopenActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/ReportActivityViewActivityUnion$Unknown : tools/ozone/report/ReportActivityViewActivityUnion {
+	public static final field Companion Ltools/ozone/report/ReportActivityViewActivityUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/report/ReportActivityViewActivityUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/report/ReportActivityViewActivityUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/ReportAssignment {
+	public static final field Companion Ltools/ozone/report/ReportAssignment$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ltools/ozone/team/Member;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ltools/ozone/team/Member;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Ltools/ozone/team/Member;
+	public final fun component3 ()Lkotlin/time/Instant;
+	public final fun copy-3QELDOs (Ljava/lang/String;Ltools/ozone/team/Member;Lkotlin/time/Instant;)Ltools/ozone/report/ReportAssignment;
+	public static synthetic fun copy-3QELDOs$default (Ltools/ozone/report/ReportAssignment;Ljava/lang/String;Ltools/ozone/team/Member;Lkotlin/time/Instant;ILjava/lang/Object;)Ltools/ozone/report/ReportAssignment;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAssignedAt ()Lkotlin/time/Instant;
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getModerator ()Ltools/ozone/team/Member;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReportAssignment$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/ReportView {
+	public static final field Companion Ltools/ozone/report/ReportView$Companion;
+	public synthetic fun <init> (JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()J
+	public final fun component10 ()Lkotlin/time/Instant;
+	public final fun component11 ()Lkotlin/time/Instant;
+	public final fun component12 ()Ljava/util/List;
+	public final fun component13 ()Ljava/util/List;
+	public final fun component14 ()Ljava/lang/String;
+	public final fun component15 ()Ltools/ozone/moderation/SubjectStatusView;
+	public final fun component16 ()Ljava/lang/Long;
+	public final fun component17 ()Ltools/ozone/report/ReportAssignment;
+	public final fun component18 ()Ltools/ozone/queue/QueueView;
+	public final fun component19 ()Ljava/lang/Boolean;
+	public final fun component2 ()J
+	public final fun component3 ()Ltools/ozone/report/ReportViewStatus;
+	public final fun component4 ()Ltools/ozone/moderation/SubjectView;
+	public final fun component5 ()Lcom/atproto/moderation/Token;
+	public final fun component6-715Ygxc ()Ljava/lang/String;
+	public final fun component7 ()Ltools/ozone/moderation/SubjectView;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Lkotlin/time/Instant;
+	public final fun copy-ghR2ew0 (JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;)Ltools/ozone/report/ReportView;
+	public static synthetic fun copy-ghR2ew0$default (Ltools/ozone/report/ReportView;JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;ILjava/lang/Object;)Ltools/ozone/report/ReportView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActionEventIds ()Ljava/util/List;
+	public final fun getActionNote ()Ljava/lang/String;
+	public final fun getActions ()Ljava/util/List;
+	public final fun getAssignment ()Ltools/ozone/report/ReportAssignment;
+	public final fun getComment ()Ljava/lang/String;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getEventId ()J
+	public final fun getId ()J
+	public final fun getQueue ()Ltools/ozone/queue/QueueView;
+	public final fun getQueuedAt ()Lkotlin/time/Instant;
+	public final fun getRelatedReportCount ()Ljava/lang/Long;
+	public final fun getReportType ()Lcom/atproto/moderation/Token;
+	public final fun getReportedBy-715Ygxc ()Ljava/lang/String;
+	public final fun getReporter ()Ltools/ozone/moderation/SubjectView;
+	public final fun getStatus ()Ltools/ozone/report/ReportViewStatus;
+	public final fun getSubject ()Ltools/ozone/moderation/SubjectView;
+	public final fun getSubjectStatus ()Ltools/ozone/moderation/SubjectStatusView;
+	public final fun getUpdatedAt ()Lkotlin/time/Instant;
+	public fun hashCode ()I
+	public final fun isMuted ()Ljava/lang/Boolean;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReportView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/report/ReportViewStatus : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/report/ReportViewStatus$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReportViewStatus$Assigned : tools/ozone/report/ReportViewStatus {
+	public static final field INSTANCE Ltools/ozone/report/ReportViewStatus$Assigned;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReportViewStatus$Closed : tools/ozone/report/ReportViewStatus {
+	public static final field INSTANCE Ltools/ozone/report/ReportViewStatus$Closed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReportViewStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/report/ReportViewStatus;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/ReportViewStatus$Escalated : tools/ozone/report/ReportViewStatus {
+	public static final field INSTANCE Ltools/ozone/report/ReportViewStatus$Escalated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReportViewStatus$Open : tools/ozone/report/ReportViewStatus {
+	public static final field INSTANCE Ltools/ozone/report/ReportViewStatus$Open;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReportViewStatus$Queued : tools/ozone/report/ReportViewStatus {
+	public static final field INSTANCE Ltools/ozone/report/ReportViewStatus$Queued;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReportViewStatus$Unknown : tools/ozone/report/ReportViewStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/report/ReportViewStatus$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/report/ReportViewStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/ReportViewStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/ReportViewStatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/report/ReportViewStatus;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/report/ReportViewStatus;)V
+}
+
 public abstract class tools/ozone/report/Token : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Ltools/ozone/report/Token$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -29457,6 +31509,22 @@ public final class tools/ozone/report/TokenSerializer : kotlinx/serialization/KS
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/report/Token;)V
+}
+
+public final class tools/ozone/report/UnassignModeratorRequest {
+	public static final field Companion Ltools/ozone/report/UnassignModeratorRequest$Companion;
+	public fun <init> (J)V
+	public final fun component1 ()J
+	public final fun copy (J)Ltools/ozone/report/UnassignModeratorRequest;
+	public static synthetic fun copy$default (Ltools/ozone/report/UnassignModeratorRequest;JILjava/lang/Object;)Ltools/ozone/report/UnassignModeratorRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getReportId ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/UnassignModeratorRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public abstract class tools/ozone/safelink/ActionType : sh/christian/ozone/api/model/AtpEnum {
