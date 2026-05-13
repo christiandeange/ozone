@@ -12876,6 +12876,24 @@ public final class chat/bsky/convo/ConvoLockStatusSerializer : kotlinx/serializa
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
+public final class chat/bsky/convo/ConvoRef {
+	public static final field Companion Lchat/bsky/convo/ConvoRef$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy-vy2gcmM (Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/convo/ConvoRef;
+	public static synthetic fun copy-vy2gcmM$default (Lchat/bsky/convo/ConvoRef;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/ConvoRef;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/ConvoRef$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public abstract class chat/bsky/convo/ConvoStatus : sh/christian/ozone/api/model/AtpEnum {
 	public static final field Companion Lchat/bsky/convo/ConvoStatus$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -14251,23 +14269,77 @@ public final class chat/bsky/convo/ListConvosKindSerializer : kotlinx/serializat
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
+public abstract class chat/bsky/convo/ListConvosLockStatus : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lchat/bsky/convo/ListConvosLockStatus$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/ListConvosLockStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lchat/bsky/convo/ListConvosLockStatus;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/ListConvosLockStatus$Locked : chat/bsky/convo/ListConvosLockStatus {
+	public static final field INSTANCE Lchat/bsky/convo/ListConvosLockStatus$Locked;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/ListConvosLockStatus$LockedPermanently : chat/bsky/convo/ListConvosLockStatus {
+	public static final field INSTANCE Lchat/bsky/convo/ListConvosLockStatus$LockedPermanently;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/ListConvosLockStatus$Unknown : chat/bsky/convo/ListConvosLockStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/convo/ListConvosLockStatus$Unknown;
+	public static synthetic fun copy$default (Lchat/bsky/convo/ListConvosLockStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/ListConvosLockStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/ListConvosLockStatus$Unlocked : chat/bsky/convo/ListConvosLockStatus {
+	public static final field INSTANCE Lchat/bsky/convo/ListConvosLockStatus$Unlocked;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/ListConvosLockStatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/convo/ListConvosLockStatus;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/convo/ListConvosLockStatus;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
 public final class chat/bsky/convo/ListConvosQueryParams {
 	public static final field Companion Lchat/bsky/convo/ListConvosQueryParams$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/Long;Ljava/lang/String;Lchat/bsky/convo/ListConvosReadState;Lchat/bsky/convo/ListConvosStatus;Lchat/bsky/convo/ListConvosKind;)V
-	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/String;Lchat/bsky/convo/ListConvosReadState;Lchat/bsky/convo/ListConvosStatus;Lchat/bsky/convo/ListConvosKind;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/String;Lchat/bsky/convo/ListConvosReadState;Lchat/bsky/convo/ListConvosStatus;Lchat/bsky/convo/ListConvosKind;Lchat/bsky/convo/ListConvosLockStatus;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/String;Lchat/bsky/convo/ListConvosReadState;Lchat/bsky/convo/ListConvosStatus;Lchat/bsky/convo/ListConvosKind;Lchat/bsky/convo/ListConvosLockStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Ljava/util/List;
 	public final fun component1 ()Ljava/lang/Long;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Lchat/bsky/convo/ListConvosReadState;
 	public final fun component4 ()Lchat/bsky/convo/ListConvosStatus;
 	public final fun component5 ()Lchat/bsky/convo/ListConvosKind;
-	public final fun copy (Ljava/lang/Long;Ljava/lang/String;Lchat/bsky/convo/ListConvosReadState;Lchat/bsky/convo/ListConvosStatus;Lchat/bsky/convo/ListConvosKind;)Lchat/bsky/convo/ListConvosQueryParams;
-	public static synthetic fun copy$default (Lchat/bsky/convo/ListConvosQueryParams;Ljava/lang/Long;Ljava/lang/String;Lchat/bsky/convo/ListConvosReadState;Lchat/bsky/convo/ListConvosStatus;Lchat/bsky/convo/ListConvosKind;ILjava/lang/Object;)Lchat/bsky/convo/ListConvosQueryParams;
+	public final fun component6 ()Lchat/bsky/convo/ListConvosLockStatus;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/String;Lchat/bsky/convo/ListConvosReadState;Lchat/bsky/convo/ListConvosStatus;Lchat/bsky/convo/ListConvosKind;Lchat/bsky/convo/ListConvosLockStatus;)Lchat/bsky/convo/ListConvosQueryParams;
+	public static synthetic fun copy$default (Lchat/bsky/convo/ListConvosQueryParams;Ljava/lang/Long;Ljava/lang/String;Lchat/bsky/convo/ListConvosReadState;Lchat/bsky/convo/ListConvosStatus;Lchat/bsky/convo/ListConvosKind;Lchat/bsky/convo/ListConvosLockStatus;ILjava/lang/Object;)Lchat/bsky/convo/ListConvosQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getKind ()Lchat/bsky/convo/ListConvosKind;
 	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getLockStatus ()Lchat/bsky/convo/ListConvosLockStatus;
 	public final fun getReadState ()Lchat/bsky/convo/ListConvosReadState;
 	public final fun getStatus ()Lchat/bsky/convo/ListConvosStatus;
 	public fun hashCode ()I
@@ -16660,49 +16732,52 @@ public final class chat/bsky/group/EnableJoinLinkResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class chat/bsky/group/GetGroupPublicInfoQueryParams {
-	public static final field Companion Lchat/bsky/group/GetGroupPublicInfoQueryParams$Companion;
+public final class chat/bsky/group/GetJoinLinkPreviewQueryParams {
+	public static final field Companion Lchat/bsky/group/GetJoinLinkPreviewQueryParams$Companion;
 	public fun <init> (Ljava/lang/String;)V
 	public final fun asList ()Ljava/util/List;
 	public final fun component1 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;)Lchat/bsky/group/GetGroupPublicInfoQueryParams;
-	public static synthetic fun copy$default (Lchat/bsky/group/GetGroupPublicInfoQueryParams;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/group/GetGroupPublicInfoQueryParams;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/group/GetJoinLinkPreviewQueryParams;
+	public static synthetic fun copy$default (Lchat/bsky/group/GetJoinLinkPreviewQueryParams;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/group/GetJoinLinkPreviewQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCode ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class chat/bsky/group/GetGroupPublicInfoQueryParams$Companion {
+public final class chat/bsky/group/GetJoinLinkPreviewQueryParams$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class chat/bsky/group/GetGroupPublicInfoResponse {
-	public static final field Companion Lchat/bsky/group/GetGroupPublicInfoResponse$Companion;
-	public fun <init> (Lchat/bsky/group/GroupPublicView;)V
-	public final fun component1 ()Lchat/bsky/group/GroupPublicView;
-	public final fun copy (Lchat/bsky/group/GroupPublicView;)Lchat/bsky/group/GetGroupPublicInfoResponse;
-	public static synthetic fun copy$default (Lchat/bsky/group/GetGroupPublicInfoResponse;Lchat/bsky/group/GroupPublicView;ILjava/lang/Object;)Lchat/bsky/group/GetGroupPublicInfoResponse;
+public final class chat/bsky/group/GetJoinLinkPreviewResponse {
+	public static final field Companion Lchat/bsky/group/GetJoinLinkPreviewResponse$Companion;
+	public fun <init> (Lchat/bsky/group/JoinLinkPreviewView;)V
+	public final fun component1 ()Lchat/bsky/group/JoinLinkPreviewView;
+	public final fun copy (Lchat/bsky/group/JoinLinkPreviewView;)Lchat/bsky/group/GetJoinLinkPreviewResponse;
+	public static synthetic fun copy$default (Lchat/bsky/group/GetJoinLinkPreviewResponse;Lchat/bsky/group/JoinLinkPreviewView;ILjava/lang/Object;)Lchat/bsky/group/GetJoinLinkPreviewResponse;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getGroup ()Lchat/bsky/group/GroupPublicView;
+	public final fun getJoinLinkPreview ()Lchat/bsky/group/JoinLinkPreviewView;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class chat/bsky/group/GetGroupPublicInfoResponse$Companion {
+public final class chat/bsky/group/GetJoinLinkPreviewResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class chat/bsky/group/GroupPublicView {
-	public static final field Companion Lchat/bsky/group/GroupPublicView$Companion;
-	public fun <init> (Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JZ)V
+public final class chat/bsky/group/JoinLinkPreviewView {
+	public static final field Companion Lchat/bsky/group/JoinLinkPreviewView$Companion;
+	public fun <init> (Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JZLchat/bsky/convo/ConvoView;)V
+	public synthetic fun <init> (Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JZLchat/bsky/convo/ConvoView;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Lchat/bsky/actor/ProfileViewBasic;
 	public final fun component3 ()J
 	public final fun component4 ()Z
-	public final fun copy (Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JZ)Lchat/bsky/group/GroupPublicView;
-	public static synthetic fun copy$default (Lchat/bsky/group/GroupPublicView;Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JZILjava/lang/Object;)Lchat/bsky/group/GroupPublicView;
+	public final fun component5 ()Lchat/bsky/convo/ConvoView;
+	public final fun copy (Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JZLchat/bsky/convo/ConvoView;)Lchat/bsky/group/JoinLinkPreviewView;
+	public static synthetic fun copy$default (Lchat/bsky/group/JoinLinkPreviewView;Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JZLchat/bsky/convo/ConvoView;ILjava/lang/Object;)Lchat/bsky/group/JoinLinkPreviewView;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvo ()Lchat/bsky/convo/ConvoView;
 	public final fun getMemberCount ()J
 	public final fun getName ()Ljava/lang/String;
 	public final fun getOwner ()Lchat/bsky/actor/ProfileViewBasic;
@@ -16711,7 +16786,7 @@ public final class chat/bsky/group/GroupPublicView {
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class chat/bsky/group/GroupPublicView$Companion {
+public final class chat/bsky/group/JoinLinkPreviewView$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -22747,11 +22822,11 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getFeedSkeleton (Lapp/bsky/feed/GetFeedSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFollowers (Lapp/bsky/graph/GetFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFollows (Lapp/bsky/graph/GetFollowsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun getGroupPublicInfo (Lchat/bsky/group/GetGroupPublicInfoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getHistoricalStats (Ltools/ozone/report/GetHistoricalStatsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getHostStatus (Lcom/atproto/sync/GetHostStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getInviteCodes (Lcom/atproto/admin/GetInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getJobStatus (Lapp/bsky/video/GetJobStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getJoinLinkPreview (Lchat/bsky/group/GetJoinLinkPreviewQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getKnownFollowers (Lapp/bsky/graph/GetKnownFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getLatestCommit (Lcom/atproto/sync/GetLatestCommitQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getLatestReport (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23054,11 +23129,11 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getFeedSkeleton (Lapp/bsky/feed/GetFeedSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFollowers (Lapp/bsky/graph/GetFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFollows (Lapp/bsky/graph/GetFollowsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getGroupPublicInfo (Lchat/bsky/group/GetGroupPublicInfoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getHistoricalStats (Ltools/ozone/report/GetHistoricalStatsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getHostStatus (Lcom/atproto/sync/GetHostStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getInviteCodes (Lcom/atproto/admin/GetInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getJobStatus (Lapp/bsky/video/GetJobStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getJoinLinkPreview (Lchat/bsky/group/GetJoinLinkPreviewQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getKnownFollowers (Lapp/bsky/graph/GetKnownFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLatestCommit (Lcom/atproto/sync/GetLatestCommitQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLatestReport (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23364,11 +23439,11 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getFeedSkeleton (Lapp/bsky/feed/GetFeedSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFollowers (Lapp/bsky/graph/GetFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFollows (Lapp/bsky/graph/GetFollowsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getGroupPublicInfo (Lchat/bsky/group/GetGroupPublicInfoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getHistoricalStats (Ltools/ozone/report/GetHistoricalStatsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getHostStatus (Lcom/atproto/sync/GetHostStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getInviteCodes (Lcom/atproto/admin/GetInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getJobStatus (Lapp/bsky/video/GetJobStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getJoinLinkPreview (Lchat/bsky/group/GetJoinLinkPreviewQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getKnownFollowers (Lapp/bsky/graph/GetKnownFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLatestCommit (Lcom/atproto/sync/GetLatestCommitQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLatestReport (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
