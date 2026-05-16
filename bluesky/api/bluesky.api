@@ -17163,19 +17163,21 @@ public final class chat/bsky/moderation/GetActorMetadataResponse$Companion {
 
 public final class chat/bsky/moderation/GetMessageContextQueryParams {
 	public static final field Companion Lchat/bsky/moderation/GetMessageContextQueryParams$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Ljava/util/List;
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/Long;
 	public final fun component4 ()Ljava/lang/Long;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;)Lchat/bsky/moderation/GetMessageContextQueryParams;
-	public static synthetic fun copy$default (Lchat/bsky/moderation/GetMessageContextQueryParams;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;ILjava/lang/Object;)Lchat/bsky/moderation/GetMessageContextQueryParams;
+	public final fun component5 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)Lchat/bsky/moderation/GetMessageContextQueryParams;
+	public static synthetic fun copy$default (Lchat/bsky/moderation/GetMessageContextQueryParams;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILjava/lang/Object;)Lchat/bsky/moderation/GetMessageContextQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAfter ()Ljava/lang/Long;
 	public final fun getBefore ()Ljava/lang/Long;
 	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getMaxInterleavedSystemMessages ()Ljava/lang/Long;
 	public final fun getMessageId ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -17206,25 +17208,6 @@ public abstract interface class chat/bsky/moderation/GetMessageContextResponseMe
 }
 
 public final class chat/bsky/moderation/GetMessageContextResponseMessageUnion$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class chat/bsky/moderation/GetMessageContextResponseMessageUnion$DeletedMessageView : chat/bsky/moderation/GetMessageContextResponseMessageUnion {
-	public static final field Companion Lchat/bsky/moderation/GetMessageContextResponseMessageUnion$DeletedMessageView$Companion;
-	public static final synthetic fun box-impl (Lchat/bsky/convo/DeletedMessageView;)Lchat/bsky/moderation/GetMessageContextResponseMessageUnion$DeletedMessageView;
-	public static fun constructor-impl (Lchat/bsky/convo/DeletedMessageView;)Lchat/bsky/convo/DeletedMessageView;
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lchat/bsky/convo/DeletedMessageView;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lchat/bsky/convo/DeletedMessageView;Lchat/bsky/convo/DeletedMessageView;)Z
-	public final fun getValue ()Lchat/bsky/convo/DeletedMessageView;
-	public fun hashCode ()I
-	public static fun hashCode-impl (Lchat/bsky/convo/DeletedMessageView;)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lchat/bsky/convo/DeletedMessageView;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lchat/bsky/convo/DeletedMessageView;
-}
-
-public final class chat/bsky/moderation/GetMessageContextResponseMessageUnion$DeletedMessageView$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -17285,6 +17268,84 @@ public final class chat/bsky/moderation/GetMessageContextResponseMessageUnion$Un
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class chat/bsky/moderation/SubscribeModEventsEventChatAccepted {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsEventChatAccepted$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/String;Lchat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/String;Lchat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlin/time/Instant;
+	public final fun component5 ()Ljava/lang/Long;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Lchat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod;
+	public final fun component8-68yuAGA ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy-yV0W2Ns (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/String;Lchat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod;Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/moderation/SubscribeModEventsEventChatAccepted;
+	public static synthetic fun copy-yV0W2Ns$default (Lchat/bsky/moderation/SubscribeModEventsEventChatAccepted;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/String;Lchat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/moderation/SubscribeModEventsEventChatAccepted;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActorDid-715Ygxc ()Ljava/lang/String;
+	public final fun getConvoCreatedAt ()Lkotlin/time/Instant;
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getGroupMemberCount ()Ljava/lang/Long;
+	public final fun getGroupName ()Ljava/lang/String;
+	public final fun getMethod ()Lchat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod;
+	public final fun getOwnerDid-68yuAGA ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventChatAccepted$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class chat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lchat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod$Explicit : chat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod {
+	public static final field INSTANCE Lchat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod$Explicit;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod$Message : chat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod {
+	public static final field INSTANCE Lchat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod$Message;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod$Unknown : chat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod$Unknown;
+	public static synthetic fun copy$default (Lchat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethodSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/moderation/SubscribeModEventsEventChatAcceptedMethod;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
 public final class chat/bsky/moderation/SubscribeModEventsEventConvoFirstMessage {
 	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsEventConvoFirstMessage$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -17312,11 +17373,507 @@ public final class chat/bsky/moderation/SubscribeModEventsEventConvoFirstMessage
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatCreated {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsEventGroupChatCreated$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlin/time/Instant;
+	public final fun component5 ()J
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/util/List;
+	public final fun component8-715Ygxc ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy-W1Rcr9Q (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatCreated;
+	public static synthetic fun copy-W1Rcr9Q$default (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatCreated;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatCreated;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActorDid-715Ygxc ()Ljava/lang/String;
+	public final fun getConvoCreatedAt ()Lkotlin/time/Instant;
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getGroupMemberCount ()J
+	public final fun getGroupName ()Ljava/lang/String;
+	public final fun getInitialMemberDids ()Ljava/util/List;
+	public final fun getOwnerDid-715Ygxc ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatCreated$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequest {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequest$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component10 ()Z
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlin/time/Instant;
+	public final fun component5 ()J
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8-715Ygxc ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy-9bdgk4s (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequest;
+	public static synthetic fun copy-9bdgk4s$default (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequest;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActorDid-715Ygxc ()Ljava/lang/String;
+	public final fun getConvoCreatedAt ()Lkotlin/time/Instant;
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getGroupMemberCount ()J
+	public final fun getGroupName ()Ljava/lang/String;
+	public final fun getJoinLinkCode ()Ljava/lang/String;
+	public final fun getOwnerDid-715Ygxc ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public final fun getSubjectFollowsOwner ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestApproved {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestApproved$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlin/time/Instant;
+	public final fun component5 ()J
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7-715Ygxc ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9-715Ygxc ()Ljava/lang/String;
+	public final fun copy-OwYPfLI (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestApproved;
+	public static synthetic fun copy-OwYPfLI$default (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestApproved;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestApproved;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActorDid-715Ygxc ()Ljava/lang/String;
+	public final fun getConvoCreatedAt ()Lkotlin/time/Instant;
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getGroupMemberCount ()J
+	public final fun getGroupName ()Ljava/lang/String;
+	public final fun getOwnerDid-715Ygxc ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public final fun getSubjectDid-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestApproved$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestRejected {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestRejected$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlin/time/Instant;
+	public final fun component5 ()J
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7-715Ygxc ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9-715Ygxc ()Ljava/lang/String;
+	public final fun copy-OwYPfLI (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestRejected;
+	public static synthetic fun copy-OwYPfLI$default (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestRejected;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestRejected;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActorDid-715Ygxc ()Ljava/lang/String;
+	public final fun getConvoCreatedAt ()Lkotlin/time/Instant;
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getGroupMemberCount ()J
+	public final fun getGroupName ()Ljava/lang/String;
+	public final fun getOwnerDid-715Ygxc ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public final fun getSubjectDid-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestRejected$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatMemberAdded {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberAdded$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component10-715Ygxc ()Ljava/lang/String;
+	public final fun component11 ()Z
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlin/time/Instant;
+	public final fun component5 ()J
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7-715Ygxc ()Ljava/lang/String;
+	public final fun component8 ()J
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy-msZnEnk (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Z)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberAdded;
+	public static synthetic fun copy-msZnEnk$default (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberAdded;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberAdded;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActorDid-715Ygxc ()Ljava/lang/String;
+	public final fun getConvoCreatedAt ()Lkotlin/time/Instant;
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getGroupMemberCount ()J
+	public final fun getGroupName ()Ljava/lang/String;
+	public final fun getOwnerDid-715Ygxc ()Ljava/lang/String;
+	public final fun getRequestMembersCount ()J
+	public final fun getRev ()Ljava/lang/String;
+	public final fun getSubjectDid-715Ygxc ()Ljava/lang/String;
+	public final fun getSubjectFollowsOwner ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatMemberAdded$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatMemberJoined {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberJoined$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component10 ()Z
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlin/time/Instant;
+	public final fun component5 ()J
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8-715Ygxc ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy-9bdgk4s (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberJoined;
+	public static synthetic fun copy-9bdgk4s$default (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberJoined;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberJoined;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActorDid-715Ygxc ()Ljava/lang/String;
+	public final fun getConvoCreatedAt ()Lkotlin/time/Instant;
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getGroupMemberCount ()J
+	public final fun getGroupName ()Ljava/lang/String;
+	public final fun getJoinLinkCode ()Ljava/lang/String;
+	public final fun getOwnerDid-715Ygxc ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public final fun getSubjectFollowsOwner ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatMemberJoined$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeft {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeft$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component10-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlin/time/Instant;
+	public final fun component5 ()J
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod;
+	public final fun component8-715Ygxc ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy-SiH-g6Y (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeft;
+	public static synthetic fun copy-SiH-g6Y$default (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeft;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeft;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActorDid-715Ygxc ()Ljava/lang/String;
+	public final fun getConvoCreatedAt ()Lkotlin/time/Instant;
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getGroupMemberCount ()J
+	public final fun getGroupName ()Ljava/lang/String;
+	public final fun getLeaveMethod ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod;
+	public final fun getOwnerDid-715Ygxc ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public final fun getSubjectDid-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeft$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class chat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod$Kicked : chat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod {
+	public static final field INSTANCE Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod$Kicked;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod$Unknown : chat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod$Unknown;
+	public static synthetic fun copy$default (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod$Voluntary : chat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod {
+	public static final field INSTANCE Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod$Voluntary;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethodSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeftLeaveMethod;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdated {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdated$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component10 ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason;
+	public final fun component11 ()Ljava/lang/String;
+	public final fun component12 ()Ljava/lang/String;
+	public final fun component13-715Ygxc ()Ljava/lang/String;
+	public final fun component14 ()Ljava/lang/String;
+	public final fun component15 ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType;
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlin/time/Instant;
+	public final fun component5 ()J
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/Boolean;
+	public final fun component9 ()Ljava/lang/Boolean;
+	public final fun copy--IUjicQ (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdated;
+	public static synthetic fun copy--IUjicQ$default (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdated;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;JLjava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType;ILjava/lang/Object;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdated;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActorDid-715Ygxc ()Ljava/lang/String;
+	public final fun getConvoCreatedAt ()Lkotlin/time/Instant;
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getGroupMemberCount ()J
+	public final fun getGroupName ()Ljava/lang/String;
+	public final fun getJoinLinkCode ()Ljava/lang/String;
+	public final fun getJoinLinkFollowersOnly ()Ljava/lang/Boolean;
+	public final fun getJoinLinkRequiresApproval ()Ljava/lang/Boolean;
+	public final fun getLockReason ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason;
+	public final fun getNewName ()Ljava/lang/String;
+	public final fun getOldName ()Ljava/lang/String;
+	public final fun getOwnerDid-715Ygxc ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public final fun getUpdateType ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdated$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$LabelApplied : chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason {
+	public static final field INSTANCE Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$LabelApplied;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$OwnerAction : chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason {
+	public static final field INSTANCE Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$OwnerAction;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$OwnerDeactivated : chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason {
+	public static final field INSTANCE Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$OwnerDeactivated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$OwnerDeleted : chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason {
+	public static final field INSTANCE Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$OwnerDeleted;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$OwnerLeft : chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason {
+	public static final field INSTANCE Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$OwnerLeft;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$OwnerTakenDown : chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason {
+	public static final field INSTANCE Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$OwnerTakenDown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$Unknown : chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$Unknown;
+	public static synthetic fun copy$default (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReasonSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public abstract class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$JoinLinkCreated : chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType {
+	public static final field INSTANCE Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$JoinLinkCreated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$JoinLinkDisabled : chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType {
+	public static final field INSTANCE Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$JoinLinkDisabled;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$JoinLinkSettingsChanged : chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType {
+	public static final field INSTANCE Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$JoinLinkSettingsChanged;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$Locked : chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType {
+	public static final field INSTANCE Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$Locked;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$LockedPermanently : chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType {
+	public static final field INSTANCE Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$LockedPermanently;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$NameChanged : chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType {
+	public static final field INSTANCE Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$NameChanged;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$Unknown : chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$Unknown;
+	public static synthetic fun copy$default (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$Unlocked : chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType {
+	public static final field INSTANCE Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType$Unlocked;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateTypeSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedUpdateType;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
 public abstract interface class chat/bsky/moderation/SubscribeModEventsMessageUnion {
 	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsMessageUnion$Companion;
 }
 
 public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventChatAccepted : chat/bsky/moderation/SubscribeModEventsMessageUnion {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventChatAccepted$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/moderation/SubscribeModEventsEventChatAccepted;)Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventChatAccepted;
+	public static fun constructor-impl (Lchat/bsky/moderation/SubscribeModEventsEventChatAccepted;)Lchat/bsky/moderation/SubscribeModEventsEventChatAccepted;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/moderation/SubscribeModEventsEventChatAccepted;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/moderation/SubscribeModEventsEventChatAccepted;Lchat/bsky/moderation/SubscribeModEventsEventChatAccepted;)Z
+	public final fun getValue ()Lchat/bsky/moderation/SubscribeModEventsEventChatAccepted;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/moderation/SubscribeModEventsEventChatAccepted;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/moderation/SubscribeModEventsEventChatAccepted;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/moderation/SubscribeModEventsEventChatAccepted;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventChatAccepted$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -17336,6 +17893,158 @@ public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventConv
 }
 
 public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventConvoFirstMessage$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatCreated : chat/bsky/moderation/SubscribeModEventsMessageUnion {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatCreated$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatCreated;)Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatCreated;
+	public static fun constructor-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatCreated;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatCreated;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatCreated;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatCreated;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatCreated;)Z
+	public final fun getValue ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatCreated;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatCreated;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatCreated;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatCreated;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatCreated$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatJoinRequest : chat/bsky/moderation/SubscribeModEventsMessageUnion {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatJoinRequest$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequest;)Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatJoinRequest;
+	public static fun constructor-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequest;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequest;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequest;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequest;)Z
+	public final fun getValue ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequest;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequest;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequest;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequest;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatJoinRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatJoinRequestApproved : chat/bsky/moderation/SubscribeModEventsMessageUnion {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatJoinRequestApproved$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestApproved;)Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatJoinRequestApproved;
+	public static fun constructor-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestApproved;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestApproved;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestApproved;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestApproved;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestApproved;)Z
+	public final fun getValue ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestApproved;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestApproved;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestApproved;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestApproved;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatJoinRequestApproved$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatJoinRequestRejected : chat/bsky/moderation/SubscribeModEventsMessageUnion {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatJoinRequestRejected$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestRejected;)Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatJoinRequestRejected;
+	public static fun constructor-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestRejected;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestRejected;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestRejected;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestRejected;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestRejected;)Z
+	public final fun getValue ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestRejected;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestRejected;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestRejected;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatJoinRequestRejected;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatJoinRequestRejected$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatMemberAdded : chat/bsky/moderation/SubscribeModEventsMessageUnion {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatMemberAdded$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberAdded;)Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatMemberAdded;
+	public static fun constructor-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberAdded;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberAdded;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberAdded;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberAdded;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberAdded;)Z
+	public final fun getValue ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberAdded;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberAdded;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberAdded;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberAdded;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatMemberAdded$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatMemberJoined : chat/bsky/moderation/SubscribeModEventsMessageUnion {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatMemberJoined$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberJoined;)Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatMemberJoined;
+	public static fun constructor-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberJoined;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberJoined;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberJoined;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberJoined;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberJoined;)Z
+	public final fun getValue ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberJoined;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberJoined;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberJoined;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberJoined;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatMemberJoined$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatMemberLeft : chat/bsky/moderation/SubscribeModEventsMessageUnion {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatMemberLeft$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeft;)Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatMemberLeft;
+	public static fun constructor-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeft;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeft;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeft;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeft;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeft;)Z
+	public final fun getValue ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeft;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeft;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeft;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatMemberLeft;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatMemberLeft$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatUpdated : chat/bsky/moderation/SubscribeModEventsMessageUnion {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatUpdated$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdated;)Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatUpdated;
+	public static fun constructor-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdated;)Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdated;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdated;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdated;Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdated;)Z
+	public final fun getValue ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdated;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdated;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdated;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdated;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatUpdated$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
