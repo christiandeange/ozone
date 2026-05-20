@@ -16965,6 +16965,47 @@ public final class chat/bsky/group/ListJoinRequestsResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class chat/bsky/group/ListMutualGroupsQueryParams {
+	public static final field Companion Lchat/bsky/group/ListMutualGroupsQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy-3QELDOs (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lchat/bsky/group/ListMutualGroupsQueryParams;
+	public static synthetic fun copy-3QELDOs$default (Lchat/bsky/group/ListMutualGroupsQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/group/ListMutualGroupsQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getSubject-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/group/ListMutualGroupsQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/group/ListMutualGroupsResponse {
+	public static final field Companion Lchat/bsky/group/ListMutualGroupsResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Lchat/bsky/group/ListMutualGroupsResponse;
+	public static synthetic fun copy$default (Lchat/bsky/group/ListMutualGroupsResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lchat/bsky/group/ListMutualGroupsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvos ()Ljava/util/List;
+	public final fun getCursor ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/group/ListMutualGroupsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class chat/bsky/group/RejectJoinRequestRequest {
 	public static final field Companion Lchat/bsky/group/RejectJoinRequestRequest$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -17738,6 +17779,13 @@ public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedL
 
 public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$OwnerLeft : chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason {
 	public static final field INSTANCE Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$OwnerLeft;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$OwnerSuspended : chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason {
+	public static final field INSTANCE Lchat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedLockReason$OwnerSuspended;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -23628,6 +23676,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun listJoinRequests (Lchat/bsky/group/ListJoinRequestsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listMembers (Ltools/ozone/team/ListMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listMissingBlobs (Lcom/atproto/repo/ListMissingBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun listMutualGroups (Lchat/bsky/group/ListMutualGroupsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listNotifications (Lapp/bsky/notification/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listOptions (Ltools/ozone/setting/ListOptionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listQueues (Ltools/ozone/queue/ListQueuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23935,6 +23984,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun listJoinRequests (Lchat/bsky/group/ListJoinRequestsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listMembers (Ltools/ozone/team/ListMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listMissingBlobs (Lcom/atproto/repo/ListMissingBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listMutualGroups (Lchat/bsky/group/ListMutualGroupsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listNotifications (Lapp/bsky/notification/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listOptions (Ltools/ozone/setting/ListOptionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listQueues (Ltools/ozone/queue/ListQueuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -24245,6 +24295,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun listJoinRequests (Lchat/bsky/group/ListJoinRequestsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listMembers (Ltools/ozone/team/ListMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listMissingBlobs (Lcom/atproto/repo/ListMissingBlobsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listMutualGroups (Lchat/bsky/group/ListMutualGroupsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listNotifications (Lapp/bsky/notification/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listOptions (Ltools/ozone/setting/ListOptionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listQueues (Ltools/ozone/queue/ListQueuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
