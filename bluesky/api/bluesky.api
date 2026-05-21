@@ -3958,6 +3958,26 @@ public final class app/bsky/embed/External$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/embed/ExternalColorRGB {
+	public static final field Companion Lapp/bsky/embed/ExternalColorRGB$Companion;
+	public fun <init> (JJJ)V
+	public final fun component1 ()J
+	public final fun component2 ()J
+	public final fun component3 ()J
+	public final fun copy (JJJ)Lapp/bsky/embed/ExternalColorRGB;
+	public static synthetic fun copy$default (Lapp/bsky/embed/ExternalColorRGB;JJJILjava/lang/Object;)Lapp/bsky/embed/ExternalColorRGB;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getB ()J
+	public final fun getG ()J
+	public final fun getR ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/ExternalColorRGB$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/embed/ExternalExternal {
 	public static final field Companion Lapp/bsky/embed/ExternalExternal$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -3970,7 +3990,7 @@ public final class app/bsky/embed/ExternalExternal {
 	public final fun copy-FDVW8D4 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Ljava/util/List;)Lapp/bsky/embed/ExternalExternal;
 	public static synthetic fun copy-FDVW8D4$default (Lapp/bsky/embed/ExternalExternal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/embed/ExternalExternal;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAssociatedRecords ()Ljava/util/List;
+	public final fun getAssociatedRefs ()Ljava/util/List;
 	public final fun getDescription ()Ljava/lang/String;
 	public final fun getThumb ()Lsh/christian/ozone/api/model/Blob;
 	public final fun getTitle ()Ljava/lang/String;
@@ -4001,24 +4021,126 @@ public final class app/bsky/embed/ExternalView$Companion {
 
 public final class app/bsky/embed/ExternalViewExternal {
 	public static final field Companion Lapp/bsky/embed/ExternalViewExternal$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/util/List;Lapp/bsky/embed/ExternalViewExternalSource;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/util/List;Lapp/bsky/embed/ExternalViewExternalSource;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-v5vOzEc ()Ljava/lang/String;
+	public final fun component10 ()Ljava/util/List;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4-pvpWXas ()Ljava/lang/String;
-	public final fun copy-tdl-1AM (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/embed/ExternalViewExternal;
-	public static synthetic fun copy-tdl-1AM$default (Lapp/bsky/embed/ExternalViewExternal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/embed/ExternalViewExternal;
+	public final fun component5 ()Lkotlin/time/Instant;
+	public final fun component6 ()Lkotlin/time/Instant;
+	public final fun component7 ()Ljava/lang/Long;
+	public final fun component8 ()Ljava/util/List;
+	public final fun component9 ()Lapp/bsky/embed/ExternalViewExternalSource;
+	public final fun copy-QFXsQoE (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/util/List;Lapp/bsky/embed/ExternalViewExternalSource;Ljava/util/List;)Lapp/bsky/embed/ExternalViewExternal;
+	public static synthetic fun copy-QFXsQoE$default (Lapp/bsky/embed/ExternalViewExternal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/util/List;Lapp/bsky/embed/ExternalViewExternalSource;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/embed/ExternalViewExternal;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAssociatedRefs ()Ljava/util/List;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
 	public final fun getDescription ()Ljava/lang/String;
+	public final fun getLabels ()Ljava/util/List;
+	public final fun getReadingTime ()Ljava/lang/Long;
+	public final fun getSource ()Lapp/bsky/embed/ExternalViewExternalSource;
 	public final fun getThumb-pvpWXas ()Ljava/lang/String;
 	public final fun getTitle ()Ljava/lang/String;
+	public final fun getUpdatedAt ()Lkotlin/time/Instant;
 	public final fun getUri-v5vOzEc ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/embed/ExternalViewExternal$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/ExternalViewExternalSource {
+	public static final field Companion Lapp/bsky/embed/ExternalViewExternalSource$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/ExternalViewExternalSourceTheme;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/ExternalViewExternalSourceTheme;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-pvpWXas ()Ljava/lang/String;
+	public final fun component2-pvpWXas ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Lapp/bsky/embed/ExternalViewExternalSourceTheme;
+	public final fun copy-4-yAfnQ (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/ExternalViewExternalSourceTheme;)Lapp/bsky/embed/ExternalViewExternalSource;
+	public static synthetic fun copy-4-yAfnQ$default (Lapp/bsky/embed/ExternalViewExternalSource;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/ExternalViewExternalSourceTheme;ILjava/lang/Object;)Lapp/bsky/embed/ExternalViewExternalSource;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getIcon-pvpWXas ()Ljava/lang/String;
+	public final fun getTheme ()Lapp/bsky/embed/ExternalViewExternalSourceTheme;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getUri-pvpWXas ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/ExternalViewExternalSource$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/ExternalViewExternalSourceTheme {
+	public static final field Companion Lapp/bsky/embed/ExternalViewExternalSourceTheme$Companion;
+	public fun <init> ()V
+	public fun <init> (Lapp/bsky/embed/ExternalColorRGB;Lapp/bsky/embed/ExternalColorRGB;Lapp/bsky/embed/ExternalColorRGB;Lapp/bsky/embed/ExternalColorRGB;)V
+	public synthetic fun <init> (Lapp/bsky/embed/ExternalColorRGB;Lapp/bsky/embed/ExternalColorRGB;Lapp/bsky/embed/ExternalColorRGB;Lapp/bsky/embed/ExternalColorRGB;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lapp/bsky/embed/ExternalColorRGB;
+	public final fun component2 ()Lapp/bsky/embed/ExternalColorRGB;
+	public final fun component3 ()Lapp/bsky/embed/ExternalColorRGB;
+	public final fun component4 ()Lapp/bsky/embed/ExternalColorRGB;
+	public final fun copy (Lapp/bsky/embed/ExternalColorRGB;Lapp/bsky/embed/ExternalColorRGB;Lapp/bsky/embed/ExternalColorRGB;Lapp/bsky/embed/ExternalColorRGB;)Lapp/bsky/embed/ExternalViewExternalSourceTheme;
+	public static synthetic fun copy$default (Lapp/bsky/embed/ExternalViewExternalSourceTheme;Lapp/bsky/embed/ExternalColorRGB;Lapp/bsky/embed/ExternalColorRGB;Lapp/bsky/embed/ExternalColorRGB;Lapp/bsky/embed/ExternalColorRGB;ILjava/lang/Object;)Lapp/bsky/embed/ExternalViewExternalSourceTheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccentForegroundRGB ()Lapp/bsky/embed/ExternalColorRGB;
+	public final fun getAccentRGB ()Lapp/bsky/embed/ExternalColorRGB;
+	public final fun getBackgroundRGB ()Lapp/bsky/embed/ExternalColorRGB;
+	public final fun getForegroundRGB ()Lapp/bsky/embed/ExternalColorRGB;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/ExternalViewExternalSourceTheme$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/GetEmbedExternalViewQueryParams {
+	public static final field Companion Lapp/bsky/embed/GetEmbedExternalViewQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1-v5vOzEc ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy-yYpjrZA (Ljava/lang/String;Ljava/util/List;)Lapp/bsky/embed/GetEmbedExternalViewQueryParams;
+	public static synthetic fun copy-yYpjrZA$default (Lapp/bsky/embed/GetEmbedExternalViewQueryParams;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/embed/GetEmbedExternalViewQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getUris ()Ljava/util/List;
+	public final fun getUrl-v5vOzEc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/GetEmbedExternalViewQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/GetEmbedExternalViewResponse {
+	public static final field Companion Lapp/bsky/embed/GetEmbedExternalViewResponse$Companion;
+	public fun <init> ()V
+	public fun <init> (Lapp/bsky/embed/ExternalView;Ljava/util/List;Ljava/util/List;)V
+	public synthetic fun <init> (Lapp/bsky/embed/ExternalView;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lapp/bsky/embed/ExternalView;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/util/List;
+	public final fun copy (Lapp/bsky/embed/ExternalView;Ljava/util/List;Ljava/util/List;)Lapp/bsky/embed/GetEmbedExternalViewResponse;
+	public static synthetic fun copy$default (Lapp/bsky/embed/GetEmbedExternalViewResponse;Lapp/bsky/embed/ExternalView;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/embed/GetEmbedExternalViewResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAssociatedRecords ()Ljava/util/List;
+	public final fun getAssociatedRefs ()Ljava/util/List;
+	public final fun getView ()Lapp/bsky/embed/ExternalView;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/GetEmbedExternalViewResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -12516,6 +12638,24 @@ public final class chat/bsky/actor/DeleteAccountResponse {
 
 public final class chat/bsky/actor/DirectConvoMember {
 	public static final field INSTANCE Lchat/bsky/actor/DirectConvoMember;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/actor/GetStatusResponse {
+	public static final field Companion Lchat/bsky/actor/GetStatusResponse$Companion;
+	public fun <init> (ZZ)V
+	public final fun component1 ()Z
+	public final fun component2 ()Z
+	public final fun copy (ZZ)Lchat/bsky/actor/GetStatusResponse;
+	public static synthetic fun copy$default (Lchat/bsky/actor/GetStatusResponse;ZZILjava/lang/Object;)Lchat/bsky/actor/GetStatusResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCanCreateGroups ()Z
+	public final fun getChatDisabled ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/actor/GetStatusResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -23572,6 +23712,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConvoMembers (Lchat/bsky/convo/GetConvoMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getDrafts (Lapp/bsky/draft/GetDraftsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getEmbedExternalView (Lapp/bsky/embed/GetEmbedExternalViewQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFeed (Lapp/bsky/feed/GetFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFeedGenerator (Lapp/bsky/feed/GetFeedGeneratorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23633,6 +23774,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getStarterPacks (Lapp/bsky/graph/GetStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getStarterPacksWithMembership (Lapp/bsky/graph/GetStarterPacksWithMembershipQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getState (Lapp/bsky/ageassurance/GetStateQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSubjectStatus (Lcom/atproto/admin/GetSubjectStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSubjects (Ltools/ozone/moderation/GetSubjectsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23880,6 +24022,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoMembers (Lchat/bsky/convo/GetConvoMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getDrafts (Lapp/bsky/draft/GetDraftsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getEmbedExternalView (Lapp/bsky/embed/GetEmbedExternalViewQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFeed (Lapp/bsky/feed/GetFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFeedGenerator (Lapp/bsky/feed/GetFeedGeneratorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23941,6 +24084,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getStarterPacks (Lapp/bsky/graph/GetStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getStarterPacksWithMembership (Lapp/bsky/graph/GetStarterPacksWithMembershipQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getState (Lapp/bsky/ageassurance/GetStateQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSubjectStatus (Lcom/atproto/admin/GetSubjectStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSubjects (Ltools/ozone/moderation/GetSubjectsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -24191,6 +24335,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoMembers (Lchat/bsky/convo/GetConvoMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getDrafts (Lapp/bsky/draft/GetDraftsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getEmbedExternalView (Lapp/bsky/embed/GetEmbedExternalViewQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFeed (Lapp/bsky/feed/GetFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFeedGenerator (Lapp/bsky/feed/GetFeedGeneratorQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -24252,6 +24397,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getStarterPacks (Lapp/bsky/graph/GetStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getStarterPacksWithMembership (Lapp/bsky/graph/GetStarterPacksWithMembershipQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getState (Lapp/bsky/ageassurance/GetStateQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getStatus (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSubjectStatus (Lcom/atproto/admin/GetSubjectStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSubjects (Ltools/ozone/moderation/GetSubjectsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getSuggestedFeeds (Lapp/bsky/feed/GetSuggestedFeedsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -24482,6 +24628,548 @@ public final class sh/christian/ozone/api/xrpc/FindSubscriptionSerializerKt {
 
 public final class sh/christian/ozone/api/xrpc/XrpcSerializersModuleKt {
 	public static final fun getXrpcSerializersModule ()Lkotlinx/serialization/modules/SerializersModule;
+}
+
+public final class site/standard/Document {
+	public static final field Companion Lsite/standard/Document$Companion;
+	public synthetic fun <init> (Lcom/atproto/repo/StrongRef;Lsite/standard/DocumentContentUnion;Ljava/util/List;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lsite/standard/DocumentLabelsUnion;Lsite/standard/DocumentLinksUnion;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lcom/atproto/repo/StrongRef;Lsite/standard/DocumentContentUnion;Ljava/util/List;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lsite/standard/DocumentLabelsUnion;Lsite/standard/DocumentLinksUnion;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/atproto/repo/StrongRef;
+	public final fun component10-v5vOzEc ()Ljava/lang/String;
+	public final fun component11 ()Ljava/util/List;
+	public final fun component12 ()Ljava/lang/String;
+	public final fun component13 ()Ljava/lang/String;
+	public final fun component14 ()Lkotlin/time/Instant;
+	public final fun component2 ()Lsite/standard/DocumentContentUnion;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Lsh/christian/ozone/api/model/Blob;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Lsite/standard/DocumentLabelsUnion;
+	public final fun component7 ()Lsite/standard/DocumentLinksUnion;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Lkotlin/time/Instant;
+	public final fun copy--DxZLcw (Lcom/atproto/repo/StrongRef;Lsite/standard/DocumentContentUnion;Ljava/util/List;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lsite/standard/DocumentLabelsUnion;Lsite/standard/DocumentLinksUnion;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;)Lsite/standard/Document;
+	public static synthetic fun copy--DxZLcw$default (Lsite/standard/Document;Lcom/atproto/repo/StrongRef;Lsite/standard/DocumentContentUnion;Ljava/util/List;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lsite/standard/DocumentLabelsUnion;Lsite/standard/DocumentLinksUnion;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;ILjava/lang/Object;)Lsite/standard/Document;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBskyPostRef ()Lcom/atproto/repo/StrongRef;
+	public final fun getContent ()Lsite/standard/DocumentContentUnion;
+	public final fun getContributors ()Ljava/util/List;
+	public final fun getCoverImage ()Lsh/christian/ozone/api/model/Blob;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getLabels ()Lsite/standard/DocumentLabelsUnion;
+	public final fun getLinks ()Lsite/standard/DocumentLinksUnion;
+	public final fun getPath ()Ljava/lang/String;
+	public final fun getPublishedAt ()Lkotlin/time/Instant;
+	public final fun getSite-v5vOzEc ()Ljava/lang/String;
+	public final fun getTags ()Ljava/util/List;
+	public final fun getTextContent ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getUpdatedAt ()Lkotlin/time/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class site/standard/Document$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class site/standard/DocumentContentUnion {
+	public static final field Companion Lsite/standard/DocumentContentUnion$Companion;
+}
+
+public final class site/standard/DocumentContentUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/DocumentContentUnion$Unknown : site/standard/DocumentContentUnion {
+	public static final field Companion Lsite/standard/DocumentContentUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsite/standard/DocumentContentUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class site/standard/DocumentContentUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/DocumentContributor {
+	public static final field Companion Lsite/standard/DocumentContributor$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy-3QELDOs (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lsite/standard/DocumentContributor;
+	public static synthetic fun copy-3QELDOs$default (Lsite/standard/DocumentContributor;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lsite/standard/DocumentContributor;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getDisplayName ()Ljava/lang/String;
+	public final fun getRole ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class site/standard/DocumentContributor$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class site/standard/DocumentLabelsUnion {
+	public static final field Companion Lsite/standard/DocumentLabelsUnion$Companion;
+}
+
+public final class site/standard/DocumentLabelsUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/DocumentLabelsUnion$SelfLabels : site/standard/DocumentLabelsUnion {
+	public static final field Companion Lsite/standard/DocumentLabelsUnion$SelfLabels$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/label/SelfLabels;)Lsite/standard/DocumentLabelsUnion$SelfLabels;
+	public static fun constructor-impl (Lcom/atproto/label/SelfLabels;)Lcom/atproto/label/SelfLabels;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/label/SelfLabels;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/label/SelfLabels;Lcom/atproto/label/SelfLabels;)Z
+	public final fun getValue ()Lcom/atproto/label/SelfLabels;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/label/SelfLabels;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/label/SelfLabels;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/label/SelfLabels;
+}
+
+public final class site/standard/DocumentLabelsUnion$SelfLabels$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/DocumentLabelsUnion$Unknown : site/standard/DocumentLabelsUnion {
+	public static final field Companion Lsite/standard/DocumentLabelsUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsite/standard/DocumentLabelsUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class site/standard/DocumentLabelsUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class site/standard/DocumentLinksUnion {
+	public static final field Companion Lsite/standard/DocumentLinksUnion$Companion;
+}
+
+public final class site/standard/DocumentLinksUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/DocumentLinksUnion$Unknown : site/standard/DocumentLinksUnion {
+	public static final field Companion Lsite/standard/DocumentLinksUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsite/standard/DocumentLinksUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class site/standard/DocumentLinksUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/Publication {
+	public static final field Companion Lsite/standard/Publication$Companion;
+	public synthetic fun <init> (Lsite/standard/theme/Basic;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lsite/standard/PublicationLabelsUnion;Ljava/lang/String;Lsite/standard/PublicationPreferences;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lsite/standard/theme/Basic;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lsite/standard/PublicationLabelsUnion;Ljava/lang/String;Lsite/standard/PublicationPreferences;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lsite/standard/theme/Basic;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lsh/christian/ozone/api/model/Blob;
+	public final fun component4 ()Lsite/standard/PublicationLabelsUnion;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Lsite/standard/PublicationPreferences;
+	public final fun component7-v5vOzEc ()Ljava/lang/String;
+	public final fun copy-UCzAqjE (Lsite/standard/theme/Basic;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lsite/standard/PublicationLabelsUnion;Ljava/lang/String;Lsite/standard/PublicationPreferences;Ljava/lang/String;)Lsite/standard/Publication;
+	public static synthetic fun copy-UCzAqjE$default (Lsite/standard/Publication;Lsite/standard/theme/Basic;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lsite/standard/PublicationLabelsUnion;Ljava/lang/String;Lsite/standard/PublicationPreferences;Ljava/lang/String;ILjava/lang/Object;)Lsite/standard/Publication;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBasicTheme ()Lsite/standard/theme/Basic;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getIcon ()Lsh/christian/ozone/api/model/Blob;
+	public final fun getLabels ()Lsite/standard/PublicationLabelsUnion;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getPreferences ()Lsite/standard/PublicationPreferences;
+	public final fun getUrl-v5vOzEc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class site/standard/Publication$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class site/standard/PublicationLabelsUnion {
+	public static final field Companion Lsite/standard/PublicationLabelsUnion$Companion;
+}
+
+public final class site/standard/PublicationLabelsUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/PublicationLabelsUnion$SelfLabels : site/standard/PublicationLabelsUnion {
+	public static final field Companion Lsite/standard/PublicationLabelsUnion$SelfLabels$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/label/SelfLabels;)Lsite/standard/PublicationLabelsUnion$SelfLabels;
+	public static fun constructor-impl (Lcom/atproto/label/SelfLabels;)Lcom/atproto/label/SelfLabels;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/label/SelfLabels;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/label/SelfLabels;Lcom/atproto/label/SelfLabels;)Z
+	public final fun getValue ()Lcom/atproto/label/SelfLabels;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/label/SelfLabels;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/label/SelfLabels;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/label/SelfLabels;
+}
+
+public final class site/standard/PublicationLabelsUnion$SelfLabels$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/PublicationLabelsUnion$Unknown : site/standard/PublicationLabelsUnion {
+	public static final field Companion Lsite/standard/PublicationLabelsUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsite/standard/PublicationLabelsUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class site/standard/PublicationLabelsUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/PublicationPreferences {
+	public static final field Companion Lsite/standard/PublicationPreferences$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/lang/Boolean;)Lsite/standard/PublicationPreferences;
+	public static synthetic fun copy$default (Lsite/standard/PublicationPreferences;Ljava/lang/Boolean;ILjava/lang/Object;)Lsite/standard/PublicationPreferences;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getShowInDiscover ()Ljava/lang/Boolean;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class site/standard/PublicationPreferences$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/graph/Recommend {
+	public static final field Companion Lsite/standard/graph/Recommend$Companion;
+	public synthetic fun <init> (Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lkotlin/time/Instant;
+	public final fun component2-x27MrHI ()Ljava/lang/String;
+	public final fun copy-fiUFdrA (Lkotlin/time/Instant;Ljava/lang/String;)Lsite/standard/graph/Recommend;
+	public static synthetic fun copy-fiUFdrA$default (Lsite/standard/graph/Recommend;Lkotlin/time/Instant;Ljava/lang/String;ILjava/lang/Object;)Lsite/standard/graph/Recommend;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getDocument-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class site/standard/graph/Recommend$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/graph/Subscription {
+	public static final field Companion Lsite/standard/graph/Subscription$Companion;
+	public synthetic fun <init> (Lkotlin/time/Instant;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lkotlin/time/Instant;
+	public final fun component2-x27MrHI ()Ljava/lang/String;
+	public final fun copy-fiUFdrA (Lkotlin/time/Instant;Ljava/lang/String;)Lsite/standard/graph/Subscription;
+	public static synthetic fun copy-fiUFdrA$default (Lsite/standard/graph/Subscription;Lkotlin/time/Instant;Ljava/lang/String;ILjava/lang/Object;)Lsite/standard/graph/Subscription;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getPublication-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class site/standard/graph/Subscription$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/theme/Basic {
+	public static final field Companion Lsite/standard/theme/Basic$Companion;
+	public fun <init> (Lsite/standard/theme/BasicAccentUnion;Lsite/standard/theme/BasicAccentForegroundUnion;Lsite/standard/theme/BasicBackgroundUnion;Lsite/standard/theme/BasicForegroundUnion;)V
+	public final fun component1 ()Lsite/standard/theme/BasicAccentUnion;
+	public final fun component2 ()Lsite/standard/theme/BasicAccentForegroundUnion;
+	public final fun component3 ()Lsite/standard/theme/BasicBackgroundUnion;
+	public final fun component4 ()Lsite/standard/theme/BasicForegroundUnion;
+	public final fun copy (Lsite/standard/theme/BasicAccentUnion;Lsite/standard/theme/BasicAccentForegroundUnion;Lsite/standard/theme/BasicBackgroundUnion;Lsite/standard/theme/BasicForegroundUnion;)Lsite/standard/theme/Basic;
+	public static synthetic fun copy$default (Lsite/standard/theme/Basic;Lsite/standard/theme/BasicAccentUnion;Lsite/standard/theme/BasicAccentForegroundUnion;Lsite/standard/theme/BasicBackgroundUnion;Lsite/standard/theme/BasicForegroundUnion;ILjava/lang/Object;)Lsite/standard/theme/Basic;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccent ()Lsite/standard/theme/BasicAccentUnion;
+	public final fun getAccentForeground ()Lsite/standard/theme/BasicAccentForegroundUnion;
+	public final fun getBackground ()Lsite/standard/theme/BasicBackgroundUnion;
+	public final fun getForeground ()Lsite/standard/theme/BasicForegroundUnion;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class site/standard/theme/Basic$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class site/standard/theme/BasicAccentForegroundUnion {
+	public static final field Companion Lsite/standard/theme/BasicAccentForegroundUnion$Companion;
+}
+
+public final class site/standard/theme/BasicAccentForegroundUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/theme/BasicAccentForegroundUnion$Rgb : site/standard/theme/BasicAccentForegroundUnion {
+	public static final field Companion Lsite/standard/theme/BasicAccentForegroundUnion$Rgb$Companion;
+	public static final synthetic fun box-impl (Lsite/standard/theme/ColorRgb;)Lsite/standard/theme/BasicAccentForegroundUnion$Rgb;
+	public static fun constructor-impl (Lsite/standard/theme/ColorRgb;)Lsite/standard/theme/ColorRgb;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsite/standard/theme/ColorRgb;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsite/standard/theme/ColorRgb;Lsite/standard/theme/ColorRgb;)Z
+	public final fun getValue ()Lsite/standard/theme/ColorRgb;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsite/standard/theme/ColorRgb;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsite/standard/theme/ColorRgb;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsite/standard/theme/ColorRgb;
+}
+
+public final class site/standard/theme/BasicAccentForegroundUnion$Rgb$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/theme/BasicAccentForegroundUnion$Unknown : site/standard/theme/BasicAccentForegroundUnion {
+	public static final field Companion Lsite/standard/theme/BasicAccentForegroundUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsite/standard/theme/BasicAccentForegroundUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class site/standard/theme/BasicAccentForegroundUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class site/standard/theme/BasicAccentUnion {
+	public static final field Companion Lsite/standard/theme/BasicAccentUnion$Companion;
+}
+
+public final class site/standard/theme/BasicAccentUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/theme/BasicAccentUnion$Rgb : site/standard/theme/BasicAccentUnion {
+	public static final field Companion Lsite/standard/theme/BasicAccentUnion$Rgb$Companion;
+	public static final synthetic fun box-impl (Lsite/standard/theme/ColorRgb;)Lsite/standard/theme/BasicAccentUnion$Rgb;
+	public static fun constructor-impl (Lsite/standard/theme/ColorRgb;)Lsite/standard/theme/ColorRgb;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsite/standard/theme/ColorRgb;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsite/standard/theme/ColorRgb;Lsite/standard/theme/ColorRgb;)Z
+	public final fun getValue ()Lsite/standard/theme/ColorRgb;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsite/standard/theme/ColorRgb;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsite/standard/theme/ColorRgb;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsite/standard/theme/ColorRgb;
+}
+
+public final class site/standard/theme/BasicAccentUnion$Rgb$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/theme/BasicAccentUnion$Unknown : site/standard/theme/BasicAccentUnion {
+	public static final field Companion Lsite/standard/theme/BasicAccentUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsite/standard/theme/BasicAccentUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class site/standard/theme/BasicAccentUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class site/standard/theme/BasicBackgroundUnion {
+	public static final field Companion Lsite/standard/theme/BasicBackgroundUnion$Companion;
+}
+
+public final class site/standard/theme/BasicBackgroundUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/theme/BasicBackgroundUnion$Rgb : site/standard/theme/BasicBackgroundUnion {
+	public static final field Companion Lsite/standard/theme/BasicBackgroundUnion$Rgb$Companion;
+	public static final synthetic fun box-impl (Lsite/standard/theme/ColorRgb;)Lsite/standard/theme/BasicBackgroundUnion$Rgb;
+	public static fun constructor-impl (Lsite/standard/theme/ColorRgb;)Lsite/standard/theme/ColorRgb;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsite/standard/theme/ColorRgb;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsite/standard/theme/ColorRgb;Lsite/standard/theme/ColorRgb;)Z
+	public final fun getValue ()Lsite/standard/theme/ColorRgb;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsite/standard/theme/ColorRgb;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsite/standard/theme/ColorRgb;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsite/standard/theme/ColorRgb;
+}
+
+public final class site/standard/theme/BasicBackgroundUnion$Rgb$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/theme/BasicBackgroundUnion$Unknown : site/standard/theme/BasicBackgroundUnion {
+	public static final field Companion Lsite/standard/theme/BasicBackgroundUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsite/standard/theme/BasicBackgroundUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class site/standard/theme/BasicBackgroundUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class site/standard/theme/BasicForegroundUnion {
+	public static final field Companion Lsite/standard/theme/BasicForegroundUnion$Companion;
+}
+
+public final class site/standard/theme/BasicForegroundUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/theme/BasicForegroundUnion$Rgb : site/standard/theme/BasicForegroundUnion {
+	public static final field Companion Lsite/standard/theme/BasicForegroundUnion$Rgb$Companion;
+	public static final synthetic fun box-impl (Lsite/standard/theme/ColorRgb;)Lsite/standard/theme/BasicForegroundUnion$Rgb;
+	public static fun constructor-impl (Lsite/standard/theme/ColorRgb;)Lsite/standard/theme/ColorRgb;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsite/standard/theme/ColorRgb;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsite/standard/theme/ColorRgb;Lsite/standard/theme/ColorRgb;)Z
+	public final fun getValue ()Lsite/standard/theme/ColorRgb;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsite/standard/theme/ColorRgb;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsite/standard/theme/ColorRgb;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsite/standard/theme/ColorRgb;
+}
+
+public final class site/standard/theme/BasicForegroundUnion$Rgb$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/theme/BasicForegroundUnion$Unknown : site/standard/theme/BasicForegroundUnion {
+	public static final field Companion Lsite/standard/theme/BasicForegroundUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsite/standard/theme/BasicForegroundUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class site/standard/theme/BasicForegroundUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/theme/ColorRgb {
+	public static final field Companion Lsite/standard/theme/ColorRgb$Companion;
+	public fun <init> (JJJ)V
+	public final fun component1 ()J
+	public final fun component2 ()J
+	public final fun component3 ()J
+	public final fun copy (JJJ)Lsite/standard/theme/ColorRgb;
+	public static synthetic fun copy$default (Lsite/standard/theme/ColorRgb;JJJILjava/lang/Object;)Lsite/standard/theme/ColorRgb;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getB ()J
+	public final fun getG ()J
+	public final fun getR ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class site/standard/theme/ColorRgb$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class site/standard/theme/ColorRgba {
+	public static final field Companion Lsite/standard/theme/ColorRgba$Companion;
+	public fun <init> (JJJJ)V
+	public final fun component1 ()J
+	public final fun component2 ()J
+	public final fun component3 ()J
+	public final fun component4 ()J
+	public final fun copy (JJJJ)Lsite/standard/theme/ColorRgba;
+	public static synthetic fun copy$default (Lsite/standard/theme/ColorRgba;JJJJILjava/lang/Object;)Lsite/standard/theme/ColorRgba;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getA ()J
+	public final fun getB ()J
+	public final fun getG ()J
+	public final fun getR ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class site/standard/theme/ColorRgba$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class tools/ozone/communication/CreateTemplateRequest {
