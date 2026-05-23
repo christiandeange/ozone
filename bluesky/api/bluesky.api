@@ -4021,10 +4021,11 @@ public final class app/bsky/embed/ExternalView$Companion {
 
 public final class app/bsky/embed/ExternalViewExternal {
 	public static final field Companion Lapp/bsky/embed/ExternalViewExternal$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/util/List;Lapp/bsky/embed/ExternalViewExternalSource;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/util/List;Lapp/bsky/embed/ExternalViewExternalSource;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/util/List;Lapp/bsky/embed/ExternalViewExternalSource;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/util/List;Lapp/bsky/embed/ExternalViewExternalSource;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-v5vOzEc ()Ljava/lang/String;
 	public final fun component10 ()Ljava/util/List;
+	public final fun component11 ()Ljava/util/List;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4-pvpWXas ()Ljava/lang/String;
@@ -4033,9 +4034,10 @@ public final class app/bsky/embed/ExternalViewExternal {
 	public final fun component7 ()Ljava/lang/Long;
 	public final fun component8 ()Ljava/util/List;
 	public final fun component9 ()Lapp/bsky/embed/ExternalViewExternalSource;
-	public final fun copy-QFXsQoE (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/util/List;Lapp/bsky/embed/ExternalViewExternalSource;Ljava/util/List;)Lapp/bsky/embed/ExternalViewExternal;
-	public static synthetic fun copy-QFXsQoE$default (Lapp/bsky/embed/ExternalViewExternal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/util/List;Lapp/bsky/embed/ExternalViewExternalSource;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/embed/ExternalViewExternal;
+	public final fun copy-zYVWg4k (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/util/List;Lapp/bsky/embed/ExternalViewExternalSource;Ljava/util/List;Ljava/util/List;)Lapp/bsky/embed/ExternalViewExternal;
+	public static synthetic fun copy-zYVWg4k$default (Lapp/bsky/embed/ExternalViewExternal;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/util/List;Lapp/bsky/embed/ExternalViewExternalSource;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/embed/ExternalViewExternal;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAssociatedProfiles ()Ljava/util/List;
 	public final fun getAssociatedRefs ()Ljava/util/List;
 	public final fun getCreatedAt ()Lkotlin/time/Instant;
 	public final fun getDescription ()Ljava/lang/String;
@@ -12643,14 +12645,16 @@ public final class chat/bsky/actor/DirectConvoMember {
 
 public final class chat/bsky/actor/GetStatusResponse {
 	public static final field Companion Lchat/bsky/actor/GetStatusResponse$Companion;
-	public fun <init> (ZZ)V
+	public fun <init> (ZZJ)V
 	public final fun component1 ()Z
 	public final fun component2 ()Z
-	public final fun copy (ZZ)Lchat/bsky/actor/GetStatusResponse;
-	public static synthetic fun copy$default (Lchat/bsky/actor/GetStatusResponse;ZZILjava/lang/Object;)Lchat/bsky/actor/GetStatusResponse;
+	public final fun component3 ()J
+	public final fun copy (ZZJ)Lchat/bsky/actor/GetStatusResponse;
+	public static synthetic fun copy$default (Lchat/bsky/actor/GetStatusResponse;ZZJILjava/lang/Object;)Lchat/bsky/actor/GetStatusResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCanCreateGroups ()Z
 	public final fun getChatDisabled ()Z
+	public final fun getGroupMemberLimit ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -14202,22 +14206,24 @@ public final class chat/bsky/convo/GetMessagesResponseMessageUnion$Unknown$Compa
 
 public final class chat/bsky/convo/GroupConvo {
 	public static final field Companion Lchat/bsky/convo/GroupConvo$Companion;
-	public fun <init> (Ljava/lang/String;JLkotlin/time/Instant;Ljava/lang/Long;Lchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;)V
-	public synthetic fun <init> (Ljava/lang/String;JLkotlin/time/Instant;Ljava/lang/Long;Lchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;JLkotlin/time/Instant;Ljava/lang/Long;Lchat/bsky/group/JoinLinkView;JLchat/bsky/convo/ConvoLockStatus;)V
+	public synthetic fun <init> (Ljava/lang/String;JLkotlin/time/Instant;Ljava/lang/Long;Lchat/bsky/group/JoinLinkView;JLchat/bsky/convo/ConvoLockStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()J
 	public final fun component3 ()Lkotlin/time/Instant;
 	public final fun component4 ()Ljava/lang/Long;
 	public final fun component5 ()Lchat/bsky/group/JoinLinkView;
-	public final fun component6 ()Lchat/bsky/convo/ConvoLockStatus;
-	public final fun copy (Ljava/lang/String;JLkotlin/time/Instant;Ljava/lang/Long;Lchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;)Lchat/bsky/convo/GroupConvo;
-	public static synthetic fun copy$default (Lchat/bsky/convo/GroupConvo;Ljava/lang/String;JLkotlin/time/Instant;Ljava/lang/Long;Lchat/bsky/group/JoinLinkView;Lchat/bsky/convo/ConvoLockStatus;ILjava/lang/Object;)Lchat/bsky/convo/GroupConvo;
+	public final fun component6 ()J
+	public final fun component7 ()Lchat/bsky/convo/ConvoLockStatus;
+	public final fun copy (Ljava/lang/String;JLkotlin/time/Instant;Ljava/lang/Long;Lchat/bsky/group/JoinLinkView;JLchat/bsky/convo/ConvoLockStatus;)Lchat/bsky/convo/GroupConvo;
+	public static synthetic fun copy$default (Lchat/bsky/convo/GroupConvo;Ljava/lang/String;JLkotlin/time/Instant;Ljava/lang/Long;Lchat/bsky/group/JoinLinkView;JLchat/bsky/convo/ConvoLockStatus;ILjava/lang/Object;)Lchat/bsky/convo/GroupConvo;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCreatedAt ()Lkotlin/time/Instant;
 	public final fun getJoinLink ()Lchat/bsky/group/JoinLinkView;
 	public final fun getJoinRequestCount ()Ljava/lang/Long;
 	public final fun getLockStatus ()Lchat/bsky/convo/ConvoLockStatus;
 	public final fun getMemberCount ()J
+	public final fun getMemberLimit ()J
 	public final fun getName ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
