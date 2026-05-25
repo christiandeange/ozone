@@ -21726,13 +21726,13 @@ public final class com/atproto/server/GetServiceAuthQueryParams {
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Ljava/util/List;
-	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3-rgu83lg ()Ljava/lang/String;
-	public final fun copy-yTG_CPc (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lcom/atproto/server/GetServiceAuthQueryParams;
-	public static synthetic fun copy-yTG_CPc$default (Lcom/atproto/server/GetServiceAuthQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/server/GetServiceAuthQueryParams;
+	public final fun copy-2Mtqmeo (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lcom/atproto/server/GetServiceAuthQueryParams;
+	public static synthetic fun copy-2Mtqmeo$default (Lcom/atproto/server/GetServiceAuthQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lcom/atproto/server/GetServiceAuthQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAud-715Ygxc ()Ljava/lang/String;
+	public final fun getAud ()Ljava/lang/String;
 	public final fun getExp ()Ljava/lang/Long;
 	public final fun getLxm-rgu83lg ()Ljava/lang/String;
 	public fun hashCode ()I
