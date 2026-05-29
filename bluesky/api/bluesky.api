@@ -2226,16 +2226,21 @@ public final class app/bsky/actor/VerificationStateVerifiedStatusSerializer : ko
 
 public final class app/bsky/actor/VerificationView {
 	public static final field Companion Lapp/bsky/actor/VerificationView$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ZLkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
-	public final fun component2-x27MrHI ()Ljava/lang/String;
-	public final fun component3 ()Z
-	public final fun component4 ()Lkotlin/time/Instant;
-	public final fun copy-r1A605s (Ljava/lang/String;Ljava/lang/String;ZLkotlin/time/Instant;)Lapp/bsky/actor/VerificationView;
-	public static synthetic fun copy-r1A605s$default (Lapp/bsky/actor/VerificationView;Ljava/lang/String;Ljava/lang/String;ZLkotlin/time/Instant;ILjava/lang/Object;)Lapp/bsky/actor/VerificationView;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3-367xRBg ()Ljava/lang/String;
+	public final fun component4-x27MrHI ()Ljava/lang/String;
+	public final fun component5 ()Z
+	public final fun component6 ()Lkotlin/time/Instant;
+	public final fun copy-LGj13Cc (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLkotlin/time/Instant;)Lapp/bsky/actor/VerificationView;
+	public static synthetic fun copy-LGj13Cc$default (Lapp/bsky/actor/VerificationView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLkotlin/time/Instant;ILjava/lang/Object;)Lapp/bsky/actor/VerificationView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCreatedAt ()Lkotlin/time/Instant;
 	public final fun getIssuer-715Ygxc ()Ljava/lang/String;
+	public final fun getIssuerDisplayName ()Ljava/lang/String;
+	public final fun getIssuerHandle-367xRBg ()Ljava/lang/String;
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public final fun isValid ()Z
@@ -26259,6 +26264,24 @@ public final class tools/ozone/moderation/CancelScheduledTakedownEvent$Companion
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/ConvoView {
+	public static final field Companion Ltools/ozone/moderation/ConvoView$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy-vy2gcmM (Ljava/lang/String;Ljava/lang/String;)Ltools/ozone/moderation/ConvoView;
+	public static synthetic fun copy-vy2gcmM$default (Ltools/ozone/moderation/ConvoView;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/ConvoView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/moderation/ConvoView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/moderation/EmitEventReportAction {
 	public static final field Companion Ltools/ozone/moderation/EmitEventReportAction$Companion;
 	public fun <init> ()V
@@ -28425,6 +28448,25 @@ public final class tools/ozone/moderation/ModEventViewDetailSubjectUnion$Compani
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/ModEventViewDetailSubjectUnion$ConvoView : tools/ozone/moderation/ModEventViewDetailSubjectUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewDetailSubjectUnion$ConvoView$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/moderation/ConvoView;)Ltools/ozone/moderation/ModEventViewDetailSubjectUnion$ConvoView;
+	public static fun constructor-impl (Ltools/ozone/moderation/ConvoView;)Ltools/ozone/moderation/ConvoView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/moderation/ConvoView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/moderation/ConvoView;Ltools/ozone/moderation/ConvoView;)Z
+	public final fun getValue ()Ltools/ozone/moderation/ConvoView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/moderation/ConvoView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/moderation/ConvoView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/moderation/ConvoView;
+}
+
+public final class tools/ozone/moderation/ModEventViewDetailSubjectUnion$ConvoView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/moderation/ModEventViewDetailSubjectUnion$RecordView : tools/ozone/moderation/ModEventViewDetailSubjectUnion {
 	public static final field Companion Ltools/ozone/moderation/ModEventViewDetailSubjectUnion$RecordView$Companion;
 	public static final synthetic fun box-impl (Ltools/ozone/moderation/RecordView;)Ltools/ozone/moderation/ModEventViewDetailSubjectUnion$RecordView;
@@ -29030,6 +29072,25 @@ public final class tools/ozone/moderation/ModEventViewSubjectUnion$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/ModEventViewSubjectUnion$HatBskyConvoConvoRef : tools/ozone/moderation/ModEventViewSubjectUnion {
+	public static final field Companion Ltools/ozone/moderation/ModEventViewSubjectUnion$HatBskyConvoConvoRef$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/ConvoRef;)Ltools/ozone/moderation/ModEventViewSubjectUnion$HatBskyConvoConvoRef;
+	public static fun constructor-impl (Lchat/bsky/convo/ConvoRef;)Lchat/bsky/convo/ConvoRef;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/ConvoRef;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/ConvoRef;Lchat/bsky/convo/ConvoRef;)Z
+	public final fun getValue ()Lchat/bsky/convo/ConvoRef;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/ConvoRef;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/ConvoRef;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/ConvoRef;
+}
+
+public final class tools/ozone/moderation/ModEventViewSubjectUnion$HatBskyConvoConvoRef$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/moderation/ModEventViewSubjectUnion$HatBskyConvoMessageRef : tools/ozone/moderation/ModEventViewSubjectUnion {
 	public static final field Companion Ltools/ozone/moderation/ModEventViewSubjectUnion$HatBskyConvoMessageRef$Companion;
 	public static final synthetic fun box-impl (Lchat/bsky/convo/MessageRef;)Ltools/ozone/moderation/ModEventViewSubjectUnion$HatBskyConvoMessageRef;
@@ -29326,6 +29387,13 @@ public final class tools/ozone/moderation/QueryEventsSubjectType$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/moderation/QueryEventsSubjectType$Conversation : tools/ozone/moderation/QueryEventsSubjectType {
+	public static final field INSTANCE Ltools/ozone/moderation/QueryEventsSubjectType$Conversation;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class tools/ozone/moderation/QueryEventsSubjectType$Record : tools/ozone/moderation/QueryEventsSubjectType {
 	public static final field INSTANCE Ltools/ozone/moderation/QueryEventsSubjectType$Record;
 	public fun equals (Ljava/lang/Object;)Z
@@ -29542,6 +29610,13 @@ public final class tools/ozone/moderation/QueryStatusesSubjectType$Account : too
 public final class tools/ozone/moderation/QueryStatusesSubjectType$Companion {
 	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/moderation/QueryStatusesSubjectType;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/QueryStatusesSubjectType$Conversation : tools/ozone/moderation/QueryStatusesSubjectType {
+	public static final field INSTANCE Ltools/ozone/moderation/QueryStatusesSubjectType$Conversation;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class tools/ozone/moderation/QueryStatusesSubjectType$Record : tools/ozone/moderation/QueryStatusesSubjectType {
@@ -30586,6 +30661,25 @@ public abstract interface class tools/ozone/moderation/SubjectStatusViewSubjectU
 }
 
 public final class tools/ozone/moderation/SubjectStatusViewSubjectUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/SubjectStatusViewSubjectUnion$HatBskyConvoConvoRef : tools/ozone/moderation/SubjectStatusViewSubjectUnion {
+	public static final field Companion Ltools/ozone/moderation/SubjectStatusViewSubjectUnion$HatBskyConvoConvoRef$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/ConvoRef;)Ltools/ozone/moderation/SubjectStatusViewSubjectUnion$HatBskyConvoConvoRef;
+	public static fun constructor-impl (Lchat/bsky/convo/ConvoRef;)Lchat/bsky/convo/ConvoRef;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/ConvoRef;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/ConvoRef;Lchat/bsky/convo/ConvoRef;)Z
+	public final fun getValue ()Lchat/bsky/convo/ConvoRef;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/ConvoRef;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/ConvoRef;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/ConvoRef;
+}
+
+public final class tools/ozone/moderation/SubjectStatusViewSubjectUnion$HatBskyConvoConvoRef$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
