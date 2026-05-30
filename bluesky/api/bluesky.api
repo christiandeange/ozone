@@ -13949,6 +13949,25 @@ public final class chat/bsky/convo/GetLogResponseLogUnion$ReadConvo$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class chat/bsky/convo/GetLogResponseLogUnion$ReadJoinRequests : chat/bsky/convo/GetLogResponseLogUnion {
+	public static final field Companion Lchat/bsky/convo/GetLogResponseLogUnion$ReadJoinRequests$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/LogReadJoinRequests;)Lchat/bsky/convo/GetLogResponseLogUnion$ReadJoinRequests;
+	public static fun constructor-impl (Lchat/bsky/convo/LogReadJoinRequests;)Lchat/bsky/convo/LogReadJoinRequests;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/LogReadJoinRequests;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/LogReadJoinRequests;Lchat/bsky/convo/LogReadJoinRequests;)Z
+	public final fun getValue ()Lchat/bsky/convo/LogReadJoinRequests;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/LogReadJoinRequests;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/LogReadJoinRequests;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/LogReadJoinRequests;
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$ReadJoinRequests$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class chat/bsky/convo/GetLogResponseLogUnion$ReadMessage : chat/bsky/convo/GetLogResponseLogUnion {
 	public static final field Companion Lchat/bsky/convo/GetLogResponseLogUnion$ReadMessage$Companion;
 	public static final synthetic fun box-impl (Lchat/bsky/convo/LogReadMessage;)Lchat/bsky/convo/GetLogResponseLogUnion$ReadMessage;
@@ -14082,6 +14101,44 @@ public final class chat/bsky/convo/GetLogResponseLogUnion$UnmuteConvo$Companion 
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class chat/bsky/convo/GetLogResponseLogUnion$WithdrawIncomingJoinRequest : chat/bsky/convo/GetLogResponseLogUnion {
+	public static final field Companion Lchat/bsky/convo/GetLogResponseLogUnion$WithdrawIncomingJoinRequest$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/LogWithdrawIncomingJoinRequest;)Lchat/bsky/convo/GetLogResponseLogUnion$WithdrawIncomingJoinRequest;
+	public static fun constructor-impl (Lchat/bsky/convo/LogWithdrawIncomingJoinRequest;)Lchat/bsky/convo/LogWithdrawIncomingJoinRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/LogWithdrawIncomingJoinRequest;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/LogWithdrawIncomingJoinRequest;Lchat/bsky/convo/LogWithdrawIncomingJoinRequest;)Z
+	public final fun getValue ()Lchat/bsky/convo/LogWithdrawIncomingJoinRequest;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/LogWithdrawIncomingJoinRequest;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/LogWithdrawIncomingJoinRequest;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/LogWithdrawIncomingJoinRequest;
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$WithdrawIncomingJoinRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$WithdrawOutgoingJoinRequest : chat/bsky/convo/GetLogResponseLogUnion {
+	public static final field Companion Lchat/bsky/convo/GetLogResponseLogUnion$WithdrawOutgoingJoinRequest$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/convo/LogWithdrawOutgoingJoinRequest;)Lchat/bsky/convo/GetLogResponseLogUnion$WithdrawOutgoingJoinRequest;
+	public static fun constructor-impl (Lchat/bsky/convo/LogWithdrawOutgoingJoinRequest;)Lchat/bsky/convo/LogWithdrawOutgoingJoinRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/convo/LogWithdrawOutgoingJoinRequest;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/convo/LogWithdrawOutgoingJoinRequest;Lchat/bsky/convo/LogWithdrawOutgoingJoinRequest;)Z
+	public final fun getValue ()Lchat/bsky/convo/LogWithdrawOutgoingJoinRequest;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/convo/LogWithdrawOutgoingJoinRequest;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/convo/LogWithdrawOutgoingJoinRequest;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/convo/LogWithdrawOutgoingJoinRequest;
+}
+
+public final class chat/bsky/convo/GetLogResponseLogUnion$WithdrawOutgoingJoinRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class chat/bsky/convo/GetMessagesQueryParams {
 	public static final field Companion Lchat/bsky/convo/GetMessagesQueryParams$Companion;
 	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)V
@@ -14211,17 +14268,18 @@ public final class chat/bsky/convo/GetMessagesResponseMessageUnion$Unknown$Compa
 
 public final class chat/bsky/convo/GroupConvo {
 	public static final field Companion Lchat/bsky/convo/GroupConvo$Companion;
-	public fun <init> (Ljava/lang/String;JLkotlin/time/Instant;Ljava/lang/Long;Lchat/bsky/group/JoinLinkView;JLchat/bsky/convo/ConvoLockStatus;)V
-	public synthetic fun <init> (Ljava/lang/String;JLkotlin/time/Instant;Ljava/lang/Long;Lchat/bsky/group/JoinLinkView;JLchat/bsky/convo/ConvoLockStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()J
-	public final fun component3 ()Lkotlin/time/Instant;
-	public final fun component4 ()Ljava/lang/Long;
-	public final fun component5 ()Lchat/bsky/group/JoinLinkView;
+	public fun <init> (Lkotlin/time/Instant;Lchat/bsky/group/JoinLinkView;Ljava/lang/Long;Lchat/bsky/convo/ConvoLockStatus;JJLjava/lang/String;Ljava/lang/Long;)V
+	public synthetic fun <init> (Lkotlin/time/Instant;Lchat/bsky/group/JoinLinkView;Ljava/lang/Long;Lchat/bsky/convo/ConvoLockStatus;JJLjava/lang/String;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lkotlin/time/Instant;
+	public final fun component2 ()Lchat/bsky/group/JoinLinkView;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun component4 ()Lchat/bsky/convo/ConvoLockStatus;
+	public final fun component5 ()J
 	public final fun component6 ()J
-	public final fun component7 ()Lchat/bsky/convo/ConvoLockStatus;
-	public final fun copy (Ljava/lang/String;JLkotlin/time/Instant;Ljava/lang/Long;Lchat/bsky/group/JoinLinkView;JLchat/bsky/convo/ConvoLockStatus;)Lchat/bsky/convo/GroupConvo;
-	public static synthetic fun copy$default (Lchat/bsky/convo/GroupConvo;Ljava/lang/String;JLkotlin/time/Instant;Ljava/lang/Long;Lchat/bsky/group/JoinLinkView;JLchat/bsky/convo/ConvoLockStatus;ILjava/lang/Object;)Lchat/bsky/convo/GroupConvo;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/Long;
+	public final fun copy (Lkotlin/time/Instant;Lchat/bsky/group/JoinLinkView;Ljava/lang/Long;Lchat/bsky/convo/ConvoLockStatus;JJLjava/lang/String;Ljava/lang/Long;)Lchat/bsky/convo/GroupConvo;
+	public static synthetic fun copy$default (Lchat/bsky/convo/GroupConvo;Lkotlin/time/Instant;Lchat/bsky/group/JoinLinkView;Ljava/lang/Long;Lchat/bsky/convo/ConvoLockStatus;JJLjava/lang/String;Ljava/lang/Long;ILjava/lang/Object;)Lchat/bsky/convo/GroupConvo;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCreatedAt ()Lkotlin/time/Instant;
 	public final fun getJoinLink ()Lchat/bsky/group/JoinLinkView;
@@ -14230,6 +14288,7 @@ public final class chat/bsky/convo/GroupConvo {
 	public final fun getMemberCount ()J
 	public final fun getMemberLimit ()J
 	public final fun getName ()Ljava/lang/String;
+	public final fun getUnreadJoinRequestCount ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -15344,6 +15403,24 @@ public final class chat/bsky/convo/LogReadConvoMessageUnion$Unknown$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class chat/bsky/convo/LogReadJoinRequests {
+	public static final field Companion Lchat/bsky/convo/LogReadJoinRequests$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/convo/LogReadJoinRequests;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogReadJoinRequests;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/LogReadJoinRequests;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/LogReadJoinRequests$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class chat/bsky/convo/LogReadMessage$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
@@ -15604,6 +15681,44 @@ public final class chat/bsky/convo/LogUnmuteConvo$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class chat/bsky/convo/LogWithdrawIncomingJoinRequest {
+	public static final field Companion Lchat/bsky/convo/LogWithdrawIncomingJoinRequest$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lchat/bsky/actor/ProfileViewBasic;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;)Lchat/bsky/convo/LogWithdrawIncomingJoinRequest;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogWithdrawIncomingJoinRequest;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;ILjava/lang/Object;)Lchat/bsky/convo/LogWithdrawIncomingJoinRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getMember ()Lchat/bsky/actor/ProfileViewBasic;
+	public final fun getRev ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/LogWithdrawIncomingJoinRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/LogWithdrawOutgoingJoinRequest {
+	public static final field Companion Lchat/bsky/convo/LogWithdrawOutgoingJoinRequest$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/convo/LogWithdrawOutgoingJoinRequest;
+	public static synthetic fun copy$default (Lchat/bsky/convo/LogWithdrawOutgoingJoinRequest;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/convo/LogWithdrawOutgoingJoinRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/convo/LogWithdrawOutgoingJoinRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class chat/bsky/convo/MessageAndReactionView {
 	public static final field Companion Lchat/bsky/convo/MessageAndReactionView$Companion;
 	public fun <init> (Lchat/bsky/convo/MessageView;Lchat/bsky/convo/ReactionView;)V
@@ -15663,6 +15778,25 @@ public final class chat/bsky/convo/MessageInputEmbedUnion$AppBskyEmbedRecord : c
 }
 
 public final class chat/bsky/convo/MessageInputEmbedUnion$AppBskyEmbedRecord$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/MessageInputEmbedUnion$ChatBskyEmbedJoinLink : chat/bsky/convo/MessageInputEmbedUnion {
+	public static final field Companion Lchat/bsky/convo/MessageInputEmbedUnion$ChatBskyEmbedJoinLink$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/embed/JoinLink;)Lchat/bsky/convo/MessageInputEmbedUnion$ChatBskyEmbedJoinLink;
+	public static fun constructor-impl (Lchat/bsky/embed/JoinLink;)Lchat/bsky/embed/JoinLink;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/embed/JoinLink;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/embed/JoinLink;Lchat/bsky/embed/JoinLink;)Z
+	public final fun getValue ()Lchat/bsky/embed/JoinLink;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/embed/JoinLink;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/embed/JoinLink;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/embed/JoinLink;
+}
+
+public final class chat/bsky/convo/MessageInputEmbedUnion$ChatBskyEmbedJoinLink$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -15744,6 +15878,44 @@ public abstract interface class chat/bsky/convo/MessageViewEmbedUnion {
 	public static final field Companion Lchat/bsky/convo/MessageViewEmbedUnion$Companion;
 }
 
+public final class chat/bsky/convo/MessageViewEmbedUnion$AppBskyEmbedRecordView : chat/bsky/convo/MessageViewEmbedUnion {
+	public static final field Companion Lchat/bsky/convo/MessageViewEmbedUnion$AppBskyEmbedRecordView$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/RecordView;)Lchat/bsky/convo/MessageViewEmbedUnion$AppBskyEmbedRecordView;
+	public static fun constructor-impl (Lapp/bsky/embed/RecordView;)Lapp/bsky/embed/RecordView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/RecordView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/RecordView;Lapp/bsky/embed/RecordView;)Z
+	public final fun getValue ()Lapp/bsky/embed/RecordView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/RecordView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/RecordView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/RecordView;
+}
+
+public final class chat/bsky/convo/MessageViewEmbedUnion$AppBskyEmbedRecordView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/convo/MessageViewEmbedUnion$ChatBskyEmbedJoinLinkView : chat/bsky/convo/MessageViewEmbedUnion {
+	public static final field Companion Lchat/bsky/convo/MessageViewEmbedUnion$ChatBskyEmbedJoinLinkView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/embed/JoinLinkView;)Lchat/bsky/convo/MessageViewEmbedUnion$ChatBskyEmbedJoinLinkView;
+	public static fun constructor-impl (Lchat/bsky/embed/JoinLinkView;)Lchat/bsky/embed/JoinLinkView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/embed/JoinLinkView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/embed/JoinLinkView;Lchat/bsky/embed/JoinLinkView;)Z
+	public final fun getValue ()Lchat/bsky/embed/JoinLinkView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/embed/JoinLinkView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/embed/JoinLinkView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/embed/JoinLinkView;
+}
+
+public final class chat/bsky/convo/MessageViewEmbedUnion$ChatBskyEmbedJoinLinkView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class chat/bsky/convo/MessageViewEmbedUnion$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
@@ -15764,25 +15936,6 @@ public final class chat/bsky/convo/MessageViewEmbedUnion$Unknown : chat/bsky/con
 }
 
 public final class chat/bsky/convo/MessageViewEmbedUnion$Unknown$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class chat/bsky/convo/MessageViewEmbedUnion$View : chat/bsky/convo/MessageViewEmbedUnion {
-	public static final field Companion Lchat/bsky/convo/MessageViewEmbedUnion$View$Companion;
-	public static final synthetic fun box-impl (Lapp/bsky/embed/RecordView;)Lchat/bsky/convo/MessageViewEmbedUnion$View;
-	public static fun constructor-impl (Lapp/bsky/embed/RecordView;)Lapp/bsky/embed/RecordView;
-	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lapp/bsky/embed/RecordView;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lapp/bsky/embed/RecordView;Lapp/bsky/embed/RecordView;)Z
-	public final fun getValue ()Lapp/bsky/embed/RecordView;
-	public fun hashCode ()I
-	public static fun hashCode-impl (Lapp/bsky/embed/RecordView;)I
-	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lapp/bsky/embed/RecordView;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lapp/bsky/embed/RecordView;
-}
-
-public final class chat/bsky/convo/MessageViewEmbedUnion$View$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -16608,6 +16761,38 @@ public final class chat/bsky/convo/UpdateReadResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class chat/bsky/embed/JoinLink {
+	public static final field Companion Lchat/bsky/embed/JoinLink$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/embed/JoinLink;
+	public static synthetic fun copy$default (Lchat/bsky/embed/JoinLink;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/embed/JoinLink;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/embed/JoinLink$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/embed/JoinLinkView {
+	public static final field Companion Lchat/bsky/embed/JoinLinkView$Companion;
+	public fun <init> (Lchat/bsky/group/JoinLinkPreviewView;)V
+	public final fun component1 ()Lchat/bsky/group/JoinLinkPreviewView;
+	public final fun copy (Lchat/bsky/group/JoinLinkPreviewView;)Lchat/bsky/embed/JoinLinkView;
+	public static synthetic fun copy$default (Lchat/bsky/embed/JoinLinkView;Lchat/bsky/group/JoinLinkPreviewView;ILjava/lang/Object;)Lchat/bsky/embed/JoinLinkView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getJoinLinkPreview ()Lchat/bsky/group/JoinLinkPreviewView;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/embed/JoinLinkView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class chat/bsky/group/AddMembersRequest {
 	public static final field Companion Lchat/bsky/group/AddMembersRequest$Companion;
 	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
@@ -17350,6 +17535,139 @@ public final class chat/bsky/group/RequestJoinStatusSerializer : kotlinx/seriali
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
+public final class chat/bsky/group/UpdateJoinRequestsReadRequest {
+	public static final field Companion Lchat/bsky/group/UpdateJoinRequestsReadRequest$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/group/UpdateJoinRequestsReadRequest;
+	public static synthetic fun copy$default (Lchat/bsky/group/UpdateJoinRequestsReadRequest;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/group/UpdateJoinRequestsReadRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/group/UpdateJoinRequestsReadRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/group/UpdateJoinRequestsReadResponse {
+	public static final field INSTANCE Lchat/bsky/group/UpdateJoinRequestsReadResponse;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/group/WithdrawJoinRequestRequest {
+	public static final field Companion Lchat/bsky/group/WithdrawJoinRequestRequest$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/group/WithdrawJoinRequestRequest;
+	public static synthetic fun copy$default (Lchat/bsky/group/WithdrawJoinRequestRequest;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/group/WithdrawJoinRequestRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/group/WithdrawJoinRequestRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/group/WithdrawJoinRequestResponse {
+	public static final field INSTANCE Lchat/bsky/group/WithdrawJoinRequestResponse;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/ConvoView {
+	public static final field Companion Lchat/bsky/moderation/ConvoView$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/moderation/ConvoViewKindUnion;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/moderation/ConvoViewKindUnion;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lchat/bsky/moderation/ConvoViewKindUnion;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/moderation/ConvoViewKindUnion;)Lchat/bsky/moderation/ConvoView;
+	public static synthetic fun copy$default (Lchat/bsky/moderation/ConvoView;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/moderation/ConvoViewKindUnion;ILjava/lang/Object;)Lchat/bsky/moderation/ConvoView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()Ljava/lang/String;
+	public final fun getKind ()Lchat/bsky/moderation/ConvoViewKindUnion;
+	public final fun getRev ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/ConvoView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class chat/bsky/moderation/ConvoViewKindUnion {
+	public static final field Companion Lchat/bsky/moderation/ConvoViewKindUnion$Companion;
+}
+
+public final class chat/bsky/moderation/ConvoViewKindUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/ConvoViewKindUnion$DirectConvo : chat/bsky/moderation/ConvoViewKindUnion {
+	public static final field Companion Lchat/bsky/moderation/ConvoViewKindUnion$DirectConvo$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/moderation/DirectConvo;)Lchat/bsky/moderation/ConvoViewKindUnion$DirectConvo;
+	public static fun constructor-impl (Lchat/bsky/moderation/DirectConvo;)Lchat/bsky/moderation/DirectConvo;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/moderation/DirectConvo;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/moderation/DirectConvo;Lchat/bsky/moderation/DirectConvo;)Z
+	public final fun getValue ()Lchat/bsky/moderation/DirectConvo;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/moderation/DirectConvo;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/moderation/DirectConvo;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/moderation/DirectConvo;
+}
+
+public final class chat/bsky/moderation/ConvoViewKindUnion$DirectConvo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/ConvoViewKindUnion$GroupConvo : chat/bsky/moderation/ConvoViewKindUnion {
+	public static final field Companion Lchat/bsky/moderation/ConvoViewKindUnion$GroupConvo$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/moderation/GroupConvo;)Lchat/bsky/moderation/ConvoViewKindUnion$GroupConvo;
+	public static fun constructor-impl (Lchat/bsky/moderation/GroupConvo;)Lchat/bsky/moderation/GroupConvo;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/moderation/GroupConvo;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/moderation/GroupConvo;Lchat/bsky/moderation/GroupConvo;)Z
+	public final fun getValue ()Lchat/bsky/moderation/GroupConvo;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/moderation/GroupConvo;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/moderation/GroupConvo;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/moderation/GroupConvo;
+}
+
+public final class chat/bsky/moderation/ConvoViewKindUnion$GroupConvo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/ConvoViewKindUnion$Unknown : chat/bsky/moderation/ConvoViewKindUnion {
+	public static final field Companion Lchat/bsky/moderation/ConvoViewKindUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lchat/bsky/moderation/ConvoViewKindUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class chat/bsky/moderation/ConvoViewKindUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/DirectConvo {
+	public static final field INSTANCE Lchat/bsky/moderation/DirectConvo;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class chat/bsky/moderation/GetActorMetadataMetadata {
 	public static final field Companion Lchat/bsky/moderation/GetActorMetadataMetadata$Companion;
 	public fun <init> (JJJJ)V
@@ -17406,6 +17724,80 @@ public final class chat/bsky/moderation/GetActorMetadataResponse {
 }
 
 public final class chat/bsky/moderation/GetActorMetadataResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/GetConvoMembersQueryParams {
+	public static final field Companion Lchat/bsky/moderation/GetConvoMembersQueryParams$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lchat/bsky/moderation/GetConvoMembersQueryParams;
+	public static synthetic fun copy$default (Lchat/bsky/moderation/GetConvoMembersQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/moderation/GetConvoMembersQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/GetConvoMembersQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/GetConvoMembersResponse {
+	public static final field Companion Lchat/bsky/moderation/GetConvoMembersResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Lchat/bsky/moderation/GetConvoMembersResponse;
+	public static synthetic fun copy$default (Lchat/bsky/moderation/GetConvoMembersResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lchat/bsky/moderation/GetConvoMembersResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getMembers ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/GetConvoMembersResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/GetConvoQueryParams {
+	public static final field Companion Lchat/bsky/moderation/GetConvoQueryParams$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/moderation/GetConvoQueryParams;
+	public static synthetic fun copy$default (Lchat/bsky/moderation/GetConvoQueryParams;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/moderation/GetConvoQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/GetConvoQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/GetConvoResponse {
+	public static final field Companion Lchat/bsky/moderation/GetConvoResponse$Companion;
+	public fun <init> (Lchat/bsky/moderation/ConvoView;)V
+	public final fun component1 ()Lchat/bsky/moderation/ConvoView;
+	public final fun copy (Lchat/bsky/moderation/ConvoView;)Lchat/bsky/moderation/GetConvoResponse;
+	public static synthetic fun copy$default (Lchat/bsky/moderation/GetConvoResponse;Lchat/bsky/moderation/ConvoView;ILjava/lang/Object;)Lchat/bsky/moderation/GetConvoResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvo ()Lchat/bsky/moderation/ConvoView;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/GetConvoResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -17513,6 +17905,35 @@ public final class chat/bsky/moderation/GetMessageContextResponseMessageUnion$Un
 }
 
 public final class chat/bsky/moderation/GetMessageContextResponseMessageUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/GroupConvo {
+	public static final field Companion Lchat/bsky/moderation/GroupConvo$Companion;
+	public fun <init> (Lkotlin/time/Instant;Lchat/bsky/group/JoinLinkView;JLchat/bsky/convo/ConvoLockStatus;JJLjava/lang/String;)V
+	public synthetic fun <init> (Lkotlin/time/Instant;Lchat/bsky/group/JoinLinkView;JLchat/bsky/convo/ConvoLockStatus;JJLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lkotlin/time/Instant;
+	public final fun component2 ()Lchat/bsky/group/JoinLinkView;
+	public final fun component3 ()J
+	public final fun component4 ()Lchat/bsky/convo/ConvoLockStatus;
+	public final fun component5 ()J
+	public final fun component6 ()J
+	public final fun component7 ()Ljava/lang/String;
+	public final fun copy (Lkotlin/time/Instant;Lchat/bsky/group/JoinLinkView;JLchat/bsky/convo/ConvoLockStatus;JJLjava/lang/String;)Lchat/bsky/moderation/GroupConvo;
+	public static synthetic fun copy$default (Lchat/bsky/moderation/GroupConvo;Lkotlin/time/Instant;Lchat/bsky/group/JoinLinkView;JLchat/bsky/convo/ConvoLockStatus;JJLjava/lang/String;ILjava/lang/Object;)Lchat/bsky/moderation/GroupConvo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getJoinLink ()Lchat/bsky/group/JoinLinkView;
+	public final fun getJoinRequestCount ()J
+	public final fun getLockStatus ()Lchat/bsky/convo/ConvoLockStatus;
+	public final fun getMemberCount ()J
+	public final fun getMemberLimit ()J
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/GroupConvo$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -18105,6 +18526,28 @@ public final class chat/bsky/moderation/SubscribeModEventsEventGroupChatUpdatedU
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
+public final class chat/bsky/moderation/SubscribeModEventsEventRateLimitExceeded {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsEventRateLimitExceeded$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy-gUbersM (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;)Lchat/bsky/moderation/SubscribeModEventsEventRateLimitExceeded;
+	public static synthetic fun copy-gUbersM$default (Lchat/bsky/moderation/SubscribeModEventsEventRateLimitExceeded;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/moderation/SubscribeModEventsEventRateLimitExceeded;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActorDid-715Ygxc ()Ljava/lang/String;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getEndpoint ()Ljava/lang/String;
+	public final fun getRev ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsEventRateLimitExceeded$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public abstract interface class chat/bsky/moderation/SubscribeModEventsMessageUnion {
 	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsMessageUnion$Companion;
 }
@@ -18300,6 +18743,25 @@ public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventGrou
 }
 
 public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventGroupChatUpdated$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventRateLimitExceeded : chat/bsky/moderation/SubscribeModEventsMessageUnion {
+	public static final field Companion Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventRateLimitExceeded$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/moderation/SubscribeModEventsEventRateLimitExceeded;)Lchat/bsky/moderation/SubscribeModEventsMessageUnion$EventRateLimitExceeded;
+	public static fun constructor-impl (Lchat/bsky/moderation/SubscribeModEventsEventRateLimitExceeded;)Lchat/bsky/moderation/SubscribeModEventsEventRateLimitExceeded;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/moderation/SubscribeModEventsEventRateLimitExceeded;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/moderation/SubscribeModEventsEventRateLimitExceeded;Lchat/bsky/moderation/SubscribeModEventsEventRateLimitExceeded;)Z
+	public final fun getValue ()Lchat/bsky/moderation/SubscribeModEventsEventRateLimitExceeded;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/moderation/SubscribeModEventsEventRateLimitExceeded;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/moderation/SubscribeModEventsEventRateLimitExceeded;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/moderation/SubscribeModEventsEventRateLimitExceeded;
+}
+
+public final class chat/bsky/moderation/SubscribeModEventsMessageUnion$EventRateLimitExceeded$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -23775,9 +24237,11 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getConfigForToolsOzoneServer (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConfigUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getConvo (Lchat/bsky/moderation/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConvoAvailability (Lchat/bsky/convo/GetConvoAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConvoMembers (Lchat/bsky/convo/GetConvoMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getConvoMembers (Lchat/bsky/moderation/GetConvoMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getDrafts (Lapp/bsky/draft/GetDraftsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getEmbedExternalView (Lapp/bsky/embed/GetEmbedExternalViewQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23981,6 +24445,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun updateDraft (Lapp/bsky/draft/UpdateDraftRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun updateJoinRequestsRead (Lchat/bsky/group/UpdateJoinRequestsReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateMember (Ltools/ozone/team/UpdateMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateQueue (Ltools/ozone/queue/UpdateQueueRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateRead (Lchat/bsky/convo/UpdateReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -23993,6 +24458,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun upsertOption (Ltools/ozone/setting/UpsertOptionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun upsertSet (Ltools/ozone/set/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun verifyPhone (Lapp/bsky/contact/VerifyPhoneRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun withdrawJoinRequest (Lchat/bsky/group/WithdrawJoinRequestRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class sh/christian/ozone/BlueskyJsonKt {
@@ -24085,9 +24551,11 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getConfigForToolsOzoneServer (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConfigUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConvo (Lchat/bsky/moderation/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoAvailability (Lchat/bsky/convo/GetConvoAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoMembers (Lchat/bsky/convo/GetConvoMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConvoMembers (Lchat/bsky/moderation/GetConvoMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getDrafts (Lapp/bsky/draft/GetDraftsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getEmbedExternalView (Lapp/bsky/embed/GetEmbedExternalViewQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -24291,6 +24759,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun updateDraft (Lapp/bsky/draft/UpdateDraftRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateJoinRequestsRead (Lchat/bsky/group/UpdateJoinRequestsReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateMember (Ltools/ozone/team/UpdateMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateQueue (Ltools/ozone/queue/UpdateQueueRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateRead (Lchat/bsky/convo/UpdateReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -24303,6 +24772,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun upsertOption (Ltools/ozone/setting/UpsertOptionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun upsertSet (Ltools/ozone/set/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun verifyPhone (Lapp/bsky/contact/VerifyPhoneRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun withdrawJoinRequest (Lchat/bsky/group/WithdrawJoinRequestRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/christian/ozone/BlueskyApi {
@@ -24398,9 +24868,11 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getConfigForToolsOzoneServer (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConfigUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvo (Lchat/bsky/convo/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConvo (Lchat/bsky/moderation/GetConvoQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoAvailability (Lchat/bsky/convo/GetConvoAvailabilityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoMembers (Lchat/bsky/convo/GetConvoMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConvoMembers (Lchat/bsky/moderation/GetConvoMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getDrafts (Lapp/bsky/draft/GetDraftsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getEmbedExternalView (Lapp/bsky/embed/GetEmbedExternalViewQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -24604,6 +25076,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun updateDraft (Lapp/bsky/draft/UpdateDraftRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateEmail (Lcom/atproto/server/UpdateEmailRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateHandle (Lcom/atproto/identity/UpdateHandleRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun updateJoinRequestsRead (Lchat/bsky/group/UpdateJoinRequestsReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateMember (Ltools/ozone/team/UpdateMemberRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateQueue (Ltools/ozone/queue/UpdateQueueRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateRead (Lchat/bsky/convo/UpdateReadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -24616,6 +25089,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun upsertOption (Ltools/ozone/setting/UpsertOptionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun upsertSet (Ltools/ozone/set/Set;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun verifyPhone (Lapp/bsky/contact/VerifyPhoneRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun withdrawJoinRequest (Lchat/bsky/group/WithdrawJoinRequestRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi$Companion {
