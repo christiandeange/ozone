@@ -3539,6 +3539,68 @@ public final class app/bsky/draft/DraftEmbedExternal$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/draft/DraftEmbedGallery {
+	public static final field Companion Lapp/bsky/draft/DraftEmbedGallery$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lapp/bsky/draft/DraftEmbedGallery;
+	public static synthetic fun copy$default (Lapp/bsky/draft/DraftEmbedGallery;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/draft/DraftEmbedGallery;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItems ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/draft/DraftEmbedGallery$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/draft/DraftEmbedGalleryItemsUnion {
+	public static final field Companion Lapp/bsky/draft/DraftEmbedGalleryItemsUnion$Companion;
+}
+
+public final class app/bsky/draft/DraftEmbedGalleryItemsUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftEmbedGalleryItemsUnion$DraftEmbedImage : app/bsky/draft/DraftEmbedGalleryItemsUnion {
+	public static final field Companion Lapp/bsky/draft/DraftEmbedGalleryItemsUnion$DraftEmbedImage$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/draft/DraftEmbedImage;)Lapp/bsky/draft/DraftEmbedGalleryItemsUnion$DraftEmbedImage;
+	public static fun constructor-impl (Lapp/bsky/draft/DraftEmbedImage;)Lapp/bsky/draft/DraftEmbedImage;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/draft/DraftEmbedImage;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/draft/DraftEmbedImage;Lapp/bsky/draft/DraftEmbedImage;)Z
+	public final fun getValue ()Lapp/bsky/draft/DraftEmbedImage;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/draft/DraftEmbedImage;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/draft/DraftEmbedImage;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/draft/DraftEmbedImage;
+}
+
+public final class app/bsky/draft/DraftEmbedGalleryItemsUnion$DraftEmbedImage$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/draft/DraftEmbedGalleryItemsUnion$Unknown : app/bsky/draft/DraftEmbedGalleryItemsUnion {
+	public static final field Companion Lapp/bsky/draft/DraftEmbedGalleryItemsUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/draft/DraftEmbedGalleryItemsUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/draft/DraftEmbedGalleryItemsUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/draft/DraftEmbedImage {
 	public static final field Companion Lapp/bsky/draft/DraftEmbedImage$Companion;
 	public fun <init> (Lapp/bsky/draft/DraftEmbedLocalRef;Ljava/lang/String;)V
@@ -3613,18 +3675,20 @@ public final class app/bsky/draft/DraftEmbedVideo$Companion {
 
 public final class app/bsky/draft/DraftPost {
 	public static final field Companion Lapp/bsky/draft/DraftPost$Companion;
-	public fun <init> (Ljava/lang/String;Lapp/bsky/draft/DraftPostLabelsUnion;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
-	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/draft/DraftPostLabelsUnion;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Lapp/bsky/draft/DraftPostLabelsUnion;Ljava/util/List;Lapp/bsky/draft/DraftEmbedGallery;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/draft/DraftPostLabelsUnion;Ljava/util/List;Lapp/bsky/draft/DraftEmbedGallery;Ljava/util/List;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Lapp/bsky/draft/DraftPostLabelsUnion;
 	public final fun component3 ()Ljava/util/List;
-	public final fun component4 ()Ljava/util/List;
+	public final fun component4 ()Lapp/bsky/draft/DraftEmbedGallery;
 	public final fun component5 ()Ljava/util/List;
 	public final fun component6 ()Ljava/util/List;
-	public final fun copy (Ljava/lang/String;Lapp/bsky/draft/DraftPostLabelsUnion;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)Lapp/bsky/draft/DraftPost;
-	public static synthetic fun copy$default (Lapp/bsky/draft/DraftPost;Ljava/lang/String;Lapp/bsky/draft/DraftPostLabelsUnion;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/draft/DraftPost;
+	public final fun component7 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Lapp/bsky/draft/DraftPostLabelsUnion;Ljava/util/List;Lapp/bsky/draft/DraftEmbedGallery;Ljava/util/List;Ljava/util/List;Ljava/util/List;)Lapp/bsky/draft/DraftPost;
+	public static synthetic fun copy$default (Lapp/bsky/draft/DraftPost;Ljava/lang/String;Lapp/bsky/draft/DraftPostLabelsUnion;Ljava/util/List;Lapp/bsky/draft/DraftEmbedGallery;Ljava/util/List;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/draft/DraftPost;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getEmbedExternals ()Ljava/util/List;
+	public final fun getEmbedGallery ()Lapp/bsky/draft/DraftEmbedGallery;
 	public final fun getEmbedImages ()Ljava/util/List;
 	public final fun getEmbedRecords ()Ljava/util/List;
 	public final fun getEmbedVideos ()Ljava/util/List;
@@ -4110,6 +4174,172 @@ public final class app/bsky/embed/ExternalViewExternalSourceTheme$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/embed/Gallery {
+	public static final field Companion Lapp/bsky/embed/Gallery$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lapp/bsky/embed/Gallery;
+	public static synthetic fun copy$default (Lapp/bsky/embed/Gallery;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/embed/Gallery;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItems ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/Gallery$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/GalleryImage {
+	public static final field Companion Lapp/bsky/embed/GalleryImage$Companion;
+	public fun <init> (Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;)V
+	public final fun component1 ()Lsh/christian/ozone/api/model/Blob;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lapp/bsky/embed/AspectRatio;
+	public final fun copy (Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;)Lapp/bsky/embed/GalleryImage;
+	public static synthetic fun copy$default (Lapp/bsky/embed/GalleryImage;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;ILjava/lang/Object;)Lapp/bsky/embed/GalleryImage;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlt ()Ljava/lang/String;
+	public final fun getAspectRatio ()Lapp/bsky/embed/AspectRatio;
+	public final fun getImage ()Lsh/christian/ozone/api/model/Blob;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/GalleryImage$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/embed/GalleryItemUnion {
+	public static final field Companion Lapp/bsky/embed/GalleryItemUnion$Companion;
+}
+
+public final class app/bsky/embed/GalleryItemUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/GalleryItemUnion$Image : app/bsky/embed/GalleryItemUnion {
+	public static final field Companion Lapp/bsky/embed/GalleryItemUnion$Image$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/GalleryImage;)Lapp/bsky/embed/GalleryItemUnion$Image;
+	public static fun constructor-impl (Lapp/bsky/embed/GalleryImage;)Lapp/bsky/embed/GalleryImage;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/GalleryImage;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/GalleryImage;Lapp/bsky/embed/GalleryImage;)Z
+	public final fun getValue ()Lapp/bsky/embed/GalleryImage;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/GalleryImage;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/GalleryImage;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/GalleryImage;
+}
+
+public final class app/bsky/embed/GalleryItemUnion$Image$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/GalleryItemUnion$Unknown : app/bsky/embed/GalleryItemUnion {
+	public static final field Companion Lapp/bsky/embed/GalleryItemUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/embed/GalleryItemUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/embed/GalleryItemUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/GalleryView {
+	public static final field Companion Lapp/bsky/embed/GalleryView$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lapp/bsky/embed/GalleryView;
+	public static synthetic fun copy$default (Lapp/bsky/embed/GalleryView;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/embed/GalleryView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItems ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/GalleryView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/GalleryViewImage {
+	public static final field Companion Lapp/bsky/embed/GalleryViewImage$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-v5vOzEc ()Ljava/lang/String;
+	public final fun component2-v5vOzEc ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lapp/bsky/embed/AspectRatio;
+	public final fun copy-fa1GFIo (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;)Lapp/bsky/embed/GalleryViewImage;
+	public static synthetic fun copy-fa1GFIo$default (Lapp/bsky/embed/GalleryViewImage;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;ILjava/lang/Object;)Lapp/bsky/embed/GalleryViewImage;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlt ()Ljava/lang/String;
+	public final fun getAspectRatio ()Lapp/bsky/embed/AspectRatio;
+	public final fun getFullsize-v5vOzEc ()Ljava/lang/String;
+	public final fun getThumbnail-v5vOzEc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/GalleryViewImage$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/embed/GalleryViewItemUnion {
+	public static final field Companion Lapp/bsky/embed/GalleryViewItemUnion$Companion;
+}
+
+public final class app/bsky/embed/GalleryViewItemUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/GalleryViewItemUnion$Unknown : app/bsky/embed/GalleryViewItemUnion {
+	public static final field Companion Lapp/bsky/embed/GalleryViewItemUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/embed/GalleryViewItemUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/embed/GalleryViewItemUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/GalleryViewItemUnion$ViewImage : app/bsky/embed/GalleryViewItemUnion {
+	public static final field Companion Lapp/bsky/embed/GalleryViewItemUnion$ViewImage$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/GalleryViewImage;)Lapp/bsky/embed/GalleryViewItemUnion$ViewImage;
+	public static fun constructor-impl (Lapp/bsky/embed/GalleryViewImage;)Lapp/bsky/embed/GalleryViewImage;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/GalleryViewImage;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/GalleryViewImage;Lapp/bsky/embed/GalleryViewImage;)Z
+	public final fun getValue ()Lapp/bsky/embed/GalleryViewImage;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/GalleryViewImage;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/GalleryViewImage;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/GalleryViewImage;
+}
+
+public final class app/bsky/embed/GalleryViewItemUnion$ViewImage$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/embed/GetEmbedExternalViewQueryParams {
 	public static final field Companion Lapp/bsky/embed/GetEmbedExternalViewQueryParams$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -4376,6 +4606,25 @@ public final class app/bsky/embed/RecordViewRecordEmbedUnion$ExternalView : app/
 }
 
 public final class app/bsky/embed/RecordViewRecordEmbedUnion$ExternalView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/RecordViewRecordEmbedUnion$GalleryView : app/bsky/embed/RecordViewRecordEmbedUnion {
+	public static final field Companion Lapp/bsky/embed/RecordViewRecordEmbedUnion$GalleryView$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/GalleryView;)Lapp/bsky/embed/RecordViewRecordEmbedUnion$GalleryView;
+	public static fun constructor-impl (Lapp/bsky/embed/GalleryView;)Lapp/bsky/embed/GalleryView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/GalleryView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/GalleryView;Lapp/bsky/embed/GalleryView;)Z
+	public final fun getValue ()Lapp/bsky/embed/GalleryView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/GalleryView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/GalleryView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/GalleryView;
+}
+
+public final class app/bsky/embed/RecordViewRecordEmbedUnion$GalleryView$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -4698,6 +4947,25 @@ public final class app/bsky/embed/RecordWithMediaMediaUnion$External$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/embed/RecordWithMediaMediaUnion$Gallery : app/bsky/embed/RecordWithMediaMediaUnion {
+	public static final field Companion Lapp/bsky/embed/RecordWithMediaMediaUnion$Gallery$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/Gallery;)Lapp/bsky/embed/RecordWithMediaMediaUnion$Gallery;
+	public static fun constructor-impl (Lapp/bsky/embed/Gallery;)Lapp/bsky/embed/Gallery;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/Gallery;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/Gallery;Lapp/bsky/embed/Gallery;)Z
+	public final fun getValue ()Lapp/bsky/embed/Gallery;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/Gallery;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/Gallery;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/Gallery;
+}
+
+public final class app/bsky/embed/RecordWithMediaMediaUnion$Gallery$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/embed/RecordWithMediaMediaUnion$Images : app/bsky/embed/RecordWithMediaMediaUnion {
 	public static final field Companion Lapp/bsky/embed/RecordWithMediaMediaUnion$Images$Companion;
 	public static final synthetic fun box-impl (Lapp/bsky/embed/Images;)Lapp/bsky/embed/RecordWithMediaMediaUnion$Images;
@@ -4797,6 +5065,25 @@ public final class app/bsky/embed/RecordWithMediaViewMediaUnion$ExternalView : a
 }
 
 public final class app/bsky/embed/RecordWithMediaViewMediaUnion$ExternalView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/RecordWithMediaViewMediaUnion$GalleryView : app/bsky/embed/RecordWithMediaViewMediaUnion {
+	public static final field Companion Lapp/bsky/embed/RecordWithMediaViewMediaUnion$GalleryView$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/GalleryView;)Lapp/bsky/embed/RecordWithMediaViewMediaUnion$GalleryView;
+	public static fun constructor-impl (Lapp/bsky/embed/GalleryView;)Lapp/bsky/embed/GalleryView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/GalleryView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/GalleryView;Lapp/bsky/embed/GalleryView;)Z
+	public final fun getValue ()Lapp/bsky/embed/GalleryView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/GalleryView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/GalleryView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/GalleryView;
+}
+
+public final class app/bsky/embed/RecordWithMediaViewMediaUnion$GalleryView$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -6252,6 +6539,25 @@ public final class app/bsky/feed/PostEmbedUnion$External$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/feed/PostEmbedUnion$Gallery : app/bsky/feed/PostEmbedUnion {
+	public static final field Companion Lapp/bsky/feed/PostEmbedUnion$Gallery$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/Gallery;)Lapp/bsky/feed/PostEmbedUnion$Gallery;
+	public static fun constructor-impl (Lapp/bsky/embed/Gallery;)Lapp/bsky/embed/Gallery;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/Gallery;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/Gallery;Lapp/bsky/embed/Gallery;)Z
+	public final fun getValue ()Lapp/bsky/embed/Gallery;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/Gallery;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/Gallery;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/Gallery;
+}
+
+public final class app/bsky/feed/PostEmbedUnion$Gallery$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/feed/PostEmbedUnion$Images : app/bsky/feed/PostEmbedUnion {
 	public static final field Companion Lapp/bsky/feed/PostEmbedUnion$Images$Companion;
 	public static final synthetic fun box-impl (Lapp/bsky/embed/Images;)Lapp/bsky/feed/PostEmbedUnion$Images;
@@ -6488,6 +6794,25 @@ public final class app/bsky/feed/PostViewEmbedUnion$ExternalView : app/bsky/feed
 }
 
 public final class app/bsky/feed/PostViewEmbedUnion$ExternalView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/feed/PostViewEmbedUnion$GalleryView : app/bsky/feed/PostViewEmbedUnion {
+	public static final field Companion Lapp/bsky/feed/PostViewEmbedUnion$GalleryView$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/GalleryView;)Lapp/bsky/feed/PostViewEmbedUnion$GalleryView;
+	public static fun constructor-impl (Lapp/bsky/embed/GalleryView;)Lapp/bsky/embed/GalleryView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/GalleryView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/GalleryView;Lapp/bsky/embed/GalleryView;)Z
+	public final fun getValue ()Lapp/bsky/embed/GalleryView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/GalleryView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/GalleryView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/GalleryView;
+}
+
+public final class app/bsky/feed/PostViewEmbedUnion$GalleryView$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -17801,6 +18126,39 @@ public final class chat/bsky/moderation/GetConvoResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class chat/bsky/moderation/GetConvosQueryParams {
+	public static final field Companion Lchat/bsky/moderation/GetConvosQueryParams$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lchat/bsky/moderation/GetConvosQueryParams;
+	public static synthetic fun copy$default (Lchat/bsky/moderation/GetConvosQueryParams;Ljava/util/List;ILjava/lang/Object;)Lchat/bsky/moderation/GetConvosQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvoIds ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/GetConvosQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/moderation/GetConvosResponse {
+	public static final field Companion Lchat/bsky/moderation/GetConvosResponse$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lchat/bsky/moderation/GetConvosResponse;
+	public static synthetic fun copy$default (Lchat/bsky/moderation/GetConvosResponse;Ljava/util/List;ILjava/lang/Object;)Lchat/bsky/moderation/GetConvosResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getConvos ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/moderation/GetConvosResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class chat/bsky/moderation/GetMessageContextQueryParams {
 	public static final field Companion Lchat/bsky/moderation/GetMessageContextQueryParams$Companion;
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)V
@@ -24242,6 +24600,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConvoMembers (Lchat/bsky/convo/GetConvoMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getConvoMembers (Lchat/bsky/moderation/GetConvoMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getConvos (Lchat/bsky/moderation/GetConvosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getDrafts (Lapp/bsky/draft/GetDraftsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getEmbedExternalView (Lapp/bsky/embed/GetEmbedExternalViewQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -24556,6 +24915,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoMembers (Lchat/bsky/convo/GetConvoMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoMembers (Lchat/bsky/moderation/GetConvoMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConvos (Lchat/bsky/moderation/GetConvosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getDrafts (Lapp/bsky/draft/GetDraftsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getEmbedExternalView (Lapp/bsky/embed/GetEmbedExternalViewQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -24873,6 +25233,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getConvoForMembers (Lchat/bsky/convo/GetConvoForMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoMembers (Lchat/bsky/convo/GetConvoMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getConvoMembers (Lchat/bsky/moderation/GetConvoMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getConvos (Lchat/bsky/moderation/GetConvosQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getDrafts (Lapp/bsky/draft/GetDraftsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getEmbedExternalView (Lapp/bsky/embed/GetEmbedExternalViewQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getEvent (Ltools/ozone/moderation/GetEventQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;

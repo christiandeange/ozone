@@ -92,12 +92,15 @@ fun PostViewEmbedUnion.toFeature(): TimelinePostFeature? {
           is RecordWithMediaViewMediaUnion.ExternalView -> media.value.toExternalFeature()
           is RecordWithMediaViewMediaUnion.ImagesView -> media.value.toImagesFeature()
           is RecordWithMediaViewMediaUnion.VideoView -> return null
+          is RecordWithMediaViewMediaUnion.GalleryView -> return null
           is RecordWithMediaViewMediaUnion.Unknown -> return null
         },
       )
     }
     // TODO properly support video views.
     is PostViewEmbedUnion.VideoView -> null
+    // TODO properly support gallery views.
+    is PostViewEmbedUnion.GalleryView -> null
     is PostViewEmbedUnion.Unknown -> null
   }
 }
