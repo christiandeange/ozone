@@ -18,6 +18,8 @@ import io.ktor.http.isSuccess
 import io.ktor.util.AttributeKey
 import io.ktor.utils.io.KtorDsl
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.serialization.json.Json
 import sh.christian.ozone.BlueskyJson
 import sh.christian.ozone.api.response.AtpErrorDescription
@@ -34,6 +36,13 @@ class BlueskyAuthPlugin(
   private val oauthApi: OAuthApi,
   private val authTokens: MutableStateFlow<Tokens?>,
 ) {
+  /**
+   * Serializes all token refreshes and DPoP nonce rotations. DPoP refresh tokens are single-use and the server rotates
+   * the nonce on every response, so concurrent requests must not refresh in parallel or they will clobber each other's
+   * tokens and loop on `use_dpop_nonce`.
+   */
+  private val refreshMutex = Mutex()
+
   @KtorDsl
   class Config(
     var json: Json = BlueskyJson,
@@ -96,8 +105,12 @@ class BlueskyAuthPlugin(
         val alreadyHasAuth = context.headers.contains(Authorization)
         var retryable = !alreadyHasAuth
 
+        // Snapshot of the tokens used to authenticate the current attempt. Refreshes are keyed off this value so that
+        // concurrent requests can detect when another coroutine has already refreshed and reuse its result.
+        var tokensUsed = plugin.authTokens.value
+
         if (!alreadyHasAuth) {
-          context.auth(plugin)
+          context.auth(plugin, tokensUsed)
         }
 
         var result: HttpClientCall = execute(context)
@@ -113,31 +126,40 @@ class BlueskyAuthPlugin(
           val newTokens = when (response.getOrNull()?.error) {
             "ExpiredToken",
             "InvalidToken",
-            "invalid_token" -> refreshExpiredToken(plugin, scope)
-            "use_dpop_nonce" -> refreshDpopNonce(plugin, result.response)
+            "invalid_token" -> maybeRefreshToken(plugin, scope, tokensUsed)
+            "use_dpop_nonce" -> maybeRefreshDpopNonce(plugin, result.response, tokensUsed)
             else -> null
           }
 
-          retryable = newTokens != null
+          // Only retry if the refresh produced different tokens; otherwise we would loop on the same failing request.
+          retryable = newTokens != null && newTokens != tokensUsed
 
           if (retryable) {
-            plugin.authTokens.value = newTokens
+            tokensUsed = newTokens
 
             // Apply the new authentication tokens to the request and retry.
             context.headers.remove(Authorization)
             context.headers.remove("DPoP")
-            context.auth(plugin)
+            context.auth(plugin, newTokens)
             result = execute(context)
           }
         }
 
-        onResponse(plugin, result.response)
+        // Skip when the caller manages their own auth: not only is there nothing to rotate, but this also covers the
+        // nested refresh request (which carries its own Authorization header) that runs while the refresh mutex is held,
+        // avoiding a re-entrant lock acquisition on the non-reentrant mutex.
+        if (!alreadyHasAuth) {
+          onResponse(plugin, result.response, tokensUsed)
+        }
         result
       }
     }
 
-    private suspend fun HttpRequestBuilder.auth(plugin: BlueskyAuthPlugin) {
-      when (val tokens = plugin.authTokens.value) {
+    private suspend fun HttpRequestBuilder.auth(
+      plugin: BlueskyAuthPlugin,
+      tokens: Tokens?,
+    ) {
+      when (tokens) {
         is Tokens.Bearer -> header(Authorization, "Bearer ${tokens.auth}")
         is Tokens.Dpop -> applyDpop(plugin, tokens, tokens.auth)
         null -> {
@@ -146,8 +168,11 @@ class BlueskyAuthPlugin(
       }
     }
 
-    private suspend fun HttpRequestBuilder.refresh(plugin: BlueskyAuthPlugin) {
-      when (val tokens = plugin.authTokens.value) {
+    private suspend fun HttpRequestBuilder.refresh(
+      plugin: BlueskyAuthPlugin,
+      tokens: Tokens?,
+    ) {
+      when (tokens) {
         is Tokens.Bearer -> header(Authorization, "Bearer ${tokens.refresh}")
         is Tokens.Dpop -> applyDpop(plugin, tokens, tokens.refresh)
         null -> {
@@ -156,23 +181,42 @@ class BlueskyAuthPlugin(
       }
     }
 
-    private fun onResponse(
+    private suspend fun onResponse(
       plugin: BlueskyAuthPlugin,
       response: HttpResponse,
+      tokensUsed: Tokens?,
     ) {
-      refreshDpopNonce(plugin, response)?.let { newTokens ->
-        plugin.authTokens.value = newTokens
+      // Capture a rotated DPoP nonce from a successful response, if present.
+      maybeRefreshDpopNonce(plugin, response, tokensUsed)
+    }
+
+    /**
+     * Refreshes an expired access token, serialized so that at most one refresh runs at a time. If another coroutine
+     * already refreshed the tokens (detected by comparing against [staleTokens]), its result is reused instead of
+     * performing another refresh.
+     */
+    private suspend fun maybeRefreshToken(
+      plugin: BlueskyAuthPlugin,
+      scope: HttpClient,
+      staleTokens: Tokens?,
+    ): Tokens? = plugin.refreshMutex.withLock {
+      val current = plugin.authTokens.value
+      if (current != staleTokens) {
+        // Another coroutine already refreshed the tokens! Use these without making another network call.
+        current
+      } else {
+        unsafeRefreshToken(plugin, scope)?.also { plugin.authTokens.value = it }
       }
     }
 
-    private suspend fun refreshExpiredToken(
+    private suspend fun unsafeRefreshToken(
       plugin: BlueskyAuthPlugin,
       scope: HttpClient,
     ): Tokens? {
       return when (val tokens = plugin.authTokens.value) {
         is Tokens.Bearer -> {
           val refreshResponse = scope.post("/xrpc/com.atproto.server.refreshSession") {
-            refresh(plugin)
+            refresh(plugin, tokens)
           }
 
           refreshResponse.toAtpResponse<RefreshSessionResponse>().maybeResponse()?.let { refreshed ->
@@ -203,6 +247,25 @@ class BlueskyAuthPlugin(
           // No tokens available, unable to refresh
           null
         }
+      }
+    }
+
+    /**
+     * Rotates the DPoP nonce from the given response, serialized so that concurrent requests cannot clobber a token
+     * that was refreshed in the meantime. The nonce is only applied if the existing tokens still match `tokensUsed`
+     * (no other coroutine has refreshed them), otherwise the existing tokens are returned.
+     */
+    private suspend fun maybeRefreshDpopNonce(
+      plugin: BlueskyAuthPlugin,
+      callResponse: HttpResponse,
+      tokensUsed: Tokens?,
+    ): Tokens? = plugin.refreshMutex.withLock {
+      val current = plugin.authTokens.value
+      if (current != tokensUsed) {
+        // Tokens were refreshed concurrently; the current tokens already carry a fresh nonce, so reuse them.
+        current
+      } else {
+        refreshDpopNonce(plugin, callResponse)?.also { plugin.authTokens.value = it }
       }
     }
 
