@@ -17104,17 +17104,101 @@ public final class chat/bsky/embed/JoinLink$Companion {
 
 public final class chat/bsky/embed/JoinLinkView {
 	public static final field Companion Lchat/bsky/embed/JoinLinkView$Companion;
-	public fun <init> (Lchat/bsky/group/JoinLinkPreviewView;)V
-	public final fun component1 ()Lchat/bsky/group/JoinLinkPreviewView;
-	public final fun copy (Lchat/bsky/group/JoinLinkPreviewView;)Lchat/bsky/embed/JoinLinkView;
-	public static synthetic fun copy$default (Lchat/bsky/embed/JoinLinkView;Lchat/bsky/group/JoinLinkPreviewView;ILjava/lang/Object;)Lchat/bsky/embed/JoinLinkView;
+	public fun <init> (Lchat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion;)V
+	public final fun component1 ()Lchat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion;
+	public final fun copy (Lchat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion;)Lchat/bsky/embed/JoinLinkView;
+	public static synthetic fun copy$default (Lchat/bsky/embed/JoinLinkView;Lchat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion;ILjava/lang/Object;)Lchat/bsky/embed/JoinLinkView;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getJoinLinkPreview ()Lchat/bsky/group/JoinLinkPreviewView;
+	public final fun getJoinLinkPreview ()Lchat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
 public final class chat/bsky/embed/JoinLinkView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class chat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion {
+	public static final field Companion Lchat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion$Companion;
+}
+
+public final class chat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion$DisabledJoinLinkPreviewView : chat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion {
+	public static final field Companion Lchat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion$DisabledJoinLinkPreviewView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/group/DisabledJoinLinkPreviewView;)Lchat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion$DisabledJoinLinkPreviewView;
+	public static fun constructor-impl (Lchat/bsky/group/DisabledJoinLinkPreviewView;)Lchat/bsky/group/DisabledJoinLinkPreviewView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/group/DisabledJoinLinkPreviewView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/group/DisabledJoinLinkPreviewView;Lchat/bsky/group/DisabledJoinLinkPreviewView;)Z
+	public final fun getValue ()Lchat/bsky/group/DisabledJoinLinkPreviewView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/group/DisabledJoinLinkPreviewView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/group/DisabledJoinLinkPreviewView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/group/DisabledJoinLinkPreviewView;
+}
+
+public final class chat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion$DisabledJoinLinkPreviewView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion$InvalidJoinLinkPreviewView : chat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion {
+	public static final field Companion Lchat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion$InvalidJoinLinkPreviewView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/group/InvalidJoinLinkPreviewView;)Lchat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion$InvalidJoinLinkPreviewView;
+	public static fun constructor-impl (Lchat/bsky/group/InvalidJoinLinkPreviewView;)Lchat/bsky/group/InvalidJoinLinkPreviewView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/group/InvalidJoinLinkPreviewView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/group/InvalidJoinLinkPreviewView;Lchat/bsky/group/InvalidJoinLinkPreviewView;)Z
+	public final fun getValue ()Lchat/bsky/group/InvalidJoinLinkPreviewView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/group/InvalidJoinLinkPreviewView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/group/InvalidJoinLinkPreviewView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/group/InvalidJoinLinkPreviewView;
+}
+
+public final class chat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion$InvalidJoinLinkPreviewView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion$JoinLinkPreviewView : chat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion {
+	public static final field Companion Lchat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion$JoinLinkPreviewView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/group/JoinLinkPreviewView;)Lchat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion$JoinLinkPreviewView;
+	public static fun constructor-impl (Lchat/bsky/group/JoinLinkPreviewView;)Lchat/bsky/group/JoinLinkPreviewView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/group/JoinLinkPreviewView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/group/JoinLinkPreviewView;Lchat/bsky/group/JoinLinkPreviewView;)Z
+	public final fun getValue ()Lchat/bsky/group/JoinLinkPreviewView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/group/JoinLinkPreviewView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/group/JoinLinkPreviewView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/group/JoinLinkPreviewView;
+}
+
+public final class chat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion$JoinLinkPreviewView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion$Unknown : chat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion {
+	public static final field Companion Lchat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lchat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class chat/bsky/embed/JoinLinkViewJoinLinkPreviewUnion$Unknown$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -17292,6 +17376,22 @@ public final class chat/bsky/group/DisableJoinLinkResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class chat/bsky/group/DisabledJoinLinkPreviewView {
+	public static final field Companion Lchat/bsky/group/DisabledJoinLinkPreviewView$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/group/DisabledJoinLinkPreviewView;
+	public static synthetic fun copy$default (Lchat/bsky/group/DisabledJoinLinkPreviewView;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/group/DisabledJoinLinkPreviewView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/group/DisabledJoinLinkPreviewView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class chat/bsky/group/EditGroupRequest {
 	public static final field Companion Lchat/bsky/group/EditGroupRequest$Companion;
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
@@ -17428,26 +17528,126 @@ public final class chat/bsky/group/GetJoinLinkPreviewsResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public abstract interface class chat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion {
+	public static final field Companion Lchat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion$Companion;
+}
+
+public final class chat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion$DisabledJoinLinkPreviewView : chat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion {
+	public static final field Companion Lchat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion$DisabledJoinLinkPreviewView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/group/DisabledJoinLinkPreviewView;)Lchat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion$DisabledJoinLinkPreviewView;
+	public static fun constructor-impl (Lchat/bsky/group/DisabledJoinLinkPreviewView;)Lchat/bsky/group/DisabledJoinLinkPreviewView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/group/DisabledJoinLinkPreviewView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/group/DisabledJoinLinkPreviewView;Lchat/bsky/group/DisabledJoinLinkPreviewView;)Z
+	public final fun getValue ()Lchat/bsky/group/DisabledJoinLinkPreviewView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/group/DisabledJoinLinkPreviewView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/group/DisabledJoinLinkPreviewView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/group/DisabledJoinLinkPreviewView;
+}
+
+public final class chat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion$DisabledJoinLinkPreviewView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion$InvalidJoinLinkPreviewView : chat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion {
+	public static final field Companion Lchat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion$InvalidJoinLinkPreviewView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/group/InvalidJoinLinkPreviewView;)Lchat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion$InvalidJoinLinkPreviewView;
+	public static fun constructor-impl (Lchat/bsky/group/InvalidJoinLinkPreviewView;)Lchat/bsky/group/InvalidJoinLinkPreviewView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/group/InvalidJoinLinkPreviewView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/group/InvalidJoinLinkPreviewView;Lchat/bsky/group/InvalidJoinLinkPreviewView;)Z
+	public final fun getValue ()Lchat/bsky/group/InvalidJoinLinkPreviewView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/group/InvalidJoinLinkPreviewView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/group/InvalidJoinLinkPreviewView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/group/InvalidJoinLinkPreviewView;
+}
+
+public final class chat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion$InvalidJoinLinkPreviewView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion$JoinLinkPreviewView : chat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion {
+	public static final field Companion Lchat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion$JoinLinkPreviewView$Companion;
+	public static final synthetic fun box-impl (Lchat/bsky/group/JoinLinkPreviewView;)Lchat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion$JoinLinkPreviewView;
+	public static fun constructor-impl (Lchat/bsky/group/JoinLinkPreviewView;)Lchat/bsky/group/JoinLinkPreviewView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lchat/bsky/group/JoinLinkPreviewView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lchat/bsky/group/JoinLinkPreviewView;Lchat/bsky/group/JoinLinkPreviewView;)Z
+	public final fun getValue ()Lchat/bsky/group/JoinLinkPreviewView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lchat/bsky/group/JoinLinkPreviewView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lchat/bsky/group/JoinLinkPreviewView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lchat/bsky/group/JoinLinkPreviewView;
+}
+
+public final class chat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion$JoinLinkPreviewView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion$Unknown : chat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion {
+	public static final field Companion Lchat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lchat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class chat/bsky/group/GetJoinLinkPreviewsResponseJoinLinkPreviewUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/group/InvalidJoinLinkPreviewView {
+	public static final field Companion Lchat/bsky/group/InvalidJoinLinkPreviewView$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/group/InvalidJoinLinkPreviewView;
+	public static synthetic fun copy$default (Lchat/bsky/group/InvalidJoinLinkPreviewView;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/group/InvalidJoinLinkPreviewView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/group/InvalidJoinLinkPreviewView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class chat/bsky/group/JoinLinkPreviewView {
 	public static final field Companion Lchat/bsky/group/JoinLinkPreviewView$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JJZLchat/bsky/group/JoinRule;Lchat/bsky/group/LinkEnabledStatus;Lchat/bsky/convo/ConvoView;Lchat/bsky/group/JoinLinkViewerState;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JJZLchat/bsky/group/JoinRule;Lchat/bsky/group/LinkEnabledStatus;Lchat/bsky/convo/ConvoView;Lchat/bsky/group/JoinLinkViewerState;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JJZLchat/bsky/group/JoinRule;Lchat/bsky/convo/ConvoView;Lchat/bsky/group/JoinLinkViewerState;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JJZLchat/bsky/group/JoinRule;Lchat/bsky/convo/ConvoView;Lchat/bsky/group/JoinLinkViewerState;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component10 ()Lchat/bsky/group/JoinLinkViewerState;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Lchat/bsky/actor/ProfileViewBasic;
-	public final fun component4 ()J
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lchat/bsky/actor/ProfileViewBasic;
 	public final fun component5 ()J
-	public final fun component6 ()Z
-	public final fun component7 ()Lchat/bsky/group/JoinRule;
-	public final fun component8 ()Lchat/bsky/group/LinkEnabledStatus;
+	public final fun component6 ()J
+	public final fun component7 ()Z
+	public final fun component8 ()Lchat/bsky/group/JoinRule;
 	public final fun component9 ()Lchat/bsky/convo/ConvoView;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JJZLchat/bsky/group/JoinRule;Lchat/bsky/group/LinkEnabledStatus;Lchat/bsky/convo/ConvoView;Lchat/bsky/group/JoinLinkViewerState;)Lchat/bsky/group/JoinLinkPreviewView;
-	public static synthetic fun copy$default (Lchat/bsky/group/JoinLinkPreviewView;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JJZLchat/bsky/group/JoinRule;Lchat/bsky/group/LinkEnabledStatus;Lchat/bsky/convo/ConvoView;Lchat/bsky/group/JoinLinkViewerState;ILjava/lang/Object;)Lchat/bsky/group/JoinLinkPreviewView;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JJZLchat/bsky/group/JoinRule;Lchat/bsky/convo/ConvoView;Lchat/bsky/group/JoinLinkViewerState;)Lchat/bsky/group/JoinLinkPreviewView;
+	public static synthetic fun copy$default (Lchat/bsky/group/JoinLinkPreviewView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JJZLchat/bsky/group/JoinRule;Lchat/bsky/convo/ConvoView;Lchat/bsky/group/JoinLinkViewerState;ILjava/lang/Object;)Lchat/bsky/group/JoinLinkPreviewView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCode ()Ljava/lang/String;
 	public final fun getConvo ()Lchat/bsky/convo/ConvoView;
-	public final fun getEnabledStatus ()Lchat/bsky/group/LinkEnabledStatus;
+	public final fun getConvoId ()Ljava/lang/String;
 	public final fun getJoinRule ()Lchat/bsky/group/JoinRule;
 	public final fun getMemberCount ()J
 	public final fun getMemberLimit ()J
@@ -17507,22 +17707,22 @@ public final class chat/bsky/group/JoinLinkViewerState$Companion {
 
 public final class chat/bsky/group/JoinRequestConvoView {
 	public static final field Companion Lchat/bsky/group/JoinRequestConvoView$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JJLkotlin/time/Instant;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JJLchat/bsky/group/JoinLinkViewerState;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Lchat/bsky/actor/ProfileViewBasic;
 	public final fun component4 ()J
 	public final fun component5 ()J
-	public final fun component6 ()Lkotlin/time/Instant;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JJLkotlin/time/Instant;)Lchat/bsky/group/JoinRequestConvoView;
-	public static synthetic fun copy$default (Lchat/bsky/group/JoinRequestConvoView;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JJLkotlin/time/Instant;ILjava/lang/Object;)Lchat/bsky/group/JoinRequestConvoView;
+	public final fun component6 ()Lchat/bsky/group/JoinLinkViewerState;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JJLchat/bsky/group/JoinLinkViewerState;)Lchat/bsky/group/JoinRequestConvoView;
+	public static synthetic fun copy$default (Lchat/bsky/group/JoinRequestConvoView;Ljava/lang/String;Ljava/lang/String;Lchat/bsky/actor/ProfileViewBasic;JJLchat/bsky/group/JoinLinkViewerState;ILjava/lang/Object;)Lchat/bsky/group/JoinRequestConvoView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getConvoId ()Ljava/lang/String;
 	public final fun getMemberCount ()J
 	public final fun getMemberLimit ()J
 	public final fun getName ()Ljava/lang/String;
 	public final fun getOwner ()Lchat/bsky/actor/ProfileViewBasic;
-	public final fun getRequestedAt ()Lkotlin/time/Instant;
+	public final fun getViewer ()Lchat/bsky/group/JoinLinkViewerState;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
