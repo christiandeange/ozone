@@ -24,7 +24,7 @@ fi
 
 LAST_RELEASE="$(awk -F\" '/sh.christian.ozone:bluesky/ { print $4 }' < gradle/libs.versions.toml)"
 
-properties_files="$(find . -name gradle.properties)"
+properties_files="$(find . -path ./lexicons -prune -o -name gradle.properties -print)"
 for file in $properties_files; do
   replace_in_file "s/POM_VERSION=.*/POM_VERSION=$NEXT_RELEASE/g" "${file}"
 done
