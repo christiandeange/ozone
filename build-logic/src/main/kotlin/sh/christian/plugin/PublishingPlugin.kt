@@ -4,6 +4,7 @@ import com.vanniktech.maven.publish.MavenPublishBaseExtension
 import kotlinx.validation.ApiValidationExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.publish.PublishingExtension
 import org.gradle.kotlin.dsl.configure
 
 @Suppress("UnstableApiUsage", "unused")
@@ -61,6 +62,19 @@ class PublishingPlugin : Plugin<Project> {
 
       publishToMavenCentral(automaticRelease = true)
       signAllPublications()
+    }
+
+    // A local Maven repository that CI uses to stage each platform's artifacts before they are
+    // merged and uploaded to Maven Central as a single atomic deployment. This generates the
+    // `publish<Variant>PublicationToStagingRepository` tasks consumed by the per-platform publish
+    // jobs. See .github/workflows/publish.yml.
+    target.extensions.configure<PublishingExtension> {
+      repositories {
+        maven {
+          name = "staging"
+          url = target.rootProject.layout.buildDirectory.dir("staging-deploy").get().asFile.toURI()
+        }
+      }
     }
   }
 

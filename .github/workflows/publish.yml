@@ -11,7 +11,106 @@ permissions:
   id-token: write
 
 jobs:
-  publish-release:
+  publish-jvm:
+    runs-on: ubuntu-latest
+    if: github.repository == 'christiandeange/ozone'
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: gradle/wrapper-validation-action@v1
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          check-latest: true
+
+      - name: Stage JVM artifacts
+        env:
+          SONATYPE_CENTRAL_USERNAME: ${{ secrets.SONATYPE_CENTRAL_USERNAME }}
+          SONATYPE_CENTRAL_PASSWORD: ${{ secrets.SONATYPE_CENTRAL_PASSWORD }}
+          ARTIFACT_SIGNING_PRIVATE_KEY: ${{ secrets.ARTIFACT_SIGNING_PRIVATE_KEY }}
+          ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD }}
+        run: |
+          ORG_GRADLE_PROJECT_mavenCentralUsername="$SONATYPE_CENTRAL_USERNAME" \
+          ORG_GRADLE_PROJECT_mavenCentralPassword="$SONATYPE_CENTRAL_PASSWORD" \
+          ORG_GRADLE_PROJECT_signingInMemoryKey="$ARTIFACT_SIGNING_PRIVATE_KEY" \
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword="$ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD" \
+          ./gradlew clean publishJvmPublicationToStagingRepository :generator:publishAllPublicationsToStagingRepository --no-daemon --stacktrace
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: staging-jvm
+          path: build/staging-deploy
+          if-no-files-found: error
+
+  publish-js:
+    runs-on: ubuntu-latest
+    if: github.repository == 'christiandeange/ozone'
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: gradle/wrapper-validation-action@v1
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          check-latest: true
+
+      - name: Stage JS artifacts
+        env:
+          SONATYPE_CENTRAL_USERNAME: ${{ secrets.SONATYPE_CENTRAL_USERNAME }}
+          SONATYPE_CENTRAL_PASSWORD: ${{ secrets.SONATYPE_CENTRAL_PASSWORD }}
+          ARTIFACT_SIGNING_PRIVATE_KEY: ${{ secrets.ARTIFACT_SIGNING_PRIVATE_KEY }}
+          ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD }}
+        run: |
+          ORG_GRADLE_PROJECT_mavenCentralUsername="$SONATYPE_CENTRAL_USERNAME" \
+          ORG_GRADLE_PROJECT_mavenCentralPassword="$SONATYPE_CENTRAL_PASSWORD" \
+          ORG_GRADLE_PROJECT_signingInMemoryKey="$ARTIFACT_SIGNING_PRIVATE_KEY" \
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword="$ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD" \
+          ./gradlew clean publishJsPublicationToStagingRepository --no-daemon --stacktrace
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: staging-js
+          path: build/staging-deploy
+          if-no-files-found: error
+
+  publish-kotlin:
+    runs-on: ubuntu-latest
+    if: github.repository == 'christiandeange/ozone'
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: gradle/wrapper-validation-action@v1
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          check-latest: true
+
+      - name: Stage Kotlin multiplatform metadata artifacts
+        env:
+          SONATYPE_CENTRAL_USERNAME: ${{ secrets.SONATYPE_CENTRAL_USERNAME }}
+          SONATYPE_CENTRAL_PASSWORD: ${{ secrets.SONATYPE_CENTRAL_PASSWORD }}
+          ARTIFACT_SIGNING_PRIVATE_KEY: ${{ secrets.ARTIFACT_SIGNING_PRIVATE_KEY }}
+          ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD }}
+        run: |
+          ORG_GRADLE_PROJECT_mavenCentralUsername="$SONATYPE_CENTRAL_USERNAME" \
+          ORG_GRADLE_PROJECT_mavenCentralPassword="$SONATYPE_CENTRAL_PASSWORD" \
+          ORG_GRADLE_PROJECT_signingInMemoryKey="$ARTIFACT_SIGNING_PRIVATE_KEY" \
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword="$ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD" \
+          ./gradlew clean publishKotlinMultiplatformPublicationToStagingRepository --no-daemon --stacktrace
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: staging-kotlin
+          path: build/staging-deploy
+          if-no-files-found: error
+
+  publish-ios:
     runs-on: macos-latest
     if: github.repository == 'christiandeange/ozone'
     timeout-minutes: 60
@@ -25,7 +124,7 @@ jobs:
           java-version: '17'
           check-latest: true
 
-      - name: Publish Release
+      - name: Stage iOS artifacts
         env:
           SONATYPE_CENTRAL_USERNAME: ${{ secrets.SONATYPE_CENTRAL_USERNAME }}
           SONATYPE_CENTRAL_PASSWORD: ${{ secrets.SONATYPE_CENTRAL_PASSWORD }}
@@ -36,7 +135,48 @@ jobs:
           ORG_GRADLE_PROJECT_mavenCentralPassword="$SONATYPE_CENTRAL_PASSWORD" \
           ORG_GRADLE_PROJECT_signingInMemoryKey="$ARTIFACT_SIGNING_PRIVATE_KEY" \
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword="$ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD" \
-          ./gradlew clean publish :generator:publish -x :lexicons:publish --no-daemon --stacktrace
+          ./gradlew clean \
+            publishIosArm64PublicationToStagingRepository \
+            publishIosX64PublicationToStagingRepository \
+            publishIosSimulatorArm64PublicationToStagingRepository \
+            --no-daemon --stacktrace
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: staging-ios
+          path: build/staging-deploy
+          if-no-files-found: error
+
+  publish-release:
+    runs-on: ubuntu-latest
+    if: github.repository == 'christiandeange/ozone'
+    timeout-minutes: 30
+    needs:
+      - publish-jvm
+      - publish-js
+      - publish-kotlin
+      - publish-ios
+
+    steps:
+      # Merge every platform's staging repo into a single Maven repository layout.
+      - uses: actions/download-artifact@v4
+        with:
+          path: staging-all
+          pattern: staging-*
+          merge-multiple: true
+
+      - name: Upload single deployment to Maven Central Portal
+        env:
+          SONATYPE_CENTRAL_USERNAME: ${{ secrets.SONATYPE_CENTRAL_USERNAME }}
+          SONATYPE_CENTRAL_PASSWORD: ${{ secrets.SONATYPE_CENTRAL_PASSWORD }}
+        run: |
+          (cd staging-all && zip -r ../bundle.zip .)
+          TOKEN=$(printf '%s:%s' "$SONATYPE_CENTRAL_USERNAME" "$SONATYPE_CENTRAL_PASSWORD" | base64)
+          echo "::add-mask::$TOKEN"
+          curl --fail --silent --show-error \
+            -H "Authorization: Bearer $TOKEN" \
+            -F bundle=@bundle.zip \
+            "https://central.sonatype.com/api/v1/publisher/upload?publishingType=USER_MANAGED"
 
   deploy-release-docs:
     uses: ./.github/workflows/deploy_docs.yml
