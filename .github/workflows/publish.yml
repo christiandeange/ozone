@@ -176,7 +176,7 @@ jobs:
           curl --fail --silent --show-error \
             -H "Authorization: Bearer $TOKEN" \
             -F bundle=@bundle.zip \
-            "https://central.sonatype.com/api/v1/publisher/upload?publishingType=USER_MANAGED"
+            "https://central.sonatype.com/api/v1/publisher/upload?publishingType=AUTOMATIC"
 
   deploy-release-docs:
     uses: ./.github/workflows/deploy_docs.yml
