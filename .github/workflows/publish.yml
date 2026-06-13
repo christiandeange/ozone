@@ -139,6 +139,7 @@ jobs:
             publishIosArm64PublicationToStagingRepository \
             publishIosX64PublicationToStagingRepository \
             publishIosSimulatorArm64PublicationToStagingRepository \
+            publishKMMBridgeFrameworkPublicationToStagingRepository \
             --no-daemon --stacktrace
 
       - uses: actions/upload-artifact@v4
