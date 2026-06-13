@@ -79,4 +79,4 @@ crypto-apple = { module = "dev.whyoleg.cryptography:cryptography-provider-apple"
 crypto-webcrypto = { module = "dev.whyoleg.cryptography:cryptography-provider-webcrypto", version.ref = "crypto" }
 zstd = { module = "com.github.luben:zstd-jni", version = "1.5.7-6" }
 
-bluesky = { module = "sh.christian.ozone:bluesky", version = "0.3.3" }
+bluesky = { module = "sh.christian.ozone:bluesky", version = "0.3.4" }

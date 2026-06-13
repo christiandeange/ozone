@@ -1,4 +1,4 @@
-![Maven Central](https://img.shields.io/maven-central/v/sh.christian.ozone/bluesky?versionPrefix=0.3.3) ![CI](https://github.com/christiandeange/ozone/actions/workflows/ci.yml/badge.svg)
+![Maven Central](https://img.shields.io/maven-central/v/sh.christian.ozone/bluesky?versionPrefix=0.3.4) ![CI](https://github.com/christiandeange/ozone/actions/workflows/ci.yml/badge.svg)
 
 ozone
 =====
@@ -38,7 +38,7 @@ Documentation is available at [ozone.christian.sh](https://ozone.christian.sh).
 // build.gradle[.kts]
 
 dependencies {
-  api("sh.christian.ozone:bluesky:0.3.3")
+  api("sh.christian.ozone:bluesky:0.3.4")
 }
 ```
 
@@ -56,7 +56,7 @@ Documentation is available at [ozone.christian.sh](http://ozone.christian.sh) in
 // build.gradle[.kts]
 
 dependencies {
-  api("sh.christian.ozone:oauth:0.3.3")
+  api("sh.christian.ozone:oauth:0.3.4")
 }
 ```
 
@@ -70,7 +70,7 @@ Documentation is available at [ozone.christian.sh](http://ozone.christian.sh) in
 // build.gradle[.kts]
 
 dependencies {
-  api("sh.christian.ozone:jetstream:0.3.3")
+  api("sh.christian.ozone:jetstream:0.3.4")
 }
 ```
 
@@ -82,7 +82,7 @@ In addition to shipping the lexicons that define the official Bluesky API, this 
 // build.gradle[.kts]
 
 plugins {
-  id("sh.christian.ozone.generator") version "0.3.3"
+  id("sh.christian.ozone.generator") version "0.3.4"
 }
 
 dependencies {
