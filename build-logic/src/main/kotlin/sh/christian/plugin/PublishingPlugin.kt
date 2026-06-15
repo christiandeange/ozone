@@ -6,6 +6,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.publish.PublishingExtension
 import org.gradle.kotlin.dsl.configure
+import java.io.File
 
 @Suppress("UnstableApiUsage", "unused")
 class PublishingPlugin : Plugin<Project> {
@@ -67,12 +68,20 @@ class PublishingPlugin : Plugin<Project> {
     // A local Maven repository that CI uses to stage each platform's artifacts before they are
     // merged and uploaded to Maven Central as a single atomic deployment. This generates the
     // `publish<Variant>PublicationToStagingRepository` tasks consumed by the per-platform publish
-    // jobs. See .github/workflows/publish.yml.
+    // jobs. CI passes `-Pozone.stagingDir=<absolute path>` so the main build and the `:generator`
+    // included build write into the same directory. See .github/workflows/publish.yml.
     target.extensions.configure<PublishingExtension> {
       repositories {
         maven {
           name = "staging"
-          url = target.rootProject.layout.buildDirectory.dir("staging-deploy").get().asFile.toURI()
+
+          val stagingProperty = target.findProperty("ozone.stagingDir") as? String
+          val stagingPath = if (stagingProperty != null) {
+            File(stagingProperty)
+          } else {
+            target.rootProject.layout.buildDirectory.dir("staging-deploy").get().asFile
+          }
+          url = stagingPath.toURI()
         }
       }
     }
