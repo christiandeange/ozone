@@ -21,6 +21,7 @@ import com.squareup.kotlinpoet.TypeSpec
 import com.squareup.kotlinpoet.TypeVariableName
 import com.squareup.kotlinpoet.WildcardTypeName
 import com.squareup.kotlinpoet.buildCodeBlock
+import sh.christian.ozone.api.generator.BinaryDataType
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.TypeNames
 import sh.christian.ozone.api.generator.className
@@ -42,6 +43,8 @@ import sh.christian.ozone.api.lexicon.LexiconUserType
 import sh.christian.ozone.api.lexicon.LexiconXrpcProcedure
 import sh.christian.ozone.api.lexicon.LexiconXrpcQuery
 import sh.christian.ozone.api.lexicon.LexiconXrpcSubscription
+
+private val BYTE_READ_CHANNEL = BinaryDataType.ByteReadChannel.className()
 
 fun createClassForProperties(
   className: ClassName,
@@ -100,7 +103,16 @@ fun createDataClass(
       }
     )
     .apply {
-      val allRequirements = properties.associateWith { it.requirements }.filterValues { it.isNotEmpty() }
+      val allRequirements = properties
+        .associateWith { property ->
+          // ByteReadChannel has no `count()`, so length constraints can't be enforced inline.
+          if (property.type.copy(nullable = false) == BYTE_READ_CHANNEL) {
+            property.requirements.filter { it !is Requirement.MinLength && it !is Requirement.MaxLength }
+          } else {
+            property.requirements
+          }
+        }
+        .filterValues { it.isNotEmpty() }
       if (allRequirements.isNotEmpty()) {
         addInitializerBlock(
           buildCodeBlock {
