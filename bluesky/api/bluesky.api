@@ -7329,6 +7329,278 @@ public final class app/bsky/feed/SearchPostsSortSerializer : kotlinx/serializati
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
+public abstract class app/bsky/feed/SearchPostsV2DetectedQueryLanguages : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/feed/SearchPostsV2DetectedQueryLanguages$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2DetectedQueryLanguages$Ar : app/bsky/feed/SearchPostsV2DetectedQueryLanguages {
+	public static final field INSTANCE Lapp/bsky/feed/SearchPostsV2DetectedQueryLanguages$Ar;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2DetectedQueryLanguages$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/feed/SearchPostsV2DetectedQueryLanguages;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/feed/SearchPostsV2DetectedQueryLanguages$Ja : app/bsky/feed/SearchPostsV2DetectedQueryLanguages {
+	public static final field INSTANCE Lapp/bsky/feed/SearchPostsV2DetectedQueryLanguages$Ja;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2DetectedQueryLanguages$Ko : app/bsky/feed/SearchPostsV2DetectedQueryLanguages {
+	public static final field INSTANCE Lapp/bsky/feed/SearchPostsV2DetectedQueryLanguages$Ko;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2DetectedQueryLanguages$Th : app/bsky/feed/SearchPostsV2DetectedQueryLanguages {
+	public static final field INSTANCE Lapp/bsky/feed/SearchPostsV2DetectedQueryLanguages$Th;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2DetectedQueryLanguages$Unknown : app/bsky/feed/SearchPostsV2DetectedQueryLanguages {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/feed/SearchPostsV2DetectedQueryLanguages$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/feed/SearchPostsV2DetectedQueryLanguages$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/SearchPostsV2DetectedQueryLanguages$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2DetectedQueryLanguages$Zh : app/bsky/feed/SearchPostsV2DetectedQueryLanguages {
+	public static final field INSTANCE Lapp/bsky/feed/SearchPostsV2DetectedQueryLanguages$Zh;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2DetectedQueryLanguagesSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/feed/SearchPostsV2DetectedQueryLanguages;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/feed/SearchPostsV2DetectedQueryLanguages;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public abstract class app/bsky/feed/SearchPostsV2QueryLanguage : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/feed/SearchPostsV2QueryLanguage$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2QueryLanguage$Ar : app/bsky/feed/SearchPostsV2QueryLanguage {
+	public static final field INSTANCE Lapp/bsky/feed/SearchPostsV2QueryLanguage$Ar;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2QueryLanguage$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/feed/SearchPostsV2QueryLanguage;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/feed/SearchPostsV2QueryLanguage$Ja : app/bsky/feed/SearchPostsV2QueryLanguage {
+	public static final field INSTANCE Lapp/bsky/feed/SearchPostsV2QueryLanguage$Ja;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2QueryLanguage$Ko : app/bsky/feed/SearchPostsV2QueryLanguage {
+	public static final field INSTANCE Lapp/bsky/feed/SearchPostsV2QueryLanguage$Ko;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2QueryLanguage$Th : app/bsky/feed/SearchPostsV2QueryLanguage {
+	public static final field INSTANCE Lapp/bsky/feed/SearchPostsV2QueryLanguage$Th;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2QueryLanguage$Unknown : app/bsky/feed/SearchPostsV2QueryLanguage {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/feed/SearchPostsV2QueryLanguage$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/feed/SearchPostsV2QueryLanguage$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/SearchPostsV2QueryLanguage$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2QueryLanguage$Zh : app/bsky/feed/SearchPostsV2QueryLanguage {
+	public static final field INSTANCE Lapp/bsky/feed/SearchPostsV2QueryLanguage$Zh;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2QueryLanguageSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/feed/SearchPostsV2QueryLanguage;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/feed/SearchPostsV2QueryLanguage;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class app/bsky/feed/SearchPostsV2QueryParams {
+	public static final field Companion Lapp/bsky/feed/SearchPostsV2QueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/feed/SearchPostsV2Sort;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lapp/bsky/feed/SearchPostsV2QueryLanguage;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/feed/SearchPostsV2Sort;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lapp/bsky/feed/SearchPostsV2QueryLanguage;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/util/List;
+	public final fun component11 ()Ljava/util/List;
+	public final fun component12 ()Ljava/util/List;
+	public final fun component13 ()Ljava/util/List;
+	public final fun component14 ()Ljava/util/List;
+	public final fun component15 ()Ljava/util/List;
+	public final fun component16 ()Ljava/util/List;
+	public final fun component17 ()Lkotlin/time/Instant;
+	public final fun component18 ()Lkotlin/time/Instant;
+	public final fun component19 ()Ljava/lang/Boolean;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component20-eY7w7-0 ()Ljava/lang/String;
+	public final fun component21 ()Ljava/lang/Boolean;
+	public final fun component22 ()Ljava/lang/Boolean;
+	public final fun component23-W3xQKsw ()Ljava/lang/String;
+	public final fun component24-W3xQKsw ()Ljava/lang/String;
+	public final fun component25 ()Ljava/lang/Boolean;
+	public final fun component26 ()Ljava/lang/Boolean;
+	public final fun component27 ()Ljava/lang/Boolean;
+	public final fun component28 ()Lapp/bsky/feed/SearchPostsV2QueryLanguage;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lapp/bsky/feed/SearchPostsV2Sort;
+	public final fun component5 ()Ljava/util/List;
+	public final fun component6 ()Ljava/util/List;
+	public final fun component7 ()Ljava/util/List;
+	public final fun component8 ()Ljava/util/List;
+	public final fun component9 ()Ljava/util/List;
+	public final fun copy-oiYXZP0 (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/feed/SearchPostsV2Sort;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lapp/bsky/feed/SearchPostsV2QueryLanguage;)Lapp/bsky/feed/SearchPostsV2QueryParams;
+	public static synthetic fun copy-oiYXZP0$default (Lapp/bsky/feed/SearchPostsV2QueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/feed/SearchPostsV2Sort;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lapp/bsky/feed/SearchPostsV2QueryLanguage;ILjava/lang/Object;)Lapp/bsky/feed/SearchPostsV2QueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAllTime ()Ljava/lang/Boolean;
+	public final fun getAuthors ()Ljava/util/List;
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getDomains ()Ljava/util/List;
+	public final fun getEmbeddedAtUris ()Ljava/util/List;
+	public final fun getExcludeAuthors ()Ljava/util/List;
+	public final fun getExcludeDomains ()Ljava/util/List;
+	public final fun getExcludeEmbeddedAtUris ()Ljava/util/List;
+	public final fun getExcludeHashtags ()Ljava/util/List;
+	public final fun getExcludeMentions ()Ljava/util/List;
+	public final fun getExcludeReplies ()Ljava/lang/Boolean;
+	public final fun getExcludeUrls ()Ljava/util/List;
+	public final fun getFollowing ()Ljava/lang/Boolean;
+	public final fun getHasMedia ()Ljava/lang/Boolean;
+	public final fun getHasVideo ()Ljava/lang/Boolean;
+	public final fun getHashtags ()Ljava/util/List;
+	public final fun getLanguage-eY7w7-0 ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getMentions ()Ljava/util/List;
+	public final fun getQuery ()Ljava/lang/String;
+	public final fun getQueryLanguage ()Lapp/bsky/feed/SearchPostsV2QueryLanguage;
+	public final fun getRepliesOnly ()Ljava/lang/Boolean;
+	public final fun getReplyParentUri-W3xQKsw ()Ljava/lang/String;
+	public final fun getSince ()Lkotlin/time/Instant;
+	public final fun getSort ()Lapp/bsky/feed/SearchPostsV2Sort;
+	public final fun getThreadRootUri-W3xQKsw ()Ljava/lang/String;
+	public final fun getUntil ()Lkotlin/time/Instant;
+	public final fun getUrls ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2QueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/feed/SearchPostsV2Response {
+	public static final field Companion Lapp/bsky/feed/SearchPostsV2Response$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;)Lapp/bsky/feed/SearchPostsV2Response;
+	public static synthetic fun copy$default (Lapp/bsky/feed/SearchPostsV2Response;Ljava/lang/String;Ljava/lang/Long;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/feed/SearchPostsV2Response;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getDetectedQueryLanguages ()Ljava/util/List;
+	public final fun getHitsTotal ()Ljava/lang/Long;
+	public final fun getPosts ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2Response$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class app/bsky/feed/SearchPostsV2Sort : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/feed/SearchPostsV2Sort$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2Sort$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/feed/SearchPostsV2Sort;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/feed/SearchPostsV2Sort$Recent : app/bsky/feed/SearchPostsV2Sort {
+	public static final field INSTANCE Lapp/bsky/feed/SearchPostsV2Sort$Recent;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2Sort$Top : app/bsky/feed/SearchPostsV2Sort {
+	public static final field INSTANCE Lapp/bsky/feed/SearchPostsV2Sort$Top;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2Sort$Unknown : app/bsky/feed/SearchPostsV2Sort {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/feed/SearchPostsV2Sort$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/feed/SearchPostsV2Sort$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/SearchPostsV2Sort$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/SearchPostsV2SortSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/feed/SearchPostsV2Sort;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/feed/SearchPostsV2Sort;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
 public final class app/bsky/feed/SendInteractionsRequest {
 	public static final field Companion Lapp/bsky/feed/SendInteractionsRequest$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -9768,20 +10040,6 @@ public final class app/bsky/notification/ActivitySubscription$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/notification/ChatPreference {
-	public static final field Companion Lapp/bsky/notification/ChatPreference$Companion;
-	public fun <init> (Lapp/bsky/notification/ChatPreferenceInclude;Z)V
-	public final fun component1 ()Lapp/bsky/notification/ChatPreferenceInclude;
-	public final fun component2 ()Z
-	public final fun copy (Lapp/bsky/notification/ChatPreferenceInclude;Z)Lapp/bsky/notification/ChatPreference;
-	public static synthetic fun copy$default (Lapp/bsky/notification/ChatPreference;Lapp/bsky/notification/ChatPreferenceInclude;ZILjava/lang/Object;)Lapp/bsky/notification/ChatPreference;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getInclude ()Lapp/bsky/notification/ChatPreferenceInclude;
-	public final fun getPush ()Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
 public final class app/bsky/notification/ChatPreference$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
@@ -10299,7 +10557,6 @@ public final class app/bsky/notification/Preferences {
 	public final fun copy (Lapp/bsky/notification/ChatPreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/Preference;Lapp/bsky/notification/Preference;Lapp/bsky/notification/Preference;Lapp/bsky/notification/Preference;)Lapp/bsky/notification/Preferences;
 	public static synthetic fun copy$default (Lapp/bsky/notification/Preferences;Lapp/bsky/notification/ChatPreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/Preference;Lapp/bsky/notification/Preference;Lapp/bsky/notification/Preference;Lapp/bsky/notification/Preference;ILjava/lang/Object;)Lapp/bsky/notification/Preferences;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getChat ()Lapp/bsky/notification/ChatPreference;
 	public final fun getFollow ()Lapp/bsky/notification/FilterablePreference;
 	public final fun getLike ()Lapp/bsky/notification/FilterablePreference;
 	public final fun getLikeViaRepost ()Lapp/bsky/notification/FilterablePreference;
@@ -10394,7 +10651,6 @@ public final class app/bsky/notification/PutPreferencesV2Request {
 	public final fun copy (Lapp/bsky/notification/ChatPreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/Preference;Lapp/bsky/notification/Preference;Lapp/bsky/notification/Preference;Lapp/bsky/notification/Preference;)Lapp/bsky/notification/PutPreferencesV2Request;
 	public static synthetic fun copy$default (Lapp/bsky/notification/PutPreferencesV2Request;Lapp/bsky/notification/ChatPreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/FilterablePreference;Lapp/bsky/notification/Preference;Lapp/bsky/notification/Preference;Lapp/bsky/notification/Preference;Lapp/bsky/notification/Preference;ILjava/lang/Object;)Lapp/bsky/notification/PutPreferencesV2Request;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getChat ()Lapp/bsky/notification/ChatPreference;
 	public final fun getFollow ()Lapp/bsky/notification/FilterablePreference;
 	public final fun getLike ()Lapp/bsky/notification/FilterablePreference;
 	public final fun getLikeViaRepost ()Lapp/bsky/notification/FilterablePreference;
@@ -19513,6 +19769,139 @@ public final class chat/bsky/moderation/UpdateActorAccessRequest$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class chat/bsky/notification/ChatPreference {
+	public static final field Companion Lchat/bsky/notification/ChatPreference$Companion;
+	public fun <init> (Lchat/bsky/notification/ChatPreferenceInclude;Z)V
+	public final fun component1 ()Lchat/bsky/notification/ChatPreferenceInclude;
+	public final fun component2 ()Z
+	public final fun copy (Lchat/bsky/notification/ChatPreferenceInclude;Z)Lchat/bsky/notification/ChatPreference;
+	public static synthetic fun copy$default (Lchat/bsky/notification/ChatPreference;Lchat/bsky/notification/ChatPreferenceInclude;ZILjava/lang/Object;)Lchat/bsky/notification/ChatPreference;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getInclude ()Lchat/bsky/notification/ChatPreferenceInclude;
+	public final fun getPush ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/notification/ChatPreference$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class chat/bsky/notification/ChatPreferenceInclude : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lchat/bsky/notification/ChatPreferenceInclude$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class chat/bsky/notification/ChatPreferenceInclude$All : chat/bsky/notification/ChatPreferenceInclude {
+	public static final field INSTANCE Lchat/bsky/notification/ChatPreferenceInclude$All;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/notification/ChatPreferenceInclude$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lchat/bsky/notification/ChatPreferenceInclude;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/notification/ChatPreferenceInclude$Follows : chat/bsky/notification/ChatPreferenceInclude {
+	public static final field INSTANCE Lchat/bsky/notification/ChatPreferenceInclude$Follows;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/notification/ChatPreferenceInclude$Unknown : chat/bsky/notification/ChatPreferenceInclude {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lchat/bsky/notification/ChatPreferenceInclude$Unknown;
+	public static synthetic fun copy$default (Lchat/bsky/notification/ChatPreferenceInclude$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lchat/bsky/notification/ChatPreferenceInclude$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/notification/ChatPreferenceIncludeSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lchat/bsky/notification/ChatPreferenceInclude;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lchat/bsky/notification/ChatPreferenceInclude;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class chat/bsky/notification/GetPreferencesResponse {
+	public static final field Companion Lchat/bsky/notification/GetPreferencesResponse$Companion;
+	public fun <init> (Lchat/bsky/notification/Preferences;)V
+	public final fun component1 ()Lchat/bsky/notification/Preferences;
+	public final fun copy (Lchat/bsky/notification/Preferences;)Lchat/bsky/notification/GetPreferencesResponse;
+	public static synthetic fun copy$default (Lchat/bsky/notification/GetPreferencesResponse;Lchat/bsky/notification/Preferences;ILjava/lang/Object;)Lchat/bsky/notification/GetPreferencesResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPreferences ()Lchat/bsky/notification/Preferences;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/notification/GetPreferencesResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/notification/Preferences {
+	public static final field Companion Lchat/bsky/notification/Preferences$Companion;
+	public fun <init> (Lchat/bsky/notification/ChatPreference;Lchat/bsky/notification/ChatPreference;)V
+	public final fun component1 ()Lchat/bsky/notification/ChatPreference;
+	public final fun component2 ()Lchat/bsky/notification/ChatPreference;
+	public final fun copy (Lchat/bsky/notification/ChatPreference;Lchat/bsky/notification/ChatPreference;)Lchat/bsky/notification/Preferences;
+	public static synthetic fun copy$default (Lchat/bsky/notification/Preferences;Lchat/bsky/notification/ChatPreference;Lchat/bsky/notification/ChatPreference;ILjava/lang/Object;)Lchat/bsky/notification/Preferences;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChat ()Lchat/bsky/notification/ChatPreference;
+	public final fun getChatRequest ()Lchat/bsky/notification/ChatPreference;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/notification/Preferences$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/notification/PutPreferencesRequest {
+	public static final field Companion Lchat/bsky/notification/PutPreferencesRequest$Companion;
+	public fun <init> ()V
+	public fun <init> (Lchat/bsky/notification/ChatPreference;Lchat/bsky/notification/ChatPreference;)V
+	public synthetic fun <init> (Lchat/bsky/notification/ChatPreference;Lchat/bsky/notification/ChatPreference;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lchat/bsky/notification/ChatPreference;
+	public final fun component2 ()Lchat/bsky/notification/ChatPreference;
+	public final fun copy (Lchat/bsky/notification/ChatPreference;Lchat/bsky/notification/ChatPreference;)Lchat/bsky/notification/PutPreferencesRequest;
+	public static synthetic fun copy$default (Lchat/bsky/notification/PutPreferencesRequest;Lchat/bsky/notification/ChatPreference;Lchat/bsky/notification/ChatPreference;ILjava/lang/Object;)Lchat/bsky/notification/PutPreferencesRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChat ()Lchat/bsky/notification/ChatPreference;
+	public final fun getChatRequest ()Lchat/bsky/notification/ChatPreference;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/notification/PutPreferencesRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class chat/bsky/notification/PutPreferencesResponse {
+	public static final field Companion Lchat/bsky/notification/PutPreferencesResponse$Companion;
+	public fun <init> (Lchat/bsky/notification/Preferences;)V
+	public final fun component1 ()Lchat/bsky/notification/Preferences;
+	public final fun copy (Lchat/bsky/notification/Preferences;)Lchat/bsky/notification/PutPreferencesResponse;
+	public static synthetic fun copy$default (Lchat/bsky/notification/PutPreferencesResponse;Lchat/bsky/notification/Preferences;ILjava/lang/Object;)Lchat/bsky/notification/PutPreferencesResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPreferences ()Lchat/bsky/notification/Preferences;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class chat/bsky/notification/PutPreferencesResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class com/atproto/admin/AccountView {
 	public static final field Companion Lcom/atproto/admin/AccountView$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lkotlin/time/Instant;Lcom/atproto/server/InviteCode;Ljava/util/List;Ljava/lang/Boolean;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/time/Instant;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -25008,8 +25397,9 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getPostThreadOtherV2Unspecced (Lapp/bsky/unspecced/GetPostThreadOtherV2QueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getPostThreadV2Unspecced (Lapp/bsky/unspecced/GetPostThreadV2QueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getPosts (Lapp/bsky/feed/GetPostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun getPreferencesForActor (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun getPreferencesForNotification (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getPreferencesForAppBskyActor (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getPreferencesForAppBskyNotification (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getPreferencesForChatBskyNotification (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getProfile (Lapp/bsky/actor/GetProfileQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getProfiles (Lapp/bsky/actor/GetProfilesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getProfiles (Linternal/bsky/actor/GetProfilesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -25098,6 +25488,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun putActivitySubscription (Lapp/bsky/notification/PutActivitySubscriptionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun putPreferences (Lapp/bsky/actor/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun putPreferences (Lapp/bsky/notification/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun putPreferences (Lchat/bsky/notification/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun putPreferencesV2 (Lapp/bsky/notification/PutPreferencesV2Request;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun putRecord (Lcom/atproto/repo/PutRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun queryActivities (Ltools/ozone/report/QueryActivitiesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -25145,6 +25536,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun searchActorsTypeahead (Lapp/bsky/actor/SearchActorsTypeaheadQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchPosts (Lapp/bsky/feed/SearchPostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchPostsSkeletonUnspecced (Lapp/bsky/unspecced/SearchPostsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun searchPostsV2 (Lapp/bsky/feed/SearchPostsV2QueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchRepos (Ltools/ozone/moderation/SearchReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchStarterPacks (Lapp/bsky/graph/SearchStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun searchStarterPacksSkeletonUnspecced (Lapp/bsky/unspecced/SearchStarterPacksSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -25326,8 +25718,9 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getPostThreadOtherV2Unspecced (Lapp/bsky/unspecced/GetPostThreadOtherV2QueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getPostThreadV2Unspecced (Lapp/bsky/unspecced/GetPostThreadV2QueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getPosts (Lapp/bsky/feed/GetPostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getPreferencesForActor (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getPreferencesForNotification (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getPreferencesForAppBskyActor (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getPreferencesForAppBskyNotification (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getPreferencesForChatBskyNotification (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getProfile (Lapp/bsky/actor/GetProfileQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getProfiles (Lapp/bsky/actor/GetProfilesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getProfiles (Linternal/bsky/actor/GetProfilesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -25416,6 +25809,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun putActivitySubscription (Lapp/bsky/notification/PutActivitySubscriptionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putPreferences (Lapp/bsky/actor/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putPreferences (Lapp/bsky/notification/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun putPreferences (Lchat/bsky/notification/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putPreferencesV2 (Lapp/bsky/notification/PutPreferencesV2Request;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putRecord (Lcom/atproto/repo/PutRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryActivities (Ltools/ozone/report/QueryActivitiesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -25463,6 +25857,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun searchActorsTypeahead (Lapp/bsky/actor/SearchActorsTypeaheadQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchPosts (Lapp/bsky/feed/SearchPostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchPostsSkeletonUnspecced (Lapp/bsky/unspecced/SearchPostsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchPostsV2 (Lapp/bsky/feed/SearchPostsV2QueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchRepos (Ltools/ozone/moderation/SearchReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchStarterPacks (Lapp/bsky/graph/SearchStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchStarterPacksSkeletonUnspecced (Lapp/bsky/unspecced/SearchStarterPacksSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -25647,8 +26042,9 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getPostThreadOtherV2Unspecced (Lapp/bsky/unspecced/GetPostThreadOtherV2QueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getPostThreadV2Unspecced (Lapp/bsky/unspecced/GetPostThreadV2QueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getPosts (Lapp/bsky/feed/GetPostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getPreferencesForActor (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public fun getPreferencesForNotification (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getPreferencesForAppBskyActor (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getPreferencesForAppBskyNotification (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getPreferencesForChatBskyNotification (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getProfile (Lapp/bsky/actor/GetProfileQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getProfiles (Lapp/bsky/actor/GetProfilesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getProfiles (Linternal/bsky/actor/GetProfilesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -25737,6 +26133,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun putActivitySubscription (Lapp/bsky/notification/PutActivitySubscriptionRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putPreferences (Lapp/bsky/actor/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putPreferences (Lapp/bsky/notification/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun putPreferences (Lchat/bsky/notification/PutPreferencesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putPreferencesV2 (Lapp/bsky/notification/PutPreferencesV2Request;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun putRecord (Lcom/atproto/repo/PutRecordRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryActivities (Ltools/ozone/report/QueryActivitiesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -25784,6 +26181,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun searchActorsTypeahead (Lapp/bsky/actor/SearchActorsTypeaheadQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchPosts (Lapp/bsky/feed/SearchPostsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchPostsSkeletonUnspecced (Lapp/bsky/unspecced/SearchPostsSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun searchPostsV2 (Lapp/bsky/feed/SearchPostsV2QueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchRepos (Ltools/ozone/moderation/SearchReposQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchStarterPacks (Lapp/bsky/graph/SearchStarterPacksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun searchStarterPacksSkeletonUnspecced (Lapp/bsky/unspecced/SearchStarterPacksSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
