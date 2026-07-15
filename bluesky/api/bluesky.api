@@ -25301,16 +25301,18 @@ public final class com/germnetwork/DeclarationMessageMeShowButtonToSerializer : 
 
 public final class internal/bsky/actor/GetProfilesQueryParams {
 	public static final field Companion Linternal/bsky/actor/GetProfilesQueryParams$Companion;
-	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Ljava/util/List;
 	public final fun component1 ()Ljava/util/List;
 	public final fun component2-68yuAGA ()Ljava/lang/String;
 	public final fun component3 ()Ljava/util/List;
-	public final fun copy-mozCNIg (Ljava/util/List;Ljava/lang/String;Ljava/util/List;)Linternal/bsky/actor/GetProfilesQueryParams;
-	public static synthetic fun copy-mozCNIg$default (Linternal/bsky/actor/GetProfilesQueryParams;Ljava/util/List;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Linternal/bsky/actor/GetProfilesQueryParams;
+	public final fun component4 ()Ljava/lang/Boolean;
+	public final fun copy-5Pp1PTQ (Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/Boolean;)Linternal/bsky/actor/GetProfilesQueryParams;
+	public static synthetic fun copy-5Pp1PTQ$default (Linternal/bsky/actor/GetProfilesQueryParams;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/Boolean;ILjava/lang/Object;)Linternal/bsky/actor/GetProfilesQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDids ()Ljava/util/List;
+	public final fun getIncludeTakedowns ()Ljava/lang/Boolean;
 	public final fun getSocialProof ()Ljava/util/List;
 	public final fun getViewer-68yuAGA ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -34491,8 +34493,8 @@ public final class tools/ozone/report/ReportAssignment$Companion {
 
 public final class tools/ozone/report/ReportView {
 	public static final field Companion Ltools/ozone/report/ReportView$Companion;
-	public synthetic fun <init> (JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
 	public final fun component10 ()Lkotlin/time/Instant;
 	public final fun component11 ()Lkotlin/time/Instant;
@@ -34505,6 +34507,7 @@ public final class tools/ozone/report/ReportView {
 	public final fun component18 ()Ltools/ozone/queue/QueueView;
 	public final fun component19 ()Ljava/lang/Boolean;
 	public final fun component2 ()J
+	public final fun component20 ()Ljava/lang/Boolean;
 	public final fun component3 ()Ltools/ozone/report/ReportViewStatus;
 	public final fun component4 ()Ltools/ozone/moderation/SubjectView;
 	public final fun component5 ()Lcom/atproto/moderation/Token;
@@ -34512,8 +34515,8 @@ public final class tools/ozone/report/ReportView {
 	public final fun component7 ()Ltools/ozone/moderation/SubjectView;
 	public final fun component8 ()Ljava/lang/String;
 	public final fun component9 ()Lkotlin/time/Instant;
-	public final fun copy-ghR2ew0 (JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;)Ltools/ozone/report/ReportView;
-	public static synthetic fun copy-ghR2ew0$default (Ltools/ozone/report/ReportView;JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;ILjava/lang/Object;)Ltools/ozone/report/ReportView;
+	public final fun copy-bOPlFTo (JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;Ljava/lang/Boolean;)Ltools/ozone/report/ReportView;
+	public static synthetic fun copy-bOPlFTo$default (Ltools/ozone/report/ReportView;JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;Ljava/lang/Boolean;ILjava/lang/Object;)Ltools/ozone/report/ReportView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getActionEventIds ()Ljava/util/List;
 	public final fun getActionNote ()Ljava/lang/String;
@@ -34534,6 +34537,7 @@ public final class tools/ozone/report/ReportView {
 	public final fun getSubjectStatus ()Ltools/ozone/moderation/SubjectStatusView;
 	public final fun getUpdatedAt ()Lkotlin/time/Instant;
 	public fun hashCode ()I
+	public final fun isAutomated ()Ljava/lang/Boolean;
 	public final fun isMuted ()Ljava/lang/Boolean;
 	public fun toString ()Ljava/lang/String;
 }
