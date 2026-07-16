@@ -32698,6 +32698,13 @@ public final class tools/ozone/queue/CreateQueueSubjectTypes$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/queue/CreateQueueSubjectTypes$Conversation : tools/ozone/queue/CreateQueueSubjectTypes {
+	public static final field INSTANCE Ltools/ozone/queue/CreateQueueSubjectTypes$Conversation;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class tools/ozone/queue/CreateQueueSubjectTypes$Message : tools/ozone/queue/CreateQueueSubjectTypes {
 	public static final field INSTANCE Ltools/ozone/queue/CreateQueueSubjectTypes$Message;
 	public fun equals (Ljava/lang/Object;)Z
@@ -32949,6 +32956,13 @@ public final class tools/ozone/queue/QueueViewSubjectTypes$Account : tools/ozone
 public final class tools/ozone/queue/QueueViewSubjectTypes$Companion {
 	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/queue/QueueViewSubjectTypes;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/queue/QueueViewSubjectTypes$Conversation : tools/ozone/queue/QueueViewSubjectTypes {
+	public static final field INSTANCE Ltools/ozone/queue/QueueViewSubjectTypes$Conversation;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class tools/ozone/queue/QueueViewSubjectTypes$Message : tools/ozone/queue/QueueViewSubjectTypes {
@@ -34032,6 +34046,20 @@ public final class tools/ozone/report/QueryReportsSubjectType$Account : tools/oz
 public final class tools/ozone/report/QueryReportsSubjectType$Companion {
 	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/report/QueryReportsSubjectType;
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/QueryReportsSubjectType$Conversation : tools/ozone/report/QueryReportsSubjectType {
+	public static final field INSTANCE Ltools/ozone/report/QueryReportsSubjectType$Conversation;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueryReportsSubjectType$Message : tools/ozone/report/QueryReportsSubjectType {
+	public static final field INSTANCE Ltools/ozone/report/QueryReportsSubjectType$Message;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class tools/ozone/report/QueryReportsSubjectType$Record : tools/ozone/report/QueryReportsSubjectType {

@@ -90,7 +90,7 @@ dependencies {
   lexicons(fileTree("lexicons") { include("**/*.json") })
 
   // You can also depend directly on the published Bluesky lexicons instead.
-  lexicons("sh.christian.ozone:lexicons:2026.07.15")
+  lexicons("sh.christian.ozone:lexicons:2026.07.16")
 }
 
 lexicons {
