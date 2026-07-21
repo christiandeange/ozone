@@ -12500,11 +12500,14 @@ public final class app/bsky/unspecced/GetTrendsQueryParams$Companion {
 
 public final class app/bsky/unspecced/GetTrendsResponse {
 	public static final field Companion Lapp/bsky/unspecced/GetTrendsResponse$Companion;
-	public fun <init> (Ljava/util/List;)V
+	public fun <init> (Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/util/List;
-	public final fun copy (Ljava/util/List;)Lapp/bsky/unspecced/GetTrendsResponse;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetTrendsResponse;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetTrendsResponse;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/lang/String;)Lapp/bsky/unspecced/GetTrendsResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetTrendsResponse;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetTrendsResponse;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRecIdStr ()Ljava/lang/String;
 	public final fun getTrends ()Ljava/util/List;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -12536,11 +12539,14 @@ public final class app/bsky/unspecced/GetTrendsSkeletonQueryParams$Companion {
 
 public final class app/bsky/unspecced/GetTrendsSkeletonResponse {
 	public static final field Companion Lapp/bsky/unspecced/GetTrendsSkeletonResponse$Companion;
-	public fun <init> (Ljava/util/List;)V
+	public fun <init> (Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/util/List;
-	public final fun copy (Ljava/util/List;)Lapp/bsky/unspecced/GetTrendsSkeletonResponse;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetTrendsSkeletonResponse;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetTrendsSkeletonResponse;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/lang/String;)Lapp/bsky/unspecced/GetTrendsSkeletonResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetTrendsSkeletonResponse;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetTrendsSkeletonResponse;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRecIdStr ()Ljava/lang/String;
 	public final fun getTrends ()Ljava/util/List;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
