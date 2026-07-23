@@ -8444,18 +8444,20 @@ public final class app/bsky/graph/GetBlocksResponse$Companion {
 
 public final class app/bsky/graph/GetFollowersQueryParams {
 	public static final field Companion Lapp/bsky/graph/GetFollowersQueryParams$Companion;
-	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;)V
-	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/graph/GetFollowersSort;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/graph/GetFollowersSort;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Ljava/util/List;
 	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/graph/GetFollowersQueryParams;
-	public static synthetic fun copy$default (Lapp/bsky/graph/GetFollowersQueryParams;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/GetFollowersQueryParams;
+	public final fun component4 ()Lapp/bsky/graph/GetFollowersSort;
+	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/graph/GetFollowersSort;)Lapp/bsky/graph/GetFollowersQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/graph/GetFollowersQueryParams;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/graph/GetFollowersSort;ILjava/lang/Object;)Lapp/bsky/graph/GetFollowersQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getActor ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getSort ()Lapp/bsky/graph/GetFollowersSort;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -8485,20 +8487,67 @@ public final class app/bsky/graph/GetFollowersResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public abstract class app/bsky/graph/GetFollowersSort : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/graph/GetFollowersSort$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/graph/GetFollowersSort$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/graph/GetFollowersSort;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/graph/GetFollowersSort$Latest : app/bsky/graph/GetFollowersSort {
+	public static final field INSTANCE Lapp/bsky/graph/GetFollowersSort$Latest;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/graph/GetFollowersSort$Top : app/bsky/graph/GetFollowersSort {
+	public static final field INSTANCE Lapp/bsky/graph/GetFollowersSort$Top;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/graph/GetFollowersSort$Unknown : app/bsky/graph/GetFollowersSort {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/graph/GetFollowersSort$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/graph/GetFollowersSort$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/GetFollowersSort$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/graph/GetFollowersSortSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/graph/GetFollowersSort;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/graph/GetFollowersSort;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
 public final class app/bsky/graph/GetFollowsQueryParams {
 	public static final field Companion Lapp/bsky/graph/GetFollowsQueryParams$Companion;
-	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;)V
-	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/graph/GetFollowsSort;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/graph/GetFollowsSort;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Ljava/util/List;
 	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/graph/GetFollowsQueryParams;
-	public static synthetic fun copy$default (Lapp/bsky/graph/GetFollowsQueryParams;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/GetFollowsQueryParams;
+	public final fun component4 ()Lapp/bsky/graph/GetFollowsSort;
+	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/graph/GetFollowsSort;)Lapp/bsky/graph/GetFollowsQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/graph/GetFollowsQueryParams;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Long;Ljava/lang/String;Lapp/bsky/graph/GetFollowsSort;ILjava/lang/Object;)Lapp/bsky/graph/GetFollowsQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getActor ()Lsh/christian/ozone/api/AtIdentifier;
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getSort ()Lapp/bsky/graph/GetFollowsSort;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -8526,6 +8575,51 @@ public final class app/bsky/graph/GetFollowsResponse {
 
 public final class app/bsky/graph/GetFollowsResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class app/bsky/graph/GetFollowsSort : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/graph/GetFollowsSort$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/graph/GetFollowsSort$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/graph/GetFollowsSort;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/graph/GetFollowsSort$Latest : app/bsky/graph/GetFollowsSort {
+	public static final field INSTANCE Lapp/bsky/graph/GetFollowsSort$Latest;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/graph/GetFollowsSort$Top : app/bsky/graph/GetFollowsSort {
+	public static final field INSTANCE Lapp/bsky/graph/GetFollowsSort$Top;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/graph/GetFollowsSort$Unknown : app/bsky/graph/GetFollowsSort {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/graph/GetFollowsSort$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/graph/GetFollowsSort$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/GetFollowsSort$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/graph/GetFollowsSortSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/graph/GetFollowsSort;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/graph/GetFollowsSort;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/graph/GetKnownFollowersQueryParams {
