@@ -2255,19 +2255,21 @@ public final class app/bsky/actor/VerificationView$Companion {
 
 public final class app/bsky/actor/ViewerState {
 	public static final field Companion Lapp/bsky/actor/ViewerState$Companion;
-	public synthetic fun <init> (Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/KnownFollowers;Lapp/bsky/notification/ActivitySubscription;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/KnownFollowers;Lapp/bsky/notification/ActivitySubscription;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/KnownFollowers;Lapp/bsky/notification/ActivitySubscription;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/KnownFollowers;Lapp/bsky/notification/ActivitySubscription;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Boolean;
-	public final fun component2 ()Lapp/bsky/graph/ListViewBasic;
+	public final fun component10 ()Lapp/bsky/actor/KnownFollowers;
+	public final fun component11 ()Lapp/bsky/notification/ActivitySubscription;
+	public final fun component2 ()Ljava/lang/Boolean;
 	public final fun component3 ()Ljava/lang/Boolean;
-	public final fun component4-W3xQKsw ()Ljava/lang/String;
-	public final fun component5 ()Lapp/bsky/graph/ListViewBasic;
+	public final fun component4 ()Lapp/bsky/graph/ListViewBasic;
+	public final fun component5 ()Ljava/lang/Boolean;
 	public final fun component6-W3xQKsw ()Ljava/lang/String;
-	public final fun component7-W3xQKsw ()Ljava/lang/String;
-	public final fun component8 ()Lapp/bsky/actor/KnownFollowers;
-	public final fun component9 ()Lapp/bsky/notification/ActivitySubscription;
-	public final fun copy-foBw3UM (Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/KnownFollowers;Lapp/bsky/notification/ActivitySubscription;)Lapp/bsky/actor/ViewerState;
-	public static synthetic fun copy-foBw3UM$default (Lapp/bsky/actor/ViewerState;Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/KnownFollowers;Lapp/bsky/notification/ActivitySubscription;ILjava/lang/Object;)Lapp/bsky/actor/ViewerState;
+	public final fun component7 ()Lapp/bsky/graph/ListViewBasic;
+	public final fun component8-W3xQKsw ()Ljava/lang/String;
+	public final fun component9-W3xQKsw ()Ljava/lang/String;
+	public final fun copy-6UtfiRI (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/KnownFollowers;Lapp/bsky/notification/ActivitySubscription;)Lapp/bsky/actor/ViewerState;
+	public static synthetic fun copy-6UtfiRI$default (Lapp/bsky/actor/ViewerState;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lapp/bsky/graph/ListViewBasic;Ljava/lang/Boolean;Ljava/lang/String;Lapp/bsky/graph/ListViewBasic;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/KnownFollowers;Lapp/bsky/notification/ActivitySubscription;ILjava/lang/Object;)Lapp/bsky/actor/ViewerState;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getActivitySubscription ()Lapp/bsky/notification/ActivitySubscription;
 	public final fun getBlockedBy ()Ljava/lang/Boolean;
@@ -2278,6 +2280,8 @@ public final class app/bsky/actor/ViewerState {
 	public final fun getKnownFollowers ()Lapp/bsky/actor/KnownFollowers;
 	public final fun getMuted ()Ljava/lang/Boolean;
 	public final fun getMutedByList ()Lapp/bsky/graph/ListViewBasic;
+	public final fun getMutedOnlyQuoteposts ()Ljava/lang/Boolean;
+	public final fun getMutedOnlyReposts ()Ljava/lang/Boolean;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -9585,12 +9589,17 @@ public final class app/bsky/graph/MuteActorListRequest$Companion {
 
 public final class app/bsky/graph/MuteActorRequest {
 	public static final field Companion Lapp/bsky/graph/MuteActorRequest$Companion;
-	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;)V
+	public fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Boolean;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Boolean;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lsh/christian/ozone/api/AtIdentifier;
-	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;)Lapp/bsky/graph/MuteActorRequest;
-	public static synthetic fun copy$default (Lapp/bsky/graph/MuteActorRequest;Lsh/christian/ozone/api/AtIdentifier;ILjava/lang/Object;)Lapp/bsky/graph/MuteActorRequest;
+	public final fun component2 ()Ljava/lang/Boolean;
+	public final fun component3 ()Ljava/lang/Boolean;
+	public final fun copy (Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Boolean;Ljava/lang/Boolean;)Lapp/bsky/graph/MuteActorRequest;
+	public static synthetic fun copy$default (Lapp/bsky/graph/MuteActorRequest;Lsh/christian/ozone/api/AtIdentifier;Ljava/lang/Boolean;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/graph/MuteActorRequest;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getActor ()Lsh/christian/ozone/api/AtIdentifier;
+	public final fun getOnlyQuoteposts ()Ljava/lang/Boolean;
+	public final fun getOnlyReposts ()Ljava/lang/Boolean;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -13073,21 +13082,26 @@ public final class app/bsky/unspecced/ThreadItemNotFound {
 
 public final class app/bsky/unspecced/ThreadItemPost {
 	public static final field Companion Lapp/bsky/unspecced/ThreadItemPost$Companion;
-	public fun <init> (Lapp/bsky/feed/PostView;ZJZZZ)V
+	public fun <init> (Lapp/bsky/feed/PostView;ZJZLjava/lang/Long;Ljava/lang/Long;ZZ)V
+	public synthetic fun <init> (Lapp/bsky/feed/PostView;ZJZLjava/lang/Long;Ljava/lang/Long;ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lapp/bsky/feed/PostView;
 	public final fun component2 ()Z
 	public final fun component3 ()J
 	public final fun component4 ()Z
-	public final fun component5 ()Z
-	public final fun component6 ()Z
-	public final fun copy (Lapp/bsky/feed/PostView;ZJZZZ)Lapp/bsky/unspecced/ThreadItemPost;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/ThreadItemPost;Lapp/bsky/feed/PostView;ZJZZZILjava/lang/Object;)Lapp/bsky/unspecced/ThreadItemPost;
+	public final fun component5 ()Ljava/lang/Long;
+	public final fun component6 ()Ljava/lang/Long;
+	public final fun component7 ()Z
+	public final fun component8 ()Z
+	public final fun copy (Lapp/bsky/feed/PostView;ZJZLjava/lang/Long;Ljava/lang/Long;ZZ)Lapp/bsky/unspecced/ThreadItemPost;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/ThreadItemPost;Lapp/bsky/feed/PostView;ZJZLjava/lang/Long;Ljava/lang/Long;ZZILjava/lang/Object;)Lapp/bsky/unspecced/ThreadItemPost;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getHiddenByThreadgate ()Z
 	public final fun getMoreParents ()Z
 	public final fun getMoreReplies ()J
 	public final fun getMutedByViewer ()Z
 	public final fun getOpThread ()Z
+	public final fun getOpThreadPostCount ()Ljava/lang/Long;
+	public final fun getOpThreadPostIndex ()Ljava/lang/Long;
 	public final fun getPost ()Lapp/bsky/feed/PostView;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
