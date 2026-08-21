@@ -6557,6 +6557,24 @@ public final class app/bsky/feed/Interaction$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/feed/KnownLikers {
+	public static final field Companion Lapp/bsky/feed/KnownLikers$Companion;
+	public fun <init> (JLjava/util/List;)V
+	public final fun component1 ()J
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (JLjava/util/List;)Lapp/bsky/feed/KnownLikers;
+	public static synthetic fun copy$default (Lapp/bsky/feed/KnownLikers;JLjava/util/List;ILjava/lang/Object;)Lapp/bsky/feed/KnownLikers;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActors ()Ljava/util/List;
+	public final fun getCount ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/KnownLikers$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/feed/Like {
 	public static final field Companion Lapp/bsky/feed/Like$Companion;
 	public fun <init> (Lcom/atproto/repo/StrongRef;Lkotlin/time/Instant;Lcom/atproto/repo/StrongRef;)V
@@ -8369,8 +8387,8 @@ public final class app/bsky/feed/TokenSerializer : kotlinx/serialization/KSerial
 
 public final class app/bsky/feed/ViewerState {
 	public static final field Companion Lapp/bsky/feed/ViewerState$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lapp/bsky/feed/KnownLikers;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lapp/bsky/feed/KnownLikers;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-W3xQKsw ()Ljava/lang/String;
 	public final fun component2-W3xQKsw ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/Boolean;
@@ -8378,11 +8396,13 @@ public final class app/bsky/feed/ViewerState {
 	public final fun component5 ()Ljava/lang/Boolean;
 	public final fun component6 ()Ljava/lang/Boolean;
 	public final fun component7 ()Ljava/lang/Boolean;
-	public final fun copy-3wEY0gg (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;)Lapp/bsky/feed/ViewerState;
-	public static synthetic fun copy-3wEY0gg$default (Lapp/bsky/feed/ViewerState;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/feed/ViewerState;
+	public final fun component8 ()Lapp/bsky/feed/KnownLikers;
+	public final fun copy-LnF4mZg (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lapp/bsky/feed/KnownLikers;)Lapp/bsky/feed/ViewerState;
+	public static synthetic fun copy-LnF4mZg$default (Lapp/bsky/feed/ViewerState;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lapp/bsky/feed/KnownLikers;ILjava/lang/Object;)Lapp/bsky/feed/ViewerState;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getBookmarked ()Ljava/lang/Boolean;
 	public final fun getEmbeddingDisabled ()Ljava/lang/Boolean;
+	public final fun getKnownLikers ()Lapp/bsky/feed/KnownLikers;
 	public final fun getLike-W3xQKsw ()Ljava/lang/String;
 	public final fun getPinned ()Ljava/lang/Boolean;
 	public final fun getReplyDisabled ()Ljava/lang/Boolean;
