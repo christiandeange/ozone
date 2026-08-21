@@ -1,6 +1,5 @@
 package sh.christian.ozone.api.generator.builder
 
-import com.squareup.kotlinpoet.BYTE_ARRAY
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.LIST
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
@@ -144,7 +143,7 @@ class XrpcBodyGenerator(
         is LexiconObjectProperty.IpldType ->
           SimpleProperty(
             name = name,
-            type = BYTE_ARRAY,
+            type = environment.defaults.binaryDataType.className(),
             nullable = nullable,
             description = prop.ipld.description,
             definedDefault = null,
