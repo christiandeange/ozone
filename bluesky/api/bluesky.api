@@ -9416,13 +9416,16 @@ public final class app/bsky/graph/List$Companion {
 
 public final class app/bsky/graph/ListItemView {
 	public static final field Companion Lapp/bsky/graph/ListItemView$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/actor/ProfileView;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/actor/ProfileView;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/actor/ProfileView;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-x27MrHI ()Ljava/lang/String;
 	public final fun component2 ()Lapp/bsky/actor/ProfileView;
-	public final fun copy-wMvghHc (Ljava/lang/String;Lapp/bsky/actor/ProfileView;)Lapp/bsky/graph/ListItemView;
-	public static synthetic fun copy-wMvghHc$default (Lapp/bsky/graph/ListItemView;Ljava/lang/String;Lapp/bsky/actor/ProfileView;ILjava/lang/Object;)Lapp/bsky/graph/ListItemView;
+	public final fun component3 ()Ljava/lang/Boolean;
+	public final fun copy-DeKbev8 (Ljava/lang/String;Lapp/bsky/actor/ProfileView;Ljava/lang/Boolean;)Lapp/bsky/graph/ListItemView;
+	public static synthetic fun copy-DeKbev8$default (Lapp/bsky/graph/ListItemView;Ljava/lang/String;Lapp/bsky/actor/ProfileView;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/graph/ListItemView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getSubject ()Lapp/bsky/actor/ProfileView;
+	public final fun getSubjectOptedOut ()Ljava/lang/Boolean;
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -9552,15 +9555,17 @@ public final class app/bsky/graph/ListViewBasic$Companion {
 
 public final class app/bsky/graph/ListViewerState {
 	public static final field Companion Lapp/bsky/graph/ListViewerState$Companion;
-	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Boolean;
 	public final fun component2-W3xQKsw ()Ljava/lang/String;
-	public final fun copy-tKpzRaQ (Ljava/lang/Boolean;Ljava/lang/String;)Lapp/bsky/graph/ListViewerState;
-	public static synthetic fun copy-tKpzRaQ$default (Lapp/bsky/graph/ListViewerState;Ljava/lang/Boolean;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/ListViewerState;
+	public final fun component3-W3xQKsw ()Ljava/lang/String;
+	public final fun copy-8e2Yec8 (Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/graph/ListViewerState;
+	public static synthetic fun copy-8e2Yec8$default (Lapp/bsky/graph/ListViewerState;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/graph/ListViewerState;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getBlocked-W3xQKsw ()Ljava/lang/String;
 	public final fun getMuted ()Ljava/lang/Boolean;
+	public final fun getReferenceListOptOut-W3xQKsw ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -9675,6 +9680,24 @@ public final class app/bsky/graph/NotFoundActor {
 }
 
 public final class app/bsky/graph/NotFoundActor$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/graph/Referencelistoptout {
+	public static final field Companion Lapp/bsky/graph/Referencelistoptout$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun copy-wMvghHc (Ljava/lang/String;Lkotlin/time/Instant;)Lapp/bsky/graph/Referencelistoptout;
+	public static synthetic fun copy-wMvghHc$default (Lapp/bsky/graph/Referencelistoptout;Ljava/lang/String;Lkotlin/time/Instant;ILjava/lang/Object;)Lapp/bsky/graph/Referencelistoptout;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getSubject-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/graph/Referencelistoptout$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
