@@ -5521,17 +5521,21 @@ public final class app/bsky/feed/DescribeFeedGeneratorResponse$Companion {
 
 public final class app/bsky/feed/FeedViewPost {
 	public static final field Companion Lapp/bsky/feed/FeedViewPost$Companion;
-	public fun <init> (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ReplyRef;Lapp/bsky/feed/FeedViewPostReasonUnion;Ljava/lang/String;Ljava/lang/String;)V
-	public synthetic fun <init> (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ReplyRef;Lapp/bsky/feed/FeedViewPostReasonUnion;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ReplyRef;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/feed/FeedViewPostReasonUnion;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ReplyRef;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/feed/FeedViewPostReasonUnion;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lapp/bsky/feed/PostView;
 	public final fun component2 ()Lapp/bsky/feed/ReplyRef;
-	public final fun component3 ()Lapp/bsky/feed/FeedViewPostReasonUnion;
-	public final fun component4 ()Ljava/lang/String;
-	public final fun component5 ()Ljava/lang/String;
-	public final fun copy (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ReplyRef;Lapp/bsky/feed/FeedViewPostReasonUnion;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/feed/FeedViewPost;
-	public static synthetic fun copy$default (Lapp/bsky/feed/FeedViewPost;Lapp/bsky/feed/PostView;Lapp/bsky/feed/ReplyRef;Lapp/bsky/feed/FeedViewPostReasonUnion;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/FeedViewPost;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun component5 ()Lapp/bsky/feed/FeedViewPostReasonUnion;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun copy (Lapp/bsky/feed/PostView;Lapp/bsky/feed/ReplyRef;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/feed/FeedViewPostReasonUnion;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/feed/FeedViewPost;
+	public static synthetic fun copy$default (Lapp/bsky/feed/FeedViewPost;Lapp/bsky/feed/PostView;Lapp/bsky/feed/ReplyRef;Ljava/lang/Long;Ljava/lang/Long;Lapp/bsky/feed/FeedViewPostReasonUnion;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/FeedViewPost;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getFeedContext ()Ljava/lang/String;
+	public final fun getOpThreadPostCount ()Ljava/lang/Long;
+	public final fun getOpThreadPostIndex ()Ljava/lang/Long;
 	public final fun getPost ()Lapp/bsky/feed/PostView;
 	public final fun getReason ()Lapp/bsky/feed/FeedViewPostReasonUnion;
 	public final fun getReply ()Lapp/bsky/feed/ReplyRef;
@@ -34585,9 +34589,18 @@ public final class tools/ozone/report/GetReportQueryParams$Companion {
 
 public final class tools/ozone/report/HistoricalStats {
 	public static final field Companion Ltools/ozone/report/HistoricalStats$Companion;
-	public fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)V
-	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/lang/Long;
+	public final fun component11 ()Ljava/lang/Long;
+	public final fun component12 ()Ljava/lang/Long;
+	public final fun component13 ()Ljava/lang/Long;
+	public final fun component14 ()Ljava/lang/Long;
+	public final fun component15 ()Ljava/lang/Long;
+	public final fun component16 ()Ljava/lang/Long;
+	public final fun component17 ()Ljava/lang/Long;
+	public final fun component18 ()Ljava/lang/Long;
 	public final fun component2 ()Lkotlin/time/Instant;
 	public final fun component3 ()Ljava/lang/Long;
 	public final fun component4 ()Ljava/lang/Long;
@@ -34595,17 +34608,28 @@ public final class tools/ozone/report/HistoricalStats {
 	public final fun component6 ()Ljava/lang/Long;
 	public final fun component7 ()Ljava/lang/Long;
 	public final fun component8 ()Ljava/lang/Long;
-	public final fun copy (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)Ltools/ozone/report/HistoricalStats;
-	public static synthetic fun copy$default (Ltools/ozone/report/HistoricalStats;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILjava/lang/Object;)Ltools/ozone/report/HistoricalStats;
+	public final fun component9 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)Ltools/ozone/report/HistoricalStats;
+	public static synthetic fun copy$default (Ltools/ozone/report/HistoricalStats;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILjava/lang/Object;)Ltools/ozone/report/HistoricalStats;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAcknowledgedCount ()Ljava/lang/Long;
 	public final fun getActionRate ()Ljava/lang/Long;
 	public final fun getActionedCount ()Ljava/lang/Long;
+	public final fun getAhtDurationSec ()Ljava/lang/Long;
+	public final fun getAhtSampleCount ()Ljava/lang/Long;
 	public final fun getAvgHandlingTimeSec ()Ljava/lang/Long;
+	public final fun getAvgResolutionTimeSec ()Ljava/lang/Long;
+	public final fun getClosedCount ()Ljava/lang/Long;
 	public final fun getComputedAt ()Lkotlin/time/Instant;
 	public final fun getDate ()Ljava/lang/String;
 	public final fun getEscalatedCount ()Ljava/lang/Long;
 	public final fun getInboundCount ()Ljava/lang/Long;
+	public final fun getLabelActionCount ()Ljava/lang/Long;
 	public final fun getPendingCount ()Ljava/lang/Long;
+	public final fun getResolutionDurationSec ()Ljava/lang/Long;
+	public final fun getResolutionSampleCount ()Ljava/lang/Long;
+	public final fun getTagActionCount ()Ljava/lang/Long;
+	public final fun getTakedownActionCount ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -34658,25 +34682,45 @@ public final class tools/ozone/report/ListActivitiesResponse$Companion {
 public final class tools/ozone/report/LiveStats {
 	public static final field Companion Ltools/ozone/report/LiveStats$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;)V
-	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Long;
+	public final fun component10 ()Ljava/lang/Long;
+	public final fun component11 ()Ljava/lang/Long;
+	public final fun component12 ()Ljava/lang/Long;
+	public final fun component13 ()Ljava/lang/Long;
+	public final fun component14 ()Ljava/lang/Long;
+	public final fun component15 ()Ljava/lang/Long;
+	public final fun component16 ()Ljava/lang/Long;
+	public final fun component17 ()Lkotlin/time/Instant;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3 ()Ljava/lang/Long;
 	public final fun component4 ()Ljava/lang/Long;
 	public final fun component5 ()Ljava/lang/Long;
 	public final fun component6 ()Ljava/lang/Long;
-	public final fun component7 ()Lkotlin/time/Instant;
-	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;)Ltools/ozone/report/LiveStats;
-	public static synthetic fun copy$default (Ltools/ozone/report/LiveStats;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;ILjava/lang/Object;)Ltools/ozone/report/LiveStats;
+	public final fun component7 ()Ljava/lang/Long;
+	public final fun component8 ()Ljava/lang/Long;
+	public final fun component9 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;)Ltools/ozone/report/LiveStats;
+	public static synthetic fun copy$default (Ltools/ozone/report/LiveStats;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;ILjava/lang/Object;)Ltools/ozone/report/LiveStats;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAcknowledgedCount ()Ljava/lang/Long;
 	public final fun getActionRate ()Ljava/lang/Long;
 	public final fun getActionedCount ()Ljava/lang/Long;
+	public final fun getAhtDurationSec ()Ljava/lang/Long;
+	public final fun getAhtSampleCount ()Ljava/lang/Long;
 	public final fun getAvgHandlingTimeSec ()Ljava/lang/Long;
+	public final fun getAvgResolutionTimeSec ()Ljava/lang/Long;
+	public final fun getClosedCount ()Ljava/lang/Long;
 	public final fun getEscalatedCount ()Ljava/lang/Long;
 	public final fun getInboundCount ()Ljava/lang/Long;
+	public final fun getLabelActionCount ()Ljava/lang/Long;
 	public final fun getLastUpdated ()Lkotlin/time/Instant;
 	public final fun getPendingCount ()Ljava/lang/Long;
+	public final fun getResolutionDurationSec ()Ljava/lang/Long;
+	public final fun getResolutionSampleCount ()Ljava/lang/Long;
+	public final fun getTagActionCount ()Ljava/lang/Long;
+	public final fun getTakedownActionCount ()Ljava/lang/Long;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
