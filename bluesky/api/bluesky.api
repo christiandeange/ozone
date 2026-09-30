@@ -6168,18 +6168,20 @@ public final class app/bsky/feed/GetLikesResponse$Companion {
 
 public final class app/bsky/feed/GetListFeedQueryParams {
 	public static final field Companion Lapp/bsky/feed/GetListFeedQueryParams$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Ljava/util/List;
 	public final fun component1-x27MrHI ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun copy-DeKbev8 (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/feed/GetListFeedQueryParams;
-	public static synthetic fun copy-DeKbev8$default (Lapp/bsky/feed/GetListFeedQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/GetListFeedQueryParams;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy-M68XubM (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/feed/GetListFeedQueryParams;
+	public static synthetic fun copy-M68XubM$default (Lapp/bsky/feed/GetListFeedQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/GetListFeedQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getLimit ()Ljava/lang/Long;
 	public final fun getList-x27MrHI ()Ljava/lang/String;
+	public final fun getSince ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -6190,15 +6192,17 @@ public final class app/bsky/feed/GetListFeedQueryParams$Companion {
 
 public final class app/bsky/feed/GetListFeedResponse {
 	public static final field Companion Lapp/bsky/feed/GetListFeedResponse$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Ljava/util/List;
-	public final fun copy (Ljava/lang/String;Ljava/util/List;)Lapp/bsky/feed/GetListFeedResponse;
-	public static synthetic fun copy$default (Lapp/bsky/feed/GetListFeedResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/feed/GetListFeedResponse;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Lapp/bsky/feed/GetListFeedResponse;
+	public static synthetic fun copy$default (Lapp/bsky/feed/GetListFeedResponse;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/feed/GetListFeedResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getFeed ()Ljava/util/List;
+	public final fun getStartCursor ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -6549,18 +6553,20 @@ public final class app/bsky/feed/GetSuggestedFeedsResponse$Companion {
 public final class app/bsky/feed/GetTimelineQueryParams {
 	public static final field Companion Lapp/bsky/feed/GetTimelineQueryParams$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Ljava/util/List;
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/feed/GetTimelineQueryParams;
-	public static synthetic fun copy$default (Lapp/bsky/feed/GetTimelineQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/GetTimelineQueryParams;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/feed/GetTimelineQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/feed/GetTimelineQueryParams;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/GetTimelineQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAlgorithm ()Ljava/lang/String;
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getSince ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -6571,15 +6577,17 @@ public final class app/bsky/feed/GetTimelineQueryParams$Companion {
 
 public final class app/bsky/feed/GetTimelineResponse {
 	public static final field Companion Lapp/bsky/feed/GetTimelineResponse$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Ljava/util/List;
-	public final fun copy (Ljava/lang/String;Ljava/util/List;)Lapp/bsky/feed/GetTimelineResponse;
-	public static synthetic fun copy$default (Lapp/bsky/feed/GetTimelineResponse;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/feed/GetTimelineResponse;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Lapp/bsky/feed/GetTimelineResponse;
+	public static synthetic fun copy$default (Lapp/bsky/feed/GetTimelineResponse;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/feed/GetTimelineResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCursor ()Ljava/lang/String;
 	public final fun getFeed ()Ljava/util/List;
+	public final fun getStartCursor ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
