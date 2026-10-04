@@ -110,12 +110,12 @@ fun createDataClass(
 
                 requirements.forEach { requirement ->
                   val (accessor, operator, value) = when (requirement) {
-                    is Requirement.MinValue -> listOf("", ">=", requirement.minValue)
-                    is Requirement.MaxValue -> listOf("", "<=", requirement.maxValue)
-                    is Requirement.MinLength -> listOf(".count()", ">=", requirement.minLength)
-                    is Requirement.MaxLength -> listOf(".count()", "<=", requirement.maxLength)
-                    is Requirement.MinToStringLength -> listOf(".toString().count()", ">=", requirement.minLength)
-                    is Requirement.MaxToStringLength -> listOf(".toString().count()", "<=", requirement.maxLength)
+                    is Requirement.MinValue -> Triple("", ">=", requirement.minValue)
+                    is Requirement.MaxValue -> Triple("", "<=", requirement.maxValue)
+                    is Requirement.MinLength -> Triple(".count()", ">=", requirement.minLength)
+                    is Requirement.MaxLength -> Triple(".count()", "<=", requirement.maxLength)
+                    is Requirement.MinToStringLength -> Triple(".toString().count()", ">=", requirement.minLength)
+                    is Requirement.MaxToStringLength -> Triple(".toString().count()", "<=", requirement.maxLength)
                   }
 
                   add("require(")
@@ -126,12 +126,13 @@ fun createDataClass(
 
                   beginControlFlow(")")
                   val args = arrayOf(name.simpleName, value, name)
-                  if (accessor.toString().isEmpty()) {
+                  if (accessor.isEmpty()) {
                     addStatement("\"%L must be $operator %L, but was \$%N\"", *args)
                   } else if (!nullable) {
                     addStatement("\"%L$accessor must be $operator %L, but was \${%N$accessor}\"", *args)
                   } else {
-                    addStatement("\"%L$accessor must be $operator %L, but was \${%N?$accessor}\"", *args)
+                    val nullableAccessor = accessor.replace(".", "?.")
+                    addStatement("\"%L$nullableAccessor must be $operator %L, but was \${%N$nullableAccessor}\"", *args)
                   }
                   endControlFlow()
                 }
