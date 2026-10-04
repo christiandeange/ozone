@@ -10587,6 +10587,1032 @@ public final class app/bsky/notification/FilterablePreferenceIncludeSerializer :
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
+public final class app/bsky/notification/GetGroupedNotificationsContactMatchNotification {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsContactMatchNotification$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun copy-Kn78ayM (Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsContactMatchNotification;
+	public static synthetic fun copy-Kn78ayM$default (Lapp/bsky/notification/GetGroupedNotificationsContactMatchNotification;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsContactMatchNotification;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActor-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsContactMatchNotification$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class app/bsky/notification/GetGroupedNotificationsFeed : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsFeed$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsFeed$Activity : app/bsky/notification/GetGroupedNotificationsFeed {
+	public static final field INSTANCE Lapp/bsky/notification/GetGroupedNotificationsFeed$Activity;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsFeed$All : app/bsky/notification/GetGroupedNotificationsFeed {
+	public static final field INSTANCE Lapp/bsky/notification/GetGroupedNotificationsFeed$All;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsFeed$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsFeed;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsFeed$Conversations : app/bsky/notification/GetGroupedNotificationsFeed {
+	public static final field INSTANCE Lapp/bsky/notification/GetGroupedNotificationsFeed$Conversations;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsFeed$Followers : app/bsky/notification/GetGroupedNotificationsFeed {
+	public static final field INSTANCE Lapp/bsky/notification/GetGroupedNotificationsFeed$Followers;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsFeed$PeopleIFollow : app/bsky/notification/GetGroupedNotificationsFeed {
+	public static final field INSTANCE Lapp/bsky/notification/GetGroupedNotificationsFeed$PeopleIFollow;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsFeed$Unknown : app/bsky/notification/GetGroupedNotificationsFeed {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsFeed$Unknown;
+	public static synthetic fun copy$default (Lapp/bsky/notification/GetGroupedNotificationsFeed$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsFeed$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsFeedSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/notification/GetGroupedNotificationsFeed;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/notification/GetGroupedNotificationsFeed;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsFollowBackNotification {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsFollowBackNotification$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2-W3xQKsw ()Ljava/lang/String;
+	public final fun copy-arw7MnA (Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsFollowBackNotification;
+	public static synthetic fun copy-arw7MnA$default (Lapp/bsky/notification/GetGroupedNotificationsFollowBackNotification;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsFollowBackNotification;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActor-715Ygxc ()Ljava/lang/String;
+	public final fun getStarterPack-W3xQKsw ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsFollowBackNotification$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsFollowGroup {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsFollowGroup$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lapp/bsky/notification/GetGroupedNotificationsFollowGroup;
+	public static synthetic fun copy$default (Lapp/bsky/notification/GetGroupedNotificationsFollowGroup;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsFollowGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItems ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsFollowGroup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsFollowItem {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsFollowItem$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2-W3xQKsw ()Ljava/lang/String;
+	public final fun copy-arw7MnA (Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsFollowItem;
+	public static synthetic fun copy-arw7MnA$default (Lapp/bsky/notification/GetGroupedNotificationsFollowItem;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsFollowItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActor-715Ygxc ()Ljava/lang/String;
+	public final fun getStarterPack-W3xQKsw ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsFollowItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGeneratorLikeGroup {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGeneratorLikeGroup$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy-wMvghHc (Ljava/lang/String;Ljava/util/List;)Lapp/bsky/notification/GetGroupedNotificationsGeneratorLikeGroup;
+	public static synthetic fun copy-wMvghHc$default (Lapp/bsky/notification/GetGroupedNotificationsGeneratorLikeGroup;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsGeneratorLikeGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getGenerator-x27MrHI ()Ljava/lang/String;
+	public final fun getItems ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGeneratorLikeGroup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGeneratorLikeItem {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGeneratorLikeItem$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun copy-Kn78ayM (Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsGeneratorLikeItem;
+	public static synthetic fun copy-Kn78ayM$default (Lapp/bsky/notification/GetGroupedNotificationsGeneratorLikeItem;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsGeneratorLikeItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActor-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGeneratorLikeItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroup {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGroup$Companion;
+	public fun <init> (Ljava/lang/String;ZLkotlin/time/Instant;JLapp/bsky/notification/GetGroupedNotificationsGroupKindUnion;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Z
+	public final fun component3 ()Lkotlin/time/Instant;
+	public final fun component4 ()J
+	public final fun component5 ()Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion;
+	public final fun copy (Ljava/lang/String;ZLkotlin/time/Instant;JLapp/bsky/notification/GetGroupedNotificationsGroupKindUnion;)Lapp/bsky/notification/GetGroupedNotificationsGroup;
+	public static synthetic fun copy$default (Lapp/bsky/notification/GetGroupedNotificationsGroup;Ljava/lang/String;ZLkotlin/time/Instant;JLapp/bsky/notification/GetGroupedNotificationsGroupKindUnion;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCount ()J
+	public final fun getId ()Ljava/lang/String;
+	public final fun getIndexedAt ()Lkotlin/time/Instant;
+	public final fun getKind ()Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion;
+	public fun hashCode ()I
+	public final fun isRead ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/notification/GetGroupedNotificationsGroupKindUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$Companion;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$ContactMatchNotification : app/bsky/notification/GetGroupedNotificationsGroupKindUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$ContactMatchNotification$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/notification/GetGroupedNotificationsContactMatchNotification;)Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$ContactMatchNotification;
+	public static fun constructor-impl (Lapp/bsky/notification/GetGroupedNotificationsContactMatchNotification;)Lapp/bsky/notification/GetGroupedNotificationsContactMatchNotification;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/notification/GetGroupedNotificationsContactMatchNotification;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/notification/GetGroupedNotificationsContactMatchNotification;Lapp/bsky/notification/GetGroupedNotificationsContactMatchNotification;)Z
+	public final fun getValue ()Lapp/bsky/notification/GetGroupedNotificationsContactMatchNotification;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/notification/GetGroupedNotificationsContactMatchNotification;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/notification/GetGroupedNotificationsContactMatchNotification;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/notification/GetGroupedNotificationsContactMatchNotification;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$ContactMatchNotification$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$FollowBackNotification : app/bsky/notification/GetGroupedNotificationsGroupKindUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$FollowBackNotification$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/notification/GetGroupedNotificationsFollowBackNotification;)Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$FollowBackNotification;
+	public static fun constructor-impl (Lapp/bsky/notification/GetGroupedNotificationsFollowBackNotification;)Lapp/bsky/notification/GetGroupedNotificationsFollowBackNotification;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/notification/GetGroupedNotificationsFollowBackNotification;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/notification/GetGroupedNotificationsFollowBackNotification;Lapp/bsky/notification/GetGroupedNotificationsFollowBackNotification;)Z
+	public final fun getValue ()Lapp/bsky/notification/GetGroupedNotificationsFollowBackNotification;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/notification/GetGroupedNotificationsFollowBackNotification;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/notification/GetGroupedNotificationsFollowBackNotification;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/notification/GetGroupedNotificationsFollowBackNotification;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$FollowBackNotification$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$FollowGroup : app/bsky/notification/GetGroupedNotificationsGroupKindUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$FollowGroup$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/notification/GetGroupedNotificationsFollowGroup;)Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$FollowGroup;
+	public static fun constructor-impl (Lapp/bsky/notification/GetGroupedNotificationsFollowGroup;)Lapp/bsky/notification/GetGroupedNotificationsFollowGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/notification/GetGroupedNotificationsFollowGroup;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/notification/GetGroupedNotificationsFollowGroup;Lapp/bsky/notification/GetGroupedNotificationsFollowGroup;)Z
+	public final fun getValue ()Lapp/bsky/notification/GetGroupedNotificationsFollowGroup;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/notification/GetGroupedNotificationsFollowGroup;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/notification/GetGroupedNotificationsFollowGroup;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/notification/GetGroupedNotificationsFollowGroup;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$FollowGroup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$GeneratorLikeGroup : app/bsky/notification/GetGroupedNotificationsGroupKindUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$GeneratorLikeGroup$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/notification/GetGroupedNotificationsGeneratorLikeGroup;)Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$GeneratorLikeGroup;
+	public static fun constructor-impl (Lapp/bsky/notification/GetGroupedNotificationsGeneratorLikeGroup;)Lapp/bsky/notification/GetGroupedNotificationsGeneratorLikeGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/notification/GetGroupedNotificationsGeneratorLikeGroup;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/notification/GetGroupedNotificationsGeneratorLikeGroup;Lapp/bsky/notification/GetGroupedNotificationsGeneratorLikeGroup;)Z
+	public final fun getValue ()Lapp/bsky/notification/GetGroupedNotificationsGeneratorLikeGroup;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/notification/GetGroupedNotificationsGeneratorLikeGroup;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/notification/GetGroupedNotificationsGeneratorLikeGroup;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/notification/GetGroupedNotificationsGeneratorLikeGroup;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$GeneratorLikeGroup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$LikeGroup : app/bsky/notification/GetGroupedNotificationsGroupKindUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$LikeGroup$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/notification/GetGroupedNotificationsLikeGroup;)Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$LikeGroup;
+	public static fun constructor-impl (Lapp/bsky/notification/GetGroupedNotificationsLikeGroup;)Lapp/bsky/notification/GetGroupedNotificationsLikeGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/notification/GetGroupedNotificationsLikeGroup;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/notification/GetGroupedNotificationsLikeGroup;Lapp/bsky/notification/GetGroupedNotificationsLikeGroup;)Z
+	public final fun getValue ()Lapp/bsky/notification/GetGroupedNotificationsLikeGroup;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/notification/GetGroupedNotificationsLikeGroup;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/notification/GetGroupedNotificationsLikeGroup;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/notification/GetGroupedNotificationsLikeGroup;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$LikeGroup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$LikeViaRepostGroup : app/bsky/notification/GetGroupedNotificationsGroupKindUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$LikeViaRepostGroup$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/notification/GetGroupedNotificationsLikeViaRepostGroup;)Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$LikeViaRepostGroup;
+	public static fun constructor-impl (Lapp/bsky/notification/GetGroupedNotificationsLikeViaRepostGroup;)Lapp/bsky/notification/GetGroupedNotificationsLikeViaRepostGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/notification/GetGroupedNotificationsLikeViaRepostGroup;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/notification/GetGroupedNotificationsLikeViaRepostGroup;Lapp/bsky/notification/GetGroupedNotificationsLikeViaRepostGroup;)Z
+	public final fun getValue ()Lapp/bsky/notification/GetGroupedNotificationsLikeViaRepostGroup;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/notification/GetGroupedNotificationsLikeViaRepostGroup;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/notification/GetGroupedNotificationsLikeViaRepostGroup;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/notification/GetGroupedNotificationsLikeViaRepostGroup;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$LikeViaRepostGroup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$MentionNotification : app/bsky/notification/GetGroupedNotificationsGroupKindUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$MentionNotification$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/notification/GetGroupedNotificationsMentionNotification;)Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$MentionNotification;
+	public static fun constructor-impl (Lapp/bsky/notification/GetGroupedNotificationsMentionNotification;)Lapp/bsky/notification/GetGroupedNotificationsMentionNotification;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/notification/GetGroupedNotificationsMentionNotification;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/notification/GetGroupedNotificationsMentionNotification;Lapp/bsky/notification/GetGroupedNotificationsMentionNotification;)Z
+	public final fun getValue ()Lapp/bsky/notification/GetGroupedNotificationsMentionNotification;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/notification/GetGroupedNotificationsMentionNotification;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/notification/GetGroupedNotificationsMentionNotification;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/notification/GetGroupedNotificationsMentionNotification;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$MentionNotification$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$MultiPostLikeGroup : app/bsky/notification/GetGroupedNotificationsGroupKindUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$MultiPostLikeGroup$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/notification/GetGroupedNotificationsMultiPostLikeGroup;)Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$MultiPostLikeGroup;
+	public static fun constructor-impl (Lapp/bsky/notification/GetGroupedNotificationsMultiPostLikeGroup;)Lapp/bsky/notification/GetGroupedNotificationsMultiPostLikeGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/notification/GetGroupedNotificationsMultiPostLikeGroup;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/notification/GetGroupedNotificationsMultiPostLikeGroup;Lapp/bsky/notification/GetGroupedNotificationsMultiPostLikeGroup;)Z
+	public final fun getValue ()Lapp/bsky/notification/GetGroupedNotificationsMultiPostLikeGroup;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/notification/GetGroupedNotificationsMultiPostLikeGroup;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/notification/GetGroupedNotificationsMultiPostLikeGroup;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/notification/GetGroupedNotificationsMultiPostLikeGroup;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$MultiPostLikeGroup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$QuoteNotification : app/bsky/notification/GetGroupedNotificationsGroupKindUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$QuoteNotification$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/notification/GetGroupedNotificationsQuoteNotification;)Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$QuoteNotification;
+	public static fun constructor-impl (Lapp/bsky/notification/GetGroupedNotificationsQuoteNotification;)Lapp/bsky/notification/GetGroupedNotificationsQuoteNotification;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/notification/GetGroupedNotificationsQuoteNotification;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/notification/GetGroupedNotificationsQuoteNotification;Lapp/bsky/notification/GetGroupedNotificationsQuoteNotification;)Z
+	public final fun getValue ()Lapp/bsky/notification/GetGroupedNotificationsQuoteNotification;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/notification/GetGroupedNotificationsQuoteNotification;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/notification/GetGroupedNotificationsQuoteNotification;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/notification/GetGroupedNotificationsQuoteNotification;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$QuoteNotification$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$ReplyNotification : app/bsky/notification/GetGroupedNotificationsGroupKindUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$ReplyNotification$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/notification/GetGroupedNotificationsReplyNotification;)Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$ReplyNotification;
+	public static fun constructor-impl (Lapp/bsky/notification/GetGroupedNotificationsReplyNotification;)Lapp/bsky/notification/GetGroupedNotificationsReplyNotification;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/notification/GetGroupedNotificationsReplyNotification;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/notification/GetGroupedNotificationsReplyNotification;Lapp/bsky/notification/GetGroupedNotificationsReplyNotification;)Z
+	public final fun getValue ()Lapp/bsky/notification/GetGroupedNotificationsReplyNotification;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/notification/GetGroupedNotificationsReplyNotification;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/notification/GetGroupedNotificationsReplyNotification;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/notification/GetGroupedNotificationsReplyNotification;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$ReplyNotification$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$RepostGroup : app/bsky/notification/GetGroupedNotificationsGroupKindUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$RepostGroup$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/notification/GetGroupedNotificationsRepostGroup;)Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$RepostGroup;
+	public static fun constructor-impl (Lapp/bsky/notification/GetGroupedNotificationsRepostGroup;)Lapp/bsky/notification/GetGroupedNotificationsRepostGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/notification/GetGroupedNotificationsRepostGroup;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/notification/GetGroupedNotificationsRepostGroup;Lapp/bsky/notification/GetGroupedNotificationsRepostGroup;)Z
+	public final fun getValue ()Lapp/bsky/notification/GetGroupedNotificationsRepostGroup;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/notification/GetGroupedNotificationsRepostGroup;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/notification/GetGroupedNotificationsRepostGroup;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/notification/GetGroupedNotificationsRepostGroup;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$RepostGroup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$RepostViaRepostGroup : app/bsky/notification/GetGroupedNotificationsGroupKindUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$RepostViaRepostGroup$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/notification/GetGroupedNotificationsRepostViaRepostGroup;)Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$RepostViaRepostGroup;
+	public static fun constructor-impl (Lapp/bsky/notification/GetGroupedNotificationsRepostViaRepostGroup;)Lapp/bsky/notification/GetGroupedNotificationsRepostViaRepostGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/notification/GetGroupedNotificationsRepostViaRepostGroup;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/notification/GetGroupedNotificationsRepostViaRepostGroup;Lapp/bsky/notification/GetGroupedNotificationsRepostViaRepostGroup;)Z
+	public final fun getValue ()Lapp/bsky/notification/GetGroupedNotificationsRepostViaRepostGroup;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/notification/GetGroupedNotificationsRepostViaRepostGroup;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/notification/GetGroupedNotificationsRepostViaRepostGroup;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/notification/GetGroupedNotificationsRepostViaRepostGroup;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$RepostViaRepostGroup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$StarterPackJoinedNotification : app/bsky/notification/GetGroupedNotificationsGroupKindUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$StarterPackJoinedNotification$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/notification/GetGroupedNotificationsStarterPackJoinedNotification;)Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$StarterPackJoinedNotification;
+	public static fun constructor-impl (Lapp/bsky/notification/GetGroupedNotificationsStarterPackJoinedNotification;)Lapp/bsky/notification/GetGroupedNotificationsStarterPackJoinedNotification;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/notification/GetGroupedNotificationsStarterPackJoinedNotification;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/notification/GetGroupedNotificationsStarterPackJoinedNotification;Lapp/bsky/notification/GetGroupedNotificationsStarterPackJoinedNotification;)Z
+	public final fun getValue ()Lapp/bsky/notification/GetGroupedNotificationsStarterPackJoinedNotification;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/notification/GetGroupedNotificationsStarterPackJoinedNotification;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/notification/GetGroupedNotificationsStarterPackJoinedNotification;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/notification/GetGroupedNotificationsStarterPackJoinedNotification;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$StarterPackJoinedNotification$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$SubscribedPostGroup : app/bsky/notification/GetGroupedNotificationsGroupKindUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$SubscribedPostGroup$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostGroup;)Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$SubscribedPostGroup;
+	public static fun constructor-impl (Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostGroup;)Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostGroup;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostGroup;Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostGroup;)Z
+	public final fun getValue ()Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostGroup;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostGroup;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostGroup;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostGroup;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$SubscribedPostGroup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$Unknown : app/bsky/notification/GetGroupedNotificationsGroupKindUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$UnverifiedNotification : app/bsky/notification/GetGroupedNotificationsGroupKindUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$UnverifiedNotification$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/notification/GetGroupedNotificationsUnverifiedNotification;)Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$UnverifiedNotification;
+	public static fun constructor-impl (Lapp/bsky/notification/GetGroupedNotificationsUnverifiedNotification;)Lapp/bsky/notification/GetGroupedNotificationsUnverifiedNotification;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/notification/GetGroupedNotificationsUnverifiedNotification;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/notification/GetGroupedNotificationsUnverifiedNotification;Lapp/bsky/notification/GetGroupedNotificationsUnverifiedNotification;)Z
+	public final fun getValue ()Lapp/bsky/notification/GetGroupedNotificationsUnverifiedNotification;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/notification/GetGroupedNotificationsUnverifiedNotification;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/notification/GetGroupedNotificationsUnverifiedNotification;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/notification/GetGroupedNotificationsUnverifiedNotification;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$UnverifiedNotification$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$VerifiedNotification : app/bsky/notification/GetGroupedNotificationsGroupKindUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$VerifiedNotification$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/notification/GetGroupedNotificationsVerifiedNotification;)Lapp/bsky/notification/GetGroupedNotificationsGroupKindUnion$VerifiedNotification;
+	public static fun constructor-impl (Lapp/bsky/notification/GetGroupedNotificationsVerifiedNotification;)Lapp/bsky/notification/GetGroupedNotificationsVerifiedNotification;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/notification/GetGroupedNotificationsVerifiedNotification;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/notification/GetGroupedNotificationsVerifiedNotification;Lapp/bsky/notification/GetGroupedNotificationsVerifiedNotification;)Z
+	public final fun getValue ()Lapp/bsky/notification/GetGroupedNotificationsVerifiedNotification;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/notification/GetGroupedNotificationsVerifiedNotification;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/notification/GetGroupedNotificationsVerifiedNotification;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/notification/GetGroupedNotificationsVerifiedNotification;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsGroupKindUnion$VerifiedNotification$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsLikeGroup {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsLikeGroup$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy-wMvghHc (Ljava/lang/String;Ljava/util/List;)Lapp/bsky/notification/GetGroupedNotificationsLikeGroup;
+	public static synthetic fun copy-wMvghHc$default (Lapp/bsky/notification/GetGroupedNotificationsLikeGroup;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsLikeGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItems ()Ljava/util/List;
+	public final fun getPost-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsLikeGroup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsLikeItem {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsLikeItem$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun copy-Kn78ayM (Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsLikeItem;
+	public static synthetic fun copy-Kn78ayM$default (Lapp/bsky/notification/GetGroupedNotificationsLikeItem;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsLikeItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActor-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsLikeItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsLikeViaRepostGroup {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsLikeViaRepostGroup$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2-x27MrHI ()Ljava/lang/String;
+	public final fun component3 ()Ljava/util/List;
+	public final fun copy-ig-KL2E (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Lapp/bsky/notification/GetGroupedNotificationsLikeViaRepostGroup;
+	public static synthetic fun copy-ig-KL2E$default (Lapp/bsky/notification/GetGroupedNotificationsLikeViaRepostGroup;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsLikeViaRepostGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItems ()Ljava/util/List;
+	public final fun getPost-x27MrHI ()Ljava/lang/String;
+	public final fun getViaRepost-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsLikeViaRepostGroup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsLikeViaRepostItem {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsLikeViaRepostItem$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun copy-Kn78ayM (Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsLikeViaRepostItem;
+	public static synthetic fun copy-Kn78ayM$default (Lapp/bsky/notification/GetGroupedNotificationsLikeViaRepostItem;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsLikeViaRepostItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActor-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsLikeViaRepostItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsMentionNotification {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsMentionNotification$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2-W3xQKsw ()Ljava/lang/String;
+	public final fun copy-ldhGbmg (Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsMentionNotification;
+	public static synthetic fun copy-ldhGbmg$default (Lapp/bsky/notification/GetGroupedNotificationsMentionNotification;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsMentionNotification;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getParent-W3xQKsw ()Ljava/lang/String;
+	public final fun getPost-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsMentionNotification$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsMultiPostLikeGroup {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsMultiPostLikeGroup$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy-vy2gcmM (Ljava/lang/String;Ljava/util/List;)Lapp/bsky/notification/GetGroupedNotificationsMultiPostLikeGroup;
+	public static synthetic fun copy-vy2gcmM$default (Lapp/bsky/notification/GetGroupedNotificationsMultiPostLikeGroup;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsMultiPostLikeGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActor-715Ygxc ()Ljava/lang/String;
+	public final fun getItems ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsMultiPostLikeGroup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsMultiPostLikeItem {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsMultiPostLikeItem$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun copy-g66Z2H8 (Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsMultiPostLikeItem;
+	public static synthetic fun copy-g66Z2H8$default (Lapp/bsky/notification/GetGroupedNotificationsMultiPostLikeItem;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsMultiPostLikeItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPost-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsMultiPostLikeItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsQueryParams {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Lapp/bsky/notification/GetGroupedNotificationsFeed;Ljava/lang/Long;Ljava/lang/String;)V
+	public synthetic fun <init> (Lapp/bsky/notification/GetGroupedNotificationsFeed;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Lapp/bsky/notification/GetGroupedNotificationsFeed;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Lapp/bsky/notification/GetGroupedNotificationsFeed;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/notification/GetGroupedNotificationsQueryParams;Lapp/bsky/notification/GetGroupedNotificationsFeed;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getFeed ()Lapp/bsky/notification/GetGroupedNotificationsFeed;
+	public final fun getLimit ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsQuoteNotification {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsQuoteNotification$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2-W3xQKsw ()Ljava/lang/String;
+	public final fun copy-ldhGbmg (Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsQuoteNotification;
+	public static synthetic fun copy-ldhGbmg$default (Lapp/bsky/notification/GetGroupedNotificationsQuoteNotification;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsQuoteNotification;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getParent-W3xQKsw ()Ljava/lang/String;
+	public final fun getPost-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsQuoteNotification$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsReplyNotification {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsReplyNotification$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2-x27MrHI ()Ljava/lang/String;
+	public final fun copy-WHBhohY (Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsReplyNotification;
+	public static synthetic fun copy-WHBhohY$default (Lapp/bsky/notification/GetGroupedNotificationsReplyNotification;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsReplyNotification;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getParent-x27MrHI ()Ljava/lang/String;
+	public final fun getPost-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsReplyNotification$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsRepostGroup {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsRepostGroup$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy-wMvghHc (Ljava/lang/String;Ljava/util/List;)Lapp/bsky/notification/GetGroupedNotificationsRepostGroup;
+	public static synthetic fun copy-wMvghHc$default (Lapp/bsky/notification/GetGroupedNotificationsRepostGroup;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsRepostGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItems ()Ljava/util/List;
+	public final fun getPost-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsRepostGroup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsRepostItem {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsRepostItem$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun copy-Kn78ayM (Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsRepostItem;
+	public static synthetic fun copy-Kn78ayM$default (Lapp/bsky/notification/GetGroupedNotificationsRepostItem;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsRepostItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActor-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsRepostItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsRepostViaRepostGroup {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsRepostViaRepostGroup$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2-x27MrHI ()Ljava/lang/String;
+	public final fun component3 ()Ljava/util/List;
+	public final fun copy-ig-KL2E (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Lapp/bsky/notification/GetGroupedNotificationsRepostViaRepostGroup;
+	public static synthetic fun copy-ig-KL2E$default (Lapp/bsky/notification/GetGroupedNotificationsRepostViaRepostGroup;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsRepostViaRepostGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItems ()Ljava/util/List;
+	public final fun getPost-x27MrHI ()Ljava/lang/String;
+	public final fun getViaRepost-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsRepostViaRepostGroup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsRepostViaRepostItem {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsRepostViaRepostItem$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun copy-Kn78ayM (Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsRepostViaRepostItem;
+	public static synthetic fun copy-Kn78ayM$default (Lapp/bsky/notification/GetGroupedNotificationsRepostViaRepostItem;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsRepostViaRepostItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActor-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsRepostViaRepostItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsResponse {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsResponse$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/List;Lkotlin/time/Instant;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Lkotlin/time/Instant;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Lkotlin/time/Instant;
+	public final fun component4 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;Lkotlin/time/Instant;Ljava/util/List;)Lapp/bsky/notification/GetGroupedNotificationsResponse;
+	public static synthetic fun copy$default (Lapp/bsky/notification/GetGroupedNotificationsResponse;Ljava/lang/String;Ljava/util/List;Lkotlin/time/Instant;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getGroups ()Ljava/util/List;
+	public final fun getRelatedViews ()Ljava/util/List;
+	public final fun getSeenAt ()Lkotlin/time/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$Companion;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$ActorProfileViewDetailed : app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$ActorProfileViewDetailed$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/actor/ProfileViewDetailed;)Lapp/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$ActorProfileViewDetailed;
+	public static fun constructor-impl (Lapp/bsky/actor/ProfileViewDetailed;)Lapp/bsky/actor/ProfileViewDetailed;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/actor/ProfileViewDetailed;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/actor/ProfileViewDetailed;Lapp/bsky/actor/ProfileViewDetailed;)Z
+	public final fun getValue ()Lapp/bsky/actor/ProfileViewDetailed;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/actor/ProfileViewDetailed;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/actor/ProfileViewDetailed;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/actor/ProfileViewDetailed;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$ActorProfileViewDetailed$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$FeedBlockedPost : app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$FeedBlockedPost$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/feed/BlockedPost;)Lapp/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$FeedBlockedPost;
+	public static fun constructor-impl (Lapp/bsky/feed/BlockedPost;)Lapp/bsky/feed/BlockedPost;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/feed/BlockedPost;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/feed/BlockedPost;Lapp/bsky/feed/BlockedPost;)Z
+	public final fun getValue ()Lapp/bsky/feed/BlockedPost;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/feed/BlockedPost;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/feed/BlockedPost;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/feed/BlockedPost;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$FeedBlockedPost$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$FeedGeneratorView : app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$FeedGeneratorView$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/feed/GeneratorView;)Lapp/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$FeedGeneratorView;
+	public static fun constructor-impl (Lapp/bsky/feed/GeneratorView;)Lapp/bsky/feed/GeneratorView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/feed/GeneratorView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/feed/GeneratorView;Lapp/bsky/feed/GeneratorView;)Z
+	public final fun getValue ()Lapp/bsky/feed/GeneratorView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/feed/GeneratorView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/feed/GeneratorView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/feed/GeneratorView;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$FeedGeneratorView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$FeedNotFoundPost : app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$FeedNotFoundPost$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/feed/NotFoundPost;)Lapp/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$FeedNotFoundPost;
+	public static fun constructor-impl (Lapp/bsky/feed/NotFoundPost;)Lapp/bsky/feed/NotFoundPost;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/feed/NotFoundPost;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/feed/NotFoundPost;Lapp/bsky/feed/NotFoundPost;)Z
+	public final fun getValue ()Lapp/bsky/feed/NotFoundPost;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/feed/NotFoundPost;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/feed/NotFoundPost;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/feed/NotFoundPost;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$FeedNotFoundPost$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$FeedPostView : app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$FeedPostView$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/feed/PostView;)Lapp/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$FeedPostView;
+	public static fun constructor-impl (Lapp/bsky/feed/PostView;)Lapp/bsky/feed/PostView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/feed/PostView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/feed/PostView;Lapp/bsky/feed/PostView;)Z
+	public final fun getValue ()Lapp/bsky/feed/PostView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/feed/PostView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/feed/PostView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/feed/PostView;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$FeedPostView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$GraphStarterPackView : app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$GraphStarterPackView$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/graph/StarterPackView;)Lapp/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$GraphStarterPackView;
+	public static fun constructor-impl (Lapp/bsky/graph/StarterPackView;)Lapp/bsky/graph/StarterPackView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/graph/StarterPackView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/graph/StarterPackView;Lapp/bsky/graph/StarterPackView;)Z
+	public final fun getValue ()Lapp/bsky/graph/StarterPackView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/graph/StarterPackView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/graph/StarterPackView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/graph/StarterPackView;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$GraphStarterPackView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$Unknown : app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsResponseRelatedViewUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsStarterPackJoinedNotification {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsStarterPackJoinedNotification$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2-x27MrHI ()Ljava/lang/String;
+	public final fun copy-iXLjiGo (Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsStarterPackJoinedNotification;
+	public static synthetic fun copy-iXLjiGo$default (Lapp/bsky/notification/GetGroupedNotificationsStarterPackJoinedNotification;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsStarterPackJoinedNotification;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActor-715Ygxc ()Ljava/lang/String;
+	public final fun getStarterPack-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsStarterPackJoinedNotification$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsSubscribedPostGroup {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostGroup$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostGroup;
+	public static synthetic fun copy$default (Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostGroup;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItems ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsSubscribedPostGroup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsSubscribedPostItem {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostItem$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2-x27MrHI ()Ljava/lang/String;
+	public final fun copy-iXLjiGo (Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostItem;
+	public static synthetic fun copy-iXLjiGo$default (Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostItem;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActor-715Ygxc ()Ljava/lang/String;
+	public final fun getPost-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsSubscribedPostItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsUnverifiedNotification {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsUnverifiedNotification$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun copy-Kn78ayM (Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsUnverifiedNotification;
+	public static synthetic fun copy-Kn78ayM$default (Lapp/bsky/notification/GetGroupedNotificationsUnverifiedNotification;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsUnverifiedNotification;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActor-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsUnverifiedNotification$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsVerifiedNotification {
+	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsVerifiedNotification$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun copy-Kn78ayM (Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsVerifiedNotification;
+	public static synthetic fun copy-Kn78ayM$default (Lapp/bsky/notification/GetGroupedNotificationsVerifiedNotification;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsVerifiedNotification;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActor-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/notification/GetGroupedNotificationsVerifiedNotification$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/notification/GetPreferencesResponse {
 	public static final field Companion Lapp/bsky/notification/GetPreferencesResponse$Companion;
 	public fun <init> (Lapp/bsky/notification/Preferences;)V
@@ -26235,6 +27261,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getFeedSkeleton (Lapp/bsky/feed/GetFeedSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFollowers (Lapp/bsky/graph/GetFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFollows (Lapp/bsky/graph/GetFollowsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getGroupedNotifications (Lapp/bsky/notification/GetGroupedNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getHistoricalStats (Ltools/ozone/report/GetHistoricalStatsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getHostStatus (Lcom/atproto/sync/GetHostStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getInviteCodes (Lcom/atproto/admin/GetInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -26565,6 +27592,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getFeedSkeleton (Lapp/bsky/feed/GetFeedSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFollowers (Lapp/bsky/graph/GetFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFollows (Lapp/bsky/graph/GetFollowsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getGroupedNotifications (Lapp/bsky/notification/GetGroupedNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getHistoricalStats (Ltools/ozone/report/GetHistoricalStatsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getHostStatus (Lcom/atproto/sync/GetHostStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getInviteCodes (Lcom/atproto/admin/GetInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -26898,6 +27926,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getFeedSkeleton (Lapp/bsky/feed/GetFeedSkeletonQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFollowers (Lapp/bsky/graph/GetFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFollows (Lapp/bsky/graph/GetFollowsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getGroupedNotifications (Lapp/bsky/notification/GetGroupedNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getHistoricalStats (Ltools/ozone/report/GetHistoricalStatsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getHostStatus (Lcom/atproto/sync/GetHostStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getInviteCodes (Lcom/atproto/admin/GetInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
