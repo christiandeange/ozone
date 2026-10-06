@@ -37115,6 +37115,25 @@ public final class tools/ozone/report/ReportActivityViewActivityUnion$ReopenActi
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/report/ReportActivityViewActivityUnion$UnassignmentActivity : tools/ozone/report/ReportActivityViewActivityUnion {
+	public static final field Companion Ltools/ozone/report/ReportActivityViewActivityUnion$UnassignmentActivity$Companion;
+	public static final synthetic fun box-impl (Ltools/ozone/report/UnassignmentActivity;)Ltools/ozone/report/ReportActivityViewActivityUnion$UnassignmentActivity;
+	public static fun constructor-impl (Ltools/ozone/report/UnassignmentActivity;)Ltools/ozone/report/UnassignmentActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ltools/ozone/report/UnassignmentActivity;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ltools/ozone/report/UnassignmentActivity;Ltools/ozone/report/UnassignmentActivity;)Z
+	public final fun getValue ()Ltools/ozone/report/UnassignmentActivity;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ltools/ozone/report/UnassignmentActivity;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ltools/ozone/report/UnassignmentActivity;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ltools/ozone/report/UnassignmentActivity;
+}
+
+public final class tools/ozone/report/ReportActivityViewActivityUnion$UnassignmentActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/report/ReportActivityViewActivityUnion$Unknown : tools/ozone/report/ReportActivityViewActivityUnion {
 	public static final field Companion Ltools/ozone/report/ReportActivityViewActivityUnion$Unknown$Companion;
 	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/report/ReportActivityViewActivityUnion$Unknown;
@@ -37601,6 +37620,158 @@ public final class tools/ozone/report/UnassignModeratorRequest {
 
 public final class tools/ozone/report/UnassignModeratorRequest$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/UnassignmentActivity {
+	public static final field Companion Ltools/ozone/report/UnassignmentActivity$Companion;
+	public fun <init> ()V
+	public fun <init> (Ltools/ozone/report/UnassignmentActivityPreviousStatus;Ltools/ozone/report/UnassignmentActivityNextStatus;)V
+	public synthetic fun <init> (Ltools/ozone/report/UnassignmentActivityPreviousStatus;Ltools/ozone/report/UnassignmentActivityNextStatus;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ltools/ozone/report/UnassignmentActivityPreviousStatus;
+	public final fun component2 ()Ltools/ozone/report/UnassignmentActivityNextStatus;
+	public final fun copy (Ltools/ozone/report/UnassignmentActivityPreviousStatus;Ltools/ozone/report/UnassignmentActivityNextStatus;)Ltools/ozone/report/UnassignmentActivity;
+	public static synthetic fun copy$default (Ltools/ozone/report/UnassignmentActivity;Ltools/ozone/report/UnassignmentActivityPreviousStatus;Ltools/ozone/report/UnassignmentActivityNextStatus;ILjava/lang/Object;)Ltools/ozone/report/UnassignmentActivity;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getNextStatus ()Ltools/ozone/report/UnassignmentActivityNextStatus;
+	public final fun getPreviousStatus ()Ltools/ozone/report/UnassignmentActivityPreviousStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/UnassignmentActivity$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/report/UnassignmentActivityNextStatus : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/report/UnassignmentActivityNextStatus$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/UnassignmentActivityNextStatus$Assigned : tools/ozone/report/UnassignmentActivityNextStatus {
+	public static final field INSTANCE Ltools/ozone/report/UnassignmentActivityNextStatus$Assigned;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/UnassignmentActivityNextStatus$Closed : tools/ozone/report/UnassignmentActivityNextStatus {
+	public static final field INSTANCE Ltools/ozone/report/UnassignmentActivityNextStatus$Closed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/UnassignmentActivityNextStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/report/UnassignmentActivityNextStatus;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/UnassignmentActivityNextStatus$Escalated : tools/ozone/report/UnassignmentActivityNextStatus {
+	public static final field INSTANCE Ltools/ozone/report/UnassignmentActivityNextStatus$Escalated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/UnassignmentActivityNextStatus$Open : tools/ozone/report/UnassignmentActivityNextStatus {
+	public static final field INSTANCE Ltools/ozone/report/UnassignmentActivityNextStatus$Open;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/UnassignmentActivityNextStatus$Queued : tools/ozone/report/UnassignmentActivityNextStatus {
+	public static final field INSTANCE Ltools/ozone/report/UnassignmentActivityNextStatus$Queued;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/UnassignmentActivityNextStatus$Unknown : tools/ozone/report/UnassignmentActivityNextStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/report/UnassignmentActivityNextStatus$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/report/UnassignmentActivityNextStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/UnassignmentActivityNextStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/UnassignmentActivityNextStatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/report/UnassignmentActivityNextStatus;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/report/UnassignmentActivityNextStatus;)V
+}
+
+public abstract class tools/ozone/report/UnassignmentActivityPreviousStatus : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/report/UnassignmentActivityPreviousStatus$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/UnassignmentActivityPreviousStatus$Assigned : tools/ozone/report/UnassignmentActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/UnassignmentActivityPreviousStatus$Assigned;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/UnassignmentActivityPreviousStatus$Closed : tools/ozone/report/UnassignmentActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/UnassignmentActivityPreviousStatus$Closed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/UnassignmentActivityPreviousStatus$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/report/UnassignmentActivityPreviousStatus;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/UnassignmentActivityPreviousStatus$Escalated : tools/ozone/report/UnassignmentActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/UnassignmentActivityPreviousStatus$Escalated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/UnassignmentActivityPreviousStatus$Open : tools/ozone/report/UnassignmentActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/UnassignmentActivityPreviousStatus$Open;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/UnassignmentActivityPreviousStatus$Queued : tools/ozone/report/UnassignmentActivityPreviousStatus {
+	public static final field INSTANCE Ltools/ozone/report/UnassignmentActivityPreviousStatus$Queued;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/UnassignmentActivityPreviousStatus$Unknown : tools/ozone/report/UnassignmentActivityPreviousStatus {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/report/UnassignmentActivityPreviousStatus$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/report/UnassignmentActivityPreviousStatus$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/UnassignmentActivityPreviousStatus$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/UnassignmentActivityPreviousStatusSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/report/UnassignmentActivityPreviousStatus;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/report/UnassignmentActivityPreviousStatus;)V
 }
 
 public abstract class tools/ozone/safelink/ActionType : sh/christian/ozone/api/model/AtpEnum {
