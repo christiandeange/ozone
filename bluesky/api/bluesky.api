@@ -12654,11 +12654,14 @@ public final class app/bsky/unspecced/GetOnboardingSuggestedStarterPacksQueryPar
 
 public final class app/bsky/unspecced/GetOnboardingSuggestedStarterPacksResponse {
 	public static final field Companion Lapp/bsky/unspecced/GetOnboardingSuggestedStarterPacksResponse$Companion;
-	public fun <init> (Ljava/util/List;)V
+	public fun <init> (Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/util/List;
-	public final fun copy (Ljava/util/List;)Lapp/bsky/unspecced/GetOnboardingSuggestedStarterPacksResponse;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetOnboardingSuggestedStarterPacksResponse;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetOnboardingSuggestedStarterPacksResponse;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/lang/String;)Lapp/bsky/unspecced/GetOnboardingSuggestedStarterPacksResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetOnboardingSuggestedStarterPacksResponse;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetOnboardingSuggestedStarterPacksResponse;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRecIdStr ()Ljava/lang/String;
 	public final fun getStarterPacks ()Ljava/util/List;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -12690,11 +12693,14 @@ public final class app/bsky/unspecced/GetOnboardingSuggestedStarterPacksSkeleton
 
 public final class app/bsky/unspecced/GetOnboardingSuggestedStarterPacksSkeletonResponse {
 	public static final field Companion Lapp/bsky/unspecced/GetOnboardingSuggestedStarterPacksSkeletonResponse$Companion;
-	public fun <init> (Ljava/util/List;)V
+	public fun <init> (Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/util/List;
-	public final fun copy (Ljava/util/List;)Lapp/bsky/unspecced/GetOnboardingSuggestedStarterPacksSkeletonResponse;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetOnboardingSuggestedStarterPacksSkeletonResponse;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetOnboardingSuggestedStarterPacksSkeletonResponse;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/lang/String;)Lapp/bsky/unspecced/GetOnboardingSuggestedStarterPacksSkeletonResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetOnboardingSuggestedStarterPacksSkeletonResponse;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetOnboardingSuggestedStarterPacksSkeletonResponse;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRecIdStr ()Ljava/lang/String;
 	public final fun getStarterPacks ()Ljava/util/List;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -13130,12 +13136,15 @@ public final class app/bsky/unspecced/GetSuggestedFeedsQueryParams$Companion {
 
 public final class app/bsky/unspecced/GetSuggestedFeedsResponse {
 	public static final field Companion Lapp/bsky/unspecced/GetSuggestedFeedsResponse$Companion;
-	public fun <init> (Ljava/util/List;)V
+	public fun <init> (Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/util/List;
-	public final fun copy (Ljava/util/List;)Lapp/bsky/unspecced/GetSuggestedFeedsResponse;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetSuggestedFeedsResponse;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestedFeedsResponse;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/lang/String;)Lapp/bsky/unspecced/GetSuggestedFeedsResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetSuggestedFeedsResponse;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestedFeedsResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getFeeds ()Ljava/util/List;
+	public final fun getRecIdStr ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -13166,12 +13175,15 @@ public final class app/bsky/unspecced/GetSuggestedFeedsSkeletonQueryParams$Compa
 
 public final class app/bsky/unspecced/GetSuggestedFeedsSkeletonResponse {
 	public static final field Companion Lapp/bsky/unspecced/GetSuggestedFeedsSkeletonResponse$Companion;
-	public fun <init> (Ljava/util/List;)V
+	public fun <init> (Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/util/List;
-	public final fun copy (Ljava/util/List;)Lapp/bsky/unspecced/GetSuggestedFeedsSkeletonResponse;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetSuggestedFeedsSkeletonResponse;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestedFeedsSkeletonResponse;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/lang/String;)Lapp/bsky/unspecced/GetSuggestedFeedsSkeletonResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetSuggestedFeedsSkeletonResponse;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestedFeedsSkeletonResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getFeeds ()Ljava/util/List;
+	public final fun getRecIdStr ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -13242,11 +13254,14 @@ public final class app/bsky/unspecced/GetSuggestedStarterPacksQueryParams$Compan
 
 public final class app/bsky/unspecced/GetSuggestedStarterPacksResponse {
 	public static final field Companion Lapp/bsky/unspecced/GetSuggestedStarterPacksResponse$Companion;
-	public fun <init> (Ljava/util/List;)V
+	public fun <init> (Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/util/List;
-	public final fun copy (Ljava/util/List;)Lapp/bsky/unspecced/GetSuggestedStarterPacksResponse;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetSuggestedStarterPacksResponse;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestedStarterPacksResponse;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/lang/String;)Lapp/bsky/unspecced/GetSuggestedStarterPacksResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetSuggestedStarterPacksResponse;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestedStarterPacksResponse;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRecIdStr ()Ljava/lang/String;
 	public final fun getStarterPacks ()Ljava/util/List;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -13278,11 +13293,14 @@ public final class app/bsky/unspecced/GetSuggestedStarterPacksSkeletonQueryParam
 
 public final class app/bsky/unspecced/GetSuggestedStarterPacksSkeletonResponse {
 	public static final field Companion Lapp/bsky/unspecced/GetSuggestedStarterPacksSkeletonResponse$Companion;
-	public fun <init> (Ljava/util/List;)V
+	public fun <init> (Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/util/List;
-	public final fun copy (Ljava/util/List;)Lapp/bsky/unspecced/GetSuggestedStarterPacksSkeletonResponse;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetSuggestedStarterPacksSkeletonResponse;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestedStarterPacksSkeletonResponse;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/lang/String;)Lapp/bsky/unspecced/GetSuggestedStarterPacksSkeletonResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetSuggestedStarterPacksSkeletonResponse;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetSuggestedStarterPacksSkeletonResponse;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRecIdStr ()Ljava/lang/String;
 	public final fun getStarterPacks ()Ljava/util/List;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
