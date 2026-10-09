@@ -39,6 +39,8 @@ dependencies {
   implementation(libs.okio)
 
   ksp(libs.moshi.codegen)
+
+  testImplementation(kotlin("test"))
 }
 
 gradlePlugin {

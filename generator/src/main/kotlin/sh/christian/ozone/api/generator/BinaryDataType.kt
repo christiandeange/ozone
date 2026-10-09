@@ -14,7 +14,7 @@ sealed interface BinaryDataType : Serializable {
    * Represents binary data in XPRC calls with Ktor's ByteReadChannel.
    */
   object ByteReadChannel : BinaryDataType {
-    private fun readResolve(): Any = ByteArray
+    private fun readResolve(): Any = ByteReadChannel
   }
 }
 
