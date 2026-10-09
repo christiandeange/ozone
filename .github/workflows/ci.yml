@@ -79,8 +79,8 @@ jobs:
           java-version: '17'
           check-latest: true
 
-      - name: Test JS
-        run: ./gradlew clean :bluesky:jsTest :app:web:assemble --no-daemon --stacktrace
+      - name: Test wasmJs
+        run: ./gradlew clean :bluesky:wasmJsTest :app:web:assemble --no-daemon --stacktrace
 
   check-jvm:
     runs-on: ubuntu-latest
