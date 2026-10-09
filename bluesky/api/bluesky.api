@@ -4209,6 +4209,112 @@ public final class app/bsky/embed/ExternalView$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/embed/ExternalViewArticle {
+	public static final field Companion Lapp/bsky/embed/ExternalViewArticle$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Lapp/bsky/embed/ExternalViewArticlePublication;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Lapp/bsky/embed/ExternalViewArticlePublication;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-v5vOzEc ()Ljava/lang/String;
+	public final fun component10 ()Lapp/bsky/embed/ExternalViewArticlePublication;
+	public final fun component11 ()Ljava/lang/Long;
+	public final fun component12 ()Ljava/lang/Long;
+	public final fun component13 ()Ljava/util/List;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlin/time/Instant;
+	public final fun component5 ()Lkotlin/time/Instant;
+	public final fun component6 ()Ljava/util/List;
+	public final fun component7 ()Ljava/util/List;
+	public final fun component8 ()Ljava/util/List;
+	public final fun component9-pvpWXas ()Ljava/lang/String;
+	public final fun copy-zUkviiQ (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Lapp/bsky/embed/ExternalViewArticlePublication;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;)Lapp/bsky/embed/ExternalViewArticle;
+	public static synthetic fun copy-zUkviiQ$default (Lapp/bsky/embed/ExternalViewArticle;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Lapp/bsky/embed/ExternalViewArticlePublication;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/embed/ExternalViewArticle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAssociatedProfiles ()Ljava/util/List;
+	public final fun getAssociatedRefs ()Ljava/util/List;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getImage-pvpWXas ()Ljava/lang/String;
+	public final fun getLabels ()Ljava/util/List;
+	public final fun getLikeCount ()Ljava/lang/Long;
+	public final fun getLikers ()Ljava/util/List;
+	public final fun getPublisher ()Lapp/bsky/embed/ExternalViewArticlePublication;
+	public final fun getReadingTime ()Ljava/lang/Long;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getUpdatedAt ()Lkotlin/time/Instant;
+	public final fun getUri-v5vOzEc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/ExternalViewArticle$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/ExternalViewArticlePublication {
+	public static final field Companion Lapp/bsky/embed/ExternalViewArticlePublication$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/ExternalViewArticlePublicationTheme;Ljava/lang/Long;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/ExternalViewArticlePublicationTheme;Ljava/lang/Long;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-v5vOzEc ()Ljava/lang/String;
+	public final fun component10-pvpWXas ()Ljava/lang/String;
+	public final fun component11 ()Lapp/bsky/embed/ExternalViewArticlePublicationTheme;
+	public final fun component12 ()Ljava/lang/Long;
+	public final fun component13 ()Ljava/util/List;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlin/time/Instant;
+	public final fun component5 ()Lkotlin/time/Instant;
+	public final fun component6 ()Ljava/util/List;
+	public final fun component7 ()Ljava/util/List;
+	public final fun component8 ()Ljava/util/List;
+	public final fun component9-pvpWXas ()Ljava/lang/String;
+	public final fun copy-GKh_mRY (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/ExternalViewArticlePublicationTheme;Ljava/lang/Long;Ljava/util/List;)Lapp/bsky/embed/ExternalViewArticlePublication;
+	public static synthetic fun copy-GKh_mRY$default (Lapp/bsky/embed/ExternalViewArticlePublication;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/ExternalViewArticlePublicationTheme;Ljava/lang/Long;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/embed/ExternalViewArticlePublication;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAssociatedProfiles ()Ljava/util/List;
+	public final fun getAssociatedRefs ()Ljava/util/List;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getImage-pvpWXas ()Ljava/lang/String;
+	public final fun getLabels ()Ljava/util/List;
+	public final fun getLogo-pvpWXas ()Ljava/lang/String;
+	public final fun getSubscribers ()Ljava/util/List;
+	public final fun getSubscriptionCount ()Ljava/lang/Long;
+	public final fun getTheme ()Lapp/bsky/embed/ExternalViewArticlePublicationTheme;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getUpdatedAt ()Lkotlin/time/Instant;
+	public final fun getUri-v5vOzEc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/ExternalViewArticlePublication$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/ExternalViewArticlePublicationTheme {
+	public static final field Companion Lapp/bsky/embed/ExternalViewArticlePublicationTheme$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/embed/ExternalViewArticlePublicationTheme;
+	public static synthetic fun copy$default (Lapp/bsky/embed/ExternalViewArticlePublicationTheme;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/embed/ExternalViewArticlePublicationTheme;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccent ()Ljava/lang/String;
+	public final fun getAccentForeground ()Ljava/lang/String;
+	public final fun getBackground ()Ljava/lang/String;
+	public final fun getForeground ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/ExternalViewArticlePublicationTheme$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/embed/ExternalViewExternal {
 	public static final field Companion Lapp/bsky/embed/ExternalViewExternal$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/util/List;Lapp/bsky/embed/ExternalViewExternalSource;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -4292,6 +4398,151 @@ public final class app/bsky/embed/ExternalViewExternalSourceTheme {
 }
 
 public final class app/bsky/embed/ExternalViewExternalSourceTheme$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/ExternalViewGallery {
+	public static final field Companion Lapp/bsky/embed/ExternalViewGallery$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-v5vOzEc ()Ljava/lang/String;
+	public final fun component10 ()Ljava/lang/Long;
+	public final fun component11 ()Ljava/util/List;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlin/time/Instant;
+	public final fun component5 ()Lkotlin/time/Instant;
+	public final fun component6 ()Ljava/util/List;
+	public final fun component7 ()Ljava/util/List;
+	public final fun component8 ()Ljava/util/List;
+	public final fun component9 ()Ljava/util/List;
+	public final fun copy-mhVHy9E (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/util/List;)Lapp/bsky/embed/ExternalViewGallery;
+	public static synthetic fun copy-mhVHy9E$default (Lapp/bsky/embed/ExternalViewGallery;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/Long;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/embed/ExternalViewGallery;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAssociatedProfiles ()Ljava/util/List;
+	public final fun getAssociatedRefs ()Ljava/util/List;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getItems ()Ljava/util/List;
+	public final fun getLabels ()Ljava/util/List;
+	public final fun getLikeCount ()Ljava/lang/Long;
+	public final fun getLikers ()Ljava/util/List;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getUpdatedAt ()Lkotlin/time/Instant;
+	public final fun getUri-v5vOzEc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/ExternalViewGallery$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/ExternalViewGalleryImage {
+	public static final field Companion Lapp/bsky/embed/ExternalViewGalleryImage$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-v5vOzEc ()Ljava/lang/String;
+	public final fun component2-v5vOzEc ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lapp/bsky/embed/AspectRatio;
+	public final fun copy-fa1GFIo (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;)Lapp/bsky/embed/ExternalViewGalleryImage;
+	public static synthetic fun copy-fa1GFIo$default (Lapp/bsky/embed/ExternalViewGalleryImage;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;ILjava/lang/Object;)Lapp/bsky/embed/ExternalViewGalleryImage;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlt ()Ljava/lang/String;
+	public final fun getAspectRatio ()Lapp/bsky/embed/AspectRatio;
+	public final fun getFullsize-v5vOzEc ()Ljava/lang/String;
+	public final fun getThumbnail-v5vOzEc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/ExternalViewGalleryImage$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/embed/ExternalViewGalleryItemUnion {
+	public static final field Companion Lapp/bsky/embed/ExternalViewGalleryItemUnion$Companion;
+}
+
+public final class app/bsky/embed/ExternalViewGalleryItemUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/ExternalViewGalleryItemUnion$Unknown : app/bsky/embed/ExternalViewGalleryItemUnion {
+	public static final field Companion Lapp/bsky/embed/ExternalViewGalleryItemUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/embed/ExternalViewGalleryItemUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/embed/ExternalViewGalleryItemUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/ExternalViewGalleryItemUnion$ViewGalleryImage : app/bsky/embed/ExternalViewGalleryItemUnion {
+	public static final field Companion Lapp/bsky/embed/ExternalViewGalleryItemUnion$ViewGalleryImage$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/ExternalViewGalleryImage;)Lapp/bsky/embed/ExternalViewGalleryItemUnion$ViewGalleryImage;
+	public static fun constructor-impl (Lapp/bsky/embed/ExternalViewGalleryImage;)Lapp/bsky/embed/ExternalViewGalleryImage;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/ExternalViewGalleryImage;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/ExternalViewGalleryImage;Lapp/bsky/embed/ExternalViewGalleryImage;)Z
+	public final fun getValue ()Lapp/bsky/embed/ExternalViewGalleryImage;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/ExternalViewGalleryImage;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/ExternalViewGalleryImage;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/ExternalViewGalleryImage;
+}
+
+public final class app/bsky/embed/ExternalViewGalleryItemUnion$ViewGalleryImage$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/ExternalViewLivestream {
+	public static final field Companion Lapp/bsky/embed/ExternalViewLivestream$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;ZLkotlin/time/Instant;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;ZLkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-v5vOzEc ()Ljava/lang/String;
+	public final fun component10 ()Z
+	public final fun component11 ()Lkotlin/time/Instant;
+	public final fun component12 ()Lkotlin/time/Instant;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlin/time/Instant;
+	public final fun component5 ()Lkotlin/time/Instant;
+	public final fun component6 ()Ljava/util/List;
+	public final fun component7 ()Ljava/util/List;
+	public final fun component8 ()Ljava/util/List;
+	public final fun component9-pvpWXas ()Ljava/lang/String;
+	public final fun copy-aBbsKXs (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;ZLkotlin/time/Instant;Lkotlin/time/Instant;)Lapp/bsky/embed/ExternalViewLivestream;
+	public static synthetic fun copy-aBbsKXs$default (Lapp/bsky/embed/ExternalViewLivestream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;ZLkotlin/time/Instant;Lkotlin/time/Instant;ILjava/lang/Object;)Lapp/bsky/embed/ExternalViewLivestream;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActive ()Z
+	public final fun getAssociatedProfiles ()Ljava/util/List;
+	public final fun getAssociatedRefs ()Ljava/util/List;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getEndedAt ()Lkotlin/time/Instant;
+	public final fun getImage-pvpWXas ()Ljava/lang/String;
+	public final fun getLabels ()Ljava/util/List;
+	public final fun getStartedAt ()Lkotlin/time/Instant;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getUpdatedAt ()Lkotlin/time/Instant;
+	public final fun getUri-v5vOzEc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/ExternalViewLivestream$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -4483,22 +4734,127 @@ public final class app/bsky/embed/GetEmbedExternalViewQueryParams$Companion {
 public final class app/bsky/embed/GetEmbedExternalViewResponse {
 	public static final field Companion Lapp/bsky/embed/GetEmbedExternalViewResponse$Companion;
 	public fun <init> ()V
-	public fun <init> (Lapp/bsky/embed/ExternalView;Ljava/util/List;Ljava/util/List;)V
-	public synthetic fun <init> (Lapp/bsky/embed/ExternalView;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lapp/bsky/embed/ExternalView;Lapp/bsky/embed/GetEmbedExternalViewResponseDataUnion;Ljava/util/List;Ljava/util/List;)V
+	public synthetic fun <init> (Lapp/bsky/embed/ExternalView;Lapp/bsky/embed/GetEmbedExternalViewResponseDataUnion;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lapp/bsky/embed/ExternalView;
-	public final fun component2 ()Ljava/util/List;
+	public final fun component2 ()Lapp/bsky/embed/GetEmbedExternalViewResponseDataUnion;
 	public final fun component3 ()Ljava/util/List;
-	public final fun copy (Lapp/bsky/embed/ExternalView;Ljava/util/List;Ljava/util/List;)Lapp/bsky/embed/GetEmbedExternalViewResponse;
-	public static synthetic fun copy$default (Lapp/bsky/embed/GetEmbedExternalViewResponse;Lapp/bsky/embed/ExternalView;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/embed/GetEmbedExternalViewResponse;
+	public final fun component4 ()Ljava/util/List;
+	public final fun copy (Lapp/bsky/embed/ExternalView;Lapp/bsky/embed/GetEmbedExternalViewResponseDataUnion;Ljava/util/List;Ljava/util/List;)Lapp/bsky/embed/GetEmbedExternalViewResponse;
+	public static synthetic fun copy$default (Lapp/bsky/embed/GetEmbedExternalViewResponse;Lapp/bsky/embed/ExternalView;Lapp/bsky/embed/GetEmbedExternalViewResponseDataUnion;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/embed/GetEmbedExternalViewResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAssociatedRecords ()Ljava/util/List;
 	public final fun getAssociatedRefs ()Ljava/util/List;
+	public final fun getData ()Lapp/bsky/embed/GetEmbedExternalViewResponseDataUnion;
 	public final fun getView ()Lapp/bsky/embed/ExternalView;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/embed/GetEmbedExternalViewResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/embed/GetEmbedExternalViewResponseDataUnion {
+	public static final field Companion Lapp/bsky/embed/GetEmbedExternalViewResponseDataUnion$Companion;
+}
+
+public final class app/bsky/embed/GetEmbedExternalViewResponseDataUnion$Article : app/bsky/embed/GetEmbedExternalViewResponseDataUnion {
+	public static final field Companion Lapp/bsky/embed/GetEmbedExternalViewResponseDataUnion$Article$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/ExternalViewArticle;)Lapp/bsky/embed/GetEmbedExternalViewResponseDataUnion$Article;
+	public static fun constructor-impl (Lapp/bsky/embed/ExternalViewArticle;)Lapp/bsky/embed/ExternalViewArticle;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/ExternalViewArticle;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/ExternalViewArticle;Lapp/bsky/embed/ExternalViewArticle;)Z
+	public final fun getValue ()Lapp/bsky/embed/ExternalViewArticle;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/ExternalViewArticle;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/ExternalViewArticle;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/ExternalViewArticle;
+}
+
+public final class app/bsky/embed/GetEmbedExternalViewResponseDataUnion$Article$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/GetEmbedExternalViewResponseDataUnion$ArticlePublication : app/bsky/embed/GetEmbedExternalViewResponseDataUnion {
+	public static final field Companion Lapp/bsky/embed/GetEmbedExternalViewResponseDataUnion$ArticlePublication$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/ExternalViewArticlePublication;)Lapp/bsky/embed/GetEmbedExternalViewResponseDataUnion$ArticlePublication;
+	public static fun constructor-impl (Lapp/bsky/embed/ExternalViewArticlePublication;)Lapp/bsky/embed/ExternalViewArticlePublication;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/ExternalViewArticlePublication;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/ExternalViewArticlePublication;Lapp/bsky/embed/ExternalViewArticlePublication;)Z
+	public final fun getValue ()Lapp/bsky/embed/ExternalViewArticlePublication;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/ExternalViewArticlePublication;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/ExternalViewArticlePublication;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/ExternalViewArticlePublication;
+}
+
+public final class app/bsky/embed/GetEmbedExternalViewResponseDataUnion$ArticlePublication$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/GetEmbedExternalViewResponseDataUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/GetEmbedExternalViewResponseDataUnion$Gallery : app/bsky/embed/GetEmbedExternalViewResponseDataUnion {
+	public static final field Companion Lapp/bsky/embed/GetEmbedExternalViewResponseDataUnion$Gallery$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/ExternalViewGallery;)Lapp/bsky/embed/GetEmbedExternalViewResponseDataUnion$Gallery;
+	public static fun constructor-impl (Lapp/bsky/embed/ExternalViewGallery;)Lapp/bsky/embed/ExternalViewGallery;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/ExternalViewGallery;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/ExternalViewGallery;Lapp/bsky/embed/ExternalViewGallery;)Z
+	public final fun getValue ()Lapp/bsky/embed/ExternalViewGallery;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/ExternalViewGallery;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/ExternalViewGallery;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/ExternalViewGallery;
+}
+
+public final class app/bsky/embed/GetEmbedExternalViewResponseDataUnion$Gallery$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/GetEmbedExternalViewResponseDataUnion$Livestream : app/bsky/embed/GetEmbedExternalViewResponseDataUnion {
+	public static final field Companion Lapp/bsky/embed/GetEmbedExternalViewResponseDataUnion$Livestream$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/ExternalViewLivestream;)Lapp/bsky/embed/GetEmbedExternalViewResponseDataUnion$Livestream;
+	public static fun constructor-impl (Lapp/bsky/embed/ExternalViewLivestream;)Lapp/bsky/embed/ExternalViewLivestream;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/ExternalViewLivestream;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/ExternalViewLivestream;Lapp/bsky/embed/ExternalViewLivestream;)Z
+	public final fun getValue ()Lapp/bsky/embed/ExternalViewLivestream;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/ExternalViewLivestream;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/ExternalViewLivestream;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/ExternalViewLivestream;
+}
+
+public final class app/bsky/embed/GetEmbedExternalViewResponseDataUnion$Livestream$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/GetEmbedExternalViewResponseDataUnion$Unknown : app/bsky/embed/GetEmbedExternalViewResponseDataUnion {
+	public static final field Companion Lapp/bsky/embed/GetEmbedExternalViewResponseDataUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/embed/GetEmbedExternalViewResponseDataUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/embed/GetEmbedExternalViewResponseDataUnion$Unknown$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -4668,11 +5024,13 @@ public final class app/bsky/embed/RecordViewNotFound$Companion {
 
 public final class app/bsky/embed/RecordViewRecord {
 	public static final field Companion Lapp/bsky/embed/RecordViewRecord$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-x27MrHI ()Ljava/lang/String;
-	public final fun component10 ()Ljava/util/List;
-	public final fun component11 ()Lkotlin/time/Instant;
+	public final fun component10 ()Ljava/lang/Long;
+	public final fun component11 ()Ljava/lang/Long;
+	public final fun component12 ()Ljava/util/List;
+	public final fun component13 ()Lkotlin/time/Instant;
 	public final fun component2-OA0YjOw ()Ljava/lang/String;
 	public final fun component3 ()Lapp/bsky/actor/ProfileViewBasic;
 	public final fun component4 ()Lsh/christian/ozone/api/model/JsonContent;
@@ -4681,8 +5039,8 @@ public final class app/bsky/embed/RecordViewRecord {
 	public final fun component7 ()Ljava/lang/Long;
 	public final fun component8 ()Ljava/lang/Long;
 	public final fun component9 ()Ljava/lang/Long;
-	public final fun copy--3547Zg (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;Lkotlin/time/Instant;)Lapp/bsky/embed/RecordViewRecord;
-	public static synthetic fun copy--3547Zg$default (Lapp/bsky/embed/RecordViewRecord;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;Lkotlin/time/Instant;ILjava/lang/Object;)Lapp/bsky/embed/RecordViewRecord;
+	public final fun copy-PaJitKE (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;Lkotlin/time/Instant;)Lapp/bsky/embed/RecordViewRecord;
+	public static synthetic fun copy-PaJitKE$default (Lapp/bsky/embed/RecordViewRecord;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/util/List;Lkotlin/time/Instant;ILjava/lang/Object;)Lapp/bsky/embed/RecordViewRecord;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAuthor ()Lapp/bsky/actor/ProfileViewBasic;
 	public final fun getCid-OA0YjOw ()Ljava/lang/String;
@@ -4690,6 +5048,8 @@ public final class app/bsky/embed/RecordViewRecord {
 	public final fun getIndexedAt ()Lkotlin/time/Instant;
 	public final fun getLabels ()Ljava/util/List;
 	public final fun getLikeCount ()Ljava/lang/Long;
+	public final fun getOpThreadPostCount ()Ljava/lang/Long;
+	public final fun getOpThreadPostIndex ()Ljava/lang/Long;
 	public final fun getQuoteCount ()Ljava/lang/Long;
 	public final fun getReplyCount ()Ljava/lang/Long;
 	public final fun getRepostCount ()Ljava/lang/Long;
@@ -12603,6 +12963,192 @@ public final class app/bsky/unspecced/AgeAssuranceStateStatusSerializer : kotlin
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/unspecced/AgeAssuranceStateStatus;)V
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class app/bsky/unspecced/GetAtmosphereExploreTabAnnouncementBanner {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereExploreTabAnnouncementBanner$Companion;
+	public fun <init> ()V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4-pvpWXas ()Ljava/lang/String;
+	public final fun component5-pvpWXas ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun copy-HKa2odM (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/unspecced/GetAtmosphereExploreTabAnnouncementBanner;
+	public static synthetic fun copy-HKa2odM$default (Lapp/bsky/unspecced/GetAtmosphereExploreTabAnnouncementBanner;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereExploreTabAnnouncementBanner;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getImage-pvpWXas ()Ljava/lang/String;
+	public final fun getOverlayColor ()Ljava/lang/String;
+	public final fun getTextColor ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getUrl-pvpWXas ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereExploreTabAnnouncementBanner$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereExploreTabAppCard {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereExploreTabAppCard$Companion;
+	public fun <init> ()V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4-pvpWXas ()Ljava/lang/String;
+	public final fun component5-pvpWXas ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8-pvpWXas ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy-tLMsVCg (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/unspecced/GetAtmosphereExploreTabAppCard;
+	public static synthetic fun copy-tLMsVCg$default (Lapp/bsky/unspecced/GetAtmosphereExploreTabAppCard;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereExploreTabAppCard;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackgroundImage-pvpWXas ()Ljava/lang/String;
+	public final fun getCategory ()Ljava/lang/String;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getLogo-pvpWXas ()Ljava/lang/String;
+	public final fun getOverlayColor ()Ljava/lang/String;
+	public final fun getTextColor ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getUrl-pvpWXas ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereExploreTabAppCard$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereExploreTabArticleItem {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereExploreTabArticleItem$Companion;
+	public fun <init> (ZLapp/bsky/embed/ExternalViewArticle;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Lapp/bsky/embed/ExternalViewArticle;
+	public final fun copy (ZLapp/bsky/embed/ExternalViewArticle;)Lapp/bsky/unspecced/GetAtmosphereExploreTabArticleItem;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereExploreTabArticleItem;ZLapp/bsky/embed/ExternalViewArticle;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereExploreTabArticleItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFeatured ()Z
+	public final fun getView ()Lapp/bsky/embed/ExternalViewArticle;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereExploreTabArticleItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereExploreTabGalleryItem {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereExploreTabGalleryItem$Companion;
+	public fun <init> (ZLapp/bsky/embed/ExternalViewGallery;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Lapp/bsky/embed/ExternalViewGallery;
+	public final fun copy (ZLapp/bsky/embed/ExternalViewGallery;)Lapp/bsky/unspecced/GetAtmosphereExploreTabGalleryItem;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereExploreTabGalleryItem;ZLapp/bsky/embed/ExternalViewGallery;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereExploreTabGalleryItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFeatured ()Z
+	public final fun getView ()Lapp/bsky/embed/ExternalViewGallery;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereExploreTabGalleryItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereExploreTabLivestreamItem {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereExploreTabLivestreamItem$Companion;
+	public fun <init> (ZLapp/bsky/embed/ExternalViewLivestream;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Lapp/bsky/embed/ExternalViewLivestream;
+	public final fun copy (ZLapp/bsky/embed/ExternalViewLivestream;)Lapp/bsky/unspecced/GetAtmosphereExploreTabLivestreamItem;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereExploreTabLivestreamItem;ZLapp/bsky/embed/ExternalViewLivestream;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereExploreTabLivestreamItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFeatured ()Z
+	public final fun getView ()Lapp/bsky/embed/ExternalViewLivestream;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereExploreTabLivestreamItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereExploreTabPublicationItem {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereExploreTabPublicationItem$Companion;
+	public fun <init> (ZLapp/bsky/embed/ExternalViewArticlePublication;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Lapp/bsky/embed/ExternalViewArticlePublication;
+	public final fun copy (ZLapp/bsky/embed/ExternalViewArticlePublication;)Lapp/bsky/unspecced/GetAtmosphereExploreTabPublicationItem;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereExploreTabPublicationItem;ZLapp/bsky/embed/ExternalViewArticlePublication;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereExploreTabPublicationItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFeatured ()Z
+	public final fun getView ()Lapp/bsky/embed/ExternalViewArticlePublication;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereExploreTabPublicationItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereExploreTabQueryParams {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCountryCode ()Ljava/lang/String;
+	public final fun getLangs ()Ljava/util/List;
+	public final fun getRegionCode ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereExploreTabQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereExploreTabResponse {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereExploreTabResponse$Companion;
+	public fun <init> (Lapp/bsky/unspecced/GetAtmosphereExploreTabAnnouncementBanner;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
+	public synthetic fun <init> (Lapp/bsky/unspecced/GetAtmosphereExploreTabAnnouncementBanner;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lapp/bsky/unspecced/GetAtmosphereExploreTabAnnouncementBanner;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/util/List;
+	public final fun component5 ()Ljava/util/List;
+	public final fun component6 ()Ljava/util/List;
+	public final fun copy (Lapp/bsky/unspecced/GetAtmosphereExploreTabAnnouncementBanner;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)Lapp/bsky/unspecced/GetAtmosphereExploreTabResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereExploreTabResponse;Lapp/bsky/unspecced/GetAtmosphereExploreTabAnnouncementBanner;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereExploreTabResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAnnouncementBanner ()Lapp/bsky/unspecced/GetAtmosphereExploreTabAnnouncementBanner;
+	public final fun getApps ()Ljava/util/List;
+	public final fun getArticles ()Ljava/util/List;
+	public final fun getLivestreams ()Ljava/util/List;
+	public final fun getPhotos ()Ljava/util/List;
+	public final fun getPublications ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereExploreTabResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class app/bsky/unspecced/GetConfigLiveNowConfig {
@@ -27199,6 +27745,1021 @@ public final class internal/bsky/actor/GetProfilesResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class place/stream/ActivityGame {
+	public static final field Companion Lplace/stream/ActivityGame$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy-wMvghHc (Ljava/lang/String;Ljava/lang/String;)Lplace/stream/ActivityGame;
+	public static synthetic fun copy-wMvghHc$default (Lplace/stream/ActivityGame;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lplace/stream/ActivityGame;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getName ()Ljava/lang/String;
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/ActivityGame$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/ActivityLabel {
+	public static final field Companion Lplace/stream/ActivityLabel$Companion;
+	public fun <init> (Lplace/stream/ActivityLabelLabel;)V
+	public final fun component1 ()Lplace/stream/ActivityLabelLabel;
+	public final fun copy (Lplace/stream/ActivityLabelLabel;)Lplace/stream/ActivityLabel;
+	public static synthetic fun copy$default (Lplace/stream/ActivityLabel;Lplace/stream/ActivityLabelLabel;ILjava/lang/Object;)Lplace/stream/ActivityLabel;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLabel ()Lplace/stream/ActivityLabelLabel;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/ActivityLabel$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class place/stream/ActivityLabelLabel : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lplace/stream/ActivityLabelLabel$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class place/stream/ActivityLabelLabel$Art : place/stream/ActivityLabelLabel {
+	public static final field INSTANCE Lplace/stream/ActivityLabelLabel$Art;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/ActivityLabelLabel$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lplace/stream/ActivityLabelLabel;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/ActivityLabelLabel$Cooking : place/stream/ActivityLabelLabel {
+	public static final field INSTANCE Lplace/stream/ActivityLabelLabel$Cooking;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/ActivityLabelLabel$Events : place/stream/ActivityLabelLabel {
+	public static final field INSTANCE Lplace/stream/ActivityLabelLabel$Events;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/ActivityLabelLabel$Fitness : place/stream/ActivityLabelLabel {
+	public static final field INSTANCE Lplace/stream/ActivityLabelLabel$Fitness;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/ActivityLabelLabel$JustChatting : place/stream/ActivityLabelLabel {
+	public static final field INSTANCE Lplace/stream/ActivityLabelLabel$JustChatting;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/ActivityLabelLabel$MakersCrafting : place/stream/ActivityLabelLabel {
+	public static final field INSTANCE Lplace/stream/ActivityLabelLabel$MakersCrafting;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/ActivityLabelLabel$Miniatures : place/stream/ActivityLabelLabel {
+	public static final field INSTANCE Lplace/stream/ActivityLabelLabel$Miniatures;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/ActivityLabelLabel$Music : place/stream/ActivityLabelLabel {
+	public static final field INSTANCE Lplace/stream/ActivityLabelLabel$Music;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/ActivityLabelLabel$Podcasting : place/stream/ActivityLabelLabel {
+	public static final field INSTANCE Lplace/stream/ActivityLabelLabel$Podcasting;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/ActivityLabelLabel$SoftwareDev : place/stream/ActivityLabelLabel {
+	public static final field INSTANCE Lplace/stream/ActivityLabelLabel$SoftwareDev;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/ActivityLabelLabel$Sports : place/stream/ActivityLabelLabel {
+	public static final field INSTANCE Lplace/stream/ActivityLabelLabel$Sports;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/ActivityLabelLabel$Unknown : place/stream/ActivityLabelLabel {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lplace/stream/ActivityLabelLabel$Unknown;
+	public static synthetic fun copy$default (Lplace/stream/ActivityLabelLabel$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lplace/stream/ActivityLabelLabel$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/ActivityLabelLabelSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lplace/stream/ActivityLabelLabel;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lplace/stream/ActivityLabelLabel;)V
+}
+
+public final class place/stream/BlockView {
+	public static final field Companion Lplace/stream/BlockView$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/graph/Block;Lapp/bsky/actor/ProfileViewBasic;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-OA0YjOw ()Ljava/lang/String;
+	public final fun component2-x27MrHI ()Ljava/lang/String;
+	public final fun component3 ()Lapp/bsky/graph/Block;
+	public final fun component4 ()Lapp/bsky/actor/ProfileViewBasic;
+	public final fun component5 ()Lkotlin/time/Instant;
+	public final fun copy-GtBuq7A (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/graph/Block;Lapp/bsky/actor/ProfileViewBasic;Lkotlin/time/Instant;)Lplace/stream/BlockView;
+	public static synthetic fun copy-GtBuq7A$default (Lplace/stream/BlockView;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/graph/Block;Lapp/bsky/actor/ProfileViewBasic;Lkotlin/time/Instant;ILjava/lang/Object;)Lplace/stream/BlockView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBlocker ()Lapp/bsky/actor/ProfileViewBasic;
+	public final fun getCid-OA0YjOw ()Ljava/lang/String;
+	public final fun getIndexedAt ()Lkotlin/time/Instant;
+	public final fun getRecord ()Lapp/bsky/graph/Block;
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/BlockView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/Livestream {
+	public static final field Companion Lplace/stream/Livestream$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lcom/atproto/repo/StrongRef;Ljava/util/List;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lkotlin/time/Instant;Lplace/stream/LivestreamActivityUnion;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/Long;Lplace/stream/LivestreamNotificationSettings;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lcom/atproto/repo/StrongRef;Ljava/util/List;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lkotlin/time/Instant;Lplace/stream/LivestreamActivityUnion;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/Long;Lplace/stream/LivestreamNotificationSettings;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-pvpWXas ()Ljava/lang/String;
+	public final fun component10 ()Lkotlin/time/Instant;
+	public final fun component11-pvpWXas ()Ljava/lang/String;
+	public final fun component12 ()Ljava/lang/Long;
+	public final fun component13 ()Lplace/stream/LivestreamNotificationSettings;
+	public final fun component2 ()Lcom/atproto/repo/StrongRef;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Lsh/christian/ozone/api/model/Blob;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Lkotlin/time/Instant;
+	public final fun component8 ()Lplace/stream/LivestreamActivityUnion;
+	public final fun component9 ()Lkotlin/time/Instant;
+	public final fun copy-cxdI3fY (Ljava/lang/String;Lcom/atproto/repo/StrongRef;Ljava/util/List;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lkotlin/time/Instant;Lplace/stream/LivestreamActivityUnion;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/Long;Lplace/stream/LivestreamNotificationSettings;)Lplace/stream/Livestream;
+	public static synthetic fun copy-cxdI3fY$default (Lplace/stream/Livestream;Ljava/lang/String;Lcom/atproto/repo/StrongRef;Ljava/util/List;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lkotlin/time/Instant;Lplace/stream/LivestreamActivityUnion;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/String;Ljava/lang/Long;Lplace/stream/LivestreamNotificationSettings;ILjava/lang/Object;)Lplace/stream/Livestream;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActivity ()Lplace/stream/LivestreamActivityUnion;
+	public final fun getAgent ()Ljava/lang/String;
+	public final fun getCanonicalUrl-pvpWXas ()Ljava/lang/String;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getEndedAt ()Lkotlin/time/Instant;
+	public final fun getIdleTimeoutSeconds ()Ljava/lang/Long;
+	public final fun getLastSeenAt ()Lkotlin/time/Instant;
+	public final fun getNotificationSettings ()Lplace/stream/LivestreamNotificationSettings;
+	public final fun getPost ()Lcom/atproto/repo/StrongRef;
+	public final fun getTags ()Ljava/util/List;
+	public final fun getThumb ()Lsh/christian/ozone/api/model/Blob;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getUrl-pvpWXas ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/Livestream$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class place/stream/LivestreamActivityUnion {
+	public static final field Companion Lplace/stream/LivestreamActivityUnion$Companion;
+}
+
+public final class place/stream/LivestreamActivityUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/LivestreamActivityUnion$Game : place/stream/LivestreamActivityUnion {
+	public static final field Companion Lplace/stream/LivestreamActivityUnion$Game$Companion;
+	public static final synthetic fun box-impl (Lplace/stream/ActivityGame;)Lplace/stream/LivestreamActivityUnion$Game;
+	public static fun constructor-impl (Lplace/stream/ActivityGame;)Lplace/stream/ActivityGame;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lplace/stream/ActivityGame;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lplace/stream/ActivityGame;Lplace/stream/ActivityGame;)Z
+	public final fun getValue ()Lplace/stream/ActivityGame;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lplace/stream/ActivityGame;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lplace/stream/ActivityGame;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lplace/stream/ActivityGame;
+}
+
+public final class place/stream/LivestreamActivityUnion$Game$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/LivestreamActivityUnion$Label : place/stream/LivestreamActivityUnion {
+	public static final field Companion Lplace/stream/LivestreamActivityUnion$Label$Companion;
+	public static final synthetic fun box-impl (Lplace/stream/ActivityLabel;)Lplace/stream/LivestreamActivityUnion$Label;
+	public static fun constructor-impl (Lplace/stream/ActivityLabel;)Lplace/stream/ActivityLabel;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lplace/stream/ActivityLabel;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lplace/stream/ActivityLabel;Lplace/stream/ActivityLabel;)Z
+	public final fun getValue ()Lplace/stream/ActivityLabel;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lplace/stream/ActivityLabel;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lplace/stream/ActivityLabel;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lplace/stream/ActivityLabel;
+}
+
+public final class place/stream/LivestreamActivityUnion$Label$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/LivestreamActivityUnion$Unknown : place/stream/LivestreamActivityUnion {
+	public static final field Companion Lplace/stream/LivestreamActivityUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lplace/stream/LivestreamActivityUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class place/stream/LivestreamActivityUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/LivestreamLivestreamView {
+	public static final field Companion Lplace/stream/LivestreamLivestreamView$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lkotlin/time/Instant;Lplace/stream/LivestreamViewerCount;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lkotlin/time/Instant;Lplace/stream/LivestreamViewerCount;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-OA0YjOw ()Ljava/lang/String;
+	public final fun component2-x27MrHI ()Ljava/lang/String;
+	public final fun component3 ()Lapp/bsky/actor/ProfileViewBasic;
+	public final fun component4 ()Lsh/christian/ozone/api/model/JsonContent;
+	public final fun component5 ()Lkotlin/time/Instant;
+	public final fun component6 ()Lplace/stream/LivestreamViewerCount;
+	public final fun copy-RXQtfaY (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lkotlin/time/Instant;Lplace/stream/LivestreamViewerCount;)Lplace/stream/LivestreamLivestreamView;
+	public static synthetic fun copy-RXQtfaY$default (Lplace/stream/LivestreamLivestreamView;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lkotlin/time/Instant;Lplace/stream/LivestreamViewerCount;ILjava/lang/Object;)Lplace/stream/LivestreamLivestreamView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAuthor ()Lapp/bsky/actor/ProfileViewBasic;
+	public final fun getCid-OA0YjOw ()Ljava/lang/String;
+	public final fun getIndexedAt ()Lkotlin/time/Instant;
+	public final fun getRecord ()Lsh/christian/ozone/api/model/JsonContent;
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public final fun getViewerCount ()Lplace/stream/LivestreamViewerCount;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/LivestreamLivestreamView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/LivestreamNotificationSettings {
+	public static final field Companion Lplace/stream/LivestreamNotificationSettings$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/lang/Boolean;)Lplace/stream/LivestreamNotificationSettings;
+	public static synthetic fun copy$default (Lplace/stream/LivestreamNotificationSettings;Ljava/lang/Boolean;ILjava/lang/Object;)Lplace/stream/LivestreamNotificationSettings;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPushNotification ()Ljava/lang/Boolean;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/LivestreamNotificationSettings$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/LivestreamStreamplaceAnything {
+	public static final field Companion Lplace/stream/LivestreamStreamplaceAnything$Companion;
+	public fun <init> (Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion;)V
+	public final fun component1 ()Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion;
+	public final fun copy (Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion;)Lplace/stream/LivestreamStreamplaceAnything;
+	public static synthetic fun copy$default (Lplace/stream/LivestreamStreamplaceAnything;Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion;ILjava/lang/Object;)Lplace/stream/LivestreamStreamplaceAnything;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLivestream ()Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/LivestreamStreamplaceAnything$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class place/stream/LivestreamStreamplaceAnythingLivestreamUnion {
+	public static final field Companion Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$Companion;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$ChatMessageView : place/stream/LivestreamStreamplaceAnythingLivestreamUnion {
+	public static final field Companion Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$ChatMessageView$Companion;
+	public static final synthetic fun box-impl (Lplace/stream/chat/MessageView;)Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$ChatMessageView;
+	public static fun constructor-impl (Lplace/stream/chat/MessageView;)Lplace/stream/chat/MessageView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lplace/stream/chat/MessageView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lplace/stream/chat/MessageView;Lplace/stream/chat/MessageView;)Z
+	public final fun getValue ()Lplace/stream/chat/MessageView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lplace/stream/chat/MessageView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lplace/stream/chat/MessageView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lplace/stream/chat/MessageView;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$ChatMessageView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$ChatPinnedRecordView : place/stream/LivestreamStreamplaceAnythingLivestreamUnion {
+	public static final field Companion Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$ChatPinnedRecordView$Companion;
+	public static final synthetic fun box-impl (Lplace/stream/chat/PinnedRecordView;)Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$ChatPinnedRecordView;
+	public static fun constructor-impl (Lplace/stream/chat/PinnedRecordView;)Lplace/stream/chat/PinnedRecordView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lplace/stream/chat/PinnedRecordView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lplace/stream/chat/PinnedRecordView;Lplace/stream/chat/PinnedRecordView;)Z
+	public final fun getValue ()Lplace/stream/chat/PinnedRecordView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lplace/stream/chat/PinnedRecordView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lplace/stream/chat/PinnedRecordView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lplace/stream/chat/PinnedRecordView;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$ChatPinnedRecordView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$DefsBlockView : place/stream/LivestreamStreamplaceAnythingLivestreamUnion {
+	public static final field Companion Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$DefsBlockView$Companion;
+	public static final synthetic fun box-impl (Lplace/stream/BlockView;)Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$DefsBlockView;
+	public static fun constructor-impl (Lplace/stream/BlockView;)Lplace/stream/BlockView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lplace/stream/BlockView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lplace/stream/BlockView;Lplace/stream/BlockView;)Z
+	public final fun getValue ()Lplace/stream/BlockView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lplace/stream/BlockView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lplace/stream/BlockView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lplace/stream/BlockView;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$DefsBlockView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$DefsRendition : place/stream/LivestreamStreamplaceAnythingLivestreamUnion {
+	public static final field Companion Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$DefsRendition$Companion;
+	public static final synthetic fun box-impl (Lplace/stream/Rendition;)Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$DefsRendition;
+	public static fun constructor-impl (Lplace/stream/Rendition;)Lplace/stream/Rendition;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lplace/stream/Rendition;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lplace/stream/Rendition;Lplace/stream/Rendition;)Z
+	public final fun getValue ()Lplace/stream/Rendition;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lplace/stream/Rendition;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lplace/stream/Rendition;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lplace/stream/Rendition;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$DefsRendition$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$DefsRenditions : place/stream/LivestreamStreamplaceAnythingLivestreamUnion {
+	public static final field Companion Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$DefsRenditions$Companion;
+	public static final synthetic fun box-impl (Lplace/stream/Renditions;)Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$DefsRenditions;
+	public static fun constructor-impl (Lplace/stream/Renditions;)Lplace/stream/Renditions;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lplace/stream/Renditions;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lplace/stream/Renditions;Lplace/stream/Renditions;)Z
+	public final fun getValue ()Lplace/stream/Renditions;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lplace/stream/Renditions;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lplace/stream/Renditions;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lplace/stream/Renditions;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$DefsRenditions$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$LivestreamView : place/stream/LivestreamStreamplaceAnythingLivestreamUnion {
+	public static final field Companion Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$LivestreamView$Companion;
+	public static final synthetic fun box-impl (Lplace/stream/LivestreamLivestreamView;)Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$LivestreamView;
+	public static fun constructor-impl (Lplace/stream/LivestreamLivestreamView;)Lplace/stream/LivestreamLivestreamView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lplace/stream/LivestreamLivestreamView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lplace/stream/LivestreamLivestreamView;Lplace/stream/LivestreamLivestreamView;)Z
+	public final fun getValue ()Lplace/stream/LivestreamLivestreamView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lplace/stream/LivestreamLivestreamView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lplace/stream/LivestreamLivestreamView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lplace/stream/LivestreamLivestreamView;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$LivestreamView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$TeleportArrival : place/stream/LivestreamStreamplaceAnythingLivestreamUnion {
+	public static final field Companion Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$TeleportArrival$Companion;
+	public static final synthetic fun box-impl (Lplace/stream/LivestreamTeleportArrival;)Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$TeleportArrival;
+	public static fun constructor-impl (Lplace/stream/LivestreamTeleportArrival;)Lplace/stream/LivestreamTeleportArrival;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lplace/stream/LivestreamTeleportArrival;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lplace/stream/LivestreamTeleportArrival;Lplace/stream/LivestreamTeleportArrival;)Z
+	public final fun getValue ()Lplace/stream/LivestreamTeleportArrival;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lplace/stream/LivestreamTeleportArrival;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lplace/stream/LivestreamTeleportArrival;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lplace/stream/LivestreamTeleportArrival;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$TeleportArrival$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$TeleportCanceled : place/stream/LivestreamStreamplaceAnythingLivestreamUnion {
+	public static final field Companion Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$TeleportCanceled$Companion;
+	public static final synthetic fun box-impl (Lplace/stream/LivestreamTeleportCanceled;)Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$TeleportCanceled;
+	public static fun constructor-impl (Lplace/stream/LivestreamTeleportCanceled;)Lplace/stream/LivestreamTeleportCanceled;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lplace/stream/LivestreamTeleportCanceled;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lplace/stream/LivestreamTeleportCanceled;Lplace/stream/LivestreamTeleportCanceled;)Z
+	public final fun getValue ()Lplace/stream/LivestreamTeleportCanceled;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lplace/stream/LivestreamTeleportCanceled;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lplace/stream/LivestreamTeleportCanceled;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lplace/stream/LivestreamTeleportCanceled;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$TeleportCanceled$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$Unknown : place/stream/LivestreamStreamplaceAnythingLivestreamUnion {
+	public static final field Companion Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$ViewerCount : place/stream/LivestreamStreamplaceAnythingLivestreamUnion {
+	public static final field Companion Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$ViewerCount$Companion;
+	public static final synthetic fun box-impl (Lplace/stream/LivestreamViewerCount;)Lplace/stream/LivestreamStreamplaceAnythingLivestreamUnion$ViewerCount;
+	public static fun constructor-impl (Lplace/stream/LivestreamViewerCount;)Lplace/stream/LivestreamViewerCount;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lplace/stream/LivestreamViewerCount;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lplace/stream/LivestreamViewerCount;Lplace/stream/LivestreamViewerCount;)Z
+	public final fun getValue ()Lplace/stream/LivestreamViewerCount;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lplace/stream/LivestreamViewerCount;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lplace/stream/LivestreamViewerCount;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lplace/stream/LivestreamViewerCount;
+}
+
+public final class place/stream/LivestreamStreamplaceAnythingLivestreamUnion$ViewerCount$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/LivestreamTeleportArrival {
+	public static final field Companion Lplace/stream/LivestreamTeleportArrival$Companion;
+	public synthetic fun <init> (Lapp/bsky/actor/ProfileViewBasic;Lkotlin/time/Instant;Lplace/stream/chat/Profile;Ljava/lang/String;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lapp/bsky/actor/ProfileViewBasic;Lkotlin/time/Instant;Lplace/stream/chat/Profile;Ljava/lang/String;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lapp/bsky/actor/ProfileViewBasic;
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun component3 ()Lplace/stream/chat/Profile;
+	public final fun component4-x27MrHI ()Ljava/lang/String;
+	public final fun component5 ()J
+	public final fun copy-Q80ZZ9k (Lapp/bsky/actor/ProfileViewBasic;Lkotlin/time/Instant;Lplace/stream/chat/Profile;Ljava/lang/String;J)Lplace/stream/LivestreamTeleportArrival;
+	public static synthetic fun copy-Q80ZZ9k$default (Lplace/stream/LivestreamTeleportArrival;Lapp/bsky/actor/ProfileViewBasic;Lkotlin/time/Instant;Lplace/stream/chat/Profile;Ljava/lang/String;JILjava/lang/Object;)Lplace/stream/LivestreamTeleportArrival;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChatProfile ()Lplace/stream/chat/Profile;
+	public final fun getSource ()Lapp/bsky/actor/ProfileViewBasic;
+	public final fun getStartsAt ()Lkotlin/time/Instant;
+	public final fun getTeleportUri-x27MrHI ()Ljava/lang/String;
+	public final fun getViewerCount ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/LivestreamTeleportArrival$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/LivestreamTeleportCanceled {
+	public static final field Companion Lplace/stream/LivestreamTeleportCanceled$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2-x27MrHI ()Ljava/lang/String;
+	public final fun copy-fiUFdrA (Ljava/lang/String;Ljava/lang/String;)Lplace/stream/LivestreamTeleportCanceled;
+	public static synthetic fun copy-fiUFdrA$default (Lplace/stream/LivestreamTeleportCanceled;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lplace/stream/LivestreamTeleportCanceled;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getReason ()Ljava/lang/String;
+	public final fun getTeleportUri-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/LivestreamTeleportCanceled$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/LivestreamViewerCount {
+	public static final field Companion Lplace/stream/LivestreamViewerCount$Companion;
+	public fun <init> (J)V
+	public final fun component1 ()J
+	public final fun copy (J)Lplace/stream/LivestreamViewerCount;
+	public static synthetic fun copy$default (Lplace/stream/LivestreamViewerCount;JILjava/lang/Object;)Lplace/stream/LivestreamViewerCount;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCount ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/LivestreamViewerCount$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/Rendition {
+	public static final field Companion Lplace/stream/Rendition$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lplace/stream/Rendition;
+	public static synthetic fun copy$default (Lplace/stream/Rendition;Ljava/lang/String;ILjava/lang/Object;)Lplace/stream/Rendition;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/Rendition$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/Renditions {
+	public static final field Companion Lplace/stream/Renditions$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lplace/stream/Renditions;
+	public static synthetic fun copy$default (Lplace/stream/Renditions;Ljava/util/List;ILjava/lang/Object;)Lplace/stream/Renditions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRenditions ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/Renditions$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/badge/BadgeIssuanceView {
+	public static final field Companion Lplace/stream/badge/BadgeIssuanceView$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2-715Ygxc ()Ljava/lang/String;
+	public final fun component3-pvpWXas ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/Boolean;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8-x27MrHI ()Ljava/lang/String;
+	public final fun copy-lVDMUlo (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lplace/stream/badge/BadgeIssuanceView;
+	public static synthetic fun copy-lVDMUlo$default (Lplace/stream/badge/BadgeIssuanceView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lplace/stream/badge/BadgeIssuanceView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBadgeType ()Ljava/lang/String;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getImageUrl-pvpWXas ()Ljava/lang/String;
+	public final fun getIssuanceCid ()Ljava/lang/String;
+	public final fun getIssuanceUri-x27MrHI ()Ljava/lang/String;
+	public final fun getIssuer-715Ygxc ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getSelected ()Ljava/lang/Boolean;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/badge/BadgeIssuanceView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/badge/BadgeSlot {
+	public static final field Companion Lplace/stream/badge/BadgeSlot$Companion;
+	public fun <init> (Lplace/stream/badge/BadgeIssuanceView;Ljava/util/List;)V
+	public synthetic fun <init> (Lplace/stream/badge/BadgeIssuanceView;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lplace/stream/badge/BadgeIssuanceView;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Lplace/stream/badge/BadgeIssuanceView;Ljava/util/List;)Lplace/stream/badge/BadgeSlot;
+	public static synthetic fun copy$default (Lplace/stream/badge/BadgeSlot;Lplace/stream/badge/BadgeIssuanceView;Ljava/util/List;ILjava/lang/Object;)Lplace/stream/badge/BadgeSlot;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAvailable ()Ljava/util/List;
+	public final fun getSelected ()Lplace/stream/badge/BadgeIssuanceView;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/badge/BadgeSlot$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/badge/BadgeView {
+	public static final field Companion Lplace/stream/badge/BadgeView$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2-715Ygxc ()Ljava/lang/String;
+	public final fun component3-pvpWXas ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5-715Ygxc ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun copy-uVy_cv4 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lplace/stream/badge/BadgeView;
+	public static synthetic fun copy-uVy_cv4$default (Lplace/stream/badge/BadgeView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lplace/stream/badge/BadgeView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBadgeType ()Ljava/lang/String;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getImageUrl-pvpWXas ()Ljava/lang/String;
+	public final fun getIssuer-715Ygxc ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getRecipient-715Ygxc ()Ljava/lang/String;
+	public final fun getSignature ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/badge/BadgeView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class place/stream/badge/Token : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lplace/stream/badge/Token$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class place/stream/badge/Token$Bot : place/stream/badge/Token {
+	public static final field INSTANCE Lplace/stream/badge/Token$Bot;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/badge/Token$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lplace/stream/badge/Token;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/badge/Token$Event : place/stream/badge/Token {
+	public static final field INSTANCE Lplace/stream/badge/Token$Event;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/badge/Token$Mod : place/stream/badge/Token {
+	public static final field INSTANCE Lplace/stream/badge/Token$Mod;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/badge/Token$Streamer : place/stream/badge/Token {
+	public static final field INSTANCE Lplace/stream/badge/Token$Streamer;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/badge/Token$Unknown : place/stream/badge/Token {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lplace/stream/badge/Token$Unknown;
+	public static synthetic fun copy$default (Lplace/stream/badge/Token$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lplace/stream/badge/Token$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/badge/Token$Vip : place/stream/badge/Token {
+	public static final field INSTANCE Lplace/stream/badge/Token$Vip;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/badge/TokenSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lplace/stream/badge/Token;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lplace/stream/badge/Token;)V
+}
+
+public final class place/stream/chat/MessageView {
+	public static final field Companion Lplace/stream/chat/MessageView$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Ljava/util/List;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Boolean;Lplace/stream/chat/MessageViewReplyToUnion;Lkotlin/time/Instant;Lplace/stream/chat/Profile;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Ljava/util/List;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Boolean;Lplace/stream/chat/MessageViewReplyToUnion;Lkotlin/time/Instant;Lplace/stream/chat/Profile;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-OA0YjOw ()Ljava/lang/String;
+	public final fun component2-x27MrHI ()Ljava/lang/String;
+	public final fun component3 ()Lapp/bsky/actor/ProfileViewBasic;
+	public final fun component4 ()Ljava/util/List;
+	public final fun component5 ()Lsh/christian/ozone/api/model/JsonContent;
+	public final fun component6 ()Ljava/lang/Boolean;
+	public final fun component7 ()Lplace/stream/chat/MessageViewReplyToUnion;
+	public final fun component8 ()Lkotlin/time/Instant;
+	public final fun component9 ()Lplace/stream/chat/Profile;
+	public final fun copy-qNvvnNo (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Ljava/util/List;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Boolean;Lplace/stream/chat/MessageViewReplyToUnion;Lkotlin/time/Instant;Lplace/stream/chat/Profile;)Lplace/stream/chat/MessageView;
+	public static synthetic fun copy-qNvvnNo$default (Lplace/stream/chat/MessageView;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Ljava/util/List;Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Boolean;Lplace/stream/chat/MessageViewReplyToUnion;Lkotlin/time/Instant;Lplace/stream/chat/Profile;ILjava/lang/Object;)Lplace/stream/chat/MessageView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAuthor ()Lapp/bsky/actor/ProfileViewBasic;
+	public final fun getBadges ()Ljava/util/List;
+	public final fun getChatProfile ()Lplace/stream/chat/Profile;
+	public final fun getCid-OA0YjOw ()Ljava/lang/String;
+	public final fun getDeleted ()Ljava/lang/Boolean;
+	public final fun getIndexedAt ()Lkotlin/time/Instant;
+	public final fun getRecord ()Lsh/christian/ozone/api/model/JsonContent;
+	public final fun getReplyTo ()Lplace/stream/chat/MessageViewReplyToUnion;
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/chat/MessageView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class place/stream/chat/MessageViewReplyToUnion {
+	public static final field Companion Lplace/stream/chat/MessageViewReplyToUnion$Companion;
+}
+
+public final class place/stream/chat/MessageViewReplyToUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/chat/MessageViewReplyToUnion$MessageView : place/stream/chat/MessageViewReplyToUnion {
+	public static final field Companion Lplace/stream/chat/MessageViewReplyToUnion$MessageView$Companion;
+	public static final synthetic fun box-impl (Lplace/stream/chat/MessageView;)Lplace/stream/chat/MessageViewReplyToUnion$MessageView;
+	public static fun constructor-impl (Lplace/stream/chat/MessageView;)Lplace/stream/chat/MessageView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lplace/stream/chat/MessageView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lplace/stream/chat/MessageView;Lplace/stream/chat/MessageView;)Z
+	public final fun getValue ()Lplace/stream/chat/MessageView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lplace/stream/chat/MessageView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lplace/stream/chat/MessageView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lplace/stream/chat/MessageView;
+}
+
+public final class place/stream/chat/MessageViewReplyToUnion$MessageView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/chat/MessageViewReplyToUnion$Unknown : place/stream/chat/MessageViewReplyToUnion {
+	public static final field Companion Lplace/stream/chat/MessageViewReplyToUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lplace/stream/chat/MessageViewReplyToUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class place/stream/chat/MessageViewReplyToUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/chat/PinnedRecord {
+	public static final field Companion Lplace/stream/chat/PinnedRecord$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-68yuAGA ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun component3 ()Lkotlin/time/Instant;
+	public final fun component4-x27MrHI ()Ljava/lang/String;
+	public final fun copy-DSw8g_U (Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/String;)Lplace/stream/chat/PinnedRecord;
+	public static synthetic fun copy-DSw8g_U$default (Lplace/stream/chat/PinnedRecord;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/lang/String;ILjava/lang/Object;)Lplace/stream/chat/PinnedRecord;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getExpiresAt ()Lkotlin/time/Instant;
+	public final fun getPinnedBy-68yuAGA ()Ljava/lang/String;
+	public final fun getPinnedMessage-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/chat/PinnedRecord$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/chat/PinnedRecordView {
+	public static final field Companion Lplace/stream/chat/PinnedRecordView$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lplace/stream/chat/PinnedRecord;Lplace/stream/chat/MessageView;Lplace/stream/chat/Profile;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lplace/stream/chat/PinnedRecord;Lplace/stream/chat/MessageView;Lplace/stream/chat/Profile;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-OA0YjOw ()Ljava/lang/String;
+	public final fun component2-x27MrHI ()Ljava/lang/String;
+	public final fun component3 ()Lplace/stream/chat/PinnedRecord;
+	public final fun component4 ()Lplace/stream/chat/MessageView;
+	public final fun component5 ()Lplace/stream/chat/Profile;
+	public final fun component6 ()Lkotlin/time/Instant;
+	public final fun copy-RXQtfaY (Ljava/lang/String;Ljava/lang/String;Lplace/stream/chat/PinnedRecord;Lplace/stream/chat/MessageView;Lplace/stream/chat/Profile;Lkotlin/time/Instant;)Lplace/stream/chat/PinnedRecordView;
+	public static synthetic fun copy-RXQtfaY$default (Lplace/stream/chat/PinnedRecordView;Ljava/lang/String;Ljava/lang/String;Lplace/stream/chat/PinnedRecord;Lplace/stream/chat/MessageView;Lplace/stream/chat/Profile;Lkotlin/time/Instant;ILjava/lang/Object;)Lplace/stream/chat/PinnedRecordView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCid-OA0YjOw ()Ljava/lang/String;
+	public final fun getIndexedAt ()Lkotlin/time/Instant;
+	public final fun getMessage ()Lplace/stream/chat/MessageView;
+	public final fun getPinnedBy ()Lplace/stream/chat/Profile;
+	public final fun getRecord ()Lplace/stream/chat/PinnedRecord;
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/chat/PinnedRecordView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/chat/Profile {
+	public static final field Companion Lplace/stream/chat/Profile$Companion;
+	public fun <init> ()V
+	public fun <init> (Lplace/stream/chat/ProfileColor;Lplace/stream/chat/ProfileBadgeSelections;Ljava/util/List;)V
+	public synthetic fun <init> (Lplace/stream/chat/ProfileColor;Lplace/stream/chat/ProfileBadgeSelections;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lplace/stream/chat/ProfileColor;
+	public final fun component2 ()Lplace/stream/chat/ProfileBadgeSelections;
+	public final fun component3 ()Ljava/util/List;
+	public final fun copy (Lplace/stream/chat/ProfileColor;Lplace/stream/chat/ProfileBadgeSelections;Ljava/util/List;)Lplace/stream/chat/Profile;
+	public static synthetic fun copy$default (Lplace/stream/chat/Profile;Lplace/stream/chat/ProfileColor;Lplace/stream/chat/ProfileBadgeSelections;Ljava/util/List;ILjava/lang/Object;)Lplace/stream/chat/Profile;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBadges ()Lplace/stream/chat/ProfileBadgeSelections;
+	public final fun getColor ()Lplace/stream/chat/ProfileColor;
+	public final fun getSelfLabels ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/chat/Profile$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/chat/ProfileBadgeSelections {
+	public static final field Companion Lplace/stream/chat/ProfileBadgeSelections$Companion;
+	public fun <init> ()V
+	public fun <init> (Lcom/atproto/repo/StrongRef;Ljava/util/List;)V
+	public synthetic fun <init> (Lcom/atproto/repo/StrongRef;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/atproto/repo/StrongRef;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Lcom/atproto/repo/StrongRef;Ljava/util/List;)Lplace/stream/chat/ProfileBadgeSelections;
+	public static synthetic fun copy$default (Lplace/stream/chat/ProfileBadgeSelections;Lcom/atproto/repo/StrongRef;Ljava/util/List;ILjava/lang/Object;)Lplace/stream/chat/ProfileBadgeSelections;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getGlobal ()Lcom/atproto/repo/StrongRef;
+	public final fun getStreamer ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/chat/ProfileBadgeSelections$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/chat/ProfileColor {
+	public static final field Companion Lplace/stream/chat/ProfileColor$Companion;
+	public fun <init> (JJJ)V
+	public final fun component1 ()J
+	public final fun component2 ()J
+	public final fun component3 ()J
+	public final fun copy (JJJ)Lplace/stream/chat/ProfileColor;
+	public static synthetic fun copy$default (Lplace/stream/chat/ProfileColor;JJJILjava/lang/Object;)Lplace/stream/chat/ProfileColor;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBlue ()J
+	public final fun getGreen ()J
+	public final fun getRed ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/chat/ProfileColor$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class place/stream/chat/ProfileSelfLabel : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lplace/stream/chat/ProfileSelfLabel$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class place/stream/chat/ProfileSelfLabel$Bot : place/stream/chat/ProfileSelfLabel {
+	public static final field INSTANCE Lplace/stream/chat/ProfileSelfLabel$Bot;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/chat/ProfileSelfLabel$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Lplace/stream/chat/ProfileSelfLabel;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class place/stream/chat/ProfileSelfLabel$Unknown : place/stream/chat/ProfileSelfLabel {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lplace/stream/chat/ProfileSelfLabel$Unknown;
+	public static synthetic fun copy$default (Lplace/stream/chat/ProfileSelfLabel$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lplace/stream/chat/ProfileSelfLabel$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/chat/ProfileSelfLabelSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lplace/stream/chat/ProfileSelfLabel;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lplace/stream/chat/ProfileSelfLabel;)V
+}
+
+public final class place/stream/chat/ProfileStreamerBadgeSelection {
+	public static final field Companion Lplace/stream/chat/ProfileStreamerBadgeSelection$Companion;
+	public synthetic fun <init> (Lcom/atproto/repo/StrongRef;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/atproto/repo/StrongRef;
+	public final fun component2-715Ygxc ()Ljava/lang/String;
+	public final fun copy-F4IRIfk (Lcom/atproto/repo/StrongRef;Ljava/lang/String;)Lplace/stream/chat/ProfileStreamerBadgeSelection;
+	public static synthetic fun copy-F4IRIfk$default (Lplace/stream/chat/ProfileStreamerBadgeSelection;Lcom/atproto/repo/StrongRef;Ljava/lang/String;ILjava/lang/Object;)Lplace/stream/chat/ProfileStreamerBadgeSelection;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBadge ()Lcom/atproto/repo/StrongRef;
+	public final fun getStreamer-715Ygxc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class place/stream/chat/ProfileStreamerBadgeSelection$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun abortUpload (Lapp/bsky/video/AbortUploadRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun acceptConvo (Lchat/bsky/convo/AcceptConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -27281,6 +28842,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getAgeAssuranceStateUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAssignments (Ltools/ozone/queue/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAssignments (Ltools/ozone/report/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getAtmosphereExploreTabUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAuthorFeed (Lapp/bsky/feed/GetAuthorFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getBlob (Lcom/atproto/sync/GetBlobQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getBlocks (Lapp/bsky/graph/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -27623,6 +29185,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getAgeAssuranceStateUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAssignments (Ltools/ozone/queue/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAssignments (Ltools/ozone/report/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAtmosphereExploreTabUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAuthorFeed (Lapp/bsky/feed/GetAuthorFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlob (Lcom/atproto/sync/GetBlobQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlocks (Lapp/bsky/graph/GetBlocksQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -27967,6 +29530,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getAgeAssuranceStateUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAssignments (Ltools/ozone/queue/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAssignments (Ltools/ozone/report/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAtmosphereExploreTabUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun getAuthTokens ()Lkotlinx/coroutines/flow/StateFlow;
 	public fun getAuthorFeed (Lapp/bsky/feed/GetAuthorFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlob (Lcom/atproto/sync/GetBlobQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -28303,24 +29867,24 @@ public final class sh/christian/ozone/api/xrpc/XrpcSerializersModuleKt {
 
 public final class site/standard/Document {
 	public static final field Companion Lsite/standard/Document$Companion;
-	public synthetic fun <init> (Lcom/atproto/repo/StrongRef;Lsite/standard/DocumentContentUnion;Ljava/util/List;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lsite/standard/DocumentLabelsUnion;Lsite/standard/DocumentLinksUnion;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lcom/atproto/repo/StrongRef;Lsite/standard/DocumentContentUnion;Ljava/util/List;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lsite/standard/DocumentLabelsUnion;Lsite/standard/DocumentLinksUnion;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Lcom/atproto/repo/StrongRef;
-	public final fun component10-v5vOzEc ()Ljava/lang/String;
-	public final fun component11 ()Ljava/util/List;
-	public final fun component12 ()Ljava/lang/String;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lsite/standard/DocumentLinksUnion;Ljava/lang/String;Lsite/standard/DocumentLabelsUnion;Lsite/standard/DocumentContentUnion;Lkotlin/time/Instant;Lsh/christian/ozone/api/model/Blob;Lcom/atproto/repo/StrongRef;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lsite/standard/DocumentLinksUnion;Ljava/lang/String;Lsite/standard/DocumentLabelsUnion;Lsite/standard/DocumentContentUnion;Lkotlin/time/Instant;Lsh/christian/ozone/api/model/Blob;Lcom/atproto/repo/StrongRef;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Lcom/atproto/repo/StrongRef;
+	public final fun component11 ()Ljava/lang/String;
+	public final fun component12 ()Lkotlin/time/Instant;
 	public final fun component13 ()Ljava/lang/String;
-	public final fun component14 ()Lkotlin/time/Instant;
-	public final fun component2 ()Lsite/standard/DocumentContentUnion;
+	public final fun component14 ()Ljava/util/List;
+	public final fun component2-v5vOzEc ()Ljava/lang/String;
 	public final fun component3 ()Ljava/util/List;
-	public final fun component4 ()Lsh/christian/ozone/api/model/Blob;
+	public final fun component4 ()Lsite/standard/DocumentLinksUnion;
 	public final fun component5 ()Ljava/lang/String;
 	public final fun component6 ()Lsite/standard/DocumentLabelsUnion;
-	public final fun component7 ()Lsite/standard/DocumentLinksUnion;
-	public final fun component8 ()Ljava/lang/String;
-	public final fun component9 ()Lkotlin/time/Instant;
-	public final fun copy--DxZLcw (Lcom/atproto/repo/StrongRef;Lsite/standard/DocumentContentUnion;Ljava/util/List;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lsite/standard/DocumentLabelsUnion;Lsite/standard/DocumentLinksUnion;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;)Lsite/standard/Document;
-	public static synthetic fun copy--DxZLcw$default (Lsite/standard/Document;Lcom/atproto/repo/StrongRef;Lsite/standard/DocumentContentUnion;Ljava/util/List;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lsite/standard/DocumentLabelsUnion;Lsite/standard/DocumentLinksUnion;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;ILjava/lang/Object;)Lsite/standard/Document;
+	public final fun component7 ()Lsite/standard/DocumentContentUnion;
+	public final fun component8 ()Lkotlin/time/Instant;
+	public final fun component9 ()Lsh/christian/ozone/api/model/Blob;
+	public final fun copy-TuZYSjE (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lsite/standard/DocumentLinksUnion;Ljava/lang/String;Lsite/standard/DocumentLabelsUnion;Lsite/standard/DocumentContentUnion;Lkotlin/time/Instant;Lsh/christian/ozone/api/model/Blob;Lcom/atproto/repo/StrongRef;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Ljava/util/List;)Lsite/standard/Document;
+	public static synthetic fun copy-TuZYSjE$default (Lsite/standard/Document;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lsite/standard/DocumentLinksUnion;Ljava/lang/String;Lsite/standard/DocumentLabelsUnion;Lsite/standard/DocumentContentUnion;Lkotlin/time/Instant;Lsh/christian/ozone/api/model/Blob;Lcom/atproto/repo/StrongRef;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lsite/standard/Document;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getBskyPostRef ()Lcom/atproto/repo/StrongRef;
 	public final fun getContent ()Lsite/standard/DocumentContentUnion;
@@ -28467,17 +30031,17 @@ public final class site/standard/DocumentLinksUnion$Unknown$Companion {
 
 public final class site/standard/Publication {
 	public static final field Companion Lsite/standard/Publication$Companion;
-	public synthetic fun <init> (Lsite/standard/theme/Basic;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lsite/standard/PublicationLabelsUnion;Ljava/lang/String;Lsite/standard/PublicationPreferences;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lsite/standard/theme/Basic;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lsite/standard/PublicationLabelsUnion;Ljava/lang/String;Lsite/standard/PublicationPreferences;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Lsite/standard/theme/Basic;
-	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Lsh/christian/ozone/api/model/Blob;
+	public synthetic fun <init> (Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lsite/standard/PublicationLabelsUnion;Lsite/standard/theme/Basic;Ljava/lang/String;Lsite/standard/PublicationPreferences;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lsite/standard/PublicationLabelsUnion;Lsite/standard/theme/Basic;Ljava/lang/String;Lsite/standard/PublicationPreferences;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-v5vOzEc ()Ljava/lang/String;
+	public final fun component2 ()Lsh/christian/ozone/api/model/Blob;
+	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Lsite/standard/PublicationLabelsUnion;
-	public final fun component5 ()Ljava/lang/String;
-	public final fun component6 ()Lsite/standard/PublicationPreferences;
-	public final fun component7-v5vOzEc ()Ljava/lang/String;
-	public final fun copy-UCzAqjE (Lsite/standard/theme/Basic;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lsite/standard/PublicationLabelsUnion;Ljava/lang/String;Lsite/standard/PublicationPreferences;Ljava/lang/String;)Lsite/standard/Publication;
-	public static synthetic fun copy-UCzAqjE$default (Lsite/standard/Publication;Lsite/standard/theme/Basic;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lsite/standard/PublicationLabelsUnion;Ljava/lang/String;Lsite/standard/PublicationPreferences;Ljava/lang/String;ILjava/lang/Object;)Lsite/standard/Publication;
+	public final fun component5 ()Lsite/standard/theme/Basic;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Lsite/standard/PublicationPreferences;
+	public final fun copy-RqK3OEI (Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lsite/standard/PublicationLabelsUnion;Lsite/standard/theme/Basic;Ljava/lang/String;Lsite/standard/PublicationPreferences;)Lsite/standard/Publication;
+	public static synthetic fun copy-RqK3OEI$default (Lsite/standard/Publication;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lsite/standard/PublicationLabelsUnion;Lsite/standard/theme/Basic;Ljava/lang/String;Lsite/standard/PublicationPreferences;ILjava/lang/Object;)Lsite/standard/Publication;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getBasicTheme ()Lsite/standard/theme/Basic;
 	public final fun getDescription ()Ljava/lang/String;
@@ -28560,11 +30124,11 @@ public final class site/standard/PublicationPreferences$Companion {
 
 public final class site/standard/graph/Recommend {
 	public static final field Companion Lsite/standard/graph/Recommend$Companion;
-	public synthetic fun <init> (Lkotlin/time/Instant;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Lkotlin/time/Instant;
-	public final fun component2-x27MrHI ()Ljava/lang/String;
-	public final fun copy-fiUFdrA (Lkotlin/time/Instant;Ljava/lang/String;)Lsite/standard/graph/Recommend;
-	public static synthetic fun copy-fiUFdrA$default (Lsite/standard/graph/Recommend;Lkotlin/time/Instant;Ljava/lang/String;ILjava/lang/Object;)Lsite/standard/graph/Recommend;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun copy-wMvghHc (Ljava/lang/String;Lkotlin/time/Instant;)Lsite/standard/graph/Recommend;
+	public static synthetic fun copy-wMvghHc$default (Lsite/standard/graph/Recommend;Ljava/lang/String;Lkotlin/time/Instant;ILjava/lang/Object;)Lsite/standard/graph/Recommend;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCreatedAt ()Lkotlin/time/Instant;
 	public final fun getDocument-x27MrHI ()Ljava/lang/String;
@@ -28597,13 +30161,13 @@ public final class site/standard/graph/Subscription$Companion {
 
 public final class site/standard/theme/Basic {
 	public static final field Companion Lsite/standard/theme/Basic$Companion;
-	public fun <init> (Lsite/standard/theme/BasicAccentUnion;Lsite/standard/theme/BasicAccentForegroundUnion;Lsite/standard/theme/BasicBackgroundUnion;Lsite/standard/theme/BasicForegroundUnion;)V
+	public fun <init> (Lsite/standard/theme/BasicAccentUnion;Lsite/standard/theme/BasicBackgroundUnion;Lsite/standard/theme/BasicForegroundUnion;Lsite/standard/theme/BasicAccentForegroundUnion;)V
 	public final fun component1 ()Lsite/standard/theme/BasicAccentUnion;
-	public final fun component2 ()Lsite/standard/theme/BasicAccentForegroundUnion;
-	public final fun component3 ()Lsite/standard/theme/BasicBackgroundUnion;
-	public final fun component4 ()Lsite/standard/theme/BasicForegroundUnion;
-	public final fun copy (Lsite/standard/theme/BasicAccentUnion;Lsite/standard/theme/BasicAccentForegroundUnion;Lsite/standard/theme/BasicBackgroundUnion;Lsite/standard/theme/BasicForegroundUnion;)Lsite/standard/theme/Basic;
-	public static synthetic fun copy$default (Lsite/standard/theme/Basic;Lsite/standard/theme/BasicAccentUnion;Lsite/standard/theme/BasicAccentForegroundUnion;Lsite/standard/theme/BasicBackgroundUnion;Lsite/standard/theme/BasicForegroundUnion;ILjava/lang/Object;)Lsite/standard/theme/Basic;
+	public final fun component2 ()Lsite/standard/theme/BasicBackgroundUnion;
+	public final fun component3 ()Lsite/standard/theme/BasicForegroundUnion;
+	public final fun component4 ()Lsite/standard/theme/BasicAccentForegroundUnion;
+	public final fun copy (Lsite/standard/theme/BasicAccentUnion;Lsite/standard/theme/BasicBackgroundUnion;Lsite/standard/theme/BasicForegroundUnion;Lsite/standard/theme/BasicAccentForegroundUnion;)Lsite/standard/theme/Basic;
+	public static synthetic fun copy$default (Lsite/standard/theme/Basic;Lsite/standard/theme/BasicAccentUnion;Lsite/standard/theme/BasicBackgroundUnion;Lsite/standard/theme/BasicForegroundUnion;Lsite/standard/theme/BasicAccentForegroundUnion;ILjava/lang/Object;)Lsite/standard/theme/Basic;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAccent ()Lsite/standard/theme/BasicAccentUnion;
 	public final fun getAccentForeground ()Lsite/standard/theme/BasicAccentForegroundUnion;
@@ -28840,6 +30404,157 @@ public final class site/standard/theme/ColorRgba {
 }
 
 public final class site/standard/theme/ColorRgba$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class social/grain/AspectRatio {
+	public static final field Companion Lsocial/grain/AspectRatio$Companion;
+	public fun <init> (JJ)V
+	public final fun component1 ()J
+	public final fun component2 ()J
+	public final fun copy (JJ)Lsocial/grain/AspectRatio;
+	public static synthetic fun copy$default (Lsocial/grain/AspectRatio;JJILjava/lang/Object;)Lsocial/grain/AspectRatio;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHeight ()J
+	public final fun getWidth ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class social/grain/AspectRatio$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class social/grain/Favorite {
+	public static final field Companion Lsocial/grain/Favorite$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun copy-wMvghHc (Ljava/lang/String;Lkotlin/time/Instant;)Lsocial/grain/Favorite;
+	public static synthetic fun copy-wMvghHc$default (Lsocial/grain/Favorite;Ljava/lang/String;Lkotlin/time/Instant;ILjava/lang/Object;)Lsocial/grain/Favorite;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getSubject-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class social/grain/Favorite$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class social/grain/Gallery {
+	public static final field Companion Lsocial/grain/Gallery$Companion;
+	public fun <init> (Ljava/lang/String;Lsocial/grain/GalleryLabelsUnion;Lkotlin/time/Instant;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Lsocial/grain/GalleryLabelsUnion;Lkotlin/time/Instant;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lsocial/grain/GalleryLabelsUnion;
+	public final fun component3 ()Lkotlin/time/Instant;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Lsocial/grain/GalleryLabelsUnion;Lkotlin/time/Instant;Ljava/lang/String;)Lsocial/grain/Gallery;
+	public static synthetic fun copy$default (Lsocial/grain/Gallery;Ljava/lang/String;Lsocial/grain/GalleryLabelsUnion;Lkotlin/time/Instant;Ljava/lang/String;ILjava/lang/Object;)Lsocial/grain/Gallery;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getLabels ()Lsocial/grain/GalleryLabelsUnion;
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class social/grain/Gallery$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class social/grain/GalleryLabelsUnion {
+	public static final field Companion Lsocial/grain/GalleryLabelsUnion$Companion;
+}
+
+public final class social/grain/GalleryLabelsUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class social/grain/GalleryLabelsUnion$SelfLabels : social/grain/GalleryLabelsUnion {
+	public static final field Companion Lsocial/grain/GalleryLabelsUnion$SelfLabels$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/label/SelfLabels;)Lsocial/grain/GalleryLabelsUnion$SelfLabels;
+	public static fun constructor-impl (Lcom/atproto/label/SelfLabels;)Lcom/atproto/label/SelfLabels;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/label/SelfLabels;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/label/SelfLabels;Lcom/atproto/label/SelfLabels;)Z
+	public final fun getValue ()Lcom/atproto/label/SelfLabels;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/label/SelfLabels;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/label/SelfLabels;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/label/SelfLabels;
+}
+
+public final class social/grain/GalleryLabelsUnion$SelfLabels$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class social/grain/GalleryLabelsUnion$Unknown : social/grain/GalleryLabelsUnion {
+	public static final field Companion Lsocial/grain/GalleryLabelsUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsocial/grain/GalleryLabelsUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class social/grain/GalleryLabelsUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class social/grain/Photo {
+	public static final field Companion Lsocial/grain/Photo$Companion;
+	public fun <init> (Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lkotlin/time/Instant;Lsocial/grain/AspectRatio;)V
+	public synthetic fun <init> (Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lkotlin/time/Instant;Lsocial/grain/AspectRatio;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lsh/christian/ozone/api/model/Blob;
+	public final fun component3 ()Lkotlin/time/Instant;
+	public final fun component4 ()Lsocial/grain/AspectRatio;
+	public final fun copy (Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lkotlin/time/Instant;Lsocial/grain/AspectRatio;)Lsocial/grain/Photo;
+	public static synthetic fun copy$default (Lsocial/grain/Photo;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lkotlin/time/Instant;Lsocial/grain/AspectRatio;ILjava/lang/Object;)Lsocial/grain/Photo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlt ()Ljava/lang/String;
+	public final fun getAspectRatio ()Lsocial/grain/AspectRatio;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getPhoto ()Lsh/christian/ozone/api/model/Blob;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class social/grain/Photo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class social/grain/gallery/Item {
+	public static final field Companion Lsocial/grain/gallery/Item$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2-x27MrHI ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun component4 ()Lkotlin/time/Instant;
+	public final fun copy-WrIHIwU (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Lkotlin/time/Instant;)Lsocial/grain/gallery/Item;
+	public static synthetic fun copy-WrIHIwU$default (Lsocial/grain/gallery/Item;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Lkotlin/time/Instant;ILjava/lang/Object;)Lsocial/grain/gallery/Item;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getGallery-x27MrHI ()Ljava/lang/String;
+	public final fun getItem-x27MrHI ()Ljava/lang/String;
+	public final fun getPosition ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class social/grain/gallery/Item$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -37461,21 +39176,29 @@ public final class tools/ozone/queue/ListQueuesResponse$Companion {
 public final class tools/ozone/queue/QueueStats {
 	public static final field Companion Ltools/ozone/queue/QueueStats$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;)V
-	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Long;
+	public final fun component10 ()Ljava/lang/Long;
+	public final fun component11 ()Lkotlin/time/Instant;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3 ()Ljava/lang/Long;
 	public final fun component4 ()Ljava/lang/Long;
 	public final fun component5 ()Ljava/lang/Long;
 	public final fun component6 ()Ljava/lang/Long;
-	public final fun component7 ()Lkotlin/time/Instant;
-	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;)Ltools/ozone/queue/QueueStats;
-	public static synthetic fun copy$default (Ltools/ozone/queue/QueueStats;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;ILjava/lang/Object;)Ltools/ozone/queue/QueueStats;
+	public final fun component7 ()Ljava/lang/Long;
+	public final fun component8 ()Ljava/lang/Long;
+	public final fun component9 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;)Ltools/ozone/queue/QueueStats;
+	public static synthetic fun copy$default (Ltools/ozone/queue/QueueStats;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;ILjava/lang/Object;)Ltools/ozone/queue/QueueStats;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getActionRate ()Ljava/lang/Long;
 	public final fun getActionedCount ()Ljava/lang/Long;
 	public final fun getAvgHandlingTimeSec ()Ljava/lang/Long;
+	public final fun getClosureTargetMetCount ()Ljava/lang/Long;
+	public final fun getClosureTargetMetRate ()Ljava/lang/Long;
+	public final fun getClosureTargetMissedCount ()Ljava/lang/Long;
+	public final fun getClosureTargetOverdueCount ()Ljava/lang/Long;
 	public final fun getEscalatedCount ()Ljava/lang/Long;
 	public final fun getInboundCount ()Ljava/lang/Long;
 	public final fun getLastUpdated ()Lkotlin/time/Instant;
@@ -38386,8 +40109,8 @@ public final class tools/ozone/report/GetReportQueryParams$Companion {
 
 public final class tools/ozone/report/HistoricalStats {
 	public static final field Companion Ltools/ozone/report/HistoricalStats$Companion;
-	public fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)V
-	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component10 ()Ljava/lang/Long;
 	public final fun component11 ()Ljava/lang/Long;
@@ -38398,7 +40121,11 @@ public final class tools/ozone/report/HistoricalStats {
 	public final fun component16 ()Ljava/lang/Long;
 	public final fun component17 ()Ljava/lang/Long;
 	public final fun component18 ()Ljava/lang/Long;
+	public final fun component19 ()Ljava/lang/Long;
 	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun component20 ()Ljava/lang/Long;
+	public final fun component21 ()Ljava/lang/Long;
+	public final fun component22 ()Ljava/lang/Long;
 	public final fun component3 ()Ljava/lang/Long;
 	public final fun component4 ()Ljava/lang/Long;
 	public final fun component5 ()Ljava/lang/Long;
@@ -38406,8 +40133,8 @@ public final class tools/ozone/report/HistoricalStats {
 	public final fun component7 ()Ljava/lang/Long;
 	public final fun component8 ()Ljava/lang/Long;
 	public final fun component9 ()Ljava/lang/Long;
-	public final fun copy (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)Ltools/ozone/report/HistoricalStats;
-	public static synthetic fun copy$default (Ltools/ozone/report/HistoricalStats;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILjava/lang/Object;)Ltools/ozone/report/HistoricalStats;
+	public final fun copy (Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;)Ltools/ozone/report/HistoricalStats;
+	public static synthetic fun copy$default (Ltools/ozone/report/HistoricalStats;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;ILjava/lang/Object;)Ltools/ozone/report/HistoricalStats;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAcknowledgedCount ()Ljava/lang/Long;
 	public final fun getActionRate ()Ljava/lang/Long;
@@ -38417,6 +40144,10 @@ public final class tools/ozone/report/HistoricalStats {
 	public final fun getAvgHandlingTimeSec ()Ljava/lang/Long;
 	public final fun getAvgResolutionTimeSec ()Ljava/lang/Long;
 	public final fun getClosedCount ()Ljava/lang/Long;
+	public final fun getClosureTargetMetCount ()Ljava/lang/Long;
+	public final fun getClosureTargetMetRate ()Ljava/lang/Long;
+	public final fun getClosureTargetMissedCount ()Ljava/lang/Long;
+	public final fun getClosureTargetOverdueCount ()Ljava/lang/Long;
 	public final fun getComputedAt ()Lkotlin/time/Instant;
 	public final fun getDate ()Ljava/lang/String;
 	public final fun getEscalatedCount ()Ljava/lang/Long;
@@ -38479,8 +40210,8 @@ public final class tools/ozone/report/ListActivitiesResponse$Companion {
 public final class tools/ozone/report/LiveStats {
 	public static final field Companion Ltools/ozone/report/LiveStats$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;)V
-	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Long;
 	public final fun component10 ()Ljava/lang/Long;
 	public final fun component11 ()Ljava/lang/Long;
@@ -38489,8 +40220,12 @@ public final class tools/ozone/report/LiveStats {
 	public final fun component14 ()Ljava/lang/Long;
 	public final fun component15 ()Ljava/lang/Long;
 	public final fun component16 ()Ljava/lang/Long;
-	public final fun component17 ()Lkotlin/time/Instant;
+	public final fun component17 ()Ljava/lang/Long;
+	public final fun component18 ()Ljava/lang/Long;
+	public final fun component19 ()Ljava/lang/Long;
 	public final fun component2 ()Ljava/lang/Long;
+	public final fun component20 ()Ljava/lang/Long;
+	public final fun component21 ()Lkotlin/time/Instant;
 	public final fun component3 ()Ljava/lang/Long;
 	public final fun component4 ()Ljava/lang/Long;
 	public final fun component5 ()Ljava/lang/Long;
@@ -38498,8 +40233,8 @@ public final class tools/ozone/report/LiveStats {
 	public final fun component7 ()Ljava/lang/Long;
 	public final fun component8 ()Ljava/lang/Long;
 	public final fun component9 ()Ljava/lang/Long;
-	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;)Ltools/ozone/report/LiveStats;
-	public static synthetic fun copy$default (Ltools/ozone/report/LiveStats;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;ILjava/lang/Object;)Ltools/ozone/report/LiveStats;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;)Ltools/ozone/report/LiveStats;
+	public static synthetic fun copy$default (Ltools/ozone/report/LiveStats;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlin/time/Instant;ILjava/lang/Object;)Ltools/ozone/report/LiveStats;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAcknowledgedCount ()Ljava/lang/Long;
 	public final fun getActionRate ()Ljava/lang/Long;
@@ -38509,6 +40244,10 @@ public final class tools/ozone/report/LiveStats {
 	public final fun getAvgHandlingTimeSec ()Ljava/lang/Long;
 	public final fun getAvgResolutionTimeSec ()Ljava/lang/Long;
 	public final fun getClosedCount ()Ljava/lang/Long;
+	public final fun getClosureTargetMetCount ()Ljava/lang/Long;
+	public final fun getClosureTargetMetRate ()Ljava/lang/Long;
+	public final fun getClosureTargetMissedCount ()Ljava/lang/Long;
+	public final fun getClosureTargetOverdueCount ()Ljava/lang/Long;
 	public final fun getEscalatedCount ()Ljava/lang/Long;
 	public final fun getInboundCount ()Ljava/lang/Long;
 	public final fun getLabelActionCount ()Ljava/lang/Long;
@@ -39220,30 +40959,35 @@ public final class tools/ozone/report/ReportAssignment$Companion {
 
 public final class tools/ozone/report/ReportView {
 	public static final field Companion Ltools/ozone/report/ReportView$Companion;
-	public synthetic fun <init> (JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()J
-	public final fun component10 ()Lkotlin/time/Instant;
-	public final fun component11 ()Lkotlin/time/Instant;
-	public final fun component12 ()Ljava/util/List;
-	public final fun component13 ()Ljava/util/List;
-	public final fun component14 ()Ljava/lang/String;
-	public final fun component15 ()Ltools/ozone/moderation/SubjectStatusView;
-	public final fun component16 ()Ljava/lang/Long;
-	public final fun component17 ()Ltools/ozone/report/ReportAssignment;
-	public final fun component18 ()Ltools/ozone/queue/QueueView;
-	public final fun component19 ()Ljava/lang/Boolean;
+	public final fun component10 ()Ljava/lang/Boolean;
+	public final fun component11-715Ygxc ()Ljava/lang/String;
+	public final fun component12 ()Ltools/ozone/moderation/SubjectView;
+	public final fun component13 ()Ljava/lang/String;
+	public final fun component14 ()Lkotlin/time/Instant;
+	public final fun component15 ()Lkotlin/time/Instant;
+	public final fun component16 ()Lkotlin/time/Instant;
+	public final fun component17 ()Ljava/util/List;
+	public final fun component18 ()Ljava/util/List;
+	public final fun component19 ()Ljava/lang/String;
 	public final fun component2 ()J
-	public final fun component20 ()Ljava/lang/Boolean;
+	public final fun component20 ()Ltools/ozone/moderation/SubjectStatusView;
+	public final fun component21 ()Ljava/lang/Long;
+	public final fun component22 ()Ltools/ozone/report/ReportAssignment;
+	public final fun component23 ()Ltools/ozone/queue/QueueView;
+	public final fun component24 ()Ljava/lang/Boolean;
+	public final fun component25 ()Ljava/lang/Boolean;
 	public final fun component3 ()Ltools/ozone/report/ReportViewStatus;
 	public final fun component4 ()Ltools/ozone/moderation/SubjectView;
 	public final fun component5 ()Lcom/atproto/moderation/Token;
-	public final fun component6-715Ygxc ()Ljava/lang/String;
-	public final fun component7 ()Ltools/ozone/moderation/SubjectView;
-	public final fun component8 ()Ljava/lang/String;
-	public final fun component9 ()Lkotlin/time/Instant;
-	public final fun copy-bOPlFTo (JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;Ljava/lang/Boolean;)Ltools/ozone/report/ReportView;
-	public static synthetic fun copy-bOPlFTo$default (Ltools/ozone/report/ReportView;JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;Ljava/lang/Boolean;ILjava/lang/Object;)Ltools/ozone/report/ReportView;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/Long;
+	public final fun component8 ()Ljava/lang/Long;
+	public final fun component9 ()Ljava/lang/Long;
+	public final fun copy-cgnrLLc (JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;Ljava/lang/Boolean;)Ltools/ozone/report/ReportView;
+	public static synthetic fun copy-cgnrLLc$default (Ltools/ozone/report/ReportView;JJLtools/ozone/report/ReportViewStatus;Ltools/ozone/moderation/SubjectView;Lcom/atproto/moderation/Token;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Ltools/ozone/moderation/SubjectView;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ltools/ozone/moderation/SubjectStatusView;Ljava/lang/Long;Ltools/ozone/report/ReportAssignment;Ltools/ozone/queue/QueueView;Ljava/lang/Boolean;Ljava/lang/Boolean;ILjava/lang/Object;)Ltools/ozone/report/ReportView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getActionEventIds ()Ljava/util/List;
 	public final fun getActionNote ()Ljava/lang/String;
@@ -39253,12 +40997,17 @@ public final class tools/ozone/report/ReportView {
 	public final fun getCreatedAt ()Lkotlin/time/Instant;
 	public final fun getEventId ()J
 	public final fun getId ()J
+	public final fun getPriorityLevel ()Ljava/lang/String;
+	public final fun getPriorityScore ()Ljava/lang/Long;
+	public final fun getPriorityTargetMet ()Ljava/lang/Boolean;
+	public final fun getPriorityTargetMinutes ()Ljava/lang/Long;
 	public final fun getQueue ()Ltools/ozone/queue/QueueView;
 	public final fun getQueuedAt ()Lkotlin/time/Instant;
 	public final fun getRelatedReportCount ()Ljava/lang/Long;
 	public final fun getReportType ()Lcom/atproto/moderation/Token;
 	public final fun getReportedBy-715Ygxc ()Ljava/lang/String;
 	public final fun getReporter ()Ltools/ozone/moderation/SubjectView;
+	public final fun getResolutionTimeSec ()Ljava/lang/Long;
 	public final fun getStatus ()Ltools/ozone/report/ReportViewStatus;
 	public final fun getSubject ()Ltools/ozone/moderation/SubjectView;
 	public final fun getSubjectStatus ()Ltools/ozone/moderation/SubjectStatusView;
