@@ -21,7 +21,7 @@ ozone {
 
 kotlin {
   sourceSets {
-    val androidMain by getting {
+    androidMain.configure {
       dependencies {
         implementation(project(":app:common"))
         implementation(libs.androidx.activity.compose)

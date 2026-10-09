@@ -10,7 +10,7 @@ ozone {
 
 kotlin {
   sourceSets {
-    val wasmJsMain by getting {
+    wasmJsMain.configure {
       dependencies {
         implementation(project(":app:common"))
         implementation(project(":app:store"))

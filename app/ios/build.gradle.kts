@@ -9,7 +9,7 @@ ozone {
 
 kotlin {
   sourceSets {
-    val iosMain by getting {
+    iosMain.configure {
       dependencies {
         implementation(project(":app:common"))
         implementation(project(":app:store"))

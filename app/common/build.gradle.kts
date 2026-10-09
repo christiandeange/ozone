@@ -43,7 +43,7 @@ kotlin {
   }
 
   sourceSets {
-    val commonMain by getting {
+    commonMain.configure {
       dependencies {
         api(compose.foundation)
         api(compose.material3)
@@ -68,19 +68,19 @@ kotlin {
         runtimeOnly(libs.slf4j.simple)
       }
     }
-    val androidMain by getting {
+    androidMain.configure {
       dependencies {
         implementation(libs.androidx.activity.compose)
         implementation(libs.zoomable)
       }
     }
-    val jvmMain by getting {
+    jvmMain.configure {
       dependencies {
         implementation(libs.apache.commons)
         implementation(libs.zoomable)
       }
     }
-    val commonTest by getting {
+    commonTest.configure {
       dependencies {
         implementation(kotlin("test"))
       }

@@ -14,7 +14,7 @@ ozone {
 
 kotlin {
   sourceSets {
-    val commonMain by getting {
+    commonMain.configure {
       dependencies {
         api(libs.kotlinx.coroutines.core)
 

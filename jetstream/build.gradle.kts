@@ -37,17 +37,17 @@ kotlin {
   }
 
   sourceSets {
-    val commonMain by getting {
+    commonMain.configure {
       dependencies {
         api(libs.bluesky)
       }
     }
-    val jvmMain by getting {
+    jvmMain.configure {
       dependencies {
         implementation(libs.zstd)
       }
     }
-    val wasmJsMain by getting {
+    wasmJsMain.configure {
       dependencies {
         implementation(npm("zstd-codec", "0.1.5"))
       }

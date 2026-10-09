@@ -13,7 +13,7 @@ ozone {
 
 kotlin {
   sourceSets {
-    val commonMain by getting {
+    commonMain.configure {
       dependencies {
         api(project(":api-gen-runtime"))
 
@@ -26,17 +26,17 @@ kotlin {
         implementation(libs.ktor.serialization.json)
       }
     }
-    val iosMain by getting {
+    iosMain.configure {
       dependencies {
         implementation(libs.crypto.apple)
       }
     }
-    val jvmMain by getting {
+    jvmMain.configure {
       dependencies {
         implementation(libs.crypto.jdk)
       }
     }
-    val wasmJsMain by getting {
+    wasmJsMain.configure {
       dependencies {
         implementation(libs.crypto.webcrypto)
       }

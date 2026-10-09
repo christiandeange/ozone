@@ -13,7 +13,7 @@ ozone {
 
 kotlin {
   sourceSets {
-    val commonMain by getting {
+    commonMain.configure {
       dependencies {
         api(libs.kotlinx.serialization.json)
         api(libs.ktor.core)
@@ -21,17 +21,17 @@ kotlin {
         implementation(kotlin("reflect"))
       }
     }
-    val iosMain by getting {
+    iosMain.configure {
       dependencies {
         implementation(libs.ktor.darwin)
       }
     }
-    val jvmMain by getting {
+    jvmMain.configure {
       dependencies {
         implementation(libs.ktor.cio)
       }
     }
-    val wasmJsMain by getting {
+    wasmJsMain.configure {
       dependencies {
         implementation(libs.ktor.js)
       }

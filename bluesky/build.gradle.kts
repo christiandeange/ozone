@@ -58,12 +58,12 @@ tasks.withType<DokkaBaseTask>().configureEach {
 
 kotlin {
   sourceSets {
-    val commonMain by getting {
+    commonMain.configure {
       dependencies {
         api(project(":oauth"))
       }
     }
-    val commonTest by getting {
+    commonTest.configure {
       dependencies {
         implementation(libs.kotlinx.coroutines.test)
         implementation(libs.ktor.test)

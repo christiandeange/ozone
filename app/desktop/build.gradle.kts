@@ -12,7 +12,7 @@ ozone {
 
 kotlin {
   sourceSets {
-    val jvmMain by getting {
+    jvmMain.configure {
       dependencies {
         implementation(project(":app:common"))
         implementation(compose.desktop.currentOs)
