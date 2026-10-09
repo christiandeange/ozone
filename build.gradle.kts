@@ -15,11 +15,10 @@ plugins {
   kotlin("multiplatform") version kotlin apply false
   kotlin("plugin.compose") version kotlin apply false
   kotlin("plugin.serialization") version kotlin apply false
-  kotlin("android") version kotlin apply false
   id("co.touchlab.kmmbridge") version kmmbridge apply false
   id("co.touchlab.skie") version skie apply false
   id("com.android.application") version agp apply false
-  id("com.android.library") version agp apply false
+  id("com.android.kotlin.multiplatform.library") version agp apply false
   id("com.google.devtools.ksp") version ksp apply false
   id("com.vanniktech.maven.publish") version mavenPublish apply false
   id("org.jetbrains.compose") version compose apply false

@@ -5,7 +5,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
   `java-gradle-plugin`
   `kotlin-dsl`
-  kotlin("jvm") version libs.versions.kotlin
 }
 
 kotlin {
@@ -32,6 +31,11 @@ dependencies {
 
 gradlePlugin {
   plugins {
+    create("ozone-android-app") {
+      id = "ozone-android-app"
+      implementationClass = "sh.christian.plugin.AndroidPlugin"
+    }
+
     create("ozone-android") {
       id = "ozone-android"
       implementationClass = "sh.christian.plugin.BaseAndroidPlugin"

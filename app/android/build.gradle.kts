@@ -1,5 +1,5 @@
 plugins {
-  id("ozone-multiplatform")
+  id("ozone-android-app")
   id("ozone-compose")
 }
 
@@ -19,17 +19,11 @@ ozone {
   }
 }
 
-kotlin {
-  sourceSets {
-    androidMain.configure {
-      dependencies {
-        implementation(project(":app:common"))
-        implementation(libs.androidx.activity.compose)
-        implementation(libs.androidx.appcompat)
-        implementation(libs.androidx.core)
-        implementation(libs.retainedactivity)
-        implementation(libs.app.platform.renderer.compose)
-      }
-    }
-  }
+dependencies {
+  implementation(project(":app:common"))
+  implementation(libs.androidx.activity.compose)
+  implementation(libs.androidx.appcompat)
+  implementation(libs.androidx.core)
+  implementation(libs.retainedactivity)
+  implementation(libs.app.platform.renderer.compose)
 }

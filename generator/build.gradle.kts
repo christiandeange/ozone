@@ -1,15 +1,15 @@
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-  kotlin("jvm") version libs.versions.kotlin
+  `kotlin-dsl`
   id("ozone-base")
   id("ozone-publish")
   id("com.github.gmazzo.buildconfig") version libs.versions.buildconfig
   id("com.google.devtools.ksp") version libs.versions.ksp
   id("org.jetbrains.kotlinx.binary-compatibility-validator") version libs.versions.kotlinx.abi.plugin
-  `kotlin-dsl`
 }
 
 setProperty("POM_NAME", "AT Protocol for Kotlin Generator")
@@ -25,6 +25,7 @@ tasks.withType<KotlinCompile>().configureEach {
   compilerOptions {
     apiVersion.set(KotlinVersion.KOTLIN_2_2)
     languageVersion.set(KotlinVersion.KOTLIN_2_2)
+    jvmTarget.set(JvmTarget.JVM_17)
   }
 }
 

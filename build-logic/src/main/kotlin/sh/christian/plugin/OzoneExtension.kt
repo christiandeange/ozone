@@ -1,11 +1,12 @@
 package sh.christian.plugin
 
 import com.android.build.api.dsl.ApplicationExtension
-import com.android.build.api.dsl.LibraryExtension
+import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryTarget
 import org.gradle.api.Project
+import org.gradle.api.plugins.ExtensionAware
 import org.gradle.kotlin.dsl.configure
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.kotlinExtension
 import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
@@ -13,36 +14,25 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
 abstract class OzoneExtension(
   private val project: Project,
 ) {
-  init {
-    project.plugins.apply("org.jetbrains.kotlin.multiplatform")
-    project.plugins.apply("ozone-base")
-
-    kotlin {
-      applyDefaultHierarchyTemplate()
-    }
-  }
-
-  fun androidLibrary(configure: LibraryExtension.() -> Unit = {}) {
-    project.plugins.apply("com.android.library")
+  fun androidLibrary(configure: KotlinMultiplatformAndroidLibraryTarget.() -> Unit = {}) {
+    project.plugins.apply("com.android.kotlin.multiplatform.library")
     project.plugins.apply("ozone-android")
-    kotlin {
-      androidTarget()
-    }
-    project.extensions.configure(configure)
+    val android = (project.kotlinExtension as ExtensionAware)
+      .extensions
+      .getByName("android") as KotlinMultiplatformAndroidLibraryTarget
+    android.configure()
   }
 
   fun androidApp(configure: ApplicationExtension.() -> Unit = {}) {
-    project.plugins.apply("com.android.application")
-    project.plugins.apply("ozone-android")
-    kotlin {
-      androidTarget()
+    check(project.plugins.hasPlugin("ozone-android-app")) {
+      "ozone-android-app plugin has not been applied."
     }
     project.extensions.configure(configure)
   }
 
   @OptIn(ExperimentalWasmDsl::class)
   fun js() {
-    kotlin {
+    kotlinMultiplatform {
       wasmJs {
         browser()
         nodejs()
@@ -52,7 +42,7 @@ abstract class OzoneExtension(
   }
 
   fun jvm() {
-    kotlin {
+    kotlinMultiplatform {
       jvm {
         compilations.all {
           compileTaskProvider.configure {
@@ -71,7 +61,7 @@ abstract class OzoneExtension(
   ) {
     project.plugins.apply("co.touchlab.skie")
 
-    kotlin {
+    kotlinMultiplatform {
       listOf(
         iosArm64(),
         iosSimulatorArm64(),
@@ -85,7 +75,9 @@ abstract class OzoneExtension(
     }
   }
 
-  private fun kotlin(configure: KotlinMultiplatformExtension.() -> Unit) {
-    configure(project.kotlinExtension as KotlinMultiplatformExtension)
+  private fun kotlinMultiplatform(configure: KotlinMultiplatformExtension.() -> Unit = {}) {
+    (project.kotlinExtension as KotlinMultiplatformExtension).apply {
+      configure()
+    }
   }
 }
