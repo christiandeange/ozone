@@ -1,10 +1,16 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
-
 plugins {
   kotlin("plugin.serialization")
   id("ozone-multiplatform")
   id("ozone-compose")
-  id("com.google.devtools.ksp")
+  alias(libs.plugins.app.platform)
+}
+
+appPlatform {
+  addPublicModuleDependencies(true)
+  addImplModuleDependencies(true)
+  enableKotlinInject(true)
+  enableComposePresenters(true)
+  enableComposeUi(true)
 }
 
 ozone {
@@ -21,6 +27,16 @@ ozone {
 }
 
 kotlin {
+  @OptIn(org.jetbrains.kotlin.gradle.ExperimentalWasmDsl::class)
+  wasmJs {
+    nodejs {
+      // Skiko's Wasm runtime is browser-only; run the shared Wasm tests in the browser.
+      testTask {
+        enabled = false
+      }
+    }
+  }
+
   @Suppress("OPT_IN_USAGE")
   compilerOptions {
     freeCompilerArgs.add("-Xexpect-actual-classes")
@@ -28,8 +44,6 @@ kotlin {
 
   sourceSets {
     val commonMain by getting {
-      kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
-
       dependencies {
         api(compose.foundation)
         api(compose.material3)
@@ -37,13 +51,10 @@ kotlin {
 
         api(libs.kotlinx.immutable)
         api(libs.kotlinx.serialization.core)
-        api(libs.workflow.core)
-        api(libs.workflow.runtime)
 
         implementation(libs.codepoints.deluxe)
         implementation(compose.components.resources)
         implementation(libs.kamel)
-        implementation(libs.kotlininject)
         implementation(libs.kotlinx.atomicfu)
         implementation(libs.kotlinx.coroutines.core)
         implementation(libs.ktor.logging)
@@ -69,15 +80,10 @@ kotlin {
         implementation(libs.zoomable)
       }
     }
-  }
-}
-
-dependencies {
-  add("kspCommonMainMetadata", libs.kotlininject.compiler)
-}
-
-tasks.withType<KotlinCompilationTask<*>>().configureEach {
-  if (name != "kspCommonMainKotlinMetadata") {
-    dependsOn("kspCommonMainKotlinMetadata")
+    val commonTest by getting {
+      dependencies {
+        implementation(kotlin("test"))
+      }
+    }
   }
 }

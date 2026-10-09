@@ -54,8 +54,8 @@ import sh.christian.ozone.timeline.components.formatTextPost
 import sh.christian.ozone.ui.compose.AvatarImage
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.compose.rememberSystemInsets
-import sh.christian.ozone.ui.workflow.ViewRendering
-import sh.christian.ozone.ui.workflow.screen
+import sh.christian.ozone.ui.renderer.ScreenModel
+import sh.christian.ozone.ui.renderer.screen
 import sh.christian.ozone.util.ReadOnlyList
 import sh.christian.ozone.util.byteOffsets
 import sh.christian.ozone.util.color
@@ -69,7 +69,7 @@ class ComposePostScreen(
   private val replyingTo: Profile?,
   private val onExit: () -> Unit,
   private val onPost: (PostPayload) -> Unit,
-) : ViewRendering by screen({
+) : ScreenModel by screen({
   val postTextLimit = 300
   var postText by remember { mutableStateOf(TextFieldValue(AnnotatedString(""))) }
   val postPayload by lazy {

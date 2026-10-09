@@ -13,6 +13,7 @@ kotlin {
       dependencies {
         implementation(project(":app:common"))
         implementation(project(":app:store"))
+        implementation(libs.app.platform.renderer.compose)
       }
 
       resources.srcDir("../common/src/commonMain/composeResources")

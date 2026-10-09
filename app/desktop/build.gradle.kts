@@ -17,6 +17,7 @@ kotlin {
         implementation(project(":app:common"))
         implementation(compose.desktop.currentOs)
         implementation(kotlin("reflect"))
+        implementation(libs.app.platform.renderer.compose)
       }
     }
   }

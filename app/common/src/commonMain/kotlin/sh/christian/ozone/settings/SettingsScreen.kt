@@ -32,13 +32,13 @@ import sh.christian.ozone.ui.compose.StablePainter
 import sh.christian.ozone.ui.compose.heroFont
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.compose.stable
-import sh.christian.ozone.ui.workflow.ViewRendering
-import sh.christian.ozone.ui.workflow.screen
+import sh.christian.ozone.ui.renderer.ScreenModel
+import sh.christian.ozone.ui.renderer.screen
 
 class SettingsScreen(
   private val onExit: () -> Unit,
   private val onSignOut: () -> Unit,
-) : ViewRendering by screen({
+) : ScreenModel by screen({
   Surface(modifier = Modifier.onBackPressed(onExit)) {
     Scaffold(
       contentWindowInsets = WindowInsets(0.dp),

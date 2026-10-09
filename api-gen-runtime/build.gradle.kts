@@ -31,7 +31,7 @@ kotlin {
         implementation(libs.ktor.cio)
       }
     }
-    val jsMain by getting {
+    val wasmJsMain by getting {
       dependencies {
         implementation(libs.ktor.js)
       }

@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
   kotlin("jvm") version libs.versions.kotlin
@@ -15,6 +18,13 @@ setProperty("POM_DESCRIPTION", "Gradle Plugin to generate AT Protocol classes.")
 kotlin {
   jvmToolchain {
     languageVersion.set(JavaLanguageVersion.of("17"))
+  }
+}
+
+tasks.withType<KotlinCompile>().configureEach {
+  compilerOptions {
+    apiVersion.set(KotlinVersion.KOTLIN_2_2)
+    languageVersion.set(KotlinVersion.KOTLIN_2_2)
   }
 }
 

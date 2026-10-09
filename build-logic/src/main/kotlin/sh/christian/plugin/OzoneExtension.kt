@@ -1,10 +1,11 @@
 package sh.christian.plugin
 
-import com.android.build.gradle.AppExtension
-import com.android.build.gradle.LibraryExtension
+import com.android.build.api.dsl.ApplicationExtension
+import com.android.build.api.dsl.LibraryExtension
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.dsl.kotlinExtension
 import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
@@ -30,7 +31,7 @@ abstract class OzoneExtension(
     project.extensions.configure(configure)
   }
 
-  fun androidApp(configure: AppExtension.() -> Unit = {}) {
+  fun androidApp(configure: ApplicationExtension.() -> Unit = {}) {
     project.plugins.apply("com.android.application")
     project.plugins.apply("ozone-android")
     kotlin {
@@ -39,9 +40,10 @@ abstract class OzoneExtension(
     project.extensions.configure(configure)
   }
 
+  @OptIn(ExperimentalWasmDsl::class)
   fun js() {
     kotlin {
-      js(IR) {
+      wasmJs {
         browser()
         nodejs()
         binaries.executable()
@@ -71,7 +73,6 @@ abstract class OzoneExtension(
 
     kotlin {
       listOf(
-        iosX64(),
         iosArm64(),
         iosSimulatorArm64(),
       ).forEach {

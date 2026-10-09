@@ -28,6 +28,7 @@ kotlin {
         implementation(libs.androidx.appcompat)
         implementation(libs.androidx.core)
         implementation(libs.retainedactivity)
+        implementation(libs.app.platform.renderer.compose)
       }
     }
   }

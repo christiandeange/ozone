@@ -1,23 +1,23 @@
 [versions]
-agp = "8.12.3"
+agp = "9.4.1"
 buildconfig = "5.5.0"
 compose-compiler = "1.5.15"
-compose-jb = "1.9.3"
+compose-jb = "1.12.0"
 coroutines = "1.10.2"
 crypto = "0.5.0"
 dokka = "2.1.0"
 kmmbridge = "1.0.1"
-kotlin = "2.2.21"
+kotlin = "2.4.20"
 kotlinx-abi-plugin = "0.18.1"
-kotlininject = "0.7.2"
-ksp = "2.3.0"
+kotlininject = "0.9.0"
+ksp = "2.3.12"
 ktor = "3.3.3"
 maven-publish = "0.35.0"
 moshi = "1.15.2"
 multiplatform-settings = "1.3.0"
 serialization = "1.9.0"
-skie = "0.10.8"
-workflow = "1.12.1-beta15"
+skie = "0.10.15"
+app-platform = "0.2.2"
 
 [libraries]
 agp = { module = "com.android.tools.build:gradle", version.ref = "agp" }
@@ -40,6 +40,8 @@ slf4j-simple = { module = "org.slf4j:slf4j-simple", version = "2.0.17" }
 
 kotlininject = { module = "me.tatarka.inject:kotlin-inject-runtime", version.ref = "kotlininject" }
 kotlininject-compiler = { module = "me.tatarka.inject:kotlin-inject-compiler-ksp", version.ref = "kotlininject" }
+app-platform-gradle-plugin = { module = "software.ralf.app.platform:gradle-plugin", version.ref = "app-platform" }
+app-platform-renderer-compose = { module = "software.ralf.app.platform:renderer-compose-multiplatform-public", version.ref = "app-platform" }
 
 kotlinpoet = { module = "com.squareup:kotlinpoet", version = "2.2.0" }
 moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
@@ -69,9 +71,6 @@ ktor-websockets = { module = "io.ktor:ktor-client-websockets", version.ref = "kt
 dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokka" }
 maven-publish = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "maven-publish" }
 
-workflow-core = { module = "com.squareup.workflow1:workflow-core", version.ref = "workflow" }
-workflow-runtime = { module = "com.squareup.workflow1:workflow-runtime", version.ref = "workflow" }
-
 crypto-core = { module = "dev.whyoleg.cryptography:cryptography-core", version.ref = "crypto" }
 crypto-random = { module = "dev.whyoleg.cryptography:cryptography-random", version.ref = "crypto" }
 crypto-jdk = { module = "dev.whyoleg.cryptography:cryptography-provider-jdk", version.ref = "crypto" }
@@ -80,3 +79,6 @@ crypto-webcrypto = { module = "dev.whyoleg.cryptography:cryptography-provider-we
 zstd = { module = "com.github.luben:zstd-jni", version = "1.5.7-6" }
 
 bluesky = { module = "sh.christian.ozone:bluesky", version = "0.3.4" }
+
+[plugins]
+app-platform = { id = "software.ralf.app.platform", version.ref = "app-platform" }

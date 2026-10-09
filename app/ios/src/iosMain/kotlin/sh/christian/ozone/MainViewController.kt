@@ -1,23 +1,31 @@
 package sh.christian.ozone
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.window.ComposeUIViewController
 import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.coroutines.CoroutineScope
 import platform.Foundation.NSSelectorFromString
 import platform.UIKit.UIApplication
 import sh.christian.ozone.api.OzoneDispatchers.IO
-import sh.christian.ozone.app.AppWorkflow
-import sh.christian.ozone.app.initWorkflow
+import sh.christian.ozone.app.OzoneRuntime
+import sh.christian.ozone.app.OzoneTemplateRenderer
+import sh.christian.ozone.app.initOzone
 import sh.christian.ozone.store.storage
 import sh.christian.ozone.ui.AppTheme
-import sh.christian.ozone.ui.workflow.WorkflowRendering
 
-lateinit var workflow: AppWorkflow
+lateinit var ozone: OzoneRuntime
 
 @Suppress("unused") // Called from iOS application code.
 fun initialize() {
-  workflow = initWorkflow(CoroutineScope(IO), storage())
+  ozone = initOzone(CoroutineScope(IO), storage())
+}
+
+/** Call from the iOS application's final teardown hook. */
+@Suppress("unused") // Called from iOS application code.
+fun shutdown() {
+  if (::ozone.isInitialized) ozone.close()
 }
 
 @OptIn(ExperimentalForeignApi::class)
@@ -25,16 +33,8 @@ fun initialize() {
 fun MainViewController() = ComposeUIViewController {
   Box {
     AppTheme {
-      WorkflowRendering(
-        workflow = workflow,
-        onOutput = {
-          UIApplication.sharedApplication.performSelector(
-            aSelector = NSSelectorFromString("suspend"),
-            withObject = null,
-          )
-        },
-        content = { it.Content() },
-      )
+      val template by ozone.templates.collectAsState()
+      OzoneTemplateRenderer().renderCompose(template)
     }
   }
 }

@@ -79,8 +79,8 @@ import sh.christian.ozone.ui.icons.AlternateEmail
 import sh.christian.ozone.ui.icons.LocalActivity
 import sh.christian.ozone.ui.icons.Visibility
 import sh.christian.ozone.ui.icons.VisibilityOff
-import sh.christian.ozone.ui.workflow.ViewRendering
-import sh.christian.ozone.ui.workflow.screen
+import sh.christian.ozone.ui.renderer.ScreenModel
+import sh.christian.ozone.ui.renderer.screen
 import sh.christian.ozone.util.ReadOnlyList
 
 class LoginScreen(
@@ -91,7 +91,7 @@ class LoginScreen(
   private val onChangeServer: (Server) -> Unit,
   private val onExit: () -> Unit,
   private val onLogin: (Credentials) -> Unit,
-) : ViewRendering by screen({
+) : ScreenModel by screen({
   val expandBottomSheet = remember { MutableTransitionState(false) }
 
   Column(

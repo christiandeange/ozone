@@ -1,6 +1,7 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
   val agp = libs.versions.agp
+  val appPlatform = libs.versions.app.platform
   val compose = libs.versions.compose.jb
   val dokka = libs.versions.dokka
   val kmmbridge = libs.versions.kmmbridge
@@ -24,6 +25,7 @@ plugins {
   id("org.jetbrains.compose") version compose apply false
   id("org.jetbrains.dokka") version dokka apply true
   id("org.jetbrains.kotlinx.binary-compatibility-validator") version kotlinxAbi apply false
+  id("software.ralf.app.platform") version appPlatform apply false
 }
 
 allprojects {

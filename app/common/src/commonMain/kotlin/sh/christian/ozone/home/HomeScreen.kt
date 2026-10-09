@@ -23,17 +23,17 @@ import sh.christian.ozone.home.SelectedHomeScreenTab.SETTINGS
 import sh.christian.ozone.home.SelectedHomeScreenTab.TIMELINE
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.compose.rememberSystemInsets
-import sh.christian.ozone.ui.workflow.ViewRendering
-import sh.christian.ozone.ui.workflow.screen
+import sh.christian.ozone.ui.renderer.ScreenModel
+import sh.christian.ozone.ui.renderer.screen
 import sh.christian.ozone.util.ReadOnlyList
 
 class HomeScreen(
-  private val homeContent: ReadOnlyList<ViewRendering>,
+  private val homeContent: ReadOnlyList<ScreenModel>,
   private val unreadCount: String?,
   private val tab: SelectedHomeScreenTab,
   private val onChangeTab: (SelectedHomeScreenTab) -> Unit,
   private val onExit: () -> Unit,
-) : ViewRendering by screen({
+) : ScreenModel by screen({
   Surface(modifier = Modifier.onBackPressed(onExit)) {
     Scaffold(
       modifier = Modifier.padding(rememberSystemInsets()),

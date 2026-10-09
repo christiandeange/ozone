@@ -39,8 +39,8 @@ import sh.christian.ozone.ui.compose.InfiniteListHandler
 import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.compose.heroFont
 import sh.christian.ozone.ui.compose.onBackPressed
-import sh.christian.ozone.ui.workflow.ViewRendering
-import sh.christian.ozone.ui.workflow.screen
+import sh.christian.ozone.ui.renderer.ScreenModel
+import sh.christian.ozone.ui.renderer.screen
 import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.util.ReadOnlyList
 
@@ -54,7 +54,7 @@ class NotificationsScreen(
   private val onOpenUser: (UserReference) -> Unit,
   private val onOpenImage: (OpenImageAction) -> Unit,
   private val onReplyToPost: (PostReplyInfo) -> Unit,
-) : ViewRendering by screen({
+) : ScreenModel by screen({
   val state = rememberLazyListState()
   val context = remember {
     NotificationRowContext(now, onOpenPost, onOpenUser, onOpenImage, onReplyToPost)

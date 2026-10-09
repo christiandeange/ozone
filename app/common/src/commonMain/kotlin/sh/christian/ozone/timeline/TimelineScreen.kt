@@ -52,8 +52,8 @@ import sh.christian.ozone.ui.compose.OpenImageAction
 import sh.christian.ozone.ui.compose.heroFont
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.icons.ChatBubbleOutline
-import sh.christian.ozone.ui.workflow.ViewRendering
-import sh.christian.ozone.ui.workflow.screen
+import sh.christian.ozone.ui.renderer.ScreenModel
+import sh.christian.ozone.ui.renderer.screen
 import sh.christian.ozone.user.UserDid
 import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.util.ReadOnlyList
@@ -73,7 +73,7 @@ class TimelineScreen(
   private val onOpenImage: (OpenImageAction) -> Unit,
   private val onReplyToPost: (PostReplyInfo) -> Unit,
   private val onExit: () -> Unit,
-) : ViewRendering by screen({
+) : ScreenModel by screen({
   val feedState = rememberLazyListState()
   val coroutineScope = rememberCoroutineScope()
 

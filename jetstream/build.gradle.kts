@@ -1,3 +1,5 @@
+@file:OptIn(org.jetbrains.kotlin.gradle.ExperimentalWasmDsl::class)
+
 import org.jetbrains.dokka.gradle.tasks.DokkaBaseTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -26,6 +28,14 @@ lexicons {
 }
 
 kotlin {
+  wasmJs {
+    browser {
+      commonWebpackConfig {
+        configDirectory = project.file("webpack.config.d")
+      }
+    }
+  }
+
   sourceSets {
     val commonMain by getting {
       dependencies {
@@ -37,7 +47,7 @@ kotlin {
         implementation(libs.zstd)
       }
     }
-    val jsMain by getting {
+    val wasmJsMain by getting {
       dependencies {
         implementation(npm("zstd-codec", "0.1.5"))
       }

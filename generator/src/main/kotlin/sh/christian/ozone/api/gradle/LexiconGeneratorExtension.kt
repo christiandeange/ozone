@@ -81,8 +81,8 @@ abstract class LexiconGeneratorExtension
     val suspending: Property<Boolean> =
       objects.property<Boolean>().convention(true)
 
-    private val implementationName: Property<String?> =
-      objects.property<String?>().convention(null)
+    private val implementationName: Property<String> =
+      objects.property<String>()
 
     val returnType: Property<ApiReturnType> =
       objects.property<ApiReturnType>().convention(Raw)
@@ -120,17 +120,17 @@ abstract class LexiconGeneratorExtension
   }
 }
 
-private fun <T> Property<T>.readFinalizedValue(): T {
+private fun <T : Any> Property<T>.readFinalizedValue(): T {
   finalizeValue()
   return get()
 }
 
-private fun <T> Property<T>.readFinalizedValueOrNull(): T? {
+private fun <T : Any> Property<T>.readFinalizedValueOrNull(): T? {
   finalizeValue()
   return orNull
 }
 
-private fun <T> ListProperty<T>.readFinalizedValue(): List<T> {
+private fun <T : Any> ListProperty<T>.readFinalizedValue(): List<T> {
   finalizeValue()
   return get()
 }

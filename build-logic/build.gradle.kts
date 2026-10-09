@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
   `java-gradle-plugin`
@@ -11,11 +14,18 @@ kotlin {
   }
 }
 
+tasks.withType<KotlinCompile>().configureEach {
+  compilerOptions {
+    apiVersion.set(KotlinVersion.KOTLIN_2_2)
+    languageVersion.set(KotlinVersion.KOTLIN_2_2)
+  }
+}
+
 dependencies {
+  implementation(libs.agp)
   implementation(libs.kotlinx.abi)
   implementation(libs.maven.publish)
 
-  compileOnly(libs.agp)
   compileOnly(libs.dokka)
   compileOnly(kotlin("gradle-plugin"))
 }

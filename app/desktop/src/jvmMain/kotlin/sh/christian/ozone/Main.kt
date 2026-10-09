@@ -2,6 +2,8 @@ package sh.christian.ozone
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection.Companion.Next
 import androidx.compose.ui.focus.FocusDirection.Companion.Previous
@@ -18,11 +20,10 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
 import kotlinx.coroutines.runBlocking
-import sh.christian.ozone.app.AppWorkflow
-import sh.christian.ozone.app.initWorkflow
+import sh.christian.ozone.app.OzoneTemplateRenderer
+import sh.christian.ozone.app.initOzone
 import sh.christian.ozone.store.storage
 import sh.christian.ozone.ui.AppTheme
-import sh.christian.ozone.ui.workflow.WorkflowRendering
 import java.awt.Dimension
 import java.awt.event.ComponentEvent
 import java.awt.event.ComponentListener
@@ -30,7 +31,7 @@ import java.awt.event.ComponentListener
 fun main() = runBlocking {
   val storage = storage()
   val appPlacement = DesktopAppPlacement(storage)
-  val workflow: AppWorkflow = initWorkflow(this, storage)
+  val ozone = initOzone(this, storage)
 
   application {
     val windowState = rememberWindowState(
@@ -44,7 +45,10 @@ fun main() = runBlocking {
     Window(
       title = "",
       state = windowState,
-      onCloseRequest = ::exitApplication,
+      onCloseRequest = {
+        ozone.close()
+        exitApplication()
+      },
     ) {
       val minDimension = with(LocalDensity.current) { 200.dp.roundToPx() }
 
@@ -82,11 +86,8 @@ fun main() = runBlocking {
         }
       ) {
         AppTheme {
-          WorkflowRendering(
-            workflow = workflow,
-            onOutput = { exitApplication() },
-            content = { it.Content() },
-          )
+          val template by ozone.templates.collectAsState()
+          OzoneTemplateRenderer().renderCompose(template)
         }
       }
     }

@@ -1,7 +1,7 @@
 package sh.christian.ozone.ui.compose
 
-import android.app.Activity
 import android.view.WindowInsets.Type
+import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -9,7 +9,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsControllerCompat.OnControllableInsetsChangedListener
@@ -17,7 +16,7 @@ import androidx.core.view.WindowInsetsControllerCompat.OnControllableInsetsChang
 @Composable
 actual fun rememberSystemInsets(): PaddingValues {
   val density = LocalDensity.current
-  val window = (LocalContext.current as Activity).window
+  val window = checkNotNull(LocalActivity.current).window
   val view = window.decorView
 
   fun getSystemInsets(): PaddingValues {

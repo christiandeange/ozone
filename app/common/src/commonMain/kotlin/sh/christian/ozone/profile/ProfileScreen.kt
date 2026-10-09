@@ -66,8 +66,8 @@ import sh.christian.ozone.ui.compose.foreground
 import sh.christian.ozone.ui.compose.onBackPressed
 import sh.christian.ozone.ui.compose.rememberSystemInsets
 import sh.christian.ozone.ui.compose.stable
-import sh.christian.ozone.ui.workflow.ViewRendering
-import sh.christian.ozone.ui.workflow.screen
+import sh.christian.ozone.ui.renderer.ScreenModel
+import sh.christian.ozone.ui.renderer.screen
 import sh.christian.ozone.user.UserReference
 import sh.christian.ozone.util.ReadOnlyList
 import sh.christian.ozone.util.color
@@ -85,7 +85,7 @@ class ProfileScreen(
   private val onOpenImage: (OpenImageAction) -> Unit,
   private val onReplyToPost: (PostReplyInfo) -> Unit,
   private val onExit: () -> Unit,
-) : ViewRendering by screen({
+) : ScreenModel by screen({
   val density = LocalDensity.current.density
   val state = rememberLazyListState()
 
