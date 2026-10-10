@@ -6,8 +6,10 @@ import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.ExtensionAware
+import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.kotlinExtension
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 @Suppress("unused")
 class BaseAndroidPlugin : Plugin<Project> {
@@ -25,6 +27,10 @@ private fun Project.applyPlugin() {
 
   plugins.withId("com.android.application") {
     val android = extensions.getByName("android") as ApplicationExtension
+    tasks.withType<KotlinCompile>().configureEach {
+      compilerOptions.jvmTarget.set(JvmTarget.JVM_17)
+    }
+
     android.configureOzoneAndroidApplication()
   }
 }
