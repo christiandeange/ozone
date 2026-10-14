@@ -431,17 +431,19 @@ public final class app/bsky/actor/LabelersPref$Companion {
 
 public final class app/bsky/actor/Link {
 	public static final field Companion Lapp/bsky/actor/Link$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lkotlin/time/Instant;Lapp/bsky/actor/LinkLabelsUnion;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lkotlin/time/Instant;Lapp/bsky/actor/LinkLabelsUnion;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-v5vOzEc ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Lsh/christian/ozone/api/model/Blob;
 	public final fun component4 ()Lkotlin/time/Instant;
-	public final fun copy-U4PCevw (Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lkotlin/time/Instant;)Lapp/bsky/actor/Link;
-	public static synthetic fun copy-U4PCevw$default (Lapp/bsky/actor/Link;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lkotlin/time/Instant;ILjava/lang/Object;)Lapp/bsky/actor/Link;
+	public final fun component5 ()Lapp/bsky/actor/LinkLabelsUnion;
+	public final fun copy-FDVW8D4 (Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lkotlin/time/Instant;Lapp/bsky/actor/LinkLabelsUnion;)Lapp/bsky/actor/Link;
+	public static synthetic fun copy-FDVW8D4$default (Lapp/bsky/actor/Link;Ljava/lang/String;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lkotlin/time/Instant;Lapp/bsky/actor/LinkLabelsUnion;ILjava/lang/Object;)Lapp/bsky/actor/Link;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCreatedAt ()Lkotlin/time/Instant;
 	public final fun getIcon ()Lsh/christian/ozone/api/model/Blob;
+	public final fun getLabels ()Lapp/bsky/actor/LinkLabelsUnion;
 	public final fun getTitle ()Ljava/lang/String;
 	public final fun getUrl-v5vOzEc ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -449,6 +451,52 @@ public final class app/bsky/actor/Link {
 }
 
 public final class app/bsky/actor/Link$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/actor/LinkLabelsUnion {
+	public static final field Companion Lapp/bsky/actor/LinkLabelsUnion$Companion;
+}
+
+public final class app/bsky/actor/LinkLabelsUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/LinkLabelsUnion$SelfLabels : app/bsky/actor/LinkLabelsUnion {
+	public static final field Companion Lapp/bsky/actor/LinkLabelsUnion$SelfLabels$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/label/SelfLabels;)Lapp/bsky/actor/LinkLabelsUnion$SelfLabels;
+	public static fun constructor-impl (Lcom/atproto/label/SelfLabels;)Lcom/atproto/label/SelfLabels;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/label/SelfLabels;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/label/SelfLabels;Lcom/atproto/label/SelfLabels;)Z
+	public final fun getValue ()Lcom/atproto/label/SelfLabels;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/label/SelfLabels;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/label/SelfLabels;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/label/SelfLabels;
+}
+
+public final class app/bsky/actor/LinkLabelsUnion$SelfLabels$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/actor/LinkLabelsUnion$Unknown : app/bsky/actor/LinkLabelsUnion {
+	public static final field Companion Lapp/bsky/actor/LinkLabelsUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/actor/LinkLabelsUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/actor/LinkLabelsUnion$Unknown$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -1514,18 +1562,20 @@ public final class app/bsky/actor/ProfileLabelsUnion$Unknown$Companion {
 
 public final class app/bsky/actor/ProfileLinkView {
 	public static final field Companion Lapp/bsky/actor/ProfileLinkView$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-x27MrHI ()Ljava/lang/String;
 	public final fun component2-OA0YjOw ()Ljava/lang/String;
 	public final fun component3-v5vOzEc ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
 	public final fun component5-pvpWXas ()Ljava/lang/String;
-	public final fun copy-H5W8wGQ (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/actor/ProfileLinkView;
-	public static synthetic fun copy-H5W8wGQ$default (Lapp/bsky/actor/ProfileLinkView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/actor/ProfileLinkView;
+	public final fun component6 ()Ljava/util/List;
+	public final fun copy-4y95Doc (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Lapp/bsky/actor/ProfileLinkView;
+	public static synthetic fun copy-4y95Doc$default (Lapp/bsky/actor/ProfileLinkView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/actor/ProfileLinkView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCid-OA0YjOw ()Ljava/lang/String;
 	public final fun getIcon-pvpWXas ()Ljava/lang/String;
+	public final fun getLabels ()Ljava/util/List;
 	public final fun getTitle ()Ljava/lang/String;
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
 	public final fun getUrl-v5vOzEc ()Ljava/lang/String;
@@ -32889,12 +32939,16 @@ public final class tools/ozone/inbox/Notification$Companion {
 
 public final class tools/ozone/inbox/NotificationPreferences {
 	public static final field Companion Ltools/ozone/inbox/NotificationPreferences$Companion;
-	public fun <init> (Z)V
+	public fun <init> (ZZZ)V
 	public final fun component1 ()Z
-	public final fun copy (Z)Ltools/ozone/inbox/NotificationPreferences;
-	public static synthetic fun copy$default (Ltools/ozone/inbox/NotificationPreferences;ZILjava/lang/Object;)Ltools/ozone/inbox/NotificationPreferences;
+	public final fun component2 ()Z
+	public final fun component3 ()Z
+	public final fun copy (ZZZ)Ltools/ozone/inbox/NotificationPreferences;
+	public static synthetic fun copy$default (Ltools/ozone/inbox/NotificationPreferences;ZZZILjava/lang/Object;)Ltools/ozone/inbox/NotificationPreferences;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getPush ()Z
+	public final fun getAccount ()Z
+	public final fun getLabels ()Z
+	public final fun getReports ()Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -33082,12 +33136,18 @@ public final class tools/ozone/inbox/PolicyView$Companion {
 
 public final class tools/ozone/inbox/PutNotificationPreferencesRequest {
 	public static final field Companion Ltools/ozone/inbox/PutNotificationPreferencesRequest$Companion;
-	public fun <init> (Z)V
-	public final fun component1 ()Z
-	public final fun copy (Z)Ltools/ozone/inbox/PutNotificationPreferencesRequest;
-	public static synthetic fun copy$default (Ltools/ozone/inbox/PutNotificationPreferencesRequest;ZILjava/lang/Object;)Ltools/ozone/inbox/PutNotificationPreferencesRequest;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/Boolean;
+	public final fun component2 ()Ljava/lang/Boolean;
+	public final fun component3 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;)Ltools/ozone/inbox/PutNotificationPreferencesRequest;
+	public static synthetic fun copy$default (Ltools/ozone/inbox/PutNotificationPreferencesRequest;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;ILjava/lang/Object;)Ltools/ozone/inbox/PutNotificationPreferencesRequest;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getPush ()Z
+	public final fun getAccount ()Ljava/lang/Boolean;
+	public final fun getLabels ()Ljava/lang/Boolean;
+	public final fun getReports ()Ljava/lang/Boolean;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
