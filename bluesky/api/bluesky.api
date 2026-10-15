@@ -12207,13 +12207,16 @@ public final class app/bsky/notification/GetGroupedNotificationsSubscribedPostGr
 
 public final class app/bsky/notification/GetGroupedNotificationsSubscribedPostItem {
 	public static final field Companion Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostItem$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
 	public final fun component2-x27MrHI ()Ljava/lang/String;
-	public final fun copy-iXLjiGo (Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostItem;
-	public static synthetic fun copy-iXLjiGo$default (Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostItem;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostItem;
+	public final fun component3-W3xQKsw ()Ljava/lang/String;
+	public final fun copy-eitrwYk (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostItem;
+	public static synthetic fun copy-eitrwYk$default (Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostItem;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/notification/GetGroupedNotificationsSubscribedPostItem;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getActor-715Ygxc ()Ljava/lang/String;
+	public final fun getParent-W3xQKsw ()Ljava/lang/String;
 	public final fun getPost-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -31567,17 +31570,19 @@ public final class tools/ozone/inbox/AppealActionedSubjectTakedownRef {
 
 public final class tools/ozone/inbox/AppealView {
 	public static final field Companion Ltools/ozone/inbox/AppealView$Companion;
-	public fun <init> (Ltools/ozone/inbox/AppealViewState;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;)V
-	public synthetic fun <init> (Ltools/ozone/inbox/AppealViewState;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ltools/ozone/inbox/AppealViewState;Lkotlin/time/Instant;Lkotlin/time/Instant;Ltools/ozone/inbox/AppealViewOutcome;Lkotlin/time/Instant;)V
+	public synthetic fun <init> (Ltools/ozone/inbox/AppealViewState;Lkotlin/time/Instant;Lkotlin/time/Instant;Ltools/ozone/inbox/AppealViewOutcome;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ltools/ozone/inbox/AppealViewState;
 	public final fun component2 ()Lkotlin/time/Instant;
 	public final fun component3 ()Lkotlin/time/Instant;
-	public final fun component4 ()Lkotlin/time/Instant;
-	public final fun copy (Ltools/ozone/inbox/AppealViewState;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;)Ltools/ozone/inbox/AppealView;
-	public static synthetic fun copy$default (Ltools/ozone/inbox/AppealView;Ltools/ozone/inbox/AppealViewState;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/time/Instant;ILjava/lang/Object;)Ltools/ozone/inbox/AppealView;
+	public final fun component4 ()Ltools/ozone/inbox/AppealViewOutcome;
+	public final fun component5 ()Lkotlin/time/Instant;
+	public final fun copy (Ltools/ozone/inbox/AppealViewState;Lkotlin/time/Instant;Lkotlin/time/Instant;Ltools/ozone/inbox/AppealViewOutcome;Lkotlin/time/Instant;)Ltools/ozone/inbox/AppealView;
+	public static synthetic fun copy$default (Ltools/ozone/inbox/AppealView;Ltools/ozone/inbox/AppealViewState;Lkotlin/time/Instant;Lkotlin/time/Instant;Ltools/ozone/inbox/AppealViewOutcome;Lkotlin/time/Instant;ILjava/lang/Object;)Ltools/ozone/inbox/AppealView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAppealableUntil ()Lkotlin/time/Instant;
 	public final fun getAppealedAt ()Lkotlin/time/Instant;
+	public final fun getOutcome ()Ltools/ozone/inbox/AppealViewOutcome;
 	public final fun getResolvedAt ()Lkotlin/time/Instant;
 	public final fun getState ()Ltools/ozone/inbox/AppealViewState;
 	public fun hashCode ()I
@@ -31586,6 +31591,51 @@ public final class tools/ozone/inbox/AppealView {
 
 public final class tools/ozone/inbox/AppealView$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/inbox/AppealViewOutcome : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/inbox/AppealViewOutcome$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/AppealViewOutcome$Approved : tools/ozone/inbox/AppealViewOutcome {
+	public static final field INSTANCE Ltools/ozone/inbox/AppealViewOutcome$Approved;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/AppealViewOutcome$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/inbox/AppealViewOutcome;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/inbox/AppealViewOutcome$Denied : tools/ozone/inbox/AppealViewOutcome {
+	public static final field INSTANCE Ltools/ozone/inbox/AppealViewOutcome$Denied;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/AppealViewOutcome$Unknown : tools/ozone/inbox/AppealViewOutcome {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/inbox/AppealViewOutcome$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/inbox/AppealViewOutcome$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/inbox/AppealViewOutcome$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/AppealViewOutcomeSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/inbox/AppealViewOutcome;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/inbox/AppealViewOutcome;)V
 }
 
 public abstract class tools/ozone/inbox/AppealViewState : sh/christian/ozone/api/model/AtpEnum {
@@ -33448,16 +33498,18 @@ public final class tools/ozone/inbox/StandingRefStandingSerializer : kotlinx/ser
 
 public final class tools/ozone/inbox/SubjectRef {
 	public static final field Companion Ltools/ozone/inbox/SubjectRef$Companion;
-	public fun <init> (Ltools/ozone/inbox/SubjectRefSubjectUnion;Ljava/lang/String;Ljava/lang/Long;)V
-	public synthetic fun <init> (Ltools/ozone/inbox/SubjectRefSubjectUnion;Ljava/lang/String;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Ltools/ozone/inbox/SubjectRefSubjectUnion;
-	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Ljava/lang/Long;
-	public final fun copy (Ltools/ozone/inbox/SubjectRefSubjectUnion;Ljava/lang/String;Ljava/lang/Long;)Ltools/ozone/inbox/SubjectRef;
-	public static synthetic fun copy$default (Ltools/ozone/inbox/SubjectRef;Ltools/ozone/inbox/SubjectRefSubjectUnion;Ljava/lang/String;Ljava/lang/Long;ILjava/lang/Object;)Ltools/ozone/inbox/SubjectRef;
+	public fun <init> (Ltools/ozone/inbox/SubjectRefAppealOutcome;Ltools/ozone/inbox/SubjectRefSubjectUnion;Ljava/lang/String;Ljava/lang/Long;)V
+	public synthetic fun <init> (Ltools/ozone/inbox/SubjectRefAppealOutcome;Ltools/ozone/inbox/SubjectRefSubjectUnion;Ljava/lang/String;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ltools/ozone/inbox/SubjectRefAppealOutcome;
+	public final fun component2 ()Ltools/ozone/inbox/SubjectRefSubjectUnion;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun copy (Ltools/ozone/inbox/SubjectRefAppealOutcome;Ltools/ozone/inbox/SubjectRefSubjectUnion;Ljava/lang/String;Ljava/lang/Long;)Ltools/ozone/inbox/SubjectRef;
+	public static synthetic fun copy$default (Ltools/ozone/inbox/SubjectRef;Ltools/ozone/inbox/SubjectRefAppealOutcome;Ltools/ozone/inbox/SubjectRefSubjectUnion;Ljava/lang/String;Ljava/lang/Long;ILjava/lang/Object;)Ltools/ozone/inbox/SubjectRef;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getActionId ()Ljava/lang/Long;
 	public final fun getActionType ()Ljava/lang/String;
+	public final fun getAppealOutcome ()Ltools/ozone/inbox/SubjectRefAppealOutcome;
 	public final fun getSubject ()Ltools/ozone/inbox/SubjectRefSubjectUnion;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -33465,6 +33517,51 @@ public final class tools/ozone/inbox/SubjectRef {
 
 public final class tools/ozone/inbox/SubjectRef$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/inbox/SubjectRefAppealOutcome : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/inbox/SubjectRefAppealOutcome$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/SubjectRefAppealOutcome$Approved : tools/ozone/inbox/SubjectRefAppealOutcome {
+	public static final field INSTANCE Ltools/ozone/inbox/SubjectRefAppealOutcome$Approved;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/SubjectRefAppealOutcome$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/inbox/SubjectRefAppealOutcome;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/inbox/SubjectRefAppealOutcome$Denied : tools/ozone/inbox/SubjectRefAppealOutcome {
+	public static final field INSTANCE Ltools/ozone/inbox/SubjectRefAppealOutcome$Denied;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/SubjectRefAppealOutcome$Unknown : tools/ozone/inbox/SubjectRefAppealOutcome {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/inbox/SubjectRefAppealOutcome$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/inbox/SubjectRefAppealOutcome$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/inbox/SubjectRefAppealOutcome$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/SubjectRefAppealOutcomeSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/inbox/SubjectRefAppealOutcome;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/inbox/SubjectRefAppealOutcome;)V
 }
 
 public abstract interface class tools/ozone/inbox/SubjectRefSubjectUnion {
