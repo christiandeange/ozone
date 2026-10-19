@@ -31,7 +31,7 @@ jobs:
       - name: Overwrite Lexicons
         run: |
           rm -rf lexicons/schemas
-          cp -R tmp-atproto/lexicons lexicons/schemas
+          rsync -rLptgoDm --include="*/" --include="*.json" --exclude="*" tmp-atproto/packages/bsky/lexicons/ tmp-atproto/lexicons/ lexicons/schemas
 
       - name: Get Changed Files
         uses: tj-actions/verify-changed-files@v20
