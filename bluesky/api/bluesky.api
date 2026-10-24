@@ -1221,7 +1221,6 @@ public final class app/bsky/actor/Profile {
 	public final fun getLinks ()Ljava/util/List;
 	public final fun getPinnedPost ()Lcom/atproto/repo/StrongRef;
 	public final fun getPronouns ()Ljava/lang/String;
-	public final fun getWebsite-pvpWXas ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -1719,7 +1718,6 @@ public final class app/bsky/actor/ProfileViewDetailed {
 	public final fun getStatus ()Lapp/bsky/actor/StatusView;
 	public final fun getVerification ()Lapp/bsky/actor/VerificationState;
 	public final fun getViewer ()Lapp/bsky/actor/ViewerState;
-	public final fun getWebsite-pvpWXas ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -34737,20 +34735,22 @@ public final class tools/ozone/moderation/ConvoView$Companion {
 public final class tools/ozone/moderation/EmitEventReportAction {
 	public static final field Companion Ltools/ozone/moderation/EmitEventReportAction$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/util/List;
 	public final fun component2 ()Ljava/util/List;
 	public final fun component3 ()Ljava/lang/Boolean;
 	public final fun component4 ()Ljava/lang/String;
-	public final fun copy (Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;)Ltools/ozone/moderation/EmitEventReportAction;
-	public static synthetic fun copy$default (Ltools/ozone/moderation/EmitEventReportAction;Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/moderation/EmitEventReportAction;
+	public final fun component5 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/Boolean;)Ltools/ozone/moderation/EmitEventReportAction;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/EmitEventReportAction;Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Ltools/ozone/moderation/EmitEventReportAction;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAll ()Ljava/lang/Boolean;
 	public final fun getIds ()Ljava/util/List;
 	public final fun getNote ()Ljava/lang/String;
 	public final fun getTypes ()Ljava/util/List;
 	public fun hashCode ()I
+	public final fun isAutomated ()Ljava/lang/Boolean;
 	public fun toString ()Ljava/lang/String;
 }
 
@@ -40184,16 +40184,22 @@ public final class tools/ozone/report/CloseActivityPreviousStatusSerializer : ko
 
 public final class tools/ozone/report/CloseReportsRequest {
 	public static final field Companion Ltools/ozone/report/CloseReportsRequest$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-v5vOzEc ()Ljava/lang/String;
-	public final fun component2 ()Ljava/util/List;
-	public final fun component3 ()Ljava/lang/String;
-	public final fun component4 ()Ljava/lang/Boolean;
-	public final fun copy-U4PCevw (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Boolean;)Ltools/ozone/report/CloseReportsRequest;
-	public static synthetic fun copy-U4PCevw$default (Ltools/ozone/report/CloseReportsRequest;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Ltools/ozone/report/CloseReportsRequest;
+	public final fun component2 ()Ljava/lang/Boolean;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/util/List;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/Boolean;
+	public final fun component7 ()Lsh/christian/ozone/api/model/JsonContent;
+	public final fun copy-RqK3OEI (Ljava/lang/String;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/report/CloseReportsRequest;
+	public static synthetic fun copy-RqK3OEI$default (Ltools/ozone/report/CloseReportsRequest;Ljava/lang/String;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;ILjava/lang/Object;)Ltools/ozone/report/CloseReportsRequest;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getExcludedReportTypes ()Ljava/util/List;
+	public final fun getIncludeAllOwned ()Ljava/lang/Boolean;
 	public final fun getInternalNote ()Ljava/lang/String;
+	public final fun getMeta ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun getReportTypes ()Ljava/util/List;
 	public final fun getSubject-v5vOzEc ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -40225,20 +40231,22 @@ public final class tools/ozone/report/CloseReportsResponse$Companion {
 
 public final class tools/ozone/report/CreateActivityRequest {
 	public static final field Companion Ltools/ozone/report/CreateActivityRequest$Companion;
-	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/report/CreateActivityRequestActivityUnion;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
-	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/report/CreateActivityRequestActivityUnion;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/report/CreateActivityRequestActivityUnion;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/report/CreateActivityRequestActivityUnion;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Long;
 	public final fun component2 ()Ljava/lang/Long;
 	public final fun component3 ()Ltools/ozone/report/CreateActivityRequestActivityUnion;
 	public final fun component4 ()Ljava/lang/String;
 	public final fun component5 ()Ljava/lang/String;
 	public final fun component6 ()Ljava/lang/Boolean;
-	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/report/CreateActivityRequestActivityUnion;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)Ltools/ozone/report/CreateActivityRequest;
-	public static synthetic fun copy$default (Ltools/ozone/report/CreateActivityRequest;Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/report/CreateActivityRequestActivityUnion;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Ltools/ozone/report/CreateActivityRequest;
+	public final fun component7 ()Lsh/christian/ozone/api/model/JsonContent;
+	public final fun copy (Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/report/CreateActivityRequestActivityUnion;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/report/CreateActivityRequest;
+	public static synthetic fun copy$default (Ltools/ozone/report/CreateActivityRequest;Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/report/CreateActivityRequestActivityUnion;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lsh/christian/ozone/api/model/JsonContent;ILjava/lang/Object;)Ltools/ozone/report/CreateActivityRequest;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getActivity ()Ltools/ozone/report/CreateActivityRequestActivityUnion;
 	public final fun getEventId ()Ljava/lang/Long;
 	public final fun getInternalNote ()Ljava/lang/String;
+	public final fun getMeta ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun getPublicNote ()Ljava/lang/String;
 	public final fun getReportId ()Ljava/lang/Long;
 	public fun hashCode ()I
