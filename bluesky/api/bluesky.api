@@ -29383,6 +29383,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun listMutualGroups (Lchat/bsky/group/ListMutualGroupsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listNotifications (Lapp/bsky/notification/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listNotifications (Ltools/ozone/inbox/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun listOnlineMembers (Ltools/ozone/team/ListOnlineMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listOptions (Ltools/ozone/setting/ListOptionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listQueues (Ltools/ozone/queue/ListQueuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listRecords (Lcom/atproto/repo/ListRecordsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -29728,6 +29729,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun listMutualGroups (Lchat/bsky/group/ListMutualGroupsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listNotifications (Lapp/bsky/notification/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listNotifications (Ltools/ozone/inbox/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listOnlineMembers (Ltools/ozone/team/ListOnlineMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listOptions (Ltools/ozone/setting/ListOptionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listQueues (Ltools/ozone/queue/ListQueuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listRecords (Lcom/atproto/repo/ListRecordsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -30076,6 +30078,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun listMutualGroups (Lchat/bsky/group/ListMutualGroupsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listNotifications (Lapp/bsky/notification/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listNotifications (Ltools/ozone/inbox/ListNotificationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun listOnlineMembers (Ltools/ozone/team/ListOnlineMembersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listOptions (Ltools/ozone/setting/ListOptionsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listQueues (Ltools/ozone/queue/ListQueuesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listRecords (Lcom/atproto/repo/ListRecordsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -43623,6 +43626,59 @@ public final class tools/ozone/team/ListMembersResponse {
 }
 
 public final class tools/ozone/team/ListMembersResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/team/ListOnlineMembersOnlineMember {
+	public static final field Companion Ltools/ozone/team/ListOnlineMembersOnlineMember$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun copy-vy2gcmM (Ljava/lang/String;Lkotlin/time/Instant;)Ltools/ozone/team/ListOnlineMembersOnlineMember;
+	public static synthetic fun copy-vy2gcmM$default (Ltools/ozone/team/ListOnlineMembersOnlineMember;Ljava/lang/String;Lkotlin/time/Instant;ILjava/lang/Object;)Ltools/ozone/team/ListOnlineMembersOnlineMember;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getLastActive ()Lkotlin/time/Instant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/team/ListOnlineMembersOnlineMember$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/team/ListOnlineMembersQueryParams {
+	public static final field Companion Ltools/ozone/team/ListOnlineMembersQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Long;)V
+	public synthetic fun <init> (Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun copy (Ljava/lang/Long;)Ltools/ozone/team/ListOnlineMembersQueryParams;
+	public static synthetic fun copy$default (Ltools/ozone/team/ListOnlineMembersQueryParams;Ljava/lang/Long;ILjava/lang/Object;)Ltools/ozone/team/ListOnlineMembersQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLimit ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/team/ListOnlineMembersQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/team/ListOnlineMembersResponse {
+	public static final field Companion Ltools/ozone/team/ListOnlineMembersResponse$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Ltools/ozone/team/ListOnlineMembersResponse;
+	public static synthetic fun copy$default (Ltools/ozone/team/ListOnlineMembersResponse;Ljava/util/List;ILjava/lang/Object;)Ltools/ozone/team/ListOnlineMembersResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMembers ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/team/ListOnlineMembersResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
