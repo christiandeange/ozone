@@ -112,7 +112,10 @@
       "type": "object",
       "required": ["featured", "view"],
       "properties": {
-        "featured": { "type": "boolean" },
+        "featured": {
+          "type": "boolean",
+          "description": "Deprecated. Retained for compatibility; always false."
+        },
         "view": { "type": "ref", "ref": "app.bsky.embed.external#viewArticle" }
       }
     },
@@ -120,7 +123,10 @@
       "type": "object",
       "required": ["featured", "view"],
       "properties": {
-        "featured": { "type": "boolean" },
+        "featured": {
+          "type": "boolean",
+          "description": "Deprecated. Retained for compatibility; always false."
+        },
         "view": {
           "type": "ref",
           "ref": "app.bsky.embed.external#viewArticlePublication"
@@ -131,7 +137,10 @@
       "type": "object",
       "required": ["featured", "view"],
       "properties": {
-        "featured": { "type": "boolean" },
+        "featured": {
+          "type": "boolean",
+          "description": "Deprecated. Retained for compatibility; always false."
+        },
         "view": { "type": "ref", "ref": "app.bsky.embed.external#viewGallery" }
       }
     },
@@ -139,7 +148,10 @@
       "type": "object",
       "required": ["featured", "view"],
       "properties": {
-        "featured": { "type": "boolean" },
+        "featured": {
+          "type": "boolean",
+          "description": "Deprecated. Retained for compatibility; always false."
+        },
         "view": {
           "type": "ref",
           "ref": "app.bsky.embed.external#viewLivestream"
@@ -164,16 +176,35 @@
         "id": { "type": "string", "maxLength": 4096 },
         "title": { "type": "string", "maxLength": 4096 },
         "description": { "type": "string", "maxLength": 4096 },
-        "logo": { "type": "string", "format": "uri", "maxLength": 4096 },
+        "logo": {
+          "type": "string",
+          "format": "uri",
+          "maxLength": 4096,
+          "description": "Compatibility field. The profile avatar when available, otherwise the editorial logo."
+        },
         "backgroundImage": {
           "type": "string",
           "format": "uri",
-          "maxLength": 4096
+          "maxLength": 4096,
+          "description": "Compatibility field. The profile banner when available, otherwise the editorial background image."
         },
-        "overlayColor": { "type": "string", "maxLength": 4096 },
-        "textColor": { "type": "string", "maxLength": 4096 },
+        "overlayColor": {
+          "type": "string",
+          "maxLength": 4096,
+          "description": "Deprecated. Retained for compatibility."
+        },
+        "textColor": {
+          "type": "string",
+          "maxLength": 4096,
+          "description": "Deprecated. Retained for compatibility."
+        },
         "url": { "type": "string", "format": "uri", "maxLength": 4096 },
-        "category": { "type": "string", "maxLength": 4096 }
+        "category": { "type": "string", "maxLength": 4096 },
+        "profile": {
+          "type": "ref",
+          "ref": "app.bsky.actor.defs#profileViewDetailed",
+          "description": "The app's account profile, when available."
+        }
       }
     }
   }
