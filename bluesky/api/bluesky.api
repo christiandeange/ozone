@@ -13238,6 +13238,73 @@ public final class app/bsky/unspecced/AgeAssuranceStateStatusSerializer : kotlin
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
+public final class app/bsky/unspecced/GetAtmosphereAppsAppCard {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereAppsAppCard$Companion;
+	public fun <init> ()V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewDetailed;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewDetailed;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4-pvpWXas ()Ljava/lang/String;
+	public final fun component5-pvpWXas ()Ljava/lang/String;
+	public final fun component6-pvpWXas ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Lapp/bsky/actor/ProfileViewDetailed;
+	public final fun copy-9T2pPHc (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewDetailed;)Lapp/bsky/unspecced/GetAtmosphereAppsAppCard;
+	public static synthetic fun copy-9T2pPHc$default (Lapp/bsky/unspecced/GetAtmosphereAppsAppCard;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewDetailed;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereAppsAppCard;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBanner-pvpWXas ()Ljava/lang/String;
+	public final fun getCategory ()Ljava/lang/String;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getLogo-pvpWXas ()Ljava/lang/String;
+	public final fun getProfile ()Lapp/bsky/actor/ProfileViewDetailed;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getUrl-pvpWXas ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereAppsAppCard$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereAppsQueryParams {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereAppsQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/unspecced/GetAtmosphereAppsQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereAppsQueryParams;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereAppsQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCategory ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereAppsQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereAppsResponse {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereAppsResponse$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lapp/bsky/unspecced/GetAtmosphereAppsResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereAppsResponse;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereAppsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getApps ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereAppsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/unspecced/GetAtmosphereExploreArticleRecommendationsArticle {
 	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereExploreArticleRecommendationsArticle$Companion;
 	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -13504,18 +13571,14 @@ public final class app/bsky/unspecced/GetAtmosphereExploreTabPublicationList$Com
 public final class app/bsky/unspecced/GetAtmosphereExploreTabQueryParams {
 	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun asList ()Ljava/util/List;
 	public final fun component1 ()Ljava/util/List;
-	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Ljava/lang/String;
-	public final fun copy (Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;
+	public final fun copy (Ljava/util/List;)Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getCountryCode ()Ljava/lang/String;
 	public final fun getLangs ()Ljava/util/List;
-	public final fun getRegionCode ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -29641,6 +29704,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getAgeAssuranceStateUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAssignments (Ltools/ozone/queue/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAssignments (Ltools/ozone/report/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getAtmosphereAppsUnspecced (Lapp/bsky/unspecced/GetAtmosphereAppsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAtmosphereExploreArticleRecommendationsUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreArticleRecommendationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAtmosphereExploreTabUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAtmosphereTimelineUnspecced (Lapp/bsky/unspecced/GetAtmosphereTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -29988,6 +30052,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getAgeAssuranceStateUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAssignments (Ltools/ozone/queue/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAssignments (Ltools/ozone/report/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAtmosphereAppsUnspecced (Lapp/bsky/unspecced/GetAtmosphereAppsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereExploreArticleRecommendationsUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreArticleRecommendationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereExploreTabUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereTimelineUnspecced (Lapp/bsky/unspecced/GetAtmosphereTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -30337,6 +30402,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getAgeAssuranceStateUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAssignments (Ltools/ozone/queue/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAssignments (Ltools/ozone/report/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAtmosphereAppsUnspecced (Lapp/bsky/unspecced/GetAtmosphereAppsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereExploreArticleRecommendationsUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreArticleRecommendationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereExploreTabUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereTimelineUnspecced (Lapp/bsky/unspecced/GetAtmosphereTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
