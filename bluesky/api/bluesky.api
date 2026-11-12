@@ -13481,16 +13481,18 @@ public final class app/bsky/unspecced/GetAtmosphereExploreTabAppCard$Companion {
 
 public final class app/bsky/unspecced/GetAtmosphereExploreTabArticleItem {
 	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereExploreTabArticleItem$Companion;
-	public fun <init> (ZLcom/atproto/repo/StrongRef;Lapp/bsky/embed/ExternalViewArticle;)V
-	public synthetic fun <init> (ZLcom/atproto/repo/StrongRef;Lapp/bsky/embed/ExternalViewArticle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (ZLcom/atproto/repo/StrongRef;Lapp/bsky/feed/PostView;Lapp/bsky/embed/ExternalViewArticle;)V
+	public synthetic fun <init> (ZLcom/atproto/repo/StrongRef;Lapp/bsky/feed/PostView;Lapp/bsky/embed/ExternalViewArticle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Z
 	public final fun component2 ()Lcom/atproto/repo/StrongRef;
-	public final fun component3 ()Lapp/bsky/embed/ExternalViewArticle;
-	public final fun copy (ZLcom/atproto/repo/StrongRef;Lapp/bsky/embed/ExternalViewArticle;)Lapp/bsky/unspecced/GetAtmosphereExploreTabArticleItem;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereExploreTabArticleItem;ZLcom/atproto/repo/StrongRef;Lapp/bsky/embed/ExternalViewArticle;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereExploreTabArticleItem;
+	public final fun component3 ()Lapp/bsky/feed/PostView;
+	public final fun component4 ()Lapp/bsky/embed/ExternalViewArticle;
+	public final fun copy (ZLcom/atproto/repo/StrongRef;Lapp/bsky/feed/PostView;Lapp/bsky/embed/ExternalViewArticle;)Lapp/bsky/unspecced/GetAtmosphereExploreTabArticleItem;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereExploreTabArticleItem;ZLcom/atproto/repo/StrongRef;Lapp/bsky/feed/PostView;Lapp/bsky/embed/ExternalViewArticle;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereExploreTabArticleItem;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getBskyPostRef ()Lcom/atproto/repo/StrongRef;
 	public final fun getView ()Lapp/bsky/embed/ExternalViewArticle;
+	public final fun getViewBskyPost ()Lapp/bsky/feed/PostView;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -13556,16 +13558,18 @@ public final class app/bsky/unspecced/GetAtmosphereExploreTabGalleryList$Compani
 
 public final class app/bsky/unspecced/GetAtmosphereExploreTabLivestreamItem {
 	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereExploreTabLivestreamItem$Companion;
-	public fun <init> (ZLcom/atproto/repo/StrongRef;Lapp/bsky/embed/ExternalViewLivestream;)V
-	public synthetic fun <init> (ZLcom/atproto/repo/StrongRef;Lapp/bsky/embed/ExternalViewLivestream;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (ZLcom/atproto/repo/StrongRef;Lapp/bsky/feed/PostView;Lapp/bsky/embed/ExternalViewLivestream;)V
+	public synthetic fun <init> (ZLcom/atproto/repo/StrongRef;Lapp/bsky/feed/PostView;Lapp/bsky/embed/ExternalViewLivestream;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Z
 	public final fun component2 ()Lcom/atproto/repo/StrongRef;
-	public final fun component3 ()Lapp/bsky/embed/ExternalViewLivestream;
-	public final fun copy (ZLcom/atproto/repo/StrongRef;Lapp/bsky/embed/ExternalViewLivestream;)Lapp/bsky/unspecced/GetAtmosphereExploreTabLivestreamItem;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereExploreTabLivestreamItem;ZLcom/atproto/repo/StrongRef;Lapp/bsky/embed/ExternalViewLivestream;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereExploreTabLivestreamItem;
+	public final fun component3 ()Lapp/bsky/feed/PostView;
+	public final fun component4 ()Lapp/bsky/embed/ExternalViewLivestream;
+	public final fun copy (ZLcom/atproto/repo/StrongRef;Lapp/bsky/feed/PostView;Lapp/bsky/embed/ExternalViewLivestream;)Lapp/bsky/unspecced/GetAtmosphereExploreTabLivestreamItem;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereExploreTabLivestreamItem;ZLcom/atproto/repo/StrongRef;Lapp/bsky/feed/PostView;Lapp/bsky/embed/ExternalViewLivestream;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereExploreTabLivestreamItem;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getBskyPostRef ()Lcom/atproto/repo/StrongRef;
 	public final fun getView ()Lapp/bsky/embed/ExternalViewLivestream;
+	public final fun getViewBskyPost ()Lapp/bsky/feed/PostView;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -13820,124 +13824,252 @@ public final class app/bsky/unspecced/GetAtmosphereRecordViewResponseViewUnion$U
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/unspecced/GetAtmosphereTimelineActivityGroup {
-	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroup$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy;Ljava/lang/String;Lkotlin/time/Instant;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy;Ljava/lang/String;Lkotlin/time/Instant;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun component2 ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy;
-	public final fun component3-Ley70Jo ()Ljava/lang/String;
-	public final fun component4 ()Lkotlin/time/Instant;
-	public final fun component5 ()Ljava/util/List;
-	public final fun component6-W3xQKsw ()Ljava/lang/String;
-	public final fun component7-68yuAGA ()Ljava/lang/String;
-	public final fun copy-dH6_xnU (Ljava/lang/String;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy;Ljava/lang/String;Lkotlin/time/Instant;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroup;
-	public static synthetic fun copy-dH6_xnU$default (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroup;Ljava/lang/String;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy;Ljava/lang/String;Lkotlin/time/Instant;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroup;
+public final class app/bsky/unspecced/GetAtmosphereRecordViewsRecordRef {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordRef$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2-OC6CE0s ()Ljava/lang/String;
+	public final fun copy-OOzHWg8 (Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordRef;
+	public static synthetic fun copy-OOzHWg8$default (Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordRef;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordRef;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getActor-68yuAGA ()Ljava/lang/String;
+	public final fun getCid-OC6CE0s ()Ljava/lang/String;
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecordViewsRecordRef$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecordViewsRecordView {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordView$Companion;
+	public fun <init> ()V
+	public fun <init> (Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion;Ljava/util/List;Ljava/util/List;)V
+	public synthetic fun <init> (Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/util/List;
+	public final fun copy (Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion;Ljava/util/List;Ljava/util/List;)Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordView;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordView;Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAssociatedRecords ()Ljava/util/List;
+	public final fun getAssociatedRefs ()Ljava/util/List;
+	public final fun getView ()Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecordViewsRecordView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$Companion;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$Article : app/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$Article$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/ExternalViewArticle;)Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$Article;
+	public static fun constructor-impl (Lapp/bsky/embed/ExternalViewArticle;)Lapp/bsky/embed/ExternalViewArticle;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/ExternalViewArticle;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/ExternalViewArticle;Lapp/bsky/embed/ExternalViewArticle;)Z
+	public final fun getValue ()Lapp/bsky/embed/ExternalViewArticle;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/ExternalViewArticle;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/ExternalViewArticle;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/ExternalViewArticle;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$Article$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$ArticlePublication : app/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$ArticlePublication$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/ExternalViewArticlePublication;)Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$ArticlePublication;
+	public static fun constructor-impl (Lapp/bsky/embed/ExternalViewArticlePublication;)Lapp/bsky/embed/ExternalViewArticlePublication;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/ExternalViewArticlePublication;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/ExternalViewArticlePublication;Lapp/bsky/embed/ExternalViewArticlePublication;)Z
+	public final fun getValue ()Lapp/bsky/embed/ExternalViewArticlePublication;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/ExternalViewArticlePublication;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/ExternalViewArticlePublication;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/ExternalViewArticlePublication;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$ArticlePublication$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$Gallery : app/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$Gallery$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/ExternalViewGallery;)Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$Gallery;
+	public static fun constructor-impl (Lapp/bsky/embed/ExternalViewGallery;)Lapp/bsky/embed/ExternalViewGallery;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/ExternalViewGallery;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/ExternalViewGallery;Lapp/bsky/embed/ExternalViewGallery;)Z
+	public final fun getValue ()Lapp/bsky/embed/ExternalViewGallery;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/ExternalViewGallery;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/ExternalViewGallery;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/ExternalViewGallery;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$Gallery$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$Livestream : app/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$Livestream$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/ExternalViewLivestream;)Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$Livestream;
+	public static fun constructor-impl (Lapp/bsky/embed/ExternalViewLivestream;)Lapp/bsky/embed/ExternalViewLivestream;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/ExternalViewLivestream;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/ExternalViewLivestream;Lapp/bsky/embed/ExternalViewLivestream;)Z
+	public final fun getValue ()Lapp/bsky/embed/ExternalViewLivestream;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/ExternalViewLivestream;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/ExternalViewLivestream;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/ExternalViewLivestream;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$Livestream$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$Unknown : app/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecordViewsRecordViewViewUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecordViewsRequest {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereRecordViewsRequest$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lapp/bsky/unspecced/GetAtmosphereRecordViewsRequest;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereRecordViewsRequest;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereRecordViewsRequest;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRecords ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecordViewsRequest$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecordViewsResponse {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereRecordViewsResponse$Companion;
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lapp/bsky/unspecced/GetAtmosphereRecordViewsResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereRecordViewsResponse;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereRecordViewsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getViews ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecordViewsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereTimelineActivityActorGroup {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineActivityActorGroup$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItem;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2-Ley70Jo ()Ljava/lang/String;
+	public final fun component3 ()Lkotlin/time/Instant;
+	public final fun component4-715Ygxc ()Ljava/lang/String;
+	public final fun component5 ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItem;
+	public final fun component6 ()Ljava/util/List;
+	public final fun copy-ZzpJyXk (Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItem;Ljava/util/List;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityActorGroup;
+	public static synthetic fun copy-ZzpJyXk$default (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityActorGroup;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Ljava/lang/String;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItem;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityActorGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActor-715Ygxc ()Ljava/lang/String;
 	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
-	public final fun getGroupBy ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy;
 	public final fun getId ()Ljava/lang/String;
 	public final fun getIndexedAt ()Lkotlin/time/Instant;
-	public final fun getItems ()Ljava/util/List;
-	public final fun getSubject-W3xQKsw ()Ljava/lang/String;
+	public final fun getItem ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItem;
+	public final fun getUris ()Ljava/util/List;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class app/bsky/unspecced/GetAtmosphereTimelineActivityGroup$Companion {
+public final class app/bsky/unspecced/GetAtmosphereTimelineActivityActorGroup$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public abstract class app/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy : sh/christian/ozone/api/model/AtpEnum {
-	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun getValue ()Ljava/lang/String;
-}
-
-public final class app/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy$Actor : app/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy {
-	public static final field INSTANCE Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy$Actor;
+public final class app/bsky/unspecced/GetAtmosphereTimelineActivityGroupItem {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroupItem$Companion;
+	public synthetic fun <init> (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityRecord;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivityRecord;
+	public final fun component2-Ley70Jo ()Ljava/lang/String;
+	public final fun copy-LCEzua4 (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityRecord;Ljava/lang/String;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroupItem;
+	public static synthetic fun copy-LCEzua4$default (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroupItem;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityRecord;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroupItem;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
+	public final fun getRecord ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivityRecord;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class app/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy$Companion {
-	public final fun safeValueOf (Ljava/lang/String;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy;
+public final class app/bsky/unspecced/GetAtmosphereTimelineActivityGroupItem$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class app/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy$Subject : app/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy {
-	public static final field INSTANCE Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy$Subject;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy$Unknown : app/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy {
-	public fun <init> (Ljava/lang/String;)V
-	public final fun component1 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy$Unknown;
-	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy$Unknown;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy$Unknown;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getRawValue ()Ljava/lang/String;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBySerializer : kotlinx/serialization/KSerializer {
-	public fun <init> ()V
-	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy;
-	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
-	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroupGroupBy;)V
-	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
 public final class app/bsky/unspecced/GetAtmosphereTimelineActivityItem {
 	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItem$Companion;
-	public synthetic fun <init> (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityRecord;Ljava/lang/String;Lapp/bsky/unspecced/GetAtmosphereTimelineViewerState;Lcom/atproto/repo/StrongRef;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemViewUnion;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityRecord;Ljava/lang/String;Lapp/bsky/unspecced/GetAtmosphereTimelineViewerState;Lcom/atproto/repo/StrongRef;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemViewUnion;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityRecord;Ljava/lang/String;Lapp/bsky/unspecced/GetAtmosphereTimelineViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;Lapp/bsky/feed/PostView;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemViewUnion;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityRecord;Ljava/lang/String;Lapp/bsky/unspecced/GetAtmosphereTimelineViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;Lapp/bsky/feed/PostView;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemViewUnion;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivityRecord;
 	public final fun component2-Ley70Jo ()Ljava/lang/String;
 	public final fun component3 ()Lapp/bsky/unspecced/GetAtmosphereTimelineViewerState;
-	public final fun component4 ()Lcom/atproto/repo/StrongRef;
-	public final fun component5 ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemViewUnion;
-	public final fun component6 ()Ljava/util/List;
-	public final fun copy-YCSCj_k (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityRecord;Ljava/lang/String;Lapp/bsky/unspecced/GetAtmosphereTimelineViewerState;Lcom/atproto/repo/StrongRef;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemViewUnion;Ljava/util/List;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItem;
-	public static synthetic fun copy-YCSCj_k$default (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItem;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityRecord;Ljava/lang/String;Lapp/bsky/unspecced/GetAtmosphereTimelineViewerState;Lcom/atproto/repo/StrongRef;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemViewUnion;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItem;
+	public final fun component4 ()Ljava/util/List;
+	public final fun component5 ()Lcom/atproto/repo/StrongRef;
+	public final fun component6 ()Lapp/bsky/feed/PostView;
+	public final fun component7 ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemViewUnion;
+	public final fun copy-qxEQenE (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityRecord;Ljava/lang/String;Lapp/bsky/unspecced/GetAtmosphereTimelineViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;Lapp/bsky/feed/PostView;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemViewUnion;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItem;
+	public static synthetic fun copy-qxEQenE$default (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItem;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityRecord;Ljava/lang/String;Lapp/bsky/unspecced/GetAtmosphereTimelineViewerState;Ljava/util/List;Lcom/atproto/repo/StrongRef;Lapp/bsky/feed/PostView;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemViewUnion;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItem;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getBskyPostRef ()Lcom/atproto/repo/StrongRef;
 	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
 	public final fun getRecord ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivityRecord;
 	public final fun getRelatedActivity ()Ljava/util/List;
 	public final fun getView ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemViewUnion;
+	public final fun getViewBskyPost ()Lapp/bsky/feed/PostView;
 	public final fun getViewerState ()Lapp/bsky/unspecced/GetAtmosphereTimelineViewerState;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/bsky/unspecced/GetAtmosphereTimelineActivityItem$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class app/bsky/unspecced/GetAtmosphereTimelineActivityItemOverflow {
-	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemOverflow$Companion;
-	public synthetic fun <init> (JLjava/lang/String;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()J
-	public final fun component2-Ley70Jo ()Ljava/lang/String;
-	public final fun component3 ()Ljava/util/List;
-	public final fun copy-w_Sh84I (JLjava/lang/String;Ljava/util/List;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemOverflow;
-	public static synthetic fun copy-w_Sh84I$default (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemOverflow;JLjava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemOverflow;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAssociatedProfiles ()Ljava/util/List;
-	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
-	public final fun getCount ()J
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/unspecced/GetAtmosphereTimelineActivityItemOverflow$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -14083,6 +14215,161 @@ public final class app/bsky/unspecced/GetAtmosphereTimelineActivityRecord$Compan
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/unspecced/GetAtmosphereTimelineActivityRelatedGroup {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineActivityRelatedGroup$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-Ley70Jo ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/util/List;
+	public final fun copy-XC62NXI (Ljava/lang/String;Ljava/util/List;Ljava/util/List;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityRelatedGroup;
+	public static synthetic fun copy-XC62NXI$default (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityRelatedGroup;Ljava/lang/String;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityRelatedGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActivities ()Ljava/util/List;
+	public final fun getActors ()Ljava/util/List;
+	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereTimelineActivityRelatedGroup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereTimelineActivitySubject {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubject$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/unspecced/GetAtmosphereTimelineViewerState;Lcom/atproto/repo/StrongRef;Lapp/bsky/feed/PostView;Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lapp/bsky/unspecced/GetAtmosphereTimelineViewerState;Lcom/atproto/repo/StrongRef;Lapp/bsky/feed/PostView;Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2 ()Lapp/bsky/unspecced/GetAtmosphereTimelineViewerState;
+	public final fun component3 ()Lcom/atproto/repo/StrongRef;
+	public final fun component4 ()Lapp/bsky/feed/PostView;
+	public final fun component5 ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion;
+	public final fun copy-LJwFo8M (Ljava/lang/String;Lapp/bsky/unspecced/GetAtmosphereTimelineViewerState;Lcom/atproto/repo/StrongRef;Lapp/bsky/feed/PostView;Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubject;
+	public static synthetic fun copy-LJwFo8M$default (Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubject;Ljava/lang/String;Lapp/bsky/unspecced/GetAtmosphereTimelineViewerState;Lcom/atproto/repo/StrongRef;Lapp/bsky/feed/PostView;Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubject;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBskyPostRef ()Lcom/atproto/repo/StrongRef;
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public final fun getView ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion;
+	public final fun getViewBskyPost ()Lapp/bsky/feed/PostView;
+	public final fun getViewerState ()Lapp/bsky/unspecced/GetAtmosphereTimelineViewerState;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereTimelineActivitySubject$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereTimelineActivitySubjectGroup {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectGroup$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubject;Ljava/util/List;Ljava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2-Ley70Jo ()Ljava/lang/String;
+	public final fun component3 ()Lkotlin/time/Instant;
+	public final fun component4 ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubject;
+	public final fun component5 ()Ljava/util/List;
+	public final fun component6 ()Ljava/util/List;
+	public final fun copy-YCSCj_k (Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubject;Ljava/util/List;Ljava/util/List;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectGroup;
+	public static synthetic fun copy-YCSCj_k$default (Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectGroup;Ljava/lang/String;Ljava/lang/String;Lkotlin/time/Instant;Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubject;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectGroup;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActivities ()Ljava/util/List;
+	public final fun getActors ()Ljava/util/List;
+	public final fun getCollection-Ley70Jo ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getIndexedAt ()Lkotlin/time/Instant;
+	public final fun getSubject ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubject;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereTimelineActivitySubjectGroup$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion$Companion;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion$Article : app/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion$Article$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/ExternalViewArticle;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion$Article;
+	public static fun constructor-impl (Lapp/bsky/embed/ExternalViewArticle;)Lapp/bsky/embed/ExternalViewArticle;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/ExternalViewArticle;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/ExternalViewArticle;Lapp/bsky/embed/ExternalViewArticle;)Z
+	public final fun getValue ()Lapp/bsky/embed/ExternalViewArticle;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/ExternalViewArticle;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/ExternalViewArticle;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/ExternalViewArticle;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion$Article$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion$ArticlePublication : app/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion$ArticlePublication$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/ExternalViewArticlePublication;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion$ArticlePublication;
+	public static fun constructor-impl (Lapp/bsky/embed/ExternalViewArticlePublication;)Lapp/bsky/embed/ExternalViewArticlePublication;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/ExternalViewArticlePublication;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/ExternalViewArticlePublication;Lapp/bsky/embed/ExternalViewArticlePublication;)Z
+	public final fun getValue ()Lapp/bsky/embed/ExternalViewArticlePublication;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/ExternalViewArticlePublication;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/ExternalViewArticlePublication;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/ExternalViewArticlePublication;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion$ArticlePublication$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion$Gallery : app/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion$Gallery$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/ExternalViewGallery;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion$Gallery;
+	public static fun constructor-impl (Lapp/bsky/embed/ExternalViewGallery;)Lapp/bsky/embed/ExternalViewGallery;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/ExternalViewGallery;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/ExternalViewGallery;Lapp/bsky/embed/ExternalViewGallery;)Z
+	public final fun getValue ()Lapp/bsky/embed/ExternalViewGallery;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/ExternalViewGallery;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/ExternalViewGallery;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/ExternalViewGallery;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion$Gallery$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion$Unknown : app/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereTimelineActivitySubjectViewUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/unspecced/GetAtmosphereTimelineQueryParams {
 	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineQueryParams$Companion;
 	public fun <init> ()V
@@ -14125,22 +14412,22 @@ public abstract interface class app/bsky/unspecced/GetAtmosphereTimelineResponse
 	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion$Companion;
 }
 
-public final class app/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion$ActivityGroup : app/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion {
-	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion$ActivityGroup$Companion;
-	public static final synthetic fun box-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroup;)Lapp/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion$ActivityGroup;
-	public static fun constructor-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroup;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroup;
+public final class app/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion$ActivityActorGroup : app/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion$ActivityActorGroup$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityActorGroup;)Lapp/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion$ActivityActorGroup;
+	public static fun constructor-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityActorGroup;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityActorGroup;
 	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroup;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroup;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroup;)Z
-	public final fun getValue ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroup;
+	public static fun equals-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityActorGroup;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityActorGroup;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityActorGroup;)Z
+	public final fun getValue ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivityActorGroup;
 	public fun hashCode ()I
-	public static fun hashCode-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroup;)I
+	public static fun hashCode-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityActorGroup;)I
 	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroup;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivityGroup;
+	public static fun toString-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityActorGroup;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivityActorGroup;
 }
 
-public final class app/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion$ActivityGroup$Companion {
+public final class app/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion$ActivityActorGroup$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -14163,22 +14450,22 @@ public final class app/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion$Act
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion$ActivityItemOverflow : app/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion {
-	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion$ActivityItemOverflow$Companion;
-	public static final synthetic fun box-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemOverflow;)Lapp/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion$ActivityItemOverflow;
-	public static fun constructor-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemOverflow;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemOverflow;
+public final class app/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion$ActivitySubjectGroup : app/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion$ActivitySubjectGroup$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectGroup;)Lapp/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion$ActivitySubjectGroup;
+	public static fun constructor-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectGroup;)Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectGroup;
 	public fun equals (Ljava/lang/Object;)Z
-	public static fun equals-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemOverflow;Ljava/lang/Object;)Z
-	public static final fun equals-impl0 (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemOverflow;Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemOverflow;)Z
-	public final fun getValue ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemOverflow;
+	public static fun equals-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectGroup;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectGroup;Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectGroup;)Z
+	public final fun getValue ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectGroup;
 	public fun hashCode ()I
-	public static fun hashCode-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemOverflow;)I
+	public static fun hashCode-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectGroup;)I
 	public fun toString ()Ljava/lang/String;
-	public static fun toString-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemOverflow;)Ljava/lang/String;
-	public final synthetic fun unbox-impl ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivityItemOverflow;
+	public static fun toString-impl (Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectGroup;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/unspecced/GetAtmosphereTimelineActivitySubjectGroup;
 }
 
-public final class app/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion$ActivityItemOverflow$Companion {
+public final class app/bsky/unspecced/GetAtmosphereTimelineResponseFeedUnion$ActivitySubjectGroup$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -29942,6 +30229,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getAtmosphereExploreGalleryRecommendationsUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreGalleryRecommendationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAtmosphereExploreTabUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAtmosphereRecordViewUnspecced (Lapp/bsky/unspecced/GetAtmosphereRecordViewQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getAtmosphereRecordViewsUnspecced (Lapp/bsky/unspecced/GetAtmosphereRecordViewsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAtmosphereTimelineUnspecced (Lapp/bsky/unspecced/GetAtmosphereTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAuthorFeed (Lapp/bsky/feed/GetAuthorFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getBlob (Lcom/atproto/sync/GetBlobQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -30292,6 +30580,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getAtmosphereExploreGalleryRecommendationsUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreGalleryRecommendationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereExploreTabUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereRecordViewUnspecced (Lapp/bsky/unspecced/GetAtmosphereRecordViewQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAtmosphereRecordViewsUnspecced (Lapp/bsky/unspecced/GetAtmosphereRecordViewsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereTimelineUnspecced (Lapp/bsky/unspecced/GetAtmosphereTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAuthorFeed (Lapp/bsky/feed/GetAuthorFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getBlob (Lcom/atproto/sync/GetBlobQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -30644,6 +30933,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getAtmosphereExploreGalleryRecommendationsUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreGalleryRecommendationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereExploreTabUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereRecordViewUnspecced (Lapp/bsky/unspecced/GetAtmosphereRecordViewQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAtmosphereRecordViewsUnspecced (Lapp/bsky/unspecced/GetAtmosphereRecordViewsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereTimelineUnspecced (Lapp/bsky/unspecced/GetAtmosphereTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun getAuthTokens ()Lkotlinx/coroutines/flow/StateFlow;
 	public fun getAuthorFeed (Lapp/bsky/feed/GetAuthorFeedQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
