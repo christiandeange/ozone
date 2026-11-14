@@ -13262,6 +13262,61 @@ public final class app/bsky/unspecced/AgeAssuranceStateStatusSerializer : kotlin
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
+public final class app/bsky/unspecced/GetAtmosphereActivityRecommendationsItem {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereActivityRecommendationsItem$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun copy-g66Z2H8 (Ljava/lang/String;)Lapp/bsky/unspecced/GetAtmosphereActivityRecommendationsItem;
+	public static synthetic fun copy-g66Z2H8$default (Lapp/bsky/unspecced/GetAtmosphereActivityRecommendationsItem;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereActivityRecommendationsItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereActivityRecommendationsItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereActivityRecommendationsQueryParams {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereActivityRecommendationsQueryParams$Companion;
+	public fun <init> ()V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Long;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1-68yuAGA ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun copy-zGeKB5I (Ljava/lang/String;Ljava/lang/Long;)Lapp/bsky/unspecced/GetAtmosphereActivityRecommendationsQueryParams;
+	public static synthetic fun copy-zGeKB5I$default (Lapp/bsky/unspecced/GetAtmosphereActivityRecommendationsQueryParams;Ljava/lang/String;Ljava/lang/Long;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereActivityRecommendationsQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getViewer-68yuAGA ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereActivityRecommendationsQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereActivityRecommendationsResponse {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereActivityRecommendationsResponse$Companion;
+	public fun <init> (Ljava/util/List;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/lang/String;)Lapp/bsky/unspecced/GetAtmosphereActivityRecommendationsResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereActivityRecommendationsResponse;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereActivityRecommendationsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItems ()Ljava/util/List;
+	public final fun getRecIdStr ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereActivityRecommendationsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/unspecced/GetAtmosphereAppsAppCard {
 	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereAppsAppCard$Companion;
 	public fun <init> ()V
@@ -13708,6 +13763,126 @@ public final class app/bsky/unspecced/GetAtmosphereExploreTabResponse {
 }
 
 public final class app/bsky/unspecced/GetAtmosphereExploreTabResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecommendedActivityItem {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityItem$Companion;
+	public fun <init> (Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion;)V
+	public final fun component1 ()Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion;
+	public final fun copy (Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion;)Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityItem;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityItem;Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityItem;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getView ()Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecommendedActivityItem$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion$Companion;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion$Article : app/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion$Article$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/ExternalViewArticle;)Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion$Article;
+	public static fun constructor-impl (Lapp/bsky/embed/ExternalViewArticle;)Lapp/bsky/embed/ExternalViewArticle;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/ExternalViewArticle;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/ExternalViewArticle;Lapp/bsky/embed/ExternalViewArticle;)Z
+	public final fun getValue ()Lapp/bsky/embed/ExternalViewArticle;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/ExternalViewArticle;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/ExternalViewArticle;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/ExternalViewArticle;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion$Article$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion$Gallery : app/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion$Gallery$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/ExternalViewGallery;)Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion$Gallery;
+	public static fun constructor-impl (Lapp/bsky/embed/ExternalViewGallery;)Lapp/bsky/embed/ExternalViewGallery;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/ExternalViewGallery;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/ExternalViewGallery;Lapp/bsky/embed/ExternalViewGallery;)Z
+	public final fun getValue ()Lapp/bsky/embed/ExternalViewGallery;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/ExternalViewGallery;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/ExternalViewGallery;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/ExternalViewGallery;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion$Gallery$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion$Unknown : app/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecommendedActivityItemViewUnion$Unknown$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecommendedActivityQueryParams {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityQueryParams$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Long;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/Long;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1 ()Ljava/lang/Long;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/Long;Ljava/util/List;)Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityQueryParams;Ljava/lang/Long;Ljava/util/List;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLangs ()Ljava/util/List;
+	public final fun getLimit ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecommendedActivityQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecommendedActivityResponse {
+	public static final field Companion Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityResponse$Companion;
+	public fun <init> (Ljava/util/List;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/lang/String;)Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityResponse;
+	public static synthetic fun copy$default (Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityResponse;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItems ()Ljava/util/List;
+	public final fun getRecIdStr ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/unspecced/GetAtmosphereRecommendedActivityResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -30687,10 +30862,12 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getAgeAssuranceStateUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAssignments (Ltools/ozone/queue/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAssignments (Ltools/ozone/report/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getAtmosphereActivityRecommendationsUnspecced (Lapp/bsky/unspecced/GetAtmosphereActivityRecommendationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAtmosphereAppsUnspecced (Lapp/bsky/unspecced/GetAtmosphereAppsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAtmosphereExploreArticleRecommendationsUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreArticleRecommendationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAtmosphereExploreGalleryRecommendationsUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreGalleryRecommendationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAtmosphereExploreTabUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getAtmosphereRecommendedActivityUnspecced (Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAtmosphereRecordViewUnspecced (Lapp/bsky/unspecced/GetAtmosphereRecordViewQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAtmosphereRecordViewsUnspecced (Lapp/bsky/unspecced/GetAtmosphereRecordViewsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getAtmosphereTimelineUnspecced (Lapp/bsky/unspecced/GetAtmosphereTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -30857,6 +31034,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun queryEvents (Ltools/ozone/moderation/QueryEventsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun queryEvents (Ltools/ozone/safelink/QueryEventsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun queryLabels (Lcom/atproto/label/QueryLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun queryModeratorActivity (Ltools/ozone/report/QueryModeratorActivityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun queryReports (Ltools/ozone/report/QueryReportsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun queryRules (Ltools/ozone/safelink/QueryRulesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun querySets (Ltools/ozone/set/QuerySetsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -31039,10 +31217,12 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getAgeAssuranceStateUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAssignments (Ltools/ozone/queue/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAssignments (Ltools/ozone/report/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAtmosphereActivityRecommendationsUnspecced (Lapp/bsky/unspecced/GetAtmosphereActivityRecommendationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereAppsUnspecced (Lapp/bsky/unspecced/GetAtmosphereAppsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereExploreArticleRecommendationsUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreArticleRecommendationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereExploreGalleryRecommendationsUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreGalleryRecommendationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereExploreTabUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAtmosphereRecommendedActivityUnspecced (Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereRecordViewUnspecced (Lapp/bsky/unspecced/GetAtmosphereRecordViewQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereRecordViewsUnspecced (Lapp/bsky/unspecced/GetAtmosphereRecordViewsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereTimelineUnspecced (Lapp/bsky/unspecced/GetAtmosphereTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -31209,6 +31389,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun queryEvents (Ltools/ozone/moderation/QueryEventsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryEvents (Ltools/ozone/safelink/QueryEventsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryLabels (Lcom/atproto/label/QueryLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun queryModeratorActivity (Ltools/ozone/report/QueryModeratorActivityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryReports (Ltools/ozone/report/QueryReportsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryRules (Ltools/ozone/safelink/QueryRulesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun querySets (Ltools/ozone/set/QuerySetsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -31393,10 +31574,12 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun getAgeAssuranceStateUnspecced (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAssignments (Ltools/ozone/queue/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAssignments (Ltools/ozone/report/GetAssignmentsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAtmosphereActivityRecommendationsUnspecced (Lapp/bsky/unspecced/GetAtmosphereActivityRecommendationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereAppsUnspecced (Lapp/bsky/unspecced/GetAtmosphereAppsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereExploreArticleRecommendationsUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreArticleRecommendationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereExploreGalleryRecommendationsUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreGalleryRecommendationsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereExploreTabUnspecced (Lapp/bsky/unspecced/GetAtmosphereExploreTabQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getAtmosphereRecommendedActivityUnspecced (Lapp/bsky/unspecced/GetAtmosphereRecommendedActivityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereRecordViewUnspecced (Lapp/bsky/unspecced/GetAtmosphereRecordViewQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereRecordViewsUnspecced (Lapp/bsky/unspecced/GetAtmosphereRecordViewsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getAtmosphereTimelineUnspecced (Lapp/bsky/unspecced/GetAtmosphereTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -31564,6 +31747,7 @@ public final class sh/christian/ozone/api/AuthenticatedXrpcBlueskyApi : sh/chris
 	public fun queryEvents (Ltools/ozone/moderation/QueryEventsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryEvents (Ltools/ozone/safelink/QueryEventsRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryLabels (Lcom/atproto/label/QueryLabelsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun queryModeratorActivity (Ltools/ozone/report/QueryModeratorActivityQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryReports (Ltools/ozone/report/QueryReportsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun queryRules (Ltools/ozone/safelink/QueryRulesRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun querySets (Ltools/ozone/set/QuerySetsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -36197,21 +36381,25 @@ public final class tools/ozone/moderation/ConvoView$Companion {
 public final class tools/ozone/moderation/EmitEventReportAction {
 	public static final field Companion Ltools/ozone/moderation/EmitEventReportAction$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/Boolean;)V
-	public synthetic fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/util/List;
 	public final fun component2 ()Ljava/util/List;
 	public final fun component3 ()Ljava/lang/Boolean;
 	public final fun component4 ()Ljava/lang/Boolean;
-	public final fun component5 ()Ljava/lang/String;
-	public final fun component6 ()Ljava/lang/Boolean;
-	public final fun copy (Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/Boolean;)Ltools/ozone/moderation/EmitEventReportAction;
-	public static synthetic fun copy$default (Ltools/ozone/moderation/EmitEventReportAction;Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Ltools/ozone/moderation/EmitEventReportAction;
+	public final fun component5 ()Ljava/util/List;
+	public final fun component6 ()Ljava/util/List;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/Boolean;)Ltools/ozone/moderation/EmitEventReportAction;
+	public static synthetic fun copy$default (Ltools/ozone/moderation/EmitEventReportAction;Ljava/util/List;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/Boolean;ILjava/lang/Object;)Ltools/ozone/moderation/EmitEventReportAction;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAll ()Ljava/lang/Boolean;
 	public final fun getAllOwned ()Ljava/lang/Boolean;
 	public final fun getIds ()Ljava/util/List;
 	public final fun getNote ()Ljava/lang/String;
+	public final fun getSubjectTypes ()Ljava/util/List;
+	public final fun getSubjects ()Ljava/util/List;
 	public final fun getTypes ()Ljava/util/List;
 	public fun hashCode ()I
 	public final fun isAutomated ()Ljava/lang/Boolean;
@@ -36219,6 +36407,71 @@ public final class tools/ozone/moderation/EmitEventReportAction {
 }
 
 public final class tools/ozone/moderation/EmitEventReportAction$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class tools/ozone/moderation/EmitEventReportActionSubjectUnion {
+	public static final field Companion Ltools/ozone/moderation/EmitEventReportActionSubjectUnion$Companion;
+}
+
+public final class tools/ozone/moderation/EmitEventReportActionSubjectUnion$AdminRepoRef : tools/ozone/moderation/EmitEventReportActionSubjectUnion {
+	public static final field Companion Ltools/ozone/moderation/EmitEventReportActionSubjectUnion$AdminRepoRef$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/admin/RepoRef;)Ltools/ozone/moderation/EmitEventReportActionSubjectUnion$AdminRepoRef;
+	public static fun constructor-impl (Lcom/atproto/admin/RepoRef;)Lcom/atproto/admin/RepoRef;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/admin/RepoRef;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/admin/RepoRef;Lcom/atproto/admin/RepoRef;)Z
+	public final fun getValue ()Lcom/atproto/admin/RepoRef;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/admin/RepoRef;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/admin/RepoRef;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/admin/RepoRef;
+}
+
+public final class tools/ozone/moderation/EmitEventReportActionSubjectUnion$AdminRepoRef$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/EmitEventReportActionSubjectUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/EmitEventReportActionSubjectUnion$RepoStrongRef : tools/ozone/moderation/EmitEventReportActionSubjectUnion {
+	public static final field Companion Ltools/ozone/moderation/EmitEventReportActionSubjectUnion$RepoStrongRef$Companion;
+	public static final synthetic fun box-impl (Lcom/atproto/repo/StrongRef;)Ltools/ozone/moderation/EmitEventReportActionSubjectUnion$RepoStrongRef;
+	public static fun constructor-impl (Lcom/atproto/repo/StrongRef;)Lcom/atproto/repo/StrongRef;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lcom/atproto/repo/StrongRef;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lcom/atproto/repo/StrongRef;Lcom/atproto/repo/StrongRef;)Z
+	public final fun getValue ()Lcom/atproto/repo/StrongRef;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lcom/atproto/repo/StrongRef;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lcom/atproto/repo/StrongRef;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lcom/atproto/repo/StrongRef;
+}
+
+public final class tools/ozone/moderation/EmitEventReportActionSubjectUnion$RepoStrongRef$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/moderation/EmitEventReportActionSubjectUnion$Unknown : tools/ozone/moderation/EmitEventReportActionSubjectUnion {
+	public static final field Companion Ltools/ozone/moderation/EmitEventReportActionSubjectUnion$Unknown$Companion;
+	public static final synthetic fun box-impl (Lsh/christian/ozone/api/model/JsonContent;)Ltools/ozone/moderation/EmitEventReportActionSubjectUnion$Unknown;
+	public static fun constructor-impl (Lsh/christian/ozone/api/model/JsonContent;)Lsh/christian/ozone/api/model/JsonContent;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lsh/christian/ozone/api/model/JsonContent;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lsh/christian/ozone/api/model/JsonContent;Lsh/christian/ozone/api/model/JsonContent;)Z
+	public final fun getValue ()Lsh/christian/ozone/api/model/JsonContent;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lsh/christian/ozone/api/model/JsonContent;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lsh/christian/ozone/api/model/JsonContent;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lsh/christian/ozone/api/model/JsonContent;
+}
+
+public final class tools/ozone/moderation/EmitEventReportActionSubjectUnion$Unknown$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -42299,6 +42552,88 @@ public final class tools/ozone/report/QueryActivitiesResponse {
 }
 
 public final class tools/ozone/report/QueryActivitiesResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/QueryModeratorActivityActivityRow {
+	public static final field Companion Ltools/ozone/report/QueryModeratorActivityActivityRow$Companion;
+	public synthetic fun <init> (Ljava/lang/String;JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/moderation/ModEventView;Ltools/ozone/report/ReportActivityView;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/moderation/ModEventView;Ltools/ozone/report/ReportActivityView;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ltools/ozone/report/ReportActivityView;
+	public final fun component2 ()J
+	public final fun component3 ()Lkotlin/time/Instant;
+	public final fun component4-715Ygxc ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/Long;
+	public final fun component8 ()Ljava/lang/Long;
+	public final fun component9 ()Ltools/ozone/moderation/ModEventView;
+	public final fun copy-u5mX-Ls (Ljava/lang/String;JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/moderation/ModEventView;Ltools/ozone/report/ReportActivityView;)Ltools/ozone/report/QueryModeratorActivityActivityRow;
+	public static synthetic fun copy-u5mX-Ls$default (Ltools/ozone/report/QueryModeratorActivityActivityRow;Ljava/lang/String;JLkotlin/time/Instant;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/Long;Ltools/ozone/moderation/ModEventView;Ltools/ozone/report/ReportActivityView;ILjava/lang/Object;)Ltools/ozone/report/QueryModeratorActivityActivityRow;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActionEventId ()Ljava/lang/Long;
+	public final fun getActivity ()Ltools/ozone/report/ReportActivityView;
+	public final fun getCreatedAt ()Lkotlin/time/Instant;
+	public final fun getCreatedBy-715Ygxc ()Ljava/lang/String;
+	public final fun getEvent ()Ltools/ozone/moderation/ModEventView;
+	public final fun getId ()J
+	public final fun getReportId ()Ljava/lang/Long;
+	public final fun getSource ()Ljava/lang/String;
+	public final fun getSubject ()Ljava/lang/String;
+	public final fun getType ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueryModeratorActivityActivityRow$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/QueryModeratorActivityQueryParams {
+	public static final field Companion Ltools/ozone/report/QueryModeratorActivityQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Ljava/util/List;
+	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component2 ()Lkotlin/time/Instant;
+	public final fun component3 ()Lkotlin/time/Instant;
+	public final fun component4 ()Ljava/util/List;
+	public final fun component5 ()Ljava/lang/Long;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun copy-cWm1TCM (Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;)Ltools/ozone/report/QueryModeratorActivityQueryParams;
+	public static synthetic fun copy-cWm1TCM$default (Ltools/ozone/report/QueryModeratorActivityQueryParams;Ljava/lang/String;Lkotlin/time/Instant;Lkotlin/time/Instant;Ljava/util/List;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/QueryModeratorActivityQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAfter ()Lkotlin/time/Instant;
+	public final fun getCreatedBefore ()Lkotlin/time/Instant;
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getModerator-715Ygxc ()Ljava/lang/String;
+	public final fun getTypes ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueryModeratorActivityQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/report/QueryModeratorActivityResponse {
+	public static final field Companion Ltools/ozone/report/QueryModeratorActivityResponse$Companion;
+	public fun <init> (Ljava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/util/List;Ljava/lang/String;)Ltools/ozone/report/QueryModeratorActivityResponse;
+	public static synthetic fun copy$default (Ltools/ozone/report/QueryModeratorActivityResponse;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/report/QueryModeratorActivityResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getRows ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/report/QueryModeratorActivityResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
