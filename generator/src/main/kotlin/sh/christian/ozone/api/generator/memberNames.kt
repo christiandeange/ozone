@@ -17,6 +17,8 @@ val runBlocking by memberOfPackage("kotlinx.coroutines")
 
 val stringEnumSerializer by memberOfPackage("sh.christian.ozone.api.runtime")
 
+val graphemeCount by extensionMemberOfPackage("sh.christian.ozone.api.runtime")
+
 val subscription by extensionMemberOfPackage("sh.christian.ozone.api.xrpc")
 
 val toAtpResponse by extensionMemberOfPackage("sh.christian.ozone.api.xrpc")

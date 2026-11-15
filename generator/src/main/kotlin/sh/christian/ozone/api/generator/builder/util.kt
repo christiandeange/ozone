@@ -25,6 +25,7 @@ import sh.christian.ozone.api.generator.BinaryDataType
 import sh.christian.ozone.api.generator.LexiconProcessingEnvironment
 import sh.christian.ozone.api.generator.TypeNames
 import sh.christian.ozone.api.generator.className
+import sh.christian.ozone.api.generator.graphemeCount
 import sh.christian.ozone.api.generator.stringEnumSerializer
 import sh.christian.ozone.api.lexicon.LexiconArray
 import sh.christian.ozone.api.lexicon.LexiconArrayItem
@@ -121,36 +122,54 @@ fun createDataClass(
                 val nullable = property.nullable
 
                 requirements.forEach { requirement ->
-                  val (accessor, operator, value) = when (requirement) {
-                    is Requirement.MinValue -> Triple("", ">=", requirement.minValue)
-                    is Requirement.MaxValue -> Triple("", "<=", requirement.maxValue)
-                    is Requirement.MinLength -> Triple(".count()", ">=", requirement.minLength)
-                    is Requirement.MaxLength -> Triple(".count()", "<=", requirement.maxLength)
+                  fun accessors(format: String, vararg args: Any): Pair<CodeBlock, CodeBlock> {
+                    return CodeBlock.of(format, *args) to CodeBlock.of(format.replace(".", "?."), *args)
+                  }
+
+                  val (accessorPair, operator, value) = when (requirement) {
+                    is Requirement.MinValue -> Triple(accessors(""), ">=", requirement.minValue)
+                    is Requirement.MaxValue -> Triple(accessors(""), "<=", requirement.maxValue)
+                    is Requirement.MinLength -> Triple(accessors(".count()"), ">=", requirement.minLength)
+                    is Requirement.MaxLength -> Triple(accessors(".count()"), "<=", requirement.maxLength)
                     is Requirement.MinStringLength -> {
                       val transformer = if (requirement.needsToString) ".toString()" else ""
-                      Triple("$transformer.encodeToByteArray().size", ">=", requirement.minLength)
+                      Triple(accessors("$transformer.encodeToByteArray().size"), ">=", requirement.minLength)
                     }
                     is Requirement.MaxStringLength -> {
                       val transformer = if (requirement.needsToString) ".toString()" else ""
-                      Triple("$transformer.encodeToByteArray().size", "<=", requirement.maxLength)
+                      Triple(accessors("$transformer.encodeToByteArray().size"), "<=", requirement.maxLength)
+                    }
+                    is Requirement.MinGraphemes -> {
+                      val transformer = if (requirement.needsToString) ".toString()" else ""
+                      Triple(accessors("$transformer.%M()", graphemeCount), ">=", requirement.minGraphemes)
+                    }
+                    is Requirement.MaxGraphemes -> {
+                      val transformer = if (requirement.needsToString) ".toString()" else ""
+                      Triple(accessors("$transformer.%M()", graphemeCount), "<=", requirement.maxGraphemes)
                     }
                   }
+                  val (accessor, nullableAccessor) = accessorPair
 
                   add("require(")
                   if (nullable) {
                     add("%N == null || ", name)
                   }
-                  add("%N$accessor $operator %L", name, value)
+                  add("%N%L $operator %L", name, accessor, value)
 
                   beginControlFlow(")")
                   val args = arrayOf(name.simpleName, value, name)
                   if (accessor.isEmpty()) {
                     addStatement("\"%L must be $operator %L, but was \$%N\"", *args)
                   } else if (!nullable) {
-                    addStatement("\"%L$accessor must be $operator %L, but was \${%N$accessor}\"", *args)
+                    addStatement(
+                      "\"%L%L must be $operator %L, but was \${%N%L}\"",
+                      name.simpleName, accessor, value, name, accessor,
+                    )
                   } else {
-                    val nullableAccessor = accessor.replace(".", "?.")
-                    addStatement("\"%L$nullableAccessor must be $operator %L, but was \${%N$nullableAccessor}\"", *args)
+                    addStatement(
+                      "\"%L%L must be $operator %L, but was \${%N%L}\"",
+                      name.simpleName, nullableAccessor, value, name, nullableAccessor,
+                    )
                   }
                   endControlFlow()
                 }

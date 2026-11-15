@@ -26,4 +26,14 @@ sealed interface Requirement {
     val maxLength: Long,
     val needsToString: Boolean,
   ) : Requirement
+
+  data class MinGraphemes(
+    val minGraphemes: Long,
+    val needsToString: Boolean,
+  ) : Requirement
+
+  data class MaxGraphemes(
+    val maxGraphemes: Long,
+    val needsToString: Boolean,
+  ) : Requirement
 }

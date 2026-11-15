@@ -28,6 +28,7 @@ androidx-core = { module = "androidx.core:core-ktx", version = "1.17.0" }
 retainedactivity = { module = "dev.marcellogalhardo:retained-activity", version = "1.0.2" }
 
 codepoints-deluxe = { module = "de.cketti.unicode:kotlin-codepoints-deluxe", version = "0.11.0" }
+tekst = { module = "io.github.dmitrynekrasov:tekst", version = "0.3.0" }
 kamel = { module = "media.kamel:kamel-image-default", version = "1.0.8" }
 material-icons-core = { module = "org.jetbrains.compose.material:material-icons-core", version = "1.7.3" }
 material-icons-extended = { module = "org.jetbrains.compose.material:material-icons-extended", version = "1.7.3" }

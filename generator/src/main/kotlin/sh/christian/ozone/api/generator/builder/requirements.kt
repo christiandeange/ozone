@@ -78,6 +78,8 @@ fun LexiconPrimitive.requirements(): List<Requirement> = when (this) {
     listOfNotNull(
       minLength?.let { Requirement.MinStringLength(it, needsToString) },
       maxLength?.let { Requirement.MaxStringLength(it, needsToString) },
+      minGraphemes?.let { Requirement.MinGraphemes(it, needsToString) },
+      maxGraphemes?.let { Requirement.MaxGraphemes(it, needsToString) },
     )
   }
   is LexiconUnknown -> emptyList()

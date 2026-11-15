@@ -25,6 +25,7 @@ kotlin {
         implementation(libs.ktor.contentnegotiation)
         implementation(libs.ktor.serialization.json)
         implementation(libs.ktor.websockets)
+        implementation(libs.tekst)
 
         implementation(kotlin("reflect"))
       }
