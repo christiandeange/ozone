@@ -74,17 +74,11 @@ fun LexiconPrimitive.requirements(): List<Requirement> = when (this) {
     )
   }
   is LexiconString -> {
-    if (knownValues.isNotEmpty()) {
-      listOfNotNull(
-        minLength?.let(Requirement::MinToStringLength),
-        maxLength?.let(Requirement::MaxToStringLength),
-      )
-    } else {
-      listOfNotNull(
-        minLength?.let(Requirement::MinLength),
-        maxLength?.let(Requirement::MaxLength),
-      )
-    }
+    val needsToString = knownValues.isNotEmpty() || format != null
+    listOfNotNull(
+      minLength?.let { Requirement.MinStringLength(it, needsToString) },
+      maxLength?.let { Requirement.MaxStringLength(it, needsToString) },
+    )
   }
   is LexiconUnknown -> emptyList()
 }

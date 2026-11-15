@@ -126,8 +126,14 @@ fun createDataClass(
                     is Requirement.MaxValue -> Triple("", "<=", requirement.maxValue)
                     is Requirement.MinLength -> Triple(".count()", ">=", requirement.minLength)
                     is Requirement.MaxLength -> Triple(".count()", "<=", requirement.maxLength)
-                    is Requirement.MinToStringLength -> Triple(".toString().count()", ">=", requirement.minLength)
-                    is Requirement.MaxToStringLength -> Triple(".toString().count()", "<=", requirement.maxLength)
+                    is Requirement.MinStringLength -> {
+                      val transformer = if (requirement.needsToString) ".toString()" else ""
+                      Triple("$transformer.encodeToByteArray().size", ">=", requirement.minLength)
+                    }
+                    is Requirement.MaxStringLength -> {
+                      val transformer = if (requirement.needsToString) ".toString()" else ""
+                      Triple("$transformer.encodeToByteArray().size", "<=", requirement.maxLength)
+                    }
                   }
 
                   add("require(")
