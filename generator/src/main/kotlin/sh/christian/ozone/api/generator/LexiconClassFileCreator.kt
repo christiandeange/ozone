@@ -35,9 +35,11 @@ class LexiconClassFileCreator(
     XrpcBodyGenerator(environment),
   )
 
-  private val sealedRelationships = mutableListOf<SealedRelationship>()
+  private val _sealedRelationships = mutableListOf<SealedRelationship>()
+  val sealedRelationships: List<SealedRelationship> = _sealedRelationships
 
-  private val unionTypes = mutableListOf<ClassName>()
+  private val _unionTypes = mutableListOf<ClassName>()
+  val unionTypes: List<ClassName> get() = _unionTypes
 
   fun createClassForLexicon(document: LexiconDocument) {
     val enums = mutableMapOf<EnumClass, MutableSet<EnumEntry>>()
@@ -56,10 +58,10 @@ class LexiconClassFileCreator(
           context.types().forEach { addType(it) }
           context.typeAliases().forEach { addTypeAlias(it) }
 
-          sealedRelationships += context.sealedRelationships()
+          _sealedRelationships += context.sealedRelationships()
 
           if (environment.defaults.generateUnknownsForSealedTypes) {
-            unionTypes += context.types().filter { type ->
+            _unionTypes += context.types().filter { type ->
               type.kind == INTERFACE &&
                   type.name!!.endsWith("Union") &&
                   type.typeSpecs.any { it.name == "Unknown" }

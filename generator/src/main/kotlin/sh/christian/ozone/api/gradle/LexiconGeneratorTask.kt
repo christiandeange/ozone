@@ -75,7 +75,9 @@ abstract class LexiconGeneratorTask : DefaultTask() {
 
     lexiconClassFileCreator.generateSealedRelationshipMapping()
     lexiconClassFileCreator.generateSerializerModule(namespace.get())
-    lexiconApiGenerator.generateApis()
+    lexiconApiGenerator.generateApis(
+      withSerializersModule = lexiconClassFileCreator.unionTypes.isNotEmpty(),
+    )
   }
 
   private fun Path.findJsonFiles(): List<String> {

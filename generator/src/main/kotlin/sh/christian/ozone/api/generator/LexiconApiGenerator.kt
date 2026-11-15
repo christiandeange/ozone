@@ -1,6 +1,5 @@
 package sh.christian.ozone.api.generator
 
-import com.squareup.kotlinpoet.BYTE_ARRAY
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.FileSpec
@@ -66,7 +65,7 @@ class LexiconApiGenerator(
     }
   }
 
-  fun generateApis() {
+  fun generateApis(withSerializersModule: Boolean) {
     resolveApiCallConflicts()
 
     configurations.forEach { configuration ->
@@ -80,6 +79,7 @@ class LexiconApiGenerator(
           configuration = configuration,
           className = ClassName(configuration.packageName, implementationName),
           interfaceName = ClassName(configuration.packageName, configuration.interfaceName),
+          withSerializersModule = withSerializersModule,
         )
       }
     }
@@ -214,6 +214,7 @@ class LexiconApiGenerator(
     configuration: ApiConfiguration,
     className: ClassName,
     interfaceName: ClassName,
+    withSerializersModule: Boolean,
   ) {
     val classType = TypeSpec.classBuilder(className)
       .addSuperinterface(interfaceName)
@@ -237,7 +238,7 @@ class LexiconApiGenerator(
           .addModifiers(KModifier.INTERNAL)
           .initializer(
             buildCodeBlock {
-              if (environment.defaults.generateUnknownsForSealedTypes) {
+              if (environment.defaults.generateUnknownsForSealedTypes && withSerializersModule) {
                 val moduleMemberName = MemberName(configuration.namespace, "XrpcSerializersModule")
                 add("httpClient.%M(%M)", withXrpcConfiguration, moduleMemberName)
               } else {
