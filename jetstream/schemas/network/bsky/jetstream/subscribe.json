@@ -1,0 +1,254 @@
+{
+  "lexicon": 1,
+  "id": "network.bsky.jetstream.subscribe",
+  "defs": {
+    "main": {
+      "type": "subscription",
+      "description": "Consume decoded Jetstream events over the /subscribe WebSocket endpoint.",
+      "parameters": {
+        "type": "params",
+        "properties": {
+          "wantedCollections": {
+            "type": "array",
+            "maxLength": 100,
+            "description": "Collections to receive `#commit` events for. Repeatable. Each value is an exact NSID (`app.bsky.feed.post`) or a namespace wildcard ending in `.*` (`app.bsky.feed.*`). Up to 100 entries; omit for all collections. Applies to commits only.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "wantedDids": {
+            "type": "array",
+            "maxLength": 10000,
+            "description": "DIDs to receive events for, across all event kinds. Repeatable, up to 10,000 entries. Omit for all repos.",
+            "items": {
+              "type": "string",
+              "format": "did"
+            }
+          },
+          "cursor": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Resume point. A value below 1×10¹⁵ is a Jetstream sequence number (`cursor=0` replays from the start of the replay window); a value at or above 1×10¹⁵ is read as a v1 unix-microsecond timestamp (backwards compatibility). Replay is bounded to the most recent 36h by default — older cursors clamp to the floor, future cursors start at the live tip. Omit to start live."
+          },
+          "maxMessageSizeBytes": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 0,
+            "description": "Drop any event whose uncompressed JSON exceeds this size. `0` or omitted means no cap."
+          },
+          "compress": {
+            "type": "boolean",
+            "default": false,
+            "description": "Set `true` to opt into Jetstream's legacy custom zstd-dictionary compression (frames arrive as binary WebSocket messages). Kept for v1 compatibility only — prefer RFC 7692 `permessage-deflate`, which is negotiated automatically. Offering both at once is rejected."
+          },
+          "requireHello": {
+            "type": "boolean",
+            "default": false,
+            "description": "Set `true` to withhold all events until the client sends its first options_update message, so the filter can be set before any data flows."
+          }
+        }
+      },
+      "message": {
+        "schema": {
+          "type": "ref",
+          "ref": "#event"
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "required": [
+        "did",
+        "time_us",
+        "cursor",
+        "kind"
+      ],
+      "nullable": [
+        "commit",
+        "identity",
+        "account",
+        "sync"
+      ],
+      "properties": {
+        "did": {
+          "type": "string",
+          "format": "did"
+        },
+        "time_us": {
+          "type": "integer"
+        },
+        "cursor": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Jetstream's monotonic per-event sequence number, used to resume the stream."
+        },
+        "kind": {
+          "type": "string",
+          "knownValues": [
+            "commit",
+            "identity",
+            "account",
+            "sync"
+          ]
+        },
+        "commit": {
+          "type": "ref",
+          "ref": "#commit"
+        },
+        "identity": {
+          "type": "ref",
+          "ref": "#identity"
+        },
+        "account": {
+          "type": "ref",
+          "ref": "#account"
+        },
+        "sync": {
+          "type": "unknown"
+        }
+      }
+    },
+    "commit": {
+      "type": "object",
+      "required": [
+        "rev",
+        "operation",
+        "collection",
+        "rkey"
+      ],
+      "nullable": [
+        "record"
+      ],
+      "properties": {
+        "rev": {
+          "type": "string"
+        },
+        "operation": {
+          "type": "string",
+          "knownValues": [
+            "create",
+            "update",
+            "delete"
+          ]
+        },
+        "collection": {
+          "type": "string",
+          "format": "nsid"
+        },
+        "rkey": {
+          "type": "string",
+          "format": "record-key"
+        },
+        "record": {
+          "type": "unknown"
+        },
+        "cid": {
+          "type": "string",
+          "format": "cid"
+        }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "required": [
+        "seq",
+        "did",
+        "time"
+      ],
+      "properties": {
+        "seq": {
+          "type": "integer"
+        },
+        "did": {
+          "type": "string",
+          "format": "did"
+        },
+        "time": {
+          "type": "string",
+          "format": "datetime"
+        },
+        "handle": {
+          "type": "string",
+          "format": "handle"
+        }
+      }
+    },
+    "account": {
+      "type": "object",
+      "required": [
+        "seq",
+        "did",
+        "time",
+        "active"
+      ],
+      "properties": {
+        "seq": {
+          "type": "integer"
+        },
+        "did": {
+          "type": "string",
+          "format": "did"
+        },
+        "time": {
+          "type": "string",
+          "format": "datetime"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string",
+          "knownValues": [
+            "takendown",
+            "suspended",
+            "deleted",
+            "deactivated"
+          ]
+        }
+      }
+    },
+    "sourcedMessage": {
+      "type": "object",
+      "required": [
+        "type",
+        "payload"
+      ],
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "payload": {
+          "type": "unknown"
+        }
+      }
+    },
+    "optionsUpdate": {
+      "type": "object",
+      "properties": {
+        "wantedCollections": {
+          "type": "array",
+          "maxLength": 100,
+          "description": "Collections to receive commit events for. Omit for all collections.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "wantedDids": {
+          "type": "array",
+          "maxLength": 10000,
+          "description": "DIDs to receive events for across all event kinds. Omit for all repos.",
+          "items": {
+            "type": "string",
+            "format": "did"
+          }
+        },
+        "maxMessageSizeBytes": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 0,
+          "description": "Drop any event whose uncompressed JSON exceeds this size. Zero or omission means no cap."
+        }
+      }
+    }
+  }
+}

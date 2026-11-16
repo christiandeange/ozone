@@ -30,6 +30,11 @@ lexicons {
 kotlin {
   wasmJs {
     browser {
+      testTask {
+        useKarma {
+          useChromeHeadless()
+        }
+      }
       commonWebpackConfig {
         configDirectory = project.file("webpack.config.d")
       }
@@ -42,6 +47,12 @@ kotlin {
         api(libs.bluesky)
       }
     }
+    commonTest.configure {
+      dependencies {
+        implementation(libs.kotlinx.coroutines.test)
+        implementation(libs.ktor.test)
+      }
+    }
     jvmMain.configure {
       dependencies {
         implementation(libs.zstd)
@@ -51,6 +62,9 @@ kotlin {
       dependencies {
         implementation(npm("zstd-codec", "0.1.5"))
       }
+    }
+    wasmJsTest.configure {
+      resources.srcDir("src/wasmJsMain/resources")
     }
   }
 }

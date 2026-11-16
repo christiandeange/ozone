@@ -15,7 +15,16 @@ private fun Project.applyPlugin() {
   plugins.apply("org.jetbrains.kotlin.multiplatform")
   plugins.apply("ozone-base")
 
-  (project.kotlinExtension as KotlinMultiplatformExtension).applyDefaultHierarchyTemplate()
+  val kotlin = project.kotlinExtension as KotlinMultiplatformExtension
+  kotlin.applyDefaultHierarchyTemplate()
 
   extensions.create<OzoneExtension>("ozone", this)
+
+  with(kotlin.sourceSets) {
+    named("commonTest").configure {
+      dependencies {
+        implementation(kotlin("test"))
+      }
+    }
+  }
 }
