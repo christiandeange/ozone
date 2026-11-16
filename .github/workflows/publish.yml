@@ -141,7 +141,6 @@ jobs:
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword="$ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD" \
           ./gradlew clean \
             publishIosArm64PublicationToStagingRepository \
-            publishIosX64PublicationToStagingRepository \
             publishIosSimulatorArm64PublicationToStagingRepository \
             publishKMMBridgeFrameworkPublicationToStagingRepository \
             -Pozone.stagingDir="$GITHUB_WORKSPACE/staging-deploy" \
