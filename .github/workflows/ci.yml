@@ -10,33 +10,35 @@ on:
 
 jobs:
   check-bluesky:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 30
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: gradle/actions/wrapper-validation@v3
-      - uses: actions/setup-java@v3
+      - uses: actions/checkout@v7
+      - uses: gradle/actions/wrapper-validation@v6
+      - uses: actions/setup-java@v6
         with:
           distribution: 'temurin'
           java-version: '17'
           check-latest: true
+          problem-matcher: true
 
       - name: Check APIs
         run: ./gradlew clean apiCheck --no-daemon --stacktrace
 
   check-android:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 30
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: gradle/actions/wrapper-validation@v3
-      - uses: actions/setup-java@v3
+      - uses: actions/checkout@v7
+      - uses: gradle/actions/wrapper-validation@v6
+      - uses: actions/setup-java@v6
         with:
           distribution: 'temurin'
           java-version: '17'
           check-latest: true
+          problem-matcher: true
 
       - name: Assemble Android
         run: ./gradlew clean :app:android:assemble --no-daemon --stacktrace
@@ -46,13 +48,14 @@ jobs:
     timeout-minutes: 60
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: gradle/actions/wrapper-validation@v3
-      - uses: actions/setup-java@v3
+      - uses: actions/checkout@v7
+      - uses: gradle/actions/wrapper-validation@v6
+      - uses: actions/setup-java@v6
         with:
           distribution: 'temurin'
           java-version: '17'
           check-latest: true
+          problem-matcher: true
 
       - name: Assemble iOS
         uses: mxcl/xcodebuild@v3
@@ -67,33 +70,35 @@ jobs:
         run: ./gradlew clean :bluesky:iosSimulatorArm64Test --no-daemon --stacktrace
 
   check-js:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 30
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: gradle/actions/wrapper-validation@v3
-      - uses: actions/setup-java@v3
+      - uses: actions/checkout@v7
+      - uses: gradle/actions/wrapper-validation@v6
+      - uses: actions/setup-java@v6
         with:
           distribution: 'temurin'
           java-version: '17'
           check-latest: true
+          problem-matcher: true
 
       - name: Test wasmJs
         run: ./gradlew clean :bluesky:wasmJsTest :app:web:assemble --no-daemon --stacktrace
 
   check-jvm:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 30
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: gradle/actions/wrapper-validation@v3
-      - uses: actions/setup-java@v3
+      - uses: actions/checkout@v7
+      - uses: gradle/actions/wrapper-validation@v6
+      - uses: actions/setup-java@v6
         with:
           distribution: 'temurin'
           java-version: '17'
           check-latest: true
+          problem-matcher: true
 
       - name: Test JVM
         run: ./gradlew clean :bluesky:jvmTest :app:desktop:assemble --no-daemon --stacktrace

@@ -12,18 +12,19 @@ permissions:
 
 jobs:
   publish-jvm:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     if: github.repository == 'christiandeange/ozone'
     timeout-minutes: 60
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: gradle/actions/wrapper-validation@v3
-      - uses: actions/setup-java@v3
+      - uses: actions/checkout@v7
+      - uses: gradle/actions/wrapper-validation@v6
+      - uses: actions/setup-java@v6
         with:
           distribution: 'temurin'
           java-version: '17'
           check-latest: true
+          problem-matcher: true
 
       - name: Stage JVM artifacts
         env:
@@ -45,18 +46,19 @@ jobs:
           if-no-files-found: error
 
   publish-js:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     if: github.repository == 'christiandeange/ozone'
     timeout-minutes: 60
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: gradle/actions/wrapper-validation@v3
-      - uses: actions/setup-java@v3
+      - uses: actions/checkout@v7
+      - uses: gradle/actions/wrapper-validation@v6
+      - uses: actions/setup-java@v6
         with:
           distribution: 'temurin'
           java-version: '17'
           check-latest: true
+          problem-matcher: true
 
       - name: Stage JS artifacts
         env:
@@ -78,18 +80,19 @@ jobs:
           if-no-files-found: error
 
   publish-kotlin:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     if: github.repository == 'christiandeange/ozone'
     timeout-minutes: 60
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: gradle/actions/wrapper-validation@v3
-      - uses: actions/setup-java@v3
+      - uses: actions/checkout@v7
+      - uses: gradle/actions/wrapper-validation@v6
+      - uses: actions/setup-java@v6
         with:
           distribution: 'temurin'
           java-version: '17'
           check-latest: true
+          problem-matcher: true
 
       - name: Stage Kotlin multiplatform metadata artifacts
         env:
@@ -116,13 +119,14 @@ jobs:
     timeout-minutes: 60
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: gradle/actions/wrapper-validation@v3
-      - uses: actions/setup-java@v3
+      - uses: actions/checkout@v7
+      - uses: gradle/actions/wrapper-validation@v6
+      - uses: actions/setup-java@v6
         with:
           distribution: 'temurin'
           java-version: '17'
           check-latest: true
+          problem-matcher: true
 
       - name: Stage iOS artifacts
         env:
@@ -150,7 +154,7 @@ jobs:
           if-no-files-found: error
 
   publish-release:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     if: github.repository == 'christiandeange/ozone'
     timeout-minutes: 30
     needs:
