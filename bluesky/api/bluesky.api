@@ -34152,6 +34152,143 @@ public final class tools/ozone/inbox/GetPushPreferenceResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/inbox/GetReportAccountStatus {
+	public static final field Companion Ltools/ozone/inbox/GetReportAccountStatus$Companion;
+	public fun <init> (Ltools/ozone/inbox/GetReportAccountStatusEnforcement;Ltools/ozone/inbox/GetReportAccountStatusHosting;)V
+	public synthetic fun <init> (Ltools/ozone/inbox/GetReportAccountStatusEnforcement;Ltools/ozone/inbox/GetReportAccountStatusHosting;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ltools/ozone/inbox/GetReportAccountStatusEnforcement;
+	public final fun component2 ()Ltools/ozone/inbox/GetReportAccountStatusHosting;
+	public final fun copy (Ltools/ozone/inbox/GetReportAccountStatusEnforcement;Ltools/ozone/inbox/GetReportAccountStatusHosting;)Ltools/ozone/inbox/GetReportAccountStatus;
+	public static synthetic fun copy$default (Ltools/ozone/inbox/GetReportAccountStatus;Ltools/ozone/inbox/GetReportAccountStatusEnforcement;Ltools/ozone/inbox/GetReportAccountStatusHosting;ILjava/lang/Object;)Ltools/ozone/inbox/GetReportAccountStatus;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEnforcement ()Ltools/ozone/inbox/GetReportAccountStatusEnforcement;
+	public final fun getHosting ()Ltools/ozone/inbox/GetReportAccountStatusHosting;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/GetReportAccountStatus$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class tools/ozone/inbox/GetReportAccountStatusEnforcement : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/inbox/GetReportAccountStatusEnforcement$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/GetReportAccountStatusEnforcement$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/inbox/GetReportAccountStatusEnforcement;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/inbox/GetReportAccountStatusEnforcement$None : tools/ozone/inbox/GetReportAccountStatusEnforcement {
+	public static final field INSTANCE Ltools/ozone/inbox/GetReportAccountStatusEnforcement$None;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/GetReportAccountStatusEnforcement$Suspended : tools/ozone/inbox/GetReportAccountStatusEnforcement {
+	public static final field INSTANCE Ltools/ozone/inbox/GetReportAccountStatusEnforcement$Suspended;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/GetReportAccountStatusEnforcement$Takendown : tools/ozone/inbox/GetReportAccountStatusEnforcement {
+	public static final field INSTANCE Ltools/ozone/inbox/GetReportAccountStatusEnforcement$Takendown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/GetReportAccountStatusEnforcement$Unknown : tools/ozone/inbox/GetReportAccountStatusEnforcement {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/inbox/GetReportAccountStatusEnforcement$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/inbox/GetReportAccountStatusEnforcement$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/inbox/GetReportAccountStatusEnforcement$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/GetReportAccountStatusEnforcementSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/inbox/GetReportAccountStatusEnforcement;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/inbox/GetReportAccountStatusEnforcement;)V
+}
+
+public abstract class tools/ozone/inbox/GetReportAccountStatusHosting : sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Ltools/ozone/inbox/GetReportAccountStatusHosting$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getValue ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/GetReportAccountStatusHosting$Active : tools/ozone/inbox/GetReportAccountStatusHosting {
+	public static final field INSTANCE Ltools/ozone/inbox/GetReportAccountStatusHosting$Active;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/GetReportAccountStatusHosting$Companion {
+	public final fun safeValueOf (Ljava/lang/String;)Ltools/ozone/inbox/GetReportAccountStatusHosting;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class tools/ozone/inbox/GetReportAccountStatusHosting$Deactivated : tools/ozone/inbox/GetReportAccountStatusHosting {
+	public static final field INSTANCE Ltools/ozone/inbox/GetReportAccountStatusHosting$Deactivated;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/GetReportAccountStatusHosting$Deleted : tools/ozone/inbox/GetReportAccountStatusHosting {
+	public static final field INSTANCE Ltools/ozone/inbox/GetReportAccountStatusHosting$Deleted;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/GetReportAccountStatusHosting$Suspended : tools/ozone/inbox/GetReportAccountStatusHosting {
+	public static final field INSTANCE Ltools/ozone/inbox/GetReportAccountStatusHosting$Suspended;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/GetReportAccountStatusHosting$Takendown : tools/ozone/inbox/GetReportAccountStatusHosting {
+	public static final field INSTANCE Ltools/ozone/inbox/GetReportAccountStatusHosting$Takendown;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/GetReportAccountStatusHosting$Unknown : tools/ozone/inbox/GetReportAccountStatusHosting {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ltools/ozone/inbox/GetReportAccountStatusHosting$Unknown;
+	public static synthetic fun copy$default (Ltools/ozone/inbox/GetReportAccountStatusHosting$Unknown;Ljava/lang/String;ILjava/lang/Object;)Ltools/ozone/inbox/GetReportAccountStatusHosting$Unknown;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRawValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/GetReportAccountStatusHostingSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ltools/ozone/inbox/GetReportAccountStatusHosting;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ltools/ozone/inbox/GetReportAccountStatusHosting;)V
+}
+
 public final class tools/ozone/inbox/GetReportQueryParams {
 	public static final field Companion Ltools/ozone/inbox/GetReportQueryParams$Companion;
 	public synthetic fun <init> (Ljava/lang/String;JILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -34172,22 +34309,44 @@ public final class tools/ozone/inbox/GetReportQueryParams$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class tools/ozone/inbox/GetReportRecordStatus {
+	public static final field Companion Ltools/ozone/inbox/GetReportRecordStatus$Companion;
+	public fun <init> (ZLjava/lang/Boolean;)V
+	public synthetic fun <init> (ZLjava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Ljava/lang/Boolean;
+	public final fun copy (ZLjava/lang/Boolean;)Ltools/ozone/inbox/GetReportRecordStatus;
+	public static synthetic fun copy$default (Ltools/ozone/inbox/GetReportRecordStatus;ZLjava/lang/Boolean;ILjava/lang/Object;)Ltools/ozone/inbox/GetReportRecordStatus;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDeleted ()Ljava/lang/Boolean;
+	public final fun getTakendown ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class tools/ozone/inbox/GetReportRecordStatus$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class tools/ozone/inbox/GetReportReportView {
 	public static final field Companion Ltools/ozone/inbox/GetReportReportView$Companion;
-	public synthetic fun <init> (Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ltools/ozone/inbox/GetReportReportViewSubjectUnion;Lsh/christian/ozone/api/model/JsonContent;Ltools/ozone/inbox/GetReportReportViewStatus;Lkotlin/time/Instant;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ltools/ozone/inbox/GetReportReportViewSubjectUnion;Lsh/christian/ozone/api/model/JsonContent;Ltools/ozone/inbox/GetReportReportViewStatus;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ltools/ozone/inbox/GetReportReportViewSubjectUnion;Lsh/christian/ozone/api/model/JsonContent;Ltools/ozone/inbox/GetReportAccountStatus;Ltools/ozone/inbox/GetReportRecordStatus;Ltools/ozone/inbox/GetReportReportViewStatus;Lkotlin/time/Instant;Lkotlin/time/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ltools/ozone/inbox/GetReportReportViewSubjectUnion;Lsh/christian/ozone/api/model/JsonContent;Ltools/ozone/inbox/GetReportAccountStatus;Ltools/ozone/inbox/GetReportRecordStatus;Ltools/ozone/inbox/GetReportReportViewStatus;Lkotlin/time/Instant;Lkotlin/time/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-715Ygxc ()Ljava/lang/String;
+	public final fun component10 ()Lkotlin/time/Instant;
+	public final fun component11 ()Lkotlin/time/Instant;
 	public final fun component2 ()J
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
 	public final fun component5 ()Ltools/ozone/inbox/GetReportReportViewSubjectUnion;
 	public final fun component6 ()Lsh/christian/ozone/api/model/JsonContent;
-	public final fun component7 ()Ltools/ozone/inbox/GetReportReportViewStatus;
-	public final fun component8 ()Lkotlin/time/Instant;
-	public final fun component9 ()Lkotlin/time/Instant;
-	public final fun copy-cCKAKJ0 (Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ltools/ozone/inbox/GetReportReportViewSubjectUnion;Lsh/christian/ozone/api/model/JsonContent;Ltools/ozone/inbox/GetReportReportViewStatus;Lkotlin/time/Instant;Lkotlin/time/Instant;)Ltools/ozone/inbox/GetReportReportView;
-	public static synthetic fun copy-cCKAKJ0$default (Ltools/ozone/inbox/GetReportReportView;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ltools/ozone/inbox/GetReportReportViewSubjectUnion;Lsh/christian/ozone/api/model/JsonContent;Ltools/ozone/inbox/GetReportReportViewStatus;Lkotlin/time/Instant;Lkotlin/time/Instant;ILjava/lang/Object;)Ltools/ozone/inbox/GetReportReportView;
+	public final fun component7 ()Ltools/ozone/inbox/GetReportAccountStatus;
+	public final fun component8 ()Ltools/ozone/inbox/GetReportRecordStatus;
+	public final fun component9 ()Ltools/ozone/inbox/GetReportReportViewStatus;
+	public final fun copy-H-gV8IY (Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ltools/ozone/inbox/GetReportReportViewSubjectUnion;Lsh/christian/ozone/api/model/JsonContent;Ltools/ozone/inbox/GetReportAccountStatus;Ltools/ozone/inbox/GetReportRecordStatus;Ltools/ozone/inbox/GetReportReportViewStatus;Lkotlin/time/Instant;Lkotlin/time/Instant;)Ltools/ozone/inbox/GetReportReportView;
+	public static synthetic fun copy-H-gV8IY$default (Ltools/ozone/inbox/GetReportReportView;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;Ltools/ozone/inbox/GetReportReportViewSubjectUnion;Lsh/christian/ozone/api/model/JsonContent;Ltools/ozone/inbox/GetReportAccountStatus;Ltools/ozone/inbox/GetReportRecordStatus;Ltools/ozone/inbox/GetReportReportViewStatus;Lkotlin/time/Instant;Lkotlin/time/Instant;ILjava/lang/Object;)Ltools/ozone/inbox/GetReportReportView;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccountStatus ()Ltools/ozone/inbox/GetReportAccountStatus;
 	public final fun getCreatedAt ()Lkotlin/time/Instant;
 	public final fun getId ()J
 	public final fun getReason ()Ljava/lang/String;
@@ -34196,6 +34355,7 @@ public final class tools/ozone/inbox/GetReportReportView {
 	public final fun getSrc-715Ygxc ()Ljava/lang/String;
 	public final fun getStatus ()Ltools/ozone/inbox/GetReportReportViewStatus;
 	public final fun getSubject ()Ltools/ozone/inbox/GetReportReportViewSubjectUnion;
+	public final fun getSubjectStatus ()Ltools/ozone/inbox/GetReportRecordStatus;
 	public final fun getUpdatedAt ()Lkotlin/time/Instant;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
